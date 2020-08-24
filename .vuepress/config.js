@@ -1,6 +1,6 @@
 module.exports = {
   "title": "愧怍的小站",
-  "description": "如果代码都解决不了的话，那可能真的解决不了",
+  "description": "如果代码都解决不了的话,那可能真的解决不了",
   "dest": "public",
   "head": [
     [
