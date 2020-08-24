@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: vuepress-theme-reco
-tagline: A simple and beautiful vuepress blog theme.
+heroText: 愧怍的个人空间
+tagline: 沉迷于代码无法自拔
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',
