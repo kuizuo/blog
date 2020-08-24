@@ -1,7 +1,12 @@
 module.exports = {
   "title": "愧怍的小站",
-  "description": "如果代码都解决不了的话，那可能真的解决不了",
+  "description": "如果代码都解决不了的话,那可能真的解决不了",
   "dest": "public",
+  locales: {
+    '/': {
+      lang: 'zh-CN'
+    }
+  },
   "head": [
     [
       "link",
@@ -20,38 +25,33 @@ module.exports = {
   ],
   "theme": "reco",
   "themeConfig": {
-    "nav": [
-      {
-        "text": "主页",
-        "link": "/",
-        "icon": "reco-home"
-      },
-      {
-        "text": "时间线",
-        "link": "/timeline/",
-        "icon": "reco-date"
-      },
-      {
-        "text": "Docs",
-        "icon": "reco-message",
-        "items": [
-          {
-            "text": "vuepress-reco",
-            "link": "/docs/theme-reco/"
-          }
-        ]
-      },
-      {
-        "text": "Contact",
-        "icon": "reco-message",
-        "items": [
-          {
-            "text": "GitHub",
-            "link": "https://github.com/recoluan",
-            "icon": "reco-github"
-          }
-        ]
-      }
+    "nav": [{
+      "text": "主页",
+      "link": "/",
+      "icon": "reco-home"
+    },
+    {
+      "text": "时间线",
+      "link": "/timeline/",
+      "icon": "reco-date"
+    },
+    {
+      "text": "Docs",
+      "icon": "reco-message",
+      "items": [{
+        "text": "vuepress-reco",
+        "link": "/docs/theme-reco/"
+      }]
+    },
+    {
+      "text": "Contact",
+      "icon": "reco-message",
+      "items": [{
+        "text": "GitHub",
+        "link": "https://github.com/recoluan",
+        "icon": "reco-github"
+      }]
+    }
     ],
     "sidebar": {
       "/docs/theme-reco/": [
@@ -72,19 +72,18 @@ module.exports = {
         "text": "Tag"
       }
     },
-    "friendLink": [
-      {
-        "title": "午后南杂",
-        "desc": "Enjoy when you can, and endure when you must.",
-        "email": "1156743527@qq.com",
-        "link": "https://www.recoluan.com"
-      },
-      {
-        "title": "vuepress-theme-reco",
-        "desc": "A simple and beautiful vuepress Blog & Doc theme.",
-        "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
-        "link": "https://vuepress-theme-reco.recoluan.com"
-      }
+    "friendLink": [{
+      "title": "午后南杂",
+      "desc": "Enjoy when you can, and endure when you must.",
+      "email": "1156743527@qq.com",
+      "link": "https://www.recoluan.com"
+    },
+    {
+      "title": "vuepress-theme-reco",
+      "desc": "A simple and beautiful vuepress Blog & Doc theme.",
+      "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
+      "link": "https://vuepress-theme-reco.recoluan.com"
+    }
     ],
     "logo": "/logo.png",
     "search": true,
@@ -93,7 +92,10 @@ module.exports = {
     "author": "kuizuo",
     "authorAvatar": "/avatar.png",
     "record": "xxxx",
-    "startYear": "2017"
+    "startYear": "2017",
+    "mode": 'light',
+    "modePicker": true,
+    
   },
   "markdown": {
     "lineNumbers": true
