@@ -20,6 +20,10 @@ module.exports = {
       {
         "name": "viewport",
         "content": "width=device-width,initial-scale=1,user-scalable=no"
+      },
+      {
+        "name": "author",
+        "content": "kuizuo"
       }
     ]
   ],
@@ -51,25 +55,29 @@ module.exports = {
         "link": "https://github.com/recoluan",
         "icon": "reco-github"
       }]
+    }, {
+      "text": "关于我",
+      "icon": "reco-account",
+      "link": "/about/",
     }
     ],
-    "sidebar": {
-      "/docs/theme-reco/": [
-        "",
-        "theme",
-        "plugin",
-        "api"
-      ]
-    },
+    // "sidebar": {
+    //   "/docs/theme-reco/": [
+    //     "",
+    //     "theme",
+    //     "plugin",
+    //     "api"
+    //   ]
+    // },
     "type": "blog",
     "blogConfig": {
       "category": {
-        "location": 2,
-        "text": "Category"
+        "location": 3,
+        "text": "分类"
       },
       "tag": {
-        "location": 3,
-        "text": "Tag"
+        "location": 4,
+        "text": "标签"
       }
     },
     "friendLink": [{
@@ -93,11 +101,16 @@ module.exports = {
     "authorAvatar": "/logo.png",
     "record": "xxxx",
     "startYear": "2017",
-    "mode": 'light',
+    "sidebar": "auto",
+    "sidebarDepth": "2",
+    "mode": "light",
     "modePicker": true,
-    
+
   },
   "markdown": {
     "lineNumbers": true
-  }
+  },
+  "plugins": {
+    "vuepress-plugin-auto-sidebar": {}
+  },
 }
