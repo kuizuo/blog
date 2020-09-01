@@ -1,10 +1,6 @@
 ---
 home: true
 heroText: 愧怍的个人空间
-heroTextStyle: {
-  color: 'white',
-  boxShadow: '0 5px 18px rgba(0,0,0,0.2)',
-}
 tagline: 我是愧怍,沉迷于代码无法自拔
 # heroImage: /logo.png
 # heroImageStyle: {

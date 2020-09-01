@@ -2,6 +2,7 @@ module.exports = {
   "title": "愧怍的小站",
   "description": "如果代码都解决不了的话,那可能真的解决不了",
   "dest": "public",
+  "base": "/",
   locales: {
     '/': {
       lang: 'zh-CN'
@@ -25,10 +26,10 @@ module.exports = {
         "name": "author",
         "content": "kuizuo"
       }
-    ]
+    ],
   ],
   "theme": "reco",
-  "themeConfig": {
+  themeConfig: {
     "nav": [{
       "text": "主页",
       "link": "/",
@@ -39,21 +40,30 @@ module.exports = {
       "link": "/timeline/",
       "icon": "reco-date"
     },
+    // {
+    //   "text": "Docs",
+    //   "icon": "reco-message",
+    //   "items": [{
+    //     "text": "vuepress-reco",
+    //     "link": "/docs/theme-reco/"
+    //   }, {
+    //     "text": "aside",
+    //     "link": "/docs/aside/"
+    //   },
+    //   ]
+    // },
     {
-      "text": "Docs",
-      "icon": "reco-message",
-      "items": [{
-        "text": "vuepress-reco",
-        "link": "/docs/theme-reco/"
-      }]
-    },
-    {
-      "text": "Contact",
+      "text": "联系我",
       "icon": "reco-message",
       "items": [{
         "text": "GitHub",
-        "link": "https://github.com/recoluan",
+        "link": "https://github.com/kuizuo",
         "icon": "reco-github"
+      },
+      {
+        "text": "QQ",
+        "link": "http://wpa.qq.com/msgrd?v=3&uin=911993023&site=qq&menu=yes",
+        "icon": "reco-qq"
       }]
     }, {
       "text": "关于我",
@@ -97,20 +107,53 @@ module.exports = {
     "search": true,
     "searchMaxSuggestions": 10,
     "lastUpdated": "Last Updated",
-    "author": "kuizuo",
+    "author": "愧怍",
     "authorAvatar": "/logo.png",
-    "record": "xxxx",
-    "startYear": "2017",
+    "startYear": "2020",
     "sidebar": "auto",
     "sidebarDepth": "2",
     "mode": "light",
     "modePicker": true,
-
   },
   "markdown": {
-    "lineNumbers": true
+    "lineNumbers": true,
+    anchor: { permalink: false },
+    // markdown-it-toc 的选项
+    toc: { includeLevel: [1, 2] },
+    extendMarkdown: md => {
+      md.use(require("markdown-it-disable-url-encode"));
+    }
   },
-  "plugins": {
-    "vuepress-plugin-auto-sidebar": {}
-  },
+  "plugins": [
+    ["vuepress-plugin-auto-sidebar", {
+    }],
+    ["vuepress-plugin-nuggets-style-copy", {
+      copyText: "复制代码",
+      tip: {
+        content: "复制成功!"
+      }
+    }],
+    // ['container', {
+    //   type: 'navimg',
+    //   before: info => `<div style="background-image:url(${info});height: 300px;" >`,
+    //   after: '</div>',
+    // }],
+
+    // ["@vuepress-yard/vuepress-plugin-window", {
+    //   title: "公告",
+    //   contentInfo: {
+    //     title: '欢迎加入QQ交流群 🎉🎉🎉',
+    //     imgUrl: '/images/group.png',
+    //     needImg: true, content: '不用图片的话 用这里的内容',
+    //     contentStyle: {}
+
+    //   },
+    //   bottomInfo: {
+    //     btnText: '', linkTo: ''
+    //   },
+    //   delayMount: 300,
+    //   // closeOnce : false
+    // }
+    // ],
+  ],
 }

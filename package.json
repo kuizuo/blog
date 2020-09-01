@@ -11,8 +11,11 @@
     "vuepress-theme-reco": "1.5.5"
   },
   "dependencies": {
+    "@vuepress-yard/vuepress-plugin-window": "^1.0.10",
+    "markdown-it-disable-url-encode": "^1.0.1",
     "vue-class-component": "^7.2.3",
-    "vuepress-plugin-auto-sidebar": "^1.5.0"
+    "vuepress-plugin-auto-sidebar": "^1.5.0",
+    "vuepress-plugin-nuggets-style-copy": "^1.0.3"
   },
   "description": ""
 }
