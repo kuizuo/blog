@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    ["import", { 
+        "libraryName": "antd",
+        "libraryDirectory": "lib",  // libraryDirectory 默认为 lib
+        "style": "css" ,
+    }],
+  ],
+}

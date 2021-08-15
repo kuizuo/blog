@@ -1,0 +1,26 @@
+.sidebarContainer {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 2rem);
+}
+
+.sidebarContainer > div::before {
+  content: "文章目录";
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: var(--ifm-h3-font-size);
+  color: var(--ifm-heading-color);
+  font-weight: var(--ifm-heading-font-weight);
+}
+
+.sidebarContainer > div:nth-child(1) {
+  position: static;
+  top: unset;
+}
+
+.ads {
+  margin-top: 1em;
+}
+
+.ads.ads.ads.ads.ads.ads::before {
+  content: "推广";
+}
