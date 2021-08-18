@@ -49,21 +49,12 @@ module.exports = {
               to: "docs/skill/",
             },
             // {
-            //   label: "个人随笔",
-            //   to: "essay",
-            // },
-            // {
-            //   label: "CSS 完全指南",
-            //   to: "docs/css/css-tutorial-intro",
-            // },
-            // {
-            //   label: "资源导航",
-            //   // position: "right",
-            //   to: "docs/resources/",
+            //   label: "个人推荐",
+            //   to: "docs/recommend",
             // },
           ],
         },
-        {
+/*         {
           label: "实战项目",
           position: "right",
           to: "/project",
@@ -72,33 +63,22 @@ module.exports = {
           label: "资源导航",
           position: "right",
           to: "/resources",
+        }, */
+        {
+          label: "关于我",
+          position: "right",
+          to: "/about",
         },
-        /*         {
-                  label: "项目",
-                  position: "right",
-                  to: "project/",
-                }, */
-        /*         {
-                  label: "推荐",
-                  position: "right",
-                  to: "docs/recommend/",
-                }, */
-        // {
-        //   label: "导航资源",
-        //   position: "right",
-        //   to: "/links",
-        // },
-        // {
-        //   href: "https://github.com/zxuqian/zxuqian.cn",
-        //   label: "本站源码",
-        //   position: "right",
-        // },
-
+        {
+          href: "https://github.com/zxuqian/zxuqian.cn",
+          label: "本站源码",
+          position: "right",
+        },
       ],
     },
     algolia: {
       apiKey: "7badee7d1d3f4c4f66472b01a38b4a01",
-      indexName: "KUIZUO",
+      indexName: "kuizuo",
       appId: "2NBW5YNFON",
     },
     footer: {
@@ -129,8 +109,12 @@ module.exports = {
               to: "/",
             },
             {
+              label: "关于我",
+              to: "/about",
+            },
+            {
               label: "GitHub",
-              href: "https://github.com/kuizuo/kuizuo.cn",
+              href: "https://github.com/kuizuo",
             },
           ],
         },
