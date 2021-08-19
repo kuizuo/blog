@@ -1,5 +1,4 @@
 ---
-id: Python指定版本运行
 title: python指定版本运行
 date: 2020-09-11
 tags:

@@ -54,16 +54,16 @@ module.exports = {
             // },
           ],
         },
-/*         {
-          label: "实战项目",
-          position: "right",
-          to: "/project",
-        },
-        {
-          label: "资源导航",
-          position: "right",
-          to: "/resources",
-        }, */
+        /*         {
+                  label: "实战项目",
+                  position: "right",
+                  to: "/project",
+                },
+                {
+                  label: "资源导航",
+                  position: "right",
+                  to: "/resources",
+                }, */
         {
           label: "关于我",
           position: "right",
@@ -188,6 +188,7 @@ module.exports = {
         id: "second-blog",
         routeBasePath: "essay",
         path: "./essay",
+        blogSidebarTitle: "近期文章",
       },
     ],
     /*     [

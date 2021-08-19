@@ -4,6 +4,7 @@ date: 2021-08-03
 tags:
  - vscode
  - 工具
+
 ---
 
 关于vscode介绍和安装啥的不在这浪费口舌，上号就完事了！
@@ -30,7 +31,7 @@ tags:
 
 ### Color Highlight
 
-既然括号可以高亮有颜色，那说到颜色肯定少不了这个插件，有时候遇到  <font color=#ffcccc size=4 >#ffcccc</font> 这样的rgb表示颜色，又不想打开查看颜色转化工具，安装这个插件后，就可以将对应的颜色像上面这样直接显示出来。（注意看上图前面的rgb）
+既然括号可以高亮有颜色，那说到颜色肯定少不了这个插件，有时候遇到 #FF0000 这样的rgb表示颜色，又不想打开查看颜色转化工具，安装这个插件后，就可以将对应的颜色像上面这样直接显示出来。（注意看上图前面的rgb）
 
 ### Prettier
 
@@ -46,12 +47,10 @@ tags:
 
 所要用到的快捷键:
 
-```js
-ctrl + alt + l 选中变量之后，使用这个快捷键生成 console.log
-alt + shift + c 注释所有 console.log
-alt + shift + u 启用所有 console.log
-alt + shift + d 删除所有 console.log
-```
+- ctrl + alt + l 选中变量之后，使用这个快捷键生成 console.log
+- alt + shift + c 注释所有 console.log
+- alt + shift + u 启用所有 console.log
+- alt + shift + d 删除所有 console.log
 
 输出的路径则是根据当前代码所在的文件，行数，作用域，变量输出一遍（前面还带有一个小火箭🚀），如下（输出变量a）
 
@@ -123,7 +122,7 @@ VScode使用git，这个插件必安装不可。
 
 这个插件我花费很多时间，原因是能自定义类似TODO这样的标签，编写代码的时候，需要对一些代码做一些注释，比如这段代码我接下来准备做 那么我就可以写上 `// TODO`  待会要在这些，在比如要修改一些代码，或者是修改一个bug，就可以用 `// FIXME` 与 `// BUG` 然而很多时候，TODO 就足以，完全没必要搞得花里胡哨的，至于这个Todo Tree 方便的点就是在资源管理器中，能方便查看自己所写的一些类似TODO标签一样，然而对我来说，TODO 用的确实少，主要手头有正好有事，对当前代码做一个标记即可，回来的时候自然还记得当时这段代码要干嘛。当时接触vscode还没学Markdown，然后笔记就写在了对应的js代码中，然后就有 NOTE POINT STAR TAG 等等标签，还搞各种颜色图标，想想就有点傻，有这时间多敲几行不香吗？
 
-如果需要TODO这类标记，我更是推荐TODO Highlight这个插件。不过需要小配置一下。注意，TODO后需要添加冒号 也就是<font color=#ffbd2a size=4 >TODO:</font>才会高亮。然后按F1输入TODO即可列出todo相关列表。
+如果需要TODO这类标记，我更是推荐TODO Highlight这个插件。不过需要小配置一下。注意，TODO后需要添加冒号 也就是`TODO:`才会高亮。然后按F1输入TODO即可列出todo相关列表。
 
 ### CodeIf
 
