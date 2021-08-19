@@ -1,0 +1,377 @@
+---
+title: elasticsearch笔记
+date: 2021-03-15
+tags:
+  - elasticsearch
+  - 数据库
+---
+
+
+[Elasticsearch Clients | Elastic 官方文档](https://www.elastic.co/guide/en/elasticsearch/client/index.html)
+
+## 安装
+
+下载地址:[Elasticsearch, Kibana, and the Elastic Stack | Elastic](https://www.elastic.co/cn/start)
+
+### window
+
+解压，双击bin目录下的 `elasticsearch.bat` 即可启动，kibana也是同理。
+
+启动后输入http://localhost:9200 与 http://localhost:5601/ 显示正常说明两者都安装成功
+
+### linux
+
+同windows 不过多叙述了
+
+### docker
+
+当然上面那些安装都过于麻烦，docker一步到位
+
+#### elasticsearch
+
+[elasticsearch (docker.com)](https://hub.docker.com/_/elasticsearch)
+
+```
+# 创建自定义网络与kibana通信
+docker network create esnet
+
+# 挂载目录 端口映射
+docker run -d --name elasticsearch --net esnet -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -v /data/elasticsearch:/usr/share/elasticsearch/data -v /data/elasticsearch/plugins:/usr/share/elasticsearch/plugins elasticsearch:tag
+
+```
+
+参数详解
+
+```text
+docker run 创建并启动容器
+-d 后台运行 
+--name elasticsearch 指定容器唯一的名称，方便管理
+-p 9200:9200 -p 9300:9300 映射容器端口到宿主机上
+-e "discovery.type=single-node" 环境变量配置单机模式
+-v /data/elasticsearch:/usr/share/elasticsearch/data 持久化数据存储
+-v /data/elasticsearch/plugins:/usr/share/elasticsearch/plugins
+elasticsearch:tag 镜像名称及版本 tag最新
+```
+
+#### kibana
+
+```
+docker run -d --name kibana --net esnet -p 5601:5601 kibana:tag
+```
+
+#### ik分词器
+
+```sh
+cd /usr/share/elasticsearch/plugins/
+elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.2.0/elasticsearch-analysis-ik-7.2.0.zip
+exit
+docker restart elasticsearch 
+```
+
+或
+
+```sh
+docker exec -it 容器id /bin/bash
+cd /usr/share/elasticsearch/plugins/
+mkdir ik
+cd ik
+wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.6.2/elasticsearch-analysis-ik-7.6.2.zip
+yum install unzip
+unzip elasticsearch-analysis-ik-7.6.2.zip
+exit
+docker restart elasticsearch 
+```
+
+然后可以在kibana界面的`dev tools`中验证是否安装成功；
+
+```
+POST test/_analyze
+{
+  "analyzer": "ik_max_word",
+  "text": "你好我是愧怍"
+}
+```
+
+#### 设置密码
+
+[ElasticSearch设置账户密码](https://blog.csdn.net/qq_43188744/article/details/108096394)
+
+进入es容器
+
+```
+docker exec -it elasticsearch bash
+
+cd config
+vi elasticsearch.yml
+```
+
+添加如下代码
+
+```
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+http.cors.allow-headers: Authorization
+xpack.security.enabled: true
+```
+
+重启后,重新进入容器,输入`elasticsearch-setup-passwords interactive`,按y确认后即可设置密码.
+
+进入kibana容器
+
+```
+docker exec -it kibana bash
+
+cd config
+vi kibana.yml
+
+```
+
+添加如下代码
+
+```
+elasticsearch.username: "kibana"
+elasticsearch.password: "a123456"
+```
+
+登录Kibana的账户就是kibana,elasticsearch的账户为elastic.
+
+## docker-compose
+
+创建volume挂载目录，并修改目录用户和用户组。由于elasticsearch6之后不允许使用root启用，所以需要修改
+
+```
+/usr/share/elasticsearch/data的权限为1000
+mkdir -pv /usr/share/elasticsearch/data
+chown 1000:1000 /usr/share/elasticsearch/data
+```
+
+部署文件
+
+```
+mkdir /usr/local/elasticsearch-kibana
+cd elasticsearch-kibana/
+vim docker-compose.yml
+```
+
+docker-compose.yml
+
+```yaml
+version: '3.9'
+services:
+  elasticsearch:
+    image: elasticsearch:7.2.0
+    container_name: elasticsearch
+    volumes:
+      - /usr/share/elasticsearch/data:/usr/share/elasticsearch/data
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - esnet
+    restart: always
+  kibana:
+    image: kibana:7.2.0
+    container_name: kibana
+    ports:
+      - 5601:5601
+    networks:
+      - esnet
+    depends_on:
+      - elasticsearch
+    restart: always
+    
+    
+networks:
+  esnet:
+```
+
+vim elasticsearch.yml
+
+```
+#集群名
+cluster.name: "elasticsearch"
+# 允许外部网络访问
+network.host: 0.0.0.0
+#支持跨域
+http.cors.enabled: true
+#支持所有域名
+http.cors.allow-origin: "*"
+# 开启xpack安全校验，在kibana中使用需要输入账号密码
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
+
+```
+
+启动docker-compose `docker-compose up -d`
+
+至此有关elasticSearch安装与配置就告一段落
+
+## 数据迁移
+
+### elasticdump
+
+[elasticsearch-dump/elasticsearch-dump](https://github.com/elasticsearch-dump/elasticsearch-dump)
+
+这里使用elasticdump (因为只会这个)
+
+#### 安装
+
+```sh
+npm install elasticdump -g
+elasticdump
+```
+
+#### 命令
+
+```
+elasticdump --input SOURCE --output DESTINATION [OPTIONS]
+```
+
+##### 参数
+
+- limit
+
+  每个操作要批量移动多少对象,Limit是文件流的近似值 默认:100
+
+- type
+
+  导出类型 默认data  [settings, analyzer, data, mapping, policy, alias, template, component_template, index_template]
+
+- 其他参数看文档,暂时都用不上
+
+例:
+
+```sh
+# 将es数据导入另一台es数据
+elasticdump --input=http://production.es.com:9200/my_index --output=http://staging.es.com:9200/my_index --all=true --limit=2000
+
+# 或 
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=http://staging.es.com:9200/my_index \
+  --type=analyzer
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=http://staging.es.com:9200/my_index \
+  --type=mapping
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=http://staging.es.com:9200/my_index \
+  --type=data
+
+# 备份文件到本地
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=/data/my_index_mapping.json \
+  --type=mapping
+elasticdump \
+  --input=http://production.es.com:9200/my_index \
+  --output=/data/my_index.json \
+  --type=data
+
+```
+
+#### docker安装
+
+```
+docker pull elasticdump/elasticsearch-dump
+```
+
+例:
+
+```
+# Copy an index from production to staging with mappings:
+docker run --rm -ti elasticdump/elasticsearch-dump \
+  --input=http://production.es.com:9200/my_index \
+  --output=http://staging.es.com:9200/my_index \
+  --type=mapping
+docker run --rm -ti elasticdump/elasticsearch-dump \
+  --input=http://production.es.com:9200/my_index \
+  --output=http://staging.es.com:9200/my_index \
+  --type=data
+
+# Backup index data to a file:
+docker run --rm -ti -v /data:/tmp elasticdump/elasticsearch-dump \
+  --input=http://production.es.com:9200/my_index \
+  --output=/tmp/my_index_mapping.json \
+  --type=data
+```
+
+## 常用命令
+
+### 查询并删除匹配文档
+
+正常查询对应的代码
+
+```
+GET answer/_search
+{
+  "query": {
+    "match_phrase": {
+      "topic": "测试"
+    }
+  }
+}
+```
+
+要删除topic为“测试”，只需要将`_search`替换为`_delete_by_query`即可。
+
+------
+
+暂时只用到这些 TODO。。。
+
+## 注意事项
+
+### elasticsearch默认输出一万条
+
+elasticsearch默认输出最多一万条，查询第10001条数据就会报错
+
+解决方案: 
+
+1、修改elasticsearch输出默认限制条数
+
+```
+PUT 索引名称/_settings?preserve_existing=true
+{
+  "max_result_window": "1000000"
+}
+```
+
+2、创建索引时设置
+
+```
+"settings":{
+    "index":{
+        "max_result_window":1000000
+ 　　} 
+}
+```
+
+3、在请求的时候附加参数`"track_total_hits":true`
+
+### kibana 设置导出csv大小
+
+kibana默认导出的csv有文件大小限制，默认是10M，数据量大于10M，那么csv只会下载10M大小的数据
+
+并且导出CSV报告Kibana是放入队列中执行的，有一个处理超时时间，默认是12000毫秒，也就是2分钟
+
+解决方案: 通过修改配置可以更改限制大小
+
+`vim kibana.yml`
+
+```
+# csv文件大小200MB,默认为10485760（10MB）
+xpack.reporting.csv.maxSizeBytes: 209715200
+# 超时时间-30分钟,默认是120000(2分钟)
+xpack.reporting.queue.timeout: 1800000
+```
+
+**修改后，重启kibana即可生效**
+
+> 参考 [Kibana 7.X 导出CSV报告](https://blog.csdn.net/qq_25646191/article/details/108641758)
+
+
+
+
+
