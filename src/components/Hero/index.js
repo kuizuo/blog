@@ -145,14 +145,17 @@ function SocialLinks({ animatedProps, ...props }) {
       <a href="https://blog.csdn.net/kuizuo12">
         <CSDNIcon />
       </a>
-      <div className={`dropdown ${styles.dropdown} dropdown--hoverable`}>
+      <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq">
+        <FontAwesomeIcon icon={faQq} size="lg" />
+      </a>
+      {/*       <div className={`dropdown ${styles.dropdown} dropdown--hoverable`}>
         <FontAwesomeIcon icon={faQq} size="lg" />
         <img
           width="50%"
           className={`dropdown__menu ${styles.dropdown__menu}`}
           src={useBaseUrl("/img/publicQR.webp")}
         />
-      </div>
+      </div> */}
     </animated.div>
   );
 }
