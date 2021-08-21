@@ -212,13 +212,13 @@ module.exports = {
     //   href: "https://fonts.gstatic.com",
     //   type: "text/css",
     // },
-    //  {
-    //   href: "/katex/katex.min.css",
-    //   type: "text/css",
-    //   integrity:
-    //     "sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X",
-    //   crossorigin: "anonymous",
-    // },
+    /* {
+      href: "/katex/katex.min.css",
+      type: "text/css",
+      integrity:
+        "sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X",
+      crossorigin: "anonymous",
+    }, */
     // {
     //   href: "https://fonts.font.im/css?family=Raleway:500,700&display=swap",
     //   type: "text/css",

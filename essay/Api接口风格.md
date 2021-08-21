@@ -1,5 +1,5 @@
 ---
-title: Restful Api风格真的好用吗?
+title: Api接口风格
 date: 2021-08-06
 tags:
  - api
