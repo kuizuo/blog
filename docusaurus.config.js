@@ -179,7 +179,7 @@ module.exports = {
     path.resolve(__dirname, "./src/plugin/plugin-baidu-analytics"),
     path.resolve(__dirname, "./src/plugin/plugin-baidu-push"),
     // "@docusaurus/plugin-ideal-image",
-    path.resolve(__dirname, "./src/plugin/plugin-onesignal-push"),
+    // path.resolve(__dirname, "./src/plugin/plugin-onesignal-push"),
     path.resolve(__dirname, "./src/plugin/plugin-latest-docs"),
     "docusaurus2-dotenv",
     [
