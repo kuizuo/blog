@@ -36,6 +36,11 @@ module.exports = {
       },
       items: [
         {
+          label: "博客",
+          to: "/#homepage_blogs",
+          position: "right",
+        },
+        {
           label: "随笔",
           to: "essay",
           position: "right",
@@ -135,11 +140,11 @@ module.exports = {
     //   trackingID: "UA-118572241-1",
     //   anonymizeIP: true, // Should IPs be anonymized?
     // },
-    gtag: {
-      trackingID: "G-6PSESJX0BM",
-      // Optional fields.
-      anonymizeIP: true, // Should IPs be anonymized?
-    },
+    // gtag: {
+    //   trackingID: "G-6PSESJX0BM",
+    //   // Optional fields.
+    //   anonymizeIP: true, // Should IPs be anonymized?
+    // },
   },
   presets: [
     [
@@ -176,12 +181,12 @@ module.exports = {
   ],
   // themes: ["@docusaurus/theme-live-codeblock"],
   plugins: [
-    path.resolve(__dirname, "./src/plugin/plugin-baidu-analytics"),
-    path.resolve(__dirname, "./src/plugin/plugin-baidu-push"),
+    // path.resolve(__dirname, "./src/plugin/plugin-baidu-analytics"),
+    // path.resolve(__dirname, "./src/plugin/plugin-baidu-push"),
     // "@docusaurus/plugin-ideal-image",
     // path.resolve(__dirname, "./src/plugin/plugin-onesignal-push"),
     path.resolve(__dirname, "./src/plugin/plugin-latest-docs"),
-    "docusaurus2-dotenv",
+    // "docusaurus2-dotenv",
     [
       "@docusaurus/plugin-content-blog",
       {
@@ -191,14 +196,6 @@ module.exports = {
         blogSidebarTitle: "近期文章",
       },
     ],
-    /*     [
-          "@docusaurus/plugin-content-blog",
-          {
-            id: "first-blogs",
-            routeBasePath: "blogs",
-            path: "./blog",
-          },
-        ], */
     // [
     //   "@easyops-cn/docusaurus-search-local",
     //   {
@@ -210,23 +207,23 @@ module.exports = {
     // ],
   ],
   stylesheets: [
-    {
-      rel: "preconnect",
-      href: "https://fonts.gstatic.com",
-      type: "text/css",
-    },
-    /* {
-      href: "/katex/katex.min.css",
-      type: "text/css",
-      integrity:
-        "sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X",
-      crossorigin: "anonymous",
-    }, */
-    {
-      href: "https://fonts.font.im/css?family=Raleway:500,700&display=swap",
-      type: "text/css",
-      rel: "stylesheet",
-    },
+    // {
+    //   rel: "preconnect",
+    //   href: "https://fonts.gstatic.com",
+    //   type: "text/css",
+    // },
+    //  {
+    //   href: "/katex/katex.min.css",
+    //   type: "text/css",
+    //   integrity:
+    //     "sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X",
+    //   crossorigin: "anonymous",
+    // },
+    // {
+    //   href: "https://fonts.font.im/css?family=Raleway:500,700&display=swap",
+    //   type: "text/css",
+    //   rel: "stylesheet",
+    // },
     // {
     //   href: "https://fonts.googleapis.com/css2?family=Fira+Code&display=swap",
     //   type: "text/css",

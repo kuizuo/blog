@@ -5,19 +5,16 @@ import Translate, { translate } from "@docusaurus/Translate";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Link from "@docusaurus/Link";
 
-import Button from "../Button";
 
 import HeroMain from "./img/hero_main.svg";
-import BilibiliIcon from "@site/static/icons/bilibili.svg";
 import CSDNIcon from "@site/static/icons/csdn.svg";
+import Juejincon from "@site/static/icons/juejin.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faLinkedin,
   faGithub,
-  faWeixin,
   faQq
 } from "@fortawesome/free-brands-svg-icons";
-import useBaseUrl from "@docusaurus/useBaseUrl";
+// import useBaseUrl from "@docusaurus/useBaseUrl";
 
 // import useFollowers from "./useFollowers";
 
@@ -29,8 +26,7 @@ function Hero() {
     i18n: { currentLocale },
   } = useDocusaurusContext();
 
-  // Get followers
-  // const followers = useFollowers();
+
 
   // animation
   const animatedTexts = useTrail(5, {
@@ -144,6 +140,9 @@ function SocialLinks({ animatedProps, ...props }) {
       </a>
       <a href="https://blog.csdn.net/kuizuo12">
         <CSDNIcon />
+      </a>
+      <a href="https://juejin.cn/user/1565318510545901">
+        <Juejincon />
       </a>
       <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq">
         <FontAwesomeIcon icon={faQq} size="lg" />
