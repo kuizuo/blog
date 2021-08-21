@@ -17,7 +17,7 @@ tags:
 
 代码如下
 
-```
+```js
 dayjs(dayjs().format('YYYY-MM-DD')).valueOf()
 ```
 
@@ -29,7 +29,7 @@ moment的话，只需要将dayjs替换成moment即可。
 
 对应的原生Js代码也就很明显了
 
-```
+```js
 new Date(new Date().toLocaleDateString()).getTime()
 ```
 

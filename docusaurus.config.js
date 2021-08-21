@@ -1,6 +1,6 @@
 const path = require("path");
-const math = require("remark-math");
-const katex = require("rehype-katex");
+// const math = require("remark-math");
+// const katex = require("rehype-katex");
 const beian = '闽ICP备2020017848号-2'
 const friendLinks = [
   {
@@ -70,16 +70,16 @@ module.exports = {
           to: "/about",
         },
         {
-          href: "https://github.com/zxuqian/zxuqian.cn",
+          href: "https://github.com/kuizuo/kuizuo.cn",
           label: "本站源码",
           position: "right",
         },
       ],
     },
     algolia: {
-      apiKey: "7badee7d1d3f4c4f66472b01a38b4a01",
-      indexName: "kuizuo",
+      apiKey: "87223cb5a5ff37c4dbbb616812c65a59",
       appId: "2NBW5YNFON",
+      indexName: "kuizuo",
     },
     footer: {
       style: "dark",
@@ -147,17 +147,17 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // editUrl: "https://github.com/zxuqian/kuizuo.cn/tree/master",
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
+          // editUrl: "https://github.com/kuizuo/kuizuo.cn/tree/master",
+          // remarkPlugins: [math],
+          // rehypePlugins: [katex],
           showLastUpdateTime: true,
         },
         blog: {
           path: "blog",
           routeBasePath: "/",
           blogSidebarTitle: "近期文章",
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
+          // remarkPlugins: [math],
+          // rehypePlugins: [katex],
           feedOptions: {
             type: "all",
             title: "愧怍",
@@ -215,13 +215,13 @@ module.exports = {
       href: "https://fonts.gstatic.com",
       type: "text/css",
     },
-    {
+    /* {
       href: "/katex/katex.min.css",
       type: "text/css",
       integrity:
         "sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X",
       crossorigin: "anonymous",
-    },
+    }, */
     {
       href: "https://fonts.font.im/css?family=Raleway:500,700&display=swap",
       type: "text/css",
