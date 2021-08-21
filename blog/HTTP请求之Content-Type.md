@@ -1,6 +1,4 @@
 ---
-id: HTTP请求之Content-Type
-slug: ./HTTP请求之Content-Type
 title: HTTP请求之Content-Type
 date: 2020-12-12
 tags:
