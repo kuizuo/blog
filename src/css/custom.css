@@ -55,8 +55,8 @@ html {
   --post-title-color: hsl(220deg 79% 58%);
   --post-pub-date-color: #8c8c8c;
   --divider-color: #ebebeb;
-  --post-shadow-color: rgba(20, 85, 182, 0.1);
-  --post-shadow: 0 0 120px var(--post-shadow-color);
+  --post-shadow-color: rgba(7, 17, 27, 0.09);
+  --post-shadow: 0 4px 6px 6px var(--post-shadow-color);
   --content-background-color: #fafafa;
   --blog-item-background-color: linear-gradient(50deg, #ffffff, hsl(0deg 0% 95%));
   --blog-item-shadow: 20px 20px 60px #ced1d6, -20px -20px 60px #ffffff;
@@ -329,7 +329,7 @@ html[data-theme='dark'] .bloghome__intro > p {
 
 .post__list-item:hover {
   box-sizing: border-box;
-  box-shadow: 0 1px 6px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.2);
   transition: all 0.5s;
 }
 
@@ -656,3 +656,173 @@ pagination-nav__item:hover .pagination-nav__link {
   }
 }
 
+.container .row .col.col--8 {
+  max-width: 900px;
+  box-shadow: 0 4px 6px 6px rgba(7, 17, 27, 0.09);
+  border-radius: 8px;
+  padding: 50px 40px;
+}
+
+.checkbox {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.checkbox input {
+  -webkit-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  height: 16px;
+  width: 16px;
+  transition: all 0.15s ease-out 0s;
+  cursor: pointer;
+  display: inline-block;
+  outline: 0;
+  border-radius: 2px;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  margin-right: 8px;
+  border: 2px solid #fff;
+}
+
+.checkbox input[type='radio'] {
+  border-radius: 50%;
+}
+
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.checkbox input[type='radio']:before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 2px;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  transition: all 0.25s ease-out;
+}
+
+.checkbox p {
+  display: inline-block;
+  margin-top: 2px !important;
+  margin-bottom: 0 !important;
+}
+
+.checkbox.e input[type='radio']:checked:before {
+  transform: scale(1);
+  background: #ff0000;
+}
+
+.checkbox.node input[type='radio']:checked:before {
+  transform: scale(1);
+  background: #6ca35e;
+}
+
+.checkbox.vue input[type='radio']:checked:before {
+  transform: scale(1);
+  background: #41b883;
+}
+
+.checkbox.react input[type='radio']:checked:before {
+  transform: scale(1);
+  background: #61dafb;
+}
+
+.checkbox.html input[type='radio']:checked:before {
+  transform: scale(1);
+  background: #e44d26;
+}
+
+.checkbox.js input[type='radio']:checked:before {
+  transform: scale(1);
+  background: #f5de19;
+}
+
+.checkbox.ts input[type='radio']:checked:before {
+  transform: scale(1);
+  background: #007acc;
+}
+
+.checkbox.java input[type='radio']:checked:before {
+  transform: scale(1);
+  background: #027399;
+}
+
+.checkbox.cplusplus input[type='radio']:checked:before {
+  transform: scale(1);
+  background: #d26383;
+}
+
+.checkbox.python input[type='radio']:checked:before {
+  transform: scale(1);
+  background: #ffdd6d;
+}
+
+.checkbox.go input[type='radio']:checked:before {
+  transform: scale(1);
+  background: #69d7e4;
+}
+
+.checkbox input[type='checkbox']:checked {
+  background: #2196f3;
+}
+
+.checkbox.blue input {
+  border-color: #2196f3;
+}
+
+.checkbox input[type='checkbox']:checked:before {
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 2px;
+}
+
+.checkbox.minus input[type='checkbox']:checked:after,
+.checkbox.minus input[type='checkbox']:checked:before {
+  left: 1px;
+  top: 5px;
+  width: 10px;
+  height: 2px;
+}
+
+.checkbox.minus input[type='checkbox']:after,
+.checkbox.minus input[type='checkbox']:before {
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+  left: 1px;
+  top: 5px;
+  width: 0;
+  height: 2px;
+}
+
+.checkbox input[type='checkbox']:checked:before {
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 2px;
+}
+
+.checkbox input[type='checkbox']:before {
+  left: 1px;
+  top: 5px;
+  width: 0;
+  height: 2px;
+  transition: all 0.2s ease-in;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  position: absolute;
+  content: '';
+  background: #fff;
+}
