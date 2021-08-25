@@ -5,6 +5,7 @@ tags:
   - http
 ---
 
+<!-- truncate -->
 ## Content-type
 
 先看一条 HTTP 请求

@@ -6,3 +6,7 @@
 
 关于 Docusaurus 的使用方法请参考官方网站 [Docusaurus 2](https://v2.docusaurus.io/)。
 
+项目部署于腾讯Webify，可一键部署项目
+
+[![](https://cloudbase.net/deploy.svg)](https://console.cloud.tencent.com/webify/new?tpl=https%3A%2F%2Fgithub.com%2Fkuizuo%2Fkuizuo-blog&reponame=kuizuo-blog)
+

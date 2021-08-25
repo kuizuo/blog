@@ -55,6 +55,27 @@ function BlogListPage(props) {
   const isCardView = viewType === "card";
   const isListView = viewType === "list";
 
+  // 比对时间
+  function compareDate(a, b) {
+    return new Date(b.content.frontMatter.date).getTime() - new Date(a.content.frontMatter.date).getTime()
+  }
+
+  // 排序博客数据
+  function sortPostsByStickyAndDate(posts) {
+    return posts.sort((prev, next) => {
+      const prevSticky = prev.content.frontMatter.sticky
+      const nextSticky = next.content.frontMatter.sticky
+      if (prevSticky && nextSticky) {
+        return prevSticky == nextSticky ? compareDate(prev, next) : (prevSticky - nextSticky)
+      } else if (prevSticky && !nextSticky) {
+        return -1
+      } else if (!prevSticky && nextSticky) {
+        return 1
+      }
+      return compareDate(prev, next)
+    })
+  }
+
   return (
     <Layout
       title={title}
@@ -116,7 +137,7 @@ function BlogListPage(props) {
               <div className="bloghome__posts">
                 {isCardView && (
                   <div className="bloghome__posts-card">
-                    {items.map(({ content: BlogPostContent }, index) => (
+                    {sortPostsByStickyAndDate(items).map(({ content: BlogPostContent }, index) => (
                       // <Fade key={BlogPostContent.metadata.permalink}>
                       <React.Fragment key={BlogPostContent.metadata.permalink}>
                         <BlogPostItem
@@ -139,7 +160,7 @@ function BlogListPage(props) {
                 )}
                 {isListView && (
                   <div className="bloghome__posts-list">
-                    {items.map(({ content: BlogPostContent }, index) => {
+                    {sortPostsByStickyAndDate(items).map(({ content: BlogPostContent }, index) => {
                       const { metadata: blogMetaData, frontMatter } =
                         BlogPostContent;
                       const { title } = frontMatter;
@@ -151,12 +172,15 @@ function BlogListPage(props) {
                       let month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
                       const day = ("0" + dateObj.getDate()).slice(-2);
 
+                      const sticky = frontMatter.sticky
+
                       return (
                         <React.Fragment key={blogMetaData.permalink}>
                           <div
                             className="post__list-item"
                             key={blogMetaData.permalink}
                           >
+                            {sticky && (<div className={`post__list-stick iconfont`}></div>)}
                             <Link to={permalink} className="post__list-title">
                               {title}
                             </Link>
