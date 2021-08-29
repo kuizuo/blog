@@ -180,6 +180,20 @@ http.instance.interceptors.request.use(
 
 发布的是要注意以下几点
 
+- 如果npm镜像必须是官方的，否则无法登录，镜像还原
+
+  ```sh
+  npm config set registry https://registry.npmjs.org/
+  ```
+
+  查看镜像配置地址
+
+  ```sh
+  npm get registry
+  ```
+
+  
+
 - 如果包有重名，那么就无法发布，就必须要要改名
 
 - 邮箱必须要验证（会接受一条下图邮箱），不然就会发布失败

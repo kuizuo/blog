@@ -65,8 +65,6 @@ function BlogPostItem(props) {
     title,
     image,
     activityId,
-    oid,
-    bvid,
   } = frontMatter;
 
   const authorURL = frontMatter.author_url || frontMatter.authorURL;

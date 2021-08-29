@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 const light = css`
   h2 {
@@ -38,7 +38,7 @@ export const MarkdownSection = styled.section`
   ${({ isDark }) => (isDark ? `` : light)};
   ${({ isBlogPostPage }) =>
     isBlogPostPage
-      ? ""
+      ? ''
       : css`
           /* img {
             width: 100%;
@@ -53,14 +53,14 @@ export const MarkdownSection = styled.section`
 
 export const StyledBlogItem = styled.div`
   margin-top: 0em;
-  margin-bottom:2em;
+  margin-bottom: 2em;
 
   ${({ isBlogPostPage }) =>
     isBlogPostPage &&
     css`
       box-shadow: var(--post-shadow);
       border-radius: var(--ifm-pagination-nav-border-radius);
-      padding: 3em 2em; 
+      padding: 3em 2em;
       margin-top: 0;
       margin-bottom: -2em;
     `}
@@ -114,6 +114,27 @@ export const StyledBlogItem = styled.div`
     .markdown p,
     .markdown ul {
       font-family: var(--content-font-family);
+    }
+
+    > section {
+      pre {
+        > code {
+          padding: 1.8rem 1rem 1rem 1rem;
+        }
+      }
+
+      pre:before {
+        content: '';
+        position: absolute;
+        top: 9px;
+        left: 15px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #fc625d;
+        box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+        z-index: 1;
+      }
     }
   }
 

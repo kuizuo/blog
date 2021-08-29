@@ -1,25 +1,25 @@
-const path = require("path");
+const path = require('path');
 // const math = require("remark-math");
 // const katex = require("rehype-katex");
-const beian = '闽ICP备2020017848号-2'
+const beian = '闽ICP备2020017848号-2';
 const friendLinks = [
   {
-    label: "峰华前端工程师",
-    to: "https://zxuqian.cn/",
-  }
-]
+    label: '峰华前端工程师',
+    to: 'https://zxuqian.cn/',
+  },
+];
 
 module.exports = {
-  title: "愧怍的小站",
+  title: '愧怍',
   // tagline:
-  titleDelimiter: "-",
-  url: "https://kuizuo.cn",
-  baseUrl: "/",
-  favicon: "img/favicon.ico",
-  organizationName: "kuizuo", // Usually your GitHub org/user name.
-  projectName: "kuizuo.cn", // Usually your repo name.
+  titleDelimiter: '-',
+  url: 'https://kuizuo.cn',
+  baseUrl: '/',
+  favicon: 'img/favicon.ico',
+  organizationName: 'kuizuo', // Usually your GitHub org/user name.
+  projectName: 'kuizuo.cn', // Usually your repo name.
   themeConfig: {
-    image: "img/kuizuo.jpg",
+    image: 'img/kuizuo.jpg',
     announcementBar: {
       /*       id: "feature_release", // Any value that will identify this message.
             content: `更新<a href='/docs/skill/browser/js-web-animations-api'>《与 CSS Keyframes 媲美的原生 JS 高性能动画 API 教程》配套文本</a>`,
@@ -28,30 +28,30 @@ module.exports = {
     },
     hideableSidebar: true,
     navbar: {
-      title: "愧怍",
+      title: '愧怍',
       logo: {
-        alt: "愧怍",
-        src: "img/logo.webp",
-        srcDark: "img/logo.webp",
+        alt: '愧怍',
+        src: 'img/logo.webp',
+        srcDark: 'img/logo.webp',
       },
       items: [
         {
-          label: "博客",
-          to: "/#homepage_blogs",
-          position: "right",
+          label: '博客',
+          to: '/#homepage_blogs',
+          position: 'right',
         },
         {
-          label: "随笔",
-          to: "essay",
-          position: "right",
+          label: '随笔',
+          to: 'essay',
+          position: 'right',
         },
         {
-          label: "学习",
-          position: "right",
+          label: '学习',
+          position: 'right',
           items: [
             {
-              label: "技术笔记",
-              to: "docs/skill/",
+              label: '技术笔记',
+              to: 'docs/skill/',
             },
             // {
             //   label: "个人推荐",
@@ -70,61 +70,61 @@ module.exports = {
                   to: "/resources",
                 }, */
         {
-          label: "关于我",
-          position: "right",
-          to: "/about",
+          label: '关于我',
+          position: 'right',
+          to: '/about',
         },
         {
-          href: "https://github.com/kuizuo/kuizuo.cn",
-          label: "本站源码",
-          position: "right",
+          href: 'https://github.com/kuizuo/kuizuo.cn',
+          label: '本站源码',
+          position: 'right',
         },
       ],
     },
     algolia: {
-      apiKey: "87223cb5a5ff37c4dbbb616812c65a59",
-      appId: "2NBW5YNFON",
-      indexName: "kuizuo",
+      apiKey: '87223cb5a5ff37c4dbbb616812c65a59',
+      appId: '2NBW5YNFON',
+      indexName: 'kuizuo',
     },
     footer: {
-      style: "dark",
+      style: 'dark',
       links: [
         {
-          title: "学习",
+          title: '学习',
           items: [
             {
-              label: "技术笔记",
-              to: "docs/skill",
+              label: '技术笔记',
+              to: 'docs/skill',
             },
             {
-              label: "实战项目",
-              to: "project",
+              label: '实战项目',
+              to: 'project',
             },
             {
-              label: "资源导航",
-              to: "resources",
+              label: '资源导航',
+              to: 'resources',
             },
           ],
         },
         {
-          title: "社交媒体",
+          title: '社交媒体',
           items: [
             {
-              label: "首页",
-              to: "/",
+              label: '首页',
+              to: '/',
             },
             {
-              label: "关于我",
-              to: "/about",
+              label: '关于我',
+              to: '/about',
             },
             {
-              label: "GitHub",
-              href: "https://github.com/kuizuo",
+              label: 'GitHub',
+              href: 'https://github.com/kuizuo',
             },
           ],
         },
         {
-          title: "友情链接",
+          title: '友情链接',
           items: friendLinks,
         },
       ],
@@ -132,10 +132,11 @@ module.exports = {
       //</p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/img/creative-commons-license-icon.png" /></a><br />本站所有内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-Hans" >CC BY-NC 4.0 协议</a>，转载须注明署名和出处，且不可用于商业用途。若与其他同步平台协议冲突，以本网站为准。
     },
     prism: {
-      theme: require("prism-react-renderer/themes/github"),
-      darkTheme: require("prism-react-renderer/themes/vsDark"),
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/vsDark'),
       // defaultLanguage: "javascript",
     },
+    zoomSelector: '.markdown :not(em) > img',
     // googleAnalytics: {
     //   trackingID: "UA-118572241-1",
     //   anonymizeIP: true, // Should IPs be anonymized?
@@ -148,32 +149,32 @@ module.exports = {
   },
   presets: [
     [
-      "@docusaurus/preset-classic",
+      '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: require.resolve('./sidebars.js'),
           // editUrl: "https://github.com/kuizuo/kuizuo.cn/tree/master",
           // remarkPlugins: [math],
           // rehypePlugins: [katex],
           showLastUpdateTime: true,
         },
         blog: {
-          path: "blog",
-          routeBasePath: "/",
-          blogSidebarTitle: "近期文章",
+          path: 'blog',
+          routeBasePath: '/',
+          blogSidebarTitle: '近期文章',
           // remarkPlugins: [math],
           // rehypePlugins: [katex],
           feedOptions: {
-            type: "all",
-            title: "愧怍",
+            type: 'all',
+            title: '愧怍',
             copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
           },
         },
         theme: {
-          customCss: [require.resolve("./src/css/custom.css")],
+          customCss: [require.resolve('./src/css/custom.css')],
         },
         sitemap: {
-          changefreq: "daily",
+          changefreq: 'daily',
           priority: 0.5,
         },
       },
@@ -181,19 +182,20 @@ module.exports = {
   ],
   // themes: ["@docusaurus/theme-live-codeblock"],
   plugins: [
-    // path.resolve(__dirname, "./src/plugin/plugin-baidu-analytics"),
-    // path.resolve(__dirname, "./src/plugin/plugin-baidu-push"),
-    // "@docusaurus/plugin-ideal-image",
+    path.resolve(__dirname, './src/plugin/plugin-baidu-analytics'),
+    path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
     // path.resolve(__dirname, "./src/plugin/plugin-onesignal-push"),
-    path.resolve(__dirname, "./src/plugin/plugin-latest-docs"),
+    '@docusaurus/plugin-ideal-image',
+    'plugin-image-zoom',
+    path.resolve(__dirname, './src/plugin/plugin-latest-docs'),
     // "docusaurus2-dotenv",
     [
-      "@docusaurus/plugin-content-blog",
+      '@docusaurus/plugin-content-blog',
       {
-        id: "second-blog",
-        routeBasePath: "essay",
-        path: "./essay",
-        blogSidebarTitle: "近期文章",
+        id: 'second-blog',
+        routeBasePath: 'essay',
+        path: './essay',
+        blogSidebarTitle: '近期文章',
       },
     ],
     // [
@@ -231,8 +233,8 @@ module.exports = {
     // },
   ],
   i18n: {
-    defaultLocale: "zh-CN",
-    locales: ["zh-CN"],
+    defaultLocale: 'zh-CN',
+    locales: ['zh-CN'],
   },
-  onBrokenLinks: 'ignore'
+  onBrokenLinks: 'ignore',
 };

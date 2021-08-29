@@ -55,8 +55,8 @@ html {
   --post-title-color: hsl(220deg 79% 58%);
   --post-pub-date-color: #8c8c8c;
   --divider-color: #ebebeb;
-  --post-shadow-color: rgba(7, 17, 27, 0.09);
-  --post-shadow: 0 4px 6px 6px var(--post-shadow-color);
+  --post-shadow-color: rgb(220 220 220 / 30%);
+  --post-shadow: 0 0 20px 10px var(--post-shadow-color);
   --content-background-color: #fafafa;
   --blog-item-background-color: linear-gradient(50deg, #ffffff, hsl(0deg 0% 95%));
   --blog-item-shadow: 20px 20px 60px #ced1d6, -20px -20px 60px #ffffff;
