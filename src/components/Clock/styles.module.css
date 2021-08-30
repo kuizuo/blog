@@ -1,16 +1,28 @@
 .clock {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: 'Share Tech Mono', monospace;
+  text-align: center;
   margin: 0 auto;
+  font-weight: 400;
 }
 
-.clock-item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 60px;
-  margin: 0 30px;
+html .clock {
+  color: #2c76d1;
+  text-shadow: 0 0 20px #2e6bb770, 0 0 20px rgb(10 175 230 / 0%);
 }
 
+html[data-theme='dark'] .clock {
+  color: #daf6ff;
+  text-shadow: 0 0 20px #0aafe6, 0 0 20px rgb(10 175 230 / 0%);
+  /* background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%); */
+}
+
+.date {
+  letter-spacing: 0.1em;
+  font-size: 18px;
+  margin: 0;
+}
+
+.time {
+  letter-spacing: 0.2em;
+  font-size: 40px;
+}

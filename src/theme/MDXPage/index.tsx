@@ -8,17 +8,17 @@
 import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
-import {MDXProvider} from '@mdx-js/react';
+import { MDXProvider } from '@mdx-js/react';
 import MDXComponents from '@theme/MDXComponents';
-import type {Props} from '@theme/MDXPage';
+import type { Props } from '@theme/MDXPage';
 import TOC from '@theme/TOC';
-import {ThemeClassNames} from '@docusaurus/theme-common';
+import { ThemeClassNames } from '@docusaurus/theme-common';
 
 import styles from './styles.module.css';
 
 function MDXPage(props: Props): JSX.Element {
-  const {content: MDXPageContent} = props;
-  const {frontMatter, metadata} = MDXPageContent;
+  const { content: MDXPageContent } = props;
+  const { frontMatter, metadata } = MDXPageContent;
 
   const {
     title,
@@ -26,7 +26,7 @@ function MDXPage(props: Props): JSX.Element {
     wrapperClassName,
     hide_table_of_contents: hideTableOfContents,
   } = frontMatter;
-  const {permalink} = metadata;
+  const { permalink } = metadata;
 
   return (
     <Layout
@@ -37,7 +37,7 @@ function MDXPage(props: Props): JSX.Element {
       pageClassName={ThemeClassNames.page.mdxPage}>
       <main className="container container--fluid margin-vert--lg">
         <div className={clsx('row', styles.mdxPageWrapper)}>
-          <div className={clsx('col', 'col--8')}>
+          <div className={clsx('col', 'col--8', styles.dark)}>
             <MDXProvider components={MDXComponents}>
               <MDXPageContent />
             </MDXProvider>

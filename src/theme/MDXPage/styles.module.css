@@ -8,3 +8,15 @@
 .mdxPageWrapper {
   justify-content: center;
 }
+
+.content {
+  box-shadow: var(--post-shadow);
+  border-radius: var(--ifm-pagination-nav-border-radius);
+}
+
+html[data-theme='dark'] .content {
+  border-radius: 7px;
+  box-shadow: 0px 0px 32px rgba(0, 105, 165, 0.35);
+  color: #daf6ff;
+  background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%);
+}
