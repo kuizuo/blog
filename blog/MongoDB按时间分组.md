@@ -78,8 +78,8 @@ let list = await this.goodsModel
   { "count": 16, "date": "2021-08-28" },
   { "count": 17, "date": "2021-08-27" },
   { "count": 12, "date": "2021-08-26" },
-  { "count": 6, "date": "2021-08-25" }
-  // { "count": 0, "date": "2021-08-24" },
+  { "count": 6, "date": "2021-08-25" },
+  { "count": 0, "date": "2021-08-24" }
 ]
 ```
 
@@ -314,7 +314,7 @@ cosnole.log(list);
 ]
 ```
 
-如果是要 goods为分组的话，只需要把上面聚合代码中week和goods替换一下便可。
+如果是要 goods 为分组的话，只需要把上面聚合代码中 week 和 goods 替换一下便可。
 
 ## 另一种实现方式
 

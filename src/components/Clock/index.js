@@ -5,7 +5,13 @@ import styles from './styles.module.css';
 
 function Clock(props) {
   const [date, setDate, getDate] = useState(new Date());
-  const [time] = useState({});
+  const [time] = useState({
+    day: 0,
+    hour: 0,
+    minute: 0,
+    second: 0,
+  });
+
   useEffect(() => {
     var timerID = setInterval(() => tick(), 1000);
 
@@ -28,7 +34,7 @@ function Clock(props) {
   return (
     <div className={styles.clock}>
       <p className={styles.date}>成功入坑时间</p>
-      <p className={styles.time}>{time.day + '天' + time.hour + '时' + time.minute + '分' + time.second + '秒'}</p>
+      <p className={styles.time}>{time.day + '天' + time.hour + '时' + time.minute + '分'}</p>
     </div>
   );
 }

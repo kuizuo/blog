@@ -117,13 +117,13 @@ export const StyledBlogItem = styled.div`
     }
 
     > section {
-      pre {
+      /*pre {
         > code {
           padding: 1.8rem 1rem 1rem 1rem;
         }
       }
 
-      pre:before {
+       pre:before {
         content: '';
         position: absolute;
         top: 9px;
@@ -134,7 +134,7 @@ export const StyledBlogItem = styled.div`
         background: #fc625d;
         box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
         z-index: 1;
-      }
+      } */
     }
   }
 
