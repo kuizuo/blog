@@ -18,6 +18,9 @@ import styles from './styles.module.css';
 
 import { useThemeConfig, parseCodeBlockTitle } from '@docusaurus/theme-common';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+
 const highlightLinesRangeRegex = /{([\d,-]+)}/;
 const getHighlightDirectiveRegex = (
   languages = ['js', 'jsBlock', 'jsx', 'python', 'html'],
@@ -207,10 +210,13 @@ export default function CodeBlock({
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className={styles.codeBlockContainer}>
           {codeBlockTitle && (
-            <div style={{ ...style, "border-bottom": (expand) ? "1px solid var(--ifm-color-emphasis-300)" : "0" }} className={styles.codeBlockTitle} onClick={handleExpand}>
+            <div style={style} className={styles.codeBlockTitle} >
               {codeBlockTitle}
             </div>
           )}
+          {/* <div style={{ ...style, "border-bottom": (expand) ? "1px solid var(--ifm-color-emphasis-300)" : "0" }} className={styles.codeBlockTitle} onClick={handleExpand}>
+            <FontAwesomeIcon icon={(expand) ? faAngleDown : faAngleRight} /> <span style={{ "margin-left": "2px" }}> {language}</span>
+          </div> */}
           <div className={clsx(styles.codeBlockContent, language)} style={{ display: (expand) ? "block" : "none" }}>
             <pre
               /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */

@@ -3785,6 +3785,7 @@
     "@algolia/transporter" "4.3.1"
 
 "algoliasearch@^4.5.1":
+  "integrity" "sha512-G8IA3lcgaQB4r9HuQ4G+uSFjjz0Wv2OgEPiQ8emA+G2UUlroOfMl064j1bq/G+QTW0LmTQp9JwrFDRWxFM9J7w=="
   "version" "4.8.6"
   dependencies:
     "@algolia/cache-browser-local-storage" "4.8.6"
@@ -4500,18 +4501,23 @@
     "lodash.uniq" "^4.5.0"
 
 "caniuse-lite@^1.0.0", "caniuse-lite@^1.0.30001043":
+  "integrity" "sha512-iZdh3lu09jsUtLE6Bp8NAbJskco4Y3UDtkR3GTCJGsbMowBU5IWDFF79sV2ws7lSqTzWyKazxam2thasHymENQ=="
   "version" "1.0.30001081"
 
 "caniuse-lite@^1.0.30001125", "caniuse-lite@^1.0.30001181", "caniuse-lite@^1.0.30001196":
+  "integrity" "sha512-r5GGgESqOPZzwvdLVER374FpQu2WluCF1Z2DSiFJ89KSmGjT0LVKjgv4NcAqHmGWF9ihNpqRI9KXO9Ex4sKsgA=="
   "version" "1.0.30001198"
 
 "caniuse-lite@^1.0.30001157":
+  "integrity" "sha512-w9Ph56jOsS8RL20K9cLND3u/+5WASWdhC/PPrf+V3/HsM3uHOavWOR1Xzakbv4Puo/srmPHudkmCRWM7Aq+/UA=="
   "version" "1.0.30001159"
 
 "caniuse-lite@^1.0.30001219":
+  "integrity" "sha512-QQmLOGJ3DEgokHbMSA8cj2a+geXqmnpyOFT0lhQV6P3/YOJvGDEwoedcwxEQ30gJIwIIunHIicunJ2rzK5gB2A=="
   "version" "1.0.30001228"
 
 "caniuse-lite@^1.0.30001230":
+  "integrity" "sha512-cyBkXJDMeI4wthy8xJ2FvDU6+0dtcZSJW3voUF8+e9f1bBeuvyZfc3PNbkOETyhbR+dGCPzn9E7MA3iwzusOhQ=="
   "version" "1.0.30001239"
 
 "ccount@^1.0.0", "ccount@^1.0.3":

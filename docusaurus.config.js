@@ -10,7 +10,7 @@ const friendLinks = [
 ];
 
 module.exports = {
-  title: '愧怍',
+  title: '愧怍的小站',
   // tagline:
   titleDelimiter: '-',
   url: 'https://kuizuo.cn',
@@ -63,22 +63,22 @@ module.exports = {
                   label: "实战项目",
                   position: "right",
                   to: "/project",
-                },
-                {
-                  label: "资源导航",
-                  position: "right",
-                  to: "/resources",
-                }, */
+                },*/
+        {
+          label: '资源导航',
+          position: 'right',
+          to: 'https://nav.kuizuo.cn',
+        },
         {
           label: '关于我',
           position: 'right',
           to: '/about',
         },
-        {
-          href: 'https://github.com/kuizuo/kuizuo.cn',
-          label: '本站源码',
-          position: 'right',
-        },
+        // {
+        //   href: 'https://github.com/kuizuo/kuizuo.cn',
+        //   label: '本站源码',
+        //   position: 'right',
+        // },
       ],
     },
     algolia: {

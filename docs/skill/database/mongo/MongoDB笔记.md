@@ -31,7 +31,7 @@ mkdir /home/mongo/ # 创建本地数据库文件夹
 
 docker run -itd --name mongo --restart=always --privileged -p 27017:27017 -v /home/mongo/data:/data/db  -v /home/mongo/conf:/data/configdb  -v /home/mongo/logs:/data/log/ mongo:latest --config /data/configdb/mongod.conf --bind_ip_all
 # -v 指定配置文件启动
-# --bind_ip_all 允许所以IP访问
+# --bind_ip_all 允许所有IP访问
 # ----restart=always  Docker服务重启容器也启动
 # --privileged  拥有真正的root权限
 

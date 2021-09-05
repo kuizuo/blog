@@ -2,7 +2,7 @@
 title: axios中的cookie
 date: 2020-12-10
 tags:
-  - axios 
+  - axios
   - cookie
 ---
 
@@ -236,8 +236,7 @@ import * as https from 'https';
 export async function request(opt) {
   let { url, method = 'get', headers = {}, cookies, data = null } = opt;
 
-  headers['User-Agent'] =
-    'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36';
+  headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36';
   headers['Referer'] = url;
 
   if (typeof cookies === 'object') {
@@ -294,10 +293,10 @@ function test() {
     cookies,
   });
   console.log('test -> res.headers', res.headers);
-  return res.data
+  return res.data;
 }
 
-test()
+test();
 ```
 
 测试一下，顺便抓一下包，看看请求包
@@ -389,7 +388,3 @@ return res;
 实际上还涉及到了 nodejs 中转发请求的，再给自己留一个坑。
 
 在写这篇文章的时候，我其实都没读过 axios 的源码，说实话，那时候遇到问题，就不应该愚昧的去搜索，去不断尝试，有时候直接通过翻看底层代码，可以一目了然自己所面临问题的解决方式。
-
-## 整体封装-协议
-
-TODO…

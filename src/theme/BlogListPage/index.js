@@ -12,7 +12,7 @@ import Layout from '@theme/Layout';
 import BlogPostItem from '@theme/BlogPostItem';
 import BlogListPaginator from '@theme/BlogListPaginator';
 
-// import useViews from "./useViews";
+import useViews from './useViews';
 
 // import Fade from "react-reveal/Fade";
 
@@ -46,10 +46,7 @@ function BlogListPage(props) {
     description = '';
   }
 
-  // Get all post views
-  // const views = useViews(items);
-
-  // list or card view
+  const views = useViews(items);
   const { viewType, toggleViewType } = useViewType();
 
   const isCardView = viewType === 'card';
@@ -116,11 +113,7 @@ function BlogListPage(props) {
                           frontMatter={BlogPostContent.frontMatter}
                           metadata={BlogPostContent.metadata}
                           truncated={BlogPostContent.metadata.truncated}
-                          // views={
-                          //   views.find(
-                          //     (v) => v.slug == BlogPostContent.frontMatter.slug
-                          //   )?.views
-                          // }
+                          views={views.find((v) => v.title == BlogPostContent.frontMatter.title)?.views}
                         >
                           <BlogPostContent />
                         </BlogPostItem>

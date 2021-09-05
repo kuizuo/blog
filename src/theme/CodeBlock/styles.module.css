@@ -19,7 +19,7 @@
   border-top-left-radius: var(--ifm-global-radius);
   border-top-right-radius: var(--ifm-global-radius);
   border-bottom: 1px solid var(--ifm-color-emphasis-300);
-  font-size: var(--ifm-code-font-size);
+  /* font-size: var(--ifm-code-font-size); */
   font-weight: 500;
   padding: 0.5rem var(--ifm-pre-padding);
 }

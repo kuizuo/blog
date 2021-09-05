@@ -91,7 +91,7 @@ export const StyledBlogItem = styled.div`
 
       > h2 {
         font-size: 2em;
-        line-height: 1.5em;
+        /* line-height: 1.5em; */
         margin-bottom: 20px !important;
         a {
           color: var(--ifm-heading-color);
