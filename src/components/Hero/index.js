@@ -62,7 +62,7 @@ function Hero() {
                 </Link>
               ),
               links: (
-                <Link to='/docs/resources'>
+                <Link to='/resources'>
                   <Translate id='hompage.hero.text.link' description='Link link label'>
                     资源导航
                   </Translate>

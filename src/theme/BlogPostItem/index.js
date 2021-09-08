@@ -37,7 +37,7 @@ const MONTHS = ['', 'February', 'March', 'April', 'May', 'June', 'July', 'August
 function BlogPostItem(props) {
   const { children, frontMatter, metadata, truncated, isBlogPostPage = false, views } = props;
   const { date, permalink, tags, readingTime } = metadata;
-
+  
   // activityId, oid 为 B 站评论相关
   const { slug: postId, author, title, image, activityId } = frontMatter;
 
@@ -216,7 +216,7 @@ function Count({ title, ...post }) {
         // if (localStorage.getItem(postId)) return null;
 
         const addViewCount = async () => {
-          await fetch('http://blog.kuizuo.cn/posts/increase_view', {
+          await fetch('https://blog.kuizuo.cn/posts/increase_view', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

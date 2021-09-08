@@ -35,11 +35,11 @@ module.exports = {
         srcDark: 'img/logo.webp',
       },
       items: [
-        {
-          label: '博客',
-          to: '/#homepage_blogs',
-          position: 'right',
-        },
+        // {
+        //   label: '博客',
+        //   to: '/#homepage_blogs',
+        //   position: 'right',
+        // },
         {
           label: '随笔',
           to: 'essay',
@@ -67,7 +67,7 @@ module.exports = {
         {
           label: '资源导航',
           position: 'right',
-          to: 'https://nav.kuizuo.cn',
+          to: '/resources',// 'https://nav.kuizuo.cn'
         },
         {
           label: '关于我',
