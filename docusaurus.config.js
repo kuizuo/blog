@@ -67,7 +67,7 @@ module.exports = {
         {
           label: '资源导航',
           position: 'right',
-          to: '/resources',// 'https://nav.kuizuo.cn'
+          to: '/resources', // 'https://nav.kuizuo.cn'
         },
         {
           label: '关于我',
@@ -134,6 +134,7 @@ module.exports = {
     prism: {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
+      // additionalLanguages: ['powershell','vue'],
       // defaultLanguage: "javascript",
     },
     zoomSelector: '.markdown :not(em) > img',

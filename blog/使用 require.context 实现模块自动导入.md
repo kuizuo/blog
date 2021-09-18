@@ -5,6 +5,8 @@ tags:
  - node
 ---
 
+<!-- truncate -->
+
 ## 前言
 
 在写资源导航的时候，我在将资源分类为一个文件的时候，发现如果我每定义一个分类，那我就需要创建一个文件，然后又要通过`import form`导入，就很烦躁。
@@ -81,8 +83,6 @@ modulesFiles.keys().forEach((modulePath) => {
 })
 ```
 
-妈妈再也不用担心我手动一遍一遍的import了
-
 ## 参考链接
 
-> 参考链接 [前端优化之 -- 使用 require.context 让项目实现路由自动导入 - 沐浴点阳光 - 博客园 (cnblogs.com)](https://www.cnblogs.com/garfieldzhong/p/12585280.html)
+>  [前端优化之 -- 使用 require.context 让项目实现路由自动导入 - 沐浴点阳光 - 博客园 (cnblogs.com)](https://www.cnblogs.com/garfieldzhong/p/12585280.html)
