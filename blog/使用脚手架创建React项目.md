@@ -3,10 +3,10 @@ title: 使用脚手架创建React项目
 date: 2021-09-15
 tags: 
  - react
- - ast
- - 逆向
+ - js
 ---
 
+<!-- truncate -->
 ## 创建项目
 
 ### create-react-app

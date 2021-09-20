@@ -52,27 +52,6 @@ function BlogListPage(props) {
   const isCardView = viewType === 'card';
   const isListView = viewType === 'list';
 
-  // 比对时间
-  function compareDate(a, b) {
-    return new Date(b.content.frontMatter.date).getTime() - new Date(a.content.frontMatter.date).getTime();
-  }
-
-  // 排序博客数据
-  function sortPostsByStickyAndDate(posts) {
-    return posts.sort((prev, next) => {
-      const prevSticky = prev.content.frontMatter.sticky;
-      const nextSticky = next.content.frontMatter.sticky;
-      if (prevSticky && nextSticky) {
-        return prevSticky == nextSticky ? compareDate(prev, next) : prevSticky - nextSticky;
-      } else if (prevSticky && !nextSticky) {
-        return -1;
-      } else if (!prevSticky && nextSticky) {
-        return 1;
-      }
-      return compareDate(prev, next);
-    });
-  }
-
   return (
     <Layout title={title} description={description} wrapperClassName='blog-list__page'>
       <Head>
@@ -105,7 +84,7 @@ function BlogListPage(props) {
               <div className='bloghome__posts'>
                 {isCardView && (
                   <div className='bloghome__posts-card'>
-                    {sortPostsByStickyAndDate(items).map(({ content: BlogPostContent }, index) => (
+                    {items.map(({ content: BlogPostContent }, index) => (
                       // <Fade key={BlogPostContent.metadata.permalink}>
                       <React.Fragment key={BlogPostContent.metadata.permalink}>
                         <BlogPostItem
@@ -124,7 +103,7 @@ function BlogListPage(props) {
                 )}
                 {isListView && (
                   <div className='bloghome__posts-list'>
-                    {sortPostsByStickyAndDate(items).map(({ content: BlogPostContent }, index) => {
+                    {items.map(({ content: BlogPostContent }, index) => {
                       const { metadata: blogMetaData, frontMatter } = BlogPostContent;
                       const { title } = frontMatter;
                       const { permalink, date, tags } = blogMetaData;

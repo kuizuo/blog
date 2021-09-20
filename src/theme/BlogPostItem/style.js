@@ -92,7 +92,7 @@ export const StyledBlogItem = styled.div`
       > h2 {
         font-size: 2em;
         /* line-height: 1.5em; */
-        margin-bottom: 20px !important;
+        margin-bottom: 10px !important;
         a {
           color: var(--ifm-heading-color);
           &:hover {

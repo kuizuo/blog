@@ -137,7 +137,7 @@ function BlogPostItem(props) {
         )}
         <div className={`col ${isBlogPostPage ? `col--12 article__details` : `col--9`}`}>
           {/* 博文部分 */}
-          <article className={!isBlogPostPage ? 'margin-bottom--md' : undefined}>
+          <article className={!isBlogPostPage ? undefined : undefined}>
             {/* 标题 */}
             {renderPostHeader()}
             {/* 列表页标签 */}
@@ -181,7 +181,7 @@ function BlogPostItem(props) {
              )} */}
             {isBlogPostPage}
           </article>
-          <footer className='article__footer padding-top--md margin-top--md margin-bottom--md'>
+          <footer className='article__footer'>
             {!isBlogPostPage && (
               <span className='footer__read_count'>
                 <Eye

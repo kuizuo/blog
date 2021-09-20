@@ -7,13 +7,13 @@ tags:
  - chrome
  - 开发
 ---
+
 ![mini](https://img.kuizuo.cn/mini.jpg)
 
 <!-- truncate -->
+## 前言
 
-### 前言
-
-我当时学习开发Chrome插件的时候，还不会Vue，更别说Webpack了，所以使用的都是原生的html开发，效率就不提了，而这次就准备使用vue-cli来进行编写一个某B站自动点赞的功能（原本是打算做自动回复的），顺便巩固下chrome开发（快一年没碰脚本类相关技术栈了），顺便写套模板供自己后续编写Chrome插件做铺垫。
+我当时学习开发Chrome插件的时候，还不会Vue，更别说Webpack了，所以使用的都是原生的html开发，效率就不提了，而这次就准备使用vue-cli来进行编写一个某B站获取视频信息,评论的功能（原本是打算做自动回复的），顺便巩固下chrome开发（快一年没碰脚本类相关技术了），顺便写套模板供自己后续编写Chrome插件做铺垫。
 
 关于Chrome插件开发的基本知识就不赘述了，之前写过一篇原生开发的[Chrome插件开发 - 愧怍的小站](/docs/skill/develop/Chrome插件开发)，里面有附带相关文档链接。
 
@@ -470,7 +470,7 @@ window.onload = function() {
 
 [content-script主动发消息给后台 我是小茗同学 - 博客园 (cnblogs.com)](https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html#content-script主动发消息给后台)
 
-### 实现评论
+#### 实现评论
 
 这边简单编写了一下页面，通过popup给content，让content输入评论内容，与点击发送，先看效果
 

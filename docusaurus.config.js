@@ -1,6 +1,4 @@
 const path = require('path');
-// const math = require("remark-math");
-// const katex = require("rehype-katex");
 const beian = '闽ICP备2020017848号-2';
 const friendLinks = [
   {
@@ -155,16 +153,18 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // editUrl: "https://github.com/kuizuo/kuizuo.cn/tree/master",
-          // remarkPlugins: [math],
-          // rehypePlugins: [katex],
+          // remarkPlugins: [require("remark-math")],
+          // rehypePlugins: [require("rehype-katex")],
           showLastUpdateTime: true,
         },
         blog: {
           path: 'blog',
           routeBasePath: '/',
           blogSidebarTitle: '近期文章',
-          // remarkPlugins: [math],
-          // rehypePlugins: [katex],
+          blogSidebarCount: 5,
+          postsPerPage: 10,
+          // remarkPlugins: [require("remark-math")],
+          // rehypePlugins: [require("rehype-katex")],
           feedOptions: {
             type: 'all',
             title: '愧怍',
@@ -190,6 +190,15 @@ module.exports = {
     'plugin-image-zoom',
     path.resolve(__dirname, './src/plugin/plugin-latest-docs'),
     // "docusaurus2-dotenv",
+    // [
+    //   '@docusaurus/plugin-content-blog',
+    //   {
+    //     id: 'first-blog',
+    //     routeBasePath: 'blog',
+    //     path: './blog',
+    //     blogSidebarTitle: '近期文章',
+    //   },
+    // ],
     [
       '@docusaurus/plugin-content-blog',
       {

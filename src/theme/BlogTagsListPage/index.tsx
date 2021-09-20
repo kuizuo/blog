@@ -37,7 +37,7 @@ function BlogTagsListPage(props): JSX.Element {
   );
   const tagsSection = tagsList
     .map(([category, tagsForCategory]) => (
-      <div key={category} style={{ "display": "inline-block", "padding": "5px" }}>
+      <div key={category} style={{ "display": "flex", "flex-wrap": "wrap" }}>
         {tagsForCategory.map((tag, index) => (
           <Link
             className={`post__tags ${index > 0 ? "margin-horiz--sm" : "margin-right--sm"

@@ -49,6 +49,10 @@
   /* 选中未选中 */
   --btn-selected: var(--ifm-color-primary);
   --btn-unselected: #cecece;
+
+  /* 代码块背景 */
+  --ifm-code-background: #3887fe1a;
+  --ifm-code-color: #3887fe;
 }
 
 html {
@@ -431,7 +435,7 @@ html[data-theme='dark'] .bloghome__intro > p {
   height: 4px;
   background-color: var(--ifm-color-primary);
   align-self: end;
-  margin-bottom: 1.15em;
+  margin-bottom: -1em;
   opacity: 0.25;
 }
 
@@ -859,4 +863,8 @@ pagination-nav__item:hover .pagination-nav__link {
   position: absolute;
   content: '';
   background: #fff;
+}
+
+code {
+  color: #3887fe;
 }
