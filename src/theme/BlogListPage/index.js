@@ -1,10 +1,3 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import React, { useEffect } from 'react';
 
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -13,12 +6,14 @@ import BlogPostItem from '@theme/BlogPostItem';
 import BlogListPaginator from '@theme/BlogListPaginator';
 
 import useViews from './useViews';
-
+import styles from './styles.module.css';
 // import Fade from "react-reveal/Fade";
 
 import Translate from '@docusaurus/Translate';
 import Head from '@docusaurus/Head';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTags } from '@fortawesome/free-solid-svg-icons';
 import ListFilter from './img/list.svg';
 import CardFilter from './img/card.svg';
 
@@ -28,8 +23,10 @@ import { useViewType } from './useViewType';
 import Hero from '@site/src/components/Hero';
 // import Adsense from "@site/src/components/Adsense";
 
+import BlogTagsListPage from '@theme/BlogTagsListPage';
+
 function BlogListPage(props) {
-  const { metadata, items } = props;
+  const { metadata, items, tags } = props;
 
   const {
     siteConfig: { title: siteTitle },
@@ -46,11 +43,76 @@ function BlogListPage(props) {
     description = '';
   }
 
+  const isBlogPage = metadata.permalink !== '/essay';
+
   const views = useViews(items);
   const { viewType, toggleViewType } = useViewType();
 
   const isCardView = viewType === 'card';
   const isListView = viewType === 'list';
+
+  const InfoCard = () => {
+    function getCategoryOfTag(tag) {
+      // tag's category should be customizable
+      return tag[0].toUpperCase();
+    }
+
+    const tagCategories = {};
+    Object.keys(tags).forEach((tag) => {
+      const category = getCategoryOfTag(tag);
+      tagCategories[category] = tagCategories[category] || [];
+      tagCategories[category].push(tag);
+    });
+
+    const tagsList = Object.entries(tagCategories).sort(([a], [b]) => a.localeCompare(b));
+    const tagsSection = tagsList
+      .map(([category, tagsForCategory]) => (
+        <div key={category} style={{ display: 'flex', flexWrap: 'wrap' }}>
+          {tagsForCategory.map((tag, index) => (
+            <Link className={`post__tags margin-right--sm margin-bottom--sm`} href={tags[tag].permalink} key={tag}>
+              {tags[tag].name}({tags[tag].count})
+            </Link>
+          ))}
+        </div>
+      ))
+      .filter((item) => item != null);
+
+    const { totalCount: blogCount } = metadata;
+    const tagCount = Object.values(tagCategories['/']).length;
+
+    return (
+      <div
+        className={viewType === 'card' ? `col col--3 ${styles['info-wrapper']}` : ''}
+        style={{ display: `${viewType === 'card' && isBlogPage ? '' : 'none'}`, marginTop: `${isBlogOnlyMode ? '10em' : '5.5em'}` }}
+      >
+        <div className='bloghome__posts'>
+          <div className={`bloghome__posts-card ${styles['info-wrapper']}`}>
+            <div className={`row ${styles.card}`} style={{ margin: 0 }}>
+              <div className={styles['personal-info-wrapper']}>
+                <img className={styles['personal-img']} src='/img/logo.webp'></img>
+                <h3 className={styles['personal-name']}>愧怍</h3>
+                <h3 className={styles['personal-name']}>
+                  文章数 {blogCount} | 标签数 {tagCount}
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div className={`bloghome__posts-card ${styles['info-wrapper']}`}>
+            <div className={`row ${styles.card}`} style={{ margin: 0 }}>
+              <div className={styles['personal-info-wrapper']}>
+                <FontAwesomeIcon icon={faTags} color='#c4d3e0' />
+                <Link className={`post__tags margin-horiz--sm`} href={'./tags'}>
+                  标签
+                </Link>
+                <div className='margin-bottom--md'></div>
+                {tagsSection}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <Layout title={title} description={description} wrapperClassName='blog-list__page'>
@@ -62,7 +124,7 @@ function BlogListPage(props) {
       <div className='container-wrapper'>
         <div className='container padding-vert--sm'>
           <div className='row'>
-            <div className='col col--12'>
+            <div className={viewType === 'card' && isBlogPage ? 'col col--9' : 'col col--12'}>
               {/* <div className="content__divider"></div> */}
               {!isPaginated && (
                 <h1 className='blog__section_title' id='homepage_blogs'>
@@ -151,6 +213,7 @@ function BlogListPage(props) {
                 <BlogListPaginator metadata={metadata} />
               </div>
             </div>
+            <InfoCard />
           </div>
         </div>
       </div>

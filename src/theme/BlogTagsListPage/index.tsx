@@ -8,6 +8,7 @@
 import React from 'react';
 
 import Layout from '@theme/Layout';
+import BlogPostItem from "@theme/BlogPostItem";
 import Link from '@docusaurus/Link';
 import BlogSidebar from '@theme/BlogSidebar';
 import { translate } from '@docusaurus/Translate';
@@ -19,7 +20,8 @@ function getCategoryOfTag(tag: string) {
 }
 
 function BlogTagsListPage(props): JSX.Element {
-  const { tags, sidebar } = props;
+  const { tags, sidebar, items } = props;
+
   const title = translate({
     id: 'theme.tags.tagsPageTitle',
     message: 'Tags',
@@ -37,11 +39,10 @@ function BlogTagsListPage(props): JSX.Element {
   );
   const tagsSection = tagsList
     .map(([category, tagsForCategory]) => (
-      <div key={category} style={{ "display": "flex", "flex-wrap": "wrap" }}>
+      <div key={category} style={{ "display": "flex", "flexWrap": "wrap" }}>
         {tagsForCategory.map((tag, index) => (
           <Link
-            className={`post__tags ${index > 0 ? "margin-horiz--sm" : "margin-right--sm"
-              }`}
+            className={`post__tags margin-horiz--sm margin-bottom--sm`}
             href={tags[tag].permalink}
             key={tag}>
 
@@ -93,10 +94,22 @@ function BlogTagsListPage(props): JSX.Element {
             <BlogSidebar sidebar={sidebar} />
           </aside>
           <main className="col col--7">
-            <h1>{title}</h1>
+            <h1>标签</h1>
             {renderTags()}
             {tagsSection}
             {/* <section className="margin-vert--lg">{tagsSection}</section> */}
+            {/* <div className="margin-vert--xl">
+              {items.map(({ content: BlogPostContent }) => (
+                <BlogPostItem
+                  key={BlogPostContent.metadata.permalink}
+                  frontMatter={BlogPostContent.frontMatter}
+                  metadata={BlogPostContent.metadata}
+                  truncated
+                >
+                  <BlogPostContent />
+                </BlogPostItem>
+              ))}
+            </div> */}
           </main>
         </div>
       </div>

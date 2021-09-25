@@ -53,7 +53,7 @@ export const MarkdownSection = styled.section`
 
 export const StyledBlogItem = styled.div`
   margin-top: 0em;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 
   ${({ isBlogPostPage }) =>
     isBlogPostPage &&

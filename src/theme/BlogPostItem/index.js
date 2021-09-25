@@ -37,7 +37,7 @@ const MONTHS = ['', 'February', 'March', 'April', 'May', 'June', 'July', 'August
 function BlogPostItem(props) {
   const { children, frontMatter, metadata, truncated, isBlogPostPage = false, views } = props;
   const { date, permalink, tags, readingTime } = metadata;
-  
+
   // activityId, oid 为 B 站评论相关
   const { slug: postId, author, title, image, activityId } = frontMatter;
 
@@ -120,13 +120,9 @@ function BlogPostItem(props) {
 
       {/* 统计 */}
       {isBlogPostPage && <Count title={title} />}
-      <div
-        className={`row 
-          ${!isBlogPostPage ? 'blog-list--item' : ''}`}
-        style={{ margin: 0 }}
-      >
+      <div className={`row ${!isBlogPostPage ? 'blog-list--item' : ''}`} style={{ margin: 0 }}>
         {/* 列表页日期 */}
-        {!isBlogPostPage && (
+        {/* {!isBlogPostPage && (
           <div className='post__date-container col col--3 padding-right--lg margin-bottom--lg'>
             <div className='post__date'>
               <div className='post__day'>{day}</div>
@@ -134,8 +130,8 @@ function BlogPostItem(props) {
             </div>
             <div className='line__decor'></div>
           </div>
-        )}
-        <div className={`col ${isBlogPostPage ? `col--12 article__details` : `col--9`}`}>
+        )} */}
+        <div className={`col ${isBlogPostPage ? `col--12 article__details` : `col--12`}`}>
           {/* 博文部分 */}
           <article className={!isBlogPostPage ? undefined : undefined}>
             {/* 标题 */}
@@ -181,7 +177,7 @@ function BlogPostItem(props) {
              )} */}
             {isBlogPostPage}
           </article>
-          <footer className='article__footer'>
+          <footer className='article__footer padding-top--md'>
             {!isBlogPostPage && (
               <span className='footer__read_count'>
                 <Eye
