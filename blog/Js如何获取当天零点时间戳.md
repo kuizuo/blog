@@ -1,5 +1,5 @@
 ---
-title: Js如何获取当天零点时间戳
+title: JS如何获取当天零点时间戳
 date: 2021-08-18
 tags:
  - js
