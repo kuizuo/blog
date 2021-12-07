@@ -83,7 +83,7 @@ function BlogListPage(props) {
     return (
       <div
         className={viewType === 'card' ? `col col--3 ${styles['info-wrapper']}` : ''}
-        style={{ display: `${viewType === 'card' && isBlogPage ? '' : 'none'}`, marginTop: `${isBlogOnlyMode ? '10em' : '5.5em'}` }}
+        style={{ display: `${viewType === 'card' && isBlogPage ? '' : 'none'}` }}
       >
         <div className='bloghome__posts'>
           <div className={`bloghome__posts-card ${styles['info-wrapper']}`}>
@@ -124,7 +124,7 @@ function BlogListPage(props) {
       <div className='container-wrapper'>
         <div className='container padding-vert--sm'>
           <div className='row'>
-            <div className={viewType === 'card' && isBlogPage ? 'col col--9' : 'col col--12'}>
+            <div className={'col col--12'}>
               {/* <div className="content__divider"></div> */}
               {!isPaginated && (
                 <h1 className='blog__section_title' id='homepage_blogs'>
@@ -143,6 +143,10 @@ function BlogListPage(props) {
                 <CardFilter onClick={() => toggleViewType('card')} className={viewType === 'card' ? 'bloghome__switch--selected' : 'bloghome__switch'} />
                 <ListFilter onClick={() => toggleViewType('list')} className={viewType === 'list' ? 'bloghome__switch--selected' : 'bloghome__switch'} />
               </div>
+            </div>
+          </div>
+          <div className='row'>
+            <div className={viewType === 'card' && isBlogPage ? 'col col--9' : 'col col--12'}>
               <div className='bloghome__posts'>
                 {isCardView && (
                   <div className='bloghome__posts-card'>
