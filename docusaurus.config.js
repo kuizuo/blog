@@ -44,6 +44,11 @@ module.exports = {
           position: 'right',
         },
         {
+          label: '标签',
+          to: 'tags',
+          position: 'right',
+        },
+        {
           label: '学习',
           position: 'right',
           items: [

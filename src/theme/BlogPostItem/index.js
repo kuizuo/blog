@@ -110,7 +110,7 @@ function BlogPostItem(props) {
     <StyledBlogItem
       isDark={isDarkTheme}
       isBlogPostPage={isBlogPostPage}
-      // className={isBlogPostPage ? "margin-top--xl" : ""}
+    // className={isBlogPostPage ? "margin-top--xl" : ""}
     >
       <Head>
         {image && <meta property='og:image' content={imageUrl} />}
@@ -119,7 +119,7 @@ function BlogPostItem(props) {
       </Head>
 
       {/* 统计 */}
-      {isBlogPostPage && <Count title={title} />}
+      {<Count title={title} />}
       <div className={`row ${!isBlogPostPage ? 'blog-list--item' : ''}`} style={{ margin: 0 }}>
         {/* 列表页日期 */}
         {/* {!isBlogPostPage && (
@@ -139,6 +139,7 @@ function BlogPostItem(props) {
             {/* 列表页标签 */}
             {!isBlogPostPage && renderTags()}
             {/* 发布日期与阅读时间 */}
+            
             {isBlogPostPage && (
               <p className={`single-post--date text--center`}>
                 {dateStr} ·{' '}

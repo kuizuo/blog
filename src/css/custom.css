@@ -135,10 +135,26 @@ table {
 
 .markdown > h2 {
   font-size: 1.8em;
+  /* border-bottom: 1px solid #338bff; */
 }
 
 .markdown > h3 {
   font-size: 1.5em;
+}
+
+.markdown > h2:before {
+  margin-right: 0.4em;
+  display: inline-block;
+}
+
+.markdown > h2 > a {
+  display: inline-block;
+}
+
+.markdown > h2:before {
+  background: #338bff;
+  color: transparent;
+  content: '.';
 }
 
 /* 首页背景 */

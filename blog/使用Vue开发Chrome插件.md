@@ -6,6 +6,7 @@ tags:
  - vue
  - chrome
  - 开发
+sticky: true
 ---
 
 ![mini](https://img.kuizuo.cn/mini.jpg)

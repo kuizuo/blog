@@ -11,6 +11,8 @@ import Link from "@docusaurus/Link";
 import BlogSidebar from "@theme/BlogSidebar";
 import Translate, { translate } from "@docusaurus/Translate";
 
+import useViews from '../BlogListPage/useViews';
+
 function pluralize(count, word) {
   return count > 1 ? `${word}s` : word;
 }
@@ -20,6 +22,8 @@ function pluralize(count, word) {
 function BlogTagsPostPage(props) {
   const { metadata, items, sidebar } = props;
   const { allTagsPath, name: tagName, count } = metadata;
+
+  const views = useViews(items);
 
   const i18nTitle = translate({
     id: "blogtagpage.title",
@@ -75,6 +79,7 @@ function BlogTagsPostPage(props) {
                   frontMatter={BlogPostContent.frontMatter}
                   metadata={BlogPostContent.metadata}
                   truncated
+                  views={views.find((v) => v.title == BlogPostContent.frontMatter.title)?.views}
                 >
                   <BlogPostContent />
                 </BlogPostItem>

@@ -114,7 +114,13 @@ http.cors.allow-headers: Authorization
 xpack.security.enabled: true
 ```
 
-重启后,重新进入容器,输入`elasticsearch-setup-passwords interactive`,按y确认后即可设置密码.
+重启后,重新进入容器,输入
+
+```
+elasticsearch-setup-passwords interactive
+```
+
+按y确认后即可设置密码
 
 进入kibana容器
 
@@ -123,7 +129,6 @@ docker exec -it kibana bash
 
 cd config
 vi kibana.yml
-
 ```
 
 添加如下代码
@@ -131,6 +136,13 @@ vi kibana.yml
 ```
 elasticsearch.username: "kibana"
 elasticsearch.password: "a123456"
+```
+
+顺便在加这几行代码，后续如果导出数据过大的话也导的出来
+
+```
+xpack.reporting.csv.maxSizeBytes: 409715200
+xpack.reporting.queue.timeout: 2800000
 ```
 
 登录Kibana的账户就是kibana,elasticsearch的账户为elastic.
@@ -350,6 +362,44 @@ PUT 索引名称/_settings?preserve_existing=true
 
 3、在请求的时候附加参数`"track_total_hits":true`
 
+### elasticsearch默认分配内容为1g
+
+elasticsearch默认分配内容为1g，在`jvm.options`配置如下
+
+```
+################################################################
+## IMPORTANT: JVM heap size
+################################################################
+##
+## The heap size is automatically configured by Elasticsearch
+## based on the available memory in your system and the roles
+## each node is configured to fulfill. If specifying heap is
+## required, it should be done through a file in jvm.options.d,
+## and the min and max should be set to the same value. For
+## example, to set the heap to 4 GB, create a new file in the
+## jvm.options.d directory containing these lines:
+##
+## -Xms4g
+## -Xmx4g
+##
+## See https://www.elastic.co/guide/en/elasticsearch/reference/current/heap-size.html
+## for more information
+##
+################################################################
+
+-Xms1g
+-Xmx1g
+```
+
+将其更改为服务器可分配的的内存，比如32g，就分配个16g即可
+
+```
+-Xms16g
+-Xmx16g
+```
+
+重启elasticsearch生效。
+
 ### kibana 设置导出csv大小
 
 kibana默认导出的csv有文件大小限制，默认是10M，数据量大于10M，那么csv只会下载10M大小的数据
@@ -371,7 +421,31 @@ xpack.reporting.queue.timeout: 1800000
 
 > 参考 [Kibana 7.X 导出CSV报告](https://blog.csdn.net/qq_25646191/article/details/108641758)
 
+### Kibana server is not ready yet
 
+访问Elasticsearch的9200端口，能正常访问，但访问Kibana的5601端口就提示
 
+```
+Kibana server is not ready yet
+```
 
+**解决办法**
+
+将配置文件kibana.yml中的elasticsearch.url改为正确的链接，默认为: http://elasticsearch:9200，改为http://自己的IP地址:9200
+
+```
+# Default Kibana configuration for docker target
+server.name: kibana
+server.host: "0"
+elasticsearch.hosts: [ "http://elasticsearch:9200" ]
+xpack.monitoring.ui.container.elasticsearch.enabled: true
+```
+
+然后重启kibana即可，记得防火墙开放5601端口
+
+#### 出问题不知道怎么解决，查看日志输出才是关键
+
+```
+docker logs 容器id(容器名)
+```
 
