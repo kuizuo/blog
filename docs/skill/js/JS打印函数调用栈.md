@@ -124,9 +124,9 @@ hello world
 
 **前提: 非严格模式下**
 
-### new Error().stack 
+### new Error().stack
 
-众所周知，程序一旦出错，便会直接停止运行，同时输出报错信息，而这里的报错信息就包括调用的函数以及具体位置，相对于上面的方法而言，这个能直接在执行环境中输出，而不是单纯的在控制台显示。
+众所周知，程序一旦出错W，便会直接停止运行，同时输出报错信息，而这里的报错信息就包括调用的函数以及具体位置，相对于上面的方法而言，这个能直接在执行环境中输出，而不是单纯的在控制台显示。
 
 同样还是上面的代码
 
@@ -207,6 +207,58 @@ Function.Module._load node:internal/modules/cjs/loader:816:12
 Function.executeUserEntryPoint [as runMain] node:internal/modules/run_main:79:12
 hello world
 ```
+
+### Error.captureStackTrace
+
+Error中有一个静态方法，同样用于获取调用栈。演示代码如下
+
+```js
+function main() {
+  let a = fun('hello world')
+  console.log(a)
+}
+
+function fun(a) {
+  let stack =  stackTrace()
+  console.log(stack)
+    
+  return a
+}
+
+function stackTrace() {
+  const obj = {}
+  Error.captureStackTrace(obj, stackTrace)
+  return obj.stack
+}
+
+main()
+```
+
+效果和`new Error().stack`一样，只不过少了一行~~at printStack (c:\Users\zeyu\Desktop\demo\main.js:12:16)~~ 的输出。
+
+不过一般用法如下
+
+```js
+function MyError() {
+  Error.captureStackTrace(this, MyError);
+}
+
+// 如果没有向captureStackTrace传递MyError参数，则在访问.stack属性时，MyError及其内部信息将会出现在堆栈信息中。当传递MyError参数时，这些信息会被忽略。
+new MyError().stack
+```
+
+其中`Error.captureStackTrace()`源自[V8引擎的Stack Trace API](https://link.segmentfault.com/?enc=u3YSqa2uqpuK4qOK1mcE%2BQ%3D%3D.S7z7nzmOapoEFtq3WEZcXOIYfU79dXMyMCaHOU3pUVILksNiqpAhLEXacnQs0fHN)，在自定义Error类的内部经常会使用该函数，用以在error对象上添加合理的stack属性。上文中的MyError类即是一个最简单的例子。
+
+```js
+function MyError() {
+  Error.captureStackTrace(this, MyError);
+}
+
+// 如果没有向captureStackTrace传递MyError参数，则在访问.stack属性时，MyError及其内部信息将会出现在堆栈信息中。当传递MyError参数时，这些信息会被忽略。
+new MyError().stack
+```
+
+[关于Error.captureStackTrace - SegmentFault 思否](https://segmentfault.com/a/1190000007076507)
 
 ## 总结
 
