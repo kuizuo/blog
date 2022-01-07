@@ -19,10 +19,10 @@ module.exports = {
   themeConfig: {
     image: 'img/kuizuo.jpg',
     announcementBar: {
-      /*       id: "feature_release", // Any value that will identify this message.
-            content: `更新<a href='/docs/skill/browser/js-web-animations-api'>《与 CSS Keyframes 媲美的原生 JS 高性能动画 API 教程》配套文本</a>`,
-            backgroundColor: "#fafbfc", // Defaults to `#fff`.
-            textColor: "#091E42", // Defaults to `#000`. */
+      id: "feature_release", // Any value that will identify this message.
+      content: `更新博客<a href='/为什么使用pnpm'>《为什么使用pnpm》</a>`,
+      backgroundColor: "#fafbfc", // Defaults to `#fff`.
+      textColor: "#091E42", // Defaults to `#000`. 
     },
     hideableSidebar: true,
     navbar: {
@@ -33,11 +33,6 @@ module.exports = {
         srcDark: 'img/logo.webp',
       },
       items: [
-        // {
-        //   label: '博客',
-        //   to: '/#homepage_blogs',
-        //   position: 'right',
-        // },
         {
           label: '随笔',
           to: 'essay',
@@ -48,6 +43,11 @@ module.exports = {
           to: 'tags',
           position: 'right',
         },
+        // {
+        //   label: '时间轴',
+        //   to: 'timeline',
+        //   position: 'right',
+        // },
         {
           label: '学习',
           position: 'right',
