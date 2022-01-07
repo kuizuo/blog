@@ -3,7 +3,7 @@ title: vscode插件推荐与快捷键
 date: 2021-08-03
 tags:
  - vscode
- - 工具
+ - 开发工具
 
 ---
 

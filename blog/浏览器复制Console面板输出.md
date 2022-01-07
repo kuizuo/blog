@@ -1,5 +1,5 @@
 ---
-title: 复制Console面板输出
+title: 浏览器复制Console面板输出
 date: 2021-12-07
 tags: 
  - js
