@@ -9,7 +9,6 @@ const friendLinks = [
 
 module.exports = {
   title: '愧怍的小站',
-  // tagline:
   titleDelimiter: '-',
   url: 'https://kuizuo.cn',
   baseUrl: '/',
@@ -18,12 +17,13 @@ module.exports = {
   projectName: 'kuizuo.cn', // Usually your repo name.
   themeConfig: {
     image: 'img/kuizuo.jpg',
-    announcementBar: {
-      id: "feature_release", // Any value that will identify this message.
-      content: `更新博客<a href='/为什么使用pnpm'>《为什么使用pnpm》</a>`,
-      backgroundColor: "#fafbfc", // Defaults to `#fff`.
-      textColor: "#091E42", // Defaults to `#000`. 
-    },
+    // announcementBar: {
+    //   id: 'feature_release', // Any value that will identify this message.
+    //   content: `更新博客<a href='/为什么使用pnpm'>《为什么使用pnpm》</a>`,
+    //   backgroundColor: '#fafbfc', // Defaults to `#fff`.
+    //   textColor: '#091E42', // Defaults to `#000`.
+    // },
+    metadata: [{ name: 'keywords', content: 'blog, javascript, js, typescript, node, react, vue, web, 前端, 后端' }],
     hideableSidebar: true,
     navbar: {
       title: '愧怍',
@@ -34,20 +34,15 @@ module.exports = {
       },
       items: [
         {
-          label: '随笔',
-          to: 'essay',
-          position: 'right',
-        },
-        {
           label: '标签',
           to: 'tags',
           position: 'right',
         },
-        // {
-        //   label: '时间轴',
-        //   to: 'timeline',
-        //   position: 'right',
-        // },
+        {
+          label: '归档',
+          to: 'archive',
+          position: 'right',
+        },
         {
           label: '学习',
           position: 'right',
@@ -140,6 +135,10 @@ module.exports = {
       // additionalLanguages: ['powershell','vue'],
       // defaultLanguage: "javascript",
     },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4,
+    },
     zoomSelector: '.markdown :not(em) > img',
     // googleAnalytics: {
     //   trackingID: "UA-118572241-1",
@@ -183,6 +182,7 @@ module.exports = {
           changefreq: 'daily',
           priority: 0.5,
         },
+        // debug: true,
       },
     ],
   ],
@@ -191,28 +191,10 @@ module.exports = {
     path.resolve(__dirname, './src/plugin/plugin-baidu-analytics'),
     path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
     // path.resolve(__dirname, "./src/plugin/plugin-onesignal-push"),
-    '@docusaurus/plugin-ideal-image',
-    'plugin-image-zoom',
-    path.resolve(__dirname, './src/plugin/plugin-latest-docs'),
     // "docusaurus2-dotenv",
-    // [
-    //   '@docusaurus/plugin-content-blog',
-    //   {
-    //     id: 'first-blog',
-    //     routeBasePath: 'blog',
-    //     path: './blog',
-    //     blogSidebarTitle: '近期文章',
-    //   },
-    // ],
-    [
-      '@docusaurus/plugin-content-blog',
-      {
-        id: 'second-blog',
-        routeBasePath: 'essay',
-        path: './essay',
-        blogSidebarTitle: '近期文章',
-      },
-    ],
+    '@docusaurus/plugin-ideal-image',
+    path.resolve(__dirname, './src/plugin/plugin-image-zoom'),
+    path.resolve(__dirname, './src/plugin/plugin-latest-docs'),
     // [
     //   "@easyops-cn/docusaurus-search-local",
     //   {

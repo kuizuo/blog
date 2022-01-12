@@ -21,7 +21,6 @@ function getCategoryOfTag(tag: string) {
 
 function BlogTagsListPage(props): JSX.Element {
   const { tags, sidebar, items } = props;
-
   const title = translate({
     id: 'theme.tags.tagsPageTitle',
     message: 'Tags',
@@ -96,9 +95,9 @@ function BlogTagsListPage(props): JSX.Element {
           <main className="col col--7">
             <h1>标签</h1>
             {renderTags()}
-            {tagsSection}
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>{tagsSection}</div>
             {/* <section className="margin-vert--lg">{tagsSection}</section> */}
-            {/* <div className="margin-vert--xl">
+            {/* {<div className="margin-vert--xl">
               {items.map(({ content: BlogPostContent }) => (
                 <BlogPostItem
                   key={BlogPostContent.metadata.permalink}
@@ -109,7 +108,7 @@ function BlogTagsListPage(props): JSX.Element {
                   <BlogPostContent />
                 </BlogPostItem>
               ))}
-            </div> */}
+            </div>} */}
           </main>
         </div>
       </div>

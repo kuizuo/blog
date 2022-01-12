@@ -23,66 +23,48 @@ import { MarkdownSection, StyledBlogItem } from './style';
 import Eye from '@site/static/icons/eye.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTags } from '@fortawesome/free-solid-svg-icons';
-
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Comments from '@site/src/components/Comments';
-// import Ad from "@site/src/components/Ad";
-// import adConfig from "@site/src/components/Ad/config";
-// import Adsense from "@site/src/components/Adsense";
-
+import BlogPostAuthors from '@theme/BlogPostAuthors';
 import Translate from '@docusaurus/Translate';
-
-const MONTHS = ['', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+import dayjs from 'dayjs';
 
 function BlogPostItem(props) {
-  const { children, frontMatter, metadata, truncated, isBlogPostPage = false, views } = props;
-  const { date, permalink, tags, readingTime } = metadata;
+  const { children, frontMatter, metadata, truncated, isBlogPostPage = false, views, assets } = props;
+  const { date, permalink, tags, authors, readingTime } = metadata;
 
-  // activityId, oid 为 B 站评论相关
-  const { slug: postId, author, title, image, activityId } = frontMatter;
+  const {
+    siteConfig: { title: siteTitle, url: siteUrl },
+  } = useDocusaurusContext();
 
-  const authorURL = frontMatter.author_url || frontMatter.authorURL;
-  const authorTitle = frontMatter.author_title || frontMatter.authorTitle;
-  const authorImageURL = frontMatter.author_image_url || frontMatter.authorImageURL;
+  const { slug: postId, title, image } = frontMatter;
   const imageUrl = useBaseUrl(image, { absolute: true });
-
   // 是否为黑暗主题：
   const theme = useContext(ThemeContext);
   const { isDarkTheme } = theme;
-
-  // 当前语言
-  const {
-    i18n: { currentLocale },
-  } = useDocusaurusContext();
-
-  const dateObj = new Date(date);
-
-  const year = dateObj.getFullYear();
-  let month = dateObj.getMonth() + 1;
-  const day = dateObj.getDate();
-
-  let dateStr = `${year}年${month}月`;
-
-  if (currentLocale === 'en') {
-    month = dateObj.toLocaleString('default', { month: 'long' });
-    dateStr = `${month}, ${year}`;
-  }
 
   const renderPostHeader = () => {
     const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
 
     return (
       <header>
-        <TitleHeading className={clsx(isBlogPostPage ? 'margin-bottom--md' : 'margin-vert--md', styles.blogPostTitle, isBlogPostPage ? 'text--center' : '')}>
-          {isBlogPostPage ? title : <Link to={permalink}>{title}</Link>}
+        <TitleHeading className={styles.blogPostTitle} itemProp='headline'>
+          {isBlogPostPage ? (
+            title
+          ) : (
+            <Link itemProp='url' to={permalink}>
+              {title}
+            </Link>
+          )}
         </TitleHeading>
-        {
-          <div className='margin-vert--md'>
-            <time dateTime={date} className={styles.blogPostDate}>
-              {month} {day}, {year} {readingTime && <> · {Math.ceil(readingTime)} min read</>}
-            </time>
-          </div>
-        }
+        <div className='margin-vert--md'>
+          <time dateTime={date} className={styles.blogPostDate}>
+            {dayjs(date).format('YYYY-MM-DD')}
+            {!isBlogPostPage && readingTime && <> · {Math.ceil(readingTime)} min read</>}
+            {isBlogPostPage && readingTime && <> · 预计阅读时间 {Math.ceil(readingTime)} 分钟</>}
+          </time>
+        </div>
+        {isBlogPostPage && authors && <BlogPostAuthors authors={authors} assets={assets} />}
       </header>
     );
   };
@@ -106,11 +88,36 @@ function BlogPostItem(props) {
     );
   };
 
+  const renderCopyright = () => {
+    return (
+      <div className='post-copyright'>
+        <div className='post-copyright__author'>
+          <span className='post-copyright-meta'>作者:</span>{' '}
+          <span className='post-copyright-info'>
+            <a>{authors.map((a) => a.name).join(',')}</a>
+          </span>
+        </div>
+        <div className='post-copyright__type'>
+          <span className='post-copyright-meta'>链接:</span>{' '}
+          <span className='post-copyright-info'>
+            <a href={siteUrl + permalink}>{siteUrl + permalink}</a>
+          </span>
+        </div>
+        <div className='post-copyright__notice'>
+          <span className='post-copyright-meta'>来源:</span>{' '}
+          <span className='post-copyright-info' href={siteUrl}>
+            <a href={siteUrl}>{siteTitle}</a> 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+          </span>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <StyledBlogItem
       isDark={isDarkTheme}
       isBlogPostPage={isBlogPostPage}
-    // className={isBlogPostPage ? "margin-top--xl" : ""}
+      // className={isBlogPostPage ? "margin-top--xl" : ""}
     >
       <Head>
         {image && <meta property='og:image' content={imageUrl} />}
@@ -119,14 +126,14 @@ function BlogPostItem(props) {
       </Head>
 
       {/* 统计 */}
-      {<Count title={title} />}
+      {isBlogPostPage && <Count title={title} />}
       <div className={`row ${!isBlogPostPage ? 'blog-list--item' : ''}`} style={{ margin: 0 }}>
         {/* 列表页日期 */}
         {/* {!isBlogPostPage && (
           <div className='post__date-container col col--3 padding-right--lg margin-bottom--lg'>
             <div className='post__date'>
               <div className='post__day'>{day}</div>
-              <div className='post__year_month'>{dateStr}</div>
+              <div className='post__year_month'>{date}</div>
             </div>
             <div className='line__decor'></div>
           </div>
@@ -138,47 +145,20 @@ function BlogPostItem(props) {
             {renderPostHeader()}
             {/* 列表页标签 */}
             {!isBlogPostPage && renderTags()}
-            {/* 发布日期与阅读时间 */}
-            
-            {isBlogPostPage && (
-              <p className={`single-post--date text--center`}>
-                {dateStr} ·{' '}
-                <Translate id='blogpage.estimated.time' description='blog page estimated time'>
-                  预计阅读时间：
-                </Translate>
-                {readingTime && (
-                  <>
-                    {' '}
-                    {Math.ceil(readingTime)}{' '}
-                    <Translate id='blogpage.estimated.time.label' description='blog page estimated time label'>
-                      分钟
-                    </Translate>
-                  </>
-                )}
-              </p>
-            )}
-            {/* 标签 */}
-            {isBlogPostPage && (
-              <>
-                <div className='text--center margin-bottom--xs padding-bottom--xs'>{renderTags()}</div>
-                {/* <Adsense responsive="true" format="auto" slot="2800800187" /> */}
-              </>
-            )}
-
             {/* 正文 */}
             <MarkdownSection isBlogPostPage={isBlogPostPage} isDark={isDarkTheme} className='markdown'>
               <MDXProvider components={MDXComponents}>{children}</MDXProvider>
             </MarkdownSection>
-            {/* {isBlogPostPage && (
-               <div style={{ marginTop: "1em" }}>
-                 {adConfig.articleFooter.map(({ id, alt, imageSrc, link }) => (
-                   <Ad key={id} link={link} src={imageSrc} alt={alt} />
-                 ))}
-               </div>
-             )} */}
-            {isBlogPostPage}
           </article>
-          <footer className='article__footer padding-top--md'>
+          <footer className='article__footer padding-top--md '>
+            {isBlogPostPage && (
+              <div>
+                {/* 版权 */}
+                {authors && renderCopyright()}
+                {/* 标签 */}
+                {renderTags()}
+              </div>
+            )}
             {!isBlogPostPage && (
               <span className='footer__read_count'>
                 <Eye
@@ -196,9 +176,7 @@ function BlogPostItem(props) {
                 </strong>
               </Link>
             )}
-            {/* isBlogPostPage && (
-               <Comments activityId={activityId} oid={oid} bvid={bvid} />
-             ) */}
+            {/* {isBlogPostPage && <Comments activityId={activityId} oid={oid} bvid={bvid} />} */}
           </footer>
         </div>
       </div>

@@ -60,7 +60,7 @@ export const StyledBlogItem = styled.div`
     css`
       box-shadow: var(--post-shadow);
       border-radius: var(--ifm-pagination-nav-border-radius);
-      padding: 3em 2em;
+      padding: 2em 2em;
       margin-top: 0;
       margin-bottom: -2em;
     `}

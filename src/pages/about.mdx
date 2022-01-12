@@ -10,7 +10,7 @@ hide_table_of_contents: true
 
 export const CheckBox2 = ({ children, color }) => (
   <div className={`checkbox minus blue`}>
-    <input type='checkbox' checked />
+    <input type='checkbox' defaultChecked='true'/>
     <span>{children}</span>
   </div>
 );
@@ -29,9 +29,9 @@ export const CheckBox = ({ children, lang, color }) => (
   <div className={`checkbox ${lang}`}>
     <input
       type='radio'
-      checked
+      defaultChecked='true'
       style={{
-        'border-color': color,
+        'borderColor': color,
         border: `2px solid ${color}`,
       }}
     />
@@ -61,7 +61,7 @@ export const CheckBox = ({ children, lang, color }) => (
   HTTP协议
 </CheckBox>
 
-<p style={{ 'margin-top': '10px' }}>
+<p style={{ marginTop: '10px' }}>
   <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript' target='_blank'>
     <img src={'/svg/javascript-original.svg'} alt='javascript' width='40' height='40' />
   </a>
@@ -97,7 +97,6 @@ export const CheckBox = ({ children, lang, color }) => (
 
 <p></p>
 
-
 #### 正在学习
 
 <CheckBox color='#61DAFB' lang='react'>
@@ -110,6 +109,10 @@ export const CheckBox = ({ children, lang, color }) => (
 
 <CheckBox color='#69D7E4' lang='go'>
   Go
+</CheckBox>
+
+<CheckBox color='#6AB344' lang='android'>
+  Android
 </CheckBox>
 
 <p></p>

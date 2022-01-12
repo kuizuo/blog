@@ -4,6 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import BlogPostItem from '@theme/BlogPostItem';
 import BlogListPaginator from '@theme/BlogListPaginator';
+import BlogSidebar from '@theme/BlogSidebar';
 
 import useViews from './useViews';
 import styles from './styles.module.css';
@@ -13,7 +14,7 @@ import Translate from '@docusaurus/Translate';
 import Head from '@docusaurus/Head';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTags } from '@fortawesome/free-solid-svg-icons';
+import { faTags, faHistory } from '@fortawesome/free-solid-svg-icons';
 import ListFilter from './img/list.svg';
 import CardFilter from './img/card.svg';
 
@@ -21,13 +22,9 @@ import Link from '@docusaurus/Link';
 import { useViewType } from './useViewType';
 
 import Hero from '@site/src/components/Hero';
-// import Adsense from "@site/src/components/Adsense";
-
-import BlogTagsListPage from '@theme/BlogTagsListPage';
 
 function BlogListPage(props) {
-  const { metadata, items, tags } = props;
-
+  const { metadata, items, tags, sidebar } = props;
   const {
     siteConfig: { title: siteTitle },
   } = useDocusaurusContext();
@@ -36,14 +33,9 @@ function BlogListPage(props) {
 
   let title = siteTitle + '';
   let suffix = '';
-  let description = `html, css, javascript, react, vue, node, typescript `;
-  if (metadata.permalink === '/essay') {
-    title = '随笔';
-    suffix = '- 愧怍的小站';
-    description = '';
-  }
+  let description = `html, css, javascript, react, vue, node, typescript，前端开发，后端开发，技术分享，开源`;
 
-  const isBlogPage = metadata.permalink !== '/essay';
+  const isBlogPage = metadata.permalink === '/';
 
   const views = useViews(items);
   const { viewType, toggleViewType } = useViewType();
@@ -79,12 +71,9 @@ function BlogListPage(props) {
 
     const { totalCount: blogCount } = metadata;
     const tagCount = Object.values(tagCategories['/']).length;
-
+    
     return (
-      <div
-        className={viewType === 'card' ? `col col--3 ${styles['info-wrapper']}` : ''}
-        style={{ display: `${viewType === 'card' && isBlogPage ? '' : 'none'}` }}
-      >
+      <div className={viewType === 'card' ? `col col--3 ${styles['info-wrapper']}` : ''} style={{ display: `${viewType === 'card' && isBlogPage ? '' : 'none'}` }}>
         <div className='bloghome__posts'>
           <div className={`bloghome__posts-card ${styles['info-wrapper']}`}>
             <div className={`row ${styles.card}`} style={{ margin: 0 }}>
@@ -101,14 +90,26 @@ function BlogListPage(props) {
             <div className={`row ${styles.card}`} style={{ margin: 0 }}>
               <div className={styles['personal-info-wrapper']}>
                 <FontAwesomeIcon icon={faTags} color='#c4d3e0' />
-                <Link className={`post__tags margin-horiz--sm`} href={'./tags'}>
+                <Link className={`margin-horiz--sm`} href={'./tags'}>
                   标签
                 </Link>
                 <div className='margin-bottom--md'></div>
-                {tagsSection}
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>{tagsSection}</div>
               </div>
             </div>
           </div>
+          {/* <div className={`bloghome__posts-card ${styles['info-wrapper']}`}>
+            <div className={`row ${styles.card}`} style={{ margin: 0 }}>
+              <div className={styles['personal-info-wrapper']}>
+                <FontAwesomeIcon icon={faHistory} color='#c4d3e0' />
+                <Link className={`post__tags margin-horiz--sm`} href={'./timeline'}>
+                  最新文章
+                </Link>
+                <div className='margin-bottom--md'></div>
+                <BlogSidebar sidebar={sidebar} />
+              </div>
+            </div>
+          </div> */}
         </div>
       </div>
     );
@@ -117,7 +118,7 @@ function BlogListPage(props) {
   return (
     <Layout title={title} description={description} wrapperClassName='blog-list__page'>
       <Head>
-        <meta name='keywords' content='前端, html, css, js, javascript, react, vue, typescript, es6, html5, css3, 性能优化, 兼容性调整' />
+        <meta name='keywords' content='blog, javascript, js, typescript, node, react, vue, web, 前端, 后端' />
         <title>{title + suffix}</title>
       </Head>
       {!isPaginated && isBlogOnlyMode && <Hero />}

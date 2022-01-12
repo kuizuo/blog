@@ -118,6 +118,10 @@ html[data-theme='dark'] h6 {
   --ifm-heading-color: hsl(214deg, 100%, 96%);
 }
 
+body {
+  font-family: Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
 video {
   max-width: 100%;
 }
@@ -471,8 +475,19 @@ html[data-theme='dark'] .bloghome__intro > p {
 }
 
 .post__tags:hover {
-  /* color: #ffffff; */
+  color: #d4e8fa;
   text-decoration: none;
+}
+
+.post-copyright {
+  margin: 2.5rem 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #eee;
+  font-size: 0.95rem;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.post-copyright-meta {
 }
 
 html[data-theme='dark'] .post__tags {

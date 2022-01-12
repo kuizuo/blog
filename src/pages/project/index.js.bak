@@ -11,12 +11,10 @@ import clsx from 'clsx';
 import {useHistory, useLocation} from '@docusaurus/router';
 
 import {toggleListItem} from '../../utils/jsUtils';
-import {SortedUsers, Tags, TagList} from '../../data/users';
+import {SortedUsers, Tags, TagList} from '../../data/project';
 
-const TITLE = 'Docusaurus Site Showcase';
-const DESCRIPTION = 'List of websites people are building with Docusaurus';
-const EDIT_URL =
-  'https://github.com/facebook/docusaurus/edit/master/website/src/data/users.js';
+const TITLE = '项目展示';
+const DESCRIPTION = ''// '本人所编写过的项目';
 
 function filterUsers(users, selectedTags, operator) {
   if (selectedTags.length === 0) {
@@ -90,12 +88,12 @@ function ShowcaseHeader() {
       <h1>{TITLE}</h1>
       <p>{DESCRIPTION}</p>
       <p>
-        <a
+        {/* <a
           className={'button button--primary'}
           href={EDIT_URL}
           target={'_blank'}>
           🙏 Add your site now!
-        </a>
+        </a> */}
       </p>
     </div>
   );
@@ -147,7 +145,7 @@ function ShowcaseCards({filteredUsers}) {
   return (
     <section className="container margin-top--lg">
       <h2>
-        {filteredUsers.length} site{filteredUsers.length > 1 ? 's' : ''}
+        {filteredUsers.length} project{filteredUsers.length > 1 ? 's' : ''}
       </h2>
       <div className="margin-top--lg">
         {filteredUsers.length > 0 ? (
