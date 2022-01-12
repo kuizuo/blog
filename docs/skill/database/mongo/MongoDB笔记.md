@@ -1,9 +1,7 @@
 ---
 title: MongoDB笔记
 date: 2021-06-20
-tags:
-  - mongo
-  - 数据库
+tags: [mongodb, 数据库]
 ---
 
 ## 安装

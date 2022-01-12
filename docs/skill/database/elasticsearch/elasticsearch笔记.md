@@ -1,11 +1,8 @@
 ---
 title: elasticsearch笔记
 date: 2021-03-15
-tags:
-  - elasticsearch
-  - 数据库
+tags: [elasticsearch, 数据库]
 ---
-
 
 [Elasticsearch Clients | Elastic 官方文档](https://www.elastic.co/guide/en/elasticsearch/client/index.html)
 
@@ -15,17 +12,17 @@ tags:
 
 ### window
 
-解压，双击bin目录下的 `elasticsearch.bat` 即可启动，kibana也是同理。
+解压，双击 bin 目录下的 `elasticsearch.bat` 即可启动，kibana 也是同理。
 
-启动后输入http://localhost:9200 与 http://localhost:5601/ 显示正常说明两者都安装成功
+启动后输入 http://localhost:9200 与 http://localhost:5601/ 显示正常说明两者都安装成功
 
 ### linux
 
-同windows 不过多叙述了
+同 windows 不过多叙述了
 
 ### docker
 
-当然上面那些安装都过于麻烦，docker一步到位
+当然上面那些安装都过于麻烦，docker 一步到位
 
 #### elasticsearch
 
@@ -44,7 +41,7 @@ docker run -d --name elasticsearch --net esnet -p 9200:9200 -p 9300:9300 -e "dis
 
 ```text
 docker run 创建并启动容器
--d 后台运行 
+-d 后台运行
 --name elasticsearch 指定容器唯一的名称，方便管理
 -p 9200:9200 -p 9300:9300 映射容器端口到宿主机上
 -e "discovery.type=single-node" 环境变量配置单机模式
@@ -59,13 +56,13 @@ elasticsearch:tag 镜像名称及版本 tag最新
 docker run -d --name kibana --net esnet -p 5601:5601 kibana:tag
 ```
 
-#### ik分词器
+#### ik 分词器
 
 ```sh
 cd /usr/share/elasticsearch/plugins/
 elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.2.0/elasticsearch-analysis-ik-7.2.0.zip
 exit
-docker restart elasticsearch 
+docker restart elasticsearch
 ```
 
 或
@@ -79,10 +76,10 @@ wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.6.2
 yum install unzip
 unzip elasticsearch-analysis-ik-7.6.2.zip
 exit
-docker restart elasticsearch 
+docker restart elasticsearch
 ```
 
-然后可以在kibana界面的`dev tools`中验证是否安装成功；
+然后可以在 kibana 界面的`dev tools`中验证是否安装成功；
 
 ```
 POST test/_analyze
@@ -94,9 +91,9 @@ POST test/_analyze
 
 #### 设置密码
 
-[ElasticSearch设置账户密码](https://blog.csdn.net/qq_43188744/article/details/108096394)
+[ElasticSearch 设置账户密码](https://blog.csdn.net/qq_43188744/article/details/108096394)
 
-进入es容器
+进入 es 容器
 
 ```
 docker exec -it elasticsearch bash
@@ -120,9 +117,9 @@ xpack.security.enabled: true
 elasticsearch-setup-passwords interactive
 ```
 
-按y确认后即可设置密码
+按 y 确认后即可设置密码
 
-进入kibana容器
+进入 kibana 容器
 
 ```
 docker exec -it kibana bash
@@ -145,11 +142,11 @@ xpack.reporting.csv.maxSizeBytes: 409715200
 xpack.reporting.queue.timeout: 2800000
 ```
 
-登录Kibana的账户就是kibana,elasticsearch的账户为elastic.
+登录 Kibana 的账户就是 kibana,elasticsearch 的账户为 elastic.
 
 ## docker-compose
 
-创建volume挂载目录，并修改目录用户和用户组。由于elasticsearch6之后不允许使用root启用，所以需要修改
+创建 volume 挂载目录，并修改目录用户和用户组。由于 elasticsearch6 之后不允许使用 root 启用，所以需要修改
 
 ```
 /usr/share/elasticsearch/data的权限为1000
@@ -192,8 +189,7 @@ services:
     depends_on:
       - elasticsearch
     restart: always
-    
-    
+
 networks:
   esnet:
 ```
@@ -215,9 +211,9 @@ xpack.security.transport.ssl.enabled: true
 
 ```
 
-启动docker-compose `docker-compose up -d`
+启动 docker-compose `docker-compose up -d`
 
-至此有关elasticSearch安装与配置就告一段落
+至此有关 elasticSearch 安装与配置就告一段落
 
 ## 数据迁移
 
@@ -225,7 +221,7 @@ xpack.security.transport.ssl.enabled: true
 
 [elasticsearch-dump/elasticsearch-dump](https://github.com/elasticsearch-dump/elasticsearch-dump)
 
-这里使用elasticdump (因为只会这个)
+这里使用 elasticdump (因为只会这个)
 
 #### 安装
 
@@ -244,11 +240,11 @@ elasticdump --input SOURCE --output DESTINATION [OPTIONS]
 
 - limit
 
-  每个操作要批量移动多少对象,Limit是文件流的近似值 默认:100
+  每个操作要批量移动多少对象,Limit 是文件流的近似值 默认:100
 
 - type
 
-  导出类型 默认data  [settings, analyzer, data, mapping, policy, alias, template, component_template, index_template]
+  导出类型 默认 data [settings, analyzer, data, mapping, policy, alias, template, component_template, index_template]
 
 - 其他参数看文档,暂时都用不上
 
@@ -258,7 +254,7 @@ elasticdump --input SOURCE --output DESTINATION [OPTIONS]
 # 将es数据导入另一台es数据
 elasticdump --input=http://production.es.com:9200/my_index --output=http://staging.es.com:9200/my_index --all=true --limit=2000
 
-# 或 
+# 或
 elasticdump \
   --input=http://production.es.com:9200/my_index \
   --output=http://staging.es.com:9200/my_index \
@@ -284,7 +280,7 @@ elasticdump \
 
 ```
 
-#### docker安装
+#### docker 安装
 
 ```
 docker pull elasticdump/elasticsearch-dump
@@ -327,21 +323,21 @@ GET answer/_search
 }
 ```
 
-要删除topic为“测试”，只需要将`_search`替换为`_delete_by_query`即可。
+要删除 topic 为“测试”，只需要将`_search`替换为`_delete_by_query`即可。
 
-------
+---
 
 暂时只用到这些 TODO。。。
 
 ## 注意事项
 
-### elasticsearch默认输出一万条
+### elasticsearch 默认输出一万条
 
-elasticsearch默认输出最多一万条，查询第10001条数据就会报错
+elasticsearch 默认输出最多一万条，查询第 10001 条数据就会报错
 
-解决方案: 
+解决方案:
 
-1、修改elasticsearch输出默认限制条数
+1、修改 elasticsearch 输出默认限制条数
 
 ```
 PUT 索引名称/_settings?preserve_existing=true
@@ -356,15 +352,15 @@ PUT 索引名称/_settings?preserve_existing=true
 "settings":{
     "index":{
         "max_result_window":1000000
- 　　} 
+ 　　}
 }
 ```
 
 3、在请求的时候附加参数`"track_total_hits":true`
 
-### elasticsearch默认分配内容为1g
+### elasticsearch 默认分配内容为 1g
 
-elasticsearch默认分配内容为1g，在`jvm.options`配置如下
+elasticsearch 默认分配内容为 1g，在`jvm.options`配置如下
 
 ```
 ################################################################
@@ -391,20 +387,20 @@ elasticsearch默认分配内容为1g，在`jvm.options`配置如下
 -Xmx1g
 ```
 
-将其更改为服务器可分配的的内存，比如32g，就分配个16g即可
+将其更改为服务器可分配的的内存，比如 32g，就分配个 16g 即可
 
 ```
 -Xms16g
 -Xmx16g
 ```
 
-重启elasticsearch生效。
+重启 elasticsearch 生效。
 
-### kibana 设置导出csv大小
+### kibana 设置导出 csv 大小
 
-kibana默认导出的csv有文件大小限制，默认是10M，数据量大于10M，那么csv只会下载10M大小的数据
+kibana 默认导出的 csv 有文件大小限制，默认是 10M，数据量大于 10M，那么 csv 只会下载 10M 大小的数据
 
-并且导出CSV报告Kibana是放入队列中执行的，有一个处理超时时间，默认是12000毫秒，也就是2分钟
+并且导出 CSV 报告 Kibana 是放入队列中执行的，有一个处理超时时间，默认是 12000 毫秒，也就是 2 分钟
 
 解决方案: 通过修改配置可以更改限制大小
 
@@ -417,13 +413,13 @@ xpack.reporting.csv.maxSizeBytes: 209715200
 xpack.reporting.queue.timeout: 1800000
 ```
 
-**修改后，重启kibana即可生效**
+**修改后，重启 kibana 即可生效**
 
-> 参考 [Kibana 7.X 导出CSV报告](https://blog.csdn.net/qq_25646191/article/details/108641758)
+> 参考 [Kibana 7.X 导出 CSV 报告](https://blog.csdn.net/qq_25646191/article/details/108641758)
 
 ### Kibana server is not ready yet
 
-访问Elasticsearch的9200端口，能正常访问，但访问Kibana的5601端口就提示
+访问 Elasticsearch 的 9200 端口，能正常访问，但访问 Kibana 的 5601 端口就提示
 
 ```
 Kibana server is not ready yet
@@ -431,7 +427,7 @@ Kibana server is not ready yet
 
 **解决办法**
 
-将配置文件kibana.yml中的elasticsearch.url改为正确的链接，默认为: http://elasticsearch:9200，改为http://自己的IP地址:9200
+将配置文件 kibana.yml 中的 elasticsearch.url 改为正确的链接，默认为: http://elasticsearch:9200，改为 http://自己的 IP 地址:9200
 
 ```
 # Default Kibana configuration for docker target
@@ -441,11 +437,10 @@ elasticsearch.hosts: [ "http://elasticsearch:9200" ]
 xpack.monitoring.ui.container.elasticsearch.enabled: true
 ```
 
-然后重启kibana即可，记得防火墙开放5601端口
+然后重启 kibana 即可，记得防火墙开放 5601 端口
 
 #### 出问题不知道怎么解决，查看日志输出才是关键
 
 ```
 docker logs 容器id(容器名)
 ```
-

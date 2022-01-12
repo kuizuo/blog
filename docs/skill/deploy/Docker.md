@@ -1,8 +1,7 @@
 ---
 title: Docker笔记
 date: 2021-05-26
-tags:
-  - docker
+tags: [docker]
 ---
 
 [官方文档](https://docs.docker.com/engine/install/centos/)

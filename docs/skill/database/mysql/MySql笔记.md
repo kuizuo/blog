@@ -1,18 +1,16 @@
 ---
 title: MySql笔记
 date: 2020-12-30
-tags:
-  - mysql
-  - 数据库
+tags: [mysql, 数据库]
 ---
 
 ## 1、前言
 
-比较少写这种文章，主要还是我mysql没系统化学习过，在写这篇前也只会CRUD​，​也不会​数据​库​设计:pensive:，加上期末考正好要考mysql，正好借这个机会重学一遍，顺便来记录一下这段学习中的一些mysql的操作。
+比较少写这种文章，主要还是我 mysql 没系统化学习过，在写这篇前也只会 CRUD​，​ 也不会 ​ 数据 ​ 库 ​ 设计:pensive:，加上期末考正好要考 mysql，正好借这个机会重学一遍，顺便来记录一下这段学习中的一些 mysql 的操作。
 
 ## 2、操作数据库
 
-==mysql关键字 不区分大小写==（个人习惯，喜欢大写，方便区分），下文例子数据库以kzsoft为名。
+==mysql 关键字 不区分大小写==（个人习惯，喜欢大写，方便区分），下文例子数据库以 kzsoft 为名。
 
 表名与字段是**关键字**请带上反引号`
 
@@ -46,48 +44,48 @@ SHOW DATABASES --查看所有的数据库 有s
 
 #### 1、数值
 
-| 类型      | 描述                | 所占字节    | 用途                           |
-| --------- | ------------------- | ----------- | ------------------------------ |
-| tinyint   | 十分小的数据        | 1个字节     | 一般用来当布尔值用             |
-| smallint  | 较小的数据          | 2个字节     | 少用                           |
-| mediumint | 中等的数据          | 3个字节     | 少用                           |
-| **int**   | **标准整数**        | **4个字节** | **常用，一般都用int**          |
-| bigint    | 较大的整数          | 8个字节     | 少用                           |
-| float     | 单浮点数/单精度小数 | 4个字节     | 少用                           |
-| double    | 双浮点数/双精度小数 | 4个字节     | 少用  有精度问题               |
-| decimal   | 字符串形式的浮点数  | 不一定      | 精度要求高用decimal (金融计算) |
+| 类型      | 描述                | 所占字节     | 用途                            |
+| --------- | ------------------- | ------------ | ------------------------------- |
+| tinyint   | 十分小的数据        | 1 个字节     | 一般用来当布尔值用              |
+| smallint  | 较小的数据          | 2 个字节     | 少用                            |
+| mediumint | 中等的数据          | 3 个字节     | 少用                            |
+| **int**   | **标准整数**        | **4 个字节** | **常用，一般都用 int**          |
+| bigint    | 较大的整数          | 8 个字节     | 少用                            |
+| float     | 单浮点数/单精度小数 | 4 个字节     | 少用                            |
+| double    | 双浮点数/双精度小数 | 4 个字节     | 少用 有精度问题                 |
+| decimal   | 字符串形式的浮点数  | 不一定       | 精度要求高用 decimal (金融计算) |
 
 #### 2、字符串
 
-| 类型        | 描述                        | 用途                     |
-| ----------- | --------------------------- | ------------------------ |
-| char        | 固定大小  0~255，不可变长度 | 存手机号等固定长度       |
-| **varchar** | **可变字符串 0~65535**      | **存可变字符串  存变量** |
-| tinytext    | 微型文本  2^8-1             | 能用text就别用这个       |
-| **text**    | **文本串  2^16-1**          | **保存大文本**           |
+| 类型        | 描述                       | 用途                    |
+| ----------- | -------------------------- | ----------------------- |
+| char        | 固定大小 0~255，不可变长度 | 存手机号等固定长度      |
+| **varchar** | **可变字符串 0~65535**     | **存可变字符串 存变量** |
+| tinytext    | 微型文本 2^8-1             | 能用 text 就别用这个    |
+| **text**    | **文本串 2^16-1**          | **保存大文本**          |
 
 #### 3、时间日期
 
 | 类型         | 描述                                       | 用途                 |
 | ------------ | ------------------------------------------ | -------------------- |
-| date         | YYYY-MM-DD  日期                           | 存日期               |
+| date         | YYYY-MM-DD 日期                            | 存日期               |
 | time         | HH:mm:ss 时间                              | 存                   |
 | **datetime** | **YYYY-MM-DD HH:mm:ss**                    | **最常用的时间格式** |
-| timestamp    | 时间戳形式 1970.1.1 8:00:00 到现在的毫秒数 | 但会有2038年问题     |
+| timestamp    | 时间戳形式 1970.1.1 8:00:00 到现在的毫秒数 | 但会有 2038 年问题   |
 
 #### 4、NULL
 
-不要用NULL进行运算，结果为NULL
+不要用 NULL 进行运算，结果为 NULL
 
 ### 2.3、字段类型
 
-| 字段类似 | 描述                                        | 用途                 |      |
-| -------- | ------------------------------------------- | -------------------- | ---- |
-| Unsigned | 无符号整数                                  | 该列不能声明为负数   |      |
-| zerofill | 用0填充                                     | 不足的位数 用0来填充 |      |
-| 自增     | 自动在上一条记录+1 （默认，可设置自增大小） | 设置唯一的主键 如id  |      |
-| 非空     | not null                                    | 该字段不能为NULL     |      |
-| 默认     | 默认值                                      | 不指定 则默认值      |      |
+| 字段类似 | 描述                                        | 用途                   |     |
+| -------- | ------------------------------------------- | ---------------------- | --- |
+| Unsigned | 无符号整数                                  | 该列不能声明为负数     |     |
+| zerofill | 用 0 填充                                   | 不足的位数 用 0 来填充 |     |
+| 自增     | 自动在上一条记录+1 （默认，可设置自增大小） | 设置唯一的主键 如 id   |     |
+| 非空     | not null                                    | 该字段不能为 NULL      |     |
+| 默认     | 默认值                                      | 不指定 则默认值        |     |
 
 以下字段 是未来做项目用的，表示一个记录的存在意义
 
@@ -107,7 +105,7 @@ updateAt 修改时间
 
 所有语句后面加，除了最后一行
 
-PRIMARY KEY  主键一张表只有唯一的主键
+PRIMARY KEY 主键一张表只有唯一的主键
 
 #### 1、创建表
 
@@ -132,14 +130,14 @@ CREATE TABLE [IF NOT EXISTS] `表名` (
 
 ```
 
-通过上面的手动通过sql语句创建表，对已创建的表可通过
+通过上面的手动通过 sql 语句创建表，对已创建的表可通过
 
-- `SHOW CREATE DATABASE 数据库名` 查看数据库的定义语句，也就是输出创建数据库的sql语句
+- `SHOW CREATE DATABASE 数据库名` 查看数据库的定义语句，也就是输出创建数据库的 sql 语句
 
-- `SHOW CREATE TABLE 表名` 查看表的定义语句，也就是输出创建表的sql语句
-- `DESC 表名` –显示表的结构 （desc 是 describe的缩写）
+- `SHOW CREATE TABLE 表名` 查看表的定义语句，也就是输出创建表的 sql 语句
+- `DESC 表名` –显示表的结构 （desc 是 describe 的缩写）
 
-2.5、数据库引擎
+  2.5、数据库引擎
 
 |              | MYISM           | INNODB                           |
 | ------------ | :-------------- | -------------------------------- |
@@ -147,13 +145,13 @@ CREATE TABLE [IF NOT EXISTS] `表名` (
 | 数据行锁定   | 不支持          | 支持                             |
 | 外键约束     | 不支持          | 支持                             |
 | 全文索引     | 支持            | 不支持                           |
-| 表空间的大小 | 较小            | 较大,约为前者2倍                 |
+| 表空间的大小 | 较小            | 较大,约为前者 2 倍               |
 | 各自优点     | 节省空间,速度快 | 安全性高,事务处理,多表多用户操作 |
 
-MySQL引擎在物理文件上的区别
+MySQL 引擎在物理文件上的区别
 
-- INNODB 在数据库表中只有一个 *.frm文件(表结构定义文件) 以及上级目录下的ibdata1文件
-- MYISM 对应文件 有*.frm文件 *.MYD文件(数据文件) *.MYI文件(索引文件)
+- INNODB 在数据库表中只有一个 \*.frm 文件(表结构定义文件) 以及上级目录下的 ibdata1 文件
+- MYISM 对应文件 有*.frm 文件 *.MYD 文件(数据文件) \*.MYI 文件(索引文件)
 
 设置数据库表的字符集编码
 
@@ -161,9 +159,9 @@ MySQL引擎在物理文件上的区别
 CHARSET=utf8
 ```
 
-**不设置的话，会是mysql的默认字符集编码Latin1（不支持中文！）**
+**不设置的话，会是 mysql 的默认字符集编码 Latin1（不支持中文！）**
 
-在配置文件my.ini中配置默认编码 `character-set-server=utf8`
+在配置文件 my.ini 中配置默认编码 `character-set-server=utf8`
 
 #### 2、修改表
 
@@ -178,8 +176,8 @@ ALTER TABLE user ADD age INT(10)
 ALTER TABLE user MODIFY age VARCHAR(10)
 --修改字段 (修改字段名)
 ALTER TABLE user CHANGE age age1 INT(10)
---删除字段 
-ALTER TABLE user DROP age 
+--删除字段
+ALTER TABLE user DROP age
 ```
 
 #### 3、删除表
@@ -188,7 +186,7 @@ ALTER TABLE user DROP age
 DROP TABLE IF RXISTS user
 ```
 
-## 3、MySQL数据管理
+## 3、MySQL 数据管理
 
 ### 3.1、外键（极少用）
 
@@ -196,7 +194,7 @@ DROP TABLE IF RXISTS user
 
 添加约束（执行引用） references 引用
 
-这里创建一个角色表role，字段有roleid，rolename，下为创建表时添加外键例子
+这里创建一个角色表 role，字段有 roleid，rolename，下为创建表时添加外键例子
 
 ```
 KEY `FK_roleid` (`roleid`),
@@ -207,7 +205,7 @@ CONSTRAINT `FK_roleid` FOREIGN KEY(`roleid`) REFEREBCES `role`(`roleid`)
 
 上面用户与角色关系表中，角色表就是无法直接删除，需删除用户表才可删除角色表。
 
-可直接用ALTER添加外键关系
+可直接用 ALTER 添加外键关系
 
 ```
 ALTER TABLE `user`
@@ -219,7 +217,7 @@ ADD CONSTRAINT 约束名 FOREIGN KEY(`外键`) REFEREBCES `引用表`(`引用字
 
 以上操作都是物理外键，数据库级别的外键，不建议使用！（虽然能保证数据完整性，但是寻找以及删除都是特别麻烦的，在数据量大的时候，异常痛苦，用过外键的都说坏）
 
-### 3.2、DML语言
+### 3.2、DML 语言
 
 数据库意义：数据存储，数据管理
 
@@ -252,12 +250,12 @@ VALUES ('管理员'),('代理'),('用户')
 UPDATE 表名 SET `字段1`='值1' WHERE 条件1
 
 -- 修改用户名与命名
-UPDATE `user` SET `username`='kuizuo',`password`='a12345678` WHERE id = 1 
+UPDATE `user` SET `username`='kuizuo',`password`='a12345678` WHERE id = 1
 ```
 
 #### 3.2.3、删除（delete）
 
-##### DELETE命令
+##### DELETE 命令
 
 ```sql
 --删除数据 条件
@@ -266,19 +264,19 @@ DELETE FROM `user` WHERE id = 1; --少了条件,直接全删
 DELETE FROM `user`
 ```
 
-##### TRUNCATE命令（要全部删除用这个命令）
+##### TRUNCATE 命令（要全部删除用这个命令）
 
 作用：完全清空一个数据库表，表的结构和索引约束不会变。
 
 使用：`TRUNCATE 表名` 即可
 
-好处：删除后，会刷新自增值（置为0），而DELETE不影响自增值，为上一自增值
+好处：删除后，会刷新自增值（置为 0），而 DELETE 不影响自增值，为上一自增值
 
-###  3.3、DQL语言
+### 3.3、DQL 语言
 
 （Data Query Language：数据查询语言）
 
- 数据库中最核心的语言，使用频率最高的语句。
+数据库中最核心的语言，使用频率最高的语句。
 
 完整语法
 
@@ -349,27 +347,27 @@ SELECT now() --查询当前时间
 
 基本运算符
 
-| 运算符   | 语法               | 描述 |
-| -------- | ------------------ | ---- |
-| and  &&  | a and b    a && b  | 与   |
-| or  \|\| | a orb    a  \|\| b | 或   |
-| Not  !   | not a     ! a      | 非   |
+| 运算符  | 语法           | 描述 |
+| ------- | -------------- | ---- |
+| and &&  | a and b a && b | 与   |
+| or \|\| | a orb a \|\| b | 或   |
+| Not !   | not a ! a      | 非   |
 
 模糊查询
 
-| 运算符      | 语法            | 描述                       |
-| ----------- | --------------- | -------------------------- |
-| BETWEEN     | between … and … | 在两者之间                 |
-| IS NULL     | a is null       | 如果为null,结果为真        |
-| IS NOT NULL | a is not null   | 如果不为null,结果为真      |
-| **Like**    | **a like b**    | **a 匹配到b,结果为真**     |
-| In          | a in (a1,a2,a3) | 匹配 a 在a1,a2,a3 其中之一 |
+| 运算符      | 语法            | 描述                        |
+| ----------- | --------------- | --------------------------- |
+| BETWEEN     | between … and … | 在两者之间                  |
+| IS NULL     | a is null       | 如果为 null,结果为真        |
+| IS NOT NULL | a is not null   | 如果不为 null,结果为真      |
+| **Like**    | **a like b**    | **a 匹配到 b,结果为真**     |
+| In          | a in (a1,a2,a3) | 匹配 a 在 a1,a2,a3 其中之一 |
 
-其中like 还搭配了 %(0到任意个字符)  _(一个字符) 使用
+其中 like 还搭配了 %(0 到任意个字符) \_(一个字符) 使用
 
 #### 3.3.4、联表查询(重点)
 
-一共有7中JOIN查询
+一共有 7 中 JOIN 查询
 
 ![img](https://img.kuizuo.cn/20201009150524563.png)
 
@@ -384,15 +382,15 @@ SELECT now() --查询当前时间
 ```sql
 
 -- 查询用户所属角色
-SELECT u.*,r.role 
-FROM `user` u 
-	LEFT JOIN user_role ur ON u.id = ur.user_id 
-	LEFT JOIN role r ON r.id = ur.user_id 
+SELECT u.*,r.role
+FROM `user` u
+	LEFT JOIN user_role ur ON u.id = ur.user_id
+	LEFT JOIN role r ON r.id = ur.user_id
 WHERE
 	u.id = 1
 
 -- 查询登录日志
-SELECT l.login_time 
+SELECT l.login_time
 FROM kz_user u
 	LEFT JOIN kz_login_log l ON l.user_id = u.id
 
@@ -402,23 +400,23 @@ FROM kz_user u
 
 自己的表和自己的表连接，核心：**将一张表拆分为两张一样的表**，本质还是同一张表
 
-一张表中对应了子表，父表，并通过pid来标注，下为相关表结构
+一张表中对应了子表，父表，并通过 pid 来标注，下为相关表结构
 
-| menu_id | pid  | menu_name    |
-| ------- | ---- | ------------ |
-| 1       | 0    | 首页         |
-| 2       | 0    | 用户管理     |
-| 3       | 2    | 用户列表     |
-| 4       | 2    | 角色管理     |
-| 5       | 2    | 用户角色管理 |
-| 6       | 0    | 卡密管理     |
-| 7       | 6    | 卡密列表     |
-| 8       | 6    | 卡密购买     |
+| menu_id | pid | menu_name    |
+| ------- | --- | ------------ |
+| 1       | 0   | 首页         |
+| 2       | 0   | 用户管理     |
+| 3       | 2   | 用户列表     |
+| 4       | 2   | 角色管理     |
+| 5       | 2   | 用户角色管理 |
+| 6       | 0   | 卡密管理     |
+| 7       | 6   | 卡密列表     |
+| 8       | 6   | 卡密购买     |
 
-所查询的sql语句
+所查询的 sql 语句
 
 ```sql
-SELECT a.`menu_name` AS 主菜单, b.`menu_name` AS 子菜单 
+SELECT a.`menu_name` AS 主菜单, b.`menu_name` AS 子菜单
 FROM `menu` AS a, `menu` AS b
 WHERE a.`menu_id` = b.`pid`
 ```
@@ -435,27 +433,27 @@ WHERE a.`menu_id` = b.`pid`
 
 #### 3.3.6、分页和排序
 
-关键字 `limit` 和 `order by`，注：limit最后使用
+关键字 `limit` 和 `order by`，注：limit 最后使用
 
 排序语法： ORDER BY 字段 排序类型
 
-升序 ASC           降序 DESC
+升序 ASC 降序 DESC
 
 分页语法：LIMIT 起始值,页面大小
 
-假设当前页面需展示10条数据（变量pageSize），那么
+假设当前页面需展示 10 条数据（变量 pageSize），那么
 
-第一页数据  LiMIT 0,10      (1-1)*10
+第一页数据 LiMIT 0,10 (1-1)\*10
 
-第二页数据  LiMIT 10,10    (2-1)*10
+第二页数据 LiMIT 10,10 (2-1)\*10
 
-第三页数据  LiMIT 20,10    (3-1)*10
+第三页数据 LiMIT 20,10 (3-1)\*10
 
-**第N页数据   LIMIT (N-1)*pageSize,pageSize**
+**第 N 页数据 LIMIT (N-1)\*pageSize,pageSize**
 
 基于这样的原理，即可实现分页，大致过程如下
 
-首先，接收到前端发送的分页请求，page与pageSize，那么与之对应的数据库查询语句为
+首先，接收到前端发送的分页请求，page 与 pageSize，那么与之对应的数据库查询语句为
 
 ```
 SELECT * FROM user
@@ -466,9 +464,9 @@ LIMIT (page-1)*pageSize,pageSize
 
 #### 3.3.7、子查询
 
-在where中，条件为固定的，想根据查询当前表的结果赋值到where条件中，则为子查询，注：子查询多数下查询速度较慢
+在 where 中，条件为固定的，想根据查询当前表的结果赋值到 where 条件中，则为子查询，注：子查询多数下查询速度较慢
 
-**本质：在where语句中嵌套子查询语句**
+**本质：在 where 语句中嵌套子查询语句**
 
 子查询用的少，联表查询用的多。
 
@@ -482,9 +480,9 @@ IN (SELECT user_id FROM kz_login_log WHERE login_time<=1609104740976)
 
 #### 3.3.8、分组查询
 
-关键字 group by 
+关键字 group by
 
-**注：group by 所要分组的字段，必须要在select 中所选，且常搭配聚合函数所使用**
+**注：group by 所要分组的字段，必须要在 select 中所选，且常搭配聚合函数所使用**
 
 ```sql
 select is_used ,count(*) as 数量 from kz_card group by is_used
@@ -496,7 +494,7 @@ select is_used ,count(*) as 数量 from kz_card group by is_used
 | 0        | 10   |
 | 1        | 3    |
 
-## 4、MySQL函数
+## 4、MySQL 函数
 
 [官网地址](https://dev.mysql.com/doc/refman/8.0/en/functions.html)
 
@@ -546,40 +544,30 @@ SELECT VERSION() --获取当前版本  8.0.21
 | MIN       | 最小值   |
 | …         | …        |
 
-COUNT(列)  —指定列，当值为Null不计数
+COUNT(列) —指定列，当值为 Null 不计数
 
-COUNT(*)  —获取全部计数结果，不会忽略NULL值
+COUNT(\*) —获取全部计数结果，不会忽略 NULL 值
 
-COUNT(1)  —忽略所有列，用1代表代码行，不会忽略NULL值
+COUNT(1) —忽略所有列，用 1 代表代码行，不会忽略 NULL 值
 
-执行效率上： 
-列名为主键，count(列名)会比count(1)快 
-列名不为主键，count(1)会比count(列名)快 
+执行效率上：
+列名为主键，count(列名)会比 count(1)快
+列名不为主键，count(1)会比 count(列名)快
 如果表多个列并且没有主键，则 count（1） 的执行效率优于 count(\*)
-如果有主键，则 select count（主键）的执行效率是最优的 
+如果有主键，则 select count（主键）的执行效率是最优的
 如果表只有一个字段，则 select count(\*)最优。
 
-> 参考链接 [count(1)、count(*)与count(列名)的执行区别](https://www.cnblogs.com/Memories-off/p/10435558.html)
+> 参考链接 [count(1)、count(\*)与 count(列名)的执行区别](https://www.cnblogs.com/Memories-off/p/10435558.html)
 
-
-
-使用聚合函数，常常与分组GROUP BY和HAVING结合使用。
-
-
-
-
-
-
-
-
+使用聚合函数，常常与分组 GROUP BY 和 HAVING 结合使用。
 
 ## 5、事务（Transaction）
 
-将一组SQL语句放在一个批次中去执行
+将一组 SQL 语句放在一个批次中去执行
 
 ### 5.1、事务原则
 
-**ACID原则  原子性（Atomicity），一致性（Consistency），隔离性（Isolation），持久性（Durability）**
+**ACID 原则 原子性（Atomicity），一致性（Consistency），隔离性（Isolation），持久性（Durability）**
 
 原子性：要么都成功，要么都失败
 
@@ -597,14 +585,14 @@ COUNT(1)  —忽略所有列，用1代表代码行，不会忽略NULL值
 
 虚读(幻读)：是指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。
 
-> 参考链接 [事务ACID理解](https://blog.csdn.net/dengjili/article/details/82468576)
+> 参考链接 [事务 ACID 理解](https://blog.csdn.net/dengjili/article/details/82468576)
 
-### 5.2、MySQL事务操作
+### 5.2、MySQL 事务操作
 
-mysql是默认开始事务自动提交的，可通过下方设置开启关闭
+mysql 是默认开始事务自动提交的，可通过下方设置开启关闭
 
 ```sql
-SET autocommit = 0 —- 关闭   
+SET autocommit = 0 —- 关闭
 SET autocommit =1 —- 开启（默认）
 
 -- 事务开启
@@ -616,7 +604,7 @@ UPDATE xxx
 -- 提交: 持久化(成功)
 COMMIT
 -- 回滚: 回到原来的样子(失败)
-ROLLBACK 
+ROLLBACK
 
 -- 事务结束
 
@@ -629,7 +617,7 @@ RELEASE SAVEPOINT 保存点名 -- 释放保存点
 
 ## 6、索引
 
-索引（Index）是帮助MySQL高效获取数据的数据结构。
+索引（Index）是帮助 MySQL 高效获取数据的数据结构。
 
 提取句子主干，就可也得到索引的本质：索引是数据结构
 
@@ -638,13 +626,16 @@ RELEASE SAVEPOINT 保存点名 -- 释放保存点
 一个表中，主键索引只能有一个，唯一索引可以有多个
 
 - 主键索引（PRIMARY KEY）
+
   - 唯一的标识，主键不可重复，只能有一个列作为主键
 
 - 唯一索引（UNIQUE KEY）
+
   - 避免重复的列出现，唯一索引可以重复，多个列，都可以标识为 唯一索引
 
 - 常规索引（KEY/INDEX）
-  - 默认的，index，key关键字来设置
+
+  - 默认的，index，key 关键字来设置
 
 - 全文索引 （FULLTEXT）
   - 在特定的数据库引擎下才有
@@ -652,7 +643,7 @@ RELEASE SAVEPOINT 保存点名 -- 释放保存点
 ### 6.2、索引的使用
 
 ```
--- 显示所有的索引信息 
+-- 显示所有的索引信息
 SHOW INDEX FROM 表名
 
 -- 添加一个全文索引 索引名 字段名
@@ -665,9 +656,9 @@ EXPLAIN SELECT * FROM student; -- 非全文索引
 
 ### 6.3、测试索引
 
-插入100万数据，编写mysql函数
+插入 100 万数据，编写 mysql 函数
 
-不过mysql的默认是不允许创建函数
+不过 mysql 的默认是不允许创建函数
 
 在此之前需要执行一下 SET GLOBAL log_bin_trust_function_creators = 1;
 
@@ -678,7 +669,7 @@ RETURNS INT
 BEGIN
 	DECLARE num INT DEFAULT 1000;
 	DECLARE i INT DEFAULT 0;
-	
+
 	WHILE i<num DO
 	INSERT INTO big(`name`,`age`,`phone`) VALUES (CONCAT('用户',i),FLOOR(RAND()*100),CONCAT('15',FLOOR(RAND()*((99999999-100000000)+100000000))));
 		SET i = i+1;
@@ -709,13 +700,11 @@ SELECT * FROM big WHERE `name`='用户99999' --此时查询数据0.001s
 
 索引的数据结构
 
-Hash类型的索引
+Hash 类型的索引
 
-Btree：INNODB的默认数据结构
+Btree：INNODB 的默认数据结构
 
-有关索引的一篇文章[MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
-
-
+有关索引的一篇文章[MySQL 索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)
 
 ## 7、角色权限管理
 
@@ -729,7 +718,7 @@ SET PASSWORD = PASSWORD('a123456')
 -- 修改密码 (修改指定用户)
 SET PASSWORD FOR kuizuo= PASSWORD('a123456')
 
--- 重命名 
+-- 重命名
 RENAME USER kuizuo TO zeyu
 
 -- 用户授权
@@ -739,7 +728,7 @@ CRANT ALL PRIVILEGES ON *.* TO kuizuo
 
 -- 查看权限
 SHOW GRANTS FOR kuizuo
-SHOW GRANTS FOR root@localhost 
+SHOW GRANTS FOR root@localhost
 -- root 的权限 GRANT PROXY ON ''@'' TO 'root'@'localhost' WITH GRANT OPTION
 
 -- 撤销权限 REVOKE 权限 ON 库.表 FROM 用户
@@ -756,23 +745,23 @@ DROP USER kuizuo
 
 - 直接拷贝物理文件（data）
 
-- 右键选择备份导出sql文件（导入相当于执行sql语句）
+- 右键选择备份导出 sql 文件（导入相当于执行 sql 语句）
 
 - 命令行语法
 
-  导出 
+  导出
 
-  mysqldump -h主机 -u用户 -p密码 数据库名 表名 >物理磁盘位置
+  mysqldump -h 主机 -u 用户 -p 密码 数据库名 表名 >物理磁盘位置
 
-  导入 
+  导入
 
-  登录情况下，USE选择数据库
+  登录情况下，USE 选择数据库
 
-  source D:/backup.sql  
+  source D:/backup.sql
 
   或者
 
-  mysql -u用户名 –p密码 库名 < 备份文件
+  mysql -u 用户名 –p 密码 库名 < 备份文件
 
 ## 9、数据库设计
 
@@ -800,13 +789,13 @@ DROP USER kuizuo
 
 不然获取数据时，不好处理
 
-**第二范式（2NF）：在1NF的基础上，非码属性必须完全依赖于候选码（在1NF基础上消除非主属性对主码的部分函数依赖）**
+**第二范式（2NF）：在 1NF 的基础上，非码属性必须完全依赖于候选码（在 1NF 基础上消除非主属性对主码的部分函数依赖）**
 
 第二范式需要确保数据库表中的每一列都和主键相关，而不能只与主键的某一部分相关（主要针对联合主键而言）。
 
 每张表只描述一件事情
 
-**第三范式（3NF）：在2NF基础上，任何非主属性不依赖于其它非主属性（在2NF基础上消除传递依赖）**
+**第三范式（3NF）：在 2NF 基础上，任何非主属性不依赖于其它非主属性（在 2NF 基础上消除传递依赖）**
 
 第三范式需要确保数据表中的每一列数据都和主键直接相关（属性依赖主键），而不能间接相关。
 
@@ -821,7 +810,7 @@ DROP USER kuizuo
 
 ## 10、数据库模型
 
-在Navicat中，右键数据库，可逆向数据库到模型，模型的结果图如下
+在 Navicat 中，右键数据库，可逆向数据库到模型，模型的结果图如下
 
 ![image-20210102213536190](https://img.kuizuo.cn/image-20210102213536190.png)
 
@@ -829,23 +818,4 @@ DROP USER kuizuo
 
 ## 11、总结
 
-简单花了两个晚上的时间刷一遍数据库的教程，并将其写成笔记总结，整体来说收获到的东西确实多，但是也有太多理论性的，例如三大范式，在考试的时候就考到过，然后我没背，但是我知道该如何规范，但就是不好表述。。。后续学习到MongoDB和Redis估计也要花点时间像这样子系统化的写个笔记，对知识巩固确实有帮助。
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+简单花了两个晚上的时间刷一遍数据库的教程，并将其写成笔记总结，整体来说收获到的东西确实多，但是也有太多理论性的，例如三大范式，在考试的时候就考到过，然后我没背，但是我知道该如何规范，但就是不好表述。。。后续学习到 MongoDB 和 Redis 估计也要花点时间像这样子系统化的写个笔记，对知识巩固确实有帮助。
