@@ -901,3 +901,55 @@ pagination-nav__item:hover .pagination-nav__link {
 code {
   color: #3887fe;
 }
+
+.archive {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1rem 2.5rem 1rem;
+
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  background: var(--card-background);
+}
+
+.archive ul li {
+  list-style: none;
+}
+
+.archive h3 {
+  border-bottom: 1px solid rgb(0 0 0 / 15%);
+  font-weight: 400;
+  padding: 0 0 2px 0;
+}
+
+.archive h3 span {
+  font-size: 0.85rem;
+  font-weight: 300;
+  float: right;
+  margin-top: 0.5rem;
+}
+
+.archive ul li a {
+  display: block;
+  color: #00323c;
+  transition: padding 0.3s;
+  padding: 0.5rem 1rem;
+  line-height: 1.2rem;
+  font-weight: 500;
+
+  text-decoration: none;
+}
+
+.archive ul li a:hover {
+  padding-left: 2.5rem;
+  color: var(--ifm-color-primary);
+  background: #f9f9f9;
+}
+
+.archive ul li a span {
+  opacity: 0.6;
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-right: 0.3rem;
+}

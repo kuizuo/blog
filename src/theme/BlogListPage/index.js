@@ -36,7 +36,6 @@ function BlogListPage(props) {
   let description = `html, css, javascript, react, vue, node, typescript，前端开发，后端开发，技术分享，开源`;
 
   const isBlogPage = metadata.permalink === '/';
-
   const views = useViews(items);
   const { viewType, toggleViewType } = useViewType();
 
@@ -71,7 +70,7 @@ function BlogListPage(props) {
 
     const { totalCount: blogCount } = metadata;
     const tagCount = Object.values(tagCategories['/']).length;
-    
+
     return (
       <div className={viewType === 'card' ? `col col--3 ${styles['info-wrapper']}` : ''} style={{ display: `${viewType === 'card' && isBlogPage ? '' : 'none'}` }}>
         <div className='bloghome__posts'>

@@ -5,6 +5,8 @@ authors: kuizuo
 tags: [http, 逆向]
 ---
 
+<!-- truncate -->
+
 关于 HTTP 我不讲理论，只讲一下具体的用途。
 
 ## GET 请求之发送验证码

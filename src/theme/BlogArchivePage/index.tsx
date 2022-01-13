@@ -9,9 +9,9 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage';
-import { StyledArchivePage } from './style'
+import styles from './styles.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar , faHistory } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faHistory } from '@fortawesome/free-solid-svg-icons';
 
 import dayjs from 'dayjs'
 
@@ -25,7 +25,7 @@ function Year({ posts }: YearProp) {
     <>
       <ul>
         {posts.map((post) => (
-          <li key={post.metadata.permalink} className="archive-li">
+          <li key={post.metadata.permalink}>
             <Link to={post.metadata.permalink}>
               <span>{dayjs(post.metadata.date).format('MM-DD')}</span>
               {post.metadata.title}
@@ -38,12 +38,13 @@ function Year({ posts }: YearProp) {
 }
 
 function YearsSection({ years }: { years: YearProp[] }) {
-  console.log(years)
   return (
     <div>
       {years.map((_props, idx) => (
         <div key={idx} className="margin-vert--lg">
-          <h3>{_props.year}<span ><i>{years[idx].posts.length}</i> 篇</span></h3>
+          <h3>
+            {_props.year}<span><i>{years[idx].posts.length}</i> 篇</span>
+          </h3>
           <Year {..._props} />
         </div>
       ))}
@@ -72,20 +73,19 @@ export default function BlogArchive({ archive }: Props) {
   const years = listPostsByYears(archive.blogPosts);
   return (
     <Layout >
-      <StyledArchivePage>
-        <div className='container-wrapper'>
-          <div className='container padding-vert--sm'>
-            <div className='row' >
-              <div className={'col col--10'} >
+      <div className='container-wrapper padding-vert--md'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col'>
+              <div className='archive'>
                 <h2><FontAwesomeIcon icon={faCalendar} color='#338bff' /> 归档</h2>
-                <div className="count">总共 {archive.blogPosts.length} 篇文章</div>
+                <div className={styles.count}>总共 {archive.blogPosts.length} 篇文章</div>
                 {years.length > 0 && <YearsSection years={years} />}
               </div>
             </div>
           </div>
         </div>
-
-      </StyledArchivePage>
+      </div>
     </Layout>
   );
 }
