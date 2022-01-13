@@ -204,6 +204,30 @@ module.exports = {
     //     language: ["en", "zh"],
     //   },
     // ],
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: true,
+        offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
+        pwaHead: [
+          {
+            tagName: 'link',
+            rel: 'icon',
+            href: '/img/kuizuo.jpg',
+          },
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/manifest.json', // 您的 PWA Manifest
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: 'rgb(51 139 255)',
+          },
+        ],
+      },
+    ],
   ],
   stylesheets: [
     // {
