@@ -5,11 +5,13 @@ authors: kuizuo
 tags: [python]
 ---
 
-<!-- truncate -->
-
 ## 前言
 
-在用一些开源的 python 脚本的时候，而原作者是用`python2.7`写的，但学过 python 的应该会知道 python 每个版本之间存在兼容性，python2 的代码用 python3 是会可能运行不了的，一些现有的框架在 python3.6 可以运行而 python3.7 就报错。通常这时候我想执行 python2 代码的解决办法：
+在用一些开源的 python 脚本的时候，而原作者是用`python2.7`写的，但学过 python 的应该会知道 python 每个版本之间存在兼容性，python2 的代码用 python3 是会可能运行不了的，一些现有的框架在 python3.6 可以运行而 python3.7 就报错。
+
+<!-- truncate -->
+
+通常这时候我想执行 python2 代码的解决办法：
 
 - 安装 python2，并且就算安装了还要重新配置环境变量这些（麻烦）
 - 通过虚拟环境，来安装 python2，在虚拟环境中运行 python2 代码（麻烦)

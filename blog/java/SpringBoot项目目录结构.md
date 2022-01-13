@@ -5,11 +5,11 @@ authors: kuizuo
 tags: [java, springboot, 开发]
 ---
 
-<!-- truncate -->
-
 ## 目录结构展示图
 
 ![](https://img.kuizuo.cn/20220108011921.png)
+
+<!-- truncate -->
 
 ### controller
 
