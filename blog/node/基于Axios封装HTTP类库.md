@@ -5,11 +5,11 @@ authors: kuizuo
 tags: [node, http]
 ---
 
+<!-- truncate -->
+
 一个基于 Axios 封装 HTTP 类库
 
 源代码 [kz-http](https://github.com/kuizuo/kz-http)
-
-<!-- truncate -->
 
 ## 使用方法
 

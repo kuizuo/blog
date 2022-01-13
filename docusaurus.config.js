@@ -17,12 +17,12 @@ module.exports = {
   projectName: 'kuizuo.cn', // Usually your repo name.
   themeConfig: {
     image: 'img/kuizuo.jpg',
-    announcementBar: {
-      id: 'feature_release', // Any value that will identify this message.
-      content: `更新博客<a href='/react/react中css实现方式'>《react中css实现方式》</a>`,
-      backgroundColor: '#fafbfc', // Defaults to `#fff`.
-      textColor: '#091E42', // Defaults to `#000`.
-    },
+    // announcementBar: {
+    //   id: 'feature_release', // Any value that will identify this message.
+    //   content: `更新博客<a href='/为什么使用pnpm'>《为什么使用pnpm》</a>`,
+    //   backgroundColor: '#fafbfc', // Defaults to `#fff`.
+    //   textColor: '#091E42', // Defaults to `#000`.
+    // },
     metadata: [{ name: 'keywords', content: 'blog, javascript, js, typescript, node, react, vue, web, 前端, 后端' }],
     hideableSidebar: true,
     navbar: {
