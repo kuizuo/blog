@@ -13,7 +13,7 @@ tags: [react, css]
 
 全局 css
 
-```React TSX
+```jsx
 .box {
   background-color:red;
   width:300px;
@@ -23,7 +23,7 @@ tags: [react, css]
 
 js
 
-```React TSX
+```jsx
 function Hello() {
   return <div className='box'>
     hello react
@@ -39,7 +39,7 @@ ReactDOM.render(
 
 与传统在 html 标签定义 css 样式不同，因为这不是传统的 html 代码，而是 JSX，由于 class 作为关键字，无法作为标识符出现，比方说下面的代码将会报错。
 
-```React TSX
+```jsx
 const { class } = { class: 'foo' } // Uncaught SyntaxError: Unexpected token }
 const { className } = { className: 'foo' }
 const { class: className } = { class: 'foo' }
@@ -55,7 +55,7 @@ const { class: className } = { class: 'foo' }
 
 内联样式也得写成对象 key-value 形式，遇到-连字符，则需要大写，如
 
-```React TSX
+```jsx
 function Hello() {
   return <div className="box" style={{ fontSize: "32px",textAlign: "center" }}>
     hello react
@@ -74,7 +74,7 @@ CSS 的`font-size`属性要写成`fontSize`，这是 JavaScript 操作 CSS 属�
 
 Css Modules 并不是 React 专用解决方法，适用于所有使用 webpack 等打包工具的开发环境。以 webpack 为例，在 css-loader 的 options 里打开`modules：true` 选项即可使用 Css Modules。一般配置如下
 
-```React TSX
+```js
 {
   loader: "css-loader",
   options: {
@@ -88,7 +88,7 @@ Css Modules 并不是 React 专用解决方法，适用于所有使用 webpack �
 
 然后通过 import 引入
 
-```React TSX
+```jsx
 import styles from './styles.module.css';
 
 function Hello() {
@@ -101,7 +101,7 @@ function Hello() {
 
 但如果是有多个局部样式，直接拼接是无效的（毕竟是个无效的表达式）
 
-```React TSX
+```jsx
 // 错误
 <div className={style.class1 style.class2}</div>
 
@@ -116,7 +116,7 @@ function Hello() {
 
 还可以通过 npm 包 classnames 来定义类名，如
 
-```React TSX
+```jsx
 import classnames from "classnames";
 import styles from './styles.module.css';
 
@@ -125,7 +125,7 @@ import styles from './styles.module.css';
 
 最终都将编译为
 
-```React TSX
+```jsx
 <div class="class1 class2"></div>
 ```
 
@@ -141,7 +141,7 @@ import styles from './styles.module.css';
 
 由于 React 对 CSS 的封装非常弱，导致了一系列的第三方库，用来加强 CSS 操作，统称为 CSS in JS（），有一种在 js 文件中写 css 代码的感觉，根据不完全统计，各种 CSS in JS 的库至少有[47 种](https://github.com/MicheleBertoli/css-in-js)，其中比较出名的 便是[styled-components](https://link.juejin.cn/?target=https://github.com/styled-components/styled-components)。
 
-```React TSX
+```jsx
 import styled from 'styled-components';
 
 // `` 和 () 一样可以作为js里作为函数接受参数的标志，这个做法类似于HOC，包裹一层css到h1上生成新组件Title
@@ -204,7 +204,7 @@ const App = () => (
 
 并且能方便的给暴露`className` props 的三方 UI 库上样式：
 
-```React TSX
+```jsx
 const StyledButton = styled(Button)` ... `
 ```
 
@@ -225,7 +225,7 @@ styled-jsx 概括第一印象就是 React css 的 vue 解决。`yarn add styled-
 
 使用
 
-```React TSX
+```jsx
 
 render () {
     return <div className='table'>
@@ -251,7 +251,7 @@ render () {
 
 只会作用到同级标签作用域，可以说是一种另类的内联样式了，如果不喜欢将样式写在 render 里，styled-jsx 提供了一个 `css` 的工具函数：
 
-```React TSX
+```jsx
 import css from 'styled-jsx/css'
 
 export default () => (
@@ -280,7 +280,7 @@ const button = css`button { color: hotpink; }`
 
 引用的时候直接在 class 中添加 flex 即可
 
-```React TSX
+```jsx
 <h1 class="flex">tailwindcss</h1>
 ```
 
@@ -303,7 +303,7 @@ const button = css`button { color: hotpink; }`
 
 在组件化开发中，完全可以自己实现一个 Button 按钮（上间距 `pt-4`，底部间距 `pb-10`，文字为 `text-sky-500` 天蓝色），
 
-```React TSX
+```jsx
 const Button = ({ children, color }) => (
     <a className=`pt-4 pb-10 text-sky-500 ${color}`>{children}</a>
 )
