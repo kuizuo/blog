@@ -148,7 +148,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 
 ### react编译遇到的问题
 
-插件中会使用到浏览器的 window 对象，开发时正常，但是编译就会报错（提示window is not defined），这边引用了 docusaurus 的[BrowserOnly]([Docusaurus 客户端 API | Docusaurus](https://docusaurus.io/zh-CN/docs/docusaurus-core#browseronly))，将代码封装成如下便可正常编译
+插件中会使用到浏览器的 window 对象，开发时正常，但是编译就会报错（提示window is not defined），这边引用了 docusaurus 的[BrowserOnly](https://docusaurus.io/zh-CN/docs/docusaurus-core#browseronly)，将代码封装成如下便可正常编译
 
 ```jsx
 <BrowserOnly fallback={<div></div>}>{() => <GitalkComponent options={options} />}</BrowserOnly>
@@ -156,6 +156,118 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 
 [查看完整源码点我](https://github.com/kuizuo/blog/blob/main/src/theme/BlogPostPage/index.jsx)
 
+## Github Api
+
+[GitHub Documentation](https://docs.github.com/cn)
+
+通过github api还可以获取issues列表
+
+访问 https://api.github.com/repos/kuizuo/blog/issues，返回结果如下
+
+```json
+[
+  {
+    "url": "https://api.github.com/repos/kuizuo/blog/issues/24",
+    "repository_url": "https://api.github.com/repos/kuizuo/blog",
+    "labels_url": "https://api.github.com/repos/kuizuo/blog/issues/24/labels{/name}",
+    "comments_url": "https://api.github.com/repos/kuizuo/blog/issues/24/comments",
+    "events_url": "https://api.github.com/repos/kuizuo/blog/issues/24/events",
+    "html_url": "https://github.com/kuizuo/blog/issues/24",
+    "id": 1111300101,
+    "node_id": "I_kwDOF7NJDM5CPRgF",
+    "number": 24,
+    "title": "Docusaurus配置Gitalk评论插件",
+    "user": {
+      "login": "kuizuo",
+      "id": 61005888,
+      "node_id": "MDQ6VXNlcjYxMDA1ODg4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/61005888?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/kuizuo",
+      "html_url": "https://github.com/kuizuo",
+      "followers_url": "https://api.github.com/users/kuizuo/followers",
+      "following_url": "https://api.github.com/users/kuizuo/following{/other_user}",
+      "gists_url": "https://api.github.com/users/kuizuo/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/kuizuo/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/kuizuo/subscriptions",
+      "organizations_url": "https://api.github.com/users/kuizuo/orgs",
+      "repos_url": "https://api.github.com/users/kuizuo/repos",
+      "events_url": "https://api.github.com/users/kuizuo/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/kuizuo/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 3754161267,
+        "node_id": "LA_kwDOF7NJDM7fw_Rz",
+        "url": "https://api.github.com/repos/kuizuo/blog/labels/Gitalk",
+        "name": "Gitalk",
+        "color": "ededed",
+        "default": false,
+        "description": null
+      },
+      {
+        "id": 3754411279,
+        "node_id": "LA_kwDOF7NJDM7fx8UP",
+        "url": "https://api.github.com/repos/kuizuo/blog/labels/blog",
+        "name": "blog",
+        "color": "ededed",
+        "default": false,
+        "description": null
+      },
+      {
+        "id": 3754517867,
+        "node_id": "LA_kwDOF7NJDM7fyWVr",
+        "url": "https://api.github.com/repos/kuizuo/blog/labels/Docusaurus%E9%85%8D%E7%BD%AEGitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6",
+        "name": "Docusaurus配置Gitalk评论插件",
+        "color": "ededed",
+        "default": false,
+        "description": null
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2022-01-22T06:47:34Z",
+    "updated_at": "2022-01-22T06:47:34Z",
+    "closed_at": null,
+    "author_association": "OWNER",
+    "active_lock_reason": null,
+    "body": "https://kuizuo.cn/develop/Docusaurus配置Gitalk评论插件\n前言",
+    "reactions": {
+      "url": "https://api.github.com/repos/kuizuo/blog/issues/24/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "timeline_url": "https://api.github.com/repos/kuizuo/blog/issues/24/timeline",
+    "performed_via_github_app": null
+  },
+]
+```
+
+相关api文档 => [github docs](https://docs.github.com/cn/rest/reference/issues#comments)
+
+也许后续可能考虑使用[octokit.js](https://github.com/octokit/octokit.js)来编写一个后台查询与删除的管理页。
+
 ## 最终效果
 
-![image-20220122142524944](https://img.kuizuo.cn/20220122142525.png)
+#### 评论页
+
+![image-20220122164034147](https://img.kuizuo.cn/20220122164034.png)
+
+#### issues页面
+
+![image-20220122163957435](https://img.kuizuo.cn/20220122163957.png)

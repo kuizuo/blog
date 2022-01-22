@@ -1,10 +1,14 @@
 ---
-title: 第二个博客搭建
+title: 第二个博客搭建之Docusaurus
 date: 2021-08-20
 authors: kuizuo
 tags: [blog, docusaurus]
-# sticky: true
+sticky: true
 ---
+
+博客地址: [愧怍的小站 (kuizuo.cn)](https://kuizuo.cn/)
+
+源码地址：[kuizuo/blog: 愧怍的个人博客 (github.com)](https://github.com/kuizuo/blog)
 
 时隔近半年没好好整理文章，博客也写的不像个人样。:joy:
 
@@ -186,6 +190,12 @@ webify 是腾讯云的 Web 应用托管服务，可以将本地代码
 #### 资源导航
 
 老早之前就想整理一下自己的网页书签，奈何一直都没怎么有空去处理（其实就是懒），有时候明明看到一个特别好的资源，然而几天后想在重新再找的时候就犹如海底捞针似的。书签收藏夹也是乱的不像样（咋和我电脑桌面和显示桌面一样乱呢，不过好在我有[EveryThing](https://www.voidtools.com/zh-cn/)）
+
+已实现：[资源导航-愧怍的小站 (kuizuo.cn)](https://kuizuo.cn/resources)
+
+#### 评论
+
+已实现，相关文章: [Docusaurus配置Gitalk评论插件 - 愧怍的小站 (kuizuo.cn)](https://kuizuo.cn/develop/Docusaurus配置Gitalk评论插件)
 
 #### 项目实战
 

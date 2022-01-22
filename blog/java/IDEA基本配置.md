@@ -67,6 +67,8 @@ ps: 我本地电脑基本把大部分 JetBrains 产品给安装了一遍，而�
 
 `Ctrl + Alt + L` 格式化代码，可以对当前文件和整个包目录使用
 
+`Ctrl + Alt + T` 选择代码，可以将其包裹在if、try、while等代码块中
+
 `Ctrl + Alt + O` 优化导入的类，可以对当前文件和整个包目录使用
 
 `Ctrl + Alt + V` 快速引进变量

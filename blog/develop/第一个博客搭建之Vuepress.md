@@ -1,5 +1,5 @@
 ---
-title: 第一个博客搭建（旧）
+title: 第一个博客搭建之Vuepress
 date: 2020-08-30
 authors: kuizuo
 tags: [blog, vuepress]
