@@ -7,11 +7,11 @@ tags: [java]
 
 <!-- truncate -->
 
-### 什么是反射？　　
+## 什么是反射？　　
 
 Java 反射（Reflection）就是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；并且能改变它的属性。（摘自网络）
 
-### 反射能做什么？
+## 反射能做什么？
 
 由于我们能够知道这个类的所有属性和方法，并且可以调用其方法与属性，那么我们就可以在外部，不通过修改类的形式来给类增加额外自定义功能。
 
@@ -70,7 +70,8 @@ Class<?> cls = clsl.loadClass("Person");
 	```Java
 	Class cls1 = Class.forName("OutClass$InnerClass");
 Class cls2 = Class.forName("OutClass$1");
-```
+
+````
 
 - 接口 =>`interface DemoI`
 - 数组 => `class [Ljava.lang.String;`
@@ -89,7 +90,7 @@ Class cls2 = Class.forName("OutClass$1");
 Person p = Person.class.newInstance();
 
 // 相当于 Person p = new Person();
-```
+````
 
 **2、通过 Constructor 对象的 newInstance() 方法** （可传参数）
 

@@ -24,7 +24,7 @@ import Eye from '@site/static/icons/eye.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTags } from '@fortawesome/free-solid-svg-icons';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import Comments from '@site/src/components/Comments';
+
 import BlogPostAuthors from '@theme/BlogPostAuthors';
 import Translate from '@docusaurus/Translate';
 import dayjs from 'dayjs';
@@ -69,15 +69,15 @@ function BlogPostItem(props) {
     );
   };
 
-  const renderTags = () => {
+  const renderTags = (isBlogPostPage) => {
     return (
       (tags.length > 0 || truncated) && (
         <div className='post__tags-container margin-top--none margin-bottom--md'>
           {tags.length > 0 && (
             <>
-              <FontAwesomeIcon icon={faTags} color='#c4d3e0' className='margin-right--md' />
+              {isBlogPostPage ? <b className='margin-right--md'>标签:</b> : <FontAwesomeIcon icon={faTags} color='#c4d3e0' className='margin-right--md' />}
               {tags.slice(0, 4).map(({ label, permalink: tagPermalink }, index) => (
-                <Link key={tagPermalink} className={`post__tags ${index > 0 ? 'margin-horiz--sm' : 'margin-right--sm'}`} to={tagPermalink} style={{ fontSize: '0.75em', fontWeight: 500 }}>
+                <Link key={tagPermalink} className={`post__tags margin-right--sm`} to={tagPermalink} style={{ fontSize: '0.75em', fontWeight: 500 }}>
                   {label}
                 </Link>
               ))}
@@ -156,7 +156,7 @@ function BlogPostItem(props) {
                 {/* 版权 */}
                 {authors && renderCopyright()}
                 {/* 标签 */}
-                {renderTags()}
+                {renderTags(isBlogPostPage)}
               </div>
             )}
             {!isBlogPostPage && (

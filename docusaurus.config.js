@@ -72,11 +72,6 @@ module.exports = {
           position: 'right',
           to: '/about',
         },
-        // {
-        //   href: 'https://github.com/kuizuo/kuizuo.cn',
-        //   label: '本站源码',
-        //   position: 'right',
-        // },
       ],
     },
     algolia: {

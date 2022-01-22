@@ -462,7 +462,7 @@ html[data-theme='dark'] .bloghome__intro > p {
 .post__tags-container {
   white-space: nowrap;
   overflow: auto;
-  padding-bottom: 12px;
+  padding-bottom: 6px;
 }
 
 .post__tags {

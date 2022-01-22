@@ -6,34 +6,30 @@
  */
 
 import siteConfig from '@generated/docusaurus.config';
-import mediumZoom from 'medium-zoom'
+import mediumZoom from 'medium-zoom';
 
 const { themeConfig } = siteConfig;
 
 export default (function () {
-
-  if ( typeof window === 'undefined' ) {
+  if (typeof window === 'undefined') {
     return null;
   }
 
-  const selector = (themeConfig&&themeConfig.zoomSelector) || '.markdown img';
+  const selector = (themeConfig && themeConfig.zoomSelector) || '.markdown img';
 
   setTimeout(() => {
     mediumZoom(selector);
   }, 1000);
 
-
   return {
     onRouteUpdate({ location }) {
-
-      if( location && location.hash && location.hash.length ) {
+      if (location && location.hash && location.hash.length) {
         return;
       }
 
       setTimeout(() => {
         mediumZoom(selector);
       }, 1000);
-
     },
   };
 })();
