@@ -46,7 +46,7 @@ npm install @types/ws -D
 
 #### 代码例子
 
-```javascript title=“server.js”
+```javascript title="server.js"
 import WebSocket, { WebSocketServer } from 'ws';
 
 let ws = new WebSocketServer({
@@ -71,7 +71,7 @@ ws.on('connection', (socket) => {
 
 上面代码写的很简陋，尤其是数据交互的地方，这里可以使用 json 来改进一下。像这样，至于为啥用 try 是防止 json 数据不对导致解析错误（具体代码就不解读了）
 
-```javascript title=“server.js”
+```javascript title="server.js"
 import WebSocket, { WebSocketServer } from 'ws';
 
 let ws = new WebSocketServer({ port: 8080 });
@@ -118,7 +118,7 @@ ws.on('connection', (socket) => {
 
 接着在覆盖中找到文件，找到加密的代码块，添加如下代码
 
-```javascript title=“browser.js”
+```javascript title="browser.js"
 !(function () {
   let url = 'ws://127.0.0.1:8080';
   let ws = new WebSocket(url);
@@ -166,7 +166,7 @@ ws.on('connection', (socket) => {
 
 浏览器 websocket 客户端的代码，在初次连接的时候，告诉 websocket 服务端是不是浏览器。并将于浏览器连接的 socket 句柄存入全局对象，以便用户获取加密参数的时候向浏览器调用。
 
-```javascript title=“browser.js”
+```javascript title="browser.js"
 ws.onopen = function (event) {
   ws.send(JSON.stringify({ type: 'isBrowser', value: true }));
 };
@@ -174,7 +174,7 @@ ws.onopen = function (event) {
 
 ### 用户调用端
 
-```javascript title=“client.js”
+```javascript title="client.js"
 import WebSocket from 'ws';
 
 async function getPasswordEnc(password) {
@@ -216,7 +216,7 @@ run();
 
 同时 websocket 服务端肯定要新增一个类型用于判断是登录算法实现的客户端。同时又新的用户要调用，所以这里使用了 uuid 这个模块来生成唯一的用户 id，同时还定义一个变量 clients 记录所连接过的用户（包括浏览器），完整代码如下
 
-```javascript title=“server.js”
+```javascript title="server.js"
 import WebSocket, { WebSocketServer } from 'ws';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -293,7 +293,7 @@ ws.on('connection', (socket) => {
 
 其实要实现也很简单，我只要把用户调用的 `getPasswordEnc` 这个函数 弄到 node 创建的一个 http 服务端就行了，我这里的做法也是如此。像下面这样
 
-```javascript title=“server_http.js”
+```javascript title="server_http.js"
 async function getPasswordEnc(password) {
   return new Promise((resolve, reject) => {
     const ws = new WebSocket('ws://127.0.0.1:8080');

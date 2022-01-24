@@ -140,7 +140,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 
 目前暂时没找到有效办法一键加载所有博客的issues，只要用登录github的管理员账号去访问每一篇博客。
 
-其中在[第 3 步](#3、注册一个 Github applications)的 Authorization callback URL 地址一定要填写成现在博客线上环境https://kuizuo.cn，否则也无法正常使用
+其中在[第3步](#3注册一个-github-applications)的 Authorization callback URL 地址一定要填写成现在博客线上环境 https://kuizuo.cn ，否则也无法正常使用
 
 ### Validation failed
 

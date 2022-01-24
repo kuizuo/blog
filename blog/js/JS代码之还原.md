@@ -88,7 +88,7 @@ console.log(add['abc'])
 
 那么接下来就要着重查看前三个语句，因为这三条语句便是这套混淆的关键所在。
 
-```js title=“demo.js” {1，3-7}
+```js title="demo.js" {1，3-7}
 var _0x34ba = ["JcOFw4ITY8KX", "EHrDoHNfwrDCosO6Rkw=",...]
 (function(_0x2684bf, _0x5d23f1) {
     // 这里只是定义了一个数组乱序的函数,但是调用是在后面
@@ -160,7 +160,7 @@ var _0x3028 = function (_0x2308a4, _0x573528) {
 
 #### 将解密函数添加到内存中
 
-首先要将三条语句运行一遍，js 中要在运行式，运行字符串的代码，就可以使用 eval，但 eval 有作用域的问题，eval 运行的代码作用范围都是局部的，如果脱离当前作用域，eval 运行的代码就相当于无效了，所有可以使用`window.eval`或`global.eval`，将其写入置全局作用域下，由于这里是 node 环境，便用`global.eval`。
+首先要将三条语句运行一遍，js 中要在运行时运行字符串的代码，就可以使用 eval，但 eval 有作用域的问题，eval 运行的代码作用范围都是局部的，如果脱离当前作用域，eval 运行的代码就相当于无效了，所有可以使用`window.eval`或`global.eval`，将其写入置全局作用域下，由于这里是 node 环境，便用`global.eval`。
 
 截取前三条语句，使用 eval 写入内存
 
