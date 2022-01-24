@@ -5,6 +5,8 @@ authors: kuizuo
 tags: [node]
 ---
 
+<!-- truncate -->
+
 ## 前言
 
 记录一下自己在 nodejs 中使用 http 请求库 axios 中的一些坑（针对 Cookie 操作）

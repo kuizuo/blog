@@ -154,7 +154,8 @@ module.exports = {
           // editUrl: "https://github.com/kuizuo/kuizuo.cn/tree/master",
           // remarkPlugins: [require("remark-math")],
           // rehypePlugins: [require("rehype-katex")],
-          showLastUpdateTime: true,
+          // showLastUpdateAuthor: true,
+          // showLastUpdateTime: true,
         },
         blog: {
           path: 'blog',

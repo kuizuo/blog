@@ -140,6 +140,7 @@ table {
 .markdown > h2 {
   font-size: 1.8em;
   /* border-bottom: 1px solid #338bff; */
+  margin-top: 1rem;
 }
 
 .markdown > h3 {
@@ -461,16 +462,16 @@ html[data-theme='dark'] .bloghome__intro > p {
 
 .post__tags-container {
   white-space: nowrap;
-  overflow: auto;
-  padding-bottom: 6px;
+  /* overflow: auto; */
+  /* padding-bottom: 6px; */
 }
 
 .post__tags {
   font-size: 0.85em;
   font-weight: 500;
   background: var(--ifm-color-primary);
-  padding: 5px 8px;
-  border-radius: 6px;
+  padding: 5px 5px;
+  border-radius: 5px;
   color: #ffffff;
 }
 
@@ -480,7 +481,7 @@ html[data-theme='dark'] .bloghome__intro > p {
 }
 
 .post-copyright {
-  margin: 2.5rem 0 0.5rem;
+  margin: 1rem 0 0.5rem;
   padding: 0.5rem 1rem;
   border: 1px solid #eee;
   font-size: 0.95rem;

@@ -78,5 +78,65 @@
   "sidebar.resources.category.开发工具": {
     "message": "开发工具",
     "description": "The label for category 开发工具 in sidebar resources"
+  },
+  "sidebar.skill.category.NodeJs": {
+    "message": "NodeJs",
+    "description": "The label for category NodeJs in sidebar skill"
+  },
+  "sidebar.skill.category.开发": {
+    "message": "开发",
+    "description": "The label for category 开发 in sidebar skill"
+  },
+  "sidebar.skill.category.数据库": {
+    "message": "数据库",
+    "description": "The label for category 数据库 in sidebar skill"
+  },
+  "sidebar.skill.category.redis": {
+    "message": "redis",
+    "description": "The label for category redis in sidebar skill"
+  },
+  "sidebar.skill.category.mongo": {
+    "message": "mongo",
+    "description": "The label for category mongo in sidebar skill"
+  },
+  "sidebar.skill.category.elasticsearch": {
+    "message": "elasticsearch",
+    "description": "The label for category elasticsearch in sidebar skill"
+  },
+  "sidebar.skill.category.mysql": {
+    "message": "mysql",
+    "description": "The label for category mysql in sidebar skill"
+  },
+  "sidebar.skill.category.逆向": {
+    "message": "逆向",
+    "description": "The label for category 逆向 in sidebar skill"
+  },
+  "sidebar.skill.category.Android": {
+    "message": "Android",
+    "description": "The label for category Android in sidebar skill"
+  },
+  "sidebar.skill.category.JavaScript": {
+    "message": "JavaScript",
+    "description": "The label for category JavaScript in sidebar skill"
+  },
+  "sidebar.skill.category.Python": {
+    "message": "Python",
+    "description": "The label for category Python in sidebar skill"
+  },
+  "sidebar.skill.category.Go": {
+    "message": "Go",
+    "description": "The label for category Go in sidebar skill"
+  },
+  "sidebar.skill.category.Web": {
+    "message": "Web",
+    "description": "The label for category Web in sidebar skill"
+  },
+  "sidebar.skill.category.CSS": {
+    "message": "CSS",
+    "description": "The label for category CSS in sidebar skill"
+  },
+  "sidebar.recommend.category.推荐": {
+    "message": "推荐",
+    "description": "The label for category 推荐 in sidebar recommend"
   }
 }

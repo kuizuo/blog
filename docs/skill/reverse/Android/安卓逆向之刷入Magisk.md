@@ -52,7 +52,7 @@ tags:
 
 ### 5.进入bootloader模式
 
-关机后，同时长按**电源键**和**音量减键**，进入bootloader界面。通过USB线将手机连接到电脑。
+关机后，同时长按**电源键**和**音量减键**，进入bootloader界面。（`adb reboot bootloader`）通过USB线将手机连接到电脑。
 
 ### 6.打开platform-tools文件夹，打开CMD窗口 输入下行命令
 
@@ -64,6 +64,6 @@ fastboot flash boot magisk_patched-23000_woltm.img
 fastboot reboot
 ```
 
-手机重启后，便成功刷入Magisk
+手机重启后，便成功刷入Magisk，并拥有Root权限。
 
 ![image-20211209153202961](https://img.kuizuo.cn/image-20211209153202961.png)

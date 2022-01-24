@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
 
-export default function useViews(items) {
+export default function useViews(item) {
   // Get all post views
-  const titles = items.map(({ content }) => {
-    return content?.frontMatter?.title;
-  });
-  const [views, setViews] = useState([]);
+  const title = item?.frontMatter?.title;
+
+  const [views, setViews] = useState(0);
   const getViews = async () => {
     try {
       const res = await fetch('https://blog.kuizuo.cn/posts/views', {
         method: 'POST',
-        body: JSON.stringify(titles),
+        body: JSON.stringify([title]),
         // mode: 'no-cors',
         credentials: 'include',
         headers: {
@@ -18,7 +17,7 @@ export default function useViews(items) {
         },
       });
       const views = await res.json();
-      setViews(views);
+      setViews(views?.[0].views ?? Math.floor(Math.random() * (10 - 1)) + 1);
     } catch (error) {}
   };
 

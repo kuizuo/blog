@@ -38,5 +38,21 @@
   "item.label.CSS 教程": {
     "message": "CSS 教程",
     "description": "Navbar item with label CSS 教程"
+  },
+  "item.label.标签": {
+    "message": "标签",
+    "description": "Navbar item with label 标签"
+  },
+  "item.label.归档": {
+    "message": "归档",
+    "description": "Navbar item with label 归档"
+  },
+  "item.label.关于我": {
+    "message": "关于我",
+    "description": "Navbar item with label 关于我"
+  },
+  "item.label.技术笔记": {
+    "message": "技术笔记",
+    "description": "Navbar item with label 技术笔记"
   }
 }

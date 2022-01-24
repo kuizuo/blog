@@ -22,7 +22,7 @@ import { MarkdownSection, StyledBlogItem } from './style';
 
 import Eye from '@site/static/icons/eye.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTags } from '@fortawesome/free-solid-svg-icons';
+import { faTags, faEye } from '@fortawesome/free-solid-svg-icons';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
 import BlogPostAuthors from '@theme/BlogPostAuthors';
@@ -63,7 +63,15 @@ function BlogPostItem(props) {
             {!isBlogPostPage && readingTime && <> · {Math.ceil(readingTime)} min read</>}
             {isBlogPostPage && readingTime && <> · 预计阅读时间 {Math.ceil(readingTime)} 分钟</>}
           </time>
+          {isBlogPostPage && (
+            <span className='margin-left--sm' style={{ color: '#8c8c8c' }}>
+              <FontAwesomeIcon icon={faEye} color='#c4d3e0' style={{ verticalAlign: 'middle', marginRight: '0.25rem' }} />
+              <span style={{ fontSize: '0.9rem' }}>{views}</span>
+            </span>
+          )}
+          {renderTags()}
         </div>
+
         {isBlogPostPage && authors && <BlogPostAuthors authors={authors} assets={assets} />}
       </header>
     );
@@ -72,12 +80,12 @@ function BlogPostItem(props) {
   const renderTags = (isBlogPostPage) => {
     return (
       (tags.length > 0 || truncated) && (
-        <div className='post__tags-container margin-top--none margin-bottom--md'>
+        <div className='post__tags-container' style={{ display: 'inline-block' }}>
           {tags.length > 0 && (
             <>
-              {isBlogPostPage ? <b className='margin-right--md'>标签:</b> : <FontAwesomeIcon icon={faTags} color='#c4d3e0' className='margin-right--md' />}
+              <FontAwesomeIcon icon={faTags} color='#c4d3e0' className={`${isBlogPostPage ? 'margin-left--md' : 'margin-left--sm'} margin-right--sm`} style={{ verticalAlign: 'middle' }} />
               {tags.slice(0, 4).map(({ label, permalink: tagPermalink }, index) => (
-                <Link key={tagPermalink} className={`post__tags margin-right--sm`} to={tagPermalink} style={{ fontSize: '0.75em', fontWeight: 500 }}>
+                <Link key={tagPermalink} className={`post__tags margin-right--sm`} to={tagPermalink} style={{ fontSize: '0.75em', padding: '5px' }}>
                   {label}
                 </Link>
               ))}
@@ -143,8 +151,6 @@ function BlogPostItem(props) {
           <article className={!isBlogPostPage ? undefined : undefined}>
             {/* 标题 */}
             {renderPostHeader()}
-            {/* 列表页标签 */}
-            {!isBlogPostPage && renderTags()}
             {/* 正文 */}
             <MarkdownSection isBlogPostPage={isBlogPostPage} isDark={isDarkTheme} className='markdown'>
               <MDXProvider components={MDXComponents}>{children}</MDXProvider>
@@ -152,12 +158,10 @@ function BlogPostItem(props) {
           </article>
           <footer className='article__footer padding-top--md '>
             {isBlogPostPage && (
-              <div>
+              <>
                 {/* 版权 */}
                 {authors && renderCopyright()}
-                {/* 标签 */}
-                {renderTags(isBlogPostPage)}
-              </div>
+              </>
             )}
             {!isBlogPostPage && (
               <span className='footer__read_count'>

@@ -5,6 +5,8 @@ authors: kuizuo
 tags: [chrome, 插件, 开发]
 ---
 
+<!-- truncate -->
+
 ## 前言
 
 相关文章 [谷歌官方文档](https://developer.chrome.com/extensions/manifest) (需翻墙)

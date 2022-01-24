@@ -5,8 +5,6 @@ authors: kuizuo
 tags: [blog, Gitalk]
 ---
 
-## 前言
-
 之前使用 vuepress 的时候，使用的评论系统是[Valine](https://valine.js.org/)，可是匿名用户也能直接评论，虽说会过滤垃圾信息，但是后台查看评论与通知总感觉没有那么实在。
 
 然后换到了 docusaurus，并没有内置评论相关的，原本是打算自己写一个评论系统，MongoDB 存储评论数据相对方便些。然后这一拖就是拖到了过年前。。。无意间发现有一个插件[Gitalk](https://gitalk.github.io/)，基于 Github Issue 的，而我平常又经常刷 github，加上需要 github 账号才能评论，所以就使用[Gitalk](https://gitalk.github.io/) 来作为博客的评论（注：Gitalk 是基于 react 编写的）。

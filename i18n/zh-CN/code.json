@@ -1,4 +1,16 @@
 {
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "回到顶部",
+    "description": "The ARIA label for the back to top button"
+  },
+  "theme.DocSidebarItem.toggleCollapsedCategoryAriaLabel": {
+    "message": "打开/收起侧边栏菜单「{label}」",
+    "description": "The ARIA label to toggle the collapsible sidebar category"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← 回到主菜单",
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  },
   "Hello! 我是": {
     "message": "Hello! 我是",
     "description": "hero greet"
@@ -96,7 +108,7 @@
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.tags.tagsListLabel": {
-    "message": "Tags:",
+    "message": "标签:",
     "description": "The label alongside a tag list"
   },
   "theme.blog.post.readMore": {
@@ -116,7 +128,7 @@
     "description": "The blog post button label to navigate to the older/next post"
   },
   "theme.tags.tagsPageTitle": {
-    "message": "Tags",
+    "message": "标签",
     "description": "The title of the tag list page"
   },
   "theme.blog.post.plurals": {
@@ -128,7 +140,7 @@
     "description": "The title of the page for a blog tag"
   },
   "theme.tags.tagsPageLink": {
-    "message": "View All Tags",
+    "message": "查看所有标签",
     "description": "The label of the link targeting the tag list page"
   },
   "theme.CodeBlock.copyButtonAriaLabel": {
@@ -189,7 +201,7 @@
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
     "message": "For up-to-date documentation, see the {latestVersionLink} ({versionLabel}).",
-    "description": "The label userd to tell the user that he's browsing an unmaintained doc version"
+    "description": "The label used to tell the user to check the latest version"
   },
   "theme.docs.versions.latestVersionLinkLabel": {
     "message": "最新版本",
@@ -265,7 +277,7 @@
   },
   "hompage.hero.text.project": {
     "message": "实战项目",
-    "description": "Course link label"
+    "description": "Project link label"
   },
   "hompage.hero.text.blog": {
     "message": "技术博客",
@@ -278,5 +290,66 @@
   "hompage.hero.text.idea": {
     "message": "想法和生活点滴",
     "description": "Idea link label"
+  },
+  "playground.codesandbox.description": {
+    "message": "CodeSandbox is a popular playground solution. Runs Docusaurus in a remote Docker container."
+  },
+  "playground.stackblitz.description": {
+    "message": "StackBlitz uses a novel {webContainersLink} technology to run Docusaurus directly in your browser."
+  },
+  "playground.tryItButton": {
+    "message": "Try it now!"
+  },
+  "阅读全文": {
+    "message": "阅读全文",
+    "description": "read full text"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "This page crashed.",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "Try again",
+    "description": "The label of the button to try again when the page crashed"
+  },
+  "theme.blog.archive.title": {
+    "message": "Archive",
+    "description": "The page & hero title of the blog archive page"
+  },
+  "theme.blog.archive.description": {
+    "message": "Archive",
+    "description": "The page & hero description of the blog archive page"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "Blog recent posts navigation",
+    "description": "The ARIA label for recent posts in the blog sidebar"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "One doc tagged|{count} docs tagged",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged} with \"{tagName}\"",
+    "description": "The title of the page for a docs tag"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "Versions",
+    "description": "The label for the navbar versions dropdown on mobile view"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "On this page",
+    "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.PwaReloadPopup.info": {
+    "message": "New version available",
+    "description": "The text for PWA reload popup"
+  },
+  "theme.PwaReloadPopup.refreshButtonText": {
+    "message": "Refresh",
+    "description": "The text for PWA reload button"
+  },
+  "theme.PwaReloadPopup.closeButtonAriaLabel": {
+    "message": "Close",
+    "description": "The ARIA label for close button of PWA reload popup"
   }
 }

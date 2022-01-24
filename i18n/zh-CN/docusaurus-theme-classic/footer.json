@@ -5,7 +5,7 @@
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/zxuqian/zxuqian.cn"
+    "description": "The label of footer link with label=GitHub linking to https://github.com/kuizuo"
   },
   "link.item.label.Bilibili 哔哩哔哩": {
     "message": "Bilibili 哔哩哔哩",
@@ -49,6 +49,30 @@
   },
   "link.item.label.资源导航": {
     "message": "资源导航",
-    "description": "The label of footer link with label=资源导航 linking to docs/resources"
+    "description": "The label of footer link with label=资源导航 linking to resources"
+  },
+  "link.item.label.技术笔记": {
+    "message": "技术笔记",
+    "description": "The label of footer link with label=技术笔记 linking to docs/skill"
+  },
+  "link.item.label.实战项目": {
+    "message": "实战项目",
+    "description": "The label of footer link with label=实战项目 linking to project"
+  },
+  "link.item.label.首页": {
+    "message": "首页",
+    "description": "The label of footer link with label=首页 linking to /"
+  },
+  "link.item.label.关于我": {
+    "message": "关于我",
+    "description": "The label of footer link with label=关于我 linking to /about"
+  },
+  "link.item.label.峰华前端工程师": {
+    "message": "峰华前端工程师",
+    "description": "The label of footer link with label=峰华前端工程师 linking to https://zxuqian.cn/"
+  },
+  "copyright": {
+    "message": "<p>Copyright © 2022 愧怍 Built with Docusaurus.</p><p><a href=\"http://beian.miit.gov.cn/\" >闽ICP备2020017848号-2</a>",
+    "description": "The footer copyright"
   }
 }

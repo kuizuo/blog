@@ -10,6 +10,7 @@ import Seo from '@theme/Seo';
 import BlogLayout from '@theme/BlogLayout';
 import BlogPostItem from '@theme/BlogPostItem';
 import BlogPostPaginator from '@theme/BlogPostPaginator';
+import BackToTopButton from '@theme/BackToTopButton';
 import { ThemeClassNames } from '@docusaurus/theme-common';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import TOC from '@theme/TOC';
@@ -17,6 +18,8 @@ import TOC from '@theme/TOC';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import 'gitalk/dist/gitalk.css';
 import GitalkComponent from 'gitalk/dist/gitalk-component';
+
+import useViews from './useViews';
 
 function BlogPostPage(props) {
   const { content: BlogPostContents, sidebar } = props;
@@ -32,6 +35,8 @@ function BlogPostPage(props) {
   const {
     siteConfig: { url: siteUrl },
   } = useDocusaurusContext();
+
+  const views = useViews(props.content);
 
   const labels = tags.length > 0 ? tags.map((t) => t.label) : ['Gitalk', title];
   const options = {
@@ -59,6 +64,7 @@ function BlogPostPage(props) {
         ) : undefined
       }
     >
+      <BackToTopButton />
       <Seo
         // TODO refactor needed: it's a bit annoying but Seo MUST be inside BlogLayout
         // otherwise  default image (set by BlogLayout) would shadow the custom blog post image
@@ -83,7 +89,7 @@ function BlogPostPage(props) {
         {tags.length > 0 && <meta property='article:tag' content={tags.map((tag) => tag.label).join(',')} />}
       </Seo>
 
-      <BlogPostItem frontMatter={frontMatter} assets={assets} metadata={metadata} isBlogPostPage>
+      <BlogPostItem frontMatter={frontMatter} assets={assets} metadata={metadata} isBlogPostPage views={views}>
         <BlogPostContents />
       </BlogPostItem>
       {(nextItem || prevItem) && <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />}
