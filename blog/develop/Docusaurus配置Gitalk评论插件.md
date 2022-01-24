@@ -144,6 +144,8 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 
 原因是 id 参数不能超过 50 个字符，但是默认是 location.href，有可能会导致长度超过。所以我的做法是 id: title，同时访问页面的时候，会自动为仓库创建一个 issue，标题为文章的标题。
 
+也有可能是请求过于频繁，触发了Github的限流机制，需要等待几分钟后恢复。
+
 ### react编译遇到的问题
 
 插件中会使用到浏览器的 window 对象，开发时正常，但是编译就会报错（提示window is not defined），这边引用了 docusaurus 的[BrowserOnly](https://docusaurus.io/zh-CN/docs/docusaurus-core#browseronly)，将代码封装成如下便可正常编译
