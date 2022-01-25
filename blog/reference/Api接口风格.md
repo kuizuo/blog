@@ -2,7 +2,7 @@
 title: Api接口风格
 date: 2021-08-06
 authors: kuizuo
-tags: [api, 代码风格]
+tags: [随笔, api, 代码风格]
 ---
 
 <!-- truncate -->

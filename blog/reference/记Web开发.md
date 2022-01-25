@@ -2,7 +2,7 @@
 title: 记Web前端开发
 date: 2021-08-21
 authors: kuizuo
-tags: [web, 前端, 随笔]
+tags: [随笔, web, 前端]
 draft: true
 ---
 

@@ -40,7 +40,7 @@ tags: [blog, Gitalk]
 
 ### 5、安装
 
-[官方教程]([gitalk/readme-cn.md at master · gitalk/gitalk (github.com)](https://github.com/gitalk/gitalk/blob/master/readme-cn.md#安装))
+[官方教程](https://github.com/gitalk/gitalk/blob/master/readme-cn.md#安装)
 
 - 直接引入
 
@@ -134,21 +134,21 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 
 ### 未找到相关的 [Issues](https://github.com/kuizuo/blog/issues) 进行评论，请联系 @xxxxx 初始化创建
 
-这里的 xxxxx 就是选项 admin 的内容，首次载入文章的话需要用管理员账号登录初始化一下（也就是新建一个issues），否则其他人访问也将会提示该信息。
+这里的 xxxxx 就是选项 admin 的内容，首次载入文章的话需要用管理员账号登录初始化一下（也就是新建一个 issues），否则其他人访问也将会提示该信息。
 
-目前暂时没找到有效办法一键加载所有博客的issues，只要用登录github的管理员账号去访问每一篇博客。
+目前暂时没找到有效办法一键加载所有博客的 issues，只要用登录 github 的管理员账号去访问每一篇博客。
 
-其中在[第3步](#3注册一个-github-applications)的 Authorization callback URL 地址一定要填写成现在博客线上环境 https://kuizuo.cn ，否则也无法正常使用
+其中在[第 3 步](#3注册一个-github-applications)的 Authorization callback URL 地址一定要填写成现在博客线上环境 https://kuizuo.cn ，否则也无法正常使用
 
 ### Validation failed
 
 原因是 id 参数不能超过 50 个字符，但是默认是 location.href，有可能会导致长度超过。所以我的做法是 id: title，同时访问页面的时候，会自动为仓库创建一个 issue，标题为文章的标题。
 
-也有可能是请求过于频繁，触发了Github的限流机制，需要等待几分钟后恢复。
+也有可能是请求过于频繁，触发了 Github 的限流机制，需要等待几分钟后恢复。
 
-### react编译遇到的问题
+### react 编译遇到的问题
 
-插件中会使用到浏览器的 window 对象，开发时正常，但是编译就会报错（提示window is not defined），这边引用了 docusaurus 的[BrowserOnly](https://docusaurus.io/zh-CN/docs/docusaurus-core#browseronly)，将代码封装成如下便可正常编译
+插件中会使用到浏览器的 window 对象，开发时正常，但是编译就会报错（提示 window is not defined），这边引用了 docusaurus 的[BrowserOnly](https://docusaurus.io/zh-CN/docs/docusaurus-core#browseronly)，将代码封装成如下便可正常编译
 
 ```jsx
 <BrowserOnly fallback={<div></div>}>{() => <GitalkComponent options={options} />}</BrowserOnly>
@@ -160,7 +160,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 
 [GitHub Documentation](https://docs.github.com/cn)
 
-通过github api还可以获取issues列表
+通过 github api 还可以获取 issues 列表
 
 访问 https://api.github.com/repos/kuizuo/blog/issues，返回结果如下
 
@@ -229,9 +229,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
     "state": "open",
     "locked": false,
     "assignee": null,
-    "assignees": [
-
-    ],
+    "assignees": [],
     "milestone": null,
     "comments": 0,
     "created_at": "2022-01-22T06:47:34Z",
@@ -254,11 +252,11 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
     },
     "timeline_url": "https://api.github.com/repos/kuizuo/blog/issues/24/timeline",
     "performed_via_github_app": null
-  },
+  }
 ]
 ```
 
-相关api文档 => [github docs](https://docs.github.com/cn/rest/reference/issues#comments)
+相关 api 文档 => [github docs](https://docs.github.com/cn/rest/reference/issues#comments)
 
 也许后续可能考虑使用[octokit.js](https://github.com/octokit/octokit.js)来编写一个后台查询与删除的管理页。
 
@@ -268,6 +266,6 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 
 ![image-20220122164034147](https://img.kuizuo.cn/20220122164034.png)
 
-#### issues页面
+#### issues 页面
 
 ![image-20220122163957435](https://img.kuizuo.cn/20220122163957.png)
