@@ -1,14 +1,7 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import React from 'react';
 
 import Layout from '@theme/Layout';
-import BlogPostItem from "@theme/BlogPostItem";
+import BlogPostItem from '@theme/BlogPostItem';
 import Link from '@docusaurus/Link';
 import BlogSidebar from '@theme/BlogSidebar';
 import { translate } from '@docusaurus/Translate';
@@ -19,7 +12,7 @@ function getCategoryOfTag(tag: string) {
   return tag[0].toUpperCase();
 }
 
-function BlogTagsListPage(props): JSX.Element {
+function BlogTagsListPage(props) {
   const { tags, sidebar, items } = props;
   const title = translate({
     id: 'theme.tags.tagsPageTitle',
@@ -33,18 +26,12 @@ function BlogTagsListPage(props): JSX.Element {
     tagCategories[category] = tagCategories[category] || [];
     tagCategories[category].push(tag);
   });
-  const tagsList = Object.entries(tagCategories).sort(([a], [b]) =>
-    a.localeCompare(b),
-  );
+  const tagsList = Object.entries(tagCategories).sort(([a], [b]) => a.localeCompare(b));
   const tagsSection = tagsList
     .map(([category, tagsForCategory]) => (
-      <div key={category} style={{ "display": "flex", "flexWrap": "wrap" }}>
+      <div key={category} style={{ display: 'flex', flexWrap: 'wrap' }}>
         {tagsForCategory.map((tag, index) => (
-          <Link
-            className={`post__tags margin-horiz--sm margin-bottom--sm`}
-            href={tags[tag].permalink}
-            key={tag}>
-
+          <Link className={`post__tags margin-horiz--sm margin-bottom--sm`} href={tags[tag].permalink} key={tag}>
             {tags[tag].name} ({tags[tag].count})
           </Link>
         ))}
@@ -54,23 +41,15 @@ function BlogTagsListPage(props): JSX.Element {
 
   const renderTags = () => {
     return (
-      (tags.length > 0) && (
-        <div className="post__tags-container margin-top--none margin-bottom--md">
+      tags.length > 0 && (
+        <div className='post__tags-container margin-top--none margin-bottom--md'>
           {tags.length > 0 && (
             <>
-              {tags
-                .slice(0, 4)
-                .map(({ label, permalink: tagPermalink }, index) => (
-                  <Link
-                    key={tagPermalink}
-                    className={`post__tags ${index > 0 ? "margin-horiz--sm" : "margin-right--sm"
-                      }`}
-                    to={tagPermalink}
-                    style={{ fontSize: "0.75em", fontWeight: 500 }}
-                  >
-                    {label}
-                  </Link>
-                ))}
+              {tags.slice(0, 4).map(({ label, permalink: tagPermalink }, index) => (
+                <Link key={tagPermalink} className={`post__tags ${index > 0 ? 'margin-horiz--sm' : 'margin-right--sm'}`} to={tagPermalink} style={{ fontSize: '0.75em', fontWeight: 500 }}>
+                  {label}
+                </Link>
+              ))}
             </>
           )}
         </div>
@@ -86,13 +65,14 @@ function BlogTagsListPage(props): JSX.Element {
       searchMetadatas={{
         // assign unique search tag to exclude this page from search results!
         tag: 'blog_tags_list',
-      }}>
-      <div className="container margin-vert--lg">
-        <div className="row">
-          <aside className="col col--3">
+      }}
+    >
+      <div className='container margin-vert--lg'>
+        <div className='row'>
+          <aside className='col col--3'>
             <BlogSidebar sidebar={sidebar} />
           </aside>
-          <main className="col col--7">
+          <main className='col col--7'>
             <h1>标签</h1>
             {renderTags()}
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>{tagsSection}</div>
@@ -115,8 +95,5 @@ function BlogTagsListPage(props): JSX.Element {
     </Layout>
   );
 }
-
-
-
 
 export default BlogTagsListPage;

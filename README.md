@@ -1,12 +1,38 @@
 # 个人博客
 
+![blog](https://img.kuizuo.cn/20220125193719.png)
+
 访问地址 [愧怍的小站](https://kuizuo.cn) 
 
-本博客基于 [Docusaurus 2](https://v2.docusaurus.io/) JAMStack 静态网站生成器实现，基于 Bilibili（峰华前端工程师） 所开源的代码上进行二次开发。相关完整源码可直接访问 https://github.com/zxuqian/zxuqian.cn
+本博客基于 [Docusaurus v2](https://v2.docusaurus.io/)  静态网站生成器实现，借鉴 [峰华前端工程师- 让你学会前端开发 (zxuqian.cn)](https://zxuqian.cn/) 所开源的[代码](https://github.com/zxuqian/zxuqian.cn)上进行二次开发。
 
-关于 Docusaurus 的使用方法请参考官方网站 [Docusaurus 2](https://v2.docusaurus.io/)。
+具体搭建过程 [第二个博客搭建之Docusaurus - 愧怍的小站 (kuizuo.cn)](https://kuizuo.cn/develop/第二个博客搭建之Docusaurus)
 
-项目部署于腾讯Webify，可一键部署项目
+## 使用方法
 
-[![](https://cloudbase.net/deploy.svg)](https://console.cloud.tencent.com/webify/new?tpl=https%3A%2F%2Fgithub.com%2Fkuizuo%2Fkuizuo-blog&reponame=kuizuo-blog)
+首先克隆仓库代码：
 
+```sh
+git clone https://github.com/kuizuo/blog.git
+```
+
+安装依赖：
+
+```sh
+cd blog
+npm install
+```
+
+启动项目：
+
+```sh
+npm start
+```
+
+构建项目：
+
+```sh
+npm build
+```
+
+关于部署，由于不同的服务器、平台有不同的方式，可以使用 Github Pages、FTP、自行搭建服务器等。

@@ -1,10 +1,3 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import React, { useEffect, useState, useRef } from 'react';
 import clsx from 'clsx';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
@@ -22,9 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 const highlightLinesRangeRegex = /{([\d,-]+)}/;
-const getHighlightDirectiveRegex = (
-  languages = ['js', 'jsBlock', 'jsx', 'python', 'html'],
-) => {
+const getHighlightDirectiveRegex = (languages = ['js', 'jsBlock', 'jsx', 'python', 'html']) => {
   // supported types of comments
   const comments = {
     js: {
@@ -49,18 +40,9 @@ const getHighlightDirectiveRegex = (
     },
   };
   // supported directives
-  const directives = [
-    'highlight-next-line',
-    'highlight-start',
-    'highlight-end',
-  ].join('|');
+  const directives = ['highlight-next-line', 'highlight-start', 'highlight-end'].join('|');
   // to be more reliable, the opening and closing comment must match
-  const commentPattern = languages
-    .map(
-      (lang) =>
-        `(?:${comments[lang].start}\\s*(${directives})\\s*${comments[lang].end})`,
-    )
-    .join('|');
+  const commentPattern = languages.map((lang) => `(?:${comments[lang].start}\\s*(${directives})\\s*${comments[lang].end})`).join('|');
   // white space is allowed, but otherwise it should be on it's own line
   return new RegExp(`^\\s*(?:${commentPattern})\\s*$`);
 };
@@ -90,12 +72,7 @@ const highlightDirectiveRegex = (lang) => {
   }
 };
 
-export default function CodeBlock({
-  children,
-  className: languageClassName,
-  metastring,
-  title,
-}: Props): JSX.Element {
+export default function CodeBlock({ children, className: languageClassName, metastring, title }: Props) {
   const { prism } = useThemeConfig();
 
   const [showCopied, setShowCopied] = useState(false);
@@ -136,7 +113,7 @@ export default function CodeBlock({
     languageClassName &&
     // Force Prism's language union type to `any` because it does not contain all available languages
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ((languageClassName.replace(/language-/, '') as Language) as any);
+    (languageClassName.replace(/language-/, '') as Language as any);
 
   if (!language && prism.defaultLanguage) {
     language = prism.defaultLanguage;
@@ -151,18 +128,13 @@ export default function CodeBlock({
     const lines = content.replace(/\n$/, '').split('\n');
     let blockStart;
     // loop through lines
-    for (let index = 0; index < lines.length;) {
+    for (let index = 0; index < lines.length; ) {
       const line = lines[index];
       // adjust for 0-index
       const lineNumber = index + 1;
       const match = line.match(directiveRegex);
       if (match !== null) {
-        const directive = match
-          .slice(1)
-          .reduce(
-            (final: string | undefined, item) => final || item,
-            undefined,
-          );
+        const directive = match.slice(1).reduce((final: string | undefined, item) => final || item, undefined);
         switch (directive) {
           case 'highlight-next-line':
             range += `${lineNumber},`;
@@ -191,7 +163,7 @@ export default function CodeBlock({
 
   const handleExpand = () => {
     setExpand(!expand);
-  }
+  };
 
   const handleCopyCode = () => {
     copy(code);
@@ -201,30 +173,26 @@ export default function CodeBlock({
   };
 
   return (
-    <Highlight
-      {...defaultProps}
-      key={String(mounted)}
-      theme={prismTheme}
-      code={code}
-      language={language}>
+    <Highlight {...defaultProps} key={String(mounted)} theme={prismTheme} code={code} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className={styles.codeBlockContainer}>
           {codeBlockTitle && (
-            <div style={style} className={styles.codeBlockTitle} >
+            <div style={style} className={styles.codeBlockTitle}>
               {codeBlockTitle}
             </div>
           )}
           {/* <div style={{ ...style, "border-bottom": (expand) ? "1px solid var(--ifm-color-emphasis-300)" : "0" }} className={styles.codeBlockTitle} onClick={handleExpand}>
             <FontAwesomeIcon icon={(expand) ? faAngleDown : faAngleRight} /> <span style={{ "margin-left": "2px" }}> {language}</span>
           </div> */}
-          <div className={clsx(styles.codeBlockContent, language)} style={{ display: (expand) ? "block" : "none" }}>
+          <div className={clsx(styles.codeBlockContent, language)} style={{ display: expand ? 'block' : 'none' }}>
             <pre
               /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
               tabIndex={0}
               className={clsx(className, styles.codeBlock, 'thin-scrollbar', {
                 [styles.codeBlockWithTitle]: codeBlockTitle,
               })}
-              style={style}>
+              style={style}
+            >
               <code className={styles.codeBlockLines}>
                 {tokens.map((line, i) => {
                   if (line.length === 1 && line[0].content === '') {
@@ -250,24 +218,21 @@ export default function CodeBlock({
 
             <button
               ref={button}
-              type="button"
+              type='button'
               aria-label={translate({
                 id: 'theme.CodeBlock.copyButtonAriaLabel',
                 message: 'Copy code to clipboard',
                 description: 'The ARIA label for copy code blocks button',
               })}
               className={clsx(styles.copyButton, 'clean-btn')}
-              onClick={handleCopyCode}>
+              onClick={handleCopyCode}
+            >
               {showCopied ? (
-                <Translate
-                  id="theme.CodeBlock.copied"
-                  description="The copied button label on code blocks">
+                <Translate id='theme.CodeBlock.copied' description='The copied button label on code blocks'>
                   Copied
                 </Translate>
               ) : (
-                <Translate
-                  id="theme.CodeBlock.copy"
-                  description="The copy button label on code blocks">
+                <Translate id='theme.CodeBlock.copy' description='The copy button label on code blocks'>
                   Copy
                 </Translate>
               )}

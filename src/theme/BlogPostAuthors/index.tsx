@@ -16,7 +16,7 @@ import styles from './styles.module.css';
 export default function BlogPostAuthors({
   authors,
   assets,
-}: Props): JSX.Element | null {
+}: Props) {
   const authorsCount = authors.length;
   if (authorsCount === 0) {
     return null;

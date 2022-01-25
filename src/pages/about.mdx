@@ -1,29 +1,21 @@
 ---
-title: 关于本人
-date: 2020-09-30
 hide_table_of_contents: true
 ---
 
-![酷乐猫](https://img.kuizuo.cn/%E9%85%B7%E4%B9%90%E7%8C%AB.jpg)
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage from '@theme/ThemedImage';
 
-### 🍀 个人简介
+<h1 style={{ textAlign: 'center' }}>关于我</h1>
 
-export const CheckBox2 = ({ children, color }) => (
-  <div className={`checkbox minus blue`}>
-    <input type='checkbox' defaultChecked='true'/>
-    <span>{children}</span>
-  </div>
-);
+👨‍💻 一位代码爱好者
 
-<CheckBox2>学的比较广，接触过一些主流的编程语言与开发软件，但很多都只学了点皮毛，会看的懂代码罢了。</CheckBox2>
+🌱 不断在学习中，希望能在有限的时间内，学到无限的可能。
 
-<CheckBox2>一开始学的是逆向，所以会点逆向的相关知识，现在转 Web 开发了</CheckBox2>
-
-<CheckBox2>不断在学习中，希望能在有限的时间内，学到无限的可能。</CheckBox2>
+🗒️ 记录所学知识，领略编程之美
 
 <p></p>
 
-### 🔑 技能
+### 📚 技术栈
 
 export const CheckBox = ({ children, lang, color }) => (
   <div className={`checkbox ${lang}`}>
@@ -31,15 +23,13 @@ export const CheckBox = ({ children, lang, color }) => (
       type='radio'
       defaultChecked='true'
       style={{
-        'borderColor': color,
+        borderColor: color,
         border: `2px solid ${color}`,
       }}
     />
     <p>{children}</p>
   </div>
 );
-
-#### 主要技能
 
 <CheckBox color='#F5DE19' lang='js'>
   JavaScript
@@ -49,6 +39,10 @@ export const CheckBox = ({ children, lang, color }) => (
   TypeScript
 </CheckBox>
 
+<CheckBox color='#FFDD6D' lang='python'>
+  Python
+</CheckBox>{' '}
+
 <CheckBox color='#6CA35E' lang='node'>
   NodeJS
 </CheckBox>
@@ -57,75 +51,58 @@ export const CheckBox = ({ children, lang, color }) => (
   Vue
 </CheckBox>
 
-<CheckBox color='red' lang='e'>
-  HTTP协议
-</CheckBox>
-
-<p style={{ marginTop: '10px' }}>
-  <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript' target='_blank'>
-    <img src={'/svg/javascript-original.svg'} alt='javascript' width='40' height='40' />
-  </a>
-  <a href='https://www.typescriptlang.org/' target='_blank'>
-    <img src={'/svg/typescript-original.svg'} alt='typescript' width='40' height='40' />
-  </a>
-  <a href='https://nodejs.org' target='_blank'>
-    <img src={'/svg/nodejs-original-wordmark.svg'} alt='nodejs' width='40' height='40' />
-  </a>
-  <a href='https://vuejs.org/' target='_blank'>
-    <img src={'/svg/vuejs-original-wordmark.svg'} alt='vuejs' width='40' height='40' />
-  </a>
-  <a href='https://www.mysql.com/' target='_blank'>
-    <img src={'/svg/mysql-original-wordmark.svg'} alt='mysql' width='40' height='40' />
-  </a>
-  <a href='https://www.mongodb.com/' target='_blank'>
-    <img src={'/svg/mongodb-original-wordmark.svg'} alt='mongodb' width='40' height='40' />
-  </a>
-  <a href='https://redis.io' target='_blank'>
-    <img src={'/svg/redis-original-wordmark.svg'} alt='redis' width='40' height='40' />
-  </a>
-  <a href='https://www.elastic.co' target='_blank'>
-    <img src={'/svg/elastic-icon.svg'} alt='elasticsearch' width='40' height='40' />
-  </a>
-</p>
-
-<img
-  align='center'
-  src='https://camo.githubusercontent.com/63551876630365930d8d06468f7ec357ee5d154b9b8c80bc58dcb2076c746105/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170693f757365726e616d653d6b75697a756f2673686f775f69636f6e733d74727565266c6f63616c653d656e'
-  alt='kuizuo'
-  data-canonical-src='https://github-readme-stats.vercel.app/api?username=kuizuo&amp;show_icons=true&amp;locale=en'
-/>
-
-<p></p>
-
-#### 正在学习
-
 <CheckBox color='#61DAFB' lang='react'>
   React
 </CheckBox>
 
-<!--- <CheckBox color='#FFDD6D' lang='python'>
-  Python
-</CheckBox> --->
-
-<CheckBox color='#69D7E4' lang='go'>
-  Go
-</CheckBox>
-
-<CheckBox color='#6AB344' lang='android'>
-  Android
+<CheckBox color='red' lang='e'>
+  HTTP协议
 </CheckBox>
 
 <p></p>
 
-### **🌌**目的
+### 🔭 正在学习
 
-- 学习，记录，分享。
-- 整理笔记和博客，巩固知识点（一段时间不用，不及时记录的话，到时候估计和重学没啥区别了）
-- 养好身体就行，身体真要紧了。（虽然话是这么说，该折腾总归还是会去折腾的）
+<CheckBox color='#6AB344'>Android</CheckBox>
 
-### **⛅️**联系我
+<CheckBox color='#69D7E4'>Go</CheckBox>
 
-下面是有关我的联系方式，如果你有什么相关的问题和软件需求可以咨询我。
+<p></p>
 
-- QQ：[911993023](http://wpa.qq.com/msgrd?v=3&uin=911993023&site=qq&menu=yes)
-- 邮箱: [kuizuo12@163.com](mailto:kuizuo12@163.com)
+### 💬 联系我
+
+🐧 QQ：[911993023](http://wpa.qq.com/msgrd?v=3&uin=911993023&site=qq&menu=yes)
+
+📮 邮箱: [kuizuo12@163.com](mailto:kuizuo12@163.com)
+
+### 👨‍💻 GitHub
+
+<div style={{ margin: 'auto' }}>
+  <a href='https://github-readme-stats.vercel.app/api/top-langs?username=kuizuo&show_icons=true&locale=cn&layout=compact' target='_blank' rel='noreferer noopener'>
+    <ThemedImage
+      alt='kuizuo'
+      sources={{
+        light: useBaseUrl('https://github-readme-stats.vercel.app/api/top-langs?username=kuizuo&show_icons=true&locale=cn&layout=compact'),
+        dark: useBaseUrl('https://github-readme-stats.vercel.app/api/top-langs?username=kuizuo&theme=react&show_icons=true&locale=cn&layout=compact'),
+      }}
+    />
+  </a>
+  <a href='https://github-readme-stats.vercel.app/api?username=kuizuo&show_icons=true&locale=cn&layout=compact' target='_blank' rel='noreferer noopener'>
+    <ThemedImage
+      alt='kuizuo'
+      sources={{
+        light: useBaseUrl('https://github-readme-stats.vercel.app/api?username=kuizuo&show_icons=true&locale=cn&layout=compact'),
+        dark: useBaseUrl('https://github-readme-stats.vercel.app/api?username=kuizuo&theme=react&show_icons=true&locale=cn&layout=compact'),
+      }}
+    />
+  </a>
+  <a href='https://activity-graph.herokuapp.com/graph?username=kuizuo&bg_color=white&color=23affc&line=23affc' target='_blank' rel='noreferer noopener'>
+    <ThemedImage
+      alt='kuizuo'
+      sources={{
+        light: useBaseUrl('https://activity-graph.herokuapp.com/graph?username=kuizuo&bg_color=white&color=23affc&line=23affc'),
+        dark: useBaseUrl('https://activity-graph.herokuapp.com/graph?username=kuizuo&bg_color=white&color=119cc5&line=119cc5'),
+      }}
+    />
+  </a>
+</div>

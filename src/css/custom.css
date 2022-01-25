@@ -14,7 +14,7 @@
 
 :root {
   /* #006dfe hsl(214deg, 100%, 60%); */
-  --ifm-color-primary: hsl(214deg, 100%, 60%);
+  --ifm-color-primary: #23affc;
 
   --ifm-color-primary-dark: #119cc5;
   --ifm-color-primary-darker: #05879d;
@@ -51,8 +51,11 @@
   --btn-unselected: #cecece;
 
   /* 代码块背景 */
-  --ifm-code-background: #3887fe1a;
+  --ifm-code-background: #23affc1a;
   --ifm-code-color: #3887fe;
+
+  --site-primary-hue-saturation: 167 68%;
+  --site-primary-hue-saturation-light: 167 56%; /* do we really need this extra one? */
 }
 
 html {
@@ -157,7 +160,7 @@ table {
 }
 
 .markdown > h2:before {
-  background: #338bff;
+  background: var(--ifm-color-primary);
   color: transparent;
   content: '.';
 }
@@ -732,7 +735,7 @@ pagination-nav__item:hover .pagination-nav__link {
   max-width: 900px;
   box-shadow: 0 4px 6px 6px rgba(7, 17, 27, 0.09);
   border-radius: 8px;
-  padding: 50px 40px;
+  padding: 40px;
 }
 
 .checkbox {
@@ -764,7 +767,6 @@ pagination-nav__item:hover .pagination-nav__link {
   border-radius: 50%;
 }
 
-[type='checkbox'],
 [type='radio'] {
   box-sizing: border-box;
   padding: 0;
@@ -843,64 +845,8 @@ pagination-nav__item:hover .pagination-nav__link {
   background: #69d7e4;
 }
 
-.checkbox input[type='checkbox']:checked {
-  background: #2196f3;
-}
-
-.checkbox.blue input {
-  border-color: #2196f3;
-}
-
-.checkbox input[type='checkbox']:checked:before {
-  left: 0;
-  top: 7px;
-  width: 6px;
-  height: 2px;
-}
-
-.checkbox.minus input[type='checkbox']:checked:after,
-.checkbox.minus input[type='checkbox']:checked:before {
-  left: 1px;
-  top: 5px;
-  width: 10px;
-  height: 2px;
-}
-
-.checkbox.minus input[type='checkbox']:after,
-.checkbox.minus input[type='checkbox']:before {
-  -webkit-transform: rotate(0);
-  transform: rotate(0);
-  left: 1px;
-  top: 5px;
-  width: 0;
-  height: 2px;
-}
-
-.checkbox input[type='checkbox']:checked:before {
-  left: 0;
-  top: 7px;
-  width: 6px;
-  height: 2px;
-}
-
-.checkbox input[type='checkbox']:before {
-  left: 1px;
-  top: 5px;
-  width: 0;
-  height: 2px;
-  transition: all 0.2s ease-in;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  position: absolute;
-  content: '';
-  background: #fff;
-}
-
 code {
-  color: #3887fe;
+  color: var(--ifm-code-color);
 }
 
 .archive {
@@ -953,4 +899,28 @@ code {
   font-size: 0.85rem;
   font-weight: 400;
   margin-right: 0.3rem;
+}
+
+div[class^='announcementBar_'] {
+  background: repeating-linear-gradient(
+    -35deg,
+    var(--ifm-color-primary-lighter),
+    var(--ifm-color-primary-lighter) 20px,
+    var(--ifm-color-primary-lightest) 10px,
+    var(--ifm-color-primary-lightest) 40px
+  );
+  font-weight: 700;
+}
+
+.screen-reader-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: polygon(0 0, 0 0, 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }

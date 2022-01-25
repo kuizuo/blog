@@ -16,7 +16,7 @@ import { ThemeClassNames } from '@docusaurus/theme-common';
 
 import styles from './styles.module.css';
 
-function MDXPage(props: Props): JSX.Element {
+function MDXPage(props: Props) {
   const { content: MDXPageContent } = props;
   const { frontMatter, metadata } = MDXPageContent;
 

@@ -17,13 +17,11 @@ module.exports = {
   projectName: 'kuizuo.cn', // Usually your repo name.
   themeConfig: {
     image: 'img/kuizuo.jpg',
-    // announcementBar: {
-    //   id: 'feature_release', // Any value that will identify this message.
-    //   content: `更新博客<a href='/为什么使用pnpm'>《为什么使用pnpm》</a>`,
-    //   backgroundColor: '#fafbfc', // Defaults to `#fff`.
-    //   textColor: '#091E42', // Defaults to `#000`.
-    // },
-    metadata: [{ name: 'keywords', content: 'blog, javascript, js, typescript, node, react, vue, web, 前端, 后端' }],
+    announcementBar: {
+      id: 'announcementBar-2', // Any value that will identify this message.
+      content: `新增 <a href='/project'>项目展示</a> 页面`,
+    },
+    metadata: [{ name: 'keywords', content: 'blog, javascript, typescript, python ,node, react, vue, web, 前端, 后端, 愧怍' }],
     hideableSidebar: true,
     navbar: {
       title: '愧怍',
@@ -57,20 +55,15 @@ module.exports = {
             // },
           ],
         },
-        /*         {
-                  label: "实战项目",
-                  position: "right",
-                  to: "/project",
-                },*/
         {
           label: '资源导航',
           position: 'right',
           to: '/resources', // 'https://nav.kuizuo.cn'
         },
         {
-          label: '关于我',
+          label: '实战项目',
           position: 'right',
-          to: '/about',
+          to: '/project',
         },
       ],
     },
@@ -86,16 +79,20 @@ module.exports = {
           title: '学习',
           items: [
             {
+              label: '技术博客',
+              to: '/#homepage_blogs',
+            },
+            {
               label: '技术笔记',
               to: 'docs/skill',
             },
             {
-              label: '实战项目',
-              to: 'project',
-            },
-            {
               label: '资源导航',
               to: 'resources',
+            },
+            {
+              label: '实战项目',
+              to: 'project',
             },
           ],
         },
@@ -109,6 +106,10 @@ module.exports = {
             {
               label: '关于我',
               to: '/about',
+            },
+            {
+              label: '掘金',
+              href: 'https://juejin.cn/user/1565318510545901',
             },
             {
               label: 'GitHub',
