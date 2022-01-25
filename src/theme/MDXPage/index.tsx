@@ -1,10 +1,3 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
@@ -20,30 +13,20 @@ function MDXPage(props: Props) {
   const { content: MDXPageContent } = props;
   const { frontMatter, metadata } = MDXPageContent;
 
-  const {
-    title,
-    description,
-    wrapperClassName,
-    hide_table_of_contents: hideTableOfContents,
-  } = frontMatter;
+  const { title, description, wrapperClassName, hide_table_of_contents: hideTableOfContents } = frontMatter;
   const { permalink } = metadata;
 
   return (
-    <Layout
-      title={title}
-      description={description}
-      permalink={permalink}
-      wrapperClassName={wrapperClassName ?? ThemeClassNames.wrapper.mdxPages}
-      pageClassName={ThemeClassNames.page.mdxPage}>
-      <main className="container container--fluid margin-vert--lg">
+    <Layout title={title} description={description} permalink={permalink} wrapperClassName={wrapperClassName ?? ThemeClassNames.wrapper.mdxPages} pageClassName={ThemeClassNames.page.mdxPage}>
+      <main className='container container--fluid margin-vert--lg'>
         <div className={clsx('row', styles.mdxPageWrapper)}>
-          <div className={clsx('col', 'col--8', styles.dark)}>
+          <div className={clsx('col', 'col--8', styles.content)}>
             <MDXProvider components={MDXComponents}>
               <MDXPageContent />
             </MDXProvider>
           </div>
           {!hideTableOfContents && MDXPageContent.toc && (
-            <div className="col col--2">
+            <div className='col col--2'>
               <TOC toc={MDXPageContent.toc} />
             </div>
           )}

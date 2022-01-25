@@ -731,13 +731,6 @@ pagination-nav__item:hover .pagination-nav__link {
   }
 }
 
-.container .row .col.col--8 {
-  max-width: 900px;
-  box-shadow: 0 4px 6px 6px rgba(7, 17, 27, 0.09);
-  border-radius: 8px;
-  padding: 40px;
-}
-
 .checkbox {
   display: -webkit-flex;
   display: flex;
