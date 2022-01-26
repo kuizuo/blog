@@ -128,7 +128,7 @@ module.exports = {
     prism: {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
-      // additionalLanguages: ['powershell','vue'],
+      additionalLanguages: ['java', 'cs', 'php'],
       // defaultLanguage: "javascript",
     },
     tableOfContents: {

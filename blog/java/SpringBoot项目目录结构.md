@@ -15,7 +15,7 @@ tags: [java, springboot, 开发]
 
 controller 目录下对应的也就是控制器，用于接收用户的请求（get，post 等），如下面代码
 
-```Java
+```java
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -36,7 +36,7 @@ public class UserController {
 
 UserService 代码
 
-```Java
+```java
 public class UserService {
 
     @Autowired
@@ -54,7 +54,7 @@ public class UserService {
 
 repository/UserRepository.java
 
-```Java
+```java
 public interface UserRepository extends JpaRepository<User, Long> , JpaSpecificationExecutor<User> {
 
 }
@@ -64,7 +64,7 @@ public interface UserRepository extends JpaRepository<User, Long> , JpaSpecifica
 
 domain/User.java
 
-```Java
+```java
 @Entity
 @NoArgsConstructor
 @Getter
@@ -101,7 +101,7 @@ User.java 用于定义 user 实体，在 ORM 中，数据库表中的字段都�
 此外 service 服务还可以有另一种方式，在 service 中添加一个 impl 目录，通过对 userService **接口**进行实现的服务。
 在上面所写的 UserService 是一个类，这边将其改为一个接口，代码如下
 
-```Java
+```java
 public interface UserService {
     List<User> findAll()；
 }
@@ -109,7 +109,7 @@ public interface UserService {
 
 同时只保留 UserService 所要提供的方法，然后创建文件 UserServiceImpl.java，覆写 UserService 接口中的所有方法， 具体代码如下
 
-```Java
+```java
 @Service
 public class UserServiceImpl implements UserService  {
 

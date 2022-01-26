@@ -90,9 +90,9 @@ ArrayBuffer {
 Buffer.from(buf.buffer).toString() // abc
 ```
 
-你也可以直接通过数组下标的形式，来访问数据，如`buf[0]`返回的就是97，但buf又有lengt与其他的属性方法，这种数组就统称为类数组。
+你也可以直接通过数组下标的形式，来访问数据，如`buf[0]`返回的就是97，但buf又有length与其他的属性方法，这种数组就统称为类数组。
 
-buf还有一些方法，无非就是操作字节复制，偏移就不做过多介绍与演示了，具体[文档](https://es6.ruanyifeng.com/#docs/arraybuffer)可查看
+buf还有一些方法，无非就是操作字节复制，偏移就不做过多介绍与演示了，具体可查看[文档](https://es6.ruanyifeng.com/#docs/arraybuffer)
 
 ## NodeJS的Buffer
 
@@ -104,7 +104,7 @@ buf还有一些方法，无非就是操作字节复制，偏移就不做过多�
 
 ### [Buffer.from](http://nodejs.cn/api/buffer.html#static-method-bufferfromarray)
 
-上面的代码 `Buffer.from(buf.buffer).toString()`，也就是`ArrayBuffer` 数据转为utf8编码文本。其中toString还能转为以下编码（toString默认utf8）
+上面的代码 `Buffer.from(buf.buffer).toString()`，也就是将`ArrayBuffer` 数据转为utf8编码文本。其中toString还能转为以下编码（toString默认utf8）
 
 ```typescript
 type BufferEncoding = 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex';

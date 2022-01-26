@@ -7,6 +7,12 @@ tags: [js, ast, 逆向]
 
 <!-- truncate -->
 
+一个自写的在线混淆与还原网站（对大部分ob混淆的代码还原适用）
+
+
+
+
+
 ## 还原前言
 
 AST 仅仅只是静态分析，但可以将还原出来的代码替换原来的代码，以便更好的动态分析找出相关点。在还原时，并不是所有的代码都能还原成一眼就识破代码执行逻辑的，ast 也并非万能，如果你拥有强大的 js 逆向能力，有时候动态调试甚至比 AST 静态分析来的事半功倍。
@@ -41,7 +47,7 @@ AST 仅仅只是静态分析，但可以将还原出来的代码替换原来的�
 
 具体遍历的代码如下
 
-```js
+```javascript
 // 将所有十六进制编码与Unicode编码转为正常字符
 hexUnicodeToString() {
 		traverse(this.ast, {
@@ -63,7 +69,7 @@ hexUnicodeToString() {
 
 如果你尝试过静态分析该代码，会发现一些参数都通过\_0x3028 来调用，像这样
 
-```js
+```javascript
 _0x3028['nfkbEK'];
 _0x3028('0x0', 'jKqK');
 _0x3028('0x1', ')bls');
@@ -71,7 +77,7 @@ _0x3028('0x1', ')bls');
 
 不过认真查看会发现像成员表达式`MemberExpression`语句`_0x3028["nfkbEK"]`，但在第三条语句却定义函数`_0x3028`。其实是 js 的特性，比方说下面的代码就可以给函数添加一个自定义属性
 
-```
+```javascript
 let add = function (a, b) {
   add['abc'] = 123
   return a + b
@@ -88,7 +94,7 @@ console.log(add['abc'])
 
 那么接下来就要着重查看前三个语句，因为这三条语句便是这套混淆的关键所在。
 
-```js title="demo.js" {1，3-7}
+```javascript title="demo.js" {1，3-7}
 var _0x34ba = ["JcOFw4ITY8KX", "EHrDoHNfwrDCosO6Rkw=",...]
 (function(_0x2684bf, _0x5d23f1) {
     // 这里只是定义了一个数组乱序的函数,但是调用是在后面
@@ -164,7 +170,7 @@ var _0x3028 = function (_0x2308a4, _0x573528) {
 
 截取前三条语句，使用 eval 写入内存
 
-```js
+```javascript
 // 拿到解密函数所在节点
 let stringDecryptFuncAst = this.ast.program.body[2];
 // 拿到解密函数的名字 也就是_0x3028
@@ -184,7 +190,7 @@ global.eval(stringDecryptFunc);
 
 这时候，就可以使用`_0x3028("0x0", "jKqK")` 来输出解密后的结果，不过要一个个手动输入还是太麻烦了，完全可以找到`_0x3028`调用的所有地方，然后判断是否为调用表达式 CallExpression，然后使用`eval('_0x3028("0x0", "jKqK")')` 获取解密结果。这边就举一个遍历的例子。
 
-```js
+```javascript
 traverse(this.ast, {
   VariableDeclarator(path) {
     // 当变量名与解密函数名相同
@@ -226,7 +232,7 @@ traverse(this.ast, {
 
 原先代码与处理后的代码对比(部分)
 
-```js
+```javascript
 var _0x505b30 = (function () {
   if (_0x3028('0x0', 'jKqK') !== _0x3028('0x1', ')bls')) {
     var _0x104ede = !![];
@@ -283,7 +289,7 @@ var _0x505b30 = (function () {
 })();
 ```
 
-```js
+```javascript
 var _0x505b30 = (function () {
   if ('PdAlB' !== 'jtvLV') {
     var _0x104ede = !![];
@@ -357,6 +363,73 @@ this.ast.program.body.shift();
 
 最终整个完成的代码在类方法`decStringArr`
 
+### 找解密函数优化
+
+在上面的代码中有一段这样的代码
+
+```javascript
+    // 当变量名与解密函数名相同
+    if (path.node.id.name == DecryptFuncName) {
+    // ...
+```
+
+其中这里的DecryptFuncName对应的是解密函数的函数名_0x3028，是通过人为定义，同时载入的是前三条语句，万一解密函数在第四条语句，或者有多个解密函数的情况下，就需要去改动代码
+
+```javascript
+// 拿到解密函数所在节点
+let stringDecryptFuncAst = this.ast.program.body[2];
+// 拿到解密函数的名字 也就是_0x3028
+let DecryptFuncName = stringDecryptFuncAst.declarations[0].id.name;
+
+let newAst = parser.parse('');
+newAst.program.body.push(this.ast.program.body[0]);
+newAst.program.body.push(this.ast.program.body[1]);
+newAst.program.body.push(stringDecryptFuncAst);
+// 把这三部分的代码转为字符串，由于存在格式化检测，需要指定选项，来压缩代码
+let stringDecryptFunc = generator(newAst, { compact: true }).code;
+```
+
+无意间翻看代码的时候，灵光一现，解密函数调用的这么频繁，我直接把所有函数都遍历一遍，并将它们的引用`referencePaths`从高到低排序，不就知道那个是解密函数了吗，于是便有了`findDecFunction`方法
+
+#### findDecFunction
+
+```
+findDecFunction() {
+    let functionList = [];
+    traverse(this.ast, {
+      FunctionDeclaration(path) {
+        let functionName = path.node.id.name;
+
+        let binding = path.scope.getBinding(functionName);
+        if (!binding) return;
+
+        functionList.push({
+          name: functionName,
+          count: binding.referencePaths.length,
+        });
+      },
+      VariableDeclarator(path) {
+        if (!t.isFunctionExpression(path.node.init)) return;
+
+        let functionName = path.node.id.name;
+
+        let binding = path.scope.getBinding(functionName);
+        if (!binding) return;
+
+        functionList.push({
+          name: functionName,
+          count: binding.referencePaths.length,
+        });
+      },
+    });
+    console.log(functionList);
+  }
+```
+
+一般而言，解密函数通常是在大数组与数组乱序后定义的，所以只要截取前面的语句，然后适用eval写入内存中使用即可，
+
+
+
 ## 优化还原后的代码
 
 就此，还原后的代码基本就能静态分析出大概，接下来都是对这份代码进行细微的优化还原。
@@ -365,7 +438,7 @@ this.ast.program.body.shift();
 
 与混淆对象属性相反，但其实没必要，只是代码相对而言好看一点，影响不大。具体代码如下
 
-```js
+```javascript
 changeObjectAccessMode() {
 		traverse(this.ast, {
 			MemberExpression(path) {
@@ -383,7 +456,7 @@ changeObjectAccessMode() {
 
 在还原后的代码还存在`!![]`与 `![]`或者是`!0`与`!1`，而这对应 js 中也就是`true`与`false`，所以也可以遍历这部分的代码，然后将其还原成 Boolean，像这种表达式就不细说了（有点类似 jsfuck），ast 结构自行分析。具体代码如下
 
-```js
+```javascript
 traverseUnaryExpression() {
 		traverse(this.ast, {
 			UnaryExpression(path) {
@@ -419,7 +492,7 @@ traverseUnaryExpression() {
 
 还原后的代码中还存在`["constructor"]("debu" + "gger")["call"]("action");`这样的语句，其中`debugger` 特意给拆分成两部分，而这同样可以通过 ast 来进行还原成完整字符串，同样类似的 `1 + 2` 这种字面量 都可以合并。还原程序代码如下
 
-```
+```javascript
 	traverseLiteral() {
 		traverse(this.ast, {
 			BinaryExpression(path) {
@@ -443,14 +516,14 @@ traverseUnaryExpression() {
 
 有些变量可能赋值过一次就不在进行改变，就如同常量，如下面代码。
 
-```
+```javascript
 let a =100
 console.log(a)
 ```
 
 那么完全可以替换成`console.log(100)` ，最终输出的效果一样，但是前提是 a 只赋值过一次，也可以说 a 必须要是变量，否则这样还原是有可能导致原有执行结果失败，而通过 binding 就能查看变量 a 的赋值历史。
 
-```js
+```javascript
 traverseStrNumValue() {
 		traverse(this.ast, {
 			'AssignmentExpression|VariableDeclarator'(path) {
@@ -480,7 +553,7 @@ traverseStrNumValue() {
 
 上面说了有些字符串与数值常量替换，针对是只赋值过一遍的变量，但还可能存在变量未使用过的情况，遇到这种情况，我们可以判断 constantViolations 成员是否为空，然后将其删除。
 
-```js
+```javascript
 	removeUnusedValue() {
 		traverse(this.ast, {
 			VariableDeclarator(path) {
@@ -505,7 +578,7 @@ traverseStrNumValue() {
 
 同时还有一些无用代码块，比如
 
-```js
+```javascript
 function test() {
   if (true) {
     return '123';
@@ -551,7 +624,7 @@ test();
 
 有些关键的代码会隐藏在 debugger，setTimeout，setInterval 等，在调试的时候都需要额外注意下是否有关键代码，所以这时候就可以添加一个注释来进行添加一个标签如 TOLOOK 来进行定位。具体根据要指定的标识符来定位，下列代码做为演示，将会在这些地方添加注释 // TOLOOK
 
-```js
+```javascript
 addComments() {
 		traverse(this.ast, {
 			DebuggerStatement(path) {
@@ -593,7 +666,7 @@ hexUnicodeToString() {
 
 大部分的混淆标识符都为\_0x123456 这种，但有些却很另类，比如 OOOO0o 这种，相比前面这种更容易看花眼，很容易看错代码，那么就可以将标识符都统一重命名一下。
 
-```js
+```javascript
 	renameIdentifier() {
 		let code = this.code
 		let newAst = parser.parse(code);

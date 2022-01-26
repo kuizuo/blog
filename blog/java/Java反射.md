@@ -27,7 +27,7 @@ Java 反射（Reflection）就是在运行状态中，对于任意一个类，�
 
 **1、使用 Class.forName 静态方法。当你知道该类的全路径名时，你可以使用该方法获取 Class 类对象。**
 
-```Java
+```java
 Class cls = Class.forName("java.lang.String");
 ```
 
@@ -35,13 +35,13 @@ Class cls = Class.forName("java.lang.String");
 
 这种方法只适合在编译前就知道操作的 Class。
 
-```Java
+```java
 Class cls = String.class;
 ```
 
 **3、使用类对象的 getClass() 方法。**
 
-```Java
+```java
 String str = new String("Hello");
 Class cls = str.getClass();
 ```
@@ -50,7 +50,7 @@ Class cls = str.getClass();
 
 前提：已经获取到 ClassLoader 的情况下（Person 是定义好的类，其中`String.class.getClassLoader()`获取到得为 null）
 
-```Java
+```java
 ClassLoader clsl = Person.class.getClassLoader();
 Class<?> cls = clsl.loadClass("Person");
 ```
@@ -67,11 +67,11 @@ Class<?> cls = clsl.loadClass("Person");
 - 内部类
 
 内部类的获取方式通过$连接外部类与内部类，多个内部类也可通过$1，$2 依次获取
-	```Java
-	Class cls1 = Class.forName("OutClass$InnerClass");
-Class cls2 = Class.forName("OutClass$1");
 
-````
+```java
+Class cls1 = Class.forName("OutClass$InnerClass");
+Class cls2 = Class.forName("OutClass$1");
+```
 
 - 接口 =>`interface DemoI`
 - 数组 => `class [Ljava.lang.String;`
@@ -86,17 +86,16 @@ Class cls2 = Class.forName("OutClass$1");
 
 **1、通过 Class 对象的 newInstance 方法**（无法传参）
 
-```Java
+```java
 Person p = Person.class.newInstance();
-
 // 相当于 Person p = new Person();
-````
+```
 
 **2、通过 Constructor 对象的 newInstance() 方法** （可传参数）
 
 可以传参数，但需要知道传入参数类型，以确定哪个构造函数。
 
-```Java
+```java
 Constructor<Person> constructor = Person.class.getConstructor(String.class);
 Person p = constructor.newInstance("kuizuo");
 ```
@@ -105,7 +104,7 @@ Person p = constructor.newInstance("kuizuo");
 
 同时设置是否访问 `constructor.setAccessible(true)` 才可访问
 
-```Java
+```java
 Constructor<Person> constructor = Person.class.getDeclaredConstructor(String.class);
 constructor.setAccessible(true);
 Person p = constructor.newInstance("kuizuo");
@@ -119,21 +118,21 @@ Person p = constructor.newInstance("kuizuo");
 
 - **getField **只可获取公有属性
 
-```Java
+```java
 Field nameField = Person.class.getField("name");
 String name =(String) nameField.get(p);
 ```
 
 设置属性值
 
-```Java
+```java
 Field nameField = Person.class.getField("name");
 nameField.set(p,"kuizuo12");
 ```
 
 设置静态属性值 set 第一个参数给 null 即可
 
-```Java
+```java
 Field nameField = Person.class.getField("name");
 nameField.set(null,"kuizuo12");
 ```
@@ -142,7 +141,7 @@ nameField.set(null,"kuizuo12");
 - **getFields** 获取所有共有属性
 - **getDeclaredFields** 获取所有属性
 
-```Java
+```java
   Field[] fields = Person.class.getDeclaredFields();
   for (Field field : fields) {
       System.out.println(field.getName());
@@ -157,7 +156,7 @@ nameField.set(null,"kuizuo12");
 
 调用通过`method.invoke`调用，参数一为对象，其余参数为实参
 
-```Java
+```java
 Method method = Person.class.getMethod("say", String.class);
 method.invoke(p, "hello")；
 
@@ -167,7 +166,7 @@ method.invoke(p, "hello")；
 
 - **getDeclaredMethod** 可获取私有方法 （也需要 setAccessible）
 
-```Java
+```java
 Method method = Person.class.getDeclaredMethod("say", String.class);
 method.setAccessible(true);
 method.invoke(p, "hello");
@@ -176,7 +175,7 @@ method.invoke(p, "hello");
 - **getMethods** 获取所有公有方法
 - **getDeclaredMethods**获取所有方法
 
-```Java
+```java
 Method[] methods = Person.class.getDeclaredMethods();
 for (Method method : methods) {
     System.out.println(method.getName());
@@ -193,7 +192,7 @@ for (Method method : methods) {
 
 - **getClasses**
 
-```Java
+```java
 Class<?>[] classes = Person.class.getClasses();
 System.out.println(classes[0]);
 ```
@@ -204,10 +203,9 @@ System.out.println(classes[0]);
 
 前提：实现（implements）一个接口
 
-```Java
+```java
 Class<?>[] interfaces = Person.class.getInterfaces();
 System.out.println(interfaces.length);
-
 ```
 
 ### 其他方法
