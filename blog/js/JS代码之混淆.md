@@ -13,7 +13,9 @@ tags: [js, ast, 逆向]
 >
 > 书籍 《反爬虫 AST 原理与还原混淆实战》
 >
-> 相关混淆代码 [kuizuo/AST-obfuscator](https://github.com/kuizuo/AST-obfuscator)
+> 相关混淆代码 [kuizuo/js-de-obfuscator](https://github.com/kuizuo/js-de-obfuscator)
+>
+> 自写在线混淆与还原网站 [JS代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
 
 ## 什么是 AST
 
@@ -21,7 +23,7 @@ tags: [js, ast, 逆向]
 
 例如下面的代码（目的是当天时间格式化）
 
-```js
+```javascript
 Date.prototype.format = function (formatStr) {
   var str = formatStr;
   var Week = ['日', '一', '二', '三', '四', '五', '六'];
@@ -35,7 +37,7 @@ console.log(new Date().format('yyyy-MM-dd'));
 
 通过 AST 混淆的结果为
 
-```js
+```javascript
 const OOOOOO = [
   'eXl5eS1NTS1kZA==',
   'RGF0ZQ==',
@@ -126,13 +128,13 @@ AST 本质上是静态分析，静态分析是在不需要执行代码的前提�
 
 首先需要 Node 环境，这就不介绍了，其次工具 Babel 编译器可通过 npm 安装
 
-```
+```sh
 npm i @babel/core -S-D
 ```
 
 安装代码提示
 
-```
+```sh
 npm i @types/node @types/babel__traverse @types/babel__generator -D
 ```
 
@@ -313,7 +315,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="js" label="JS" default>
 
-```js
+```javascript
 const visitor = {
   FunctionDeclaration(path) {
     console.log(path.node.id.name); // 输出函数名
@@ -337,7 +339,7 @@ let visitor: Visitor = {
 
 一般来说，都是直接写到写到 traverse 内。个人推荐这种写法，因为能有 js 的代码提示，如果是 TypeScript 效果也一样。
 
-```js
+```javascript
 traverse(ast, {
   FunctionDeclaration(path) {
     console.log(path.node.id.name); // 输出函数名
@@ -347,7 +349,7 @@ traverse(ast, {
 
 如果我想遍历函数声明与二项式表达式的话，还可以这么写
 
-```js
+```javascript
 traverse(ast, {
   'FunctionDeclaration|BinaryExpression'(path) {
     let node = path.node;
@@ -366,7 +368,7 @@ traverse(ast, {
 
 此外 visitor 中的属性中，还对应两个生命周期函数 enter(进入节点)和 exit(退出节点)，可以在这两个周期内进行不同的处理操作，演示代码如下。
 
-```js
+```javascript
 traverse(ast, {
   FunctionDeclaration: {
     enter(path) {
@@ -381,7 +383,7 @@ traverse(ast, {
 
 其中 enter 与 exit 还可以是一个数组（当然基本没怎么会用到），比如
 
-```js
+```javascript
 traverse(ast, {
   FunctionDeclaration: {
     enter: [
@@ -398,7 +400,7 @@ traverse(ast, {
 
 path 对象下还有一种方法，针对当前 path 进行遍历 `path.traverse`，比如下面代码中，我遍历到了 printTips，我想输出函数内的箭头函数中的参数，那么就可以使用这种遍历。
 
-```js
+```javascript
 function printTips() {
   tips.forEach((tip, i) => console.log(`Tip ${i}:` + tip));
 }
@@ -406,7 +408,7 @@ function printTips() {
 
 此时的 path.traverse 的第一个参数便不是 ast 对象了，而是一个 visitor 对象
 
-```js
+```javascript
 traverse(ast, {
   FunctionDeclaration(path) {
     path.traverse({
@@ -547,7 +549,7 @@ declare function numericLiteral(value: number): NumericLiteral;
 
 最后整个代码如下，将 t.variableDeclaration 结果赋值为一个变量`var_a`，这里的 var_a 便是一个 ast 对象，通过 generator(var_a).code 就可以获取到该 ast 的代码，也就是 `let a = 100;`，默认还会帮你添加分号
 
-```js
+```javascript
 let var_a = t.variableDeclaration('let', [t.variableDeclarator(t.identifier('a'), t.numericLiteral(100))]);
 
 let code = generator(var_a).code;
@@ -556,7 +558,7 @@ let code = generator(var_a).code;
 
 这边再列举一个生成函数声明代码的例子（不做解读），要生成的代码如下
 
-```js
+```javascript
 function b(x, y) {
   return x + y;
 }
@@ -564,7 +566,7 @@ function b(x, y) {
 
 types 操作
 
-```js
+```javascript
 let param_x = t.identifier('x');
 let param_y = t.identifier('y');
 let func_b = t.functionDeclaration(t.identifier('b'), [param_x, param_y], t.blockStatement([t.returnStatement(t.binaryExpression('+', param_x, param_y))]));
@@ -582,7 +584,7 @@ let code = generator(func_b).code;
 
 types 还有一个方法`valueToNode`，先看演示
 
-```js
+```javascript
 let arr_c = t.valueToNode([1, 2, 3, 4, 5])
 console.log(arr_c)
 
@@ -600,13 +602,13 @@ console.log(arr_c)
 
 如果使用`numericLiteral`来生成这些字面量的话那要写的话代码可能就要像下面这样
 
-```js
+```javascript
 let arr_c = t.arrayExpression([t.numericLiteral(1), t.numericLiteral(2), t.numericLiteral(3), t.numericLiteral(4), t.numericLiteral(5)]);
 ```
 
 而`valueToNode`能很方便地生成各种基本类型，甚至是一些对象类型（RegExp，Object 等）。不过像函数这种就不行。
 
-```js
+```javascript
 t.valueToNode(function b(x, y) {
   return x + y;
 });
@@ -615,7 +617,7 @@ t.valueToNode(function b(x, y) {
 
 写到着，其实不难发现，每个 node 节点其实就是一个 json 对象，而 types 只是将其封装好方法，供使用者调用，像下面这样方式定义 arr_c，同样也能生成数组 [1, 2, 3, 4, 5]
 
-```js
+```javascript
 let arr_c = {
   type: 'ArrayExpression',
   elements: [
@@ -651,7 +653,7 @@ let code = generator(arr_c).code;
 
 有时候遍历到一系列的代码，想输出一下原始代码，那么有以下两种方式。
 
-```
+```javascript
 traverse(ast, {
   FunctionDeclaration(path) {
     console.log(generator(path.node).code)
@@ -664,7 +666,7 @@ traverse(ast, {
 
 与获取节点属性相同，比如我需要修改函数的第一个参数，那么我只要获取到第一个参数，并且将值赋值为我想修改值（node 对象）便可。
 
-```
+```javascript
 traverse(ast, {
   FunctionDeclaration(path) {
     path.node.params[0] = t.identifier('x')
@@ -678,13 +680,13 @@ traverse(ast, {
 
 `replaceWith` 一对一替换当前节点，且严格替换。
 
-```js
+```javascript
 path.replaceWith(t.valueToNode('kuizuo'));
 ```
 
 `replaceWithMultiple` 则是一对多，将多个节点替换到一个节点上。
 
-```js
+```javascript
 traverse(ast, {
   ReturnStatement(path) {
     path.replaceWithMultiple([t.expressionStatement(t.callExpression(t.memberExpression(t.identifier('console'), t.identifier('log')), [t.stringLiteral('kuizuo')])), t.returnStatement()]);
@@ -701,7 +703,7 @@ traverse(ast, {
 
 `replaceWithSoureString` 该方式将字符串源码与节点进行替换，例如
 
-```js
+```javascript
 // 要替换的函数
 function add(a, b) {
   return a + b;
@@ -724,7 +726,7 @@ traverse(ast, {
 
 #### 删除节点
 
-```js
+```javascript
 traverse(ast, {
   EmptyStatement(path) {
     path.remove();
@@ -738,7 +740,7 @@ traverse(ast, {
 
 `insertBefore`与`insertAfter`分别在当前节点前后插入语句
 
-```js
+```javascript
 traverse(ast, {
   ReturnStatement(path) {
     path.insertBefore(t.expressionStatement(t.stringLiteral('before')));
@@ -759,7 +761,7 @@ traverse(ast, {
 
 **`path.findParent`** 向上遍历每一个父级 Path 并根据条件返回，与数组 find 方式类型。
 
-```
+```javascript
 traverse(ast, {
   BinaryExpression(path) {
     let parent = path.findParent(p => p.isFunctionDeclaration())
@@ -778,7 +780,7 @@ traverse(ast, {
 
 path 有一个属性 container，表示当前节点所处于的那个节点下，共有那些同级节点，而 listKey 表示容器名。key 表示索引或是是容器对象的属性名
 
-```
+```javascript
 traverse(ast, {
   ReturnStatement(path) {
     console.log(path.key)
@@ -788,7 +790,7 @@ traverse(ast, {
 })
 ```
 
-```
+```javascript
 // 输出结果
 0
 body
@@ -822,13 +824,13 @@ body
 
 也并不是说所有节点都有同级节点，也并不是所有的 container 都是一个数组，例如下面这个例子
 
-```
+```javascript
 let obj = {
 	name:'kuizuo'
 }
 ```
 
-```
+```javascript
 
 init
 undefined
@@ -889,7 +891,7 @@ Node {
 
 演示代码
 
-```
+```javascript
 function test() {
   let obj = {
     name: 'kuizuo'
@@ -903,7 +905,7 @@ function test() {
 
 `scope.block` 返回 Node 对象，使用方法分为两种情况，变量与函数。
 
-```js
+```javascript
 traverse(ast, {
   ObjectExpression(path) {
     let block = path.scope.block;
@@ -921,7 +923,7 @@ traverse(ast, {
 
 返回的是整个函数体代码
 
-```
+```javascript
 traverse(ast, {
   ObjectExpression(path) {
     let block = path.scope.block
@@ -943,7 +945,7 @@ traverse(ast, {
 
 **`scope.getBinding()`** 接收一个参数，可用于获取标识符的绑定，这里的 binding 可能会有些抽象，在一开始的例子中初次接触到
 
-```js
+```javascript
 traverse(ast, {
   VariableDeclarator(path) {
     let name = path.node.id.name;
@@ -958,7 +960,7 @@ traverse(ast, {
 
 其中这里的 binding 是属性相对较多，下面会一一介绍
 
-```
+```javascript
 Binding {
   identifier: Node {type: 'Identifier', name: 'tips'},
   scope: <ref *1> Scope {
@@ -989,7 +991,7 @@ binding 中的 scope 等同于 path 中的 scope，作用域范围相同。
 
 假如标识符被引用，referencePaths 中会存放所有引用该标识的 path 对象数组。像下面这样
 
-```js
+```javascript
 referencePaths: [
     NodePath {
       contexts: [],
@@ -1018,7 +1020,7 @@ referencePaths: [
 
 这在一开始的例子中就简单介绍过了，使用的是 rename 方法，能将该标识符中所有引用的地方重命名，不过上面的例子只是重命名 tips，想要重命名所有标识符的话，就需要遍历 Identifier。不过重命名标识符不能都重命名为相同字符，有一个 api `path.scope.generateUidIdentifier` 用于生成唯一不重复标识符。
 
-```js
+```javascript
 traverse(ast, {
   Identifier(path) {
     path.scope.rename(path.node.name, path.scope.generateUidIdentifier('_0xabcdef').name);
@@ -1028,7 +1030,7 @@ traverse(ast, {
 
 最终生成的代码如下
 
-```js
+```javascript
 **
  * Paste or drop some JavaScript here and explore
  * the syntax tree created by chosen parser.
@@ -1063,7 +1065,7 @@ function _0xabcdef2() {
 
 演示代码
 
-```js
+```javascript
 let a = 'kuizuo';
 `${a}nb${12}3${'456'}`;
 ```
@@ -1074,7 +1076,7 @@ let a = 'kuizuo';
 
 不难观察出，parser 将其成两部分`expressions`与`quasis`。而所要转为的最终代码应该是`'' + a + 'nb' + 12 + '3' + '456'+ ''`，并且`quasis`成员个数始终比`expressions`多一位，所以只需要将`expressions`插入置`quasis`成员内，然后通过 binaryExpression 进行拼接即可。大致的思路有了，那么就开始用代码来进行拼接。
 
-```js
+```javascript
 traverse(ast, {
   TemplateLiteral(path) {
     let { expressions, quasis } = path.node;
@@ -1113,7 +1115,7 @@ traverse(ast, {
 
 同样，类名与类方法名同样也是可以混淆的，演示代码如下
 
-```js
+```javascript
 class Test {
   age = 20;
   constructor(name) {
@@ -1133,7 +1135,7 @@ console.log(test.run());
 
 不难发现，其实就是 type `ClassDeclaration`、`ClassProperty`、`ClassMethod`，通过标识符混淆的方法`renameIdentifier`，将`Program|FunctionExpression|FunctionDeclaration`新增这两个 type 即可
 
-```js
+```javascript
 traverse(ast, {
   'Program|FunctionExpression|FunctionDeclaration|ClassDeclaration|ClassProperty|ClassMethod'(path) {
     renameOwnBinding(path);
@@ -1143,7 +1145,7 @@ traverse(ast, {
 
 但混淆完的代码并没有把属性名与方法名给混淆到
 
-```js
+```javascript
 class OOOOO0 {
   age = 399100 ^ 399080;
 
@@ -1159,7 +1161,7 @@ class OOOOO0 {
 
 不过这样混淆肯定远远不够的，方法可是类中很重要的属性，同时类方法与属性还能这么编写（constructor 不行），然后将下面的代码通过混淆程序执行一遍就能成功混淆变量名。
 
-```js
+```javascript
 class Test {
   ['age'] = 20;
   constructor(name) {
@@ -1174,7 +1176,7 @@ class Test {
 
 所以将`run()` 转为`[‘run’]()`便成为了关键。而实现起来也相对简单（与改变对象访问方式一样）
 
-```js
+```javascript
 traverse(ast, {
   'ClassProperty|ClassMethod'(path) {
     if (t.isIdentifier(path.node.key)) {

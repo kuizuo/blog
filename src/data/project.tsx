@@ -1,21 +1,21 @@
-import { sortBy } from '@site/src/utils/jsUtils';
+import { sortBy } from '@site/src/utils/jsUtils'
 
 export type Tag = {
-  label: string;
-  description: string;
-  color: string;
-};
+  label: string
+  description: string
+  color: string
+}
 
-export type TagType = 'favorite' | 'opensource' | 'product' | 'design' | 'javascript' | 'typescript' | 'nodejs';
+export type TagType = 'favorite' | 'opensource' | 'product' | 'design' | 'javascript' | 'typescript' | 'nodejs'
 
 export type Project = {
-  title: string;
-  description: string;
-  preview?: any;
-  website: string;
-  source?: string | null;
-  tags: TagType[];
-};
+  title: string
+  description: string
+  preview?: any
+  website: string
+  source?: string | null
+  tags: TagType[]
+}
 
 export const Tags: Record<TagType, Tag> = {
   favorite: {
@@ -53,7 +53,7 @@ export const Tags: Record<TagType, Tag> = {
     description: 'NodeJS project',
     color: '#39ca30',
   },
-};
+}
 
 const Projects: Project[] = [
   {
@@ -80,32 +80,24 @@ const Projects: Project[] = [
   //   source: 'https://github.com/kuizuo/kz-admin',
   //   tags: ['opensource', 'typescript'],
   // },
-  // {
-  //   title: 'JavaScript混淆与还原',
-  //   description: '基于AST语法树对JavaScript代码进行混淆与还原',
-  //   preview: require('./showcase/js-de-obfuscator.png'),
-  //   website: 'https://github.com/kuizuo/js-de-obfuscator',
-  //   source: 'https://github.com/kuizuo/js-de-obfuscator',
-  //   tags: ['opensource', 'javascript'],
-  // },
-  // {
-  //   title: '链接管理系统',
-  //   description: '一次性链接售卖卡密管理系统',
-  //   preview: '',
-  //   website: 'https://link.xiaoxin.vip',
-  //   source: null,
-  //   tags: ['product'],
-  // },
-];
+  {
+    title: 'JS代码混淆与还原',
+    description: '基于Babel的AST操作对JavaScript代码混淆与还原的一个网站',
+    preview: require('./showcase/js-de-obfuscator.png'),
+    website: 'https://deobfuscator.kuizuo.cn',
+    source: 'https://github.com/kuizuo/js-de-obfuscator',
+    tags: ['opensource', 'javascript'],
+  },
+]
 
-export const TagList = Object.keys(Tags) as TagType[];
+export const TagList = Object.keys(Tags) as TagType[]
 function sortProject() {
-  let result = Projects;
+  let result = Projects
   // Sort by site name
   // result = sortBy(result, (user) => user.title.toLowerCase());
   // Sort by favorite tag, favorites first
   // result = sortBy(result, (user) => !user.tags.includes('javascript'));
-  return result;
+  return result
 }
 
-export const sortedProjects = sortProject();
+export const sortedProjects = sortProject()

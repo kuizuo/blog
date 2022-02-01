@@ -65,7 +65,7 @@ tags: [随笔, github, blog]
 
 然后我犹豫了几分钟，不知道该怎么回复了，加上我英文表达不行，所以我原本中文是
 
-==谢谢,希望 Docusaurus 做的更好,一起努力== 用软件翻译后 ==Thank you, Hope Docusaurus can do better. Let's go==
+谢谢,希望 Docusaurus 做的更好,一起努力 用软件翻译后 Thank you, Hope Docusaurus can do better. Let's go
 
 ![image-20220124222926032](https://img.kuizuo.cn/20220124222926.png)
 

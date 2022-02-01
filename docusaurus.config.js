@@ -1,11 +1,11 @@
-const path = require('path');
-const beian = '闽ICP备2020017848号-2';
+const path = require('path')
+const beian = '闽ICP备2020017848号-2'
 const friendLinks = [
   {
     label: '峰华前端工程师',
     to: 'https://zxuqian.cn/',
   },
-];
+]
 
 module.exports = {
   title: '愧怍的小站',
@@ -19,7 +19,7 @@ module.exports = {
     image: 'img/kuizuo.jpg',
     announcementBar: {
       id: 'announcementBar-2', // Any value that will identify this message.
-      content: `新增 <a href='/project'>项目展示</a> 页面`,
+      content: `新增 <a href='/deobfuscator'>JS代码混淆与还原</a> 网站`,
     },
     metadata: [{ name: 'keywords', content: 'blog, javascript, typescript, python ,node, react, vue, web, 前端, 后端, 愧怍' }],
     hideableSidebar: true,
@@ -56,9 +56,18 @@ module.exports = {
           ],
         },
         {
-          label: '资源导航',
+          label: '小工具',
           position: 'right',
-          to: '/resources', // 'https://nav.kuizuo.cn'
+          items: [
+            {
+              label: '资源导航',
+              to: '/resources', // 'https://nav.kuizuo.cn'
+            },
+            {
+              label: 'JS代码混淆与还原',
+              to: '/deobfuscator', // 'https://deobfuscator.kuizuo.cn'
+            },
+          ],
         },
         {
           label: '实战项目',
@@ -128,7 +137,7 @@ module.exports = {
     prism: {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
-      additionalLanguages: ['java', 'cs', 'php'],
+      additionalLanguages: ['java', 'php'],
       // defaultLanguage: "javascript",
     },
     tableOfContents: {
@@ -255,4 +264,4 @@ module.exports = {
     locales: ['zh-CN'],
   },
   onBrokenLinks: 'ignore',
-};
+}
