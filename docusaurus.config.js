@@ -67,6 +67,10 @@ module.exports = {
               label: 'JS代码混淆与还原',
               to: '/deobfuscator', // 'https://deobfuscator.kuizuo.cn'
             },
+            {
+              label: 'CyberChef在线加解密',
+              to: 'http://cipher.kuizuo.cn', // 'http://cipher.kuizuo.cn'
+            }
           ],
         },
         {
