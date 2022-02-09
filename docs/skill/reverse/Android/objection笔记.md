@@ -1,9 +1,8 @@
 ---
 title: objection笔记
-date: 2022-01-21
-tags:
-  - frida
-  - android
+date: 2021-02-10
+authors: kuizuo
+tags: [frida,app,hook]
 ---
 
 ## objection
@@ -134,8 +133,10 @@ plugin wallbreaker objectdump <object-handle> [--fullname] # 输出指定对象�
 
 进入objection，加载插件 plugin load <插件路径> [指定插件名字]
 
+注意路径斜杠
+
 ```
-plugin load F:\Frida\objection-plugin\FRIDA-DEXDump\frida_dexdump 
+plugin load F:\\Frida\objection-plugin\\FRIDA-DEXDump\\frida_dexdump 
 
 # 加载完插件后就可以使用插件命令了
 
