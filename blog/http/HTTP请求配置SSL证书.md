@@ -1,5 +1,5 @@
 ---
-title: HTTP请求配置使用SSL证书
+title: HTTP请求配置SSL证书
 date: 2022-02-17
 authors: kuizuo
 tags: [http,ssl]
