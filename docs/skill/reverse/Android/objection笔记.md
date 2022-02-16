@@ -96,6 +96,10 @@ android intent launch_activity <activityName>
 
 ### 插件
 
+:::danger
+注: 在Window下插件路径需要使用两个//或使用\，不然会报Missing __init__.py错误
+:::
+
 #### 加载插件
 
 ```
@@ -133,10 +137,8 @@ plugin wallbreaker objectdump <object-handle> [--fullname] # 输出指定对象�
 
 进入objection，加载插件 plugin load <插件路径> [指定插件名字]
 
-注意路径斜杠
-
 ```
-plugin load F:\\Frida\objection-plugin\\FRIDA-DEXDump\\frida_dexdump 
+plugin load F:\\Frida\\objection-plugin\\FRIDA-DEXDump\\frida_dexdump 
 
 # 加载完插件后就可以使用插件命令了
 
