@@ -97,7 +97,7 @@ android intent launch_activity <activityName>
 ### 插件
 
 :::danger
-注: 在Window下插件路径需要使用两个//或使用\，不然会报Missing __init__.py错误
+注: 在Window下插件路径需要使用两个//或使用\，不然会报Missing `__init__.py`错误
 :::
 
 #### 加载插件
@@ -118,9 +118,9 @@ plugin load <插件路径>
 从内存中搜索对象或类，并漂亮地可视化目标的真实结构。
 
 ```
-objection -g com.app.name explore -P F:\Frida\objection-plugin\Wallbreaker\wallbreaker
+objection -g com.app.name explore -P F:\\Frida\\objection-plugin\\Wallbreaker\\wallbreaker
 // or
-plugin load F:\Frida\objection-plugin\Wallbreaker\wallbreaker
+plugin load F:\\Frida\\objection-plugin\\Wallbreaker\\wallbreaker
 ```
 
 ##### 使用
