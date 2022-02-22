@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 const light = css`
   h2 {
     /* font-size: 1.6em; */
