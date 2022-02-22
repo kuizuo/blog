@@ -1,12 +1,9 @@
 {
-  "plugins": [
+  "presets": [
     [
-      "import",
-      {
-        "libraryName": "antd",
-        "libraryDirectory": "lib", // libraryDirectory 默认为 lib
-        "style": "css"
-      }
+      "@babel/preset-react",
+      { "runtime": "automatic", "importSource": "@emotion/react" }
     ]
-  ]
+  ],
+  "plugins": ["@emotion/babel-plugin"]
 }

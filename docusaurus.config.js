@@ -149,6 +149,9 @@ module.exports = {
       maxHeadingLevel: 4,
     },
     zoomSelector: '.markdown :not(em) > img',
+    liveCodeBlock: {
+      playgroundPosition:'top'
+    },
     // googleAnalytics: {
     //   trackingID: "UA-118572241-1",
     //   anonymizeIP: true, // Should IPs be anonymized?
@@ -196,7 +199,7 @@ module.exports = {
       },
     ],
   ],
-  // themes: ["@docusaurus/theme-live-codeblock"],
+  themes: ['@docusaurus/theme-live-codeblock'],
   plugins: [
     path.resolve(__dirname, './src/plugin/plugin-baidu-analytics'),
     path.resolve(__dirname, './src/plugin/plugin-baidu-push'),

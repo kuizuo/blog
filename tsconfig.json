@@ -6,7 +6,8 @@
     "baseUrl": ".",
     "resolveJsonModule": true,
     "strict": true,
-    "types": ["@types/jest"]
+    "types": ["@types/jest"],
+    "jsxImportSource": "@emotion/react",
   },
   "exclude": ["src/sw.js"]
 }
