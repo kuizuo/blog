@@ -1,5 +1,5 @@
 ---
-title: python爬虫总结
+title: Python爬虫总结
 date: 2022-03-03
 authors: kuizuo
 tags: [python, node, http]
