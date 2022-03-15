@@ -19,7 +19,7 @@ module.exports = {
     image: 'img/kuizuo.jpg',
     announcementBar: {
       id: 'announcementBar-2', // Any value that will identify this message.
-      content: `新增 <a href='/deobfuscator'>JS代码混淆与还原</a> 网站`,
+      content: `代码能重写，人不能重来`,
     },
     metadata: [{ name: 'keywords', content: 'blog, javascript, typescript, python ,node, react, vue, web, 前端, 后端, 愧怍' }],
     hideableSidebar: true,
@@ -70,7 +70,11 @@ module.exports = {
             {
               label: 'CyberChef在线加解密',
               to: 'http://cipher.kuizuo.cn', // 'http://cipher.kuizuo.cn'
-            }
+            },
+            {
+              label: '愧怍在线工具',
+              to: 'http://tools.kuizuo.cn', // 'http://tools.kuizuo.cn'
+            },
           ],
         },
         {
@@ -150,7 +154,7 @@ module.exports = {
     },
     zoomSelector: '.markdown :not(em) > img',
     liveCodeBlock: {
-      playgroundPosition:'top'
+      playgroundPosition: 'top',
     },
     // googleAnalytics: {
     //   trackingID: "UA-118572241-1",

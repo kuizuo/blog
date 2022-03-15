@@ -86,7 +86,15 @@ const Projects: Project[] = [
     preview: require('./showcase/js-de-obfuscator.png'),
     website: 'https://deobfuscator.kuizuo.cn',
     source: 'https://github.com/kuizuo/js-de-obfuscator',
-    tags: ['opensource', 'javascript'],
+    tags: ['opensource', 'typescript', 'nodejs'],
+  },
+  {
+    title: '愧怍在线工具',
+    description: '基于React与MUI组件库编写的一个在线工具网站',
+    preview: require('./showcase/tools.png'),
+    website: 'http://tools.kuizuo.cn',
+    source: 'https://github.com/kuizuo/online-tools',
+    tags: ['opensource', 'typescript', 'nodejs'],
   },
 ]
 
