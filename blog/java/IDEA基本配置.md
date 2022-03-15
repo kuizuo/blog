@@ -33,132 +33,132 @@ ps: 我本地电脑基本把大部分 JetBrains 产品给安装了一遍，而�
 
 ### Ctrl
 
-`Ctrl + D` 复制光标所在行 或 复制选择内容，并把复制内容插入光标位置下面
+- <kbd>Ctrl</kbd>+<kbd>D</kbd> 复制光标所在行 或 复制选择内容，并把复制内容插入光标位置下面
 
-`Ctrl + W` 递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围
+- <kbd>Ctrl</kbd>+<kbd>W</kbd> 递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围
 
-`Ctrl + E` 显示最近打开的文件记录列表
+- <kbd>Ctrl</kbd>+<kbd>E</kbd> 显示最近打开的文件记录列表
 
-`Ctrl + N` 根据输入的 名/类名 查找类文件
+- <kbd>Ctrl</kbd>+<kbd>N</kbd> 根据输入的 名/类名 查找类文件
 
-`Ctrl + G` 在当前文件跳转到指定行处
+- <kbd>Ctrl</kbd>+<kbd>G</kbd> 在当前文件跳转到指定行处
 
-`Ctrl + F12` 弹出当前文件结构层，可以在弹出的层上直接输入，进行筛选
+- <kbd>Ctrl</kbd>+<kbd>F12</kbd> 弹出当前文件结构层，可以在弹出的层上直接输入，进行筛选
 
-`Ctrl + 左键单击` 在打开的文件标题上，弹出该文件路径
+- <kbd>Ctrl</kbd>+<kbd>左键单击</kbd> 在打开的文件标题上，弹出该文件路径
 
 ### Alt
 
-`Alt +1,2,3…9` 显示对应数值的选项卡，其中 1 是 Project 用得最多 （必备）
+- <kbd>Alt</kbd>+<kbd>1,2,3…9</kbd> 显示对应数值的选项卡，其中 1 是 Project 用得最多 （必备）
 
-`Alt + Enter IntelliJ IDEA` 根据光标所在问题，提供快速修复选择，光标放在的位置不同提示的结果也不同
+- <kbd>Alt</kbd>+<kbd>Enter</kbd> 根据光标所在问题，提供快速修复选择，光标放在的位置不同提示的结果也不同
 
-`Alt + Insert` 代码自动生成，如生成对象的 set / get 方法，构造函数，toString() 等
+- <kbd>Alt</kbd>+<kbd>Insert</kbd> 代码自动生成，如生成对象的 set / get 方法，构造函数，toString() 等
 
-`Alt + 左方向键` 切换当前已打开的窗口中的子视图，比如 Debug 窗口中有 Output、Debugger 等子视图，用此快捷键就可以在子视图中切换
+- <kbd>Alt</kbd>+<kbd>左方向键</kbd> 切换当前已打开的窗口中的子视图，比如 Debug 窗口中有 Output、Debugger 等子视图，用此快捷键就可以在子视图中切换
 
-`Alt + 右方向键` 按切换当前已打开的窗口中的子视图，比如 Debug 窗口中有 Output、Debugger 等子视图，用此快捷键就可以在子视图中切换
+- <kbd>Alt</kbd>+<kbd>右方向键</kbd> 按切换当前已打开的窗口中的子视图，比如 Debug 窗口中有 Output、Debugger 等子视图，用此快捷键就可以在子视图中切换
 
-`Alt + 前方向键` 当前光标跳转到当前文件的前一个方法名位置
+- <kbd>Alt</kbd>+<kbd>前方向键</kbd> 当前光标跳转到当前文件的前一个方法名位置
 
-`Alt + 后方向键` 当前光标跳转到当前文件的后一个方法名位置
+- <kbd>Alt</kbd>+<kbd>后方向键</kbd> 当前光标跳转到当前文件的后一个方法名位置
 
 ### Ctrl + Alt
 
-`Ctrl + Alt + L` 格式化代码，可以对当前文件和整个包目录使用
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> 格式化代码，可以对当前文件和整个包目录使用
 
-`Ctrl + Alt + T` 选择代码，可以将其包裹在 if、try、while 等代码块中
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> 选择代码，可以将其包裹在 if、try、while 等代码块中
 
-`Ctrl + Alt + O` 优化导入的类，可以对当前文件和整个包目录使用
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>O</kbd> 优化导入的类，可以对当前文件和整个包目录使用
 
-`Ctrl + Alt + V` 快速引进变量
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> 快速引进变量
 
-`Ctrl + Alt + S` 打开 IntelliJ IDEA 系统设置
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> 打开 IntelliJ IDEA 系统设置
 
-`Ctrl + Alt + Enter` 光标所在行上空出一行，光标定位到新行
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Enter</kbd> 光标所在行上空出一行，光标定位到新行
 
-`Ctrl + Alt + 左方向键` 退回到上一个操作的地方
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>左方向键</kbd> 退回到上一个操作的地方
 
-`Ctrl + Alt + 右方向键` 前进到上一个操作的地方
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>右方向键</kbd> 前进到上一个操作的地方
 
-`Ctrl + Alt + 前方向键` 在查找模式下，跳到上个查找的文件
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>前方向键</kbd> 在查找模式下，跳到上个查找的文件
 
-`Ctrl + Alt + 后方向键` 在查找模式下，跳到下个查找的文件
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>后方向键</kbd> 在查找模式下，跳到下个查找的文件
 
 ### Ctrl + Shift
 
-`Ctrl + Shift + Z` 取消撤销
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> 取消撤销
 
-`Ctrl + Shift + W` 递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>W</kbd> 递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围
 
-`Ctrl + Shift + T` 对当前类生成单元测试类，如果已经存在的单元测试类则可以进行选择
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> 对当前类生成单元测试类，如果已经存在的单元测试类则可以进行选择
 
-`Ctrl + Shift + C` 复制当前文件磁盘路径到剪贴板
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> 复制当前文件磁盘路径到剪贴板
 
-`Ctrl + Shift + V` 弹出缓存的最近拷贝的内容管理器弹出层
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> 弹出缓存的最近拷贝的内容管理器弹出层
 
-`Ctrl + Shift + E` 显示最近修改的文件列表的弹出层
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> 显示最近修改的文件列表的弹出层
 
-`Ctrl + Shift + A` 查找动作 / 设置
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> 查找动作 / 设置
 
-`Ctrl + Shift + /` 代码块注释
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>/</kbd> 代码块注释
 
-`Ctrl + Shift + [` 选中从光标所在位置到它的顶部中括号位置
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>[</kbd> 选中从光标所在位置到它的顶部中括号位置
 
-`Ctrl + Shift + ]` 选中从光标所在位置到它的底部中括号位置
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>]</kbd> 选中从光标所在位置到它的底部中括号位置
 
-`Ctrl + Shift + +` 展开所有代码
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>+</kbd> 展开所有代码
 
-`Ctrl + Shift + -` 折叠所有代码
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>-</kbd> 折叠所有代码
 
-`F3` 选择下一个单词
+- <kbd>F3</kbd> 选择下一个单词
 
-`Ctrl + Shift + F7` 高亮显示所有该选中文本，按 Esc 高亮消失
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F7</kbd> 高亮显示所有该选中文本，按 Esc 高亮消失
 
-`Ctrl + Shift + Space` 智能代码提示
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd> 智能代码提示
 
-`Ctrl + Shift + Enter` 自动结束代码，行末自动添加分号
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> 自动结束代码，行末自动添加分号
 
-`Ctrl + Shift +Backspace` 退回到上次修改的地方
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>ackspace</kbd> 退回到上次修改的地方
 
-`Ctrl + Shift + 左键单击` 把光标放在某个类变量上，按此快捷键可以直接定位到该类中
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>左键单击</kbd> 把光标放在某个类变量上，按此快捷键可以直接定位到该类中
 
-`Ctrl + Shift + 左方向键` 在代码文件上，光标跳转到当前单词 / 中文句的左侧开头位置，同时选中该单词 / 中文句
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>左方向键</kbd> 在代码文件上，光标跳转到当前单词 / 中文句的左侧开头位置，同时选中该单词 / 中文句
 
-`Ctrl + Shift + 右方向键` 在代码文件上，光标跳转到当前单词 / 中文句的右侧开头位置，同时选中该单词 / 中文句
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>右方向键</kbd> 在代码文件上，光标跳转到当前单词 / 中文句的右侧开头位置，同时选中该单词 / 中文句
 
-`Ctrl + Shift + 前方向键` 光标放在方法名上，将方法移动到上一个方法前面，调整方法排序
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>前方向键</kbd> 光标放在方法名上，将方法移动到上一个方法前面，调整方法排序
 
-`Ctrl + Shift + 后方向键` 光标放在方法名上，将方法移动到下一个方法前面，调整方法排序
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>后方向键</kbd> 光标放在方法名上，将方法移动到下一个方法前面，调整方法排序
 
 ### Alt + Shift
 
-`Alt + Shift + 前方向键` 移动光标所在行向上移动
+- <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>前方向键</kbd> 移动光标所在行向上移动
 
-`Alt + Shift + 后方向键` 移动光标所在行向下移动
+- <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>后方向键</kbd> 移动光标所在行向下移动
 
 ### 调试
 
-`Shift + F9` 调试模式运行
+- <kbd>Shift</kbd>+<kbd>F9</kbd> 调试模式运行
 
-`F7` 步入，如果当前行断点是一个方法，则进入当前方法体内
+- <kbd>F7</kbd> 步入，如果当前行断点是一个方法，则进入当前方法体内
 
-`F8` 步过，如果当前行断点是一个方法，则不进入当前方法体内
+- <kbd>F8</kbd> 步过，如果当前行断点是一个方法，则不进入当前方法体内
 
-`Shift + F8` 跳出步入的方法体外
+- <kbd>Shift</kbd>+<kbd>F8</kbd> 跳出步入的方法体外
 
-`F9` 恢复程序运行，但是如果该断点下面代码还有断点则停在下一个断点上
+- <kbd>F9</kbd> 恢复程序运行，但是如果该断点下面代码还有断点则停在下一个断点上
 
 ### 自定义
 
 在 vscode 中我通常都会设置光标键，比如
 
-- `Shift + Alt + J`  左光标移动
-- `Shift + Alt + K`  下光标移动
-- `Shift + Alt + L`  右光标移动
-- `Shift + Alt + I`  上光标移动
-- `Shift + Alt + ;`  光标移动至行尾，相当于 End 键
-- `Shift + Alt + H`  光标移动至行首，相当于 Home 键
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd> 左光标移动
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> 下光标移动
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> 右光标移动
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> 上光标移动
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>;</kbd> 光标移动至行尾，相当于 End 键
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>H</kbd> 光标移动至行首，相当于 Home 键
 
 同样的在 IDEA 肯定也要如此设置
 

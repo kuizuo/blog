@@ -134,39 +134,41 @@ VScode 使用 git，这个插件必安装不可。
 
 一些 Ctrl + C 和 Ctrl + V 等就不做过多解释了，主要说一些有可能不知道，并且还在通过鼠标还完成的一些操作。
 
-- `Shift + Alt + F` 代码格式化（可以说是用的最多的一个了）
-- `Shift + Alt + R` 在资源管理器中显示 （右键点文件在选择老累了）
-- `Shift + Alt + A` 多行注释
-- `Shift +Alt + 向下箭头` 复制当前行到下一行
-- `Ctrl + D` 下一个匹配的也被选中
-- `Ctrl + F2` 匹配所有当前选中文本
-- `Ctrl + Shift + L` 获取将当前所选内容的所有匹配项 方便快捷删改（上一操作的升级版）
-- `Ctrl + Alt + 向下箭头` 批量复制光标（向下也同理）
-- `Ctrl + ~ ` 打开终端
-- `Ctrl + W` 关闭当前界面编辑器（浏览器关于当前页面同样适用）
-- `Ctrl + Shift + [` 和 `Ctrl + Shift + ]` 代码折叠展开
-- 全部折叠 `Ctrl+K Ctrl+0`和 展开全部 `Ctrl + K Ctrl + J`
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> 代码格式化（可以说是用的最多的一个了）
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd> 在资源管理器中显示 （右键点文件在选择老累了）
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>A</kbd> 多行注释
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>向下箭头</kbd> 复制当前行到下一行
+- <kbd>Ctrl</kbd>+<kbd>D</kbd> 下一个匹配的也被选中
+- <kbd>Ctrl</kbd>+<kbd>F2</kbd> 匹配所有当前选中文本
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> 获取将当前所选内容的所有匹配项 方便快捷删改（上一操作的升级版）
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>向下箭头</kbd> 批量复制光标（向下也同理）
+- <kbd>Ctrl</kbd>+<kbd>~</kbd> 打开终端
+- <kbd>Ctrl</kbd>+<kbd>W</kbd> 关闭当前界面编辑器（浏览器关于当前页面同样适用）
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>[</kbd> 代码折叠
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>]</kbd> 代码展开
+- <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>0</kbd> 全部折叠
+- <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>J</kbd> 展开全部
 
 以上基本就是我常用的快捷键了，可以说些快捷键，确实提升了我编写代码的效率。
 
 一些冷门究极好用的(真的很冷门,有很好用,相见恨晚)
 
-`Ctrl + Backspace` 删除前一个单词（特别有用）
+<kbd>Ctrl</kbd>+<kbd>Backspace</kbd> 删除前一个单词（特别有用）
 
-`Ctrl + Shift + T` 打开刚刚关闭的页面（手残必备）
+<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> 打开刚刚关闭的页面（手残必备）
 
-Ctrl + T 通过匹配文本,来打开文本 （如果已知什么文件有对应文本,直接用这个快捷键定位贼快）
+<kbd>Ctrl</kbd>+<kbd>T</kbd> 通过匹配文本,来打开文本 （如果已知什么文件有对应文本,直接用这个快捷键定位贼快）
 
-Ctrl + Alt + 右箭头 快捷将当前文件移动到右边单独标签组 （不用在鼠标点击分页按钮）
+<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>右箭头</kbd> 快捷将当前文件移动到右边单独标签组 （不用在鼠标点击分页按钮）
 
-Ctrl + Shift + 右箭头 可以逐个选择文本,方便
+<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>右箭头</kbd> 可以逐个选择文本,方便
 
 如果可以 使用 Ctrl + Shift + K 删除一行 而不是通过 Ctrl +X 剪贴一行
 
-- `Ctrl + P` 跳转指定文件内（特别有用）
-- `Ctrl + G ` 跳转指定行号（特别有用）
+- <kbd>Ctrl</kbd>+<kbd>P</kbd> 跳转指定文件内（特别有用）
+- <kbd>Ctrl</kbd>+<kbd>G</kbd> 跳转指定行号（特别有用）
 
-**`Ctrl + Tab` 切换编辑器 （类比于 window `Alt + Tab`）**
+**<kbd>Ctrl</kbd>+<kbd>Tab</kbd> 切换编辑器 （类比于 window <kbd>Alt</kbd>+<kbd>Tab</kbd>）**
 
 ### 自定义快捷键
 
@@ -177,12 +179,12 @@ Ctrl + Shift + 右箭头 可以逐个选择文本,方便
 
 实际上很多时候都没必要自己设置快捷键，不过是为了满足一些人的需求，就比如我主要就设置了 6 个快捷键分别是：
 
-- `Shift + Alt + J` 左光标移动
-- `Shift + Alt + K` 下光标移动
-- `Shift + Alt + L` 右光标移动
-- `Shift + Alt + I` 上光标移动
-- `Shift + Alt + ;` 光标移动至行尾，相当于 End 键
-- `Shift + Alt + H` 光标移动至行首，相当于 Home 键
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>J</kbd> 左光标移动
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> 下光标移动
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> 右光标移动
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> 上光标移动
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>;</kbd> 光标移动至行尾，相当于 End 键
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>H</kbd> 光标移动至行首，相当于 Home 键
 
 设置的话也比较简单，打开设置，找到键盘快捷方式，然后找到光标移动的快捷键然后，或者是打开对应的 keybindings.json 文件，把下面代码添加即可。
 
