@@ -77,6 +77,8 @@ var c = add(1, 2)
 
 更多配置 => [TypeScript: TSConfig Reference - Docs on every TSConfig option (typescriptlang.org)](https://www.typescriptlang.org/tsconfig)
 
+更多相关 TS 编译配置和使用说明可以通过 `tsc -h` 查看。
+
 这里有份 [tsconfig.json 全解析](https://juejin.cn/post/7039583726375796749#heading-22) 内容如下
 
 ```json title="tsconfig.json"
@@ -149,3 +151,68 @@ var c = add(1, 2)
 原本想自己总结一遍，但刷到了下面这篇文章，总结的太好了，以至于我都不是很想再写一遍主要的配置 🤩
 
 [会写 TypeScript 但你真的会 TS 编译配置吗？ - 掘金 (juejin.cn)](https://juejin.cn/post/7039583726375796749#heading-4)
+
+话虽说，但一些主要的功能还是得写一下
+
+### 配置别名
+
+在一些项目中经常能看到导入模块不是使用相对路径`./`，而是像`@/`，其中@表示src，也就是项目的原代码目录下，也就是路径别名。要实现这样的配置，项目的脚手架肯定是需要修改的。这里我就以vite为例。
+
+```typescript title="vite.config.ts"
+import { defineConfig } from 'vite'
+import { resolve } from 'path'
+
+export default defineConfig {
+    resolve: {
+        alias: {
+            "@": resolve(__dirname, 'src'), // 路径别名
+        },
+        extensions: ['.js', '.json', '.ts'] // 使用路径别名时想要省略的后缀名
+    }
+    // ...
+}
+```
+
+```json title="tsconfig.json"
+{
+    "compilerOptions" : {
+        "baseUrl": ".", // 必写，用于设置解析非相对模块名称的基本目录
+        "paths": {
+            "@/*": ["src/*"] // 用于设置模块名到基于baseUrl的路径映射
+        }
+        // ...
+    }
+}
+```
+
+### 支持合成默认导入
+
+在使用ESM（ES module） 编写代码的时候，引入CJS（CommonJS）的模块，通常需要写成 `import * as React from 'react'`的形式，如果将`esModuleInterop`设置为true，同时`allowSyntheticDefaultImports` 也会自动设置为true，则可以写成 `import React from 'react'`，
+
+这里有篇文章详细的说明缘由 [esModuleInterop 到底做了什么？](https://zhuanlan.zhihu.com/p/148081795)
+
+> 所以，尽量不要用 default 导出。 ——借评论区的一条评论
+
+### 声明浏览器全局对象API
+
+在代码中使用到浏览器的对象，如window、document，这些对于**TypeScript Complier** 来说是不能识别。可以通过在lib字段中设置`"DOM"`
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": ["ES5", "ES6", "DOM"],
+  }
+}
+```
+
+### 声明文件
+
+```json
+{
+  "compilerOptions": {
+    "declaration": true, // 生成相应的`.d.ts`文件
+    "declarationDir": "./dist/types" 生成的 '.d.ts' 文件保存文件夹
+  }
+}
+```
