@@ -23,7 +23,7 @@
 
 .bloghome__intro .hero_text {
   font-size: calc(1.8em + 1.2vw);
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 .bloghome__intro > p {
@@ -105,7 +105,7 @@ html[data-theme="dark"] .bloghome__intro > p {
 .social__links {
   width: 100%;
   display: flex;
-  max-width: 210px;
+  max-width: 200px;
   align-items: center;
   justify-content: space-between;
   padding: 1em 0 2.5em 0;
@@ -129,7 +129,7 @@ html[data-theme="dark"] .bloghome__intro > p {
 
 .social__links .dropdown span {
   margin-left: 6px;
-  font-weight: 700;
+  /* font-weight: 700; */
   font-size: 0.9em;
 }
 

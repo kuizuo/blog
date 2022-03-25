@@ -50,6 +50,10 @@
   --btn-selected: var(--ifm-color-primary);
   --btn-unselected: #cecece;
 
+  /* 标签背景 */
+  --tag-background: var(--ifm-color-primary);
+  --tag-background-dark: #0179fa77;
+
   /* 代码块背景 */
   --ifm-code-background: #23affc1a;
   --ifm-code-color: #3887fe;
@@ -125,6 +129,25 @@ body {
   font-family: Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--ifm-color-primary);
+}
+
+html[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--ifm-color-primary-dark);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 video {
   max-width: 100%;
 }
@@ -157,6 +180,34 @@ table {
 
 .markdown > h2 > a {
   display: inline-block;
+}
+
+.markdown a:focus,
+.markdown a:hover {
+  color: #db2828;
+}
+
+.markdown a {
+  transition: all 0.1s;
+}
+
+.markdown-body a:hover::before {
+  width: 100%;
+}
+
+.markdown a:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background-color: var(--smc-primary, #1e90ff);
+  transition: 0.2s;
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
 }
 
 .markdown > h2:before {
@@ -472,7 +523,7 @@ html[data-theme='dark'] .bloghome__intro > p {
 .post__tags {
   font-size: 0.85em;
   font-weight: 500;
-  background: var(--ifm-color-primary);
+  background: var(--tag-background);
   padding: 5px 5px;
   border-radius: 5px;
   color: #ffffff;
@@ -496,7 +547,7 @@ html[data-theme='dark'] .bloghome__intro > p {
 
 html[data-theme='dark'] .post__tags {
   color: #d4e8fa;
-  background: #0179fa77;
+  background: var(--tag-background-dark);
 }
 
 /* 底部 */

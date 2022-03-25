@@ -84,7 +84,7 @@
     "description": "The first paragraph of the 404 page"
   },
   "theme.NotFound.p2": {
-    "message": "可能是个 Bug🐛，或者是作者偷懒还没写😴",
+    "message": "可能是个 Bug🐛，也可能是作者偷懒还没写😴",
     "description": "The 2nd paragraph of the 404 page"
   },
   "theme.AnnouncementBar.closeButtonAriaLabel": {
@@ -268,11 +268,11 @@
     "description": "The ARIA label and placeholder for search button"
   },
   "hompage.hero.text.bilibili": {
-    "message": "技术视频教程、",
+    "message": "技术视频教程",
     "description": "Bilibili docs link label"
   },
   "homepage.hero.text": {
-    "message": "点击查看最新{blogs}、{project}、{links}，在这里你能了解到各类实战开发的所遇到的问题，帮助你在学习的过程了解最新的技术栈，并希望我的个人经历对你有所启发。",
+    "message": "在这里你能了解到各类实战开发的所遇到的问题，帮助你在学习的过程了解最新的技术栈，并希望我的个人经历对你有所启发。",
     "description": "hero text"
   },
   "hompage.hero.text.project": {

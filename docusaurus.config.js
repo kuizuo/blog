@@ -104,10 +104,6 @@ module.exports = {
               to: 'docs/skill',
             },
             {
-              label: '资源导航',
-              to: 'resources',
-            },
-            {
               label: '实战项目',
               to: 'project',
             },
@@ -125,12 +121,12 @@ module.exports = {
               to: '/about',
             },
             {
-              label: '掘金',
-              href: 'https://juejin.cn/user/1565318510545901',
-            },
-            {
               label: 'GitHub',
               href: 'https://github.com/kuizuo',
+            },
+            {
+              label: '掘金',
+              href: 'https://juejin.cn/user/1565318510545901',
             },
           ],
         },
