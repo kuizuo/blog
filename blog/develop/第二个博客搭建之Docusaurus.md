@@ -27,15 +27,35 @@ sticky: true
 
 ### 背景
 
-说一下部分更改的地方，首先就是主页的背景图了，这个是从网站[unDraw - Open source illustrations for any idea](https://undraw.co/)上找的一张 SVG 的图片，不过显示屏有点多，于是我尝试自己编辑一下，，如下图
+说一下部分更改的地方，首先就是主页的背景图了，这个是从网站[unDraw - Open source illustrations for any idea](https://undraw.co/)上找的一张 SVG 的图片，如下图
 
 ![image-20210815230103523](https://img.kuizuo.cn/image-20210815230103523.png)
 
 怎么说呢，总感觉有些别扭（可能屏幕都是蓝色的搞得好像是 window 蓝屏似的），就暂时先用首页的这张图充当一下。到时候在重新设计一下吧。
 
+补: 已更改为目前首页的背景
+
 ### 去谷歌广告
 
 源代码中是有添加谷歌广告的，虽然说如果有一定的访问量，每个月也能有一笔额外收入，不过为了简洁和一些繁琐的广告，就在对应的代码处进行注释。（说不准以后会用的上呢）
+
+### TypeScript 支持
+
+[TypeScript 支持 | Docusaurus](https://docusaurus.io/zh-CN/docs/typescript-support)
+
+```sh
+npm install --save-dev typescript @docusaurus/module-type-aliases @tsconfig/docusaurus
+```
+
+随后将以下内容添加到您的项目根目录的 `tsconfig.json`：
+
+```json title="tsconfig.json"
+{
+  "extends": "@tsconfig/docusaurus/tsconfig.json"
+}
+```
+
+但也只是改善编辑体验，不过就已经足够了。
 
 ### 配置 algolia
 
@@ -82,7 +102,7 @@ themeConfig: {
 jq-1.6
 ```
 
-接着在任意目录中创建`.env`文件，填入对应的 APPID 和 API KEY（这里是`Admin API Key`，当时我还一直以为是 Search API Key 坑了我半天）
+# 接着在任意目录中创建`.env`文件，填入对应的 APPID 和 API KEY（这里是`Admin API Key`，当时我还一直以为是 Search API Key 坑了我半天）
 
 ```js
 APPLICATION_ID = YOUR_APP_ID;
