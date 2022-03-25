@@ -1,3 +1,4 @@
+// @ts-check
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 const friendLinks = [
@@ -6,8 +7,8 @@ const friendLinks = [
     to: 'https://zxuqian.cn/',
   },
 ]
-
-module.exports = {
+/** @type {import('@docusaurus/types').Config} */
+const config = {
   title: '愧怍的小站',
   titleDelimiter: '-',
   url: 'https://kuizuo.cn',
@@ -15,6 +16,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'kuizuo', // Usually your GitHub org/user name.
   projectName: 'kuizuo.cn', // Usually your repo name.
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
   themeConfig: {
     image: 'img/kuizuo.jpg',
     announcementBar: {
@@ -165,7 +167,8 @@ module.exports = {
   presets: [
     [
       '@docusaurus/preset-classic',
-      {
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // editUrl: "https://github.com/kuizuo/kuizuo.cn/tree/master",
@@ -196,7 +199,7 @@ module.exports = {
           priority: 0.5,
         },
         // debug: true,
-      },
+      }),
     ],
   ],
   themes: ['@docusaurus/theme-live-codeblock'],
@@ -272,3 +275,5 @@ module.exports = {
   },
   onBrokenLinks: 'ignore',
 }
+
+module.exports = config
