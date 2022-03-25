@@ -187,7 +187,7 @@ export default defineConfig {
 
 ### 支持合成默认导入
 
-在使用ESM（ES module） 编写代码的时候，引入CJS（CommonJS）的模块，通常需要写成 `import * as React from 'react'`的形式，如果将`esModuleInterop`设置为true，同时`allowSyntheticDefaultImports` 也会自动设置为true，则可以写成 `import React from 'react'`，
+在使用ESM（ES module） 编写代码的时候，引入CJS（CommonJS）的模块，通常需要写成 `import * as React from 'react'`的形式，若写成 `import React from 'react'` 将会提示 **模块“"http"”没有默认导出**。，如果将`esModuleInterop`设置为true，同时`allowSyntheticDefaultImports` 也会自动设置为true，则可以写成后者的形式。
 
 这里有篇文章详细的说明缘由 [esModuleInterop 到底做了什么？](https://zhuanlan.zhihu.com/p/148081795)
 
