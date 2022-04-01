@@ -13,12 +13,11 @@ npm install pinia
 在 src/store 中创建 index.ts，并导出 store
 
 ```typescript title="src/store/index.ts"
-import type { App } from 'vue'
 import { createPinia } from 'pinia'
 
 const store = createPinia()
 
-export { store }
+export default store 
 ```
 
 在 main.ts 中引入并使用

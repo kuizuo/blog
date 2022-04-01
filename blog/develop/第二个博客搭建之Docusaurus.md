@@ -2,7 +2,7 @@
 title: 第二个博客搭建之Docusaurus
 date: 2021-08-20
 authors: kuizuo
-tags: [blog, docusaurus]
+tags: [blog, docusaurus, project]
 sticky: true
 ---
 
@@ -23,7 +23,6 @@ sticky: true
 首先还是要再鸣谢一下，基于这位大佬所开源的代码上进行二开（其实也就是换了个背景，删了一下谷歌的广告和 B 站视频的评论，还有一些不必要的百度推送和统计插件），然后就花了点是时间整理下这些年（其实就两年）所涉及的技术栈。
 
 之所以会搭建该博客，主要是 kuizuo.cn 的域名也正好备案完了，但之前的那个博客实在些不下去了（毕竟半年没更新了），然后自己的技术栈也准备转型了，之前前端的技术栈，都是处于 Vue2.0 + JavaScript，vue2 差不多已经玩烂了（尤其是 element ui），书也看的差不多了，加之 Vue3 出了大半年了（前端技术更新迭代是真滴快），正好 B 站尚硅谷的视频出了[【尚硅谷】2021 最新 Vue 迅速上手教程丨 vue3.0 入门到精通\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1Zy4y1K7SH)（强烈推荐！！！），于是就趁暑假时间恶补了一手 Vue3，顺便找了一个开源项目[Vben Admin (vvbin.cn)](https://vvbin.cn/doc-next/)，所采用的都是最新的技术栈 Vue3、Vite、TypeScript（以后写新项目就靠它了），然后该博客又是基于 React ，所以索性把 React 给学了一下，便开始搭建该博客。
-
 
 ### 背景
 
@@ -105,8 +104,8 @@ jq-1.6
 # 接着在任意目录中创建`.env`文件，填入对应的 APPID 和 API KEY（这里是`Admin API Key`，当时我还一直以为是 Search API Key 坑了我半天）
 
 ```js
-APPLICATION_ID = YOUR_APP_ID;
-API_KEY = YOUR_API_KEY;
+APPLICATION_ID = YOUR_APP_ID
+API_KEY = YOUR_API_KEY
 ```
 
 然后创建一个`docsearch.json`文件（名字随便），然后填入对应的配置代码，这里贴下对应链接[docsearch-configs/docsearch.json at master · algolia/docsearch-configs (github.com)](https://github.com/algolia/docsearch-configs/blob/master/configs/docsearch.json)
@@ -194,7 +193,6 @@ webify 是腾讯云的 Web 应用托管服务，可以将本地代码
 
 :::
 
-
 好用的好用，但是要花钱滴。是按量计费的。
 
 ![image-20210818220427224](https://img.kuizuo.cn/image-20210818220427224.png)
@@ -213,13 +211,13 @@ webify 是腾讯云的 Web 应用托管服务，可以将本地代码
 
 #### 评论
 
-相关文章: [Docusaurus配置Gitalk评论插件](https://kuizuo.cn/develop/Docusaurus配置Gitalk评论插件)
+相关文章: [Docusaurus 配置 Gitalk 评论插件](https://kuizuo.cn/develop/Docusaurus配置Gitalk评论插件)
 
 #### 实战项目
 
 相关链接：[实战项目](https://kuizuo.cn/project)
 
-确实写过挺多项目，但大多数不方便展示，要么是小工具类demo，要么是客户定制的，这些总不好直接展示，所以一般展示的都是些非盈利性，功能性的，当然肯定是会附带源码的那种。
+确实写过挺多项目，但大多数不方便展示，要么是小工具类 demo，要么是客户定制的，这些总不好直接展示，所以一般展示的都是些非盈利性，功能性的，当然肯定是会附带源码的那种。
 
 ## 最后
 

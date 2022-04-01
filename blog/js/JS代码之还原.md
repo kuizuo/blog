@@ -2,11 +2,11 @@
 title: JS代码之还原
 date: 2021-12-25
 authors: kuizuo
-tags: [js, ast, 逆向]
+tags: [js, ast, 逆向, project]
 sticky: true
 ---
 
-基于Babel对JS代码进行混淆与还原操作的网站 [JS代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
+基于 Babel 对 JS 代码进行混淆与还原操作的网站 [JS 代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
 
 ![js-de-obfuscator](https://img.kuizuo.cn/20220131193110.png)
 
@@ -77,9 +77,9 @@ hexUnicodeToString() {
 如果你尝试过静态分析该代码，会发现一些参数都通过\_0x3028 来调用，像这样
 
 ```javascript
-_0x3028['nfkbEK'];
-_0x3028('0x0', 'jKqK');
-_0x3028('0x1', ')bls');
+_0x3028['nfkbEK']
+_0x3028('0x0', 'jKqK')
+_0x3028('0x1', ')bls')
 ```
 
 不过认真查看会发现像成员表达式`MemberExpression`语句`_0x3028["nfkbEK"]`，但在第三条语句却定义函数`_0x3028`。其实是 js 的特性，比方说下面的代码就可以给函数添加一个自定义属性
@@ -179,18 +179,18 @@ var _0x3028 = function (_0x2308a4, _0x573528) {
 
 ```javascript
 // 拿到解密函数所在节点
-let stringDecryptFuncAst = this.ast.program.body[2];
+let stringDecryptFuncAst = this.ast.program.body[2]
 // 拿到解密函数的名字 也就是_0x3028
-let DecryptFuncName = stringDecryptFuncAst.declarations[0].id.name;
+let DecryptFuncName = stringDecryptFuncAst.declarations[0].id.name
 
-let newAst = parser.parse('');
-newAst.program.body.push(this.ast.program.body[0]);
-newAst.program.body.push(this.ast.program.body[1]);
-newAst.program.body.push(stringDecryptFuncAst);
+let newAst = parser.parse('')
+newAst.program.body.push(this.ast.program.body[0])
+newAst.program.body.push(this.ast.program.body[1])
+newAst.program.body.push(stringDecryptFuncAst)
 // 把这三部分的代码转为字符串，由于存在格式化检测，需要指定选项，来压缩代码
-let stringDecryptFunc = generator(newAst, { compact: true }).code;
+let stringDecryptFunc = generator(newAst, { compact: true }).code
 // 将字符串形式的代码执行，这样就可以在 nodejs 中运行解密函数了
-global.eval(stringDecryptFunc);
+global.eval(stringDecryptFunc)
 ```
 
 #### 调用解密函数
@@ -202,22 +202,22 @@ traverse(this.ast, {
   VariableDeclarator(path) {
     // 当变量名与解密函数名相同
     if (path.node.id.name == DecryptFuncName) {
-      let binding = path.scope.getBinding(DecryptFuncName);
+      let binding = path.scope.getBinding(DecryptFuncName)
       // 通过referencePaths可以获取所有引用的地方
       binding &&
         binding.referencePaths.map((p) => {
           // 判断父节点是调用表达式，且参数为两个
           if (p.parentPath.isCallExpression()) {
             // 输出参数与解密后的结果
-            let args = p.parentPath.node.arguments.map((a) => a.value).join(' ');
-            let str = eval(p.parentPath.toString());
-            console.log(args, str);
-            p.parentPath.replaceWith(t.stringLiteral(str));
+            let args = p.parentPath.node.arguments.map((a) => a.value).join(' ')
+            let str = eval(p.parentPath.toString())
+            console.log(args, str)
+            p.parentPath.replaceWith(t.stringLiteral(str))
           }
-        });
+        })
     }
   },
-});
+})
 ```
 
 在混淆的时候就提及到 binding 可以获取当前变量的作用域，而`binding.referencePaths`就可以获取到所有调用的地方，那么只需要判断是否为调用表达式，且参数是两个的情况下，然后通过 eval 执行一遍整个节点，也就是`eval('_0x3028("0x0", "jKqK")')`，然后通过 replaceWith，替换节点即可。传入的参数与加密后的结果大致展示如下，可自行运行一遍程序中`decStringArr()`
@@ -242,115 +242,115 @@ traverse(this.ast, {
 ```javascript
 var _0x505b30 = (function () {
   if (_0x3028('0x0', 'jKqK') !== _0x3028('0x1', ')bls')) {
-    var _0x104ede = !![];
+    var _0x104ede = !![]
 
     return function (_0x3d32a2, _0x35fd15) {
       if ('bKNqX' === _0x3028('0x2', 'M10H')) {
         var _0x46992c,
           _0x1efd4e = 0,
-          _0x5cae2b = d(f);
+          _0x5cae2b = d(f)
 
-        if (0 === _0xb2c58f[_0x3028('0x3', '2Q@E')]) return _0x1efd4e;
+        if (0 === _0xb2c58f[_0x3028('0x3', '2Q@E')]) return _0x1efd4e
 
         for (_0x46992c = 0; _0x46992c < _0xb2c58f[_0x3028('0x4', '[YLR')]; _0x46992c++)
-          (_0x1efd4e = (_0x1efd4e << (_0x5cae2b ? 5 : 16)) - _0x1efd4e + _0xb2c58f[_0x3028('0x5', 'QvlS')](_0x46992c)), (_0x1efd4e = _0x5cae2b ? _0x1efd4e : ~_0x1efd4e);
+          (_0x1efd4e = (_0x1efd4e << (_0x5cae2b ? 5 : 16)) - _0x1efd4e + _0xb2c58f[_0x3028('0x5', 'QvlS')](_0x46992c)), (_0x1efd4e = _0x5cae2b ? _0x1efd4e : ~_0x1efd4e)
 
-        return 2147483647 & _0x1efd4e;
+        return 2147483647 & _0x1efd4e
       } else {
         var _0x45a8ce = _0x104ede
           ? function () {
               if (_0x3028('0x6', 'YvHw') === _0x3028('0x7', 'iLkl')) {
-                that[_0x3028('0x8', 'DSlT')]['log'] = func;
-                that[_0x3028('0x9', 'YW6h')][_0x3028('0xa', '&12i')] = func;
-                that[_0x3028('0xb', '1jb4')]['debug'] = func;
-                that[_0x3028('0xc', 'k9U[')][_0x3028('0xd', 'nUsA')] = func;
-                that[_0x3028('0xe', ')bls')][_0x3028('0xf', 'PZDB')] = func;
-                that['console'][_0x3028('0x10', 'r8Qx')] = func;
-                that[_0x3028('0x11', 'AIMj')][_0x3028('0x12', '[YLR')] = func;
+                that[_0x3028('0x8', 'DSlT')]['log'] = func
+                that[_0x3028('0x9', 'YW6h')][_0x3028('0xa', '&12i')] = func
+                that[_0x3028('0xb', '1jb4')]['debug'] = func
+                that[_0x3028('0xc', 'k9U[')][_0x3028('0xd', 'nUsA')] = func
+                that[_0x3028('0xe', ')bls')][_0x3028('0xf', 'PZDB')] = func
+                that['console'][_0x3028('0x10', 'r8Qx')] = func
+                that[_0x3028('0x11', 'AIMj')][_0x3028('0x12', '[YLR')] = func
               } else {
                 if (_0x35fd15) {
                   if (_0x3028('0x13', 'r8Qx') !== _0x3028('0x14', 'YLF%')) {
-                    var _0x1fa1e3 = _0x35fd15[_0x3028('0x15', 'sLdn')](_0x3d32a2, arguments);
+                    var _0x1fa1e3 = _0x35fd15[_0x3028('0x15', 'sLdn')](_0x3d32a2, arguments)
 
-                    _0x35fd15 = null;
-                    return _0x1fa1e3;
+                    _0x35fd15 = null
+                    return _0x1fa1e3
                   } else {
-                    _0x142a1e();
+                    _0x142a1e()
                   }
                 }
               }
             }
-          : function () {};
+          : function () {}
 
-        _0x104ede = ![];
-        return _0x45a8ce;
+        _0x104ede = ![]
+        return _0x45a8ce
       }
-    };
+    }
   } else {
-    (function () {
-      return ![];
+    ;(function () {
+      return ![]
     }
       [_0x3028('0x16', 'Yp5j')](_0x3028('0x17', ']R4I') + _0x3028('0x18', 'M10H'))
-      [_0x3028('0x19', '%#u0')]('stateObject'));
+      [_0x3028('0x19', '%#u0')]('stateObject'))
   }
-})();
+})()
 ```
 
 ```javascript
 var _0x505b30 = (function () {
   if ('PdAlB' !== 'jtvLV') {
-    var _0x104ede = !![];
+    var _0x104ede = !![]
 
     return function (_0x3d32a2, _0x35fd15) {
       if ('bKNqX' === 'SjQMk') {
         var _0x46992c,
           _0x1efd4e = 0,
-          _0x5cae2b = d(f);
+          _0x5cae2b = d(f)
 
-        if (0 === _0xb2c58f['length']) return _0x1efd4e;
+        if (0 === _0xb2c58f['length']) return _0x1efd4e
 
         for (_0x46992c = 0; _0x46992c < _0xb2c58f['length']; _0x46992c++)
-          (_0x1efd4e = (_0x1efd4e << (_0x5cae2b ? 5 : 16)) - _0x1efd4e + _0xb2c58f['charCodeAt'](_0x46992c)), (_0x1efd4e = _0x5cae2b ? _0x1efd4e : ~_0x1efd4e);
+          (_0x1efd4e = (_0x1efd4e << (_0x5cae2b ? 5 : 16)) - _0x1efd4e + _0xb2c58f['charCodeAt'](_0x46992c)), (_0x1efd4e = _0x5cae2b ? _0x1efd4e : ~_0x1efd4e)
 
-        return 2147483647 & _0x1efd4e;
+        return 2147483647 & _0x1efd4e
       } else {
         var _0x45a8ce = _0x104ede
           ? function () {
               if ('IrwYd' === 'ClOby') {
-                that['console']['log'] = func;
-                that['console']['warn'] = func;
-                that['console']['debug'] = func;
-                that['console']['info'] = func;
-                that['console']['error'] = func;
-                that['console']['exception'] = func;
-                that['console']['trace'] = func;
+                that['console']['log'] = func
+                that['console']['warn'] = func
+                that['console']['debug'] = func
+                that['console']['info'] = func
+                that['console']['error'] = func
+                that['console']['exception'] = func
+                that['console']['trace'] = func
               } else {
                 if (_0x35fd15) {
                   if ('WuEjf' !== 'qpuuN') {
-                    var _0x1fa1e3 = _0x35fd15['apply'](_0x3d32a2, arguments);
+                    var _0x1fa1e3 = _0x35fd15['apply'](_0x3d32a2, arguments)
 
-                    _0x35fd15 = null;
-                    return _0x1fa1e3;
+                    _0x35fd15 = null
+                    return _0x1fa1e3
                   } else {
-                    _0x142a1e();
+                    _0x142a1e()
                   }
                 }
               }
             }
-          : function () {};
+          : function () {}
 
-        _0x104ede = ![];
-        return _0x45a8ce;
+        _0x104ede = ![]
+        return _0x45a8ce
       }
-    };
+    }
   } else {
-    (function () {
-      return ![];
+    ;(function () {
+      return ![]
     }
       ['constructor']('debu' + 'gger')
-      ['apply']('stateObject'));
+      ['apply']('stateObject'))
   }
-})();
+})()
 ```
 
 可以发现处理过的代码至少无需动态调用出解密后的结果，并且像`if ("PdAlB" !== "jtvLV")`这种语句都可以直接一眼看出必定为 true，但混淆后`if (_0x3028("0x0", "jKqK") !== _0x3028("0x1", ")bls"))`却无法看出，**这就是 AST 静态分析的优势所在**。
@@ -361,9 +361,9 @@ var _0x505b30 = (function () {
 
 ```javascript
 // 将源代码中的解密代码给移除
-this.ast.program.body.shift();
-this.ast.program.body.shift();
-this.ast.program.body.shift();
+this.ast.program.body.shift()
+this.ast.program.body.shift()
+this.ast.program.body.shift()
 ```
 
 但一般**不推荐删除**，因为我们有可能是需要将我们还原后的代码与网站内混淆过的代码进行替换，然后再进行动态调试分析，但如果删除了这三条混淆语句，有可能会导致代码执行出错。我之前习惯删除，但直到我遇到了一个网站。。。
@@ -380,27 +380,27 @@ this.ast.program.body.shift();
     // ...
 ```
 
-其中这里的DecryptFuncName对应的是解密函数的函数名_0x3028，是通过人为定义，同时载入的是前三条语句，万一解密函数在第四条语句，或者有多个解密函数的情况下，就需要去改动代码
+其中这里的 DecryptFuncName 对应的是解密函数的函数名\_0x3028，是通过人为定义，同时载入的是前三条语句，万一解密函数在第四条语句，或者有多个解密函数的情况下，就需要去改动代码
 
 ```javascript
 // 拿到解密函数所在节点
-let stringDecryptFuncAst = this.ast.program.body[2];
+let stringDecryptFuncAst = this.ast.program.body[2]
 // 拿到解密函数的名字 也就是_0x3028
-let DecryptFuncName = stringDecryptFuncAst.declarations[0].id.name;
+let DecryptFuncName = stringDecryptFuncAst.declarations[0].id.name
 
-let newAst = parser.parse('');
-newAst.program.body.push(this.ast.program.body[0]);
-newAst.program.body.push(this.ast.program.body[1]);
-newAst.program.body.push(stringDecryptFuncAst);
+let newAst = parser.parse('')
+newAst.program.body.push(this.ast.program.body[0])
+newAst.program.body.push(this.ast.program.body[1])
+newAst.program.body.push(stringDecryptFuncAst)
 // 把这三部分的代码转为字符串，由于存在格式化检测，需要指定选项，来压缩代码
-let stringDecryptFunc = generator(newAst, { compact: true }).code;
+let stringDecryptFunc = generator(newAst, { compact: true }).code
 ```
 
 无意间翻看代码的时候，灵光一现，解密函数调用的这么频繁，我直接把所有函数都遍历一遍，并将它们的引用`referencePaths`从高到低排序，不就知道那个是解密函数了吗，于是便有了`findDecFunctionArr`方法
 
 #### findDecFunctionArr
 
-一般而言，解密函数通常是在大数组与数组乱序后定义的，在上面代码中，可以看到是通过制定下标来定位解密函数 `this.ast.program.body[2];`，所以只要能截取到这个2即可，具体代码
+一般而言，解密函数通常是在大数组与数组乱序后定义的，在上面代码中，可以看到是通过制定下标来定位解密函数 `this.ast.program.body[2];`，所以只要能截取到这个 2 即可，具体代码
 
 ```javascript
 /**
@@ -456,12 +456,12 @@ let stringDecryptFunc = generator(newAst, { compact: true }).code;
     let code = generator(newAst, { compact: true }).code;
     // 将字符串形式的代码执行，这样就可以在 nodejs 中运行解密函数了
     global.eval(code);
-   
+
     this.decFunctionArr = decFunctionArr;
   }
 ```
 
-同时增加decFunctionArr属性，用于表示解密函数数组供decStringArr使用，就可以免去判断解密函数的步骤了。
+同时增加 decFunctionArr 属性，用于表示解密函数数组供 decStringArr 使用，就可以免去判断解密函数的步骤了。
 
 ## 优化还原后的代码
 
@@ -550,7 +550,7 @@ traverseUnaryExpression() {
 有些变量可能赋值过一次就不在进行改变，就如同常量，如下面代码。
 
 ```javascript
-let a =100
+let a = 100
 console.log(a)
 ```
 
@@ -614,12 +614,12 @@ traverseStrNumValue() {
 ```javascript
 function test() {
   if (true) {
-    return '123';
+    return '123'
   } else {
-    return Math.floor(10 * Math.random());
+    return Math.floor(10 * Math.random())
   }
 }
-test();
+test()
 ```
 
 第二条语句是绝对不会执行到的，那么就可以将其移除。虽然说代码编辑器会将其标暗，表示不会执行到，但在混淆中巴不得代码量少一下，所有还是有必要通过 AST 进行操作。
@@ -721,9 +721,9 @@ hexUnicodeToString() {
 不过还有一些可以特定的替换，比如 for i
 
 ```javascript
-for (var _0x1e5665 = 0, _0x3620b9 = this["JIyEgF"]["length"]; _0x1e5665 < _0x3620b9; _0x1e5665++) {
- 	this["JIyEgF"]["push"](Math["round"](Math["random"]()));
-                    _0x3620b9 = this["JIyEgF"]["length"];
+for (var _0x1e5665 = 0, _0x3620b9 = this['JIyEgF']['length']; _0x1e5665 < _0x3620b9; _0x1e5665++) {
+  this['JIyEgF']['push'](Math['round'](Math['random']()))
+  _0x3620b9 = this['JIyEgF']['length']
 }
 ```
 
@@ -740,15 +740,14 @@ for (var _0x1e5665 = 0, _0x3620b9 = this["JIyEgF"]["length"]; _0x1e5665 < _0x362
 
 等等，总之你想咋优化都完全可以优化，但还原完的代码就不一定能看懂了。与解密字符串那个相比，如果搞不定字符串解密，那这些都是徒劳。
 
-具体的实例可通过 [源码例子](https://github.com/kuizuo/js-de-obfuscator/tree/main/example/deobfuscator) 中查看对AST的操作。
+具体的实例可通过 [源码例子](https://github.com/kuizuo/js-de-obfuscator/tree/main/example/deobfuscator) 中查看对 AST 的操作。
 
 ## 运行还原后的代码
 
 最终整个还原后的代码可以在`newCode.js`中查看，但到目前为止还没有测试还原后的代码到底能否正常运行，或者是替换节点导致语法错误，所有就需要将还原后的代码与混淆过的代码替换运行这样才能测试的出来。这里就不放具体执行过程了（因为真的懒得在处理这个 js 文件了。。。）
 
-## JS混淆与还原的网站
+## JS 混淆与还原的网站
 
-针对上述还原操作其实还不够明显，于是就编写了一个在线对JS代码混淆与还原的网站（主要针对还原）– [JS代码混淆与还原 (kuizuo.cn)](https://deobfuscator.kuizuo.cn/)
+针对上述还原操作其实还不够明显，于是就编写了一个在线对 JS 代码混淆与还原的网站（主要针对还原）– [JS 代码混淆与还原 (kuizuo.cn)](https://deobfuscator.kuizuo.cn/)
 
 其实也就是对上述的还原代码进行封装成工具使用。
-

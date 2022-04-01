@@ -98,21 +98,21 @@ tags: [chrome, 插件, 开发]
 
 ```js
 document.addEventListener('DOMContentLoaded', function () {
-  injectCustomJs();
-});
+  injectCustomJs()
+})
 
 // 向页面注入JS
 function injectCustomJs(jsPath) {
-  jsPath = jsPath || 'js/inject.js';
-  var temp = document.createElement('script');
-  temp.setAttribute('type', 'text/javascript');
+  jsPath = jsPath || 'js/inject.js'
+  var temp = document.createElement('script')
+  temp.setAttribute('type', 'text/javascript')
   // 获得的地址类似：chrome-extension://ihcokhadfjfchaeagdoclpnjdiokfakg/js/inject.js
-  temp.src = chrome.extension.getURL(jsPath);
+  temp.src = chrome.extension.getURL(jsPath)
   temp.onload = function () {
     // 放在页面不好看，执行完后移除掉
-    this.parentNode.removeChild(this);
-  };
-  document.head.appendChild(temp);
+    this.parentNode.removeChild(this)
+  }
+  document.head.appendChild(temp)
 }
 ```
 
@@ -138,21 +138,21 @@ popup 可以直接调用 background 中的 JS 方法，也可以直接访问 bac
 ```javascript
 // background.js
 function test() {
-  alert('我是background！');
+  alert('我是background！')
 }
 
 // popup.js
-var bg = chrome.extension.getBackgroundPage();
-bg.test(); // 访问bg的函数
-alert(bg.document.body.innerHTML); // 访问bg的DOM
+var bg = chrome.extension.getBackgroundPage()
+bg.test() // 访问bg的函数
+alert(bg.document.body.innerHTML) // 访问bg的DOM
 ```
 
 `background`访问`popup`如下（前提是`popup`已经打开）：
 
 ```javascript
-var views = chrome.extension.getViews({ type: 'popup' });
+var views = chrome.extension.getViews({ type: 'popup' })
 if (views.length > 0) {
-  console.log(views[0].location.href);
+  console.log(views[0].location.href)
 }
 ```
 
@@ -165,14 +165,14 @@ if (views.length > 0) {
 function sendMessageToContentScript(message, callback) {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, message, function (response) {
-      if (callback) callback(response);
-    });
-  });
+      if (callback) callback(response)
+    })
+  })
 }
 
 sendMessageToContentScript({ cmd: 'test', value: '你好，我是popup！' }, function (response) {
-  console.log('来自content的回复：' + response);
-});
+  console.log('来自content的回复：' + response)
+})
 ```
 
 `content.js`通过监听事件接收：
@@ -180,9 +180,9 @@ sendMessageToContentScript({ cmd: 'test', value: '你好，我是popup！' }, fu
 ```js
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   // console.log(sender.tab ?"from a content script:" + sender.tab.url :"from the extension");
-  if (request.cmd == 'test') alert(request.value);
-  sendResponse('我收到了你的消息！');
-});
+  if (request.cmd == 'test') alert(request.value)
+  sendResponse('我收到了你的消息！')
+})
 ```
 
 ##### content 向 popup 或 bg
@@ -190,18 +190,18 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 ```js
 // content.js
 chrome.runtime.sendMessage({ greeting: '你好，我是content呀，我主动发消息给后台！' }, function (response) {
-  console.log('收到来自后台的回复：' + response);
-});
+  console.log('收到来自后台的回复：' + response)
+})
 ```
 
 ```js
 //background.js 或 popup.js：
 // 监听来自content的消息
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log('收到来自content的消息：');
-  console.log(request, sender, sendResponse);
-  sendResponse('我是后台，我已收到你的消息：' + JSON.stringify(request));
-});
+  console.log('收到来自content的消息：')
+  console.log(request, sender, sendResponse)
+  sendResponse('我是后台，我已收到你的消息：' + JSON.stringify(request))
+})
 ```
 
 注意：
@@ -221,7 +221,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 `injected`中：
 
 ```js
-window.postMessage({ test: '你好！' }, '*');
+window.postMessage({ test: '你好！' }, '*')
 ```
 
 `content script中`：
@@ -230,10 +230,10 @@ window.postMessage({ test: '你好！' }, '*');
 window.addEventListener(
   'message',
   function (e) {
-    console.log(e.data);
+    console.log(e.data)
   },
   false,
-);
+)
 ```
 
 #### injected 与 popup
@@ -267,28 +267,28 @@ window.addEventListener(
 ```js
 // popup.js
 $(function () {
-  let configs = document.getElementsByClassName('configs');
+  let configs = document.getElementsByClassName('configs')
   for (let i = 0; i < configs.length; i++) {
-    let type = configs[i].type;
+    let type = configs[i].type
     if (type == 'checkbox') {
       configs[i].onchange = function () {
         chrome.storage.sync.set({
           [this.id]: this.checked,
-        });
-      };
+        })
+      }
       chrome.storage.sync.get(configs[i].id, function (items) {
-        configs[i].checked = items[configs[i].id] || false;
-      });
+        configs[i].checked = items[configs[i].id] || false
+      })
     } else if (type == 'text' || type == 'password') {
       configs[i].onblur = function () {
-        chrome.storage.sync.set({ [this.id]: this.value });
-      };
+        chrome.storage.sync.set({ [this.id]: this.value })
+      }
       chrome.storage.sync.get(configs[i].id, function (items) {
-        configs[i].value = items[configs[i].id] || '';
-      });
+        configs[i].value = items[configs[i].id] || ''
+      })
     }
   }
-});
+})
 ```
 
 可能需要多花点时间才能理解上面代码的意思，首先我在需要记录配置的地方添加了一个类`configs`，然后通过 js 代码遍历类名为`configs`，接着判断是多选框，还是输入框，input 的 id 为键名，value 为键值，来 set 或 get `chrome.storage`的值，然后进行事件绑定为修改配置后在记录一下配置。这里需要注意一下，写配置的时候`{ [this.id]: this.value }`这里的`this.id`是加了中括号的，原因就是这个 this.id 是变量，如果不加的话默认为字符串，但在这里有.所以是会报错的。
@@ -310,7 +310,7 @@ var view = {
     mouse_x: -1,
     mouse_y: -1,
   },
-};
+}
 
 function initView() {
   view.float = $(`
@@ -336,82 +336,82 @@ style="position: fixed;border: 1px double rgb(0,0,0); width: 300px; top: 30px; r
 	<div id="logList"></div>
 </div>
 </div>
-	`);
-  view.info = view.float.find('#info');
-  view.kz_title = view.float.find('#kz_title');
-  view.kz_main = view.float.find('#kz_main');
+	`)
+  view.info = view.float.find('#info')
+  view.kz_title = view.float.find('#kz_title')
+  view.kz_main = view.float.find('#kz_main')
   view.float.appendTo('body').delegate('button', 'click', function (e) {
-    e.stopImmediatePropagation();
-    e.stopPropagation();
-    e.preventDefault();
-    let name = $(this).attr('name');
+    e.stopImmediatePropagation()
+    e.stopPropagation()
+    e.preventDefault()
+    let name = $(this).attr('name')
     if (name == 'show') {
-      $(this).html(view.show ? '＋' : '－');
-      view.show = !view.show;
-      view.kz_main.slideToggle();
+      $(this).html(view.show ? '＋' : '－')
+      view.show = !view.show
+      view.kz_main.slideToggle()
     }
-  });
-  addViewMouseListener();
-  log('日志输出1');
-  log('日志输出2');
-  log('日志输出3');
+  })
+  addViewMouseListener()
+  log('日志输出1')
+  log('日志输出2')
+  log('日志输出3')
 }
 
 function addViewMouseListener() {
   view.float.bind('mousedown', function (event) {
-    view.cache.x = $(this).position().left;
-    view.cache.y = $(this).position().top;
-    view.cache.mouse_x = event.originalEvent.clientX;
-    view.cache.mouse_y = event.originalEvent.clientY;
+    view.cache.x = $(this).position().left
+    view.cache.y = $(this).position().top
+    view.cache.mouse_x = event.originalEvent.clientX
+    view.cache.mouse_y = event.originalEvent.clientY
     //console.log(view.cache.mouse_x, view.cache.mouse_y, view.cache.x, view.cache.y)
-  });
+  })
   $(document).bind('mousemove', function (event) {
     //计算出现在的位置是多少
-    if (view.cache.mouse_x == -1) return;
-    if (view.cache.mouse_y - view.cache.y > view.kz_title.height()) return;
+    if (view.cache.mouse_x == -1) return
+    if (view.cache.mouse_y - view.cache.y > view.kz_title.height()) return
     let new_position_left = event.originalEvent.clientX - view.cache.mouse_x + view.cache.x,
-      new_position_top = event.originalEvent.clientY - view.cache.mouse_y + view.cache.y;
+      new_position_top = event.originalEvent.clientY - view.cache.mouse_y + view.cache.y
     //加上边界限制
     if (new_position_top < 0) {
       //当上边的偏移量小于0的时候，就是上边的临界点，就让新的位置为0
-      new_position_top = 0;
+      new_position_top = 0
     }
     //如果向下的偏移量大于文档对象的高度减去自身的高度，就让它等于这个高度
     if (new_position_top > $(document).height() - view.float.height() && $(document).height() - view.float.height() > 0) {
-      new_position_top = $(document).height() - view.float.height();
+      new_position_top = $(document).height() - view.float.height()
     }
     //右限制
     if (new_position_left > $(document).width() - view.float.width()) {
-      new_position_left = $(document).width() - view.float.width();
+      new_position_left = $(document).width() - view.float.width()
     }
     if (new_position_left < 0) {
       //左边的偏移量小于0的时候设置 左边的位置为0
-      new_position_left = 0;
+      new_position_left = 0
     }
     view.float.css({
       left: new_position_left + 'px',
       top: new_position_top + 'px',
-    });
-  });
+    })
+  })
   $(document).bind('mouseup', function (event) {
-    view.cache.mouse_x = -1;
-    view.cache.mouse_y = -1;
-  });
+    view.cache.mouse_x = -1
+    view.cache.mouse_y = -1
+  })
 }
 
 function log(msg, color) {
-  let date = new Date();
-  let t = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-  msg = t + '  ' + msg;
-  let div = $('<div class="log"></div>').css({ 'border-color': 'rgba(121, 187, 255, 0.2)', 'background-color': 'rgba(121, 187, 255, 0.2)' });
-  let log = $('<p><span style="color: ' + (color || '#409EFF') + '">' + msg + '</span></p>');
+  let date = new Date()
+  let t = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
+  msg = t + '  ' + msg
+  let div = $('<div class="log"></div>').css({ 'border-color': 'rgba(121, 187, 255, 0.2)', 'background-color': 'rgba(121, 187, 255, 0.2)' })
+  let log = $('<p><span style="color: ' + (color || '#409EFF') + '">' + msg + '</span></p>')
 
   if ($('.log').length > 15) {
     for (let i = 0; $('.log').length - 15; i++) {
-      $('.log')[i].remove();
+      $('.log')[i].remove()
     }
   }
-  $('#logList').append(div.append(log));
+  $('#logList').append(div.append(log))
 }
 ```
 
@@ -420,9 +420,9 @@ function log(msg, color) {
 ```js
 document.addEventListener('DOMContentLoaded', function () {
   if (location.host.indexOf('chaoxing') != -1) {
-    initView();
+    initView()
   }
-});
+})
 ```
 
 如何发挥就看各位了。
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
 ```js
 // background.js
 chrome.runtime.onMessage.addListener(function (req, sender, sendResponse) {
-  console.log(req, sender, sendResponse);
+  console.log(req, sender, sendResponse)
   if (req.cmd == 'ajax') {
     $.ajax({
       url: req.url,
@@ -460,19 +460,19 @@ chrome.runtime.onMessage.addListener(function (req, sender, sendResponse) {
       data: req.data,
       async: false,
       success: function (res) {
-        sendResponse(res);
+        sendResponse(res)
       },
-    });
+    })
   }
-});
+})
 ```
 
 ```js
 // content.js
 function sendAjaxToBg(url, type, data, callback) {
   chrome.runtime.sendMessage({ cmd: 'ajax', url: url, type: type, data: data }, function (response) {
-    callback(response);
-  });
+    callback(response)
+  })
 }
 ```
 

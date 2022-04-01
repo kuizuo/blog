@@ -2,7 +2,7 @@
 title: JS代码之混淆
 date: 2021-12-21
 authors: kuizuo
-tags: [js, ast, 逆向]
+tags: [js, ast, 逆向, project]
 ---
 
 <!-- truncate -->
@@ -15,7 +15,7 @@ tags: [js, ast, 逆向]
 >
 > 相关混淆代码 [kuizuo/js-de-obfuscator](https://github.com/kuizuo/js-de-obfuscator)
 >
-> 自写在线混淆与还原网站 [JS代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
+> 自写在线混淆与还原网站 [JS 代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
 
 ## 什么是 AST
 
@@ -25,14 +25,14 @@ tags: [js, ast, 逆向]
 
 ```javascript
 Date.prototype.format = function (formatStr) {
-  var str = formatStr;
-  var Week = ['日', '一', '二', '三', '四', '五', '六'];
-  str = str.replace(/yyyy|YYYY/, this.getFullYear());
-  str = str.replace(/MM/, (this.getMonth() + 1).toString().padStart(2, '0'));
-  str = str.replace(/dd|DD/, this.getDate().toString().padStart(2, '0'));
-  return str;
-};
-console.log(new Date().format('yyyy-MM-dd'));
+  var str = formatStr
+  var Week = ['日', '一', '二', '三', '四', '五', '六']
+  str = str.replace(/yyyy|YYYY/, this.getFullYear())
+  str = str.replace(/MM/, (this.getMonth() + 1).toString().padStart(2, '0'))
+  str = str.replace(/dd|DD/, this.getDate().toString().padStart(2, '0'))
+  return str
+}
+console.log(new Date().format('yyyy-MM-dd'))
 ```
 
 通过 AST 混淆的结果为
@@ -58,24 +58,24 @@ const OOOOOO = [
   'MA==',
   'Z2V0RGF0ZQ==',
   'bG9n',
-];
+]
 
-(function (OOOOOO, OOOOO0) {
+;(function (OOOOOO, OOOOO0) {
   var OOOOOo = function (OOOOO0) {
     while (--OOOOO0) {
-      OOOOOO.push(OOOOOO.shift());
+      OOOOOO.push(OOOOOO.shift())
     }
-  };
+  }
 
-  OOOOOo(++OOOOO0);
-})(OOOOOO, 115918 ^ 115930);
+  OOOOOo(++OOOOO0)
+})(OOOOOO, 115918 ^ 115930)
 
 window[atob(OOOOOO[694578 ^ 694578])][atob(OOOOOO[873625 ^ 873624])][atob(OOOOOO[219685 ^ 219687])] = function (OOOOO0) {
   function OOOO00(OOOOOO, OOOOO0) {
-    return OOOOOO + OOOOO0;
+    return OOOOOO + OOOOO0
   }
 
-  var OOOOOo = OOOOO0;
+  var OOOOOo = OOOOO0
   var OOOO0O = [
     atob(OOOOOO[945965 ^ 945966]),
     atob(OOOOOO[298561 ^ 298565]),
@@ -84,24 +84,24 @@ window[atob(OOOOOO[694578 ^ 694578])][atob(OOOOOO[873625 ^ 873624])][atob(OOOOOO
     atob(OOOOOO[577975 ^ 577968]),
     atob(OOOOOO[428905 ^ 428897]),
     atob(OOOOOO[629582 ^ 629575]),
-  ];
-  OOOOOo = OOOOOo[atob(OOOOOO[607437 ^ 607431])](/yyyy|YYYY/, this[atob(OOOOOO[799010 ^ 799017])]());
+  ]
+  OOOOOo = OOOOOo[atob(OOOOOO[607437 ^ 607431])](/yyyy|YYYY/, this[atob(OOOOOO[799010 ^ 799017])]())
   OOOOOo = OOOOOo[atob(OOOOOO[518363 ^ 518353])](
     /MM/,
     OOOO00(this[atob(OOOOOO[862531 ^ 862543])](), 671347 ^ 671346)
       [atob(OOOOOO[822457 ^ 822452])]()
       [atob(OOOOOO[974597 ^ 974603])](741860 ^ 741862, atob(OOOOOO[544174 ^ 544161])),
-  );
+  )
   OOOOOo = OOOOOo[atob(OOOOOO[406915 ^ 406921])](
     /dd|DD/,
     this[atob(OOOOOO[596004 ^ 596020])]()
       [atob(OOOOOO[705321 ^ 705316])]()
       [atob(OOOOOO[419232 ^ 419246])](318456 ^ 318458, atob(OOOOOO[662337 ^ 662350])),
-  );
-  return OOOOOo;
-};
+  )
+  return OOOOOo
+}
 
-console[atob(OOOOOO[490983 ^ 490998])](new window[atob(OOOOOO[116866 ^ 116866])]()[atob(OOOOOO[386287 ^ 386285])](atob(OOOOOO[530189 ^ 530207])));
+console[atob(OOOOOO[490983 ^ 490998])](new window[atob(OOOOOO[116866 ^ 116866])]()[atob(OOOOOO[386287 ^ 386285])](atob(OOOOOO[530189 ^ 530207])))
 ```
 
 将上述代码复制到浏览器控制台内执行，将会输出当天的年月日。
@@ -196,10 +196,10 @@ let tips = [
    corresponding location in the source code',
 
   'Shift click on an AST node to expand the whole subtree',
-];
+]
 
 function printTips() {
-  tips.forEach((tip, i) => console.log(`Tip ${i}:` + tip));
+  tips.forEach((tip, i) => console.log(`Tip ${i}:` + tip))
 }
 ```
 
@@ -214,25 +214,25 @@ function printTips() {
 所以要将`tips`更改为`_0xabcdef`就需要遍历`VariabelDeclarator`并判断属性`name`是否为`tips`，大致代码如下。**（后文代码将会省略模块引入、js 代码读取、解析与生成的代码）**
 
 ```javascript
-const fs = require('fs');
-const parser = require('@babel/parser');
-const traverse = require('@babel/traverse').default;
-const t = require('@babel/types');
-const generator = require('@babel/generator').default;
+const fs = require('fs')
+const parser = require('@babel/parser')
+const traverse = require('@babel/traverse').default
+const t = require('@babel/types')
+const generator = require('@babel/generator').default
 
-let jscode = fs.readFileSync(__dirname + '/demo.js', { encoding: 'utf-8' });
-let ast = parser.parse(jscode);
+let jscode = fs.readFileSync(__dirname + '/demo.js', { encoding: 'utf-8' })
+let ast = parser.parse(jscode)
 
 traverse(ast, {
   VariableDeclarator(path) {
-    let name = path.node.id.name;
+    let name = path.node.id.name
     if (name === 'tips') {
-      let binding = path.scope.getOwnBinding(name);
-      binding.scope.rename(name, '_0xabcdef');
+      let binding = path.scope.getOwnBinding(name)
+      binding.scope.rename(name, '_0xabcdef')
     }
   },
-});
-let code = generator(ast).code;
+})
+let code = generator(ast).code
 ```
 
 生成的代码如下，成功的将`tips`更改为`_0xabcdef`，并且是`tips`的所有作用域（printTips 函数下）都成功替换了。
@@ -268,14 +268,14 @@ function printTips() {
 ```javascript {3-4}
 traverse(ast, {
   Identifier(path) {
-    let name = path.node.name;
-    console.log(name);
+    let name = path.node.name
+    console.log(name)
     if (name === 'tips') {
-      let binding = path.scope.getOwnBinding(name);
-      binding.scope.rename(name, '_0xabcdef');
+      let binding = path.scope.getOwnBinding(name)
+      binding.scope.rename(name, '_0xabcdef')
     }
   },
-});
+})
 ```
 
 并尝试输出所有的标识符，输出的 name 结果为
@@ -318,9 +318,9 @@ import TabItem from '@theme/TabItem';
 ```javascript
 const visitor = {
   FunctionDeclaration(path) {
-    console.log(path.node.id.name); // 输出函数名
+    console.log(path.node.id.name) // 输出函数名
   },
-};
+}
 ```
 
 </TabItem>
@@ -329,9 +329,9 @@ const visitor = {
 ```tsx
 let visitor: Visitor = {
   FunctionDeclaration(path) {
-    console.log(path.node.id.name); // 输出函数名
+    console.log(path.node.id.name) // 输出函数名
   },
-};
+}
 ```
 
   </TabItem>
@@ -342,9 +342,9 @@ let visitor: Visitor = {
 ```javascript
 traverse(ast, {
   FunctionDeclaration(path) {
-    console.log(path.node.id.name); // 输出函数名
+    console.log(path.node.id.name) // 输出函数名
   },
-});
+})
 ```
 
 如果我想遍历函数声明与二项式表达式的话，还可以这么写
@@ -352,14 +352,14 @@ traverse(ast, {
 ```javascript
 traverse(ast, {
   'FunctionDeclaration|BinaryExpression'(path) {
-    let node = path.node;
+    let node = path.node
     if (t.isFunctionDeclaration(node)) {
-      console.log(node.id.name); // 输出函数名 printTips
+      console.log(node.id.name) // 输出函数名 printTips
     } else if (t.isBinaryExpression(node)) {
-      console.log(node.operator); // 输出操作符 +
+      console.log(node.operator) // 输出操作符 +
     }
   },
-});
+})
 ```
 
 不过要遍历不同类型的代码，那么对应的 node 属性肯定大不相同，其中这里使用了 t（也就是`@babel/types`库）来进行判断 node 节点是否为该属性，来进行不同的操作，后文会提到 types。
@@ -372,13 +372,13 @@ traverse(ast, {
 traverse(ast, {
   FunctionDeclaration: {
     enter(path) {
-      console.log('进入函数声明');
+      console.log('进入函数声明')
     },
     exit(path) {
-      console.log('退出函数声明');
+      console.log('退出函数声明')
     },
   },
-});
+})
 ```
 
 其中 enter 与 exit 还可以是一个数组（当然基本没怎么会用到），比如
@@ -388,21 +388,21 @@ traverse(ast, {
   FunctionDeclaration: {
     enter: [
       (path) => {
-        console.log('1');
+        console.log('1')
       },
       (path) => {
-        console.log('2');
+        console.log('2')
       },
     ],
   },
-});
+})
 ```
 
 path 对象下还有一种方法，针对当前 path 进行遍历 `path.traverse`，比如下面代码中，我遍历到了 printTips，我想输出函数内的箭头函数中的参数，那么就可以使用这种遍历。
 
 ```javascript
 function printTips() {
-  tips.forEach((tip, i) => console.log(`Tip ${i}:` + tip));
+  tips.forEach((tip, i) => console.log(`Tip ${i}:` + tip))
 }
 ```
 
@@ -413,11 +413,11 @@ traverse(ast, {
   FunctionDeclaration(path) {
     path.traverse({
       ArrowFunctionExpression(path) {
-        console.log(path.node.params);
+        console.log(path.node.params)
       },
-    });
+    })
   },
-});
+})
 ```
 
 输出的结果如下
@@ -475,7 +475,7 @@ types 的主要用途还是构造节点，或者说写一个 Builders（构建�
 body 内的第一个节点便是我们整条的代码，输入`t.variableDeclaration()`，鼠标悬停在 variableDeclaration 上，或者按 Ctrl 跳转只.d.ts 类型声明文件 查看该方法所需几个参数
 
 ```ts
-declare function variableDeclaration(kind: 'var' | 'let' | 'const', declarations: Array<VariableDeclarator>): VariableDeclaration;
+declare function variableDeclaration(kind: 'var' | 'let' | 'const', declarations: Array<VariableDeclarator>): VariableDeclaration
 ```
 
 可以看到第一个参数就是关键字，而第二个则一个数组，其中节点为`VariableDeclarator`，关于`variableDeclaration`与 `VariableDeclarator` 在前面已经提及过一次了，就不在赘述了。由于我们这里只是声明一个变量 a，所有数组成员只给一个便可，如果要生成 b，c 这些变量，就传入对应的`VariableDeclarator`即可
@@ -483,7 +483,7 @@ declare function variableDeclaration(kind: 'var' | 'let' | 'const', declarations
 这时候在查看下 VariableDeclarator 方法参数
 
 ```ts
-declare function variableDeclarator(id: LVal, init?: Expression | null): VariableDeclarator;
+declare function variableDeclarator(id: LVal, init?: Expression | null): VariableDeclarator
 ```
 
 第一个参数 id 很显然就是标识符了，不过这里的 id 不能简简单单传入一个字符串 a，而需要通过`t.identifier('a')`生成该节点，在上图中 id 就是对应`Identifier`节点。然后就是第二个参数了，一个表达式，其中这个`Expression`是 ts 中的联合类型（Union Types），可以看到有很多表达式
@@ -538,7 +538,7 @@ declare type Expression =
   | PipelinePrimaryTopicReference
   | TSAsExpression
   | TSTypeAssertion
-  | TSNonNullExpression;
+  | TSNonNullExpression
 ```
 
 其中我们所要赋值的数值 100，对应的节点类型`NumericLiteral`也在其中。在查看 numericLiteral 中的参数，就只给一个数值，那么便传入 100。
@@ -550,9 +550,9 @@ declare function numericLiteral(value: number): NumericLiteral;
 最后整个代码如下，将 t.variableDeclaration 结果赋值为一个变量`var_a`，这里的 var_a 便是一个 ast 对象，通过 generator(var_a).code 就可以获取到该 ast 的代码，也就是 `let a = 100;`，默认还会帮你添加分号
 
 ```javascript
-let var_a = t.variableDeclaration('let', [t.variableDeclarator(t.identifier('a'), t.numericLiteral(100))]);
+let var_a = t.variableDeclaration('let', [t.variableDeclarator(t.identifier('a'), t.numericLiteral(100))])
 
-let code = generator(var_a).code;
+let code = generator(var_a).code
 // let a = 100;
 ```
 
@@ -560,18 +560,18 @@ let code = generator(var_a).code;
 
 ```javascript
 function b(x, y) {
-  return x + y;
+  return x + y
 }
 ```
 
 types 操作
 
 ```javascript
-let param_x = t.identifier('x');
-let param_y = t.identifier('y');
-let func_b = t.functionDeclaration(t.identifier('b'), [param_x, param_y], t.blockStatement([t.returnStatement(t.binaryExpression('+', param_x, param_y))]));
+let param_x = t.identifier('x')
+let param_y = t.identifier('y')
+let func_b = t.functionDeclaration(t.identifier('b'), [param_x, param_y], t.blockStatement([t.returnStatement(t.binaryExpression('+', param_x, param_y))]))
 
-let code = generator(func_b).code;
+let code = generator(func_b).code
 ```
 
 大致步骤可以总结成一下几点
@@ -603,15 +603,15 @@ console.log(arr_c)
 如果使用`numericLiteral`来生成这些字面量的话那要写的话代码可能就要像下面这样
 
 ```javascript
-let arr_c = t.arrayExpression([t.numericLiteral(1), t.numericLiteral(2), t.numericLiteral(3), t.numericLiteral(4), t.numericLiteral(5)]);
+let arr_c = t.arrayExpression([t.numericLiteral(1), t.numericLiteral(2), t.numericLiteral(3), t.numericLiteral(4), t.numericLiteral(5)])
 ```
 
 而`valueToNode`能很方便地生成各种基本类型，甚至是一些对象类型（RegExp，Object 等）。不过像函数这种就不行。
 
 ```javascript
 t.valueToNode(function b(x, y) {
-  return x + y;
-});
+  return x + y
+})
 // throw new Error("don't know how to turn this value into a node");
 ```
 
@@ -627,8 +627,8 @@ let arr_c = {
     { type: 'NumericLiteral', value: 4 },
     { type: 'NumericLiteral', value: 5 },
   ],
-};
-let code = generator(arr_c).code;
+}
+let code = generator(arr_c).code
 ```
 
 至于生成其他的语句，原理与上述一致，篇幅有限不在做其他例子演示了，Babel 中的 API 很多，最主要的是懂得善用手册与代码提示，没有什么生成不了的语句，更没有还原不了的代码。
@@ -658,7 +658,7 @@ traverse(ast, {
   FunctionDeclaration(path) {
     console.log(generator(path.node).code)
     console.log(path.toString())
-  }
+  },
 })
 ```
 
@@ -670,7 +670,7 @@ traverse(ast, {
 traverse(ast, {
   FunctionDeclaration(path) {
     path.node.params[0] = t.identifier('x')
-  }
+  },
 })
 ```
 
@@ -681,7 +681,7 @@ traverse(ast, {
 `replaceWith` 一对一替换当前节点，且严格替换。
 
 ```javascript
-path.replaceWith(t.valueToNode('kuizuo'));
+path.replaceWith(t.valueToNode('kuizuo'))
 ```
 
 `replaceWithMultiple` 则是一对多，将多个节点替换到一个节点上。
@@ -689,10 +689,10 @@ path.replaceWith(t.valueToNode('kuizuo'));
 ```javascript
 traverse(ast, {
   ReturnStatement(path) {
-    path.replaceWithMultiple([t.expressionStatement(t.callExpression(t.memberExpression(t.identifier('console'), t.identifier('log')), [t.stringLiteral('kuizuo')])), t.returnStatement()]);
-    path.stop();
+    path.replaceWithMultiple([t.expressionStatement(t.callExpression(t.memberExpression(t.identifier('console'), t.identifier('log')), [t.stringLiteral('kuizuo')])), t.returnStatement()])
+    path.stop()
   },
-});
+})
 ```
 
 要注意的是，替换节点要非常谨慎，就比如上述代码，如果我遍历 return 语句，同时我又替换成了 return 语句，替换后的节点同样是可以进入到遍历里，如果不进行停止，将会造成死循环，所以这里才使用了`path.stop`完全停止当前遍历，直到下一条 return 语句。
@@ -706,17 +706,17 @@ traverse(ast, {
 ```javascript
 // 要替换的函数
 function add(a, b) {
-  return a + b;
+  return a + b
 }
 
 traverse(ast, {
   FunctionDeclaration(path) {
     path.replaceWithSourceString(`function mult(a, b){
       return a * b
-    }`);
-    path.stop();
+    }`)
+    path.stop()
   },
-});
+})
 
 // 替换后的结果
 // (function mult(a, b) {
@@ -729,9 +729,9 @@ traverse(ast, {
 ```javascript
 traverse(ast, {
   EmptyStatement(path) {
-    path.remove();
+    path.remove()
   },
-});
+})
 ```
 
 `EmptyStatement`指空语句，也就是多余的分号。
@@ -743,10 +743,10 @@ traverse(ast, {
 ```javascript
 traverse(ast, {
   ReturnStatement(path) {
-    path.insertBefore(t.expressionStatement(t.stringLiteral('before')));
-    path.insertAfter(t.expressionStatement(t.stringLiteral('after')));
+    path.insertBefore(t.expressionStatement(t.stringLiteral('before')))
+    path.insertAfter(t.expressionStatement(t.stringLiteral('after')))
   },
-});
+})
 ```
 
 #### 父级 path
@@ -764,9 +764,9 @@ traverse(ast, {
 ```javascript
 traverse(ast, {
   BinaryExpression(path) {
-    let parent = path.findParent(p => p.isFunctionDeclaration())
+    let parent = path.findParent((p) => p.isFunctionDeclaration())
     console.log(parent.toString())
-  }
+  },
 })
 ```
 
@@ -786,7 +786,7 @@ traverse(ast, {
     console.log(path.key)
     console.log(path.listKey)
     console.log(path.container)
-  }
+  },
 })
 ```
 
@@ -826,7 +826,7 @@ body
 
 ```javascript
 let obj = {
-	name:'kuizuo'
+  name: 'kuizuo',
 }
 ```
 
@@ -894,11 +894,10 @@ Node {
 ```javascript
 function test() {
   let obj = {
-    name: 'kuizuo'
+    name: 'kuizuo',
   }
   return obj
 }
-
 ```
 
 #### 获取标识符代码块
@@ -908,10 +907,10 @@ function test() {
 ```javascript
 traverse(ast, {
   ObjectExpression(path) {
-    let block = path.scope.block;
-    console.log(generator(block).code);
+    let block = path.scope.block
+    console.log(generator(block).code)
   },
-});
+})
 
 // function test() {
 //   let obj = {
@@ -928,7 +927,7 @@ traverse(ast, {
   ObjectExpression(path) {
     let block = path.scope.block
     console.log(generator(block).code)
-  }
+  },
 })
 
 // function test() {
@@ -948,14 +947,14 @@ traverse(ast, {
 ```javascript
 traverse(ast, {
   VariableDeclarator(path) {
-    let name = path.node.id.name;
+    let name = path.node.id.name
     if (name === 'tips') {
-      let binding = path.scope.getOwnBinding(name);
-      console.log(binding);
-      binding.scope.rename(name, '_0xabcdef');
+      let binding = path.scope.getOwnBinding(name)
+      console.log(binding)
+      binding.scope.rename(name, '_0xabcdef')
     }
   },
-});
+})
 ```
 
 其中这里的 binding 是属性相对较多，下面会一一介绍
@@ -1023,9 +1022,9 @@ referencePaths: [
 ```javascript
 traverse(ast, {
   Identifier(path) {
-    path.scope.rename(path.node.name, path.scope.generateUidIdentifier('_0xabcdef').name);
+    path.scope.rename(path.node.name, path.scope.generateUidIdentifier('_0xabcdef').name)
   },
-});
+})
 ```
 
 最终生成的代码如下
@@ -1066,8 +1065,8 @@ function _0xabcdef2() {
 演示代码
 
 ```javascript
-let a = 'kuizuo';
-`${a}nb${12}3${'456'}`;
+let a = 'kuizuo'
+;`${a}nb${12}3${'456'}`
 ```
 
 分析 AST 树结构
@@ -1079,34 +1078,34 @@ let a = 'kuizuo';
 ```javascript
 traverse(ast, {
   TemplateLiteral(path) {
-    let { expressions, quasis } = path.node;
+    let { expressions, quasis } = path.node
     // 将expressions节点逐个插入到quasis节点上
     for (const i in expressions) {
-      let e = expressions[i];
-      quasis.splice(i * 2 + 1, 0, e);
+      let e = expressions[i]
+      quasis.splice(i * 2 + 1, 0, e)
     }
-    let newExpressions = quasis;
+    let newExpressions = quasis
 
     // 循环新的表达式节点构造出二项式表达式
-    let binary;
+    let binary
     for (let i = 0; i < newExpressions.length; i++) {
-      let left = binary;
-      let right = newExpressions[i];
+      let left = binary
+      let right = newExpressions[i]
       if (i === 0) {
-        left = t.valueToNode(right.value.raw);
-        binary = left;
-        continue;
+        left = t.valueToNode(right.value.raw)
+        binary = left
+        continue
       }
 
       if (t.isTemplateElement(right)) {
         // if (right.value.raw === '') continue
-        right = t.valueToNode(right.value.raw);
+        right = t.valueToNode(right.value.raw)
       }
-      binary = t.binaryExpression('+', left, right);
+      binary = t.binaryExpression('+', left, right)
     }
-    path.replaceWith(binary);
+    path.replaceWith(binary)
   },
-});
+})
 ```
 
 最终输出 `"" + a + "nb" + 12 + "3" + "456" + ""`
@@ -1117,18 +1116,18 @@ traverse(ast, {
 
 ```javascript
 class Test {
-  age = 20;
+  age = 20
   constructor(name) {
-    this.name = name;
+    this.name = name
   }
 
   run() {
-    return this.name + this.age;
+    return this.name + this.age
   }
 }
 
-let test = new Test('kuizuo');
-console.log(test.run());
+let test = new Test('kuizuo')
+console.log(test.run())
 ```
 
 复制上述代码，观察 AST 树结构（图就不放了）
@@ -1138,23 +1137,23 @@ console.log(test.run());
 ```javascript
 traverse(ast, {
   'Program|FunctionExpression|FunctionDeclaration|ClassDeclaration|ClassProperty|ClassMethod'(path) {
-    renameOwnBinding(path);
+    renameOwnBinding(path)
   },
-});
+})
 ```
 
 但混淆完的代码并没有把属性名与方法名给混淆到
 
 ```javascript
 class OOOOO0 {
-  age = 399100 ^ 399080;
+  age = 399100 ^ 399080
 
   constructor(OOOOO0) {
-    this[atob(OOOOOO[226019 ^ 226019])] = OOOOO0;
+    this[atob(OOOOOO[226019 ^ 226019])] = OOOOO0
   }
 
   run() {
-    return this[atob(OOOOOO[255772 ^ 255772])] + this[atob(OOOOOO[982314 ^ 982315])];
+    return this[atob(OOOOOO[255772 ^ 255772])] + this[atob(OOOOOO[982314 ^ 982315])]
   }
 }
 ```
@@ -1163,13 +1162,13 @@ class OOOOO0 {
 
 ```javascript
 class Test {
-  ['age'] = 20;
+  ['age'] = 20
   constructor(name) {
-    this.name = name;
+    this.name = name
   }
 
   ['run']() {
-    return this.name + this.age;
+    return this.name + this.age
   }
 }
 ```
@@ -1180,13 +1179,13 @@ class Test {
 traverse(ast, {
   'ClassProperty|ClassMethod'(path) {
     if (t.isIdentifier(path.node.key)) {
-      let name = path.node.key.name;
-      if (name === 'constructor') return;
-      path.node.key = t.stringLiteral(name);
+      let name = path.node.key.name
+      if (name === 'constructor') return
+      path.node.key = t.stringLiteral(name)
     }
-    path.node.computed = true;
+    path.node.computed = true
   },
-});
+})
 ```
 
 最终运行混淆程序，执行混淆后的代码，成功输出`kuizuo20`

@@ -67,7 +67,7 @@ const config = {
             },
             {
               label: 'JS代码混淆与还原',
-              to: '/deobfuscator', // 'https://deobfuscator.kuizuo.cn'
+              to: 'https://deobfuscator.kuizuo.cn', // 'https://deobfuscator.kuizuo.cn'
             },
             {
               label: 'CyberChef在线加解密',
