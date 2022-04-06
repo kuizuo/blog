@@ -1,43 +1,39 @@
-import React, { useContext, useEffect, useState } from 'react';
-import clsx from 'clsx';
-import { MDXProvider } from '@mdx-js/react';
+import React, { useContext, useEffect, useState } from 'react'
+import clsx from 'clsx'
+import { MDXProvider } from '@mdx-js/react'
 
-import Head from '@docusaurus/Head';
-import Link from '@docusaurus/Link';
-import MDXComponents from '@theme/MDXComponents';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Head from '@docusaurus/Head'
+import Link from '@docusaurus/Link'
+import MDXComponents from '@theme/MDXComponents'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
-import ThemeContext from '@theme/ThemeContext';
+import styles from './styles.module.css'
+import { MarkdownSection, StyledBlogItem } from './style'
 
-import styles from './styles.module.css';
-import { MarkdownSection, StyledBlogItem } from './style';
+import Eye from '@site/static/icons/eye.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTags, faEye } from '@fortawesome/free-solid-svg-icons'
+import BrowserOnly from '@docusaurus/BrowserOnly'
 
-import Eye from '@site/static/icons/eye.svg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTags, faEye } from '@fortawesome/free-solid-svg-icons';
-import BrowserOnly from '@docusaurus/BrowserOnly';
-
-import BlogPostAuthors from '@theme/BlogPostAuthors';
-import Translate from '@docusaurus/Translate';
-import dayjs from 'dayjs';
+import BlogPostAuthors from '@theme/BlogPostAuthors'
+import Translate from '@docusaurus/Translate'
+import dayjs from 'dayjs'
 
 function BlogPostItem(props) {
-  const { children, frontMatter, metadata, truncated, isBlogPostPage = false, views, assets } = props;
-  const { date, permalink, tags, authors, readingTime } = metadata;
+  const { children, frontMatter, metadata, truncated, isBlogPostPage = false, views, assets } = props
+  const { date, permalink, tags, authors, readingTime } = metadata
 
   const {
     siteConfig: { title: siteTitle, url: siteUrl },
-  } = useDocusaurusContext();
+  } = useDocusaurusContext()
 
-  const { slug: postId, title, image } = frontMatter;
-  const imageUrl = useBaseUrl(image, { absolute: true });
+  const { slug: postId, title, image } = frontMatter
+  const imageUrl = useBaseUrl(image, { absolute: true })
   // 是否为黑暗主题：
-  const theme = useContext(ThemeContext);
-  const { isDarkTheme } = theme;
 
   const renderPostHeader = () => {
-    const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
+    const TitleHeading = isBlogPostPage ? 'h1' : 'h2'
 
     return (
       <header>
@@ -67,8 +63,8 @@ function BlogPostItem(props) {
 
         {isBlogPostPage && authors && <BlogPostAuthors authors={authors} assets={assets} />}
       </header>
-    );
-  };
+    )
+  }
 
   const renderTags = (isBlogPostPage = false) => {
     return (
@@ -86,8 +82,8 @@ function BlogPostItem(props) {
           )}
         </div>
       )
-    );
-  };
+    )
+  }
 
   const renderCopyright = () => {
     return (
@@ -111,12 +107,11 @@ function BlogPostItem(props) {
           </span>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <StyledBlogItem
-      isDark={isDarkTheme}
       isBlogPostPage={isBlogPostPage}
       // className={isBlogPostPage ? "margin-top--xl" : ""}
     >
@@ -135,7 +130,7 @@ function BlogPostItem(props) {
             {/* 标题 */}
             {renderPostHeader()}
             {/* 正文 */}
-            <MarkdownSection isBlogPostPage={isBlogPostPage} isDark={isDarkTheme} className='markdown'>
+            <MarkdownSection isBlogPostPage={isBlogPostPage} className='markdown'>
               <MDXProvider components={MDXComponents}>{children}</MDXProvider>
             </MarkdownSection>
           </article>
@@ -162,7 +157,7 @@ function BlogPostItem(props) {
         </div>
       </div>
     </StyledBlogItem>
-  );
+  )
 }
 
 function Count({ title, ...post }) {
@@ -176,16 +171,16 @@ function Count({ title, ...post }) {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({ title }),
-          });
-        };
+          })
+        }
 
         useEffect(() => {
-          addViewCount();
-        }, []);
-        return <></>;
+          addViewCount()
+        }, [])
+        return <></>
       }}
     </BrowserOnly>
-  );
+  )
 }
 
-export default BlogPostItem;
+export default BlogPostItem
