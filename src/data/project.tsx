@@ -82,7 +82,7 @@ const Projects: Project[] = [
   // },
   {
     title: 'JS代码混淆与还原',
-    description: '基于Babel的AST操作对JavaScript代码混淆与还原的一个网站',
+    description: '基于Babel的AST操作对JavaScript代码混淆与还原的网站',
     preview: require('./showcase/js-de-obfuscator.png'),
     website: 'https://deobfuscator.kuizuo.cn',
     source: 'https://github.com/kuizuo/js-de-obfuscator',
@@ -90,10 +90,18 @@ const Projects: Project[] = [
   },
   {
     title: '愧怍在线工具',
-    description: '基于React与MUI组件库编写的一个在线工具网站',
+    description: '基于React与MUI组件库编写的在线工具网站',
     preview: require('./showcase/tools.png'),
     website: 'http://tools.kuizuo.cn',
     source: 'https://github.com/kuizuo/online-tools',
+    tags: ['opensource', 'typescript', 'nodejs'],
+  },
+  {
+    title: '题小侠',
+    description: '基于Taro+Vue3+NutUI编写的搜题小程序',
+    preview: require('./showcase/question-man.png'),
+    website: 'https://img.kuizuo.cn/itopic.jpg',
+    source: 'https://github.com/kuizuo/question-man',
     tags: ['opensource', 'typescript', 'nodejs'],
   },
 ]
