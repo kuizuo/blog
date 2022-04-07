@@ -1,9 +1,9 @@
-import React from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import Head from '@docusaurus/Head';
+import React from 'react'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import Layout from '@theme/Layout'
+import Head from '@docusaurus/Head'
 
-import styles from './style.module.css';
+import styles from './style.module.css'
 
 export default function Resources() {
   return (
@@ -25,5 +25,5 @@ export default function Resources() {
         className={styles.Frame}
       ></iframe>
     </Layout>
-  );
+  )
 }

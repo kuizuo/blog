@@ -8,6 +8,8 @@ import MDXComponents from '@theme/MDXComponents'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
+import { useColorMode } from '@docusaurus/theme-common'
+
 import styles from './styles.module.css'
 import { MarkdownSection, StyledBlogItem } from './style'
 
@@ -31,6 +33,8 @@ function BlogPostItem(props) {
   const { slug: postId, title, image } = frontMatter
   const imageUrl = useBaseUrl(image, { absolute: true })
   // 是否为黑暗主题：
+  const theme = useColorMode()
+  const { isDarkTheme } = theme
 
   const renderPostHeader = () => {
     const TitleHeading = isBlogPostPage ? 'h1' : 'h2'
@@ -54,7 +58,11 @@ function BlogPostItem(props) {
           </time>
           {isBlogPostPage && (
             <span className='margin-left--sm' style={{ color: '#8c8c8c' }}>
-              <FontAwesomeIcon icon={faEye} color='#c4d3e0' style={{ verticalAlign: 'middle', marginRight: '0.25rem' }} />
+              <FontAwesomeIcon
+                icon={faEye}
+                color='#c4d3e0'
+                style={{ verticalAlign: 'middle', marginRight: '0.25rem' }}
+              />
               <span style={{ fontSize: '0.9rem' }}>{views}</span>
             </span>
           )}
@@ -72,9 +80,19 @@ function BlogPostItem(props) {
         <div className='post__tags-container' style={{ display: 'inline-block' }}>
           {tags.length > 0 && (
             <>
-              <FontAwesomeIcon icon={faTags} color='#c4d3e0' className={`${isBlogPostPage ? 'margin-left--md' : 'margin-left--sm'} margin-right--sm`} style={{ verticalAlign: 'middle' }} />
+              <FontAwesomeIcon
+                icon={faTags}
+                color='#c4d3e0'
+                className={`${isBlogPostPage ? 'margin-left--md' : 'margin-left--sm'} margin-right--sm`}
+                style={{ verticalAlign: 'middle' }}
+              />
               {tags.slice(0, 4).map(({ label, permalink: tagPermalink }, index) => (
-                <Link key={tagPermalink} className={`post__tags margin-right--sm`} to={tagPermalink} style={{ fontSize: '0.75em', padding: '5px' }}>
+                <Link
+                  key={tagPermalink}
+                  className={`post__tags margin-right--sm`}
+                  to={tagPermalink}
+                  style={{ fontSize: '0.75em', padding: '5px' }}
+                >
                   {label}
                 </Link>
               ))}
@@ -112,6 +130,7 @@ function BlogPostItem(props) {
 
   return (
     <StyledBlogItem
+      isDark={isDarkTheme}
       isBlogPostPage={isBlogPostPage}
       // className={isBlogPostPage ? "margin-top--xl" : ""}
     >
@@ -130,7 +149,7 @@ function BlogPostItem(props) {
             {/* 标题 */}
             {renderPostHeader()}
             {/* 正文 */}
-            <MarkdownSection isBlogPostPage={isBlogPostPage} className='markdown'>
+            <MarkdownSection isBlogPostPage={isBlogPostPage} isDark={isDarkTheme} className='markdown'>
               <MDXProvider components={MDXComponents}>{children}</MDXProvider>
             </MarkdownSection>
           </article>

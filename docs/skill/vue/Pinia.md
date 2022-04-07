@@ -1,3 +1,10 @@
+---
+title: Pinia
+date: 2020-10-23
+authors: kuizuo
+tags: [vue]
+---
+
 <!-- truncate -->
 
 > 官方文档：[Introduction | Pinia (vuejs.org)](https://pinia.vuejs.org/introduction.html)

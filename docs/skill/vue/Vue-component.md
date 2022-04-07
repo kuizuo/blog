@@ -7,8 +7,6 @@ tags: [vue]
 
 <!-- truncate -->
 
-## Vue 组件
-
 如果一个页面，包含导航栏，侧边栏，主体，底部等等，如果将这些全部写在一个 html 代码，万一侧边栏出了问题，维护起来将非常不方便。但如果将上面这些细分成一个个小的模块组件，比如导航栏内有搜索栏和 logo，就可以将这两个在细分为模块组件，这就是组件化开发。
 
 ![组件化](https://cn.vuejs.org/images/components.png)
@@ -16,7 +14,8 @@ tags: [vue]
 通过组件化的方式，可以让每个组件之间互不干扰，并且方便引入和导出。下面是 vue 创建组件的一个例子：
 
 ```vue
-// 定义一个名为 button-counter 的新组件(全局组件) Vue.component('button-counter', { data: function () { return { count: 0 } }, template: '
+// 定义一个名为 button-counter 的新组件(全局组件) Vue.component('button-counter', { data: function () { return { count:
+0 } }, template: '
 <button v-on:click="count++">You clicked me {{ count }} times.</button>
 ' })
 ```
@@ -95,7 +94,7 @@ export default {
 <template></template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style></style>
@@ -116,8 +115,8 @@ export default {};
 </template>
 
 <script>
-import Chat from '@/components/Chat';
-import UserList from '@/components/UserList';
+import Chat from '@/components/Chat'
+import UserList from '@/components/UserList'
 
 export default {
   name: 'App',
@@ -125,7 +124,7 @@ export default {
     Chat,
     UserList,
   },
-};
+}
 </script>
 ```
 
@@ -153,7 +152,7 @@ export default {
 export default {
   name: 'Com',
   props: ['val', 'user'],
-};
+}
 </script>
 ```
 
@@ -215,18 +214,18 @@ Vue.component('my-component', {
       type: Object,
       // 对象或数组默认值必须从一个工厂函数获取
       default: function () {
-        return { message: 'hello' };
+        return { message: 'hello' }
       },
     },
     // 自定义验证函数
     propF: {
       validator: function (value) {
         // 这个值必须匹配下列字符串中的一个
-        return ['success', 'warning', 'danger'].indexOf(value) !== -1;
+        return ['success', 'warning', 'danger'].indexOf(value) !== -1
       },
     },
   },
-});
+})
 ```
 
 注：组件传值，如果传入的是字符串都不加`:`，也就是`<Com val="值1"></Com>`的 val 前不用`:`，但如果传入的是其他类型，数值，布尔或变量，对象这些，则需要添加`：`。其实加了冒号就相当于引号内的为 js 表达式一样，比如传入数值 123，就写成`:val="123"`，这里的 123 就是 js 的数值类型。
@@ -251,10 +250,10 @@ export default {
   methods: {
     myFn: function () {
       // 触发了自定义的changeParent事件，第二个参数 事件参数或事件对象
-      this.$emit('changeParent', '愧怍');
+      this.$emit('changeParent', '愧怍')
     },
   },
-};
+}
 </script>
 ```
 
@@ -271,23 +270,23 @@ export default {
 </template>
 
 <script>
-import Child from './components/Child';
+import Child from './components/Child'
 export default {
   name: 'App',
   data: function () {
     return {
       name: 'kuizuo',
-    };
+    }
   },
   components: {
     Child,
   },
   methods: {
     changeName: function (name) {
-      this.name = name; //这里的name则就是子组件中$emit函数的第二个参数 "愧怍"
+      this.name = name //这里的name则就是子组件中$emit函数的第二个参数 "愧怍"
     },
   },
-};
+}
 </script>
 ```
 
@@ -398,13 +397,13 @@ export default {
 </template>
 
 <script>
-import layout from './components/layout';
+import layout from './components/layout'
 export default {
   name: 'App',
   components: {
     layout,
   },
-};
+}
 </script>
 ```
 
@@ -435,9 +434,9 @@ export default {
 export default {
   name: 'Com',
   data() {
-    return { arr: ['数组1', '数组2', '数组3'] };
+    return { arr: ['数组1', '数组2', '数组3'] }
   },
-};
+}
 </script>
 ```
 
@@ -463,17 +462,17 @@ export default {
 </template>
 
 <script>
-import Com from '@/components/Com.vue';
+import Com from '@/components/Com.vue'
 
 export default {
   name: 'App',
   data: function () {
-    return {};
+    return {}
   },
   components: {
     Com,
   },
-};
+}
 </script>
 ```
 

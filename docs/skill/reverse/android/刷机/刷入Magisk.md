@@ -1,5 +1,5 @@
 ---
-title: APP逆向之刷入Magisk
+title: 刷入Magisk
 date: 2021-12-09
 tags: 
  - android

@@ -1,5 +1,5 @@
 ---
-title: APP逆向之解Bootloader锁
+title: 解Bootloader锁
 date: 2021-12-09
 tags: 
  - android

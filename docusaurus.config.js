@@ -170,7 +170,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          path: 'docs',
+          sidebarPath: 'sidebars.js',
           // editUrl: "https://github.com/kuizuo/kuizuo.cn/tree/master",
           // remarkPlugins: [require("remark-math")],
           // rehypePlugins: [require("rehype-katex")],

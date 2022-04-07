@@ -1,4 +1,5 @@
 ---
+# id: mongodb-time-grouping
 title: MongoDB按时间分组
 date: 2021-08-30
 authors: kuizuo
