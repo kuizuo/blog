@@ -1,99 +1,51 @@
-import React from 'react';
-
-import Layout from '@theme/Layout';
-import BlogPostItem from '@theme/BlogPostItem';
-import Link from '@docusaurus/Link';
-import BlogSidebar from '@theme/BlogSidebar';
-import { translate } from '@docusaurus/Translate';
-import { ThemeClassNames } from '@docusaurus/theme-common';
+import BlogLayout from '@theme/BlogLayout'
+import Link from '@docusaurus/Link'
+import { PageMetadata, HtmlClassNameProvider, ThemeClassNames, translateTagsPageTitle } from '@docusaurus/theme-common'
+import SearchMetadata from '@theme/SearchMetadata'
+import clsx from 'clsx'
 
 function getCategoryOfTag(tag: string) {
-  // tag's category should be customizable
-  return tag[0].toUpperCase();
+  return tag[0].toUpperCase()
 }
 
 function BlogTagsListPage(props) {
-  const { tags, sidebar, items } = props;
-  const title = translate({
-    id: 'theme.tags.tagsPageTitle',
-    message: 'Tags',
-    description: 'The title of the tag list page',
-  });
+  const { tags, sidebar, items } = props
+  const title = translateTagsPageTitle()
 
-  const tagCategories: { [category: string]: string[] } = {};
+  const tagCategories: { [category: string]: string[] } = {}
   Object.keys(tags).forEach((tag) => {
-    const category = getCategoryOfTag(tag);
-    tagCategories[category] = tagCategories[category] || [];
-    tagCategories[category].push(tag);
-  });
-  const tagsList = Object.entries(tagCategories).sort(([a], [b]) => a.localeCompare(b));
-  const tagsSection = tagsList
-    .map(([category, tagsForCategory]) => (
-      <div key={category} style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {tagsForCategory.map((tag, index) => (
-          <Link className={`post__tags margin-horiz--sm margin-bottom--sm`} href={tags[tag].permalink} key={tag}>
-            {tags[tag].name} ({tags[tag].count})
-          </Link>
-        ))}
-      </div>
-    ))
-    .filter((item) => item != null);
+    const category = getCategoryOfTag(tag)
+    tagCategories[category] = tagCategories[category] || []
+    tagCategories[category].push(tag)
+  })
+  const tagsList = Object.entries(tagCategories).sort(([a], [b]) => a.localeCompare(b))
 
-  const renderTags = () => {
-    return (
-      tags.length > 0 && (
-        <div className='post__tags-container margin-top--none margin-bottom--md'>
-          {tags.length > 0 && (
-            <>
-              {tags.slice(0, 4).map(({ label, permalink: tagPermalink }, index) => (
-                <Link key={tagPermalink} className={`post__tags ${index > 0 ? 'margin-horiz--sm' : 'margin-right--sm'}`} to={tagPermalink} style={{ fontSize: '0.75em', fontWeight: 500 }}>
-                  {label}
-                </Link>
-              ))}
-            </>
-          )}
-        </div>
-      )
-    );
-  };
+  const TagsList = () => (
+    <div className='row'>
+      {tagsList
+        .map(([category, tagsForCategory]) => (
+          <div key={category} style={{ display: 'flex', flexWrap: 'wrap' }}>
+            {tagsForCategory.map((tag, index) => (
+              <Link className={`post__tags margin-horiz--sm margin-bottom--sm`} href={tags[tag].permalink} key={tag}>
+                {tags[tag].name} ({tags[tag].count})
+              </Link>
+            ))}
+          </div>
+        ))
+        .filter((item) => item != null)}
+    </div>
+  )
 
   return (
-    <Layout
-      title={title}
-      wrapperClassName={ThemeClassNames.wrapper.blogPages}
-      pageClassName={ThemeClassNames.page.blogTagsListPage}
-      searchMetadatas={{
-        // assign unique search tag to exclude this page from search results!
-        tag: 'blog_tags_list',
-      }}
-    >
-      <div className='container margin-vert--lg'>
-        <div className='row'>
-          <aside className='col col--3'>
-            <BlogSidebar sidebar={sidebar} />
-          </aside>
-          <main className='col col--7'>
-            <h1>标签</h1>
-            {renderTags()}
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>{tagsSection}</div>
-            {/* <section className="margin-vert--lg">{tagsSection}</section> */}
-            {/* {<div className="margin-vert--xl">
-              {items.map(({ content: BlogPostContent }) => (
-                <BlogPostItem
-                  key={BlogPostContent.metadata.permalink}
-                  frontMatter={BlogPostContent.frontMatter}
-                  metadata={BlogPostContent.metadata}
-                  truncated
-                >
-                  <BlogPostContent />
-                </BlogPostItem>
-              ))}
-            </div>} */}
-          </main>
-        </div>
-      </div>
-    </Layout>
-  );
+    <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}>
+      <PageMetadata title={title} />
+      <SearchMetadata tag='blog_tags_list' />
+      <BlogLayout sidebar={sidebar}>
+        <h1>{title}</h1>
+        <TagsList></TagsList>
+      </BlogLayout>
+    </HtmlClassNameProvider>
+  )
 }
 
-export default BlogTagsListPage;
+export default BlogTagsListPage
