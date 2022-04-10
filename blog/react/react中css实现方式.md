@@ -264,6 +264,8 @@ export default () => (
 const button = css`button { color: hotpink; }`
 ```
 
+补充：现在我更推荐使用Emotion。
+
 ## 原子类
 
 简单说，就是将常用的 css 样式都封装完，只需要在 class 中引入即可
@@ -313,6 +315,10 @@ const Button = ({ children, color }) => (
 
 1. 可能之前标题只需要定义.title 类来完成全部样式，而 tailwind 需要好几个 css 原子类来实现
 2. 初学者可能不适应，需要反复的查阅文档。（不过用多了，自然就会习惯了）
+
+然后还有一个WindCSS，可以看作是**按需供应的** Tailwind 替代方案。不过暂时不支持React。
+
+此外还有一篇文章非常推荐 [重新构想原子化 CSS (antfu.me)](https://antfu.me/posts/reimagine-atomic-css-zh)，不多说，再刷一遍。
 
 ## 最佳实现？
 
