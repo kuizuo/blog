@@ -274,7 +274,7 @@ const config = {
   ],
   i18n: {
     defaultLocale: 'zh',
-    locales: ['zh', 'en'],
+    locales: ['zh'],
   },
   onBrokenLinks: 'ignore',
 }
