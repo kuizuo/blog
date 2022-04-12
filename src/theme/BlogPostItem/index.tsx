@@ -32,9 +32,9 @@ function BlogPostItem(props) {
 
   const { slug: postId, title, image } = frontMatter
   const imageUrl = useBaseUrl(image, { absolute: true })
-  // 是否为黑暗主题：
+
   const theme = useColorMode()
-  const { isDarkTheme } = theme
+  const isDark = theme.colorMode === 'dark'
 
   const renderPostHeader = () => {
     const TitleHeading = isBlogPostPage ? 'h1' : 'h2'
@@ -130,7 +130,7 @@ function BlogPostItem(props) {
 
   return (
     <StyledBlogItem
-      isDark={isDarkTheme}
+      isDark={isDark}
       isBlogPostPage={isBlogPostPage}
       // className={isBlogPostPage ? "margin-top--xl" : ""}
     >
@@ -149,7 +149,7 @@ function BlogPostItem(props) {
             {/* 标题 */}
             {renderPostHeader()}
             {/* 正文 */}
-            <MarkdownSection isBlogPostPage={isBlogPostPage} isDark={isDarkTheme} className='markdown'>
+            <MarkdownSection isBlogPostPage={isBlogPostPage} isDark={isDark} className='markdown'>
               <MDXProvider components={MDXComponents}>{children}</MDXProvider>
             </MarkdownSection>
           </article>
@@ -167,9 +167,7 @@ function BlogPostItem(props) {
             )}
             {truncated && (
               <Link to={metadata.permalink} aria-label={`阅读 ${title} 的全文`}>
-                <strong className={styles.readMore}>
-                  <Translate description='read full text'>阅读全文</Translate>
-                </strong>
+                <strong className={styles.readMore}>阅读全文</strong>
               </Link>
             )}
           </footer>

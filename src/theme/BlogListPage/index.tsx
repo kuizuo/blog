@@ -1,59 +1,58 @@
-import React, { useEffect } from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import BlogPostItem from '@theme/BlogPostItem';
-import BlogListPaginator from '@theme/BlogListPaginator';
-import BlogSidebar from '@theme/BlogSidebar';
+import React, { useEffect } from 'react'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import Layout from '@theme/Layout'
+import BlogPostItem from '@theme/BlogPostItem'
+import BlogListPaginator from '@theme/BlogListPaginator'
+import useViews from './useViews'
+import styles from './styles.module.css'
+import Fade from 'react-reveal/Fade'
+import Translate from '@docusaurus/Translate'
+import Head from '@docusaurus/Head'
 
-import useViews from './useViews';
-import styles from './styles.module.css';
-import Fade from 'react-reveal/Fade';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTags, faHistory } from '@fortawesome/free-solid-svg-icons'
+import ListFilter from './img/list.svg'
+import CardFilter from './img/card.svg'
 
-import Translate from '@docusaurus/Translate';
-import Head from '@docusaurus/Head';
+import Link from '@docusaurus/Link'
+import { useViewType } from './useViewType'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTags, faHistory } from '@fortawesome/free-solid-svg-icons';
-import ListFilter from './img/list.svg';
-import CardFilter from './img/card.svg';
-
-import Link from '@docusaurus/Link';
-import { useViewType } from './useViewType';
-
-import Hero from '@site/src/components/Hero';
+import Hero from '@site/src/components/Hero'
 
 function BlogListPage(props) {
-  const { metadata, items, tags, sidebar } = props;
+  const { metadata, items, tags, sidebar } = props
+
   const {
     siteConfig: { title: siteTitle },
-  } = useDocusaurusContext();
-  const isBlogOnlyMode = metadata.permalink === '/';
-  const isPaginated = metadata.page > 1;
+  } = useDocusaurusContext()
 
-  let title = siteTitle + '';
-  let suffix = '';
-  let description = `html, css, javascript, react, vue, node, typescript，前端开发，后端开发，技术分享，开源`;
+  const isBlogOnlyMode = metadata.permalink === '/'
+  const isPaginated = metadata.page > 1
 
-  const isBlogPage = metadata.permalink === '/';
-  const views = useViews(items);
-  const { viewType, toggleViewType } = useViewType();
+  let title = siteTitle + ''
+  let suffix = ''
+  let description = `html, css, javascript, react, vue, node, typescript，前端开发，后端开发，技术分享，开源`
 
-  const isCardView = viewType === 'card';
-  const isListView = viewType === 'list';
+  const isBlogPage = metadata.permalink === '/'
+  const views = useViews(items)
+  const { viewType, toggleViewType } = useViewType()
+
+  const isCardView = viewType === 'card'
+  const isListView = viewType === 'list'
 
   const InfoCard = () => {
     function getCategoryOfTag(tag) {
-      return tag[0].toUpperCase();
+      return tag[0].toUpperCase()
     }
 
-    const tagCategories: { [category: string]: string[] } = {};
+    const tagCategories: { [category: string]: string[] } = {}
     Object.keys(tags).forEach((tag) => {
-      const category = getCategoryOfTag(tag);
-      tagCategories[category] = tagCategories[category] || [];
-      tagCategories[category].push(tag);
-    });
+      const category = getCategoryOfTag(tag)
+      tagCategories[category] = tagCategories[category] || []
+      tagCategories[category].push(tag)
+    })
 
-    const tagsList = Object.entries(tagCategories).sort(([a], [b]) => a.localeCompare(b));
+    const tagsList = Object.entries(tagCategories).sort(([a], [b]) => a.localeCompare(b))
     const tagsSection = tagsList
       .map(([category, tagsForCategory]) => (
         <div key={category} style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -64,13 +63,16 @@ function BlogListPage(props) {
           ))}
         </div>
       ))
-      .filter((item) => item != null);
+      .filter((item) => item != null)
 
-    const { totalCount: blogCount } = metadata;
-    const tagCount = Object.values(tagCategories['/']).length;
+    const { totalCount: blogCount } = metadata
+    const tagCount = Object.values(tagCategories['/']).length
 
     return (
-      <div className={viewType === 'card' ? `col col--3 ${styles['info-wrapper']}` : ''} style={{ display: `${viewType === 'card' && isBlogPage ? '' : 'none'}` }}>
+      <div
+        className={viewType === 'card' ? `col col--3 ${styles['info-wrapper']}` : ''}
+        style={{ display: `${viewType === 'card' && isBlogPage ? '' : 'none'}` }}
+      >
         <div className='bloghome__posts'>
           <div className={`bloghome__posts-card ${styles['info-wrapper']}`}>
             <div className={`row ${styles.card}`}>
@@ -109,8 +111,8 @@ function BlogListPage(props) {
           </div> */}
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <Layout title={title} description={description} wrapperClassName='blog-list__page'>
@@ -125,7 +127,9 @@ function BlogListPage(props) {
             <div className={'col col--12'}>
               {!isPaginated && (
                 <h1 className='blog__section_title' id='homepage_blogs'>
-                  <Translate description='latest blogs heading'>{!metadata.permalink.includes('essay') ? '最新博客' : '个人随笔'}</Translate>
+                  <Translate description='latest blogs heading'>
+                    {!metadata.permalink.includes('essay') ? '最新博客' : '个人随笔'}
+                  </Translate>
                   &nbsp;
                   <svg width='31' height='31' viewBox='0 0 31 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <path
@@ -137,8 +141,14 @@ function BlogListPage(props) {
               )}
               {/* switch list and card */}
               <div className='bloghome__swith-view'>
-                <CardFilter onClick={() => toggleViewType('card')} className={viewType === 'card' ? 'bloghome__switch--selected' : 'bloghome__switch'} />
-                <ListFilter onClick={() => toggleViewType('list')} className={viewType === 'list' ? 'bloghome__switch--selected' : 'bloghome__switch'} />
+                <CardFilter
+                  onClick={() => toggleViewType('card')}
+                  className={viewType === 'card' ? 'bloghome__switch--selected' : 'bloghome__switch'}
+                />
+                <ListFilter
+                  onClick={() => toggleViewType('list')}
+                  className={viewType === 'list' ? 'bloghome__switch--selected' : 'bloghome__switch'}
+                />
               </div>
             </div>
           </div>
@@ -167,17 +177,17 @@ function BlogListPage(props) {
                 {isListView && (
                   <div className='bloghome__posts-list'>
                     {items.map(({ content: BlogPostContent }, index) => {
-                      const { metadata: blogMetaData, frontMatter } = BlogPostContent;
-                      const { title } = frontMatter;
-                      const { permalink, date, tags } = blogMetaData;
+                      const { metadata: blogMetaData, frontMatter } = BlogPostContent
+                      const { title } = frontMatter
+                      const { permalink, date, tags } = blogMetaData
 
-                      const dateObj = new Date(date);
+                      const dateObj = new Date(date)
 
-                      const year = dateObj.getFullYear();
-                      let month = ('0' + (dateObj.getMonth() + 1)).slice(-2);
-                      const day = ('0' + dateObj.getDate()).slice(-2);
+                      const year = dateObj.getFullYear()
+                      let month = ('0' + (dateObj.getMonth() + 1)).slice(-2)
+                      const day = ('0' + dateObj.getDate()).slice(-2)
 
-                      const sticky = frontMatter.sticky;
+                      const sticky = frontMatter.sticky
                       return (
                         <React.Fragment key={blogMetaData.permalink}>
                           <div className='post__list-item' key={blogMetaData.permalink}>
@@ -206,7 +216,7 @@ function BlogListPage(props) {
                             </div>
                           </div>
                         </React.Fragment>
-                      );
+                      )
                     })}
                   </div>
                 )}
@@ -218,7 +228,7 @@ function BlogListPage(props) {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
-export default BlogListPage;
+export default BlogListPage

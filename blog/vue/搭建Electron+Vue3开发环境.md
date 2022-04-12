@@ -2,7 +2,7 @@
 title: 搭建Electron+Vue3开发环境
 date: 2022-03-17
 authors: kuizuo
-tags: [electron, vue, js]
+tags: [electron, vue, vite, js]
 ---
 
 ![image-20220316204205165](https://img.kuizuo.cn/image-20220316204205165.png)

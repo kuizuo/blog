@@ -41,10 +41,8 @@ function Hero() {
     <animated.div className={styles.hero}>
       <div className={styles.bloghome__intro}>
         <animated.div style={animatedTexts[0]} className={styles.hero_text}>
-          <Translate description='hero greet'>Hello! 我是</Translate>
-          <span className={styles.intro__name}>
-            <Translate description='my name'>愧怍</Translate>
-          </span>
+          Hello! 我是
+          <span className={styles.intro__name}>愧怍</span>
         </animated.div>
         <animated.p style={animatedTexts[1]}>
           <Translate
@@ -77,18 +75,18 @@ function Hero() {
             {`在这里你能了解到各类实战开发的所遇到的问题，帮助你在学习的过程了解最新的技术栈，并希望我的个人经历对你有所启发。`}
           </Translate>
         </animated.p>
-        {currentLocale === 'zh-CN' && (
+        {/* {currentLocale === 'zh-CN' && (
           <animated.p style={animatedTexts[3]}>
             <Translate id='homepage.qqgroup1' description='qq group1'>
               QQ 群：5478458
             </Translate>
           </animated.p>
-        )}
+        )} */}
         <SocialLinks animatedProps={animatedTexts[4]} />
         {
           <animated.div style={animatedTexts[2]}>
             <Button isLink href={'./about'}>
-              <Translate description='follow me btn text'>自我介绍</Translate>
+              自我介绍
             </Button>
           </animated.div>
         }

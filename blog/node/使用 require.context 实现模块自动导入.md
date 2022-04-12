@@ -2,7 +2,7 @@
 title: 使用 require.context 实现模块自动导入
 date: 2021-09-12
 authors: kuizuo
-tags: [node]
+tags: [node, webpack]
 ---
 
 <!-- truncate -->

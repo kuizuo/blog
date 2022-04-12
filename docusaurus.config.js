@@ -24,7 +24,10 @@ const config = {
       content: `代码能重写，人不能重来`,
     },
     metadata: [
-      { name: 'keywords', content: 'blog, javascript, typescript, python ,node, react, vue, web, 前端, 后端, 愧怍' },
+      {
+        name: 'keywords',
+        content: '愧怍, kuizuo, blog, javascript, typescript, python ,node, react, vue, web, 前端, 后端',
+      },
     ],
     hideableSidebar: true,
     navbar: {
@@ -168,7 +171,7 @@ const config = {
   },
   presets: [
     [
-      '@docusaurus/preset-classic',
+      'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
@@ -188,6 +191,9 @@ const config = {
           postsPerPage: 10,
           // remarkPlugins: [require("remark-math")],
           // rehypePlugins: [require("rehype-katex")],
+          showReadingTime: true,
+          readingTime: ({ content, frontMatter, defaultReadingTime }) =>
+            defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
           feedOptions: {
             type: 'all',
             title: '愧怍',
