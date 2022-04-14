@@ -9,7 +9,13 @@ tags: [git, gitlab]
 
 我只要有代码的项目，都会放到 Github 上，无论公开还是私有项目。一是相当于在云端备份了一份代码，二是可以很方便的分享给别人。但对于私有项目而言存放在别人那总归不好，而且Github 时常会出现无法访问的情况（即使搭了梯子）。所以就打算搭建一个私有的仓库，基于[GitLab](https://gitlab.com/)。
 
+可以访问 [kuizuo · GitLab](https://gitlab.kuizuo.cn/kuizuo) 来查看搭建效果。
+
 <!-- truncate -->
+
+## 页面概览
+
+![image-20220415013028002](https://img.kuizuo.cn/image-20220415013028002.png)
 
 ## 前提
 
@@ -39,7 +45,7 @@ tags: [git, gitlab]
 
 [Reset a user's password | GitLab](https://docs.gitlab.com/ee/security/reset_user_password.html#reset-the-root-password)
 
-进入控制台（进入可能要稍等一段时间）
+进入控制台（进入要稍等一段时间）
 
 ```sh
 sudo gitlab-rails console
@@ -96,9 +102,83 @@ gitlab-ctl restart
 
 ### 修改语言
 
-点击右上角的头像=>Preferences 进入到设置，找到语言设置为简体中文，然后点击左小角的 Save changes。刷新网页语言就设置完毕了
+点击右上角的头像->Preferences 进入到设置，找到语言设置为简体中文，然后点击左小角的 Save changes。刷新网页语言就设置完毕了
 
 ![image-20220414215528543](https://img.kuizuo.cn/image-20220414215528543.png)
+
+### 配置HTTPS
+
+gitlab内部集成了letsencrypt，因此，这里只需要启用letsencrypt，并进行一些必要的配置
+
+打开/opt/gitlab/etc/gitlab.rb.template，修改以下内容
+
+1. 在32行左右，将external_url前面的#删掉，并在单引号中填写gitlab服务器的https地址，例如[https://gitlab.kuizuo.cn](https://gitlab.kuizuo.cn)
+
+   ```
+    external_url 'https://gitlab.kuizuo.cn'
+   ```
+
+2. gitlab默认占用nginx80端口，所以需要更改下
+
+   ```
+   nginx['listen_port'] = 8100
+   ```
+
+3. 在2434行左右（可通过搜索letsencrypt定位），修改下面几项
+
+   ```
+   letsencrypt['enable'] = true #删除前面的#号，并将值修改为true
+   letsencrypt['contact_emails'] = ['kuizuo12@gmail.com'] #删除前面的#号,修改为自己的邮箱
+   letsencrypt['auto_renew'] = true #删除前面的#号  自动更新
+   ```
+
+然后重载配置（需要一点时间）
+
+```
+gitlab-ctl reconfigure
+```
+
+然后重启gitlab使配置生效
+
+```
+gitlab-ctl restart
+```
+
+gitlab就会通过letsencrypt自动签发免费的HTTPS证书，等证书签发成功，就可以通过上面指定的域名访问代码仓库了。
+
+**其实也可以在nginx创建一个站点，然后该站点配置ssl，通过反向代理到127.0.0.1:8099 也是能实现配置HTTPS的。（推荐）**
+
+:::danger
+
+如果上面的操作的话，可能会导致gitlab的nginx无法启动（原因应该是修改了gitlab自带的nginx服务，或者与自带的冲突）。修改`/opt/gitlab/sv/nginx/run`
+
+```sh
+exec chpst -P /opt/gitlab/embedded/sbin/nginx -p /var/opt/gitlab/nginx
+# 改为
+exec chpst -P /opt/gitlab/embedded/sbin/gitlab-web -p /var/opt/gitlab/nginx
+```
+
+重启gitlab
+
+```sh
+gitlab-ctl start
+```
+
+:::
+
+## 管理中心
+
+点击左上角的菜单选择管理员，可在管理中心设置GitLab的相关设置。例如
+
+### 禁止注册
+
+在设置->通用->注册限制，取消勾选 **已启动注册功能**，这样就可以禁止注册（页面无注册按钮）。当然也可以允许，然后需要批准以及确认邮箱。
+
+![image-20220415004207174](https://img.kuizuo.cn/image-20220415004207174.png)
+
+在概览->用户中可以查看相关用户信息。
+
+![image-20220415012817311](https://img.kuizuo.cn/image-20220415012817311.png)
 
 至于其他设置自行研究了。
 
@@ -128,7 +208,7 @@ gitlab-ctl restart
 
 ### 自动同步项目
 
-点击项目中设置=>仓库，找到镜像仓库。在 Git 仓库 URL 中填写格式如下
+点击项目中设置->仓库，找到镜像仓库。在 Git 仓库 URL 中填写格式如下
 
 ```js
 // 原仓库git
@@ -145,6 +225,14 @@ https://kuizuo@github.com/kuizuo/blog
 
 基本上github能实现的操作gitlab也都能实现。
 
+## 其他功能
+
+### Web IDE（在线编辑代码）
+
+![image-20220415001914123](https://img.kuizuo.cn/image-20220415001914123.png)
+
+
+
 ## 运行状态
 
 放几张图
@@ -155,11 +243,11 @@ https://kuizuo@github.com/kuizuo/blog
 
 ![image-20220414233416223](https://img.kuizuo.cn/image-20220414233416223.png)
 
-对于内存压力还是蛮大的，毕竟安装的时候就要求 4g 内存以上。
+还是挺吃内存的，毕竟安装的时候就要求 4g 内存以上。
 
 ## 总结
 
 其实回到一开始的问题，既然Github有可能访问不了，为啥不要迁移到国内的[Gitee](https://gitee.com/)上。
 
-~~除了瞎玩瞎折腾外~~，对于一些公司而言，他们不一定会使用这类开源的代码托管平台，而是自建一个像GitLab这样的代码仓库管理系统。此外别人的东西，多半都会有一定的限制，例如项目成员数量等等，所以才会有这次的尝试。
+~~除了瞎玩瞎折腾外~~，对于一些公司而言，他们不一定会使用这类开源的代码托管平台，而是自建一个像GitLab这样的代码仓库管理系统。此外别人的东西，多半都会有一定的限制，例如项目成员数量等等，所以才会有这次的尝试，整体体验感觉可玩性很大。
 
