@@ -204,6 +204,84 @@ export default defineConfig({
 })
 ```
 
+## [unplugin-vue-define-options/vite](https://github.com/sxzz/unplugin-vue-define-options)
+
+**script setup语法糖通过defineOptions定义组件name、inheritAttrs、props、emits**
+
+安装
+
+```sh
+npm i unplugin-vue-define-options
+```
+
+```javascript title="vite.config.js"
+import { defineConfig } from 'vite'
+import DefineOptions from 'unplugin-vue-define-options/vite'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [vue(), DefineOptions()],
+})
+```
+
+在`tsconfig.json`设置types，如下所示:
+
+```json
+{
+    "compilerOptions": {
+        "types": ["unplugin-vue-define-options"]
+    }
+}
+```
+
+不然在ts项目中会提示 **找不到名称“defineOptions”**，具体使用如下
+
+```vue
+<script setup lang="ts">
+import { useSlots } from 'vue'
+defineOptions({
+  name: 'Foo',
+  inheritAttrs: false,
+  props: {
+    msg: { type: String, default: 'bar' },
+  },
+  emits: ['change', 'update'],
+})
+const slots = useSlots()
+</script>
+```
+
+输出
+
+```vue
+<script lang="ts">
+export default {
+  name: 'Foo',
+  inheritAttrs: false,
+  props: {
+    msg: { type: String, default: 'bar' },
+  },
+  emits: ['change', 'update'],
+}
+</script>
+
+<script setup>
+const slots = useSlots()
+</script>
+```
+
+如果只是想**单纯的设置组件名**的话，这个插件 [vite-plugin-vue-setup-extend](https://github.com/vbenjs/vite-plugin-vue-setup-extend) 可能更适合，只需要在script中添加一个name属性即可。
+
+```vue
+<template>
+  <div>hello world {{ a }}</div>
+</template>
+
+<script lang="ts" setup name="App">
+  const a = 1
+</script>
+```
+
 ## [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)
 
 **提供本地和生产模拟服务。**

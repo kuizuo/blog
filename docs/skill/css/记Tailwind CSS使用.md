@@ -67,6 +67,12 @@ bg-${variableName}
 background-color: var(variableName);
 ```
 
+:::info
+
+补充: 在Tailwind CSS 3.0中，支持`bg-[#bada55]`或`h-[24px]`的形式，即自定义样式，方括号内为具体变量值。
+
+:::
+
 ### 属性化模式
 
 对于一长串的class字符串，在维护的时候寻找其中的原子类特别不方便，使用属性化模式就可以写成下面这种形式

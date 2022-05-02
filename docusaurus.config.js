@@ -21,7 +21,7 @@ const config = {
     image: 'img/kuizuo.jpg',
     announcementBar: {
       id: 'announcementBar-2', // Any value that will identify this message.
-      content: `代码能重写，人不能重来`,
+      content: `今天不学习,明天变垃圾`,
     },
     metadata: [
       {

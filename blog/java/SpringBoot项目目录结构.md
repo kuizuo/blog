@@ -15,7 +15,7 @@ tags: [java, springboot, 开发]
 
 controller 目录下对应的也就是控制器，用于接收用户的请求（get，post 等），如下面代码
 
-```java
+```java title="controller/UserController.java"
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -36,7 +36,7 @@ public class UserController {
 
 UserService 代码
 
-```java
+```java title="service/UserService.java"
 public class UserService {
 
     @Autowired
@@ -52,9 +52,7 @@ public class UserService {
 
 #### repository 类
 
-repository/UserRepository.java
-
-```java
+```java title="repository/UserRepository.java"
 public interface UserRepository extends JpaRepository<User, Long> , JpaSpecificationExecutor<User> {
 
 }
@@ -62,9 +60,7 @@ public interface UserRepository extends JpaRepository<User, Long> , JpaSpecifica
 
 #### entity 类
 
-domain/User.java
-
-```java
+```java title="domain/User.java"
 @Entity
 @NoArgsConstructor
 @Getter
@@ -103,7 +99,7 @@ User.java 用于定义 user 实体，在 ORM 中，数据库表中的字段都�
 
 ```java
 public interface UserService {
-    List<User> findAll()；
+    List<User> findAll();
 }
 ```
 
@@ -121,7 +117,6 @@ public class UserServiceImpl implements UserService  {
         return userRepository.findAll();
     }
 }
-
 ```
 
 调用并无差异，与原本的 UserService 的区别就是加注解@Service 与 implements 实现，对 service 进行进一步的封装，调用只需要关注 service 接口层即可，相对更规范些。
