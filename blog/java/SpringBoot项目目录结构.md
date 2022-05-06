@@ -7,6 +7,8 @@ tags: [java, springboot, 开发]
 
 <!-- truncate -->
 
+演示代码地址：[kuizuo/spring-boot-demo (github.com)](https://github.com/kuizuo/spring-boot-demo)
+
 ## 目录结构展示图
 
 ![](https://img.kuizuo.cn/20220108011921.png)
@@ -17,7 +19,7 @@ controller 目录下对应的也就是控制器，用于接收用户的请求（
 
 ```java title="controller/UserController.java"
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 
     @Resource
@@ -30,49 +32,29 @@ public class UserController {
 }
 ```
 
-用户请求[http://127.0.0.1:8080/users/list](http://127.0.0.1:8080/users/list) 将会调用 userService.findAll 方法，当然这个方法事先定义好，用于获取所有用户。
+用户请求[http://127.0.0.1:8080/user/list](http://127.0.0.1:8080/users/list) 将会调用 userService.findAll 方法，当然这个方法事先定义好，用于获取所有用户。
 
 ### model（service）
 
-UserService 代码
+这里数据库连接方式以JPA（一个ORM框架）为例，可以安装一个IDEA插件JPA Buddy新建文件时可以直接创建Entity(实体)或Repository(仓库)
 
-```java title="service/UserService.java"
-public class UserService {
-
-    @Autowired
-    private UserRepository userRepository;
-
-    public List<User> findAll(){
-        return userRepository.findAll();
-    }
-}
-```
-
-这边注入了`userRepository `，也就是操作 user 表的数据库，由于这里使用的是 ORM 框架 jpa，所以`userRepository.findAll`命令相当于 `select * from user`，当时前提我们得先定义 UserRepository 与 User 实现，这样我们才能使用该命令，两部分的代码分别如下
-
-#### repository 类
-
-```java title="repository/UserRepository.java"
-public interface UserRepository extends JpaRepository<User, Long> , JpaSpecificationExecutor<User> {
-
-}
-```
+![image-20220506115207717](https://img.kuizuo.cn/image-20220506115207717.png)
 
 #### entity 类
 
+在domain目录下创建实体类，大致如下（lombok因人而异选择使用，相对不展示get与set会好一些）
+
 ```java title="domain/User.java"
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
 @Table(name = "user")
 public class User implements Serializable {
-    public User(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
-
     @Id
     @GeneratedValue
     @ApiModelProperty(value = "ID", hidden = true)
@@ -87,39 +69,93 @@ public class User implements Serializable {
 }
 ```
 
-User.java 用于定义 user 实体，在 ORM 中，数据库表中的字段都可以通过实体类中的属性来定义的，如果定义好 user 实体，并且 jpa 设置了`jpa.hibernate.ddl-auto: update` 那么启动项目后，数据库将会自动创建 user 表，字段则为 username password email。
-在 UserRepository 中我们还可以定义属于自己的查询语句，比如
-`User findByUsername(String username);`
-这时候使用`userRepository.findByUsername("kuizuo");` 便会返回数据库中该用户名的 user java 对象。
+User.java 用于定义 user 实体，在 ORM 中，数据库表中的字段都可以通过实体类中的属性来定义的，如果定义好 user 实体，并且在resources/application.yml中设置了`spring.jpa.hibernate.ddl-auto: update` 那么启动项目后，数据库将会自动创建 user 表且其表中字段自动为`@Column`注解的字段。
 
-#### service 接口实现
+#### repository 类
 
-此外 service 服务还可以有另一种方式，在 service 中添加一个 impl 目录，通过对 userService **接口**进行实现的服务。
-在上面所写的 UserService 是一个类，这边将其改为一个接口，代码如下
+创建完实体后，还需要定义数据接口访问层DAO，在JPA中则是在repository目录下创建。
 
-```java
-public interface UserService {
-    List<User> findAll();
+```java title="repository/UserRepository.java"
+public interface UserRepository extends JpaRepository<User, Long> , JpaSpecificationExecutor<User> {
+    User findByUsername(String username);
 }
 ```
 
-同时只保留 UserService 所要提供的方法，然后创建文件 UserServiceImpl.java，覆写 UserService 接口中的所有方法， 具体代码如下
+一般情况下该接口无需定义额外方法，如有需要还可以定义属于自己的查询语句，比如上面的findByUsername，这时候就注入后的userRepository对象就可以使用`userRepository.findByUsername("kuizuo");` ，将会返回数据库中该用户名的数据。
 
-```java
+#### UserService类
+
+```java title="service/UserService.java"
 @Service
-public class UserServiceImpl implements UserService  {
-
+public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Override
     public List<User> findAll(){
         return userRepository.findAll();
     }
 }
 ```
 
-调用并无差异，与原本的 UserService 的区别就是加注解@Service 与 implements 实现，对 service 进行进一步的封装，调用只需要关注 service 接口层即可，相对更规范些。
+**@Autowired可能不建议使用字段注入**，可以在类添加@RequiredArgsConstructor注解，表明userRepository不为空，总之目的就是将userRepository注入，供服务可用。
+
+```java title="service/UserService.java"
+import com.kuizuo.demo.domain.User;
+import com.kuizuo.demo.repository.UserRepository;
+import com.kuizuo.demo.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class UserService {
+    private final UserRepository userRepository;
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+}
+```
+
+接着就可以使用userRepository下的方法，如 `userRepository.findAll`命令相当于 `select * from user`，返回所有的用户列表。
+
+#### service 接口实现
+
+此外 service 服务还可以有另一种写法，在 service 中添加一个 impl 目录，通过对 userService **接口**进行实现的服务。
+在上面所写的 UserService 是一个类，这边将其改为一个接口，代码如下
+
+```java title="service/UserService.java"
+public interface UserService {
+    List<User> findAll();
+    User findOne(Long id);
+}
+```
+
+同时只保留 UserService 所要提供的方法，然后在service/impl中创建文件 UserServiceImpl.java，具体代码如下
+
+```java title="service/impl/UserServiceImpl.java"
+@Service
+@RequiredArgsConstructor
+public class UserServiceImpl implements UserService {
+    private final UserRepository userRepository;
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+    
+        
+    @Override
+    public User findOne(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new BadRequestException("用户不存在"));
+    }
+}
+```
+
+调用并无差异，对 service 进一步的封装，相对更规范些（我看外面都这么写的，所以就这么写了）。
 
 #### 数据接口
 
@@ -143,7 +179,78 @@ public class UserServiceImpl implements UserService  {
 
 对于后两者而言，可能还需要提供 Mapper 类用于数据转化，如 DTO 转 PO，PO 转 DTO。
 
-根据实际业务而定，具体实现的代码就不做演示了。
+##### modelMapper
+
+```xml
+<dependency>
+    <groupId>org.modelmapper</groupId>
+    <artifactId>modelmapper</artifactId>
+    <version>2.3.5</version>
+</dependency>
+```
+
+同时在启动类下配置为一个Bean才能被注入使用
+
+```java
+@SpringBootApplication
+public class DemoApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
+}
+
+```
+
+##### po与dto转化
+
+还是上面那个user实体，但是返回的数据中不需要将user的password展示出来。在service/dto中创建一个UserDTO
+
+```java title="service/dto/UserDto.java"
+@Getter
+@Setter
+public class UserDto {
+    private Long id;
+    private String username;
+    private String email;
+}
+```
+
+如果要转化，通常要一个个字段转化，如下
+
+```java {5-8}
+    @Override
+    public UserDto findOne(Long id) {
+        User user =  userRepository.findById(id).orElseThrow(() -> new BadRequestException("用户不存在"));
+
+        UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setUsername(user.getUsername());
+        userDto.setEmail(user.getEmail());
+        return userDto;
+    }
+```
+
+结果肯定是没问题的，但是代码写的很丑陋且不易于维护。就可以使用modelMapper来转化（前提已经注入）
+
+```java {5}
+    private final ModelMapper modelMapper;
+
+	@Override
+    public UserDto findOne(Long id) {
+        User user =  userRepository.findById(id).orElseThrow(() -> new BadRequestException("用户不存在"));
+		
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+        return userDto;
+    }
+```
+
+不过这样使用可能还是不大规范，同时还需要手动传入对象及其Class对象。所以可能还会创建service/mapstruct，然后创建UserMapper，这里就不举例了。
 
 ### view
 
@@ -151,12 +258,10 @@ public class UserServiceImpl implements UserService  {
 
 ### 整体流程
 
-大致的流程便可总结为 Controller 接收请求 → 调用 service 服务 → 调用数据库服务提供数据 → 将数据(页面)返回给用户
-
-如果新的需求是要加入角色相对应的模块，只需要在对应的文件夹中分别创建角色所对应的文件。
+大致的流程便可总结为 Controller 接收请求 → 调用 service 服务 → 调用数据接口服务dao提供数据 → 将数据(页面)返回给用户
 
 **此外，该目录结构仅仅本人所选用的 springboot 项目结构，实际情况还需额外考虑。**
 
 ## 总结
 
-回到开头，其中提供业务服务（数据）的也就是 service 所做的事情，控制接口的则是 controller，还有一个视图层 view 介绍的比较少（反正就是返回数据或页面）。其中最为复杂的也就是 service 所提供的服务，相对 controller 和 view 而言会繁琐许多。不过思考下，如果 service 层中 findAll 返回的是一串固定的 Java List 对象，那么就没有数据库的事情，也就没有实体，与 repository 的用武之地了，更不会有 userRepository 注入了。
+回到开头，其中提供业务服务（数据）的也就是 service 所做的事情，控制接口的则是 controller，还有一个视图层 view 介绍的比较少（反正就是返回数据或页面）。其中最为复杂的也就是 service 所提供的服务，相对 controller 和 view 而言会繁琐许多。
