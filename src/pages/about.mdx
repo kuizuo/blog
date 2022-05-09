@@ -2,8 +2,8 @@
 hide_table_of_contents: true
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl'
+import ThemedImage from '@theme/ThemedImage'
 
 <h1 style={{ textAlign: 'center' }}>关于我</h1>
 
@@ -13,61 +13,85 @@ import ThemedImage from '@theme/ThemedImage';
 
 🗒️ 记录所学知识，领略编程之美
 
-<p></p>
-
 ### 📚 技术栈
 
-export const CheckBox = ({ children, lang, color }) => (
-  <div className={`checkbox ${lang}`}>
-    <input
-      type='radio'
-      defaultChecked='true'
-      style={{
-        borderColor: color,
-        border: `2px solid ${color}`,
-      }}
-    />
-    <p>{children}</p>
-  </div>
-);
-
-<CheckBox color='#F5DE19' lang='js'>
-  JavaScript
-</CheckBox>
-
-<CheckBox color='#007ACC' lang='ts'>
-  TypeScript
-</CheckBox>
-
-<CheckBox color='#FFDD6D' lang='python'>
-  Python
-</CheckBox>{' '}
-
-<CheckBox color='#6CA35E' lang='node'>
-  NodeJS
-</CheckBox>
-
-<CheckBox color='#41B883' lang='vue'>
-  Vue
-</CheckBox>
-
-<CheckBox color='#61DAFB' lang='react'>
-  React
-</CheckBox>
-
-<CheckBox color='red' lang='e'>
-  HTTP协议
-</CheckBox>
-
-<p></p>
+![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)
+![TypeScript](https://img.shields.io/badge/-TypeScript-333333?style=flat&logo=typescript)
+![Python](https://img.shields.io/badge/-Python-333333?style=flat&logo=python)
+![Vue](https://img.shields.io/badge/-Vue-333333?style=flat&logo=vue.js)
+![React](https://img.shields.io/badge/-React-333333?style=flat&logo=react)
+![Node.js](https://img.shields.io/badge/-Node-333333?style=flat&logo=node.js)
+![NestJs](https://img.shields.io/badge/-NestJs-333333?style=flat&logo=nestjs&logoColor=ea2845)
+![Git](https://img.shields.io/badge/-Git-333333?style=flat-square&logo=git)
+![GitHub](https://img.shields.io/badge/-GitHub-333333?style=flat-square&logo=github)
+![Docker](https://img.shields.io/badge/-Docker-333333?style=flat&logo=docker)
+![Mysql](https://img.shields.io/badge/-Mysql-333333?style=flat&logo=mysql)
+![MongoDB](https://img.shields.io/badge/-MongoDB-333333?style=flat&logo=mongodb)
+![Redis](https://img.shields.io/badge/-Redis-333333?style=flat&logo=redis)
+![Electron](https://img.shields.io/badge/-Electron-333333?style=flat&logo=electron)
+![Miniprogram](https://img.shields.io/badge/-Miniprogram-333333?style=flat&logo=wechat)
 
 ### 🔭 正在学习
 
-<CheckBox color='#6AB344'>Android</CheckBox>
+![Android](https://img.shields.io/badge/-Android-333333?style=flat&logo=android)
+![Go](https://img.shields.io/badge/-Go-333333?style=flat&logo=go)
+![Rust](https://img.shields.io/badge/-Rust-333333?style=flat&logo=rust)
 
-<CheckBox color='#69D7E4'>Go</CheckBox>
+### 👨‍💻 GitHub
 
-<p></p>
+<div style={{ margin: 'auto' }}>
+  <a
+    href='https://github-readme-stats.vercel.app/api/top-langs?username=kuizuo&show_icons=true&locale=cn&layout=compact'
+    target='_blank'
+    rel='noreferer noopener'
+  >
+    <ThemedImage
+      alt='kuizuo'
+      sources={{
+        light: useBaseUrl(
+          'https://github-readme-stats.vercel.app/api/top-langs?username=kuizuo&show_icons=true&locale=cn&layout=compact',
+        ),
+        dark: useBaseUrl(
+          'https://github-readme-stats.vercel.app/api/top-langs?username=kuizuo&theme=react&show_icons=true&locale=cn&layout=compact',
+        ),
+      }}
+    />
+  </a>
+  <a
+    href='https://github-readme-stats.vercel.app/api?username=kuizuo&show_icons=true&locale=cn&layout=compact'
+    target='_blank'
+    rel='noreferer noopener'
+  >
+    <ThemedImage
+      alt='kuizuo'
+      sources={{
+        light: useBaseUrl(
+          'https://github-readme-stats.vercel.app/api?username=kuizuo&show_icons=true&locale=cn&layout=compact',
+        ),
+        dark: useBaseUrl(
+          'https://github-readme-stats.vercel.app/api?username=kuizuo&theme=react&show_icons=true&locale=cn&layout=compact',
+        ),
+      }}
+    />
+  </a>
+  <a
+    href='https://activity-graph.herokuapp.com/graph?username=kuizuo&bg_color=white&color=23affc&line=23affc'
+    target='_blank'
+    rel='noreferer noopener'
+  >
+    <ThemedImage
+      alt='kuizuo'
+      sources={{
+        light: useBaseUrl(
+          'https://activity-graph.herokuapp.com/graph?username=kuizuo&bg_color=white&color=23affc&line=23affc',
+        ),
+        dark: useBaseUrl(
+          'https://activity-graph.herokuapp.com/graph?username=kuizuo&bg_color=white&color=119cc5&line=119cc5',
+        ),
+      }}
+    />
+  </a>
+</div>
 
 ### 💬 联系我
 
@@ -76,35 +100,3 @@ export const CheckBox = ({ children, lang, color }) => (
 🐧 QQ：[911993023](http://wpa.qq.com/msgrd?v=3&uin=911993023&site=qq&menu=yes)
 
 📮 邮箱: [kuizuo12@163.com](mailto:kuizuo12@163.com)
-
-### 👨‍💻 GitHub
-
-<div style={{ margin: 'auto' }}>
-  <a href='https://github-readme-stats.vercel.app/api/top-langs?username=kuizuo&show_icons=true&locale=cn&layout=compact' target='_blank' rel='noreferer noopener'>
-    <ThemedImage
-      alt='kuizuo'
-      sources={{
-        light: useBaseUrl('https://github-readme-stats.vercel.app/api/top-langs?username=kuizuo&show_icons=true&locale=cn&layout=compact'),
-        dark: useBaseUrl('https://github-readme-stats.vercel.app/api/top-langs?username=kuizuo&theme=react&show_icons=true&locale=cn&layout=compact'),
-      }}
-    />
-  </a>
-  <a href='https://github-readme-stats.vercel.app/api?username=kuizuo&show_icons=true&locale=cn&layout=compact' target='_blank' rel='noreferer noopener'>
-    <ThemedImage
-      alt='kuizuo'
-      sources={{
-        light: useBaseUrl('https://github-readme-stats.vercel.app/api?username=kuizuo&show_icons=true&locale=cn&layout=compact'),
-        dark: useBaseUrl('https://github-readme-stats.vercel.app/api?username=kuizuo&theme=react&show_icons=true&locale=cn&layout=compact'),
-      }}
-    />
-  </a>
-  <a href='https://activity-graph.herokuapp.com/graph?username=kuizuo&bg_color=white&color=23affc&line=23affc' target='_blank' rel='noreferer noopener'>
-    <ThemedImage
-      alt='kuizuo'
-      sources={{
-        light: useBaseUrl('https://activity-graph.herokuapp.com/graph?username=kuizuo&bg_color=white&color=23affc&line=23affc'),
-        dark: useBaseUrl('https://activity-graph.herokuapp.com/graph?username=kuizuo&bg_color=white&color=119cc5&line=119cc5'),
-      }}
-    />
-  </a>
-</div>
