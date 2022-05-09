@@ -65,6 +65,14 @@ const Projects: Project[] = [
     tags: ['opensource', 'design'],
   },
   {
+    title: 'kz-admin',
+    description: '基于NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin编写的一款前后端分离的权限管理系统',
+    preview: require('./showcase/kz-admin.png'),
+    website: 'https://admin.kuizuo.cn',
+    source: 'https://github.com/kuizuo/kz-nest-admin',
+    tags: ['opensource', 'typescript'],
+  },
+  {
     title: '资源导航',
     description: '学习编程中遇到的资源整合网站',
     preview: require('./showcase/nav.png'),
@@ -72,14 +80,6 @@ const Projects: Project[] = [
     source: 'https://github.com/kuizuo/code-nav',
     tags: ['opensource', 'javascript'],
   },
-  // {
-  //   title: 'kz-admin',
-  //   description: '基于Vue + Vben + NestJs + TypeScript + TypeORM + MySql + Redis编写的一款前后端分离的权限管理系统',
-  //   preview: require('./showcase/blog.png'),
-  //   website: 'https://admin.kuizuo.cn',
-  //   source: 'https://github.com/kuizuo/kz-admin',
-  //   tags: ['opensource', 'typescript'],
-  // },
   {
     title: 'JS代码混淆与还原',
     description: '基于Babel的AST操作对JavaScript代码混淆与还原的网站',

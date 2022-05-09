@@ -21,7 +21,7 @@ const config = {
     image: 'img/kuizuo.jpg',
     announcementBar: {
       id: 'announcementBar-2', // Any value that will identify this message.
-      content: `今天不学习,明天变垃圾`,
+      content: `新增 <a href='https://admin.kuizuo.cn'>kz-admin后台管理系统</a>`,
     },
     metadata: [
       {
