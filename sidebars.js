@@ -8,7 +8,11 @@ const sidebars = {
       link: {
         type: 'generated-index',
       },
-      items: ['skill/vue/Vue-component', 'skill/vue/Pinia'],
+      items: [
+        'skill/vue/Vue响应式数据之Object',
+        'skill/vue/Vue-component',
+        'skill/vue/Pinia',
+      ],
     },
     {
       label: 'React',
