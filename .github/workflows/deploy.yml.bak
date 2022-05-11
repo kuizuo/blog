@@ -1,4 +1,4 @@
-name: Deploy CI
+name: Build and Deploy
 
 on: [push]
 
@@ -10,13 +10,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: use Node.js 16
+      - name: Use Node.js 16
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
 
-      - run: yarn install
-      - run: yarn run build
+      - name: Build Project
+        run: |
+          yarn install
+          yarn run build
 
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
