@@ -165,7 +165,7 @@ function BlogListPage(props) {
                             frontMatter={BlogPostContent.frontMatter}
                             metadata={BlogPostContent.metadata}
                             truncated={BlogPostContent.metadata.truncated}
-                            views={views.find((v) => v.title == BlogPostContent.frontMatter.title)?.views}
+                            // views={views.find((v) => v.title == BlogPostContent.frontMatter.title)?.views}
                           >
                             <BlogPostContent />
                           </BlogPostItem>

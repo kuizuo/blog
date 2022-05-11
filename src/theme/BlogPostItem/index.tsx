@@ -162,7 +162,7 @@ function BlogPostItem(props) {
             )}
             {!isBlogPostPage && (
               <span className='footer__read_count'>
-                <Eye className='footer__eye' style={{ verticalAlign: 'middle' }} /> {views}
+                {/* <Eye className='footer__eye' style={{ verticalAlign: 'middle' }} /> {views} */}
               </span>
             )}
             {truncated && (
