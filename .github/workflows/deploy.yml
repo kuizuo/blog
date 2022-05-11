@@ -1,0 +1,28 @@
+name: Deploy CI
+
+on: [push]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - run: yarn install
+      - run: yarn run build
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.ftp_server }}
+          username: ${{ secrets.ftp_user }}
+          password: ${{ secrets.ftp_pwd }}
+          local-dir: ./build/
+          server-dir: ./
