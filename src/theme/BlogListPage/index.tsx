@@ -3,7 +3,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
 import BlogPostItem from '@theme/BlogPostItem'
 import BlogListPaginator from '@theme/BlogListPaginator'
-import useViews from './useViews'
 import styles from './styles.module.css'
 import Fade from 'react-reveal/Fade'
 import Translate from '@docusaurus/Translate'
@@ -34,7 +33,7 @@ function BlogListPage(props) {
   let description = `html, css, javascript, react, vue, node, typescript，前端开发，后端开发，技术分享，开源`
 
   const isBlogPage = metadata.permalink === '/'
-  const views = useViews(items)
+
   const { viewType, toggleViewType } = useViewType()
 
   const isCardView = viewType === 'card'
@@ -165,7 +164,6 @@ function BlogListPage(props) {
                             frontMatter={BlogPostContent.frontMatter}
                             metadata={BlogPostContent.metadata}
                             truncated={BlogPostContent.metadata.truncated}
-                            // views={views.find((v) => v.title == BlogPostContent.frontMatter.title)?.views}
                           >
                             <BlogPostContent />
                           </BlogPostItem>

@@ -11,8 +11,6 @@ import BrowserOnly from '@docusaurus/BrowserOnly'
 import 'gitalk/dist/gitalk.css'
 import GitalkComponent from 'gitalk/dist/gitalk-component'
 
-import useViews from './useViews'
-
 function BlogPostPage(props) {
   const { content: BlogPostContents, sidebar } = props
   const {
@@ -22,13 +20,16 @@ function BlogPostPage(props) {
     metadata,
   } = BlogPostContents
   const { title, permalink, description, nextItem, prevItem, date, tags, authors } = metadata
-  const { hide_table_of_contents: hideTableOfContents, keywords, toc_min_heading_level: tocMinHeadingLevel, toc_max_heading_level: tocMaxHeadingLevel } = frontMatter
+  const {
+    hide_table_of_contents: hideTableOfContents,
+    keywords,
+    toc_min_heading_level: tocMinHeadingLevel,
+    toc_max_heading_level: tocMaxHeadingLevel,
+  } = frontMatter
 
   const {
     siteConfig: { url: siteUrl },
   } = useDocusaurusContext()
-
-  const views = useViews(props.content)
 
   const labels = tags.length > 0 ? tags.map((t) => t.label) : ['Gitalk', title]
   const options = {
@@ -77,7 +78,7 @@ function BlogPostPage(props) {
         {tags.length > 0 && <meta property='article:tag' content={tags.map((tag) => tag.label).join(',')} />}
       </div>
 
-      <BlogPostItem frontMatter={frontMatter} assets={assets} metadata={metadata} isBlogPostPage views={views}>
+      <BlogPostItem frontMatter={frontMatter} assets={assets} metadata={metadata} isBlogPostPage>
         <BlogPostContents />
       </BlogPostItem>
       {(nextItem || prevItem) && <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />}

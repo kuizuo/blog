@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import clsx from 'clsx'
 import { MDXProvider } from '@mdx-js/react'
 
 import Head from '@docusaurus/Head'
@@ -12,18 +11,14 @@ import { useColorMode } from '@docusaurus/theme-common'
 
 import styles from './styles.module.css'
 import { MarkdownSection, StyledBlogItem } from './style'
-
-import Eye from '@site/static/icons/eye.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTags, faEye } from '@fortawesome/free-solid-svg-icons'
-import BrowserOnly from '@docusaurus/BrowserOnly'
+import { faTags } from '@fortawesome/free-solid-svg-icons'
 
 import BlogPostAuthors from '@theme/BlogPostAuthors'
-import Translate from '@docusaurus/Translate'
 import dayjs from 'dayjs'
 
 function BlogPostItem(props) {
-  const { children, frontMatter, metadata, truncated, isBlogPostPage = false, views, assets } = props
+  const { children, frontMatter, metadata, truncated, isBlogPostPage = false, assets } = props
   const { date, permalink, tags, authors, readingTime } = metadata
 
   const {
@@ -56,16 +51,6 @@ function BlogPostItem(props) {
             {!isBlogPostPage && readingTime && <> · {Math.ceil(readingTime)} min read</>}
             {isBlogPostPage && readingTime && <> · 预计阅读时间 {Math.ceil(readingTime)} 分钟</>}
           </time>
-          {isBlogPostPage && (
-            <span className='margin-left--sm' style={{ color: '#8c8c8c' }}>
-              <FontAwesomeIcon
-                icon={faEye}
-                color='#c4d3e0'
-                style={{ verticalAlign: 'middle', marginRight: '0.25rem' }}
-              />
-              <span style={{ fontSize: '0.9rem' }}>{views}</span>
-            </span>
-          )}
           {renderTags()}
         </div>
 
@@ -140,8 +125,6 @@ function BlogPostItem(props) {
         {image && <meta name='twitter:image:alt' content={`Image for ${title}`} />}
       </Head>
 
-      {/* 统计 */}
-      {isBlogPostPage && <Count title={title} />}
       <div className={`row ${!isBlogPostPage ? 'blog-list--item' : ''}`} style={{ margin: '0px' }}>
         <div className={`col ${isBlogPostPage ? `col--12 article__details` : `col--12`}`}>
           {/* 博文部分 */}
@@ -153,18 +136,9 @@ function BlogPostItem(props) {
               <MDXProvider components={MDXComponents}>{children}</MDXProvider>
             </MarkdownSection>
           </article>
-          <footer className='article__footer padding-top--md '>
-            {isBlogPostPage && (
-              <>
-                {/* 版权 */}
-                {authors && renderCopyright()}
-              </>
-            )}
-            {!isBlogPostPage && (
-              <span className='footer__read_count'>
-                {/* <Eye className='footer__eye' style={{ verticalAlign: 'middle' }} /> {views} */}
-              </span>
-            )}
+          <footer className='article__footer padding-top--md margin-top--sm margin-bottom--sm'>
+            {isBlogPostPage && authors && renderCopyright()}
+            <span className='footer__read_count'></span>
             {truncated && (
               <Link to={metadata.permalink} aria-label={`阅读 ${title} 的全文`}>
                 <strong className={styles.readMore}>阅读全文</strong>
@@ -174,29 +148,6 @@ function BlogPostItem(props) {
         </div>
       </div>
     </StyledBlogItem>
-  )
-}
-
-function Count({ title, ...post }) {
-  return (
-    <BrowserOnly fallback={<div></div>}>
-      {() => {
-        const addViewCount = async () => {
-          await fetch('https://blog.kuizuo.cn/posts/increase_view', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ title }),
-          })
-        }
-
-        useEffect(() => {
-          addViewCount()
-        }, [])
-        return <></>
-      }}
-    </BrowserOnly>
   )
 }
 
