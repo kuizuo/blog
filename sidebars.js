@@ -10,6 +10,8 @@ const sidebars = {
       },
       items: [
         'skill/vue/Vue响应式数据之Object',
+        'skill/vue/Vue响应式数据之Array',
+        'skill/vue/Vue响应式数据之基本数据类型',
         'skill/vue/Vue-component',
         'skill/vue/Pinia',
       ],
