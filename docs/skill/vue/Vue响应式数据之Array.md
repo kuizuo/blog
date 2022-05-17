@@ -119,18 +119,30 @@ function reactive(target) {
         return reactive(res)
       }
 
+      if (Array.isArray(target) && isNaN(key)) {
+        return res
+      }
+
       log('GET', key, res)
       return res
     },
     set(target, key, newVal, receiver) {
       const oldVal = target[key]
 
-      const type = Object.prototype.hasOwnProperty.call(target, key) ? 'SET' : 'ADD'
+      const type = Array.isArray(target)
+        ? (Number(key) < target.length ? 'SET' : 'ADD')
+        : Object.prototype.hasOwnProperty.call(target, key) ? 'SET' : 'ADD'
+
       const res = Reflect.set(target, key, newVal, receiver)
 
-      if (oldVal !== newVal) {
-        log(type, key, newVal)
+      if (Array.isArray(target) && key === 'length') {
+        // log('Length', null, target.length)
+      } else {
+        if (oldVal !== newVal) {
+          log(type, key, newVal)
+        }
       }
+
 
       return res
     },
@@ -144,7 +156,7 @@ function reactive(target) {
       }
 
       return res
-    },
+    }
   })
 }
 
@@ -153,8 +165,8 @@ const p = reactive(target)
 
 p[1]
 p.push(4)
-
 p[2] = 100
+p.pop()
 console.log(p)
 ```
 
@@ -162,29 +174,11 @@ console.log(p)
 
 ```
 GET 1 2
-GET push [Function: push]
-GET length 3
 ADD 3 4
 SET 2 100
-[ 1, 2, 100, 4 ]
+GET 3 4
+DELETE 3 true
+[ 1, 2, 100 ]
 ```
 
-显然 GET push [Function: push] 与 GET length 3并不是我们想要的数据，在get里，判断key是否为数字
-
-```javascript {8-10}
-    get(target, key, receiver) {
-      const res = Reflect.get(target, key, receiver)
-
-      if (typeof res === 'object' && res !== null) {
-        return reactive(res)
-      }
-
-      if (Array.isArray(target) && isNaN(key)) {
-        return res
-      }
-
-      log('GET', key, res)
-      return res
-    }
-```
-
+实际上，以上代码就已经能监听数组成员新增，修改与删除了。但对于一些特殊方法（数组遍历，寻找成员），还需要修改其原型方法，就需要像Vue2对原型方法那样操作。不过在监听数据变化上，用处并不是特别大，主要体现在依赖收集以及副作用函数的调用上。
