@@ -9,7 +9,7 @@ tags: [vue, js]
 
 ## 修改原型方法
 
-上面所说到的是对象的响应式，但 js 中不止有对象，还有数组，数组能用 Object.defineProperty 方式来监听吗，能                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+上面所说到的是对象的响应式，但 js 中不止有对象，还有数组，数组能用 Object.defineProperty 方式来监听吗，能
 
 ```javascript
 const original = Array.prototype.push
@@ -31,13 +31,68 @@ const arrayProto = Array.prototype
 const arrayMethods = Object.create(arrayProto)
 
 if (Array.isArray(value)) {
-  value.__prot-o__ = arrayMethods
+  value.__proto__ = arrayMethods
 }
 ```
 
 至于以及其他数组方法，这里仅做代码实现，由于篇幅有限，不做细说。
 
+```javascript
+const arrayProto = Array.prototype
+const arrayMethods = Object.create(arrayProto)
 
+function def(obj, key, val, enumerable) {
+  Object.defineProperty(obj, key, {
+    value: val,
+    enumerable: !!enumerable,
+    writable: true,
+    configurable: true,
+  })
+}
+
+;['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse'].forEach(function (method) {
+  const original = arrayProto[method]
+
+  def(arrayMethods, method, function mutator(...args) {
+    const result = original.apply(this, args)
+    let inserted
+    switch (method) {
+      case 'push':
+      case 'unshift':
+        inserted = args
+        break
+      case 'splice':
+        inserted = args.slice(2)
+        break
+    }
+
+    if (inserted) {
+      console.log('ADD', args)
+    }
+    return result
+  })
+})
+
+function observerArray(arr) {
+  arr.__proto__ = arrayMethods
+  return arr
+}
+
+let arr = observerArray([1, 2, 3])
+
+arr.push(4)
+arr.unshift(0)
+
+console.log(arr)
+```
+
+输出如下
+
+```
+ADD [ 4 ]
+ADD [ 0 ]
+[ 0, 1, 2, 3, 4 ]
+```
 
 ### 缺陷
 
@@ -48,31 +103,88 @@ if (Array.isArray(value)) {
 
 ## Proxy
 
-但在 Vue3 也可以使用 Proxy 来监听，不过先在 set 方法中删除`if (target[property] === newValue) return`
+但在 Vue3 也可以使用 Proxy 来监听（代理）数据，先引用监听[Object中的最终代码](./Vue响应式数据之Object#最终代码)，对其稍加修改一下，看看效果
 
-```typescript
-let target = [1, 2, 3]
-function defineReactive(target) {
+```javascript
+function log(type, index, val) {
+  console.log(type, index, val)
+}
+
+function reactive(target) {
   return new Proxy(target, {
-    get(target, property) {
-      console.log(`对属性${property}取值为${target[property]}`)
-      return target[property]
+    get(target, key, receiver) {
+      const res = Reflect.get(target, key, receiver)
+
+      if (typeof res === 'object' && res !== null) {
+        return reactive(res)
+      }
+
+      log('GET', key, res)
+      return res
     },
-    set(target, property, newValue) {
-      // if (target[property] === newValue) return
-      target[property] = newValue
-      console.log(`对属性${property}赋值为${target[property]}`)
-      return true
+    set(target, key, newVal, receiver) {
+      const oldVal = target[key]
+
+      const type = Object.prototype.hasOwnProperty.call(target, key) ? 'SET' : 'ADD'
+      const res = Reflect.set(target, key, newVal, receiver)
+
+      if (oldVal !== newVal) {
+        log(type, key, newVal)
+      }
+
+      return res
     },
-    deleteProperty(target, property) {
-      console.log(`删除属性为${property}`)
-      delete target[property]
+    deleteProperty(target, key) {
+      const hadKey = Object.prototype.hasOwnProperty.call(target, key)
+
+      const res = Reflect.deleteProperty(target, key)
+
+      if (res && hadKey) {
+        log('DELETE', key, res)
+      }
+
+      return res
     },
   })
 }
 
-let arr = defineReactive(target)
+const target = [1, 2, 3]
+const p = reactive(target)
 
-arr[0]
-arr.push(1)
+p[1]
+p.push(4)
+
+p[2] = 100
+console.log(p)
 ```
+
+执行结果
+
+```
+GET 1 2
+GET push [Function: push]
+GET length 3
+ADD 3 4
+SET 2 100
+[ 1, 2, 100, 4 ]
+```
+
+显然 GET push [Function: push] 与 GET length 3并不是我们想要的数据，在get里，判断key是否为数字
+
+```javascript {8-10}
+    get(target, key, receiver) {
+      const res = Reflect.get(target, key, receiver)
+
+      if (typeof res === 'object' && res !== null) {
+        return reactive(res)
+      }
+
+      if (Array.isArray(target) && isNaN(key)) {
+        return res
+      }
+
+      log('GET', key, res)
+      return res
+    }
+```
+
