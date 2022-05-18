@@ -9,7 +9,7 @@ tags: [vue]
 
 学过 js 的应该都知道，基本数据类型并非引用类型，直接修改是无法直接拦截的
 
-```JavaScript
+```javascript
 let str = 'vue'
 // 无法拦截str
 str = 'vue3'
@@ -17,7 +17,7 @@ str = 'vue3'
 
 很容易想到，用非原始值“包裹”原始值，成一个对象的形式，然后对包裹对象 wrapper 进行 proxy 拦截
 
-```JavaScript
+```javascript
 const wrapper = {
   value:'vue'
 }
@@ -35,7 +35,7 @@ SET value vue3
 
 不难发现，vue2 中对原始值的响应都是将其包裹在 data 函数下返回的对象，并且从上面的代码上来看。但从开发者的角度还需要创建一个包装对象，不易操作的同时，也意味不规范。于是 vue3 封装了 ref 函数，而返回的对象便是响应式的包装对象`reactive(wrapper)`
 
-```JavaScript
+```javascript
 function ref(val){
   const wrapper = {
   value: val
@@ -47,7 +47,7 @@ function ref(val){
 
 上面的代码便改写为
 
-```JavaScript
+```javascript
 const name = ref('vue')
 
 name.value = 'vue3'
@@ -57,7 +57,7 @@ name.value = 'vue3'
 
 要区别一个数据是否为 ref，只需要在 ref 中定义一个不可枚举的属性`__v_isRef`值为 true。
 
-```JavaScript
+```javascript
 function ref(val){
   const wrapper = {
   value: val
@@ -75,7 +75,7 @@ function ref(val){
 
 在使用解构赋值的情况下，可能会存在响应丢失的情况，例如
 
-```JavaScript
+```javascript
 const obj = reactive({ foo: 1, bar: 2 })
 
 const user = {
@@ -89,7 +89,7 @@ user.foo.value = 3
 
 所以 Vue 则封装了 toRef 和 toRefs 方法，将某个对象的 key 包裹为 ref
 
-```JavaScript
+```javascript
 function toRef(obj, key) {
   const wrapper = {
     get value() {
@@ -139,7 +139,7 @@ toRefs 是解决了响应式的问题，但同时也带来了一个新的问题�
 
 要是我，我肯定不会使用 Vue。所以 Vue 提供自动脱 ref 的能力，通俗点就是省略.value。
 
-```JavaScript
+```javascript
 function proxyRefs(target) {
   return new Proxy(target, {
     get(target, key, receiver) {
@@ -162,7 +162,7 @@ function proxyRefs(target) {
 
 将其 user 数据传递给 proxyRefs 函数进行处理，便可省略.value
 
-```JavaScript
+```javascript
 const user = proxyRefs({
   ...toRefs(obj)
 })
@@ -174,7 +174,7 @@ console.log(user.foo) // 1
 
 ## 最终代码
 
-```JavaScript
+```javascript
 function log(type, key, val) {
   console.log(type, key, val)
 }
