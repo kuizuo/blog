@@ -1,3 +1,5 @@
+import { shuffle } from '../utils/jsUtils'
+
 export type Friend = {
   title: string
   description?: string
@@ -24,16 +26,18 @@ export const Friends: Friend[] = [
     website: 'https://moxynj.github.io/',
     avatar: require('./avatar/ninjee.png'),
   },
+  {
+    title: 'KnIFeR博客站',
+    description: 'Web开发学习者，分享编程相关的技术和见闻',
+    website: 'http://knifer.fun/',
+    avatar: 'http://knifer.fun/avatar.jpg',
+  },
 ]
 
 function sortFriend() {
   let result = Friends
 
-  result.sort(() => 0.5 - Math.random())
-  result = result.map((friend) => {
-    const avatar = typeof friend.avatar === 'string' ? friend.avatar : friend.avatar.src.src
-    return { ...friend, avatar }
-  })
+  result = shuffle(result)
   return result
 }
 
