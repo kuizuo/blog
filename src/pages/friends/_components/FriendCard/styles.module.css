@@ -1,0 +1,51 @@
+.friendCard {
+  background-color: var(--ifm-card-background-color);
+  border-radius: var(--ifm-card-border-radius);
+  box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.1);;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.friendCardImage {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  border-radius: 50%;
+}
+
+.friendCardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.friendCardTitle {
+  margin-bottom: 0;
+  flex: 1 1 auto;
+}
+
+.friendCardTitle a {
+  text-decoration: none;
+  background: linear-gradient(var(--ifm-color-primary), var(--ifm-color-primary)) 0% 100% / 0% 1px no-repeat;
+  transition: background-size ease-out 200ms;
+}
+
+.friendCardTitle a:not(:focus):hover {
+  background-size: 100% 1px;
+}
+
+.friendCardBody {
+  padding: 0.5rem var(--ifm-card-horizontal-spacing);
+}
+
+.friendCardDesc {
+  font-size: smaller;
+  line-height: 1.66;
+  width: 100%;
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

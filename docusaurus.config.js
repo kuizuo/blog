@@ -1,12 +1,7 @@
 // @ts-check
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
-const friendLinks = [
-  {
-    label: '峰华前端工程师',
-    to: 'https://zxuqian.cn/',
-  },
-]
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '愧怍的小站',
@@ -18,7 +13,7 @@ const config = {
   projectName: 'kuizuo.cn', // Usually your repo name.
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
   themeConfig: {
-    image: 'img/kuizuo.jpg',
+    image: 'img/logo.png',
     announcementBar: {
       id: 'announcementBar-2', // Any value that will identify this message.
       content: `新增 <a href='https://admin.kuizuo.cn'>kz-admin后台管理系统</a>`,
@@ -56,10 +51,6 @@ const config = {
               label: '技术笔记',
               to: 'docs/skill/',
             },
-            // {
-            //   label: "个人推荐",
-            //   to: "docs/recommend",
-            // },
           ],
         },
         {
@@ -85,7 +76,12 @@ const config = {
           ],
         },
         {
-          label: '实战项目',
+          label: '友链',
+          position: 'right',
+          to: 'friends',
+        },
+        {
+          label: '项目',
           position: 'right',
           to: '/project',
         },
@@ -138,8 +134,11 @@ const config = {
           ],
         },
         {
-          title: '友情链接',
-          items: friendLinks,
+          title: '更多',
+          items: [{
+            label: '...',
+            to: '/',
+          }],
         },
       ],
       copyright: `<p>Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.</p><p><a href="http://beian.miit.gov.cn/" >${beian}</a>`,
@@ -217,7 +216,11 @@ const config = {
     path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
     // path.resolve(__dirname, "./src/plugin/plugin-onesignal-push"),
     // "docusaurus2-dotenv",
-    '@docusaurus/plugin-ideal-image',
+    [
+      '@docusaurus/plugin-ideal-image', {
+        disableInDev: false,
+      }
+    ],
     path.resolve(__dirname, './src/plugin/plugin-image-zoom'),
     path.resolve(__dirname, './src/plugin/plugin-latest-docs'),
     // [
@@ -238,7 +241,7 @@ const config = {
           {
             tagName: 'link',
             rel: 'icon',
-            href: '/img/kuizuo.jpg',
+            href: '/img/kuizuo.png',
           },
           {
             tagName: 'link',
