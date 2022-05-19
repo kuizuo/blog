@@ -24,6 +24,10 @@ function sortFriend() {
   let result = Friends
 
   result.sort(() => 0.5 - Math.random())
+  result = result.map((friend) => {
+    const avatar = typeof friend.avatar === 'string' ? friend.avatar : friend.avatar.src.src
+    return { ...friend, avatar }
+  })
   return result
 }
 
