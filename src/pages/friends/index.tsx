@@ -1,7 +1,7 @@
 import Layout from '@theme/Layout'
 
 import FriendCard from './_components/FriendCard'
-import { sortedFriends, type Friend } from '@site/src/data/friend'
+import { sortFriend, type Friend } from '@site/src/data/friend'
 
 import styles from './styles.module.css'
 
@@ -22,11 +22,12 @@ function FriendHeader() {
 }
 
 function FriendCards() {
+  const friends = sortFriend()
   return (
     <section className='margin-top--lg margin-bottom--lg'>
       <div className='container'>
         <ul className={styles.showcaseList}>
-          {sortedFriends.map((friend) => (
+          {friends.map((friend) => (
             <FriendCard key={friend.title} friend={friend} />
           ))}
         </ul>

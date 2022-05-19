@@ -31,21 +31,12 @@ export function toggleListItem<T>(list: T[], item: T): T[] {
   }
 }
 
-export function shuffle(array, size?) {
-  let index = -1,
-    length = array.length,
-    lastIndex = length - 1
+export function shuffle(arr) {
+  let i = arr.length
 
-  size = size === undefined ? length : size
-  while (++index < size) {
-    // var rand = baseRandom(index, lastIndex),
-    const rand = index + Math.floor(Math.random() * (lastIndex - index + 1))
-    const value = array[rand]
+  while (i) {
+    let j = Math.floor(Math.random() * i--)
 
-    array[rand] = array[index]
-
-    array[index] = value
+    ;[arr[j], arr[i]] = [arr[i], arr[j]]
   }
-  array.length = size
-  return array
 }

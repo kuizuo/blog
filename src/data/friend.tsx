@@ -22,23 +22,21 @@ export const Friends: Friend[] = [
   },
   {
     title: 'Ninjee',
-    description: '试错并不可怕，一个会挑战自我、迭代进化的人',
-    website: 'https://moxynj.github.io/',
+    description: '个人主义的前端篮子',
+    website: 'https://ninjee.co',
     avatar: require('./avatar/ninjee.png'),
   },
   {
     title: 'KnIFeR博客站',
     description: 'Web开发学习者，分享编程相关的技术和见闻',
     website: 'http://knifer.fun/',
-    avatar: 'http://knifer.fun/avatar.jpg',
+    avatar: require('./avatar/knifer.png'),
   },
 ]
 
-function sortFriend() {
+export function sortFriend() {
   let result = Friends
 
-  result = shuffle(result)
+  // shuffle(result)
   return result
 }
-
-export const sortedFriends = sortFriend()
