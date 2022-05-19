@@ -18,6 +18,12 @@ export const Friends: Friend[] = [
     website: 'https://blog.shi1011.cn/',
     avatar: require('./avatar/mas0n.png'),
   },
+  {
+    title: 'Ninjee',
+    description: '试错并不可怕，一个会挑战自我、迭代进化的人',
+    website: 'https://moxynj.github.io/',
+    avatar: require('./avatar/ninjee.png'),
+  },
 ]
 
 function sortFriend() {

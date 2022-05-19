@@ -5,7 +5,7 @@ import Link from '@docusaurus/Link'
 import styles from './styles.module.css'
 import { type Friend } from '@site/src/data/friend'
 
-const FriendCard = memo(({ friend }: { friend: Friend }) => (
+const FriendCard = ({ friend }: { friend: Friend }) => (
   <li key={friend.title} className={clsx(styles.friendCard, 'padding-vert--sm padding-horiz--md')}>
     <img src={friend.avatar} alt={friend.title} className={clsx(styles.friendCardImage)} />
     <div className='card__body'>
@@ -19,6 +19,6 @@ const FriendCard = memo(({ friend }: { friend: Friend }) => (
       <p className={styles.friendCardDesc}>{friend.description}</p>
     </div>
   </li>
-))
+)
 
 export default FriendCard
