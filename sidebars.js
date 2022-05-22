@@ -77,6 +77,14 @@ const sidebars = {
       items: ['skill/css/记Tailwind CSS使用', 'skill/css/有趣且实用的CSS小技巧'],
     },
     {
+      label: 'Go',
+      type: 'category',
+      link: {
+        type: 'generated-index',
+      },
+      items: ['skill/go/Go环境安装', 'skill/go/Go语言之json使用', 'skill/go/Go发送http请求', 'skill/go/Gin框架初体验'],
+    },
+    {
       label: '算法',
       type: 'category',
       link: {

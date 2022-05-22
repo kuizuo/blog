@@ -7,22 +7,6 @@ tags: [go, gin]
 
 <!-- truncate -->
 
-## 安装 Go
-
-[golang.org](https://golang.org/)
-
-[go 下载地址](https://studygolang.com/dl)
-
-[GoLand](https://www.jetbrains.com/go/download/download-thanks.html)
-
-下载安装包，选择路径，默认下一步即可
-
-### 配置环境变量
-
-**GOROOT 即为 GO 的安装目录。**设置为 `E:\Go`
-
-**GOPATH 即为存储 Go 语言项目的路径**，可以自己进行设值，我放在了 GoWorks 自己建的，里面需要包含 src、pkg、bin 三个目录。 设置为 `E:\GoWork`
-
 ## 安装 Gin
 
 [文档 | Gin Web Framework (gin-gonic.com)](https://gin-gonic.com/zh-cn/docs/)
@@ -33,61 +17,7 @@ tags: [go, gin]
 go get -u github.com/gin-gonic/gin
 ```
 
-大概率可能安装不上（科学上网都不一定安装的上），提示如下
-
-```
-go get: module github.com/gin-gonic/gin: Get "https://proxy.golang.org/github.com/gin-gonic/gin/@v/list": dial tcp 172.217.160.113:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
-```
-
-一般这里就需要配置 Go 代理
-
-[GOPROXY.IO - 一个全球代理 为 Go 模块而生](https://goproxy.io/zh/)
-
-windows
-
-```
-# 设置goproxy.io代理
-go env -w GOPROXY="https://goproxy.io"
-# 设置GO111MOUDLE
-go env -w GO111MODULE="on"
-```
-
-mac/linux 下
-
-```
-# 设置goproxy.io代理
-export GOPROXY=https://goproxy.io
-# 设置GO111MOUDLE
-export GO111MODULE=on
-```
-
-再次执行安装命令即可成功安装
-
-### 配置 VSCode 开发环境
-
-[VsCode 中 Golang Tools 使用 · 语雀 (yuque.com)](https://www.yuque.com/flipped-aurora/gqbcfk/lidsv6)
-
-这里使用的是 VSCode 进行开发，在扩展程序中安装 Go 插件，输入
-
-- `command` + `shift` + `p` 输入 Go:Show All Commands 选择 Go:Install/Update Tools，选择所有工具，并确定安装。
-
-![image-20210901044224765](https://img.kuizuo.cn/image-20210901044224765.png)
-
-控制台输出安装结果
-
-![image-20210901044323709](https://img.kuizuo.cn/image-20210901044323709.png)
-
-或者打开命令提示符（以管理员身份打开）输入
-
-```sh
-go get -v github.com/mdempsky/gocode
-go get -v github.com/uudashr/gopkgs/v2/cmd/gopkgs
-go get -v github.com/rogpeppe/godef
-go get -u github.com/ramya-rao-a/go-outline
-go get -v github.com/sqs/goreturns
-```
-
-安装 go 的开发依赖，比如语法提示，包提示等等。安装完成后，就此配置完成 Vscode 的 Go 开发环境。
+大概率可能安装不上，一般这里就需要配置 Go 代理
 
 ## 使用
 
