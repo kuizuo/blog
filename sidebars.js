@@ -82,7 +82,14 @@ const sidebars = {
       link: {
         type: 'generated-index',
       },
-      items: ['skill/go/Go环境安装', 'skill/go/Go语言之json使用', 'skill/go/Go发送http请求', 'skill/go/Go调用js代码', 'skill/go/Gin框架初体验'],
+      items: [
+        'skill/go/Go环境安装',
+        'skill/go/Go语言之json使用',
+        'skill/go/Go发送http请求',
+        'skill/go/Go调用js代码',
+        'skill/go/Go并发',
+        'skill/go/Gin框架初体验'
+      ],
     },
     {
       label: '算法',
