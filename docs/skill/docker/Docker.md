@@ -4,7 +4,11 @@ date: 2021-05-26
 tags: [docker]
 ---
 
+<!-- truncate -->
+
 [官方文档](https://docs.docker.com/engine/install/centos/)
+
+[Docker — 从入门到实践 (gitbook.io)](https://yeasy.gitbook.io/docker_practice/)
 
 ## 安装
 
@@ -187,91 +191,51 @@ docker inspect 容器id
 
 #### 从容器内拷贝文件到宿主机上
 
-```
+```sh
 docker cp 容器id:容器内路径 宿主机路径
 ```
 
-## 自定义网络
+### 自定义网络
 
-```
+```sh
 docker network ls  #查看所有的docker 网络
 
-docker network  create --driver bridge mynet
+docker network create --driver bridge mynet
 
 创建容器通过 `--net`    默认为 --net bridge
 
 docker network connect   # 连通网络
 ```
 
-## 实战例子
-
-测试 创建一个 centos
-
-```shell
-# 后面加了/bin/bash  通过指定-it 即可进入容器
-[root@localhost ~]# docker run -it centos /bin/bash
-[root@df0a0acddbf0 /]# ls
-bin  etc   lib	  lost+found  mnt  proc  run   srv  tmp  var
-dev  home  lib64  media       opt  root  sbin  sys  usr
-
-这里的df0a0acddbf0 就是镜像ID
-
-```
-
-### 例 安装 nginx
-
-```
-docker run -d --name nginx1 -p 3304:80 nginx
-```
-
-### 例 安装 elasticsearch 和 kibana
-
-由于 elasticsearch 和 kibana 都需要暴露端口 同时两者都需要连接 这里就需要自定义网络 比如
-
-```dockerfile
-# 创建网络
-docker network esnet
-
-
-```
-
-### 例 安装 Redis
-
-## 容器数据卷
+### 容器数据卷
 
 一句话 容器的持久化和同步操作! 容器间 也是可以数据共享的
 
-### 使用数据卷
+#### 使用数据卷
 
-```
+```sh
 docker run -it -v 主机目录:容器目录
 ```
 
-### 指定路径挂载
+#### 指定路径挂载
 
 注意 路径前有`/` 为绝对路径
 
-#### 例 mysql
 
-```
-docker run - 3310:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/liv/mysql -e MYSQL_ROOT_PASSWORD=a123456 --name mysql mysql:5.7
-```
-
-### 匿名挂载
+#### 匿名挂载
 
 只指定容器内的名字
 
-```
+```sh
 docker run -d -P --name nginx -v /ect/nginx nginx
 
 通过 docker volume ls 即可查看
 为local  .....
-
 ```
 
-### 具名挂载
+#### 具名挂载
 
-```
+```sh
 docker run -d -P --name nginx -v mynginx:/ect/nginx nginx
 
 # mynginx 为卷名
@@ -285,11 +249,10 @@ local  mynginx
 
 区别
 
-```
+```sh
 -v 容器内路径  #匿名挂载
 -v 卷名:容器内路径 #具名
 -v /宿主机路径:容器内路径 #指定路径
-
 ```
 
 拓展
@@ -300,25 +263,35 @@ ro 表示只读 readonly 只可外部改变 只可宿主机改变
 rw 可读写 readwirte  默认rw
 ```
 
-## 数据卷容器
+#### 例子
 
---volume-from
+安装Mysql
 
-TODO …
+```sh
+docker run -d -p 3307:3306 --privileged=true -v /data/mysql/log:/var/log/mysql -v /data/mysql/data:/var/lib/mysql -v /opt/docker/mysql/conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql:5.7
+```
+
+安装Redis
+
+```
+docker run -d -p 6379:6379 --privileged=true -v /app/redis/redis.conf:/etc/redis/redis.conf -v /app/redis/data:/data -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql:5.7 redos-server /etc/redis/redis.conf
+```
+
+
 
 ## DockerFile
 
 ![](https://img.kuizuo.cn/OIP.p3NmHHlewBvLwukFPGudFgHaFV.jpg)
 
-命令`docker build -f dockerfile文件名 -t 自定镜像名 .`
+所有命令大小写不敏感（但推荐大写）
 
-所有命令大小写不敏感
+构建镜像命令
 
-### 实战测试
+```sh
+docker build -t 自定镜像名 .
+```
 
-Docker Hub 中 99% 镜像都是 这个基础镜像过来的 FROM scratch,然后配置需要的软件和配置
-
-创建一个属于自己的 centos 镜像
+例：创建一个属于自己的 centos 镜像
 
 ```dockerfile
 FROM cetnos
@@ -336,7 +309,7 @@ CMD /bin/bash
 
 通过 docker history 镜像 ID 可以查看 镜像的变更历史
 
-#### CMD 和 ENTRYPOINT 区别
+CMD 和 ENTRYPOINT 区别
 
 ```
 CMD  # 指定这个容器启动的时候要运行的命令,只有最后一个会生效,可被替代
