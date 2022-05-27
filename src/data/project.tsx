@@ -6,7 +6,7 @@ export type Tag = {
   color: string
 }
 
-export type TagType = 'favorite' | 'opensource' | 'product' | 'design' | 'javascript' | 'typescript' | 'nodejs'
+export type TagType = 'favorite' | 'opensource' | 'product' | 'design' | 'javascript'
 
 export type Project = {
   title: string
@@ -19,39 +19,29 @@ export type Project = {
 
 export const Tags: Record<TagType, Tag> = {
   favorite: {
-    label: 'Favorite',
-    description: 'Our favorite Docusaurus sites that you must absolutely check-out!',
+    label: '喜爱',
+    description: '我最喜欢的网站，一定要去看看!',
     color: '#e9669e',
   },
   opensource: {
     label: '开源',
-    description: 'Open-Source Docusaurus sites can be useful for inspiration!',
+    description: '开源项目可以提供灵感!',
     color: '#39ca30',
   },
   product: {
     label: '产品',
-    description: 'Docusaurus sites associated to a commercial product!',
+    description: '与产品相关的项目!',
     color: '#dfd545',
   },
   design: {
     label: '设计',
-    description: 'Beautiful Docusaurus sites, polished and standing out from the initial template!',
+    description: '设计漂亮的网站!',
     color: '#a44fb7',
   },
   javascript: {
     label: 'JavaScript',
-    description: 'JavaScript project',
+    description: 'JavaScript 项目',
     color: '#dfd545',
-  },
-  typescript: {
-    label: 'TypeScript',
-    description: 'JavaScript project',
-    color: '#007acc',
-  },
-  nodejs: {
-    label: 'NodeJS',
-    description: 'NodeJS project',
-    color: '#39ca30',
   },
 }
 
@@ -62,7 +52,7 @@ const Projects: Project[] = [
     preview: require('./showcase/blog.png'),
     website: 'https://kuizuo.cn',
     source: 'https://github.com/kuizuo/blog',
-    tags: ['opensource', 'design'],
+    tags: ['opensource', 'design', 'favorite'],
   },
   {
     title: 'kz-admin',
@@ -70,7 +60,7 @@ const Projects: Project[] = [
     preview: require('./showcase/kz-admin.png'),
     website: 'https://admin.kuizuo.cn',
     source: 'https://github.com/kuizuo/kz-nest-admin',
-    tags: ['opensource', 'typescript'],
+    tags: ['opensource', 'favorite', 'product'],
   },
   {
     title: '资源导航',
@@ -86,7 +76,7 @@ const Projects: Project[] = [
     preview: require('./showcase/js-de-obfuscator.png'),
     website: 'https://deobfuscator.kuizuo.cn',
     source: 'https://github.com/kuizuo/js-de-obfuscator',
-    tags: ['opensource', 'typescript', 'nodejs'],
+    tags: ['opensource', 'javascript'],
   },
   {
     title: '愧怍在线工具',
@@ -94,7 +84,7 @@ const Projects: Project[] = [
     preview: require('./showcase/tools.png'),
     website: 'http://tools.kuizuo.cn',
     source: 'https://github.com/kuizuo/online-tools',
-    tags: ['opensource', 'typescript', 'nodejs'],
+    tags: ['opensource', 'javascript'],
   },
   {
     title: '题小侠',
@@ -102,7 +92,7 @@ const Projects: Project[] = [
     preview: require('./showcase/question-man.png'),
     website: 'https://img.kuizuo.cn/itopic.jpg',
     source: 'https://github.com/kuizuo/question-man',
-    tags: ['opensource', 'typescript', 'nodejs'],
+    tags: ['opensource', 'product'],
   },
 ]
 
