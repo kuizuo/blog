@@ -2,6 +2,7 @@
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
+const announcementBarContent = `新增基于<a href='https://pypi.org/project/ddddocr/'>ddddocr</a>实现<a href='https://ocr.kuizuo.cn'>图像识别后台系统</a>`
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '愧怍的小站',
@@ -15,8 +16,8 @@ const config = {
   themeConfig: {
     image: 'img/logo.png',
     announcementBar: {
-      id: 'announcementBar-2', // Any value that will identify this message.
-      content: `新增 <a href='https://admin.kuizuo.cn'>kz-admin后台管理系统</a>`,
+      id: 'announcementBar-3', // Any value that will identify this message.
+      content: announcementBarContent,
     },
     metadata: [
       {
@@ -58,20 +59,24 @@ const config = {
           position: 'right',
           items: [
             {
-              label: '资源导航',
-              to: '/resources', // 'https://nav.kuizuo.cn'
+              label: '编程网址导航',
+              to: 'https://nav.kuizuo.cn',
             },
             {
               label: 'JS代码混淆与还原',
-              to: 'https://deobfuscator.kuizuo.cn', // 'https://deobfuscator.kuizuo.cn'
+              to: 'https://deobfuscator.kuizuo.cn',
             },
             {
               label: 'CyberChef在线加解密',
-              to: 'http://cipher.kuizuo.cn', // 'http://cipher.kuizuo.cn'
+              to: 'https://cipher.kuizuo.cn',
             },
             {
               label: '愧怍在线工具',
-              to: 'http://tools.kuizuo.cn', // 'http://tools.kuizuo.cn'
+              to: 'https://tools.kuizuo.cn',
+            },
+            {
+              label: '愧怍网盘',
+              to: 'https://pan.kuizuo.cn',
             },
           ],
         },

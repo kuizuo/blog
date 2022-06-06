@@ -63,6 +63,14 @@ const Projects: Project[] = [
     tags: ['opensource', 'favorite', 'product'],
   },
   {
+    title: 'ocr-admin',
+    description: '基于ddddocr与kz-admin搭建的图像识别后台系统',
+    preview: require('./showcase/ocr-admin.png'),
+    website: 'https://ocr.kuizuo.cn',
+    source: '',
+    tags: ['product'],
+  },
+  {
     title: '资源导航',
     description: '学习编程中遇到的资源整合网站',
     preview: require('./showcase/nav.png'),
