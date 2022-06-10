@@ -249,7 +249,7 @@ const config = {
           {
             tagName: 'link',
             rel: 'icon',
-            href: '/img/kuizuo.png',
+            href: '/img/logo.png',
           },
           {
             tagName: 'link',
