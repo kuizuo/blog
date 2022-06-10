@@ -4,35 +4,17 @@ import { PageMetadata, HtmlClassNameProvider, ThemeClassNames, translateTagsPage
 import SearchMetadata from '@theme/SearchMetadata'
 import clsx from 'clsx'
 
-function getCategoryOfTag(tag: string) {
-  return tag[0].toUpperCase()
-}
-
 function BlogTagsListPage(props) {
-  const { tags, sidebar, items } = props
+  const { tags, sidebar } = props
   const title = translateTagsPageTitle()
-
-  const tagCategories: { [category: string]: string[] } = {}
-  Object.keys(tags).forEach((tag) => {
-    const category = getCategoryOfTag(tag)
-    tagCategories[category] = tagCategories[category] || []
-    tagCategories[category].push(tag)
-  })
-  const tagsList = Object.entries(tagCategories).sort(([a], [b]) => a.localeCompare(b))
 
   const TagsList = () => (
     <div className='row'>
-      {tagsList
-        .map(([category, tagsForCategory]) => (
-          <div key={category} style={{ display: 'flex', flexWrap: 'wrap' }}>
-            {tagsForCategory.map((tag, index) => (
-              <Link className={`post__tags margin-horiz--sm margin-bottom--sm`} href={tags[tag].permalink} key={tag}>
-                {tags[tag].name} ({tags[tag].count})
-              </Link>
-            ))}
-          </div>
-        ))
-        .filter((item) => item != null)}
+      {tags.map((tag) => (
+        <Link className={`post__tags margin-horiz--sm margin-bottom--sm`} href={tag.permalink} key={tag.label}>
+          {tag.label} ({tag.count})
+        </Link>
+      ))}
     </div>
   )
 
