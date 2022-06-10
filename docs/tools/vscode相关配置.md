@@ -1,21 +1,36 @@
 ---
-title: vscode插件推荐与快捷键
+title: vscode相关配置
 date: 2021-08-03
 authors: kuizuo
-tags: [vscode, 开发工具]
+tags: [vscode, 开发工具, 配置]
 ---
 
 关于 vscode 介绍和安装啥的不在这浪费口舌，上号就完事了！
 
 ![vscode上号](https://img.kuizuo.cn/vscode%E4%B8%8A%E5%8F%B7.jpg)
 
+看一大堆vscode相关推荐，不如直接把别人的vscode配置直接导入到本地上运行测试。
+以下是我的 Vscode 全部配置文件，需要的可自行下载导入（替换本地 vscode 相对应的配置文件即可）。
+
+> 下载地址 https://pan.kuizuo.cn/s/RgiP 密码 kuizuo
+
 <!-- truncate -->
+
+## 前言
 
 `vscode` 算是我用的最多的一款文本编辑器，也是我用过最好用的文本编辑器，这一年都在和 vscode 打交道，不得不说一句微软牛逼！
 
-这里我会推荐一些关于 vscode 的一些相关配置，与常用操作对我来说能提高我一定编写代码的效率。
+这里我会推荐一些关于 vscode 的一些相关配置，与常用操作对我来说能提高我一定编写代码的效率（常用不写）。
 
 ## 插件推荐
+
+### GitHub Copilot
+
+AI 写代码，用过都说好。
+
+官网地址 [GitHub Copilot · Your AI pair programmer](https://copilot.github.com/)
+
+不过目前处于测试阶段，需要申请（挺快的），个人体验下十分友好，但 AI 毕竟是 AI，所提供的代码提示也仅供参考，还需根据实际情况使用。
 
 ### Bracket Pair Colorizer 2
 
@@ -23,19 +38,19 @@ tags: [vscode, 开发工具]
 
 如果你不希望你的代码中白茫茫一片的，或者说想让括号更好看一点，那么这个插件特别推荐。此外，有时候代码写多了，要删除嵌套括号的时候，如果有颜色标识，在寻找的时候必然是轻松的一件事情。
 
+现 Vscode 自带该功能，无需安装插件，在设置中搜索 Bracket Pair Colorization，勾选即可。
+
+![image-20220610012923130](https://img.kuizuo.cn/image-20220610012923130.png)
+
 ### indent-rainbow
 
 正如插件名，彩虹缩进，能让你的代码中不同长度的缩进呈现不同的颜色（上面的代码缩进有略微的颜色差），有时候在缩进特别多的时候尤其有效，当然，配合 VScode 快捷键`Ctrl + Shift + \`能快速定位下一个括号所在的位置
-
-### Color Highlight
-
-既然括号可以高亮有颜色，那说到颜色肯定少不了这个插件，有时候遇到 #FF0000 这样的 rgb 表示颜色，又不想打开查看颜色转化工具，安装这个插件后，就可以将对应的颜色像上面这样直接显示出来。（注意看上图前面的 rgb）
 
 ### Prettier
 
 首先要知道 vscode 代码格式化快捷键是 Shift + Alt + F，然而 vscode 自带的代码格式化对于一些文件并没有格式化操作，比如 vue，这时候你下载这个插件即可格式化 vue 代码。
 
-我在用了 vscode 半年后才知道有这么好用的格式化插件，之前用的是 Beautify 但是格式化的效果，并不是我满意的，并且同样的有些文件并未能格式化。如果还在用 Beautify，果然换 Prettier 准没错。‘
+我在用了 vscode 半年后才知道有这么好用的格式化插件，之前用的是 Beautify 但是格式化的效果，并不是我满意的，并且同样的有些文件并未能格式化。如果还在用 Beautify，果然换 Prettier 准没错。
 
 如果是 Vue2 用户的话，Vetur 是必装一个插件，不仅能格式化代码，还能提供相对于的提示，如果转型为 Vue3 的话，同样也有插件 Volar 可供选择。
 
@@ -66,20 +81,6 @@ tags: [vscode, 开发工具]
 
 注意哈，和上者插件名字大不相同，功能也完全不同，这是用于多人同步的一个插件，只需要登录 Github 或 Microsoft 账号，就可以将自己的本地代码实时共享给别人看，同时也能实战显示对方这时候所指的代码位置，还能发送信息，在多人远程协作的时候无疑是一把利器。
 
-### GitLens
-
-VScode 使用 git，这个插件必安装不可。
-
-官方介绍
-
-> Supercharge the Git capabilities built into Visual Studio Code — Visualize code authorship at a glance via Git blame annotations and code lens, seamlessly navigate and explore Git repositories, gain valuable insights via powerful comparison commands, and so much more
->
-> 增强 Visual Studio 代码中内置的 Git 功能——通过 Git 注释和代码镜头，一目了然地查看代码作者身份，无缝导航和探索 Git 存储库，通过强大的比较命令获得有价值的见解，等等
-
-如果想很明显的显示 Git 版本流程，那么也可以推荐使用 Git Graph 这个插件虽说可能不如专门的 Git 可视化软件好用，或者是想 IDEA 那种自带的 git 管理。但如果是 vscode 的话，这个还是不错的。
-
-![image-20210817220205139](https://img.kuizuo.cn/image-20210817220205139.png)
-
 ### REST Client
 
 允许在 Vscode 中发送 http 请求的并在 Vscode 中查看响应，我个人在做协议分析的时候常常用到，有多好用呢，
@@ -98,35 +99,13 @@ VScode 使用 git，这个插件必安装不可。
 
 快速查看 CSS 定位的地方，使用也方便，直接按住 Ctrl 对准要查看的样式的类名，然后在补一个鼠标左键即可定位。按住 Ctrl 同样适用于其他定位，如函数，变量等等。。。
 
-## vscode-icons
+### Project Manager
 
-修改 vscode 的文件图标，功能: 好看
+![image-20220610013640476](https://img.kuizuo.cn/image-20220610013640476.png)
 
-## 用过但卸载的插件
+对于一些常用项目而言，可以通过该插件添加到 Vscode 中，直接在左侧项目管理器中便可直接使用 vscode 打开项目工程。
 
-关于插件推荐也就告一段落，也是说一些实用，且还在用的，像基本必安装的一些插件就不必说了，不过想说说一些之前用过但是卸载的插件。
-
-### Regex Previewer
-
-说实在话，挺鸡肋的一个软件，如果你恰好用过的话，用久了可能会被的 Test Regex… 给折磨到，还要占用一行代码，点击后弹出的一个窗口做过修改，关闭时还询问是否需要保存，对我来说我只是测试一下正则而已，总之，这个插件我选择了卸载。
-
-不过这确实初学者接触 JS 的正则表达式可以方便许多，如果恰好你正则表达式功底不咋地，其实还是很推荐的。
-
-### Markdown Preview Enhanced
-
-为什么会卸载它，原因是因为 Typora 太好用了，我基本不会用 VScode 去编写 md 文档，因为怎么使用都比如 Typora，故卸载该插件。
-
-### Todo Tree
-
-这个插件我花费很多时间，原因是能自定义类似 TODO 这样的标签，编写代码的时候，需要对一些代码做一些注释，比如这段代码我接下来准备做 那么我就可以写上 `// TODO` 待会要在这些，在比如要修改一些代码，或者是修改一个 bug，就可以用 `// FIXME` 与 `// BUG` 然而很多时候，TODO 就足以，完全没必要搞得花里胡哨的，至于这个 Todo Tree 方便的点就是在资源管理器中，能方便查看自己所写的一些类似 TODO 标签一样，然而对我来说，TODO 用的确实少，主要手头有正好有事，对当前代码做一个标记即可，回来的时候自然还记得当时这段代码要干嘛。当时接触 vscode 还没学 Markdown，然后笔记就写在了对应的 js 代码中，然后就有 NOTE POINT STAR TAG 等等标签，还搞各种颜色图标，想想就有点傻，有这时间多敲几行不香吗？
-
-如果需要 TODO 这类标记，我更是推荐 TODO Highlight 这个插件。不过需要小配置一下。注意，TODO 后需要添加冒号 也就是`TODO:`才会高亮。然后按 F1 输入 TODO 即可列出 todo 相关列表。
-
-### CodeIf
-
-`CodeIf` 是一个用来给变量命名的网站，你只要输入你想起的中文名，它就会给你提供很多建议的命名，很多时候都会遇到词穷的时候，不过编写代码最主要的不是变量名，而是注释。一个好的注释，再差的变量都能明了。然而代码量写多了，这个搜索变量名也少了，自然就卸载了。实际上还是有 CodeIf 的网站 [CodeIf](https://unbug.github.io/codelf/#username) 当然国内有可能访问不了，需科学上网。
-
-还有一些用过卸载的插件，实在不记得了
+还有挺多使用插件没介绍到，个人建议还是直接下载对应的配置文件，将其导入即可，配置文件包含插件、主题、快捷键，布局等等。
 
 ## 快捷键
 
@@ -185,6 +164,7 @@ VScode 使用 git，这个插件必安装不可。
 - <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> 上光标移动
 - <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>;</kbd> 光标移动至行尾，相当于 End 键
 - <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>H</kbd> 光标移动至行首，相当于 Home 键
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>U</kbd> 选中代码片段，即可合并成一行代码。
 
 设置的话也比较简单，打开设置，找到键盘快捷方式，然后找到光标移动的快捷键然后，或者是打开对应的 keybindings.json 文件，把下面代码添加即可。
 
@@ -219,6 +199,10 @@ VScode 使用 git，这个插件必安装不可。
     "key": "shift+alt+oem_1",
     "command": "cursorEnd",
     "when": "textInputFocus"
+  },
+  {
+    "key": "shift+alt+u",
+    "command": "editor.action.joinLines"
   }
 ]
 ```
@@ -231,6 +215,106 @@ VScode 使用 git，这个插件必安装不可。
 
 设置为 Ctrl + i Ctrl + k 因人而异
 
-## 自写 vscode 插件
+## 代码提示
 
-未写，待定…（主要还不会，后续学了在补充）
+相信你在使用`vscode`中，肯定有过这样的问题，明明引入本地模块，但是有的时候就是没有对应的代码提示。如图
+
+![image-20200901212906150](https://img.kuizuo.cn/image-20200901212906150.png)
+
+像导入本地模块`fs`，却没有代码提示，想要有本地模块代码提示，最快捷的方法就是通过下面一行代码
+
+```shell
+npm install @types/node
+```
+
+但是如果你像上面那样，目录下没有`package.json`文件是肯定安装不上去的，这时候是需要初始化项目结构也就是执行下面的代码
+
+```shell
+npm init
+或
+npm init -y
+```
+
+然后在目录下你就能看到`node_modules`，在这个文件夹下有一个`@types`，这个目录就是存放你以后代码提示的目录，现在`@types`里面有`node`这个文件夹，也就是我们刚刚这个命令`npm install @types/node`后的 node，现在试试看确实是有代码提示了，并且还有带星推荐。
+
+![image-20200901214223439](https://img.kuizuo.cn/image-20200901214223439.png)
+
+现在，我的代码里有`jquery`代码，但是本地已有`jquery.js`文件，又不想安装`jquery`的模块，但是又要`jquery`的代码提示，这时候你就可以输入下面代码，就能看到对应的代码。
+
+```shell
+npm install @types/jquery
+```
+
+![image-20200901214906038](https://img.kuizuo.cn/image-20200901214906038.png)
+
+在比如有的库安装会没带代码提示，这时候就用上面的方法同样也可以有代码提示，例如`express`
+
+`express`相关安装操作我就不赘述了，先看图片
+
+![image-20200901215612611](https://img.kuizuo.cn/image-20200901215612611.png)
+
+这 app 代码提示怎么全是 js 自带的代码提示。
+
+然后在看`node_modules\@types`下，怎么只有我刚刚安装的那几个？
+
+![image-20200901215826419](https://img.kuizuo.cn/image-20200901215826419.png)
+
+不妨试试
+
+```shell
+npm install @types/express
+```
+
+这时候`node_modules\@types`下，就多了几个文件夹，其中一个名为 express，那么现在代码提示肯定有了。
+
+![image-20200901220225659](https://img.kuizuo.cn/image-20200901220225659.png)
+
+果不其然，`vscode`里也有正常的代码提示了
+
+![image-20200901220329481](https://img.kuizuo.cn/image-20200901220329481.png)
+
+:::info
+
+要注意的是，如果导入的库所采用的是 TypeScript 所书写的，那么就无需引用@types/xxx。而一些远古的库所采用的 JavaScript 编写的，所以自然没有代码提示，就需要借用 typescript 官方提供的@types/xxx 包。
+
+:::
+
+从上面的例子中，可以得出`@types`这个文件夹里存放的都是`vscode`当前工作区的代码提示文件，想要对应的代码提示就直接`npm i @types/模块名`即可，如果你当前工作区没有代码提示，那么多半是这个问题。
+
+### 自定义代码提示与快捷输入
+
+这里补充一下，有时候我想自己定义一个代码提示，有没有办法呢，当然有，如果你恰巧学过 java，想必每次写`System.out.println`都痛苦的要死，这时候你就可以像这样
+
+1. 创建一个.vscode 文件夹，在文件夹里创建一个名为`kuizuo.code-snippets`（只要后缀是 code-snippets 就行）
+2. 在这个文件内写上如下代码
+
+```json
+{
+  "System.out.println": {
+    "scope": "java",
+    "prefix": "syso",
+    "body": ["System.out.println($1);"],
+    "description": "输出至控制台，并带上换行符"
+  }
+}
+```
+
+- System.out.println 为代码块的名字，无需强制。
+- prefix：触发代码片段
+- body：按下 TAB 后触发的内容填充，注意是一个数组类型，每行都需要用双引号修饰，不能使用模板字符串
+- description：代码提示内容
+- scope: 作用的语言，可多选，如"javascript,c"
+- $+数字: 为光标的定位符，有多个则 Tab 跳转下个光标位置
+
+上则代码的意思就是输入 prefix 内的`syso` 然后按下 tab 键就会把 body 内的`System.out.println($1);`代码提示显示出来，其中`$1`为光标位置，如图
+
+![](https://img.kuizuo.cn/syso.gif)
+
+但一般很少用到代码块，很多现成的插件就可以完全满足对应代码补全的需求，但有时候会方便很多。
+
+像一些插件内会自带的代码提示，能不能“偷”过来使用一下呢，答案是肯定能的，这里我就已 autoj -pro 为例，(没了解过该软件可以忽视）
+
+1. 首先安装 autoJS_pro 插件，然后进入 C:\Users\Administrato\\.vscode\extensions\hyb1996.auto-js-pro-ext.... （Administrator 为用户名）
+2. 找到以 snippets 结尾的文件，打开全选复制其中的代码。
+3. 打开 vscode，如上操作，创建一个.vscode 文件夹，后同
+4. 把复制的代码段粘贴到我们创建的 snippets 文件，卸载 auto.js-pro 插件，重启即可

@@ -52,6 +52,10 @@ const config = {
               label: '技术笔记',
               to: 'docs/skill/',
             },
+            {
+              label: '工具推荐',
+              to: 'docs/tools/',
+            },
           ],
         },
         {

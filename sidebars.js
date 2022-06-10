@@ -244,6 +244,15 @@ const sidebars = {
       ],
     },
   ],
+  tools: [
+    'tools/introduction',
+    'tools/Everything快速搜索本地文件',
+    'tools/Windows Terminal美化',
+    'tools/Windows自定义右键菜单',
+    'tools/vscode相关配置',
+    'tools/Wappalyzer识别网站上的技术',
+    'tools/Jetbrains系列产品激活方法',
+  ]
 }
 
 module.exports = sidebars
