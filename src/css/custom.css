@@ -574,18 +574,13 @@ html[data-theme='dark'] .footer_eye {
 }
 
 .pagination-nav__link {
-  /* border: none; */
-  margin: 2em 0;
   background: linear-gradient(90deg, var(--ifm-color-primary-light) 11.3%, var(--ifm-color-primary) 161.54%);
-  box-shadow: 0px 0px 32px rgb(0 105 165 / 35%);
   color: white;
   border: none;
 }
 
 html[data-theme='dark'] .pagination-nav__link {
-  /* border: none; */
-  margin: 2em 0;
-  background: #0179fa77;
+  background: var(--tag-background-dark);
   box-shadow: 0px 0px 32px rgb(0 105 165 / 35%);
   color: white;
   border: none;

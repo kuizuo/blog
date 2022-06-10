@@ -10,13 +10,14 @@ const config = {
   url: 'https://kuizuo.cn',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  organizationName: 'kuizuo', // Usually your GitHub org/user name.
-  projectName: 'kuizuo.cn', // Usually your repo name.
+  organizationName: 'kuizuo',
+  projectName: 'blog',
+  tagline: '记录所学知识，领略编程之美',
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
   themeConfig: {
     image: 'img/logo.png',
     announcementBar: {
-      id: 'announcementBar-3', // Any value that will identify this message.
+      id: 'announcementBar-3',
       content: announcementBarContent,
     },
     metadata: [
@@ -25,7 +26,11 @@ const config = {
         content: '愧怍, kuizuo, blog, javascript, typescript, python ,node, react, vue, web, 前端, 后端',
       },
     ],
-    hideableSidebar: true,
+    docs: {
+      sidebar: {
+        hideable: true,
+      }
+    },
     navbar: {
       title: '愧怍',
       logo: {
@@ -96,11 +101,6 @@ const config = {
         },
       ],
     },
-    algolia: {
-      apiKey: '87223cb5a5ff37c4dbbb616812c65a59',
-      appId: '2NBW5YNFON',
-      indexName: 'kuizuo',
-    },
     footer: {
       style: 'dark',
       links: [
@@ -150,8 +150,7 @@ const config = {
           }],
         },
       ],
-      copyright: `<p>Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.</p><p><a href="http://beian.miit.gov.cn/" >${beian}</a>`,
-      //</p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/img/creative-commons-license-icon.png" /></a><br />本站所有内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh-Hans" >CC BY-NC 4.0 协议</a>，转载须注明署名和出处，且不可用于商业用途。若与其他同步平台协议冲突，以本网站为准。
+      copyright: `<p>Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.</p><p><a href="http://beian.miit.gov.cn/" >${beian}</a></p>`,
     },
     prism: {
       theme: require('prism-react-renderer/themes/github'),
@@ -163,7 +162,25 @@ const config = {
       minHeadingLevel: 2,
       maxHeadingLevel: 4,
     },
-    zoomSelector: '.markdown :not(em) > img',
+    algolia: {
+      apiKey: '87223cb5a5ff37c4dbbb616812c65a59',
+      appId: '2NBW5YNFON',
+      indexName: 'kuizuo',
+    },
+    zoom: {
+      selector: '.markdown :not(em) > img',
+      background: {
+        light: 'rgb(255, 255, 255)',
+        dark: 'rgb(50, 50, 50)'
+      },
+      config: {}
+    },
+    matomo: {
+      matomoUrl: 'https://matomo.kuizuo.cn',
+      siteId: '1',
+      phpLoader: 'matomo.php',
+      jsLoader: 'matomo.js',
+    },
     liveCodeBlock: {
       playgroundPosition: 'top',
     },
@@ -185,11 +202,6 @@ const config = {
         docs: {
           path: 'docs',
           sidebarPath: 'sidebars.js',
-          // editUrl: "https://github.com/kuizuo/kuizuo.cn/tree/master",
-          // remarkPlugins: [require("remark-math")],
-          // rehypePlugins: [require("rehype-katex")],
-          // showLastUpdateAuthor: true,
-          // showLastUpdateTime: true,
         },
         blog: {
           path: 'blog',
@@ -197,8 +209,6 @@ const config = {
           blogSidebarTitle: '近期文章',
           blogSidebarCount: 5,
           postsPerPage: 10,
-          // remarkPlugins: [require("remark-math")],
-          // rehypePlugins: [require("rehype-katex")],
           showReadingTime: true,
           readingTime: ({ content, frontMatter, defaultReadingTime }) =>
             defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
@@ -222,26 +232,14 @@ const config = {
   themes: ['@docusaurus/theme-live-codeblock'],
   plugins: [
     path.resolve(__dirname, './src/plugin/plugin-baidu-analytics'),
-    path.resolve(__dirname, './src/plugin/plugin-matomo-analytics'),
     path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
-    // path.resolve(__dirname, "./src/plugin/plugin-onesignal-push"),
-    // "docusaurus2-dotenv",
+    'docusaurus-plugin-matomo',
+    'docusaurus-plugin-image-zoom',
     [
       '@docusaurus/plugin-ideal-image', {
         disableInDev: false,
       }
     ],
-    path.resolve(__dirname, './src/plugin/plugin-image-zoom'),
-    path.resolve(__dirname, './src/plugin/plugin-latest-docs'),
-    // [
-    //   "@easyops-cn/docusaurus-search-local",
-    //   {
-    //     hashed: true,
-    //     // indexPages: true,
-    //     blogRouteBasePath: "/",
-    //     language: ["en", "zh"],
-    //   },
-    // ],
     [
       '@docusaurus/plugin-pwa',
       {
@@ -256,7 +254,7 @@ const config = {
           {
             tagName: 'link',
             rel: 'manifest',
-            href: '/manifest.json', // 您的 PWA Manifest
+            href: '/manifest.json',
           },
           {
             tagName: 'meta',
