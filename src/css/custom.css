@@ -6,8 +6,6 @@
 
 /* You can override the default Infima variables here. */
 
-/* "Yuanti SC", "Yuanti SC Regular", "Youyuan",
-    "You Yuan", "幼圆", */
 * {
   word-break: break-all;
 }
@@ -534,9 +532,6 @@ html[data-theme='dark'] .bloghome__intro > p {
   border: 1px solid #eee;
   font-size: 0.95rem;
   transition: box-shadow 0.3s ease-in-out;
-}
-
-.post-copyright-meta {
 }
 
 html[data-theme='dark'] .post__tags {
