@@ -176,7 +176,7 @@ const config = {
       config: {}
     },
     matomo: {
-      matomoUrl: 'https://matomo.kuizuo.cn',
+      matomoUrl: 'https://matomo.kuizuo.cn/',
       siteId: '1',
       phpLoader: 'matomo.php',
       jsLoader: 'matomo.js',
