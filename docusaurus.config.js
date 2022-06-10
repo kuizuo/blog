@@ -181,6 +181,14 @@ const config = {
       phpLoader: 'matomo.php',
       jsLoader: 'matomo.js',
     },
+    gitalk: {
+      clientID: '3f390a6f6e979a76d1a1',
+      clientSecret: 'e2cd29b8055fcc2265b2292387236c36857e21fc',
+      repo: 'blog',
+      owner: 'kuizuo',
+      admin: ['kuizuo'],
+      distractionFreeMode: false,
+    },
     liveCodeBlock: {
       playgroundPosition: 'top',
     },
