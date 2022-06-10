@@ -573,6 +573,10 @@ html[data-theme='dark'] .footer_eye {
   fill: var(--ifm-color-primary-light);
 }
 
+.pagination-nav {
+  margin: 2em 0;
+}
+
 .pagination-nav__link {
   background: linear-gradient(90deg, var(--ifm-color-primary-light) 11.3%, var(--ifm-color-primary) 161.54%);
   color: white;
