@@ -1,5 +1,5 @@
 ---
-title: vscode相关配置
+title: VScode相关配置
 date: 2021-08-03
 authors: kuizuo
 tags: [vscode, 开发工具, 配置]
