@@ -5,7 +5,7 @@ const beian = '闽ICP备2020017848号-2'
 const announcementBarContent = `新增基于<a href='https://pypi.org/project/ddddocr/'>ddddocr</a>实现<a href='https://ocr.kuizuo.cn'>图像识别后台系统</a>`
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '愧怍的个人博客',
+  title: '愧怍',
   titleDelimiter: '-',
   url: 'https://kuizuo.cn',
   baseUrl: '/',
