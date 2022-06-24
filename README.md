@@ -1,14 +1,19 @@
-# 个人博客
+<h1 align="center">
+  <p align="center">个人博客</p>
+  <a href="https://kuizuo.cn"><img src="https://img.kuizuo.cn/blog.png" alt="Docusaurus"></a>
+</h1>
 
-![blog](https://img.kuizuo.cn/20220125193719.png)
+## Online
 
-访问地址 [愧怍的小站](https://kuizuo.cn) 
+[愧怍的个人博客](https://kuizuo.cn)
 
-本博客基于 [Docusaurus v2](https://v2.docusaurus.io/)  静态网站生成器实现，借鉴 [峰华前端工程师- 让你学会前端开发 (zxuqian.cn)](https://zxuqian.cn/) 所开源的[代码](https://github.com/zxuqian/zxuqian.cn)上进行二次开发。
+> 在这里你能了解到各类实战开发的所遇到的问题，帮助你在学习的过程了解最新的技术栈，并希望我的个人经历对你有所启发。
 
-具体搭建过程 [第二个博客搭建之Docusaurus - 愧怍的小站 (kuizuo.cn)](https://kuizuo.cn/develop/第二个博客搭建之Docusaurus)
+> 本博客基于 [Docusaurus v2](https://v2.docusaurus.io/) 静态网站生成器实现，借鉴 [峰华前端工程师- 让你学会前端开发](https://zxuqian.cn/) 所开源的[代码](https://github.com/zxuqian/zxuqian.cn)上进行二次开发。
+>
+> 具体搭建: [第二个博客搭建之 Docusaurus](https://kuizuo.cn/develop/第二个博客搭建之Docusaurus)
 
-## 使用方法
+## Installation
 
 首先克隆仓库代码：
 
@@ -36,3 +41,7 @@ npm build
 ```
 
 关于部署，由于不同的服务器、平台有不同的方式，可以使用 Github Pages、FTP、自行搭建服务器等。
+
+## License
+
+[MIT licensed](https://github.com/kuizuo/blog/blob/main/LICENSE).
