@@ -25,7 +25,7 @@ Wappalyzer 官网
 
 ![image-20210729074332788](https://img.kuizuo.cn/image-20210729074332788.png)
 
-愧怍的小站
+愧怍的个人博客
 
 ![image-20210802131116542](https://img.kuizuo.cn/image-20210802131116542.png)
 

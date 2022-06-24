@@ -6,7 +6,7 @@ tags: [blog, docusaurus, project]
 sticky: true
 ---
 
-博客地址: [愧怍的小站 (kuizuo.cn)](https://kuizuo.cn/)
+博客地址: [愧怍 (kuizuo.cn)](https://kuizuo.cn/)
 
 源码地址：[kuizuo/blog: 愧怍的个人博客 (github.com)](https://github.com/kuizuo/blog)
 
