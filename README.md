@@ -3,8 +3,6 @@
   <a href="https://kuizuo.cn"><img src="https://img.kuizuo.cn/blog.png" alt="Docusaurus"></a>
 </h1>
 
-## Online
-
 [愧怍的个人博客](https://kuizuo.cn)
 
 > 在这里你能了解到各类实战开发的所遇到的问题，帮助你在学习的过程了解最新的技术栈，并希望我的个人经历对你有所启发。
