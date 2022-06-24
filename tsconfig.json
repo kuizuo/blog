@@ -1,5 +1,4 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
     "lib": ["DOM", "ESNext"],
@@ -7,7 +6,7 @@
     "resolveJsonModule": true,
     "strict": true,
     "types": ["@types/jest"],
-    "jsxImportSource": "@emotion/react",
+    "jsxImportSource": "@emotion/react"
   },
   "exclude": ["src/sw.js"]
 }
