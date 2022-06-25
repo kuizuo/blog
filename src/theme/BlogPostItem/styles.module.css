@@ -1,23 +1,54 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 .blogPostTitle {
-  font-size: 3rem;
+  position: relative;
+  font-weight: 500;
 }
 
-.blogPostDate {
+.blogPostTitle:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.blogPostTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--ifm-color-primary);
+  visibility: hidden;
+  transition: all 0.3s linear;
+  transform: scaleX(0);
+}
+
+.blogPostInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--ifm-spacing-m);
+  gap: 5px;
+}
+
+.blogPostAuthor {
+  display: inline-block;
+  margin: 0 4px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: inherit;
+}
+
+.blogPostAuthor:hover {
+  text-decoration: none;
+}
+
+.blogPostCopyright {
+  margin: 1rem 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #eee;
+  font-size: 0.95rem;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.blogPostDate,
+.blogPostReadTime {
   font-size: 0.9rem;
-}
-
-.readMore {
-  margin-top: 1.4em;
-  padding: 0.75em 2em;
-  background: linear-gradient(90deg, var(--ifm-color-primary) 11.3%, var(--ifm-color-primary-light) 161.54%);
-  border-radius: 8px;
-  box-shadow: 0 0 32px rgb(0 105 165 / 35%);
-  color: #fff;
 }

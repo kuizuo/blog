@@ -77,7 +77,7 @@ html {
   --post-shadow: 0 0 20px 10px var(--post-shadow-color);
   --content-background-color: #fafafa;
   --blog-item-background-color: linear-gradient(50deg, #ffffff, hsl(0deg 0% 95%));
-  --blog-item-shadow: 20px 20px 60px #ced1d6, -20px -20px 60px #ffffff;
+  --blog-item-shadow: 20px 20px 60px #ced1d6, -10px -10px 20px #ffffff;
   --ifm-heading-color: #000000;
 
   -webkit-font-smoothing: unset;
@@ -524,14 +524,6 @@ html[data-theme='dark'] .bloghome__intro > p {
 .post__tags:hover {
   color: #d4e8fa;
   text-decoration: none;
-}
-
-.post-copyright {
-  margin: 1rem 0 0.5rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid #eee;
-  font-size: 0.95rem;
-  transition: box-shadow 0.3s ease-in-out;
 }
 
 html[data-theme='dark'] .post__tags {
