@@ -1,5 +1,3 @@
-import { sortBy } from '@site/src/utils/jsUtils'
-
 export type Tag = {
   label: string
   description: string
@@ -49,7 +47,7 @@ const Projects: Project[] = [
   {
     title: '愧怍的小站',
     description: '基于Docusaurus v2 静态网站生成器实现个人博客',
-    preview: require('./showcase/blog.png'),
+    preview: 'https://img.kuizuo.cn/blog.png',
     website: 'https://kuizuo.cn',
     source: 'https://github.com/kuizuo/blog',
     tags: ['opensource', 'design', 'favorite'],
@@ -57,7 +55,7 @@ const Projects: Project[] = [
   {
     title: 'kz-admin',
     description: '基于NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin编写的一款前后端分离的权限管理系统',
-    preview: require('./showcase/kz-admin.png'),
+    preview: 'https://img.kuizuo.cn/kz-admin.png',
     website: 'https://admin.kuizuo.cn',
     source: 'https://github.com/kuizuo/kz-nest-admin',
     tags: ['opensource', 'favorite', 'product'],
@@ -65,7 +63,7 @@ const Projects: Project[] = [
   {
     title: 'ocr-admin',
     description: '基于ddddocr与kz-admin搭建的图像识别后台系统',
-    preview: require('./showcase/ocr-admin.png'),
+    preview: 'https://img.kuizuo.cn/ocr-admin.png',
     website: 'https://ocr.kuizuo.cn',
     source: '',
     tags: ['product'],
@@ -73,7 +71,7 @@ const Projects: Project[] = [
   {
     title: '资源导航',
     description: '学习编程中遇到的资源整合网站',
-    preview: require('./showcase/nav.png'),
+    preview: 'https://img.kuizuo.cn/code-nav.png',
     website: 'https://nav.kuizuo.cn',
     source: 'https://github.com/kuizuo/code-nav',
     tags: ['opensource', 'javascript'],
@@ -81,7 +79,7 @@ const Projects: Project[] = [
   {
     title: 'JS代码混淆与还原',
     description: '基于Babel的AST操作对JavaScript代码混淆与还原的网站',
-    preview: require('./showcase/js-de-obfuscator.png'),
+    preview: 'https://img.kuizuo.cn/js-de-obfuscator.png',
     website: 'https://deobfuscator.kuizuo.cn',
     source: 'https://github.com/kuizuo/js-de-obfuscator',
     tags: ['opensource', 'javascript'],
@@ -89,7 +87,7 @@ const Projects: Project[] = [
   {
     title: '愧怍在线工具',
     description: '基于React与MUI组件库编写的在线工具网站',
-    preview: require('./showcase/tools.png'),
+    preview: 'https://img.kuizuo.cn/tools.png',
     website: 'http://tools.kuizuo.cn',
     source: 'https://github.com/kuizuo/online-tools',
     tags: ['opensource', 'javascript'],
@@ -97,7 +95,7 @@ const Projects: Project[] = [
   {
     title: '题小侠',
     description: '基于Taro+Vue3+NutUI编写的搜题小程序',
-    preview: require('./showcase/question-man.png'),
+    preview: 'https://img.kuizuo.cn/question-man.png',
     website: 'https://img.kuizuo.cn/itopic.jpg',
     source: 'https://github.com/kuizuo/question-man',
     tags: ['opensource', 'product'],

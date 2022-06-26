@@ -12,7 +12,7 @@ import type { Props } from '@theme/BlogListPage'
 import Fade from 'react-reveal/Fade'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTags, faTag, faArchive, faBook } from '@fortawesome/free-solid-svg-icons'
+import { faTags, faTag, faArchive, faBook, faThLarge } from '@fortawesome/free-solid-svg-icons'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 import ListFilter from './img/list.svg'
@@ -24,9 +24,10 @@ function BlogListPage(props: Props) {
   const { metadata, items } = props
 
   const globalData = useGlobalData()
-  const blogData = globalData?.['docusaurus-plugin-content-blog']['default'] as any
-  const docData = globalData?.['docusaurus-plugin-content-docs']['default'] as any
-  console.log(docData)
+  const blogData = globalData?.['docusaurus-plugin-content-blog']?.['default'] as any
+  const tagData = blogData?.tags as BlogTags
+  const docData = globalData?.['docusaurus-plugin-content-docs']?.['default'] as any
+  const projectData = globalData?.['docusaurus-plugin-content-project']?.['default'] as any
 
   const {
     siteConfig: { title: siteTitle },
@@ -48,14 +49,14 @@ function BlogListPage(props: Props) {
 
   const showBlogInfo = true // 是否展示右侧博客作者信息
   const BlogInfo = () => {
-    const tags = blogData.tags as BlogTags
-    const tagCount = Object.keys(tags).length
-    const docCount = docData.versions?.[0].docs.length
+    const tagCount = Object.keys(tagData).length ?? 0
+    const docCount = docData?.versions[0].docs.length ?? 0
+    const projectCount = projectData?.projects?.length ?? 0
     const { totalCount: blogCount } = metadata
 
-    const tagsSection = Object.values(tags)
+    const tagsSection = Object.values(tagData)
       .map((tag) => (
-        <Link className={`post__tags tags__item margin-right--sm margin-bottom--sm`} href={tag.permalink} key={tag}>
+        <Link className={`post__tags tags__item margin-right--sm margin-bottom--sm`} href={tag.permalink} key={tag.permalink}>
           {tag.label}({tag.items.length})
         </Link>
       ))
@@ -81,6 +82,9 @@ function BlogListPage(props: Props) {
               </Link>
               <Link className='blogger__info-num-item' href={'./docs/skill'} data-tips='笔记数'>
                 <FontAwesomeIcon icon={faBook as IconProp} /> {docCount}
+              </Link>
+              <Link className='blogger__info-num-item' href={'./project'} data-tips='项目数'>
+                <FontAwesomeIcon icon={faThLarge as IconProp} /> {projectCount}
               </Link>
             </div>
             <SocialLinks animatedProps={{ maxWidth: '100%', padding: '1em 0', justifyContent: 'space-around' }} />

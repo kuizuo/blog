@@ -20,7 +20,6 @@ async function blogPluginEnhanced(context: LoadContext, options: PluginOptions):
       setGlobalData({
         // blogs: blogPosts,
         tags: blogTags,
-        projects: [],
       })
     },
   }

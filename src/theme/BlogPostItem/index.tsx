@@ -22,7 +22,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 function BlogPostItem(props: Props) {
   const { children, frontMatter, metadata, truncated, isBlogPostPage = false, assets } = props
   const { date, permalink, tags, authors, readingTime } = metadata
-  
+
   const {
     siteConfig: { title: siteTitle, url: siteUrl },
   } = useDocusaurusContext()
@@ -85,7 +85,7 @@ function BlogPostItem(props: Props) {
         <div className={styles.blogPostInfo}>
           <FontAwesomeIcon icon={faUser as IconProp} color='#c4d3e0' />
           {authors.map((a) => (
-            <span>
+            <span key={a.url}>
               <a href={a.url} className={styles.blogPostAuthor}>
                 {a.name}
               </a>

@@ -896,6 +896,7 @@ code {
 .blogger__info-num-item {
   transform: all 0.3s ease-in-out;
   display: flex;
+  flex-shrink: 0;
   gap: 5px;
   padding: 0 10px;
   align-items: center;

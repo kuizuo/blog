@@ -266,6 +266,9 @@ const config = {
         },
       }
     ],
+    [
+      path.resolve(__dirname, './src/plugin/plugin-content-project'), {}
+    ],
     path.resolve(__dirname, './src/plugin/plugin-baidu-analytics'),
     path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
     'docusaurus-plugin-matomo',
