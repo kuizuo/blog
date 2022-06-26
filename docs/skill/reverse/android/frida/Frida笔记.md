@@ -384,7 +384,7 @@ const $1 = Java.use('包名.MainActivity$1')
 
 ### 枚举类
 
-```
+```javascript
 Java.choose("枚举类" {
     onMatch: function (obj) {
         console.log(obj.ordinal()); // 输出枚举的键
