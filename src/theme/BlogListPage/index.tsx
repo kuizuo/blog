@@ -1,33 +1,22 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Link from '@docusaurus/Link'
 import Head from '@docusaurus/Head'
 import Translate from '@docusaurus/Translate'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import useGlobalData from '@docusaurus/useGlobalData'
-import type { BlogTags } from '@docusaurus/plugin-content-blog'
 import Layout from '@theme/Layout'
 import BlogPostItem from '@theme/BlogPostItem'
 import BlogListPaginator from '@theme/BlogListPaginator'
 import type { Props } from '@theme/BlogListPage'
 import Fade from 'react-reveal/Fade'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTags, faTag, faArchive, faBook, faThLarge } from '@fortawesome/free-solid-svg-icons'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
-
 import ListFilter from './img/list.svg'
 import CardFilter from './img/card.svg'
 import { useViewType } from './useViewType'
-import Hero, { SocialLinks } from '@site/src/components/Hero'
+import Hero from '@site/src/components/Hero'
+import BlogInfo from '@site/src/components/BlogInfo'
 
 function BlogListPage(props: Props) {
   const { metadata, items } = props
-
-  const globalData = useGlobalData()
-  const blogData = globalData?.['docusaurus-plugin-content-blog']?.['default'] as any
-  const tagData = blogData?.tags as BlogTags
-  const docData = globalData?.['docusaurus-plugin-content-docs']?.['default'] as any
-  const projectData = globalData?.['docusaurus-plugin-content-project']?.['default'] as any
 
   const {
     siteConfig: { title: siteTitle },
@@ -48,62 +37,6 @@ function BlogListPage(props: Props) {
   const isListView = viewType === 'list'
 
   const showBlogInfo = true // 是否展示右侧博客作者信息
-  const BlogInfo = () => {
-    const tagCount = Object.keys(tagData).length ?? 0
-    const docCount = docData?.versions[0].docs.length ?? 0
-    const projectCount = projectData?.projects?.length ?? 0
-    const { totalCount: blogCount } = metadata
-
-    const tagsSection = Object.values(tagData)
-      .map((tag) => (
-        <Link className={`post__tags tags__item margin-right--sm margin-bottom--sm`} href={tag.permalink} key={tag.permalink}>
-          {tag.label}({tag.items.length})
-        </Link>
-      ))
-      .filter((item) => item != null)
-
-    return (
-      <div className={viewType === 'card' ? `col col--3 margin-bottom--md` : 'blogger__info-hidden'}>
-        <div className='bloghome__posts-card margin-bottom--md'>
-          <div className='row blogger__info-card'>
-            <Link href={'./about'}>
-              <img className='blogger__info-img' src='/img/logo.webp' alt='logo'></img>
-            </Link>
-            <Link className='blogger__info-name' href={'./about'}>
-              愧怍
-            </Link>
-            <div className='blogger__info-description'>不是巅峰时的信仰，而是黄昏时的追逐</div>
-            <div className='blogger__info-num'>
-              <Link className='blogger__info-num-item' href={'./archive'} data-tips='博客数'>
-                <FontAwesomeIcon icon={faArchive as IconProp} /> {blogCount}
-              </Link>
-              <Link className='blogger__info-num-item' href={'./tags'} data-tips='标签数'>
-                <FontAwesomeIcon icon={faTag as IconProp} style={{ transform: 'rotate(90deg)' }} /> {tagCount}
-              </Link>
-              <Link className='blogger__info-num-item' href={'./docs/skill'} data-tips='笔记数'>
-                <FontAwesomeIcon icon={faBook as IconProp} /> {docCount}
-              </Link>
-              <Link className='blogger__info-num-item' href={'./project'} data-tips='项目数'>
-                <FontAwesomeIcon icon={faThLarge as IconProp} /> {projectCount}
-              </Link>
-            </div>
-            <SocialLinks animatedProps={{ maxWidth: '100%', padding: '1em 0', justifyContent: 'space-around' }} />
-          </div>
-        </div>
-        <div className='bloghome__posts-card margin-bottom--md'>
-          <div className='row blogger__info-card'>
-            <div>
-              <FontAwesomeIcon icon={faTags as IconProp} color='#c4d3e0' />
-              <Link className='margin-horiz--sm' href={'./tags'}>
-                标签
-              </Link>
-              <div className='blogger__info-tags'>{tagsSection}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   return (
     <Layout title={title} description={description} wrapperClassName='blog-list__page'>
@@ -205,7 +138,7 @@ function BlogListPage(props: Props) {
                 <BlogListPaginator metadata={metadata} />
               </div>
             </div>
-            {showBlogInfo && <BlogInfo />}
+            {viewType === 'card' && showBlogInfo && <BlogInfo />}
           </div>
         </div>
       </div>

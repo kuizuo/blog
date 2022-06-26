@@ -1,3 +1,4 @@
+import React from 'react'
 import Layout from '@theme/Layout'
 
 import FriendCard from './_components/FriendCard'

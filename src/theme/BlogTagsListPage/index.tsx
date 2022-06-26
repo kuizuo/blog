@@ -1,3 +1,4 @@
+import React from 'react'
 import BlogLayout from '@theme/BlogLayout'
 import type { Props } from '@theme/BlogTagsListPage'
 import Link from '@docusaurus/Link'

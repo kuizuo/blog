@@ -18,7 +18,7 @@ async function blogPluginEnhanced(context: LoadContext, options: PluginOptions):
       const { blogPosts, blogTags } = content
       const { setGlobalData } = actions
       setGlobalData({
-        // blogs: blogPosts,
+        blogs: blogPosts,
         tags: blogTags,
       })
     },

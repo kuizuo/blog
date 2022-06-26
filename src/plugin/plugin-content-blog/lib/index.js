@@ -22,7 +22,7 @@ function blogPluginEnhanced(context, options) {
                     const { blogPosts, blogTags } = content;
                     const { setGlobalData } = actions;
                     setGlobalData({
-                        // blogs: blogPosts,
+                        blogs: blogPosts,
                         tags: blogTags,
                     });
                 });

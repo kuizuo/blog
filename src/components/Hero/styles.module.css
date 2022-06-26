@@ -105,7 +105,7 @@ html[data-theme='dark'] .bloghome__intro > p {
 .social__links {
   width: 100%;
   display: flex;
-  max-width: 200px;
+  max-width: 300px;
   align-items: center;
   justify-content: space-between;
   padding: 1em 0 2.5em 0;
