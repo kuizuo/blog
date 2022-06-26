@@ -1,0 +1,63 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "noEmit": false,
+    "incremental": true,
+    "tsBuildInfoFile": "./lib/.tsbuildinfo",
+    "rootDir": "src",
+    "outDir": "lib",
+
+    // Rest is from the root of the Docusaurus repo
+    "declaration": true,
+    "declarationMap": false,
+    "sourceMap": false,
+    "jsx": "react-native",
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    /* Strict Type-Checking Options */
+    "allowUnreachableCode": false,
+    // Too hard to turn on
+    "exactOptionalPropertyTypes": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    // `process.env` is usually accessed as property
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": true,
+    /* strict family */
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    /* Handled by ESLint */
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "importsNotUsedAsValues": "remove",
+
+    /* Module Resolution */
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "allowJs": true
+  },
+  "include": ["src"],
+  "exclude": [
+    "src/theme",
+    "**/__tests__/**",
+    "**/node_modules/**",
+    "**/coverage/**",
+    "**/lib/**/*",
+    "**/__mocks__/**/*",
+    "**/__fixtures__/**/*"
+  ]
+}
