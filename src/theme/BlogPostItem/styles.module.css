@@ -23,6 +23,7 @@
 
 .blogPostInfo {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: var(--ifm-spacing-m);
   gap: 5px;

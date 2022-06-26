@@ -21,11 +21,11 @@
   --ifm-color-primary-lighter: #c6ebfc;
   --ifm-color-primary-lightest: #f2fbff;
   --ifm-code-font-size: 95%;
-  --ifm-font-family-base: KaiTi, 'Raleway', 'PingFang SC', 'Microsoft Yahei', sans-serif;
-
+  --ifm-font-family-base: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
+  
   --ifm-font-family-name: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
   --ifm-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-  --ifm-heading-font-family: KaiTi, Roboto, 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, serif;
+  --ifm-heading-font-family: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
   /* --content-font-family: "Raleway", "Kai", "楷体", "Kaiti", serif; */
 
   --ifm-navbar-shadow: 0px 4px 28px rgba(0, 0, 0, 0.1);
