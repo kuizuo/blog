@@ -154,7 +154,7 @@ const config = {
       copyright: `<p>Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.</p><p><a href="http://beian.miit.gov.cn/" >${beian}</a></p>`,
     },
     prism: {
-      theme: require('prism-react-renderer/themes/github'),
+      theme: require('prism-react-renderer/themes/nightOwl'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
       additionalLanguages: ['java', 'php'],
       // defaultLanguage: "javascript",
