@@ -9,6 +9,7 @@
     "clear": "docusaurus clear",
     "build": "docusaurus build",
     "build-cn": "docusaurus build",
+    "build:plugin": "tsc -p src\\plugin\\plugin-content-project\\tsconfig.json",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",

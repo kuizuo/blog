@@ -1,13 +1,21 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-const blogPluginExports = (0, tslib_1.__importStar)(require("@docusaurus/plugin-content-blog"));
+const blogPluginExports = require("@docusaurus/plugin-content-blog");
 const blogPlugin = blogPluginExports.default;
 function blogPluginEnhanced(context, options) {
-    return (0, tslib_1.__awaiter)(this, void 0, void 0, function* () {
+    return __awaiter(this, void 0, void 0, function* () {
         const blogPluginInstance = yield blogPlugin(context, options);
         return Object.assign(Object.assign({}, blogPluginInstance), { contentLoaded({ content, actions }) {
-                return (0, tslib_1.__awaiter)(this, void 0, void 0, function* () {
+                return __awaiter(this, void 0, void 0, function* () {
                     // Create default plugin pages
                     yield blogPluginInstance.contentLoaded({ content, actions });
                     // Create your additional pages
@@ -16,7 +24,6 @@ function blogPluginEnhanced(context, options) {
                     setGlobalData({
                         // blogs: blogPosts,
                         tags: blogTags,
-                        projects: [],
                     });
                 });
             } });

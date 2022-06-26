@@ -1,5 +1,6 @@
 import { LoadContext, Plugin, PluginOptions } from '@docusaurus/types'
 
+// @ts-ignore
 import { sortedProjects, type Project } from '../../../data/project'
 
 function generateProjects(projectsPath?: string): Project[] {

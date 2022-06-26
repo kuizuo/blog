@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
+// @ts-ignore
 const project_1 = require("../../../data/project");
 function generateProjects(projectsPath) {
     return project_1.sortedProjects;
