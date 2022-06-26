@@ -1,17 +1,18 @@
 import BlogLayout from '@theme/BlogLayout'
+import type { Props } from '@theme/BlogTagsListPage'
 import Link from '@docusaurus/Link'
 import { PageMetadata, HtmlClassNameProvider, ThemeClassNames, translateTagsPageTitle } from '@docusaurus/theme-common'
 import SearchMetadata from '@theme/SearchMetadata'
 import clsx from 'clsx'
 
-function BlogTagsListPage(props) {
+function BlogTagsListPage(props: Props) {
   const { tags, sidebar } = props
   const title = translateTagsPageTitle()
 
   const TagsList = () => (
     <div className='row'>
       {tags.map((tag) => (
-        <Link className={`post__tags margin-horiz--sm margin-bottom--sm`} href={tag.permalink} key={tag.label}>
+        <Link className={`post__tags tags__item margin-horiz--sm margin-bottom--sm`} href={tag.permalink} key={tag.label}>
           {tag.label} ({tag.count})
         </Link>
       ))}

@@ -14,7 +14,7 @@ import QqIcon from '@site/static/icons/qq.svg'
 import WxIcon from '@site/static/icons/wx.svg'
 import CsdnIcon from '@site/static/icons/csdn.svg'
 import CloudMusicIcon from '@site/static/icons/cloud-music.svg'
-
+import TwitterIcon from '@site/static/icons/twitter.svg'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import Button from '../Button'
 
@@ -96,28 +96,35 @@ function Hero() {
   )
 }
 
-function SocialLinks({ animatedProps, ...props }) {
+export function SocialLinks({ animatedProps, ...props }) {
+  const { siteConfig } = useDocusaurusContext()
+  const { themeConfig } = siteConfig
+  const socials = themeConfig.socials as { github: string; twitter: string; juejin: string; csdn: string; qq: string; wx: string; cloudmusic: string }
+
   return (
     <animated.div className={styles.social__links} style={animatedProps}>
       <a href='./rss.xml' target='_blank'>
         <RssIcon />
       </a>
-      <a href='https://github.com/kuizuo' target='_blank'>
+      <a href={socials.github} target='_blank'>
         <GithubIcon />
       </a>
-      <a href='https://juejin.cn/user/1565318510545901' target='_blank'>
+      <a href={socials.juejin} target='_blank'>
         <JuejinIcon />
       </a>
       {/* <a href='https://blog.csdn.net/kuizuo12' target='_blank'>
         <CsdnIcon />
       </a> */}
-      <a href='https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq' target='_blank'>
+      <a href={socials.qq} target='_blank'>
         <QqIcon />
       </a>
       {/* <a href='' target='_blank'>
         <WxIcon />
       </a> */}
-      <a href='https://music.163.com/#/user/home?id=1333010742' target='_blank'>
+      <a href={socials.twitter} target='_blank'>
+        <TwitterIcon />
+      </a>
+      <a href={socials.cloudmusic} target='_blank'>
         <CloudMusicIcon />
       </a>
     </animated.div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import BlogLayout from '@theme/BlogLayout'
 import BlogPostItem from '@theme/BlogPostItem'
+import type { Props } from '@theme/BlogPostPage'
 import BlogPostPaginator from '@theme/BlogPostPaginator'
 import BackToTopButton from '@theme/BackToTopButton'
 import { ThemeClassNames } from '@docusaurus/theme-common'
@@ -12,7 +13,7 @@ import Gitalk from 'gitalk'
 import GitalkComponent from 'gitalk/dist/gitalk-component'
 import 'gitalk/dist/gitalk.css'
 
-function BlogPostPage(props) {
+function BlogPostPage(props: Props) {
   const { content: BlogPostContents, sidebar } = props
   const { frontMatter, assets, metadata } = BlogPostContents
   const { title, permalink, description, nextItem, prevItem, date, tags, authors } = metadata

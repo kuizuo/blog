@@ -22,7 +22,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 function BlogPostItem(props: Props) {
   const { children, frontMatter, metadata, truncated, isBlogPostPage = false, assets } = props
   const { date, permalink, tags, authors, readingTime } = metadata
-  console.log(metadata)
+  
   const {
     siteConfig: { title: siteTitle, url: siteUrl },
   } = useDocusaurusContext()
@@ -68,7 +68,7 @@ function BlogPostItem(props: Props) {
           <div className={styles.blogPostInfo}>
             <time dateTime={date} className={styles.blogPostDate}>
               {dayjs(date).format('YYYY-MM-DD')}
-              {isBlogPostPage && readingTime && <> · 预计阅读时间 {Math.ceil(readingTime)} 分钟</>}
+              {isBlogPostPage && readingTime && <> · {Math.ceil(readingTime)} 分钟阅读 </>}
             </time>
             {rendenPostTags()}
           </div>

@@ -3,9 +3,10 @@ const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
 const announcementBarContent = `新增基于<a href='https://pypi.org/project/ddddocr/'>ddddocr</a>实现<a href='https://ocr.kuizuo.cn'>图像识别后台系统</a>`
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '愧怍',
+  title: '愧怍的小站',
   titleDelimiter: '-',
   url: 'https://kuizuo.cn',
   baseUrl: '/',
@@ -192,6 +193,14 @@ const config = {
     liveCodeBlock: {
       playgroundPosition: 'top',
     },
+    socials: {
+      github: 'https://github.com/kuizuo',
+      twitter: 'https://twitter.com/kuizuo',
+      juejin: 'https://juejin.cn/user/1565318510545901',
+      csdn: 'https://blog.csdn.net/kuizuo12',
+      qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
+      cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
+    },
     // googleAnalytics: {
     //   trackingID: "UA-118572241-1",
     //   anonymizeIP: true, // Should IPs be anonymized?
@@ -211,21 +220,22 @@ const config = {
           path: 'docs',
           sidebarPath: 'sidebars.js',
         },
-        blog: {
-          path: 'blog',
-          routeBasePath: '/',
-          blogSidebarTitle: '近期文章',
-          blogSidebarCount: 5,
-          postsPerPage: 10,
-          showReadingTime: true,
-          readingTime: ({ content, frontMatter, defaultReadingTime }) =>
-            defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
-          feedOptions: {
-            type: 'all',
-            title: '愧怍',
-            copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
-          },
-        },
+        blog: false,
+        // blog: {
+        //   path: 'blog',
+        //   routeBasePath: '/',
+        //   blogSidebarTitle: '近期文章',
+        //   blogSidebarCount: 5,
+        //   postsPerPage: 10,
+        //   showReadingTime: true,
+        //   readingTime: ({ content, frontMatter, defaultReadingTime }) =>
+        //     defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
+        //   feedOptions: {
+        //     type: 'all',
+        //     title: '愧怍',
+        //     copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
+        //   },
+        // },
         theme: {
           customCss: [require.resolve('./src/css/custom.css')],
         },
@@ -239,6 +249,23 @@ const config = {
   ],
   themes: ['@docusaurus/theme-live-codeblock'],
   plugins: [
+    [
+      path.resolve(__dirname, './src/plugin/plugin-content-blog'), {
+        path: 'blog',
+        routeBasePath: '/',
+        blogSidebarTitle: '近期文章',
+        blogSidebarCount: 5,
+        postsPerPage: 10,
+        showReadingTime: true,
+        readingTime: ({ content, frontMatter, defaultReadingTime }) =>
+          defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
+        feedOptions: {
+          type: 'all',
+          title: '愧怍',
+          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
+        },
+      }
+    ],
     path.resolve(__dirname, './src/plugin/plugin-baidu-analytics'),
     path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
     'docusaurus-plugin-matomo',

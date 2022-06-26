@@ -1,33 +1,34 @@
-import React from 'react';
-import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
-import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage';
-import styles from './styles.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faHistory } from '@fortawesome/free-solid-svg-icons';
+import React from 'react'
+import Layout from '@theme/Layout'
+import Link from '@docusaurus/Link'
+import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage'
+import styles from './styles.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArchive } from '@fortawesome/free-solid-svg-icons'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
-import dayjs from 'dayjs';
+import dayjs from 'dayjs'
 
 type YearProp = {
-  year: string;
-  posts: ArchiveBlogPost[];
-};
+  year: string
+  posts: ArchiveBlogPost[]
+}
 
 function Year({ posts }: YearProp) {
   return (
     <>
-      <ul>
+      <ul className={styles.archiveList}>
         {posts.map((post) => (
           <li key={post.metadata.permalink}>
             <Link to={post.metadata.permalink}>
-              <span>{dayjs(post.metadata.date).format('MM-DD')}</span>
+              <span className={styles.archiveDate}>{dayjs(post.metadata.date).format('MM-DD')}</span>
               {post.metadata.title}
             </Link>
           </li>
         ))}
       </ul>
     </>
-  );
+  )
 }
 
 function YearsSection({ years }: { years: YearProp[] }) {
@@ -45,24 +46,24 @@ function YearsSection({ years }: { years: YearProp[] }) {
         </div>
       ))}
     </div>
-  );
+  )
 }
 
 function listPostsByYears(blogPosts: ArchiveBlogPost[]): YearProp[] {
   const postsByYear: Map<string, ArchiveBlogPost[]> = blogPosts.reduceRight((posts, post) => {
-    const year = post.metadata.date.split('-')[0];
-    const yearPosts = posts.get(year) || [];
-    return posts.set(year, [post, ...yearPosts]);
-  }, new Map());
+    const year = post.metadata.date.split('-')[0]
+    const yearPosts = posts.get(year) || []
+    return posts.set(year, [post, ...yearPosts])
+  }, new Map())
 
   return Array.from(postsByYear, ([year, posts]) => ({
     year,
     posts,
-  })).reverse();
+  })).reverse()
 }
 
 export default function BlogArchive({ archive }: Props) {
-  const years = listPostsByYears(archive.blogPosts);
+  const years = listPostsByYears(archive.blogPosts as ArchiveBlogPost[])
   return (
     <Layout>
       <div className='container-wrapper padding-vert--md'>
@@ -71,7 +72,7 @@ export default function BlogArchive({ archive }: Props) {
             <div className='col'>
               <div className='archive'>
                 <h2>
-                  <FontAwesomeIcon icon={faCalendar} color='#23affc' /> 归档
+                  <FontAwesomeIcon icon={faArchive as IconProp} color='#23affc' /> 归档
                 </h2>
                 <div className={styles.count}>总共 {archive.blogPosts.length} 篇文章</div>
                 {years.length > 0 && <YearsSection years={years} />}
@@ -81,5 +82,5 @@ export default function BlogArchive({ archive }: Props) {
         </div>
       </div>
     </Layout>
-  );
+  )
 }

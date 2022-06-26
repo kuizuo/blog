@@ -21,10 +21,11 @@
   --ifm-color-primary-lighter: #c6ebfc;
   --ifm-color-primary-lightest: #f2fbff;
   --ifm-code-font-size: 95%;
-  --ifm-font-family-base: 'Raleway', 'PingFang SC', 'Microsoft Yahei', sans-serif;
-  /* --ifm-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", monospace; */
-  --ifm-heading-font-family: 'Raleway', 'PingFang SC', 'Microsoft Yahei', sans-serif;
+  --ifm-font-family-base: KaiTi, 'Raleway', 'PingFang SC', 'Microsoft Yahei', sans-serif;
+
+  --ifm-font-family-name: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
+  --ifm-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  --ifm-heading-font-family: KaiTi, Roboto, 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, serif;
   /* --content-font-family: "Raleway", "Kai", "楷体", "Kaiti", serif; */
 
   --ifm-navbar-shadow: 0px 4px 28px rgba(0, 0, 0, 0.1);
@@ -51,10 +52,15 @@
   /* 标签背景 */
   --tag-background: var(--ifm-color-primary);
   --tag-background-dark: #0179fa77;
+  --tag-background-light: #1982bb;
 
   /* 代码块背景 */
   --ifm-code-background: #23affc1a;
   --ifm-code-color: #3887fe;
+
+  --ifm-bg-color: #f5f5f5;
+  --ifm-text-color: #333;
+  --ifm-secondary-text-color: #555;
 
   --site-primary-hue-saturation: 167 68%;
   --site-primary-hue-saturation-light: 167 56%; /* do we really need this extra one? */
@@ -266,6 +272,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .navbar__title {
   margin-left: 12px;
   color: var(--ifm-color-primary);
+  font-family: var(--ifm-font-family-name);
 }
 
 /* .navbar__link,
@@ -519,11 +526,16 @@ html[data-theme='dark'] .bloghome__intro > p {
   padding: 5px 5px;
   border-radius: 5px;
   color: #ffffff;
+  transition: all 0.3s ease-in-out;
 }
 
 .post__tags:hover {
   color: #d4e8fa;
   text-decoration: none;
+}
+
+.tags__item:hover {
+  transform: translateY(-5px);
 }
 
 html[data-theme='dark'] .post__tags {
@@ -816,6 +828,110 @@ code {
   font-size: 0.85rem;
   font-weight: 400;
   margin-right: 0.3rem;
+}
+
+.blogger__info {
+}
+
+.blogger__info-hidden {
+  display: none;
+}
+
+.blogger__info-card {
+  border-radius: 12px;
+  background: var(--blog-item-background-color);
+  box-shadow: var(--blog-item-shadow);
+  padding: 1em 1em;
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.blogger__info-card a {
+  text-decoration: none;
+}
+
+.blogger__info-img {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  max-width: 100%;
+  margin: 1rem auto;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+  transition: 0.4s;
+}
+
+.blogger__info-img:hover {
+  box-shadow: 0 0 30px rgb(0 120 231 / 20%);
+}
+
+.blogger__info-name {
+  color: var(--ifm-text-color);
+  font-family: var(--ifm-font-family-name);
+  font-weight: 900;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.blogger__info-description {
+  margin: 0.5rem auto;
+  color: var(--ifm-secondary-text-color);
+  font-size: 0.8rem;
+}
+
+.blogger__info-num {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 1rem;
+  font-weight: 500;
+  gap: 2px;
+}
+
+.blogger__info-num-item {
+  transform: all 0.3s ease-in-out;
+  display: flex;
+  gap: 5px;
+  padding: 0 10px;
+  align-items: center;
+  color: var(--ifm-text-color);
+  border-left: 1px solid #999;
+}
+
+.blogger__info-num-item:nth-child(1) {
+  border: none;
+}
+
+/* .blogger__info-num-item:after {
+  content: attr(data-tips);
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-150%);
+  transition: 0.2s;
+}
+
+.blogger__info-num-item:hover:after {
+  opacity: 1;
+  transform: translateY(-100%);
+} */
+
+.blogger__info-num-item:hover {
+  color: var(--ifm-color-primary);
+  cursor: pointer;
+}
+
+.blogger__info-tags {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 div[class^='announcementBar_'] {

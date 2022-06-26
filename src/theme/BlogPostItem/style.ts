@@ -80,7 +80,7 @@ export const StyledBlogItem = styled.div<{ isBlogPostPage: boolean; isDark: bool
 
     > header {
       > h1 {
-        // font-size: 2em;
+        font-size: 2em;
         color: #2f5c85;
         @media (max-width: 570px) {
           & {
@@ -91,8 +91,9 @@ export const StyledBlogItem = styled.div<{ isBlogPostPage: boolean; isDark: bool
       }
 
       > h2 {
-        font-size: 2em;
+        font-size: 1.6em;
         /* line-height: 1.5em; */
+        font-family: var(--ifm-heading-font-family);
         margin-bottom: 10px !important;
         a {
           color: var(--ifm-heading-color);
@@ -165,6 +166,10 @@ export const StyledBlogItem = styled.div<{ isBlogPostPage: boolean; isDark: bool
     box-shadow: none;
     padding: 0;
   } */
+
+  .post__tags {
+    opacity: 0.8;
+  }
 
   hr {
     background-color: #eaecef;

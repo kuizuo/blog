@@ -1,25 +1,32 @@
 import React, { useEffect } from 'react'
+import Link from '@docusaurus/Link'
+import Head from '@docusaurus/Head'
+import Translate from '@docusaurus/Translate'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import useGlobalData from '@docusaurus/useGlobalData'
+import type { BlogTags } from '@docusaurus/plugin-content-blog'
 import Layout from '@theme/Layout'
 import BlogPostItem from '@theme/BlogPostItem'
 import BlogListPaginator from '@theme/BlogListPaginator'
-import styles from './styles.module.css'
+import type { Props } from '@theme/BlogListPage'
 import Fade from 'react-reveal/Fade'
-import Translate from '@docusaurus/Translate'
-import Head from '@docusaurus/Head'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTags, faHistory } from '@fortawesome/free-solid-svg-icons'
+import { faTags, faTag, faArchive, faBook } from '@fortawesome/free-solid-svg-icons'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+
 import ListFilter from './img/list.svg'
 import CardFilter from './img/card.svg'
-
-import Link from '@docusaurus/Link'
 import { useViewType } from './useViewType'
+import Hero, { SocialLinks } from '@site/src/components/Hero'
 
-import Hero from '@site/src/components/Hero'
+function BlogListPage(props: Props) {
+  const { metadata, items } = props
 
-function BlogListPage(props) {
-  const { metadata, items, tags, sidebar } = props
+  const globalData = useGlobalData()
+  const blogData = globalData?.['docusaurus-plugin-content-blog']['default'] as any
+  const docData = globalData?.['docusaurus-plugin-content-docs']['default'] as any
+  console.log(docData)
 
   const {
     siteConfig: { title: siteTitle },
@@ -39,75 +46,56 @@ function BlogListPage(props) {
   const isCardView = viewType === 'card'
   const isListView = viewType === 'list'
 
-  const InfoCard = () => {
-    function getCategoryOfTag(tag) {
-      return tag[0].toUpperCase()
-    }
+  const showBlogInfo = true // 是否展示右侧博客作者信息
+  const BlogInfo = () => {
+    const tags = blogData.tags as BlogTags
+    const tagCount = Object.keys(tags).length
+    const docCount = docData.versions?.[0].docs.length
+    const { totalCount: blogCount } = metadata
 
-    const tagCategories: { [category: string]: string[] } = {}
-    Object.keys(tags).forEach((tag) => {
-      const category = getCategoryOfTag(tag)
-      tagCategories[category] = tagCategories[category] || []
-      tagCategories[category].push(tag)
-    })
-
-    const tagsList = Object.entries(tagCategories).sort(([a], [b]) => a.localeCompare(b))
-    const tagsSection = tagsList
-      .map(([category, tagsForCategory]) => (
-        <div key={category} style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {tagsForCategory.map((tag, index) => (
-            <Link className={`post__tags margin-right--sm margin-bottom--sm`} href={tags[tag].permalink} key={tag}>
-              {tags[tag].name}({tags[tag].count})
-            </Link>
-          ))}
-        </div>
+    const tagsSection = Object.values(tags)
+      .map((tag) => (
+        <Link className={`post__tags tags__item margin-right--sm margin-bottom--sm`} href={tag.permalink} key={tag}>
+          {tag.label}({tag.items.length})
+        </Link>
       ))
       .filter((item) => item != null)
 
-    const { totalCount: blogCount } = metadata
-    const tagCount = Object.values(tagCategories['/']).length
-
     return (
-      <div
-        className={viewType === 'card' ? `col col--3 ${styles['info-wrapper']}` : ''}
-        style={{ display: `${viewType === 'card' && isBlogPage ? '' : 'none'}` }}
-      >
-        <div className='bloghome__posts'>
-          <div className={`bloghome__posts-card ${styles['info-wrapper']}`}>
-            <div className={`row ${styles.card}`}>
-              <div className={styles['personal-info-wrapper']}>
-                <img className={styles['personal-img']} src='/img/logo.webp' alt='logo'></img>
-                <h3 className={styles['personal-name']}>愧怍</h3>
-                <h3 className={styles['personal-name']}>
-                  文章数 {blogCount} | 标签数 {tagCount}
-                </h3>
-              </div>
+      <div className={viewType === 'card' ? `col col--3 margin-bottom--md` : 'blogger__info-hidden'}>
+        <div className='bloghome__posts-card margin-bottom--md'>
+          <div className='row blogger__info-card'>
+            <Link href={'./about'}>
+              <img className='blogger__info-img' src='/img/logo.webp' alt='logo'></img>
+            </Link>
+            <Link className='blogger__info-name' href={'./about'}>
+              愧怍
+            </Link>
+            <div className='blogger__info-description'>不是巅峰时的信仰，而是黄昏时的追逐</div>
+            <div className='blogger__info-num'>
+              <Link className='blogger__info-num-item' href={'./archive'} data-tips='博客数'>
+                <FontAwesomeIcon icon={faArchive as IconProp} /> {blogCount}
+              </Link>
+              <Link className='blogger__info-num-item' href={'./tags'} data-tips='标签数'>
+                <FontAwesomeIcon icon={faTag as IconProp} style={{ transform: 'rotate(90deg)' }} /> {tagCount}
+              </Link>
+              <Link className='blogger__info-num-item' href={'./docs/skill'} data-tips='笔记数'>
+                <FontAwesomeIcon icon={faBook as IconProp} /> {docCount}
+              </Link>
+            </div>
+            <SocialLinks animatedProps={{ maxWidth: '100%', padding: '1em 0', justifyContent: 'space-around' }} />
+          </div>
+        </div>
+        <div className='bloghome__posts-card margin-bottom--md'>
+          <div className='row blogger__info-card'>
+            <div>
+              <FontAwesomeIcon icon={faTags as IconProp} color='#c4d3e0' />
+              <Link className='margin-horiz--sm' href={'./tags'}>
+                标签
+              </Link>
+              <div className='blogger__info-tags'>{tagsSection}</div>
             </div>
           </div>
-          <div className={`bloghome__posts-card ${styles['info-wrapper']}`}>
-            <div className={`row ${styles.card}`}>
-              <div className={styles['personal-info-wrapper']}>
-                <FontAwesomeIcon icon={faTags} color='#c4d3e0' />
-                <Link className={`margin-horiz--sm`} href={'./tags'}>
-                  标签
-                </Link>
-                <div className='margin-bottom--md'></div>
-                <div>{tagsSection}</div>
-              </div>
-            </div>
-          </div>
-          {/* <div className={`bloghome__posts-card ${styles['info-wrapper']}`}>
-            <div className={`row ${styles.card}`}>
-              <div className={styles['personal-info-wrapper']}>
-                <FontAwesomeIcon icon={faHistory} color='#c4d3e0' />
-                <Link className={`post__tags margin-horiz--sm`} href={'./archive'}>
-                  最新文章
-                </Link>
-                <div className='margin-bottom--md'></div>
-                <BlogSidebar sidebar={sidebar} />
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
     )
@@ -121,14 +109,12 @@ function BlogListPage(props) {
       </Head>
       {!isPaginated && isBlogOnlyMode && <Hero />}
       <div className='container-wrapper'>
-        <div className='container padding-vert--sm'>
+        <div className='container padding-vert--sm' style={!showBlogInfo ? { maxWidth: 1140 } : {}}>
           <div className='row'>
             <div className={'col col--12'}>
               {!isPaginated && (
                 <h1 className='blog__section_title' id='homepage_blogs'>
-                  <Translate description='latest blogs heading'>
-                    {!metadata.permalink.includes('essay') ? '最新博客' : '个人随笔'}
-                  </Translate>
+                  <Translate description='latest blogs heading'>{!metadata.permalink.includes('essay') ? '最新博客' : '个人随笔'}</Translate>
                   &nbsp;
                   <svg width='31' height='31' viewBox='0 0 31 31' fill='none' xmlns='http://www.w3.org/2000/svg'>
                     <path
@@ -140,19 +126,13 @@ function BlogListPage(props) {
               )}
               {/* switch list and card */}
               <div className='bloghome__swith-view'>
-                <CardFilter
-                  onClick={() => toggleViewType('card')}
-                  className={viewType === 'card' ? 'bloghome__switch--selected' : 'bloghome__switch'}
-                />
-                <ListFilter
-                  onClick={() => toggleViewType('list')}
-                  className={viewType === 'list' ? 'bloghome__switch--selected' : 'bloghome__switch'}
-                />
+                <CardFilter onClick={() => toggleViewType('card')} className={viewType === 'card' ? 'bloghome__switch--selected' : 'bloghome__switch'} />
+                <ListFilter onClick={() => toggleViewType('list')} className={viewType === 'list' ? 'bloghome__switch--selected' : 'bloghome__switch'} />
               </div>
             </div>
           </div>
           <div className='row'>
-            <div className={viewType === 'card' && isBlogPage && tags ? 'col col--9' : 'col col--12'}>
+            <div className={viewType === 'card' && isBlogPage && showBlogInfo ? 'col col--9' : 'col col--12'}>
               <div className='bloghome__posts'>
                 {isCardView && (
                   <div className='bloghome__posts-card'>
@@ -221,7 +201,7 @@ function BlogListPage(props) {
                 <BlogListPaginator metadata={metadata} />
               </div>
             </div>
-            {tags && <InfoCard />}
+            {showBlogInfo && <BlogInfo />}
           </div>
         </div>
       </div>
