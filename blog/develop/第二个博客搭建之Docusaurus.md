@@ -60,17 +60,23 @@ npm install --save-dev typescript @docusaurus/module-type-aliases @tsconfig/docu
 
 [搜索 | Docusaurus](https://docusaurus.io/zh-CN/docs/search)
 
-源码中的 algolia 是原作者的博客，这边就需要注册[Algolia](https://www.algolia.com/)的账号，申请相关密钥，然后填入到对应的配置即可。
+有两种方式来配置algolia，一种是Docsearch 每周一次爬取你的网站，但前提是项目是**开源的**，其好处是申请后会直接给你`appId`、`apiKey`、`indexName`，直接填写至docusaurus.config.js即可。第二种则是自己运行DocSearch 爬虫，可以随时爬取，但需要自行去注册账号与搭建爬虫环境（docker）。
 
-这里我叙述下配置的全过程（毕竟配置了几个小时）
+关于申请Algolia DocSearch在文档中有详细介绍，主要是要等，同时注意邮箱信息。如果申请成功后就可以在[Crawler Admin Console](https://crawler.algolia.com/admin/crawlers) 中查看
 
-先去申请 Algolia 账号，然后在左侧 indices 创建索引，在 API Keys 中获取 Application ID 和 API Key（注意，有两个 API KEY）
+![image-20220627232545640](https://img.kuizuo.cn/image-20220627232545640.png)
+
+#### 手动爬取
+
+[Run your own | DocSearch (algolia.com)](https://docsearch.algolia.com/docs/run-your-own)
+
+这里我叙述下第二种方式的配置的过程，首先去申请 [Algolia](https://www.algolia.com/) 账号，然后在左侧 indices 创建索引，在 API Keys 中获取 Application ID 和 API Key（注意，有两个 API KEY）
 
 ![image-20210821230135749](https://img.kuizuo.cn/image-20210821230135749.png)
 
 ![image-20210821230232837](https://img.kuizuo.cn/image-20210821230232837.png)
 
-填入到`docusaurus.config.js`中的 API KEY 是 Search-Only API Key
+填入到`docusaurus.config.js`中的 API KEY 是 **Search-Only API Key**
 
 ```js
 themeConfig: {
@@ -82,37 +88,25 @@ themeConfig: {
 }
 ```
 
-然后到[DocSearch: Search made for documentation | DocSearch (algolia.com)](https://docsearch.algolia.com/apply/)填写自己的网站和邮箱
-
-![image-20210821224447058](https://img.kuizuo.cn/image-20210821224447058.png)
-
-然后每 24 小时便会运行一次代码爬取你的网站生成，但是呢，我这边等了一直没生效，于是乎我决定自己运行爬虫代码，推送到 algolia
-
-#### 手动爬取
-
-这是操作文档 [Run your own | DocSearch (algolia.com)](https://docsearch.algolia.com/docs/run-your-own)
-
-系统我选用的是 Linux，在 Docker 的环境下运行爬虫代码，所以 docker 肯定是要安装的
-
-不过要先安装 jq [安装 jq (github.com)](https://github.com/stedolan/jq/wiki/Installation#zero-install) 我这里选择的是 0install 进行安装（安装可能稍慢），具体可以查看文档，然后在控制台查看安装结果
+系统我选用的是 Linux，在 Docker 的环境下运行爬虫代码。不过要先 [安装 jq ](https://github.com/stedolan/jq/wiki/Installation#zero-install) 我这里选择的是 0install 进行安装（安装可能稍慢），具体可以查看文档，然后在控制台查看安装结果
 
 ```
 [root@kzserver kuizuo.cn]# jq --version
 jq-1.6
 ```
 
-接着在任意目录中创建`.env`文件，填入对应的 APPID 和 API KEY（这里是`Admin API Key`，当时我还一直以为是 Search API Key 坑了我半天）
+接着在任意目录中创建`.env`文件，填入对应的 APPID 和 API KEY（这里是`Admin API Key`，当时我还一直以为是 Search API Key 坑了我半天😭）
 
 ```js
 APPLICATION_ID = YOUR_APP_ID
 API_KEY = YOUR_API_KEY
 ```
 
-然后创建一个`docsearch.json`文件（名字随便），然后填入对应的配置代码，这里贴下对应链接[docsearch-configs/docsearch.json at master · algolia/docsearch-configs (github.com)](https://github.com/algolia/docsearch-configs/blob/master/configs/docsearch.json)
+然后创建`docsearch.json`文件，然后填入对应的配置代码，这里贴下配置[docsearch-configs/docsearch.json](https://github.com/algolia/docsearch-configs/blob/master/configs/docsearch.json)
 
 更改索引名与网站名
 
-```json
+```json title="docsearch.json"
 {
   "index_name": "kuizuo",
   "start_urls": [
@@ -131,31 +125,11 @@ API_KEY = YOUR_API_KEY
 docker run -it --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)" algolia/docsearch-scraper
 ```
 
-接着等待容器运行，爬取你的网站即可
-
-```
-[root@kzserver kuizuo.cn]# docker run -it --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)" algolia/docsearch-scraper
-Getting https://kuizuo.cn/sitemap.xml from selenium
-Getting https://kuizuo.cn/ from selenium
-> DocSearch: https://kuizuo.cn/ 12 records)
-Getting https://kuizuo.cn/essay from selenium
-Getting https://kuizuo.cn/resources from selenium
-Getting https://kuizuo.cn/docs/skill from selenium
-Getting https://kuizuo.cn/page/2 from selenium
-Getting https://kuizuo.cn/tags/terminal from selenium
-Getting https://kuizuo.cn/Windows%20Terminal%E7%BE%8E%E5%8C%96 from selenium
-Getting https://kuizuo.cn/Js%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E5%8E%BB%E9%87%8D from selenium
-Getting https://kuizuo.cn/tags/chrome from selenium
-Getting https://kuizuo.cn/Wappalyzer%E8%AF%86%E5%88%AB%E7%BD%91%E7%AB%99%E4%B8%8A%E7%9A%84%E6%8A%80%E6%9C%AF from selenium
-Getting https://kuizuo.cn/tags/%E5%B7%A5%E5%85%B7 from selenium
-Getting https://kuizuo.cn/tags/vscode from selenium
-```
-
-最终打开 algolia 控制台提示如下页面则表示成功
+接着等待容器运行，爬取你的网站即可。最终打开 algolia 控制台提示如下页面则表示成功
 
 ![image-20210821225934002](https://img.kuizuo.cn/image-20210821225934002.png)
 
-整体下来还算 OK，主要是接触和.env 文件配置和 Docker 的使用，配置完后使用全文搜索感觉就不一样，能精确定位到每一个字的同时，还能显示最近浏览的记录，也算是让我接触到了一个新的技能点。
+不过还是建议使用去申请Docsearch，其每周自动爬取站点，而不是手动爬取。
 
 ## 部署
 

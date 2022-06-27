@@ -1,0 +1,44 @@
+{
+  "appId": "YOUR_APP_ID",
+  "apiKey": "YOUR_API_KEY",
+  "rateLimit": 8,
+  "startUrls": ["https://YOUR_WEBSITE_URL/"],
+  "sitemaps": ["https://YOUR_WEBSITE_URL/sitemap.xml"],
+  "ignoreCanonicalTo": true,
+  "discoveryPatterns": ["https://YOUR_WEBSITE_URL/**"],
+  "actions": [{ "indexName": "YOUR_INDEX_NAME", "pathsToMatch": ["https://YOUR_WEBSITE_URL/**"] }],
+  "initialIndexSettings": {
+    "YOUR_INDEX_NAME": {
+      "attributesForFaceting": ["type", "lang", "language", "version", "docusaurus_tag"],
+      "attributesToRetrieve": ["hierarchy", "content", "anchor", "url", "url_without_anchor", "type"],
+      "attributesToHighlight": ["hierarchy", "content"],
+      "attributesToSnippet": ["content:10"],
+      "camelCaseAttributes": ["hierarchy", "content"],
+      "searchableAttributes": [
+        "unordered(hierarchy.lvl0)",
+        "unordered(hierarchy.lvl1)",
+        "unordered(hierarchy.lvl2)",
+        "unordered(hierarchy.lvl3)",
+        "unordered(hierarchy.lvl4)",
+        "unordered(hierarchy.lvl5)",
+        "unordered(hierarchy.lvl6)",
+        "content"
+      ],
+      "distinct": true,
+      "attributeForDistinct": "url",
+      "customRanking": ["desc(weight.pageRank)", "desc(weight.level)", "asc(weight.position)"],
+      "ranking": ["words", "filters", "typo", "attribute", "proximity", "exact", "custom"],
+      "highlightPreTag": "<span class=\"algolia-docsearch-suggestion--highlight\">",
+      "highlightPostTag": "</span>",
+      "minWordSizefor1Typo": 3,
+      "minWordSizefor2Typos": 7,
+      "allowTyposOnNumericTokens": false,
+      "minProximity": 1,
+      "ignorePlurals": true,
+      "advancedSyntax": true,
+      "attributeCriteriaComputedByMinProximity": true,
+      "removeWordsIfNoResults": "allOptional",
+      "separatorsToIndex": "_"
+    }
+  }
+}

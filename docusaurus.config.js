@@ -164,8 +164,8 @@ const config = {
       maxHeadingLevel: 4,
     },
     algolia: {
-      apiKey: '87223cb5a5ff37c4dbbb616812c65a59',
-      appId: '2NBW5YNFON',
+      appId: 'GV6YN1ODMO',
+      apiKey: '50303937b0e4630bec4a20a14e3b7872',
       indexName: 'kuizuo',
     },
     zoom: {
