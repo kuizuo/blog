@@ -54,7 +54,7 @@ function BlogListPageContent(props: Props) {
   const isCardView = viewType === 'card'
   const isListView = viewType === 'list'
 
-  const showBlogInfo = true // 是否展示右侧博客作者信息
+  const showBlogInfo = false // 是否展示右侧博客作者信息
 
   return (
     <Layout description={description} wrapperClassName='blog-list__page'>
@@ -151,7 +151,7 @@ function BlogListPageContent(props: Props) {
                 <BlogListPaginator metadata={metadata} />
               </div>
             </div>
-            {isCardView && showBlogInfo && <BlogInfo />}
+            {!isPaginated && isCardView && showBlogInfo && <BlogInfo />}
           </div>
         </div>
       </div>
