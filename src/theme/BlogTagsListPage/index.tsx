@@ -1,35 +1,21 @@
 import React from 'react'
-import BlogLayout from '@theme/BlogLayout'
-import type { Props } from '@theme/BlogTagsListPage'
-import Link from '@docusaurus/Link'
-import { PageMetadata, HtmlClassNameProvider, ThemeClassNames, translateTagsPageTitle } from '@docusaurus/theme-common'
-import SearchMetadata from '@theme/SearchMetadata'
 import clsx from 'clsx'
+import { PageMetadata, HtmlClassNameProvider, ThemeClassNames, translateTagsPageTitle } from '@docusaurus/theme-common'
+import BlogLayout from '@theme/BlogLayout'
+import TagsListByLetter from '@theme/TagsListByLetter'
+import type { Props } from '@theme/BlogTagsListPage'
+import SearchMetadata from '@theme/SearchMetadata'
 
-function BlogTagsListPage(props: Props) {
-  const { tags, sidebar } = props
+export default function BlogTagsListPage({ tags, sidebar }: Props): JSX.Element {
   const title = translateTagsPageTitle()
-
-  const TagsList = () => (
-    <div className='row'>
-      {tags.map((tag) => (
-        <Link className={`post__tags tags__item margin-horiz--sm margin-bottom--sm`} href={tag.permalink} key={tag.label}>
-          {tag.label} ({tag.count})
-        </Link>
-      ))}
-    </div>
-  )
-
   return (
     <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}>
       <PageMetadata title={title} />
       <SearchMetadata tag='blog_tags_list' />
       <BlogLayout sidebar={sidebar}>
         <h1>{title}</h1>
-        <TagsList></TagsList>
+        <TagsListByLetter tags={tags} />
       </BlogLayout>
     </HtmlClassNameProvider>
   )
 }
-
-export default BlogTagsListPage

@@ -1,4 +1,7 @@
 import React from 'react'
+import clsx from 'clsx'
+
+import { PageMetadata, HtmlClassNameProvider, ThemeClassNames } from '@docusaurus/theme-common'
 import Link from '@docusaurus/Link'
 import Head from '@docusaurus/Head'
 import Translate from '@docusaurus/Translate'
@@ -6,6 +9,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
 import BlogPostItem from '@theme/BlogPostItem'
 import BlogListPaginator from '@theme/BlogListPaginator'
+import SearchMetadata from '@theme/SearchMetadata'
 import type { Props } from '@theme/BlogListPage'
 import Fade from 'react-reveal/Fade'
 
@@ -15,7 +19,23 @@ import { useViewType } from './useViewType'
 import Hero from '@site/src/components/Hero'
 import BlogInfo from '@site/src/components/BlogInfo'
 
-function BlogListPage(props: Props) {
+function BlogListPageMetadata(props: Props): JSX.Element {
+  const { metadata } = props
+  const {
+    siteConfig: { title: siteTitle },
+  } = useDocusaurusContext()
+  const { blogDescription, blogTitle, permalink } = metadata
+  const isBlogOnlyMode = permalink === '/'
+  const title = isBlogOnlyMode ? siteTitle : blogTitle
+  return (
+    <>
+      <PageMetadata title={title} description={blogDescription} />
+      <SearchMetadata tag='blog_posts_list' />
+    </>
+  )
+}
+
+function BlogListPageContent(props: Props) {
   const { metadata, items } = props
 
   const {
@@ -25,8 +45,6 @@ function BlogListPage(props: Props) {
   const isBlogOnlyMode = metadata.permalink === '/'
   const isPaginated = metadata.page > 1
 
-  let title = siteTitle + ''
-  let suffix = ''
   let description = `html, css, javascript, react, vue, node, typescript，前端开发，后端开发，技术分享，开源`
 
   const isBlogPage = metadata.permalink === '/'
@@ -36,13 +54,13 @@ function BlogListPage(props: Props) {
   const isCardView = viewType === 'card'
   const isListView = viewType === 'list'
 
-  const showBlogInfo = false // 是否展示右侧博客作者信息
+  const showBlogInfo = true // 是否展示右侧博客作者信息
 
   return (
-    <Layout title={title} description={description} wrapperClassName='blog-list__page'>
+    <Layout description={description} wrapperClassName='blog-list__page'>
       <Head>
         <meta name='keywords' content='blog, javascript, js, typescript, node, react, vue, web, 前端, 后端' />
-        <title>{title + suffix}</title>
+        <title>{siteTitle}</title>
       </Head>
       {!isPaginated && isBlogOnlyMode && <Hero />}
       <div className='container-wrapper'>
@@ -79,6 +97,7 @@ function BlogListPage(props: Props) {
                           <BlogPostItem
                             key={BlogPostContent.metadata.permalink}
                             frontMatter={BlogPostContent.frontMatter}
+                            assets={BlogPostContent.assets}
                             metadata={BlogPostContent.metadata}
                             truncated={BlogPostContent.metadata.truncated}
                           >
@@ -95,18 +114,14 @@ function BlogListPage(props: Props) {
                       const { metadata: blogMetaData, frontMatter } = BlogPostContent
                       const { title } = frontMatter
                       const { permalink, date, tags } = blogMetaData
-
                       const dateObj = new Date(date)
+                      const dateString = `${dateObj.getFullYear()}-${('0' + (dateObj.getMonth() + 1)).slice(-2)}-${('0' + dateObj.getDate()).slice(-2)}`
 
-                      const year = dateObj.getFullYear()
-                      let month = ('0' + (dateObj.getMonth() + 1)).slice(-2)
-                      const day = ('0' + dateObj.getDate()).slice(-2)
-
-                      const sticky = frontMatter.sticky
+                      // const sticky = frontMatter.sticky
                       return (
                         <React.Fragment key={blogMetaData.permalink}>
                           <div className='post__list-item' key={blogMetaData.permalink}>
-                            {sticky && <div className={`post__list-stick iconfont`}></div>}
+                            {/* {sticky && <div className={`post__list-stick iconfont`}></div>} */}
                             <Link to={permalink} className='post__list-title'>
                               {title}
                             </Link>
@@ -126,9 +141,7 @@ function BlogListPage(props: Props) {
                                   </Link>
                                 ))}
                             </div>
-                            <div className='post__list-date'>
-                              {year}-{month}-{day}
-                            </div>
+                            <div className='post__list-date'>{dateString}</div>
                           </div>
                         </React.Fragment>
                       )
@@ -146,4 +159,11 @@ function BlogListPage(props: Props) {
   )
 }
 
-export default BlogListPage
+export default function BlogListPage(props: Props): JSX.Element {
+  return (
+    <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}>
+      <BlogListPageMetadata {...props} />
+      <BlogListPageContent {...props} />
+    </HtmlClassNameProvider>
+  )
+}

@@ -833,41 +833,36 @@ code {
   margin-right: 0.3rem;
 }
 
-.blog__info {
-}
-
-.blog__info-hidden {
+.bloginfo__hidden {
   display: none;
 }
 
-.blog__info-card {
+.bloginfo__card {
   border-radius: 12px;
   background: var(--blog-item-background-color);
   box-shadow: var(--blog-item-shadow);
   padding: 1em 1em;
   margin: 0;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: block;
+  text-align: center;
 }
 
-.blog__info-card-navbar {
+.bloginfo__card-navbar {
   margin: 0;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: block;
+  text-align: center;
 }
 
-.blog__info-card a {
+.bloginfo__card a {
   text-decoration: none;
 }
 
-.blog__info-img {
-  display: block;
+.bloginfo__img {
   width: 6rem;
   height: 6rem;
   max-width: 100%;
-  margin: 1rem auto;
   border-radius: 50%;
   padding: 4px;
   background-color: #fff;
@@ -875,11 +870,11 @@ code {
   transition: 0.4s;
 }
 
-.blog__info-img:hover {
+.bloginfo__img:hover {
   box-shadow: 0 0 30px rgb(0 120 231 / 20%);
 }
 
-.blog__info-name {
+.bloginfo__name {
   color: var(--ifm-text-color);
   font-family: var(--ifm-font-family-name);
   font-weight: 900;
@@ -887,13 +882,13 @@ code {
   margin: 0 auto;
 }
 
-.blog__info-description {
+.bloginfo__description {
   margin: 0.5rem auto;
   color: var(--ifm-secondary-text-color);
   font-size: 0.8rem;
 }
 
-.blog__info-num {
+.bloginfo__num {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -903,7 +898,7 @@ code {
   gap: 2px;
 }
 
-.blog__info-num-item {
+.bloginfo__num-item {
   transform: all 0.3s ease-in-out;
   display: flex;
   flex-shrink: 0;
@@ -914,15 +909,15 @@ code {
   border-left: 1px solid #999;
 }
 
-.blog__info-num-item:hover {
+.bloginfo__num-item:hover {
   text-decoration: none;
 }
 
-.blog__info-num-item:nth-child(1) {
+.bloginfo__num-item:nth-child(1) {
   border: none;
 }
 
-/* .blog__info-num-item:after {
+/* .bloginfo__num-item:after {
   content: attr(data-tips);
   position: absolute;
   top: 0;
@@ -933,30 +928,30 @@ code {
   transition: 0.2s;
 }
 
-.blog__info-num-item:hover:after {
+.bloginfo__num-item:hover:after {
   opacity: 1;
   transform: translateY(-100%);
 } */
 
-.blog__info-num-item:hover {
+.bloginfo__num-item:hover {
   color: var(--ifm-color-primary);
   cursor: pointer;
 }
 
-.blog__info-tags {
+.bloginfo__tags {
   margin-top: 0.5rem;
   display: flex;
   flex-wrap: wrap;
 }
 
-.blog__info-note {
+.bloginfo__note {
   margin-top: 0.5rem;
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(2, 50%);
 }
 
-.blog__info-note-item {
+.bloginfo__note-item {
   font-size: 1em;
   text-align: center;
   font-weight: 600;

@@ -13,7 +13,7 @@ type Count = {
   project: number
 }
 
-export function BlogUser({ count, isNavbar = false }: { count?: Count; isNavbar: boolean }) {
+export function BlogUser({ count, isNavbar = false }: { count?: Count; isNavbar?: boolean }) {
   if (!count) {
     const globalData = useGlobalData()
     const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.['default'] as any
@@ -31,25 +31,27 @@ export function BlogUser({ count, isNavbar = false }: { count?: Count; isNavbar:
   }
 
   return (
-    <div className={`row ${isNavbar ? 'blog__info-card-navbar' : 'blog__info-card'}`}>
+    <div className={`row ${isNavbar ? 'bloginfo__card-navbar' : 'bloginfo__card'}`}>
       <Link href={'./about'}>
-        <img className='blog__info-img' src='/img/logo.webp' alt='logo'></img>
+        <img className='bloginfo__img' src='/img/logo.webp' alt='logo'></img>
       </Link>
-      <Link className='blog__info-name' href={'./about'}>
-        愧怍
-      </Link>
-      <div className='blog__info-description'>不是巅峰时的信仰，而是黄昏时的追逐</div>
-      <div className='blog__info-num'>
-        <Link className='blog__info-num-item' href={'./archive'} data-tips='博客数'>
+      <div>
+        <Link className='bloginfo__name' href={'./about'}>
+          愧怍
+        </Link>
+      </div>
+      <div className='bloginfo__description'>不是巅峰时的信仰，而是黄昏时的追逐</div>
+      <div className='bloginfo__num'>
+        <Link className='bloginfo__num-item' href={'./archive'} data-tips='博客数'>
           <FontAwesomeIcon icon={faArchive as IconProp} /> {count.blog}
         </Link>
-        <Link className='blog__info-num-item' href={'./tags'} data-tips='标签数'>
+        <Link className='bloginfo__num-item' href={'./tags'} data-tips='标签数'>
           <FontAwesomeIcon icon={faTag as IconProp} style={{ transform: 'rotate(90deg)' }} /> {count.tag}
         </Link>
-        <Link className='blog__info-num-item' href={'./docs/skill'} data-tips='笔记数'>
+        <Link className='bloginfo__num-item' href={'./docs/skill'} data-tips='笔记数'>
           <FontAwesomeIcon icon={faBook as IconProp} /> {count.doc}
         </Link>
-        <Link className='blog__info-num-item' href={'./project'} data-tips='项目数'>
+        <Link className='bloginfo__num-item' href={'./project'} data-tips='项目数'>
           <FontAwesomeIcon icon={faThLarge as IconProp} /> {count.project}
         </Link>
       </div>
@@ -60,7 +62,7 @@ export function BlogUser({ count, isNavbar = false }: { count?: Count; isNavbar:
 
 const TagsSection = ({ data }) => {
   return (
-    <div className='blog__info-tags'>
+    <div className='bloginfo__tags'>
       {data
         .filter((tag) => tag != null)
         .map((tag) => (
@@ -74,11 +76,11 @@ const TagsSection = ({ data }) => {
 
 const DocsSection = ({ data }) => {
   return (
-    <div className='blog__info-note'>
+    <div className='bloginfo__note'>
       {data
         .filter((doc) => (doc.id as string).includes('/category'))
         .map((doc) => (
-          <Link className={`blog__info-note-item`} href={doc.path} key={doc.id}>
+          <Link className={`bloginfo__note-item`} href={doc.path} key={doc.id}>
             {(doc.id as string).replace('/category/', '')}
           </Link>
         ))}
@@ -107,7 +109,7 @@ export default function BlogInfo() {
         <BlogUser count={count} />
       </div>
       <div className='bloghome__posts-card margin-bottom--md'>
-        <div className='row blog__info-card'>
+        <div className='row bloginfo__card'>
           <div>
             <FontAwesomeIcon icon={faTag as IconProp} color='#23affc' style={{ transform: 'rotate(90deg)' }} />
             <Link className='margin-horiz--sm' href={'./tags'}>
@@ -118,7 +120,7 @@ export default function BlogInfo() {
         </div>
       </div>
       <div className='bloghome__posts-card margin-bottom--md'>
-        <div className='row blog__info-card'>
+        <div className='row bloginfo__card'>
           <div>
             <FontAwesomeIcon icon={faBook as IconProp} color='#23affc' />
             <Link className='margin-horiz--sm' href={'./docs/skill'}>
