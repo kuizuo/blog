@@ -97,7 +97,7 @@ function BlogPostItem(props: Props) {
           </time>
           {rendenPostTags()}
           <FontAwesomeIcon icon={faClock as IconProp} color='#c4d3e0' />
-          {readingTime && <span className={styles.blogPostReadTime}>{Math.ceil(readingTime)} min read</span>}
+          {readingTime && <span className={styles.blogPostReadTime}>{Math.ceil(readingTime)} 分钟阅读</span>}
         </div>
       </>
     )

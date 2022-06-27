@@ -353,7 +353,14 @@ html[data-theme='dark'] .bloghome__intro > p {
   margin: 2em 0 1em 0;
 }
 
-.bloghome__swith-view svg {
+.blogtag__swith-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bloghome__swith-view svg,
+.blogtag__swith-view svg {
   cursor: pointer;
   transition: 0.6s;
 }

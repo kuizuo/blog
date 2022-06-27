@@ -221,21 +221,6 @@ const config = {
           sidebarPath: 'sidebars.js',
         },
         blog: false,
-        // blog: {
-        //   path: 'blog',
-        //   routeBasePath: '/',
-        //   blogSidebarTitle: '近期文章',
-        //   blogSidebarCount: 5,
-        //   postsPerPage: 10,
-        //   showReadingTime: true,
-        //   readingTime: ({ content, frontMatter, defaultReadingTime }) =>
-        //     defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
-        //   feedOptions: {
-        //     type: 'all',
-        //     title: '愧怍',
-        //     copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
-        //   },
-        // },
         theme: {
           customCss: [require.resolve('./src/css/custom.css')],
         },
@@ -254,7 +239,7 @@ const config = {
         path: 'blog',
         routeBasePath: '/',
         blogSidebarTitle: '近期文章',
-        blogSidebarCount: 5,
+        blogSidebarCount: 10,
         postsPerPage: 10,
         showReadingTime: true,
         readingTime: ({ content, frontMatter, defaultReadingTime }) =>

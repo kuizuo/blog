@@ -13,8 +13,8 @@ import SearchMetadata from '@theme/SearchMetadata'
 import type { Props } from '@theme/BlogListPage'
 import Fade from 'react-reveal/Fade'
 
-import ListFilter from './img/list.svg'
-import CardFilter from './img/card.svg'
+import ListFilter from '@site/static/icons/list.svg'
+import CardFilter from '@site/static/icons/card.svg'
 import { useViewType } from './useViewType'
 import Hero from '@site/src/components/Hero'
 import BlogInfo from '@site/src/components/BlogInfo'
@@ -87,7 +87,7 @@ function BlogListPageContent(props: Props) {
             </div>
           </div>
           <div className='row'>
-            <div className={viewType === 'card' && isBlogPage && showBlogInfo ? 'col col--9' : 'col col--12'}>
+            <div className={isCardView && isBlogPage && showBlogInfo ? 'col col--9' : 'col col--12'}>
               <div className='bloghome__posts'>
                 {isCardView && (
                   <div className='bloghome__posts-card'>
@@ -151,7 +151,7 @@ function BlogListPageContent(props: Props) {
                 <BlogListPaginator metadata={metadata} />
               </div>
             </div>
-            {viewType === 'card' && showBlogInfo && <BlogInfo />}
+            {isCardView && showBlogInfo && <BlogInfo />}
           </div>
         </div>
       </div>
