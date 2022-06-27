@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": false,
+    "noImplicitAny": false,
+    "incremental": true,
+    "tsBuildInfoFile": "./lib/.tsbuildinfo",
+    "rootDir": "src",
+    "outDir": "lib"
+  },
+  "include": ["src"],
+  "exclude": ["src/theme", "**/__tests__/**", "**/node_modules/**", "**/coverage/**", "**/lib/**/*", "**/__mocks__/**/*", "**/__fixtures__/**/*"]
+}

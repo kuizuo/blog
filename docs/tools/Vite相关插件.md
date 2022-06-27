@@ -1,5 +1,5 @@
 ---
-title: vite相关插件
+title: Vite相关插件
 date: 2022-04-10
 authors: kuizuo
 tags: [vue, vite]

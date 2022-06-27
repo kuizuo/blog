@@ -251,6 +251,7 @@ const sidebars = {
     'tools/Windows自定义右键菜单',
     'tools/VScode相关配置',
     'tools/IDEA基本配置',
+    'tools/Vite相关插件',
     'tools/Wappalyzer识别网站上的技术',
     'tools/Jetbrains系列产品激活方法',
   ]
