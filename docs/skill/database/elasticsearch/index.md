@@ -1,7 +1,7 @@
 ---
 title: elasticsearch笔记
 date: 2021-03-15
-tags: [elasticsearch, 数据库]
+tags: [elasticsearch, database]
 ---
 
 [Elasticsearch Clients | Elastic 官方文档](https://www.elastic.co/guide/en/elasticsearch/client/index.html)

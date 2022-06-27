@@ -2,7 +2,7 @@
 title: JS代码之还原
 date: 2021-12-25
 authors: kuizuo
-tags: [js, ast, 逆向, project]
+tags: [javascript, ast, reverse, project]
 sticky: true
 ---
 

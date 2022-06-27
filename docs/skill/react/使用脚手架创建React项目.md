@@ -2,7 +2,7 @@
 title: 使用脚手架创建React项目
 date: 2021-09-15
 authors: kuizuo
-tags: [react, js]
+tags: [react]
 ---
 
 <!-- truncate -->
@@ -85,7 +85,6 @@ cd myapp && npm install
 npm create vite@latest my-vue-app
 ```
 
-选择react即可
+选择 react 即可
 
 ![image-20220412161447441](https://img.kuizuo.cn/image-20220412161447441.png)
-

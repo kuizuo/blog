@@ -2,14 +2,14 @@
 title: kz-admin后台管理系统
 date: 2022-05-08
 authors: kuizuo
-tags: [开发, project, vue, nest, admin]
+tags: [project, admin, vue, nest]
 ---
 
-当时初学Web开发的时候，除了写一个网页博客外，第二个选择无非就是一个后台管理系统，可以应用于多种需要数据管理类项目中。
+当时初学 Web 开发的时候，除了写一个网页博客外，第二个选择无非就是一个后台管理系统，可以应用于多种需要数据管理类项目中。
 
 基于**NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin**编写的一款前后端分离的权限管理系统
 
-演示地址：[KzAdmin](https://admin.kuizuo.cn)  管理员账号：admin  密码：123456
+演示地址：[KzAdmin](https://admin.kuizuo.cn) 管理员账号：admin 密码：123456
 
 <!-- truncate -->
 
@@ -17,7 +17,7 @@ tags: [开发, project, vue, nest, admin]
 
 ## 前端
 
-**基于[Vben Admin](https://vvbin.cn/doc-next/)开发，使用Vue3、Vite、TypeScript等最新技术栈，内置常用功能组件、权限验证、动态路由。**
+**基于[Vben Admin](https://vvbin.cn/doc-next/)开发，使用 Vue3、Vite、TypeScript 等最新技术栈，内置常用功能组件、权限验证、动态路由。**
 
 仓库地址：https://github.com/kuizuo/kz-vue-admin
 
@@ -77,7 +77,7 @@ tags: [开发, project, vue, nest, admin]
 
 ### 启动项目
 
-建议使用pnpm包管理器来管理node项目，使用`npm install -g pnpm`即可安装。
+建议使用 pnpm 包管理器来管理 node 项目，使用`npm install -g pnpm`即可安装。
 
 ```sh
 pnpm install
@@ -89,20 +89,20 @@ pnpm run dev
 
 ```
   vite v2.9.5 dev server running at:
-  
-  > Network:  https://192.168.184.1:3100/  
-  > Local:    https://localhost:3100/      
-                                          
+
+  > Network:  https://192.168.184.1:3100/
+  > Local:    https://localhost:3100/
+
   ready in 5057ms.
 ```
 
-> 注: 开发环境下首次载入项目会稍慢(Vite在动态解析依赖)
+> 注: 开发环境下首次载入项目会稍慢(Vite 在动态解析依赖)
 
-更多关于前端项目规范可直接参考 [Vben Admin文档 ](https://vvbin.cn/doc-next/guide/introduction.html)，非常详细了。
+更多关于前端项目规范可直接参考 [Vben Admin 文档 ](https://vvbin.cn/doc-next/guide/introduction.html)，非常详细了。
 
 ## 后端
 
-**基于NestJs + TypeScript + TypeORM + Redis + MySql编写的前后端分离权限管理系统**
+**基于 NestJs + TypeScript + TypeORM + Redis + MySql 编写的前后端分离权限管理系统**
 
 仓库地址：https://github.com/kuizuo/kz-nest-admin
 
@@ -113,7 +113,7 @@ pnpm run dev
 |─main.ts # 主入口
 |─config # 配置文件
 |─shared
-| |─redis # redisModule 
+| |─redis # redisModule
 | | |─redis.module.ts
 | | |─redis.interface.ts
 | | |─redis.constants.ts
@@ -153,13 +153,13 @@ pnpm run dev
 
 ### 启动项目
 
-依赖安装与执行打包命令前端与后端一致，但需要提前修改.env.development中数据库相关配置，并执行sql/init.sql来初始化数据。
+依赖安装与执行打包命令前端与后端一致，但需要提前修改.env.development 中数据库相关配置，并执行 sql/init.sql 来初始化数据。
 
 ### 实现
 
 项目中大部分的目录结构设计参照与[sf-nest-admin](https://github.com/hackycy/sf-nest-admin)，但主要为了贴合自我的代码风格修改部分数据字段名，接口方法，接口响应格式等等。
 
-同时对于大部分这类后台管理的demo，通常都会定义用户，角色，菜单，部门。而我将部门相关代码删除，因为对于我后续项目大概率用不上这些部分，然后删了一些不相关的模块，主要写的这套模板还是用作自己后续的管理类项目。
+同时对于大部分这类后台管理的 demo，通常都会定义用户，角色，菜单，部门。而我将部门相关代码删除，因为对于我后续项目大概率用不上这些部分，然后删了一些不相关的模块，主要写的这套模板还是用作自己后续的管理类项目。
 
 #### 用户-角色-权限
 
@@ -169,21 +169,21 @@ pnpm run dev
 
 ![image-20220508235534026](https://img.kuizuo.cn/image-20220508235534026.png)
 
-用户-角色  与 角色-权限都采用的多对多的关系，即新创建一个表用于映射两表关系。这些都属于mysql基础，不做过多赘述。
+用户-角色 与 角色-权限都采用的多对多的关系，即新创建一个表用于映射两表关系。这些都属于 mysql 基础，不做过多赘述。
 
-在权限管理中，最为重要的便是权限表了，由于这套后台管理系统中还涉及到前端的左侧菜单，所以将这里的permission表替换为menu表，字段permission表示权限值。数据库中的menu表如下
+在权限管理中，最为重要的便是权限表了，由于这套后台管理系统中还涉及到前端的左侧菜单，所以将这里的 permission 表替换为 menu 表，字段 permission 表示权限值。数据库中的 menu 表如下
 
 ![image-20220508234343594](https://img.kuizuo.cn/image-20220508234343594.png)
 
 对于主要字段介绍：
 
-- **parent**：对于有父子关系的表，会创建一个parent_id(这里为parent)字段用于表示父节点，无则为顶级节点。
+- **parent**：对于有父子关系的表，会创建一个 parent_id(这里为 parent)字段用于表示父节点，无则为顶级节点。
 
-- **permission**：权限标识，根据后端接口而定，比如新增用户的url为`sys/user/add`，那么权限标识通常将/替换成:，也就是`sys:user:add`（主要防止和接口的url混淆）。
-- **type**：0目录  1菜单(前端组件)  2权限，由于是菜单与权限混用，所以用type来区分。
+- **permission**：权限标识，根据后端接口而定，比如新增用户的 url 为`sys/user/add`，那么权限标识通常将/替换成:，也就是`sys:user:add`（主要防止和接口的 url 混淆）。
+- **type**：0 目录 1 菜单(前端组件) 2 权限，由于是菜单与权限混用，所以用 type 来区分。
 - **icon**：左侧菜单图标
 - **order_no**：左侧菜单排序
-- **component**：组件，目录为LAYOUT，菜单则为对应组件，权限则无
+- **component**：组件，目录为 LAYOUT，菜单则为对应组件，权限则无
 
 有了这些数据，要做的是将他们拼接为**前端菜单管理**，**根据角色获取所有菜单**，**根据用户的所有权限**的树结构数据。
 
@@ -195,7 +195,7 @@ pnpm run dev
 
 ##### 根据角色获取所有菜单
 
-首先根据用户id找到该用户的所有角色id，然后通过联表找到角色id所对应的菜单数据。
+首先根据用户 id 找到该用户的所有角色 id，然后通过联表找到角色 id 所对应的菜单数据。
 
 ```typescript
   /**
@@ -224,7 +224,7 @@ pnpm run dev
 
 ##### 根据用户的所有权限
 
-与上例一样，不过这里主要获取的是permission字段，所以在条件上添加了`menu.type = 2`与`menu.permission IS NOT NULL`，将permission拼接为一个数组。
+与上例一样，不过这里主要获取的是 permission 字段，所以在条件上添加了`menu.type = 2`与`menu.permission IS NOT NULL`，将 permission 拼接为一个数组。
 
 ```typescript
   /**
@@ -258,27 +258,21 @@ pnpm run dev
   }
 ```
 
-permission的值如
+permission 的值如
 
 ```json
-[
-  "sys:user:add",
-  "sys:user:delete",
-  "sys:user:update",
-  "sys:user:list",
-  "sys:user:info",
-]
+["sys:user:add", "sys:user:delete", "sys:user:update", "sys:user:list", "sys:user:info"]
 ```
 
-然后在auth.guard.ts守卫中获取permission，然后每次请求需要鉴权的接口时，将权限标识转为接口url，判断是否包含该url，不包含则无访问权限。
+然后在 auth.guard.ts 守卫中获取 permission，然后每次请求需要鉴权的接口时，将权限标识转为接口 url，判断是否包含该 url，不包含则无访问权限。
 
 在[菜单管理页](https://admin.kuizuo.cn/#/system/menu)中可操作菜单，具体可自测。
 
-至此，菜单表的数据被拆分为这3部分数据，以实现权限管理，动态路由的目的。
+至此，菜单表的数据被拆分为这 3 部分数据，以实现权限管理，动态路由的目的。
 
-#### 后台webSocket服务重启后，导致前端webSocket断开
+#### 后台 webSocket 服务重启后，导致前端 webSocket 断开
 
-后台webSocket服务重启后，会导致vite下dev模式崩溃，报如下错误
+后台 webSocket 服务重启后，会导致 vite 下 dev 模式崩溃，报如下错误
 
 ```sh
 Error: read ECONNRESET
@@ -293,18 +287,18 @@ Emitted 'error' event on TLSSocket instance at:
 }
 ```
 
-其问题是由vite开发服务器的反向代理断连导致的。
+其问题是由 vite 开发服务器的反向代理断连导致的。
 
-但目前没有一个很好的解决方案，日常开发中会将store/modules/user.ts下的getUserInfoAction方法中websocket连接的代码给屏蔽了。
+但目前没有一个很好的解决方案，日常开发中会将 store/modules/user.ts 下的 getUserInfoAction 方法中 websocket 连接的代码给屏蔽了。
 
 ```typescript
-const wsStore = useWsStore();
-!wsStore.client && wsStore.initSocket();
+const wsStore = useWsStore()
+!wsStore.client && wsStore.initSocket()
 ```
 
 #### 其他文档
 
-[apipost文档](https://console-docs.apipost.cn/preview/33adde8eab3596f4/5667cbce79bf9c98) 密码: kz-admin
+[apipost 文档](https://console-docs.apipost.cn/preview/33adde8eab3596f4/5667cbce79bf9c98) 密码: kz-admin
 
 ## 致谢
 

@@ -14,8 +14,7 @@ tags: [vue]
 通过组件化的方式，可以让每个组件之间互不干扰，并且方便引入和导出。下面是 vue 创建组件的一个例子：
 
 ```vue
-// 定义一个名为 button-counter 的新组件(全局组件) Vue.component('button-counter', { data: function () { return { count:
-0 } }, template: '
+// 定义一个名为 button-counter 的新组件(全局组件) Vue.component('button-counter', { data: function () { return { count: 0 } }, template: '
 <button v-on:click="count++">You clicked me {{ count }} times.</button>
 ' })
 ```

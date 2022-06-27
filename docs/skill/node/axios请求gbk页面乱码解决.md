@@ -2,7 +2,7 @@
 title: axios请求gbk页面乱码解决
 date: 2021-09-19
 authors: kuizuo
-tags: [js, node]
+tags: [node, axios, encode]
 ---
 
 <!-- truncate -->
@@ -14,21 +14,21 @@ tags: [js, node]
 借助`iconv-lite`，不让 axios 自动处理响应数据，添加`responseType`和`transformResponse`参数，演示代码如下
 
 ```js
-import axios from 'axios';
-import * as iconv from 'iconv-lite';
+import axios from 'axios'
+import * as iconv from 'iconv-lite'
 
 axios
   .get(`https://www.ip138.com/`, {
     responseType: 'arraybuffer',
     transformResponse: [
       function (data) {
-        return iconv.decode(data, 'gbk');
+        return iconv.decode(data, 'gbk')
       },
     ],
   })
   .then((res) => {
-    console.log(res.data);
-  });
+    console.log(res.data)
+  })
 ```
 
 或者不使用`transformResponse`，在响应结束后使用`iconv.decode(res.data, 'gbk')`，使用`transformResponse`相对优雅一点。
@@ -36,5 +36,5 @@ axios
 如果返回的是 json 格式的话，可以直接`JSON.parse`转为 json 对象（前提得确保是 json 格式，不然解析报错）
 
 ```js
-return JSON.parse(iconv.decode(data, 'gbk'));
+return JSON.parse(iconv.decode(data, 'gbk'))
 ```

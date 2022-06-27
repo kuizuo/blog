@@ -7,7 +7,7 @@ tags: [node, npm, electron]
 
 <!-- truncate -->
 
-由于原淘宝npm域名（**http://npm.taobao.org 和 http://registry.npm.taobao.org**）将于 **2022.06.30 号正式下线和停止 DNS 解析**，不妨提前修改镜像的地址，以免受到影响。
+由于原淘宝 npm 域名（**http://npm.taobao.org 和 http://registry.npm.taobao.org**）将于 **2022.06.30 号正式下线和停止 DNS 解析**，不妨提前修改镜像的地址，以免受到影响。
 
 域名切换规则：
 
@@ -40,13 +40,13 @@ npm config set registry https://registry.npmmirror.com
 npm get registry
 ```
 
-## 清除npm缓存
+## 清除 npm 缓存
 
 ```sh
 npm cache clean --force
 ```
 
-## 配置electron镜像
+## 配置 electron 镜像
 
 ```sh
 npm config set ELECTRON_MIRROR https://npmmirror.com/mirrors/electron/

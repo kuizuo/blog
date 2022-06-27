@@ -2,7 +2,7 @@
 title: 基于Axios封装HTTP类库
 date: 2021-08-26
 authors: kuizuo
-tags: [node, http]
+tags: [node, http, axios]
 ---
 
 <!-- truncate -->
@@ -27,8 +27,8 @@ import Http from 'kz-http'
 let http = new Http()
 
 http.get('https://www.example.com').then((res) => {
-    console.log(res);
-});
+  console.log(res)
+})
 ```
 
 ## 能解决什么
@@ -71,8 +71,8 @@ class Http {
 但是正是由于导入了这个包，导致每次请求都需要处理，就会导致请求速度变慢，实测大约是在 100ms 左右，同时导入这个包之后，实例化的对象都将会携带对应 cookies，想要删除又得对应 Url，于是决定自行封装相关代码可查看 request 方法，实测下来大约有 10ms 左右的差距（前提都通过创建实例来请求），不过有个缺陷，我封装的代码是不进行同源判断的，如何你当前站点请求的是 api1.test.com，获取到 cookie1，那么请求 api2.test.com 的时候也会将 cookie1 携带，这边不做判断是不想在请求的时候耗费时间，比如网页与手机协议，一般这种情况建议实例化两个对象，如
 
 ```javascript
-let http_api1 = new Http();
-let http_api2 = new Http();
+let http_api1 = new Http()
+let http_api2 = new Http()
 ```
 
 ### 请求失败无法自动重试
@@ -80,34 +80,34 @@ let http_api2 = new Http();
 在高并发的情况下，偶尔会出现请求超时，请求拒绝的情况，但是默认下 axios 是不支持自动重试请求的，不过可以借助插件`axios-retry`来达到这个目的
 
 ```javascript
-const axiosRetry = require('axios-retry');
+const axiosRetry = require('axios-retry')
 
 class Http {
   constructor(retryConfig?) {
-    this.instance = axios.create();
+    this.instance = axios.create()
 
     if (retryConfig) {
       axiosRetry(this.instance, {
         retries: retryConfig.retry, // 设置自动发送请求次数
         retryDelay: (retryCount) => {
-          return retryCount * retryConfig.delay; // 重复请求延迟
+          return retryCount * retryConfig.delay // 重复请求延迟
         },
         shouldResetTimeout: true, // 重置超时时间
         retryCondition: (error) => {
           if (axiosRetry.isNetworkOrIdempotentRequestError(error)) {
-            return true;
+            return true
           }
 
           if (error.code == 'ECONNABORTED' && error.message.indexOf('timeout') != -1) {
-            return true;
+            return true
           }
           if (['ECONNRESET', 'ETIMEDOUT'].includes(error.code)) {
             // , 'ENOTFOUND'
-            return true;
+            return true
           }
-          return false;
+          return false
         },
-      });
+      })
     }
   }
 }
@@ -120,16 +120,16 @@ class Http {
 有时候一个网站的协议是这样的，每一条 Post 都自动将所有参数进行拼接，然后进行 MD5 加密，并添加为 sign 参数，于是，不得不给每一条请求都进行这样的操作，那么有没有什么能在每次请求的时候，都自动的对参数进行 MD5 加密。如果使用过 axios 来配置过 JWT 效验，那自然就会熟悉给每条请求协议头都携带 JWT 数值。同样的，这里的加密例子同样使用，具体配置实例对象 http 的请求拦截器即可，如
 
 ```javascript
-let http = new Http();
+let http = new Http()
 
 // axios实例instance是公开的
 http.instance.interceptors.request.use(
   (config) => {
     // 执行每条请求都要处理的操作
-    return config;
+    return config
   },
   (error) => {},
-);
+)
 ```
 
 同样的，响应拦截器也同理，例如请求返回的响应都进行加密处理，那么就可以通过响应拦截器进行统一解密，这里就不做过多描述，具体场景具体分析。
@@ -144,7 +144,7 @@ http.instance.interceptors.request.use(
 
 :::tip
 
-在使用npm之前，请先使用`npm install -g npm@latest`升级为最新版，否则可能会提示 **ERR! 426 Upgrade Required**。原文 [The npm registry is deprecating TLS 1.0 and TLS 1.1 | The GitHub Blog](https://github.blog/2021-08-23-npm-registry-deprecating-tls-1-0-tls-1-1/)
+在使用 npm 之前，请先使用`npm install -g npm@latest`升级为最新版，否则可能会提示 **ERR! 426 Upgrade Required**。原文 [The npm registry is deprecating TLS 1.0 and TLS 1.1 | The GitHub Blog](https://github.blog/2021-08-23-npm-registry-deprecating-tls-1-0-tls-1-1/)
 
 :::
 
@@ -172,11 +172,7 @@ http.instance.interceptors.request.use(
     "type": "git",
     "url": "git+https://github.com/kuizuo/kz-http.git"
   },
-  "keywords": [
-    "node",
-    "axios",
-    "http"
-  ]
+  "keywords": ["node", "axios", "http"]
 }
 ```
 

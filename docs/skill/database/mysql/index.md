@@ -1,7 +1,7 @@
 ---
 title: MySql笔记
 date: 2020-12-30
-tags: [mysql, 数据库]
+tags: [mysql, database]
 ---
 
 ## 1、前言

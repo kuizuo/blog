@@ -32,7 +32,7 @@ require.context：是一个 webpack 提供的 api,通过执行 require.context �
 而上图代码中对应的代码也明确表达要指定`./modules`目录下的，所有 js 文件
 
 ```js
-const modulesFiles = require.context('./modules', true, /\.js$/);
+const modulesFiles = require.context('./modules', true, /\.js$/)
 ```
 
 输出一下看看 modulesFiles 到底是什么(console.dir 输出)
@@ -52,11 +52,11 @@ const modulesFiles = require.context('./modules', true, /\.js$/);
 ```js
 const modules = modulesFiles.keys().reduce((modules, modulePath) => {
   // set './app.js' => 'app'
-  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1');
-  const value = modulesFiles(modulePath);
-  modules[moduleName] = value.default;
-  return modules;
-}, {});
+  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
+  const value = modulesFiles(modulePath)
+  modules[moduleName] = value.default
+  return modules
+}, {})
 ```
 
 这边先输出一下 modules，看下结果是什么
@@ -70,17 +70,17 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
 就此便可以实现自动导入模块。不过由于导出的是 store 对象，所封装的代码也有点过于复杂，这边我贴下我是如何自动导入数组对象的
 
 ```typescript
-const modulesFiles = require.context('./modules', true, /\.ts$/);
+const modulesFiles = require.context('./modules', true, /\.ts$/)
 
-let allData: any[] = [];
+let allData: any[] = []
 
 modulesFiles.keys().forEach((modulePath) => {
-  const value = modulesFiles(modulePath);
-  let data = value.default;
+  const value = modulesFiles(modulePath)
+  let data = value.default
 
-  if (!data) return;
-  allData.push(...value.default);
-});
+  if (!data) return
+  allData.push(...value.default)
+})
 ```
 
 ## 参考链接

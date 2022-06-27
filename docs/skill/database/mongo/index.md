@@ -1,7 +1,7 @@
 ---
 title: MongoDB笔记
 date: 2021-06-20
-tags: [mongodb, 数据库]
+tags: [mongodb, database]
 ---
 
 ## 安装

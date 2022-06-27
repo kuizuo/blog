@@ -2,7 +2,7 @@
 title: 使用Vue开发Chrome插件
 date: 2021-09-18
 authors: kuizuo
-tags: [js, vue, chrome, 开发]
+tags: [chrome, plugin, vue, develop]
 # sticky: true
 ---
 
@@ -133,7 +133,7 @@ module.exports = {
     require('autoprefixer'), // if you have installed `autoprefixer`
     // ...
   ],
-};
+}
 ```
 
 创建 tailwind.config.js 文件
@@ -152,7 +152,7 @@ module.exports = {
     ],
   },
   // ...
-};
+}
 ```
 
 在 src/popup/App.vue 中导入样式，或在新建 style.css 在 mian.js 中`import "../style.css";`
@@ -228,82 +228,82 @@ module.exports = {
 
 ```js title="content-script.js"
 // 注意，这里引入的vue是运行时的模块，因为content是插入到目标页面，对组件的渲染需要运行时的vue， 而不是编译环境的vue （我也不知道我在说啥，反正大概意思就是这样）
-import Vue from 'vue/dist/vue.esm.js';
-import ElementUI, { Message } from 'element-ui';
-Vue.use(ElementUI);
+import Vue from 'vue/dist/vue.esm.js'
+import ElementUI, { Message } from 'element-ui'
+Vue.use(ElementUI)
 
 // 注意，必须设置了run_at=document_start此段代码才会生效
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('vue-chrome扩展已载入');
+  console.log('vue-chrome扩展已载入')
 
-  insertFloat();
-});
+  insertFloat()
+})
 
 // 在target页面中新建一个带有id的dom元素，将vue对象挂载到这个dom上。
 function insertFloat() {
-  let element = document.createElement('div');
-  let attr = document.createAttribute('id');
-  attr.value = 'appPlugin';
-  element.setAttributeNode(attr);
-  document.getElementsByTagName('body')[0].appendChild(element);
+  let element = document.createElement('div')
+  let attr = document.createAttribute('id')
+  attr.value = 'appPlugin'
+  element.setAttributeNode(attr)
+  document.getElementsByTagName('body')[0].appendChild(element)
 
-  let link = document.createElement('link');
-  let linkAttr = document.createAttribute('rel');
-  linkAttr.value = 'stylesheet';
-  let linkHref = document.createAttribute('href');
-  linkHref.value = 'https://unpkg.com/element-ui/lib/theme-chalk/index.css';
-  link.setAttributeNode(linkAttr);
-  link.setAttributeNode(linkHref);
-  document.getElementsByTagName('head')[0].appendChild(link);
+  let link = document.createElement('link')
+  let linkAttr = document.createAttribute('rel')
+  linkAttr.value = 'stylesheet'
+  let linkHref = document.createAttribute('href')
+  linkHref.value = 'https://unpkg.com/element-ui/lib/theme-chalk/index.css'
+  link.setAttributeNode(linkAttr)
+  link.setAttributeNode(linkHref)
+  document.getElementsByTagName('head')[0].appendChild(link)
 
-  let left = 0;
-  let top = 0;
-  let mx = 0;
-  let my = 0;
-  let onDrag = false;
+  let left = 0
+  let top = 0
+  let mx = 0
+  let my = 0
+  let onDrag = false
 
   var drag = {
     inserted: function (el) {
-      (el.onmousedown = function (e) {
-        left = el.offsetLeft;
-        top = el.offsetTop;
-        mx = e.clientX;
-        my = e.clientY;
-        if (my - top > 40) return;
+      ;(el.onmousedown = function (e) {
+        left = el.offsetLeft
+        top = el.offsetTop
+        mx = e.clientX
+        my = e.clientY
+        if (my - top > 40) return
 
-        onDrag = true;
+        onDrag = true
       }),
         (window.onmousemove = function (e) {
           if (onDrag) {
-            let nx = e.clientX - mx + left;
-            let ny = e.clientY - my + top;
-            let width = el.clientWidth;
-            let height = el.clientHeight;
-            let bodyWidth = window.document.body.clientWidth;
-            let bodyHeight = window.document.body.clientHeight;
+            let nx = e.clientX - mx + left
+            let ny = e.clientY - my + top
+            let width = el.clientWidth
+            let height = el.clientHeight
+            let bodyWidth = window.document.body.clientWidth
+            let bodyHeight = window.document.body.clientHeight
 
-            if (nx < 0) nx = 0;
-            if (ny < 0) ny = 0;
+            if (nx < 0) nx = 0
+            if (ny < 0) ny = 0
 
             if (ny > bodyHeight - height && bodyHeight - height > 0) {
-              ny = bodyHeight - height;
+              ny = bodyHeight - height
             }
 
             if (nx > bodyWidth - width) {
-              nx = bodyWidth - width;
+              nx = bodyWidth - width
             }
 
-            el.style.left = nx + 'px';
-            el.style.top = ny + 'px';
+            el.style.left = nx + 'px'
+            el.style.top = ny + 'px'
           }
         }),
         (el.onmouseup = function (e) {
           if (onDrag) {
-            onDrag = false;
+            onDrag = false
           }
-        });
+        })
     },
-  };
+  }
 
   window.kz_vm = new Vue({
     el: '#appPlugin',
@@ -335,15 +335,15 @@ function insertFloat() {
           title: '',
           view: 0,
         },
-      };
+      }
     },
     mounted() {},
     methods: {
       toggle() {
-        this.show = !this.show;
+        this.show = !this.show
       },
     },
-  });
+  })
 }
 ```
 
@@ -411,19 +411,19 @@ function insertFloat() {
 
 ```js
 window.onload = function () {
-  console.log('加载完毕');
+  console.log('加载完毕')
 
   function getInfo() {
-    let username = $('#v_upinfo > div.up-info_right > div.name > a.username').text();
-    let follow = $(`#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`).text();
-    let title = $(`#viewbox_report > h1 > span`).text();
-    let view = $('#viewbox_report > div > span.view').attr('title');
+    let username = $('#v_upinfo > div.up-info_right > div.name > a.username').text()
+    let follow = $(`#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`).text()
+    let title = $(`#viewbox_report > h1 > span`).text()
+    let view = $('#viewbox_report > div > span.view').attr('title')
 
-    console.log(username, follow, title, view);
+    console.log(username, follow, title, view)
   }
 
-  getInfo();
-};
+  getInfo()
+}
 ```
 
 重新加载插件，然后输出查看结果
@@ -439,13 +439,13 @@ bilibili.js:19 老番茄 1606.0万 顶级画质 总播放数2368406
 
 ```js
 window.onload = function () {
-  console.log('加载完毕');
+  console.log('加载完毕')
 
   function getInfo() {
-    let username = $('#v_upinfo > div.up-info_right > div.name > a.username').text().trim();
-    let follow = $(`#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`).text();
-    let title = $(`#viewbox_report > h1 > span`).text();
-    let view = $('#viewbox_report > div > span.view').attr('title');
+    let username = $('#v_upinfo > div.up-info_right > div.name > a.username').text().trim()
+    let follow = $(`#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`).text()
+    let title = $(`#viewbox_report > h1 > span`).text()
+    let view = $('#viewbox_report > div > span.view').attr('title')
 
     //console.log(username, follow, title, view);
     window.kz_vm.user = {
@@ -453,10 +453,10 @@ window.onload = function () {
       follow,
       title,
       view,
-    };
+    }
   }
-  getInfo();
-};
+  getInfo()
+}
 ```
 
 其中`window.kz_vm`是通过`window.kz_vm = new Vue()` 初始化的，方便我们操作 vm 对象，就需要通过 jquery 选择元素在添加属性了。如果你想的话也可以直接在 content-script.js 上编写代码，这样就无需使用 window 对象，但这样导致一些业务逻辑都堆在一个文件里，所以我习惯分成 bilibili.js 然后注入方式为 document_end，然后在操作 dom 元素吗，实现效果如下
@@ -477,31 +477,31 @@ window.onload = function () {
 
 ```js
 // 评论文本框
-$('#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea').val('要回复的内容');
+$('#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea').val('要回复的内容')
 // 评论按钮
-$('#comment > div > div.comment > div > div.comment-send > div.textarea-container > button').click();
+$('#comment > div > div.comment > div > div.comment-send > div.textarea-container > button').click()
 ```
 
 接着就是写页面通信的了，可以看到是 popup 向 content 发送请求
 
 ```js title="src/content-script/bilibili.js"
 window.onload = function () {
-  console.log('content加载完毕');
+  console.log('content加载完毕')
 
   function comment() {
     chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-      let { cmd, message } = request;
+      let { cmd, message } = request
       if (cmd === 'addComment') {
-        $('#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea').val(message);
-        $('#comment > div > div.comment > div > div.comment-send > div.textarea-container > button').click();
+        $('#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea').val(message)
+        $('#comment > div > div.comment > div > div.comment-send > div.textarea-container > button').click()
       }
 
-      sendResponse('我收到了你的消息！');
-    });
+      sendResponse('我收到了你的消息！')
+    })
   }
 
-  comment();
-};
+  comment()
+}
 ```
 
 ```html title="src/popup/App.vue"
@@ -530,35 +530,35 @@ window.onload = function () {
         message: '',
         list: [],
         open: false,
-      };
+      }
     },
     created() {
       chrome.storage.sync.get('list', (obj) => {
-        this.list = obj['list'];
-      });
+        this.list = obj['list']
+      })
     },
     mounted() {
       chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-        console.log('收到来自content-script的消息：');
-        console.log(request, sender, sendResponse);
-        sendResponse('我是后台，我已收到你的消息：' + JSON.stringify(request));
-      });
+        console.log('收到来自content-script的消息：')
+        console.log(request, sender, sendResponse)
+        sendResponse('我是后台，我已收到你的消息：' + JSON.stringify(request))
+      })
     },
     methods: {
       sendMessageToContentScript(message, callback) {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
           chrome.tabs.sendMessage(tabs[0].id, message, function (response) {
-            if (callback) callback(response);
-          });
-        });
+            if (callback) callback(response)
+          })
+        })
       },
       addComment() {
         this.sendMessageToContentScript({ cmd: 'addComment', message: this.message }, function () {
-          console.log('来自content的回复：' + response);
-        });
+          console.log('来自content的回复：' + response)
+        })
       },
     },
-  };
+  }
 </script>
 ```
 

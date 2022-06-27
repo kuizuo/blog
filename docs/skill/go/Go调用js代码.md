@@ -2,7 +2,7 @@
 title: Go调用js代码
 date: 2022-05-22
 authors: kuizuo
-tags: [go, js]
+tags: [go, javascript]
 ---
 
 <!-- truncate -->
@@ -58,7 +58,7 @@ func main() {
 }
 ```
 
-## 封装成go函数
+## 封装成 go 函数
 
 不过这样写法不方便，可以将其封装为一个 go 函数来调用。
 

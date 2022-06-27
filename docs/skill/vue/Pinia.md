@@ -2,7 +2,7 @@
 title: Pinia
 date: 2020-10-23
 authors: kuizuo
-tags: [vue]
+tags: [vue, pinia]
 ---
 
 <!-- truncate -->
@@ -24,7 +24,7 @@ import { createPinia } from 'pinia'
 
 const store = createPinia()
 
-export default store 
+export default store
 ```
 
 在 main.ts 中引入并使用
@@ -46,32 +46,32 @@ app.use(store)
 import { defineStore } from 'pinia'
 
 interface UserState {
-	name: string
+  name: string
 }
 
 export const useUserStore = defineStore({
-	id: 'user',
-	state: (): UserState => {
-		return {
-			name: 'kuizuo'
-		}
-	},
-	getters: {
-		getName(): string {
-			return this.name
-		}
-	},
-	actions: {
-		setName(name: string) {
-			this.name = name
-		}
-	}
+  id: 'user',
+  state: (): UserState => {
+    return {
+      name: 'kuizuo',
+    }
+  },
+  getters: {
+    getName(): string {
+      return this.name
+    },
+  },
+  actions: {
+    setName(name: string) {
+      this.name = name
+    },
+  },
 })
 ```
 
 ## 使用
 
-### 获取state
+### 获取 state
 
 ```vue
 <template>
@@ -99,19 +99,19 @@ import { storeToRefs } from 'pinia'
 const { name } = storeToRefs(userStore)
 ```
 
-### 修改state
+### 修改 state
 
-可以直接使用`userStore.name = "xxx"` 来进行修改，但不建议，而是使用actions来修改，在上面已经定义一个setName方法用来修改state
+可以直接使用`userStore.name = "xxx"` 来进行修改，但不建议，而是使用 actions 来修改，在上面已经定义一个 setName 方法用来修改 state
 
 ```typescript
 userStore.setName('xxx')
 ```
 
-## 与vuex对比
+## 与 vuex 对比
 
-不难发现，pinia比vuex少了个`mutations`，也就是变更状态的函数，而pinia则是将其与action合并在一起。
+不难发现，pinia 比 vuex 少了个`mutations`，也就是变更状态的函数，而 pinia 则是将其与 action 合并在一起。
 
-在Vuex中mutation是无法异步操作的，而Action可以包含任意异步操作。像上面要写异步操作的只需要在actions中正常的编写async await语法的异步函数即可。如
+在 Vuex 中 mutation 是无法异步操作的，而 Action 可以包含任意异步操作。像上面要写异步操作的只需要在 actions 中正常的编写 async await 语法的异步函数即可。如
 
 ```typescript
 export const useUserStore = defineStore({
@@ -120,12 +120,12 @@ export const useUserStore = defineStore({
     async login(user) {
       const { data } = await api.login(user)
       return data
-    }
-  }
+    },
+  },
 })
 ```
 
-而vuex中写法与调用就不堪入目了😂
+而 vuex 中写法与调用就不堪入目了 😂
 
 ## 数据持久化
 
@@ -147,23 +147,23 @@ store.use(piniaPluginPersist)
 export default store
 ```
 
-在对应的store中开启persist即可，**默认情况下数据是存放在sessionStorage(会话存储)，并以store中的id作为key**
+在对应的 store 中开启 persist 即可，**默认情况下数据是存放在 sessionStorage(会话存储)，并以 store 中的 id 作为 key**
 
 ```typescript {8-10}
 export const useUserStore = defineStore({
-	id: 'user',
-	state: (): UserState => {
-		return {
-			name: 'kuizuo'
-		}
-	},
-	persist: {
-		enabled: true
-	}
+  id: 'user',
+  state: (): UserState => {
+    return {
+      name: 'kuizuo',
+    }
+  },
+  persist: {
+    enabled: true,
+  },
 })
 ```
 
-persist还有其他配置，例如自定义key，存放位置改为localStorage
+persist 还有其他配置，例如自定义 key，存放位置改为 localStorage
 
 ```typescript {3-8}
 persist: {
@@ -177,7 +177,7 @@ persist: {
 }
 ```
 
-还可以使用paths来指定那些state持久化，如下
+还可以使用 paths 来指定那些 state 持久化，如下
 
 ```typescript {5}
 persist: {

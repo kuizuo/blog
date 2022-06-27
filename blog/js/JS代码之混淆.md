@@ -2,7 +2,7 @@
 title: JS代码之混淆
 date: 2021-12-21
 authors: kuizuo
-tags: [js, ast, 逆向, project]
+tags: [javascript, ast, reverse, project]
 ---
 
 <!-- truncate -->

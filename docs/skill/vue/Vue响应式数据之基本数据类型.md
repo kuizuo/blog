@@ -2,7 +2,7 @@
 title: Vue响应式数据之基本数据类型
 date: 2022-05-18
 authors: kuizuo
-tags: [vue]
+tags: [vue, javascript]
 ---
 
 <!-- truncate -->
@@ -19,7 +19,7 @@ str = 'vue3'
 
 ```javascript
 const wrapper = {
-  value:'vue'
+  value: 'vue',
 }
 
 const name = reactive(wrapper)
@@ -36,9 +36,9 @@ SET value vue3
 不难发现，vue2 中对原始值的响应都是将其包裹在 data 函数下返回的对象，并且从上面的代码上来看。但从开发者的角度还需要创建一个包装对象，不易操作的同时，也意味不规范。于是 vue3 封装了 ref 函数，而返回的对象便是响应式的包装对象`reactive(wrapper)`
 
 ```javascript
-function ref(val){
+function ref(val) {
   const wrapper = {
-  value: val
+    value: val,
   }
 
   return reactive(wrapper)
@@ -58,13 +58,13 @@ name.value = 'vue3'
 要区别一个数据是否为 ref，只需要在 ref 中定义一个不可枚举的属性`__v_isRef`值为 true。
 
 ```javascript
-function ref(val){
+function ref(val) {
   const wrapper = {
-  value: val
+    value: val,
   }
 
-  Object.defineProperty(wrapper,'__v_isRef',{
-    value: true
+  Object.defineProperty(wrapper, '__v_isRef', {
+    value: true,
   })
 
   return reactive(wrapper)
@@ -79,7 +79,7 @@ function ref(val){
 const obj = reactive({ foo: 1, bar: 2 })
 
 const user = {
-  ...obj
+  ...obj,
 }
 
 user.foo.value = 3
@@ -97,12 +97,11 @@ function toRef(obj, key) {
     },
     set value(val) {
       obj[key] = val
-    }
+    },
   }
 
-
   Object.defineProperty(wrapper, '__v_isRef', {
-    value: true
+    value: true,
   })
 
   return wrapper
@@ -120,11 +119,10 @@ function toRefs(obj) {
 const obj = reactive({ foo: 1, bar: 2 })
 
 const user = {
-  ...toRefs(obj)
+  ...toRefs(obj),
 }
 
 user.foo.value = 3
-
 ```
 
 其结果便能正常监听响应式，并输出 SET foo 3
@@ -154,17 +152,16 @@ function proxyRefs(target) {
       }
 
       return Reflect.set(target, key, newValue, receiver)
-    }
+    },
   })
 }
-
 ```
 
 将其 user 数据传递给 proxyRefs 函数进行处理，便可省略.value
 
 ```javascript
 const user = proxyRefs({
-  ...toRefs(obj)
+  ...toRefs(obj),
 })
 
 console.log(user.foo) // 1
@@ -215,16 +212,15 @@ function reactive(target) {
       return res
     },
   })
-};
-
+}
 
 function ref(val) {
   const wrapper = {
-    value: val
+    value: val,
   }
 
   Object.defineProperty(wrapper, '__v_isRef', {
-    value: true
+    value: true,
   })
 
   return reactive(wrapper)
@@ -237,12 +233,11 @@ function toRef(obj, key) {
     },
     set value(val) {
       obj[key] = val
-    }
+    },
   }
 
-
   Object.defineProperty(wrapper, '__v_isRef', {
-    value: true
+    value: true,
   })
 
   return wrapper
@@ -271,8 +266,7 @@ function proxyRefs(target) {
       }
 
       return Reflect.set(target, key, newValue, receiver)
-    }
+    },
   })
 }
-
 ```

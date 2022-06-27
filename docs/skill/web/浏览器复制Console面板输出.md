@@ -2,7 +2,7 @@
 title: 浏览器复制Console面板输出
 date: 2021-12-07
 authors: kuizuo
-tags: [js, 浏览器]
+tags: [javascript, browser, console]
 ---
 
 <!-- truncate -->
@@ -11,7 +11,7 @@ tags: [js, 浏览器]
 
 ```javascript
 // 模拟生成的数据
-let data = Array.from({ length: 100 }, (v, i) => ({ index: i, value: Math.random() }));
+let data = Array.from({ length: 100 }, (v, i) => ({ index: i, value: Math.random() }))
 ```
 
 ![image-20211207122529224](https://img.kuizuo.cn/image-20211207122529224.png)
@@ -29,7 +29,7 @@ copy(data)
 此时剪贴板的内容便是 data 的原生 js 对象（格式化后），像下面这样
 
 ```javascript
-[
+;[
   {
     index: 0,
     value: 0.3875488580101616,
@@ -51,5 +51,5 @@ copy(data)
     index: 99,
     value: 0.31823645771583875,
   },
-];
+]
 ```

@@ -2,7 +2,7 @@
 title: 使用Github Action自动化部署
 date: 2022-05-11
 authors: kuizuo
-tags: [github, git, blog]
+tags: [github, git]
 ---
 
 如果有写过项目的经历，就免不了将代码上传到服务器上，安装依赖，然后输入启动命令的步骤。但是有的项目往往需要经常性的改动，如果还是照着上面的方式进行部署的话。先不说这样操作的效率，操作个几次就想罢工了。并且上面这样操作的往往容易误操作。而 Github Actions 正是该问题的良药。
@@ -152,9 +152,9 @@ jobs:
           server-dir: ./
 ```
 
-相信第一个实例中的workflow应该已经明白了，其中 ftp_server，ftp_user，ftp_pwd 都是私密信息，所以需要 New repository secret 设置这三个变量。
+相信第一个实例中的 workflow 应该已经明白了，其中 ftp_server，ftp_user，ftp_pwd 都是私密信息，所以需要 New repository secret 设置这三个变量。
 
-但由于 build 下存在大量文件夹与文件，所以 FTP 速度上传速度堪忧，最终耗时 17 minutes 38.4 seconds。这里只是作为FTP演示。
+但由于 build 下存在大量文件夹与文件，所以 FTP 速度上传速度堪忧，最终耗时 17 minutes 38.4 seconds。这里只是作为 FTP 演示。
 
 ## 总结
 

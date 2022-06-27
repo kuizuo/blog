@@ -2,7 +2,7 @@
 title: 为什么是JavaScript
 date: 2021-01-03
 authors: kuizuo
-tags: [随笔, js, node, 前端]
+tags: [随笔, javascript, node, fontend]
 draft: true
 ---
 

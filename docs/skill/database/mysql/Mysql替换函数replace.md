@@ -1,7 +1,7 @@
 ---
 title: mysql替换函数replace
 date: 2021-01-07
-tags: [mysql, 数据库]
+tags: [mysql, database]
 ---
 
 ## 1、前言

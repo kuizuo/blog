@@ -2,7 +2,7 @@
 title: vite相关插件
 date: 2022-04-10
 authors: kuizuo
-tags: [js, vue, vite]
+tags: [vue, vite]
 ---
 
 记录下日常使用 Vite 的一些相关插件。
@@ -121,9 +121,7 @@ plugins: [
 
 ```javascript title="vite.config.js"
 AutoImport({
-  imports: [
-    'vue/macros',
-  ],
+  imports: ['vue/macros'],
   dts: true,
 })
 ```
@@ -206,7 +204,7 @@ export default defineConfig({
 
 ## [unplugin-vue-define-options/vite](https://github.com/sxzz/unplugin-vue-define-options)
 
-**script setup语法糖通过defineOptions定义组件name、inheritAttrs、props、emits**
+**script setup 语法糖通过 defineOptions 定义组件 name、inheritAttrs、props、emits**
 
 安装
 
@@ -224,17 +222,17 @@ export default defineConfig({
 })
 ```
 
-在`tsconfig.json`设置types，如下所示:
+在`tsconfig.json`设置 types，如下所示:
 
 ```json
 {
-    "compilerOptions": {
-        "types": ["unplugin-vue-define-options"]
-    }
+  "compilerOptions": {
+    "types": ["unplugin-vue-define-options"]
+  }
 }
 ```
 
-不然在ts项目中会提示 **找不到名称“defineOptions”**，具体使用如下
+不然在 ts 项目中会提示 **找不到名称“defineOptions”**，具体使用如下
 
 ```vue
 <script setup lang="ts">
@@ -270,7 +268,7 @@ const slots = useSlots()
 </script>
 ```
 
-如果只是想**单纯的设置组件名**的话，这个插件 [vite-plugin-vue-setup-extend](https://github.com/vbenjs/vite-plugin-vue-setup-extend) 可能更适合，只需要在script中添加一个name属性即可。
+如果只是想**单纯的设置组件名**的话，这个插件 [vite-plugin-vue-setup-extend](https://github.com/vbenjs/vite-plugin-vue-setup-extend) 可能更适合，只需要在 script 中添加一个 name 属性即可。
 
 ```vue
 <template>
@@ -278,7 +276,7 @@ const slots = useSlots()
 </template>
 
 <script lang="ts" setup name="App">
-  const a = 1
+const a = 1
 </script>
 ```
 
@@ -335,7 +333,7 @@ export default {
 }
 ```
 
-传统的routes写法
+传统的 routes 写法
 
 ```javascript
 // 1. 定义路由组件.
@@ -475,15 +473,7 @@ export default defineConfig({
 并根据需要这样使用它们：
 
 ```html
-<button
-  bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
-  text="sm white"
-  font="mono light"
-  p="y-2 x-4"
-  border="2 rounded blue-200"
->
-  Button
-</button>
+<button bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600" text="sm white" font="mono light" p="y-2 x-4" border="2 rounded blue-200">Button</button>
 ```
 
 语法
@@ -500,8 +490,7 @@ export default defineConfig({
 
 ## 总结
 
-体验过一段时间的Vite开发，开发体验还是很满意的，这其中肯定与上面的插件有着密切联系。这次去翻看了一些项目，了解其中插件的使用。这里只是汇总了些常用的，还有更多相关插件可以去[awesome-vite](https://github.com/vitejs/awesome-vite#plugins)上查看。
-
+体验过一段时间的 Vite 开发，开发体验还是很满意的，这其中肯定与上面的插件有着密切联系。这次去翻看了一些项目，了解其中插件的使用。这里只是汇总了些常用的，还有更多相关插件可以去[awesome-vite](https://github.com/vitejs/awesome-vite#plugins)上查看。
 
 > 参考文章:
 >

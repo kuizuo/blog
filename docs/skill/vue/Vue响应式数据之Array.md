@@ -2,7 +2,7 @@
 title: Vue响应式数据之Array
 date: 2022-05-12
 authors: kuizuo
-tags: [vue, js]
+tags: [vue, javascript]
 ---
 
 <!-- truncate -->
@@ -103,7 +103,7 @@ ADD [ 0 ]
 
 ## Proxy
 
-但在 Vue3 也可以使用 Proxy 来监听（代理）数据，先引用监听[Object中的最终代码](./Vue响应式数据之Object#最终代码)，对其稍加修改一下，看看效果
+但在 Vue3 也可以使用 Proxy 来监听（代理）数据，先引用监听[Object 中的最终代码](./Vue响应式数据之Object#最终代码)，对其稍加修改一下，看看效果
 
 ```javascript
 function log(type, index, val) {
@@ -129,9 +129,7 @@ function reactive(target) {
     set(target, key, newVal, receiver) {
       const oldVal = target[key]
 
-      const type = Array.isArray(target)
-        ? (Number(key) < target.length ? 'SET' : 'ADD')
-        : Object.prototype.hasOwnProperty.call(target, key) ? 'SET' : 'ADD'
+      const type = Array.isArray(target) ? (Number(key) < target.length ? 'SET' : 'ADD') : Object.prototype.hasOwnProperty.call(target, key) ? 'SET' : 'ADD'
 
       const res = Reflect.set(target, key, newVal, receiver)
 
@@ -142,7 +140,6 @@ function reactive(target) {
           log(type, key, newVal)
         }
       }
-
 
       return res
     },
@@ -156,7 +153,7 @@ function reactive(target) {
       }
 
       return res
-    }
+    },
   })
 }
 
@@ -181,4 +178,4 @@ DELETE 3 true
 [ 1, 2, 100 ]
 ```
 
-实际上，以上代码就已经能监听数组成员新增，修改与删除了。但对于一些特殊方法（数组遍历，寻找成员），还需要修改其原型方法，就需要像Vue2对原型方法那样操作。不过在监听数据变化上，用处并不是特别大，主要体现在依赖收集以及副作用函数的调用上。
+实际上，以上代码就已经能监听数组成员新增，修改与删除了。但对于一些特殊方法（数组遍历，寻找成员），还需要修改其原型方法，就需要像 Vue2 对原型方法那样操作。不过在监听数据变化上，用处并不是特别大，主要体现在依赖收集以及副作用函数的调用上。

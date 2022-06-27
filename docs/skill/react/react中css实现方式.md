@@ -25,16 +25,10 @@ js
 
 ```jsx
 function Hello() {
-  return <div className='box'>
-    hello react
-  </div>
+  return <div className='box'>hello react</div>
 }
 
-ReactDOM.render(
-  <Hello/>,
-  document.getElementById('root')
-);
-
+ReactDOM.render(<Hello />, document.getElementById('root'))
 ```
 
 与传统在 html 标签定义 css 样式不同，因为这不是传统的 html 代码，而是 JSX，由于 class 作为关键字，无法作为标识符出现，比方说下面的代码将会报错。
@@ -57,11 +51,12 @@ const { class: className } = { class: 'foo' }
 
 ```jsx
 function Hello() {
-  return <div className="box" style={{ fontSize: "32px",textAlign: "center" }}>
-    hello react
-  </div>
+  return (
+    <div className='box' style={{ fontSize: '32px', textAlign: 'center' }}>
+      hello react
+    </div>
+  )
 }
-
 ```
 
 CSS 的`font-size`属性要写成`fontSize`，这是 JavaScript 操作 CSS 属性的[约定](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference)。
@@ -89,14 +84,11 @@ Css Modules 并不是 React 专用解决方法，适用于所有使用 webpack �
 然后通过 import 引入
 
 ```jsx
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
 function Hello() {
-  return <div className={styles.box}>
-    hello react
-  </div>
+  return <div className={styles.box}>hello react</div>
 }
-
 ```
 
 但如果是有多个局部样式，直接拼接是无效的（毕竟是个无效的表达式）
@@ -117,16 +109,16 @@ function Hello() {
 还可以通过 npm 包 classnames 来定义类名，如
 
 ```jsx
-import classnames from "classnames";
-import styles from './styles.module.css';
+import classnames from 'classnames'
+import styles from './styles.module.css'
 
-<div className={classnames(styles.class1,styles.class2)}></div>
+;<div className={classnames(styles.class1, styles.class2)}></div>
 ```
 
 最终都将编译为
 
 ```jsx
-<div class="class1 class2"></div>
+<div class='class1 class2'></div>
 ```
 
 当然 classnames 还有多种方式添加，就不列举了，主要针对复杂样式，根据条件是否添加样式。
@@ -142,7 +134,7 @@ import styles from './styles.module.css';
 由于 React 对 CSS 的封装非常弱，导致了一系列的第三方库，用来加强 CSS 操作，统称为 CSS in JS（），有一种在 js 文件中写 css 代码的感觉，根据不完全统计，各种 CSS in JS 的库至少有[47 种](https://github.com/MicheleBertoli/css-in-js)，其中比较出名的 便是[styled-components](https://link.juejin.cn/?target=https://github.com/styled-components/styled-components)。
 
 ```jsx
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 // `` 和 () 一样可以作为js里作为函数接受参数的标志，这个做法类似于HOC，包裹一层css到h1上生成新组件Title
 const Title = styled.h1`
@@ -153,13 +145,13 @@ const Title = styled.h1`
   span {
     font-size: 2em;
   }
-`;
+`
 
 // 在充分使用css全部功能的同时，非常方便的实现动态css， 甚至可以直接调用props！
 const Wrapper = styled.section`
   padding: 4em;
-  background: ${props => props.bgColor};
-`;
+  background: ${(props) => props.bgColor};
+`
 
 const Button = styled.a`
   /* This renders the buttons above... Edit me! */
@@ -173,27 +165,24 @@ const Button = styled.a`
   border: 2px solid white;
   /* The GitHub button is a primary button
    * edit this to target it specifically! */
-  ${props => props.primary && css`
-    background: white;
-    color: palevioletred;
-  `}
+  ${(props) =>
+    props.primary &&
+    css`
+      background: white;
+      color: palevioletred;
+    `}
 `
 
-
 const App = () => (
-    <Wrapper bgColor='papayawhi'>
-      <Title><span>Hello World</span>, this is my first styled component!</Title>
-      <Button
-      href="https://github.com/styled-components/styled-components"
-      target="_blank"
-      rel="noopener"
-      primary
-    >
+  <Wrapper bgColor='papayawhi'>
+    <Title>
+      <span>Hello World</span>, this is my first styled component!
+    </Title>
+    <Button href='https://github.com/styled-components/styled-components' target='_blank' rel='noopener' primary>
       GitHub
     </Button>
-    </Wrapper>
+  </Wrapper>
 )
-
 ```
 
 像上面的 Title，Wrapper，Button 都是组件，Title 本质就是一个 h1 标签，在通过模板字符串编写局部 css 样式。
@@ -261,10 +250,14 @@ export default () => (
   </div>
 )
 
-const button = css`button { color: hotpink; }`
+const button = css`
+  button {
+    color: hotpink;
+  }
+`
 ```
 
-补充：现在我更推荐使用Emotion。
+补充：现在我更推荐使用 Emotion。
 
 ## 原子类
 
@@ -283,7 +276,7 @@ const button = css`button { color: hotpink; }`
 引用的时候直接在 class 中添加 flex 即可
 
 ```jsx
-<h1 class="flex">tailwindcss</h1>
+<h1 class='flex'>tailwindcss</h1>
 ```
 
 贴一张官方演示图，把大部分常用的样式都封装成 class
@@ -316,7 +309,7 @@ const Button = ({ children, color }) => (
 1. 可能之前标题只需要定义.title 类来完成全部样式，而 tailwind 需要好几个 css 原子类来实现
 2. 初学者可能不适应，需要反复的查阅文档。（不过用多了，自然就会习惯了）
 
-然后还有一个WindCSS，可以看作是**按需供应的** Tailwind 替代方案。不过暂时不支持React。
+然后还有一个 WindCSS，可以看作是**按需供应的** Tailwind 替代方案。不过暂时不支持 React。
 
 此外还有一篇文章非常推荐 [重新构想原子化 CSS (antfu.me)](https://antfu.me/posts/reimagine-atomic-css-zh)，不多说，再刷一遍。
 

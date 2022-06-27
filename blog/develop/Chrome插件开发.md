@@ -2,7 +2,7 @@
 title: Chrome插件开发
 date: 2020-09-28
 authors: kuizuo
-tags: [chrome, 插件, 开发]
+tags: [chrome, plugin, develop]
 ---
 
 <!-- truncate -->

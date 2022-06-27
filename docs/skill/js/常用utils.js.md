@@ -2,7 +2,7 @@
 title: 常用utils.js
 date: 2020-10-21
 authors: kuizuo
-tags: [js, 工具]
+tags: [js, util]
 ---
 
 记录一下自己在 js 学习中常用到的一些方法，进行封装使用

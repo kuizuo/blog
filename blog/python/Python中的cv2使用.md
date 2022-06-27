@@ -7,9 +7,9 @@ tags: [python]
 
 <!-- truncate -->
 
-[模块cv2的用法 - 陨落&新生 - 博客园 (cnblogs.com)](https://www.cnblogs.com/shizhengwen/p/8719062.html)
+[模块 cv2 的用法 - 陨落&新生 - 博客园 (cnblogs.com)](https://www.cnblogs.com/shizhengwen/p/8719062.html)
 
-[Python-OpenCV基本操作cv2 - 菜鸟程序猿_python - 博客园 (cnblogs.com)](https://www.cnblogs.com/zlel/p/9267629.html)
+[Python-OpenCV 基本操作 cv2 - 菜鸟程序猿\_python - 博客园 (cnblogs.com)](https://www.cnblogs.com/zlel/p/9267629.html)
 
 ## 常用方法
 
@@ -21,9 +21,9 @@ cv2.imread(filepath,flags)
 
 - flags：读入图片的标志
 
-- - cv2.IMREAD_COLOR：默认参数(3)，读入一副彩色图片，忽略alpha通道
+- - cv2.IMREAD_COLOR：默认参数(3)，读入一副彩色图片，忽略 alpha 通道
   - cv2.IMREAD_GRAYSCALE：读入灰度图片
-  - cv2.IMREAD_UNCHANGED：顾名思义，读入完整图片，包括alpha通道
+  - cv2.IMREAD_UNCHANGED：顾名思义，读入完整图片，包括 alpha 通道
 
 ### 写入图像
 
@@ -31,11 +31,11 @@ cv2.imwrite(filepath, img, flags)
 
 - filepath: 要保存图像的文件名
 - img: 要保存的图像
-- flags: 可选的第三个参数，它针对特定的格式：对于JPEG，其表示的是图像的质量，用0 - 100的整数表示，默认95;对于png ,第三个参数表示的是压缩级别。默认为3.
+- flags: 可选的第三个参数，它针对特定的格式：对于 JPEG，其表示的是图像的质量，用 0 - 100 的整数表示，默认 95;对于 png ,第三个参数表示的是压缩级别。默认为 3.
 
-cv2.IMWRITE_JPEG_QUALITY类型为 long ,必须转换成 int
+cv2.IMWRITE_JPEG_QUALITY 类型为 long ,必须转换成 int
 
-cv2.IMWRITE_PNG_COMPRESSION, 从0到9 压缩级别越高图像越小。
+cv2.IMWRITE_PNG_COMPRESSION, 从 0 到 9 压缩级别越高图像越小。
 
 ```python
 cv2.imwrite('1.png',img, [int(cv2.IMWRITE_JPEG_QUALITY), 95])
@@ -56,7 +56,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindow()
 ```
 
-### img的一些属性
+### img 的一些属性
 
 ```python
 img.shape # (1200, 1920, 3) 宽、高、通道数
@@ -66,7 +66,7 @@ img.dtype # uint8
 
 ### 颜色转化
 
-由于cv2得到的图片是BGR格式，而非传统的 RGB 格式，因此需要进行转化。
+由于 cv2 得到的图片是 BGR 格式，而非传统的 RGB 格式，因此需要进行转化。
 
 有以下三种方法
 
@@ -82,17 +82,17 @@ im_rgb = cv2.cvtColor(im_bgr, cv2.COLOR_BGR2RGB)
 
 ```python
 #彩色图像转为灰度图像
-img2 = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY) 
+img2 = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
 #灰度图像转为彩色图像
 img3 = cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)
 # cv2.COLOR_X2Y，其中X,Y = RGB, BGR, GRAY, HSV, YCrCb, XYZ, Lab, Luv, HLS
 ```
 
-### cv图片对象与二进制图片转化
+### cv 图片对象与二进制图片转化
 
 ```python
 def bytes2cv(im):
-    return cv2.imdecode(np.array(bytearray(im), dtype='uint8'), cv2.IMREAD_UNCHANGED) 
+    return cv2.imdecode(np.array(bytearray(im), dtype='uint8'), cv2.IMREAD_UNCHANGED)
 
 def cv2bytes(im):
     return np.array(cv2.imencode('.png', im)[1]).tobytes()

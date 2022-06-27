@@ -2,7 +2,7 @@
 title: Docusaurus配置Gitalk评论插件
 date: 2022-01-22
 authors: kuizuo
-tags: [blog, Gitalk]
+tags: [blog, gitalk]
 ---
 
 之前使用 vuepress 的时候，使用的评论系统是[Valine](https://valine.js.org/)，可是匿名用户也能直接评论，虽说会过滤垃圾信息，但是后台查看评论与通知总感觉没有那么实在。
@@ -61,8 +61,8 @@ npm i --save gitalk
 ```
 
 ```javascript
-import 'gitalk/dist/gitalk.css';
-import Gitalk from 'gitalk';
+import 'gitalk/dist/gitalk.css'
+import Gitalk from 'gitalk'
 ```
 
 ### 6、使用
@@ -82,9 +82,9 @@ const gitalk = new Gitalk({
   admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
   id: location.pathname, // Ensure uniqueness and length less than 50
   distractionFreeMode: false, // Facebook-like distraction free mode
-});
+})
 
-gitalk.render('gitalk-container');
+gitalk.render('gitalk-container')
 ```
 
 ##### react 中使用
@@ -92,8 +92,8 @@ gitalk.render('gitalk-container');
 导入 Gitalk 组件与样式
 
 ```jsx
-import 'gitalk/dist/gitalk.css';
-import GitalkComponent from 'gitalk/dist/gitalk-component';
+import 'gitalk/dist/gitalk.css'
+import GitalkComponent from 'gitalk/dist/gitalk-component'
 ```
 
 使用组件与配置参数
@@ -121,7 +121,7 @@ const options = {
   title: title,
   labels: labels,
   distractionFreeMode: false,
-};
+}
 ```
 
 具体参数[gitalk](https://github.com/gitalk/gitalk/blob/master/readme-cn.md#设置)

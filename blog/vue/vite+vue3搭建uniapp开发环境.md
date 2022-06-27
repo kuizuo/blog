@@ -2,7 +2,7 @@
 title: vite+vue3搭建uniapp开发环境
 date: 2022-03-27
 authors: kuizuo
-tags: [js, vue, vite, uniapp, 开发]
+tags: [vue, vite, uniapp, develop]
 ---
 
 ![uniapp](https://img.kuizuo.cn/uniapp.png)

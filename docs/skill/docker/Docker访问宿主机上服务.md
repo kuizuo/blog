@@ -1,6 +1,7 @@
 ---
 title: Docker访问宿主机上服务
 date: 2022-05-25
+authors: kuizuo
 tags: [docker]
 ---
 
@@ -26,18 +27,18 @@ docker 运行容器时使用的[桥接](https://so.csdn.net/so/search?q=桥接&s
 
 #### linux
 
-在启动docker时，加入如下语句
+在启动 docker 时，加入如下语句
 
 ```bash
 --add-host=host.docker.internal:host-gateway
 ```
 
-而在container内，可以直接请求host.docker.internal:PORT，来获取宿主机上提供的各种服务
-如果使用了Docker Compose，则应该将下面的句子加入container的声明中：
+而在 container 内，可以直接请求 host.docker.internal:PORT，来获取宿主机上提供的各种服务
+如果使用了 Docker Compose，则应该将下面的句子加入 container 的声明中：
 
 ```yaml
 extra_hosts:
-- "host.docker.internal:host-gateway"
+  - 'host.docker.internal:host-gateway'
 ```
 
 ### 使用 docker0 网络的默认网关地址

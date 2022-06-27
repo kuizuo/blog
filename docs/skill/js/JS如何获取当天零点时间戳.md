@@ -2,7 +2,7 @@
 title: JS如何获取当天零点时间戳
 date: 2021-08-18
 authors: kuizuo
-tags: [js]
+tags: [javascript]
 ---
 
 <!-- truncate -->
@@ -18,7 +18,7 @@ tags: [js]
 代码如下
 
 ```js
-dayjs(dayjs().format('YYYY-MM-DD')).valueOf();
+dayjs(dayjs().format('YYYY-MM-DD')).valueOf()
 ```
 
 moment 的话，只需要将 dayjs 替换成 moment 即可。
@@ -30,7 +30,7 @@ moment 的话，只需要将 dayjs 替换成 moment 即可。
 对应的原生 Js 代码也就很明显了
 
 ```js
-new Date(new Date().toLocaleDateString()).getTime();
+new Date(new Date().toLocaleDateString()).getTime()
 ```
 
 但要我选择我依旧毫不犹豫选择使用 js 时间库，一些复杂的时间计算，如时间格式化，计算两者时间秒/天数差，给指定时间增加/减少天数，这些如果使用原生 Js 代码，不如直接使用已有的库，何必造个轮子呢。

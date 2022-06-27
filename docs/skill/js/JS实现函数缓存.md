@@ -2,7 +2,7 @@
 title: JS实现函数缓存
 date: 2021-11-22
 authors: kuizuo
-tags: [js]
+tags: [javascript]
 ---
 
 <!-- truncate -->
@@ -20,11 +20,11 @@ tags: [js]
 
 ```javascript
 function add() {
-  let sum = 0;
+  let sum = 0
   for (let i = 0; i < arguments.length; i++) {
-    sum += arguments[i];
+    sum += arguments[i]
   }
-  return sum;
+  return sum
 }
 ```
 
@@ -32,10 +32,10 @@ function add() {
 
 ```javascript
 function add() {
-  var arr = Array.prototype.slice.call(arguments);
+  var arr = Array.prototype.slice.call(arguments)
   return arr.reduce(function (prev, cur) {
-    return prev + cur;
-  }, 0);
+    return prev + cur
+  }, 0)
 }
 ```
 
@@ -47,23 +47,23 @@ function add() {
 
 ```javascript
 let add = (function () {
-  let cache = {};
+  let cache = {}
 
   return function () {
-    let args = Array.prototype.join.call(arguments, ',');
+    let args = Array.prototype.join.call(arguments, ',')
     if (cache[args]) {
-      return cache[args];
+      return cache[args]
     }
-    let sum = 0;
+    let sum = 0
     for (let i = 0; i < arguments.length; i++) {
-      sum += arguments[i];
+      sum += arguments[i]
     }
-    return (cache[args] = sum);
-  };
-})();
+    return (cache[args] = sum)
+  }
+})()
 
-add(1, 2, 3); // 输出6
-add(1, 2, 3); // 直接从cache中获取
+add(1, 2, 3) // 输出6
+add(1, 2, 3) // 直接从cache中获取
 ```
 
 已经达到缓存的目的了，但这时我想将乘法也想实现缓存的目的，那么又得写一大行这样的代码，同时原本求和的代码又想单独分离出来，就可以使用代理模式，具体演示如下
@@ -74,24 +74,24 @@ add(1, 2, 3); // 直接从cache中获取
 
 ```javascript
 let memoize = function (fn) {
-  let cache = {};
+  let cache = {}
   return function () {
-    let args = Array.prototype.join.call(arguments, ',');
+    let args = Array.prototype.join.call(arguments, ',')
     if (args in cache) {
-      return cache[args];
+      return cache[args]
     }
-    return (cache[args] = fn.apply(this.arguments));
-  };
-};
+    return (cache[args] = fn.apply(this.arguments))
+  }
+}
 ```
 
 那么通过`memoize` 就能将函数运行后的结果给缓存起来，如
 
 ```javascript
-let add1 = memoize(add);
+let add1 = memoize(add)
 
-add1(1, 2, 3); // 输出6
-add1(1, 2, 3); // 直接从cache中获取
+add1(1, 2, 3) // 输出6
+add1(1, 2, 3) // 直接从cache中获取
 ```
 
 我们只需要编写我们正常的业务逻辑（加法，乘法等），然后通过 memoize 调用 便可达到缓存的目的
@@ -100,15 +100,15 @@ add1(1, 2, 3); // 直接从cache中获取
 
 ```javascript
 function mult() {
-  let a = 0;
+  let a = 0
   for (let i = 0; i < arguments.length; i++) {
-    a *= arguments[i];
+    a *= arguments[i]
   }
-  return a;
+  return a
 }
 
-let mult1 = memoize(mult);
+let mult1 = memoize(mult)
 
-mult1(1, 2, 3); // 输出6
-mult1(1, 2, 3); // 直接从cache中获取
+mult1(1, 2, 3) // 输出6
+mult1(1, 2, 3) // 直接从cache中获取
 ```

@@ -2,7 +2,7 @@
 title: axios中的cookie
 date: 2020-12-10
 authors: kuizuo
-tags: [node]
+tags: [node, axios, cookie]
 ---
 
 <!-- truncate -->
@@ -29,49 +29,49 @@ tags: [node]
 #### request.js
 
 ```js
-import axios from 'axios';
+import axios from 'axios'
 
 var instance = axios.create({
   baseURL: process.env.API, // node环境变量获取的Api地址
   withCredentials: true, // 跨域携带Cookies
   timeout: 5000,
-});
+})
 // 设置请求拦截器
 instance.interceptors.request.use(
   (config) => {
     // 在config可以添加自定义协议头 例如token
-    config.headers['x-token'] = 'xxxxxxxx';
+    config.headers['x-token'] = 'xxxxxxxx'
 
-    return config;
+    return config
   },
   (error) => {
-    Promise.error(error);
+    Promise.error(error)
   },
-);
+)
 
 instance.interceptors.response.use(
   (response) => {
-    const res = response.data;
+    const res = response.data
     // 根据对应的业务代码 对返回数据进行处理
 
-    return res;
+    return res
   },
   (error) => {
-    const { response } = error;
+    const { response } = error
     // 状态码为4或5开头则会报错
     // 根据根据对应的错误,反馈给前端显示
     if (response) {
       if (response.status == 404) {
-        console.log('请求资源路径不存在');
+        console.log('请求资源路径不存在')
       }
-      return Promise.reject(response);
+      return Promise.reject(response)
     } else {
       // 断网......
     }
   },
-);
+)
 
-export default instance;
+export default instance
 ```
 
 实际上，上面那样的封装就够了，相对于的业务代码就不补充了，如果你的宿主环境是浏览器的话，很多东西你就没必要在折腾的，甚至下面的文章都没必要看（不过还是推荐你看看，会有帮助的）。不过没完，再看看 api 里怎么使用的
@@ -79,28 +79,28 @@ export default instance;
 #### api/user.js
 
 ```js
-import request from '@/utils/request';
+import request from '@/utils/request'
 
 export function login(data) {
   return request({
     url: '/user/login',
     method: 'post',
     data,
-  });
+  })
 }
 
 export function info() {
   return request({
     url: '/user/info',
     method: 'get',
-  });
+  })
 }
 
 export function logout() {
   return request({
     url: '/user/logout',
     method: 'post',
-  });
+  })
 }
 ```
 
@@ -118,15 +118,15 @@ export function logout() {
 
 ```js
 instance.interceptors.request.use((config) => {
-  config.headers['cookie'] = 'cookie=this_is_cookies;username=kuizuo;';
-  console.log('config.headers', config.headers);
-  return config;
-});
+  config.headers['cookie'] = 'cookie=this_is_cookies;username=kuizuo;'
+  console.log('config.headers', config.headers)
+  return config
+})
 
 instance.interceptors.response.use((response) => {
-  console.log('response.headers', response.headers);
-  return res;
-});
+  console.log('response.headers', response.headers)
+  return res
+})
 ```
 
 控制台结果：
@@ -148,79 +148,79 @@ instance.interceptors.response.use((response) => {
 ::: details 查看代码
 
 ```js
-import axios from 'axios';
-import { MessageBox, Message } from 'element-ui';
-import store from '@/store';
-import { getToken } from '@/utils/auth';
+import axios from 'axios'
+import { MessageBox, Message } from 'element-ui'
+import store from '@/store'
+import { getToken } from '@/utils/auth'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
   withCredentials: true,
   timeout: 5000,
-});
+})
 
 service.interceptors.request.use(
   (config) => {
     if (store.getters.token) {
-      config.headers['x-token'] = getToken();
+      config.headers['x-token'] = getToken()
     }
 
-    return config;
+    return config
   },
   (error) => {
-    Message.error(error);
-    return Promise.reject(error);
+    Message.error(error)
+    return Promise.reject(error)
   },
-);
+)
 
 service.interceptors.response.use(
   (response) => {
-    const res = response.data;
+    const res = response.data
     if (res.code !== 200) {
-      Message.error(res.msg || 'Error');
+      Message.error(res.msg || 'Error')
 
-      return Promise.reject(new Error(res.msg || '未知错误'));
+      return Promise.reject(new Error(res.msg || '未知错误'))
     } else {
-      return res;
+      return res
     }
   },
   (error) => {
     if (error.response) {
-      let res = error.response;
+      let res = error.response
       switch (res.status) {
         case 400:
-          Message.error(res.msg || '非法请求');
-          break;
+          Message.error(res.msg || '非法请求')
+          break
         case 401:
           MessageBox.alert('当前登录已过期，请重新登录', '提示', {
             confirmButtonText: '重新登录',
             type: 'warning',
           }).then(() => {
             store.dispatch('user/logout').then(() => {
-              location.reload();
-            });
-          });
+              location.reload()
+            })
+          })
         case 403:
-          Message.error(res.msg || '非法请求');
-          router.push('/401');
+          Message.error(res.msg || '非法请求')
+          router.push('/401')
         case 404:
-          Message.error(res.msg || '请求资源不存在');
-          break;
+          Message.error(res.msg || '请求资源不存在')
+          break
         case 500:
-          Message.error(res.msg || '服务器开小差啦');
-          break;
+          Message.error(res.msg || '服务器开小差啦')
+          break
         default:
-          Message.error(res.msg || res.statusText);
+          Message.error(res.msg || res.statusText)
       }
     } else {
-      Message.error(res.msg || '请检查网络连接状态');
+      Message.error(res.msg || '请检查网络连接状态')
     }
 
-    return Promise.reject(error);
+    return Promise.reject(error)
   },
-);
+)
 
-export default service;
+export default service
 ```
 
 :::
@@ -230,22 +230,22 @@ export default service;
 作为 nodejs 的主流 http 框架怎么能只用在浏览器上，nodejs 自然而然可以，不过 nodejs 需要配置的可就多了，在 nodejs 环境中，自然没有浏览器的同源策略，像上面设置不了的 Cookie，现在随便设置，先看看我是怎么封装的：
 
 ```js
-import axios from 'axios';
-import * as http from 'http';
-import * as https from 'https';
+import axios from 'axios'
+import * as http from 'http'
+import * as https from 'https'
 
 export async function request(opt) {
-  let { url, method = 'get', headers = {}, cookies, data = null } = opt;
+  let { url, method = 'get', headers = {}, cookies, data = null } = opt
 
-  headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36';
-  headers['Referer'] = url;
+  headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
+  headers['Referer'] = url
 
   if (typeof cookies === 'object') {
     headers['Cookie'] = Object.keys(cookies)
       .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(cookies[k]))
-      .join('; ');
+      .join('; ')
   } else if (typeof cookies === 'string') {
-    headers['Cookie'] = cookies;
+    headers['Cookie'] = cookies
   }
 
   let options = {
@@ -259,15 +259,15 @@ export async function request(opt) {
       rejectUnauthorized: false,
     }),
     timeout: 5000,
-  };
+  }
 
   try {
-    let res = await this.axios.request(options);
+    let res = await this.axios.request(options)
 
-    return res;
+    return res
   } catch (e) {
-    console.log(e);
-    return e.message;
+    console.log(e)
+    return e.message
   }
 }
 ```
@@ -352,16 +352,16 @@ Error: unable to verify the first certificate
 let newCookie = res.header['set-cookie']
   ? res.header['set-cookie']
       .map((a) => {
-        return a.split(';')[0];
+        return a.split(';')[0]
       })
       .join('; ')
-  : '';
+  : ''
 
 // mergeCookie 就是将两者cookie 拼接而成
-let newCookies = mergeCookie(cookies, newCookie);
+let newCookies = mergeCookie(cookies, newCookie)
 
-res[cookie] = newCookies;
-return res;
+res[cookie] = newCookies
+return res
 ```
 
 然后返回响应中携带 res.cookies 即可，下次请求的时候再将其在带上。

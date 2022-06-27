@@ -2,7 +2,7 @@
 title: 浅谈HTTP
 date: 2020-09-29
 authors: kuizuo
-tags: [http, 逆向]
+tags: [http]
 ---
 
 <!-- truncate -->

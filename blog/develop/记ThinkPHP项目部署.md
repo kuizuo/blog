@@ -2,7 +2,7 @@
 title: 记 ThinkPHP 项目部署
 date: 2021-09-25
 authors: kuizuo
-tags: [php, 开发]
+tags: [php, develop]
 ---
 
 <!-- truncate -->

@@ -2,7 +2,7 @@
 title: RPC远程调用浏览器函数
 date: 2021-10-09
 authors: kuizuo
-tags: [js, 浏览器, RPC]
+tags: [javascript, rpc, browser]
 sticky: true
 ---
 
@@ -47,20 +47,20 @@ npm install @types/ws -D
 #### 代码例子
 
 ```javascript title="server.js"
-import WebSocket, { WebSocketServer } from 'ws';
+import WebSocket, { WebSocketServer } from 'ws'
 
 let ws = new WebSocketServer({
   port: 8080,
-});
+})
 
 ws.on('connection', (socket) => {
   function message(msg) {
-    console.log('接受到的msg: ' + msg);
-    socket.send('我接受到你的数据: ' + msg);
+    console.log('接受到的msg: ' + msg)
+    socket.send('我接受到你的数据: ' + msg)
   }
 
-  socket.on('message', message);
-});
+  socket.on('message', message)
+})
 ```
 
 使用 WebSocket 在线测试网站[websocket 在线测试 (websocket-test.com)](http://www.websocket-test.com/)
@@ -72,38 +72,38 @@ ws.on('connection', (socket) => {
 上面代码写的很简陋，尤其是数据交互的地方，这里可以使用 json 来改进一下。像这样，至于为啥用 try 是防止 json 数据不对导致解析错误（具体代码就不解读了）
 
 ```javascript title="server.js"
-import WebSocket, { WebSocketServer } from 'ws';
+import WebSocket, { WebSocketServer } from 'ws'
 
-let ws = new WebSocketServer({ port: 8080 });
+let ws = new WebSocketServer({ port: 8080 })
 
 ws.on('connection', (socket) => {
-  console.log('有人连接了');
+  console.log('有人连接了')
   function message(data) {
     try {
-      let json = JSON.parse(data); // data: {"type":"callbackPasswordEnc","value":"a123456"}
-      let { type, value } = json;
+      let json = JSON.parse(data) // data: {"type":"callbackPasswordEnc","value":"a123456"}
+      let { type, value } = json
       switch (type) {
         case 'callbackPasswordEnc':
           // doSomething()
-          console.log('得到的加密密文为:' + value);
-          break;
+          console.log('得到的加密密文为:' + value)
+          break
       }
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 
-  socket.on('message', message);
+  socket.on('message', message)
 
   // 浏览器通信1秒后向浏览器调用加密算法
   setTimeout(() => {
     let jsonStr = JSON.stringify({
       type: 'getPasswordEnc',
       value: 'a123456',
-    });
-    socket.send(jsonStr);
-  }, 1000);
-});
+    })
+    socket.send(jsonStr)
+  }, 1000)
+})
 ```
 
 ### 浏览器实现 websocket
@@ -120,30 +120,30 @@ ws.on('connection', (socket) => {
 
 ```javascript title="browser.js"
 !(function () {
-  let url = 'ws://127.0.0.1:8080';
-  let ws = new WebSocket(url);
+  let url = 'ws://127.0.0.1:8080'
+  let ws = new WebSocket(url)
 
   // 浏览器连接后告诉服务端是浏览器
   ws.onopen = function (event) {
-    ws.send(JSON.stringify({ type: 'isBrowser', value: true }));
-  };
+    ws.send(JSON.stringify({ type: 'isBrowser', value: true }))
+  }
 
   ws.onmessage = function (event) {
-    let json = JSON.parse(event.data);
-    let { type, value } = json;
+    let json = JSON.parse(event.data)
+    let { type, value } = json
     switch (type) {
       case 'getPasswordEnc':
-        let passwordEnc = e.RSA.encrypt(value);
+        let passwordEnc = e.RSA.encrypt(value)
         let jsonStr = JSON.stringify({
           type: 'callbackPasswordEnc',
           value: passwordEnc,
-        });
-        console.log(jsonStr);
-        ws.send(jsonStr);
-        break;
+        })
+        console.log(jsonStr)
+        ws.send(jsonStr)
+        break
     }
-  };
-})();
+  }
+})()
 ```
 
 ![image-20211008201809446](https://img.kuizuo.cn/image-20211008201809446.png)
@@ -168,46 +168,46 @@ ws.on('connection', (socket) => {
 
 ```javascript title="browser.js"
 ws.onopen = function (event) {
-  ws.send(JSON.stringify({ type: 'isBrowser', value: true }));
-};
+  ws.send(JSON.stringify({ type: 'isBrowser', value: true }))
+}
 ```
 
 ### 用户调用端
 
 ```javascript title="client.js"
-import WebSocket from 'ws';
+import WebSocket from 'ws'
 
 async function getPasswordEnc(password) {
   return new Promise((resolve, reject) => {
-    const ws = new WebSocket('ws://127.0.0.1:8080');
+    const ws = new WebSocket('ws://127.0.0.1:8080')
 
     ws.on('open', () => {
       let jsonStr = JSON.stringify({
         type: 'getPasswordEnc',
         value: password,
-      });
-      ws.send(jsonStr);
-    });
+      })
+      ws.send(jsonStr)
+    })
 
     ws.on('message', (message) => {
-      let json = JSON.parse(message);
-      let { type, value } = json;
+      let json = JSON.parse(message)
+      let { type, value } = json
       switch (type) {
         case 'callbackPasswordEnc':
-          ws.close();
-          resolve(value);
-          break;
+          ws.close()
+          resolve(value)
+          break
       }
-    });
-  });
+    })
+  })
 }
 
 async function run() {
-  let passwordEnc = await getPasswordEnc('a123456');
-  console.log(passwordEnc);
+  let passwordEnc = await getPasswordEnc('a123456')
+  console.log(passwordEnc)
 }
 
-run();
+run()
 ```
 
 这里对代码进行解读一下，我自行封装了一个函数，其中函数返回的是一个 Promise 对象，值则是对应的加密后的密文。如果我这边不采用 promise 来编写的话，那么获取到的数据将十分不好返回给我们的主线程。这里对于 js 的 Promise 使用需要花费点时间去理解。总而言之，通过 promise，以及 async await 语法糖，能很轻松的等待 websocket 连接与接收数据。但还是用 websocket 协议
@@ -217,66 +217,66 @@ run();
 同时 websocket 服务端肯定要新增一个类型用于判断是登录算法实现的客户端。同时又新的用户要调用，所以这里使用了 uuid 这个模块来生成唯一的用户 id，同时还定义一个变量 clients 记录所连接过的用户（包括浏览器），完整代码如下
 
 ```javascript title="server.js"
-import WebSocket, { WebSocketServer } from 'ws';
-import { v4 as uuidv4 } from 'uuid';
+import WebSocket, { WebSocketServer } from 'ws'
+import { v4 as uuidv4 } from 'uuid'
 
-let ws = new WebSocketServer({ port: 8080 });
+let ws = new WebSocketServer({ port: 8080 })
 
-let browserWebsocket = null;
-let clients = [];
+let browserWebsocket = null
+let clients = []
 
 ws.on('connection', (socket) => {
-  let client_id = uuidv4();
+  let client_id = uuidv4()
   clients.push({
     id: client_id,
     socket: socket,
-  });
+  })
 
   socket.on('close', () => {
     for (let i = 0; i < clients.length; i++) {
       if (clients[i].id == client_id) {
-        clients.splice(i, 1);
-        break;
+        clients.splice(i, 1)
+        break
       }
     }
-  });
+  })
 
   socket.on('message', (message) => {
     try {
-      let json = JSON.parse(message);
-      let { id, type, value } = json;
+      let json = JSON.parse(message)
+      let { id, type, value } = json
       switch (type) {
         case 'isBrowser':
           if (value) {
-            browserWebsocket = socket;
+            browserWebsocket = socket
           }
-          console.log('浏览器已初始化');
-          break;
+          console.log('浏览器已初始化')
+          break
 
         // 发送给浏览器 让浏览器来调用并返回
         case 'callbackPasswordEnc':
           // 根据id找到调用用户的socket,并向该用户发送加密后的密文
-          let temp_socket = clients.find((c) => c.id == id).socket;
+          let temp_socket = clients.find((c) => c.id == id).socket
 
-          temp_socket.send(message);
-          break;
+          temp_socket.send(message)
+          break
         // 用户发送过来要加密的明文
         case 'getPasswordEnc':
           let jsonStr = JSON.stringify({
             id: client_id,
             type: type,
             value: value,
-          });
+          })
 
           // 这里一定要是浏览器的websocket句柄发送，才能调用
-          browserWebsocket.send(jsonStr);
-          break;
+          browserWebsocket.send(jsonStr)
+          break
       }
     } catch (error) {
-      console.log(error.message);
+      console.log(error.message)
     }
-  });
-});
+  })
+})
 ```
 
 最终演示效果如下视频（浏览器代码是提前注入进去的）
@@ -296,42 +296,42 @@ ws.on('connection', (socket) => {
 ```javascript title="server_http.js"
 async function getPasswordEnc(password) {
   return new Promise((resolve, reject) => {
-    const ws = new WebSocket('ws://127.0.0.1:8080');
+    const ws = new WebSocket('ws://127.0.0.1:8080')
 
     ws.on('open', () => {
       let jsonStr = JSON.stringify({
         type: 'getPasswordEnc',
         value: password,
-      });
-      ws.send(jsonStr);
-    });
+      })
+      ws.send(jsonStr)
+    })
 
     ws.on('message', (message) => {
-      let json = JSON.parse(message);
-      let { type, value } = json;
+      let json = JSON.parse(message)
+      let { type, value } = json
       switch (type) {
         case 'callbackPasswordEnc':
-          ws.close();
-          resolve(value);
-          break;
+          ws.close()
+          resolve(value)
+          break
       }
-    });
-  });
+    })
+  })
 }
 
 // 创建http服务
 const app = http.createServer(async (request, response) => {
-  let { pathname, query } = url.parse(request.url, true);
+  let { pathname, query } = url.parse(request.url, true)
 
   if (pathname == '/getPasswordEnc') {
-    let passwordEnc = await getPasswordEnc(query.password);
-    response.end(passwordEnc);
+    let passwordEnc = await getPasswordEnc(query.password)
+    response.end(passwordEnc)
   }
-});
+})
 
 app.listen(8000, () => {
-  console.log(`服务已运行 http://127.0.0.1:8000/`);
-});
+  console.log(`服务已运行 http://127.0.0.1:8000/`)
+})
 ```
 
 发送 GET 请求 URL 为 http://127.0.0.1:8000/getPasswordEnc?password=a123456 实现效果如图

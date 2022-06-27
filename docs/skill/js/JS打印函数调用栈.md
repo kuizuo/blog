@@ -2,7 +2,7 @@
 title: JS输出函数调用栈
 date: 2021-10-15
 authors: kuizuo
-tags: [js]
+tags: [javascript, callstack]
 ---
 
 <!-- truncate -->
@@ -13,15 +13,15 @@ tags: [js]
 
 ```javascript
 function main() {
-  let a = fun('hello world');
-  console.log(a);
+  let a = fun('hello world')
+  console.log(a)
 }
 
 function fun(a) {
-  return a;
+  return a
 }
 
-main();
+main()
 ```
 
 ## 方法
@@ -32,16 +32,16 @@ main();
 
 ```javascript {7}
 function main() {
-  let a = fun('hello world');
-  console.log(a);
+  let a = fun('hello world')
+  console.log(a)
 }
 
 function fun(a) {
-  console.trace('fun');
-  return a;
+  console.trace('fun')
+  return a
 }
 
-main();
+main()
 ```
 
 输出结果为
@@ -69,20 +69,20 @@ hello world
 
 ```javascript {7-10}
 function main() {
-  let a = fun('hello world');
-  console.log(a);
+  let a = fun('hello world')
+  console.log(a)
 }
 
 function fun(a) {
-  console.log(fun.caller.toString());
-  console.log(arguments);
-  console.log(arguments.callee.toString());
-  console.log(arguments.callee.caller.toString());
+  console.log(fun.caller.toString())
+  console.log(arguments)
+  console.log(arguments.callee.toString())
+  console.log(arguments.callee.caller.toString())
 
-  return a;
+  return a
 }
 
-main();
+main()
 ```
 
 输出结果为
@@ -132,21 +132,21 @@ hello world
 
 ```javascript {7,11-14}
 function main() {
-  let a = fun('hello world');
-  console.log(a);
+  let a = fun('hello world')
+  console.log(a)
 }
 
 function fun(a) {
-  printStack();
-  return a;
+  printStack()
+  return a
 }
 
 function printStack() {
-  let stack = new Error().stack;
-  console.log(stack);
+  let stack = new Error().stack
+  console.log(stack)
 }
 
-main();
+main()
 ```
 
 输出的结果为一串字符串，如下
@@ -169,27 +169,27 @@ hello world
 
 ```javascript {7}
 function main() {
-  let a = fun('hello world');
-  console.log(a);
+  let a = fun('hello world')
+  console.log(a)
 }
 
 function fun(a) {
-  printStack();
-  return a;
+  printStack()
+  return a
 }
 
-main();
+main()
 
 function printStack() {
-  const callstack = new Error().stack.split('\n');
+  const callstack = new Error().stack.split('\n')
   callstack.forEach((s) => {
-    let matchArray = s.match(/at (.+?) \((.+?)\)/);
-    if (!matchArray) return;
+    let matchArray = s.match(/at (.+?) \((.+?)\)/)
+    if (!matchArray) return
 
-    let name = matchArray[1];
-    let location = matchArray[2];
-    console.log(name, location);
-  });
+    let name = matchArray[1]
+    let location = matchArray[2]
+    console.log(name, location)
+  })
 }
 ```
 
@@ -214,24 +214,24 @@ Error 中有一个静态方法，同样用于获取调用栈。演示代码如�
 
 ```js
 function main() {
-  let a = fun('hello world');
-  console.log(a);
+  let a = fun('hello world')
+  console.log(a)
 }
 
 function fun(a) {
-  let stack = stackTrace();
-  console.log(stack);
+  let stack = stackTrace()
+  console.log(stack)
 
-  return a;
+  return a
 }
 
 function stackTrace() {
-  const obj = {};
-  Error.captureStackTrace(obj, stackTrace);
-  return obj.stack;
+  const obj = {}
+  Error.captureStackTrace(obj, stackTrace)
+  return obj.stack
 }
 
-main();
+main()
 ```
 
 效果和`new Error().stack`一样，只不过少了一行~~at printStack (c:\Users\zeyu\Desktop\demo\main.js:12:16)~~ 的输出。
@@ -240,22 +240,22 @@ main();
 
 ```js
 function MyError() {
-  Error.captureStackTrace(this, MyError);
+  Error.captureStackTrace(this, MyError)
 }
 
 // 如果没有向captureStackTrace传递MyError参数，则在访问.stack属性时，MyError及其内部信息将会出现在堆栈信息中。当传递MyError参数时，这些信息会被忽略。
-new MyError().stack;
+new MyError().stack
 ```
 
 其中`Error.captureStackTrace()`源自[V8 引擎的 Stack Trace API](https://link.segmentfault.com/?enc=u3YSqa2uqpuK4qOK1mcE%2BQ%3D%3D.S7z7nzmOapoEFtq3WEZcXOIYfU79dXMyMCaHOU3pUVILksNiqpAhLEXacnQs0fHN)，在自定义 Error 类的内部经常会使用该函数，用以在 error 对象上添加合理的 stack 属性。上文中的 MyError 类即是一个最简单的例子。
 
 ```js
 function MyError() {
-  Error.captureStackTrace(this, MyError);
+  Error.captureStackTrace(this, MyError)
 }
 
 // 如果没有向captureStackTrace传递MyError参数，则在访问.stack属性时，MyError及其内部信息将会出现在堆栈信息中。当传递MyError参数时，这些信息会被忽略。
-new MyError().stack;
+new MyError().stack
 ```
 
 [关于 Error.captureStackTrace - SegmentFault 思否](https://segmentfault.com/a/1190000007076507)

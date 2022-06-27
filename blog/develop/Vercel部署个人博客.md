@@ -2,7 +2,7 @@
 title: Vercel部署个人博客
 date: 2022-05-11
 authors: kuizuo
-tags: [blog, vercel]
+tags: [vercel, blog]
 ---
 
 ![image-20220511170700075](https://img.kuizuo.cn/image-20220511170700075.png)

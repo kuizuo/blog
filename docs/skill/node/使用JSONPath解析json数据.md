@@ -2,7 +2,7 @@
 title: 使用JSONPath解析json数据
 date: 2021-09-20
 authors: kuizuo
-tags: [js, node]
+tags: [javascript, json, node]
 # sticky: true
 ---
 
@@ -56,16 +56,16 @@ tags: [js, node]
 ## 代码演示
 
 ```js
-var jp = require('jsonpath');
+var jp = require('jsonpath')
 
 var cities = [
   { name: 'London', population: 8615246 },
   { name: 'Berlin', population: 3517424 },
   { name: 'Madrid', population: 3165235 },
   { name: 'Rome', population: 2870528 },
-];
+]
 
-var names = jp.query(cities, '$..name');
+var names = jp.query(cities, '$..name')
 
 // [ "London", "Berlin", "Madrid", "Rome" ]
 ```
@@ -73,7 +73,7 @@ var names = jp.query(cities, '$..name');
 如果使用 js 来遍历的话，也简单
 
 ```js
-let names = cities.map((c) => c.name);
+let names = cities.map((c) => c.name)
 ```
 
 这个数据可能还没那么复杂，在看看下面这个例子，代码来源于https://goessner.net/articles/JsonPath
@@ -421,24 +421,24 @@ let names = cities.map((c) => c.name);
 先说说 js 如何实现的，我贴一下对应的代码（当时项目的代码，稍微修改的一点），可自己粘贴运行一下。
 
 ```js
-let groupList = [];
+let groupList = []
 for (const node of json.children ?? []) {
-  if (node.role == 'group') groupList.push({ ...node });
+  if (node.role == 'group') groupList.push({ ...node })
 
   for (const group of node.children ?? []) {
-    if (group.role == 'group') groupList.push({ ...group });
+    if (group.role == 'group') groupList.push({ ...group })
 
     for (const child of group.children ?? []) {
-      if (child.role == 'group') groupList.push({ ...child });
+      if (child.role == 'group') groupList.push({ ...child })
 
-      let children4 = child.children ?? [];
+      let children4 = child.children ?? []
       for (const child of children4) {
-        if (child.role == 'group') groupList.push({ ...child });
+        if (child.role == 'group') groupList.push({ ...child })
       }
     }
   }
 }
-console.log(groupList);
+console.log(groupList)
 ```
 
 因为这些数据中，是存在不确定性的，也就是在当前节点下，二级节点可能有`children`，而其他节点下的二级很可能没有 `children`，所以我在这边就加上 `?? []` （Typescript 中的`??`语法，你可以把 `??` 当做 `||` ）来判断是否有`children`节点，有些读者可能会思考，为啥不用递归呢。说的是挺轻松的，但是递归是很容易出问题的，万一爬取到后台数据进行了一些修改，很有可能对于的递归算法将失效，甚至导致堆栈溢出，所以我这边值循环 4 级`chilren`节点（实际遇到的貌似也只有 4 级，谁又能保证爬取到数据就一定只有 4 级呢）。

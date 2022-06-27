@@ -2,7 +2,7 @@
 title: Vue响应式数据之Object
 date: 2022-05-10
 authors: kuizuo
-tags: [vue, js]
+tags: [vue, javascript]
 ---
 
 在阅读《深入浅出 Vue.js》与《Vue.js 设计与实现》，了解到 vue 是如何侦测数据，同时自己在接触 js 逆向时也常常会用到。于是就准备写篇 js 如何监听数据变化，这篇为监听 Object 数据。

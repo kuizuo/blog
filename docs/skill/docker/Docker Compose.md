@@ -1,12 +1,21 @@
+---
+title: Docker Compose
+date: 2021-05-26
+authors: kuizuo
+tags: [docker]
+---
+
+<!-- truncate -->
+
 ## 简介
 
-dockerfile 能让程序在任何地方运行 比如web服务 redis mysql nginx 但需要启动多个容器 并且都需要run 一下 ,而通过Docker Compose 则可以一键完成上面任务 实现自动化部署
+dockerfile 能让程序在任何地方运行 比如 web 服务 redis mysql nginx 但需要启动多个容器 并且都需要 run 一下 ,而通过 Docker Compose 则可以一键完成上面任务 实现自动化部署
 
 **一句话:将多个容器融合在一起**
 
 ## 安装
 
-前提需要安装docker
+前提需要安装 docker
 
 1、下载
 
@@ -24,7 +33,7 @@ sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.1/doc
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-3、测试安装结果 
+3、测试安装结果
 
 ```
 docker-compose --version
@@ -33,10 +42,10 @@ docker-compose --version
 ## 使用
 
 ```
-docker-compose up 
+docker-compose up
 ```
 
-### YAML规则
+### YAML 规则
 
 [Compose file version 3 reference | Docker Documentation](https://docs.docker.com/compose/compose-file/compose-file-v3/#compose-file-structure-and-examples)
 
@@ -45,7 +54,7 @@ docker-compose up
 - 服务 (`service`)：一个应用的容器，实际上可以包括若干运行相同镜像的容器实例。
 - 项目 (`project`)：由一组关联的应用容器组成的一个完整业务单元，在 `docker-compose.yml` 文件中定义。
 
-一个简单的YAML配置文件就像下面这样。
+一个简单的 YAML 配置文件就像下面这样。
 
 ```yaml
 version: '3' # compose版本 根据docker的版本来匹配
@@ -54,7 +63,7 @@ services: # 服务
   服务1:
     # 服务配置
     images:
-    build: 
+    build:
     ports:
     network:
     environment:
@@ -62,5 +71,4 @@ services: # 服务
   服务2:
 networks:
 volumes:
-
 ```

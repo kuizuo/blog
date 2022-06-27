@@ -2,12 +2,12 @@
 title: Frida Python库使用
 date: 2021-02-10
 authors: kuizuo
-tags: [frida,app,hook]
+tags: [frida, app, hook]
 ---
 
 <!-- truncate -->
 
-## 启动Frida服务
+## 启动 Frida 服务
 
 ### 包名附加
 
@@ -21,13 +21,13 @@ script.load()
 sys.stdin.read()
 ```
 
-### pid附加
+### pid 附加
 
 ```python
-process = frida.get_usb_device().attach(1234) # 1234 pid 
+process = frida.get_usb_device().attach(1234) # 1234 pid
 ```
 
-### spawn方式启动
+### spawn 方式启动
 
 ```python
 device = frida.get_usb_device()
@@ -57,7 +57,7 @@ script1.load()
 sys.stdin.read()
 ```
 
-## frida与Python的交互
+## frida 与 Python 的交互
 
 ```python {7-12,17}
 # -*- coding: UTF-8 -*-
@@ -67,7 +67,7 @@ jsCode = """"""
 
 
 def onMessage(message, data):
-    # print(message) 
+    # print(message)
     # {'type': 'send', 'payload':'some strings'}
     if message["type"] == 'send':
         print(u"[*] {0}".format(message['payload']))
@@ -82,11 +82,11 @@ script.load()
 sys.stdin.read()
 ```
 
-在jscode中可以使用`send(data)`，将数据传入到onMessage回调函数中处理。
+在 jscode 中可以使用`send(data)`，将数据传入到 onMessage 回调函数中处理。
 
-### recv与script.post
+### recv 与 script.post
 
-在js端中可以通过send向python发送数据，而python要向js发送数据则需要使用script.post，js中使用recv来接收，演示代码如下
+在 js 端中可以通过 send 向 python 发送数据，而 python 要向 js 发送数据则需要使用 script.post，js 中使用 recv 来接收，演示代码如下
 
 ```python {8-11,23-24}
 jsCode = """
@@ -116,15 +116,15 @@ def onMessage(message, data):
        print(message)
 ```
 
-##  算法转发
+## 算法转发
 
-### rpc.exports与script.exports
+### rpc.exports 与 script.exports
 
-js端：`rpc.exports = { func: func}`
+js 端：`rpc.exports = { func: func}`
 
-python端：`script.exports.func()/script.exports.FUNC()`
+python 端：`script.exports.func()/script.exports.FUNC()`
 
-注: 如果js导出函数中包含驼峰命名，则python需要将大写替换成_小写，如getUser => get_user
+注: 如果 js 导出函数中包含驼峰命名，则 python 需要将大写替换成\_小写，如 getUser => get_user
 
 ```python
 
@@ -136,7 +136,7 @@ jsCode = """
         });
         return result;
     }
-    
+
     rpc.exports = {
         md5: md5
     };
@@ -147,7 +147,7 @@ result = script.exports.md5('a123456')
 print(result)
 ```
 
-### 使用fastapi搭建接口
+### 使用 fastapi 搭建接口
 
 ```python
 from fastapi import FastAPI
@@ -194,4 +194,4 @@ if __name__ == '__main__':
 
 ```
 
-http发送get请求 如 http://127.0.0.1:8080/getEnc?username=kuizuo&password=a123456，即可得到enc调用后的结果，post请求同理
+http 发送 get 请求 如 http://127.0.0.1:8080/getEnc?username=kuizuo&password=a123456，即可得到enc调用后的结果，post请求同理

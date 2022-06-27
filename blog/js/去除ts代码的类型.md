@@ -2,7 +2,7 @@
 title: 去除ts代码的类型
 date: 2022-03-24
 authors: kuizuo
-tags: [js, ts]
+tags: [javascript, typescript]
 ---
 
 在**短时间**内有一个需求，原项目代码是 js，而我手里头的项目是 ts 的，需要将其合并。
@@ -156,7 +156,7 @@ var c = add(1, 2)
 
 ### 配置别名
 
-在一些项目中经常能看到导入模块不是使用相对路径`./`，而是像`@/`，其中@表示src，也就是项目的原代码目录下，也就是路径别名。要实现这样的配置，项目的脚手架肯定是需要修改的。这里我就以vite为例。
+在一些项目中经常能看到导入模块不是使用相对路径`./`，而是像`@/`，其中@表示 src，也就是项目的原代码目录下，也就是路径别名。要实现这样的配置，项目的脚手架肯定是需要修改的。这里我就以 vite 为例。
 
 ```typescript title="vite.config.ts"
 import { defineConfig } from 'vite'
@@ -175,33 +175,33 @@ export default defineConfig {
 
 ```json title="tsconfig.json"
 {
-    "compilerOptions" : {
-        "baseUrl": ".", // 必写，用于设置解析非相对模块名称的基本目录
-        "paths": {
-            "@/*": ["src/*"] // 用于设置模块名到基于baseUrl的路径映射
-        }
-        // ...
+  "compilerOptions": {
+    "baseUrl": ".", // 必写，用于设置解析非相对模块名称的基本目录
+    "paths": {
+      "@/*": ["src/*"] // 用于设置模块名到基于baseUrl的路径映射
     }
+    // ...
+  }
 }
 ```
 
 ### 支持合成默认导入
 
-在使用ESM（ES module） 编写代码的时候，引入CJS（CommonJS）的模块，通常需要写成 `import * as React from 'react'`的形式，若写成 `import React from 'react'` 将会提示 **模块“"http"”没有默认导出**。，如果将`esModuleInterop`设置为true，同时`allowSyntheticDefaultImports` 也会自动设置为true，则可以写成后者的形式。
+在使用 ESM（ES module） 编写代码的时候，引入 CJS（CommonJS）的模块，通常需要写成 `import * as React from 'react'`的形式，若写成 `import React from 'react'` 将会提示 **模块“"http"”没有默认导出**。，如果将`esModuleInterop`设置为 true，同时`allowSyntheticDefaultImports` 也会自动设置为 true，则可以写成后者的形式。
 
 这里有篇文章详细的说明缘由 [esModuleInterop 到底做了什么？](https://zhuanlan.zhihu.com/p/148081795)
 
 > 所以，尽量不要用 default 导出。 ——借评论区的一条评论
 
-### 声明浏览器全局对象API
+### 声明浏览器全局对象 API
 
-在代码中使用到浏览器的对象，如window、document，这些对于**TypeScript Complier** 来说是不能识别。可以通过在lib字段中设置`"DOM"`
+在代码中使用到浏览器的对象，如 window、document，这些对于**TypeScript Complier** 来说是不能识别。可以通过在 lib 字段中设置`"DOM"`
 
 ```json
 {
   "compilerOptions": {
     "target": "ES5",
-    "lib": ["ES5", "ES6", "DOM"],
+    "lib": ["ES5", "ES6", "DOM"]
   }
 }
 ```
