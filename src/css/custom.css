@@ -378,7 +378,6 @@ html[data-theme='dark'] .bloghome__intro > p {
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   gap: 12px;
-  padding: 0 0 3em 0;
 }
 
 .post__list-style-ad {

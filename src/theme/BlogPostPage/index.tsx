@@ -1,10 +1,3 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import React from 'react'
 import clsx from 'clsx'
 import { PageMetadata, HtmlClassNameProvider, ThemeClassNames } from '@docusaurus/theme-common'
@@ -13,6 +6,31 @@ import BlogPostItem from '@theme/BlogPostItem'
 import BlogPostPaginator from '@theme/BlogPostPaginator'
 import TOC from '@theme/TOC'
 import type { Props } from '@theme/BlogPostPage'
+
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import BrowserOnly from '@docusaurus/BrowserOnly'
+import Gitalk from 'gitalk'
+import GitalkComponent from 'gitalk/dist/gitalk-component'
+import 'gitalk/dist/gitalk.css'
+
+function BlogComment(props: Props): JSX.Element {
+  const { content: BlogPostContents } = props
+  const { metadata } = BlogPostContents
+  const { title, permalink, description, tags } = metadata
+
+  const { siteConfig } = useDocusaurusContext()
+  const { url: siteUrl, themeConfig } = siteConfig
+
+  const options: Gitalk.GitalkOptions = {
+    ...(themeConfig.gitalk as Gitalk.GitalkOptions),
+    id: title,
+    title: title,
+    labels: tags.length > 0 ? tags.map((t) => t.label) : [title],
+    body: siteUrl + permalink + '\n' + description,
+    distractionFreeMode: false,
+  }
+  return <BrowserOnly fallback={<div></div>}>{() => <GitalkComponent options={options} />}</BrowserOnly>
+}
 
 function BlogPostPageMetadata(props: Props): JSX.Element {
   const { content: BlogPostContents } = props
@@ -58,6 +76,7 @@ function BlogPostPageContent(props: Props): JSX.Element {
       </BlogPostItem>
 
       {(nextItem || prevItem) && <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />}
+      <BlogComment {...props} />
     </BlogLayout>
   )
 }

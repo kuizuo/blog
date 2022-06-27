@@ -64,7 +64,7 @@ function BlogListPageContent(props: Props) {
       </Head>
       {!isPaginated && isBlogOnlyMode && <Hero />}
       <div className='container-wrapper'>
-        <div className='container padding-vert--sm' style={!showBlogInfo ? { maxWidth: 1140 } : {}}>
+        <div className='container padding-vert--sm' style={!showBlogInfo && isCardView ? { maxWidth: 1140 } : {}}>
           <div className='row'>
             <div className={'col col--12'}>
               {!isPaginated && (
