@@ -11,6 +11,7 @@ import BlogPostItem from '@theme/BlogPostItem'
 import BlogListPaginator from '@theme/BlogListPaginator'
 import SearchMetadata from '@theme/SearchMetadata'
 import type { Props } from '@theme/BlogListPage'
+import BackToTopButton from '@theme/BackToTopButton'
 import Fade from 'react-reveal/Fade'
 
 import ListFilter from '@site/static/icons/list.svg'
@@ -63,6 +64,8 @@ function BlogListPageContent(props: Props) {
         <title>{siteTitle}</title>
       </Head>
       {!isPaginated && isBlogOnlyMode && <Hero />}
+      <BackToTopButton />
+
       <div className='container-wrapper'>
         <div className='container padding-vert--sm' style={!showBlogInfo && isCardView ? { maxWidth: 1140 } : {}}>
           <div className='row'>

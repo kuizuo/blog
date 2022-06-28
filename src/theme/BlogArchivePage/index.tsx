@@ -1,11 +1,13 @@
 import React from 'react'
-import Layout from '@theme/Layout'
 import Link from '@docusaurus/Link'
+import { translate } from '@docusaurus/Translate'
+import { PageMetadata } from '@docusaurus/theme-common'
+import Layout from '@theme/Layout'
 import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage'
-import styles from './styles.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArchive } from '@fortawesome/free-solid-svg-icons'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import styles from './styles.module.css'
 
 import dayjs from 'dayjs'
 
@@ -19,10 +21,10 @@ function Year({ posts }: YearProp) {
     <>
       <ul className={styles.archiveList}>
         {posts.map((post) => (
-          <li key={post.metadata.permalink}>
+          <li key={post.metadata.permalink} className={styles.archiveItem}>
             <Link to={post.metadata.permalink}>
-              <span className={styles.archiveDate}>{dayjs(post.metadata.date).format('MM-DD')}</span>
-              {post.metadata.title}
+              <time className={styles.archiveTime}>{dayjs(post.metadata.date).format('MM-DD')}</time>
+              <span>{post.metadata.title}</span>
             </Link>
           </li>
         ))}
@@ -33,10 +35,10 @@ function Year({ posts }: YearProp) {
 
 function YearsSection({ years }: { years: YearProp[] }) {
   return (
-    <div>
+    <div className='margin-top--md margin-left--sm'>
       {years.map((_props, idx) => (
-        <div key={idx} className='margin-vert--lg'>
-          <h3>
+        <div key={idx}>
+          <h3 className={styles.archiveYear}>
             {_props.year}
             <span>
               <i>{years[idx].posts.length}</i> 篇
@@ -49,12 +51,12 @@ function YearsSection({ years }: { years: YearProp[] }) {
   )
 }
 
-function listPostsByYears(blogPosts: ArchiveBlogPost[]): YearProp[] {
-  const postsByYear: Map<string, ArchiveBlogPost[]> = blogPosts.reduceRight((posts, post) => {
-    const year = post.metadata.date.split('-')[0]
-    const yearPosts = posts.get(year) || []
+function listPostsByYears(blogPosts: readonly ArchiveBlogPost[]): YearProp[] {
+  const postsByYear = blogPosts.reduceRight((posts, post) => {
+    const year = post.metadata.date.split('-')[0]!
+    const yearPosts = posts.get(year) ?? []
     return posts.set(year, [post, ...yearPosts])
-  }, new Map())
+  }, new Map<string, ArchiveBlogPost[]>())
 
   return Array.from(postsByYear, ([year, posts]) => ({
     year,
@@ -63,24 +65,32 @@ function listPostsByYears(blogPosts: ArchiveBlogPost[]): YearProp[] {
 }
 
 export default function BlogArchive({ archive }: Props) {
-  const years = listPostsByYears(archive.blogPosts as ArchiveBlogPost[])
+  const title = translate({
+    id: 'theme.blog.archive.title',
+    message: 'Archive',
+    description: 'The page & hero title of the blog archive page',
+  })
+  const description = translate({
+    id: 'theme.blog.archive.description',
+    message: 'Archive',
+    description: 'The page & hero description of the blog archive page',
+  })
+
+  const years = listPostsByYears(archive.blogPosts)
   return (
-    <Layout>
-      <div className='container-wrapper padding-vert--md'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col'>
-              <div className='archive'>
-                <h2>
-                  <FontAwesomeIcon icon={faArchive as IconProp} color='#23affc' /> 归档
-                </h2>
-                <div className={styles.count}>总共 {archive.blogPosts.length} 篇文章</div>
-                {years.length > 0 && <YearsSection years={years} />}
-              </div>
-            </div>
+    <>
+      <PageMetadata title={title} description={description} />
+      <Layout>
+        <div className='container-wrapper padding-vert--md'>
+          <div className={styles.archive}>
+            <h2>
+              <FontAwesomeIcon icon={faArchive as IconProp} color='#23affc' /> 归档
+            </h2>
+            <div className={styles.archiveCount}>总共 {archive.blogPosts.length} 篇文章</div>
+            {years.length > 0 && <YearsSection years={years} />}
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   )
 }

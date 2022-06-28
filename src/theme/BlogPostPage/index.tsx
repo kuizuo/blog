@@ -1,14 +1,16 @@
 import React from 'react'
 import clsx from 'clsx'
 import { PageMetadata, HtmlClassNameProvider, ThemeClassNames } from '@docusaurus/theme-common'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import BrowserOnly from '@docusaurus/BrowserOnly'
 import BlogLayout from '@theme/BlogLayout'
 import BlogPostItem from '@theme/BlogPostItem'
 import BlogPostPaginator from '@theme/BlogPostPaginator'
-import TOC from '@theme/TOC'
+import BackToTopButton from '@theme/BackToTopButton'
 import type { Props } from '@theme/BlogPostPage'
+import TOC from '@theme/TOC'
 
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import BrowserOnly from '@docusaurus/BrowserOnly'
+
 import Gitalk from 'gitalk'
 import GitalkComponent from 'gitalk/dist/gitalk-component'
 import 'gitalk/dist/gitalk.css'
@@ -71,6 +73,7 @@ function BlogPostPageContent(props: Props): JSX.Element {
         ) : undefined
       }
     >
+      <BackToTopButton />
       <BlogPostItem frontMatter={frontMatter} assets={assets} metadata={metadata} isBlogPostPage>
         <BlogPostContents />
       </BlogPostItem>
