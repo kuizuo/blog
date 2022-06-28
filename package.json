@@ -16,13 +16,13 @@
     "index": "docker run -it --env-file=.env -e \"CONFIG=$(cat docsearch.json | jq -r tostring)\" algolia/docsearch-scraper"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.18",
-    "@docusaurus/plugin-debug": "^2.0.0-beta.18",
-    "@docusaurus/plugin-ideal-image": "^2.0.0-beta.18",
-    "@docusaurus/plugin-pwa": "^2.0.0-beta.18",
-    "@docusaurus/preset-classic": "^2.0.0-beta.18",
-    "@docusaurus/theme-live-codeblock": "^2.0.0-beta.18",
-    "@docusaurus/theme-search-algolia": "^2.0.0-beta.18",
+    "@docusaurus/core": "^2.0.0-beta.21",
+    "@docusaurus/plugin-debug": "^2.0.0-beta.21",
+    "@docusaurus/plugin-ideal-image": "^2.0.0-beta.21",
+    "@docusaurus/plugin-pwa": "^2.0.0-beta.21",
+    "@docusaurus/preset-classic": "^2.0.0-beta.21",
+    "@docusaurus/theme-live-codeblock": "^2.0.0-beta.21",
+    "@docusaurus/theme-search-algolia": "^2.0.0-beta.21",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
@@ -62,7 +62,7 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-beta.18",
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.21",
     "@tsconfig/docusaurus": "^1.0.5",
     "chalk": "^4.1.0",
     "figlet": "^1.5.0",
