@@ -77,14 +77,6 @@ const Projects = [
         source: 'https://github.com/kuizuo/online-tools',
         tags: ['opensource', 'javascript'],
     },
-    {
-        title: '题小侠',
-        description: '基于Taro+Vue3+NutUI编写的搜题小程序',
-        preview: 'https://img.kuizuo.cn/question-man.png',
-        website: 'https://img.kuizuo.cn/itopic.jpg',
-        source: 'https://github.com/kuizuo/question-man',
-        tags: ['opensource', 'product'],
-    },
 ];
 exports.TagList = Object.keys(exports.Tags);
 function sortProject() {
