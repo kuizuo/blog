@@ -70,6 +70,9 @@ export const StyledBlogItem = styled.div<{ isBlogPostPage: boolean; isDark: bool
     .blog__readingTime {
       display: none;
     }
+    .blog__author {
+      display: none;
+    }
   }
 
   article {
@@ -148,7 +151,6 @@ export const StyledBlogItem = styled.div<{ isBlogPostPage: boolean; isDark: bool
 
     position: relative;
   }
-
 
   .testt {
     position: absolute;
