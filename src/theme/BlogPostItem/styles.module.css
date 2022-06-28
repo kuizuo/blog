@@ -29,6 +29,16 @@
   gap: 5px;
 }
 
+.blogPostInfoTags {
+  display: flex;
+  gap: 5px;
+}
+
+.blogPostInfoTags > a {
+  font-size: 0.8em;
+  padding: 1px 5px;
+}
+
 .blogPostAuthor {
   display: inline-block;
   margin: 0 4px;
@@ -52,4 +62,8 @@
 .blogPostDate,
 .blogPostReadTime {
   font-size: 0.9rem;
+}
+
+.blogPostDetailsFull {
+  flex-direction: column;
 }

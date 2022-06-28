@@ -1,150 +1,172 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
+import clsx from 'clsx'
+import Translate, { translate } from '@docusaurus/Translate'
 import { MDXProvider } from '@mdx-js/react'
 
 import Head from '@docusaurus/Head'
 import Link from '@docusaurus/Link'
 import MDXComponents from '@theme/MDXComponents'
-import useBaseUrl from '@docusaurus/useBaseUrl'
+import MDXContent from '@theme/MDXContent'
+import useBaseUrl, { useBaseUrlUtils } from '@docusaurus/useBaseUrl'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
-import { useColorMode } from '@docusaurus/theme-common'
-
+import { useColorMode, usePluralForm } from '@docusaurus/theme-common'
+import { blogPostContainerID } from '@docusaurus/utils-common'
 import styles from './styles.module.css'
 import { MarkdownSection, StyledBlogItem } from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTags, faUser, faCalendar, faClock } from '@fortawesome/free-solid-svg-icons'
+import { faTags, faUser, faCalendar, faClock, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
+import EditThisPage from '@theme/EditThisPage'
+import TagsListInline from '@theme/TagsListInline'
+import Tag from '@theme/Tag'
 import BlogPostAuthors from '@theme/BlogPostAuthors'
 import type { Props } from '@theme/BlogPostItem'
-import dayjs from 'dayjs'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
-function BlogPostItem(props: Props) {
-  const { children, frontMatter, metadata, truncated, isBlogPostPage = false, assets } = props
-  const { date, permalink, tags, authors, readingTime } = metadata
+function useReadingTimePlural() {
+  const { selectMessage } = usePluralForm()
+  return (readingTimeFloat: number) => {
+    const readingTime = Math.ceil(readingTimeFloat)
+    return selectMessage(
+      readingTime,
+      translate(
+        {
+          id: 'theme.blog.post.readingTime.plurals',
+          description:
+            'Pluralized label for "{readingTime} min read". Use as much plural forms (separated by "|") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)',
+          message: 'One min read|{readingTime} min read',
+        },
+        { readingTime },
+      ),
+    )
+  }
+}
 
-  const {
-    siteConfig: { title: siteTitle, url: siteUrl },
-  } = useDocusaurusContext()
-
-  const { slug: postId, title, image } = frontMatter
-  const imageUrl = useBaseUrl(image, { absolute: true })
+export default function BlogPostItem(props: Props): JSX.Element {
+  const readingTimePlural = useReadingTimePlural()
+  const { withBaseUrl } = useBaseUrlUtils()
+  const { children, frontMatter, assets, metadata, truncated, isBlogPostPage = false } = props
+  const { date, formattedDate, permalink, tags, readingTime, title, editUrl, authors = [] } = metadata
 
   const theme = useColorMode()
-  const isDark = theme.colorMode === 'dark'
+  const isDark = theme.isDarkTheme
 
-  const rendenPostTags = () => {
-    return (
-      <>
-        {tags.length > 0 && (
-          <>
-            <FontAwesomeIcon icon={faTags as IconProp} color='#c4d3e0' />
-            {tags.slice(0, 4).map(({ label, permalink: tagPermalink }, index) => (
-              <Link key={tagPermalink} className={`post__tags`} to={tagPermalink} style={{ fontSize: '0.75em', padding: '1px 5px' }}>
-                {label}
-              </Link>
-            ))}
-          </>
-        )}
-      </>
-    )
-  }
-
-  const renderPostHeader = () => {
-    const TitleHeading = isBlogPostPage ? 'h1' : 'h2'
-
-    return (
-      <header>
-        <TitleHeading itemProp='headline'>
-          {isBlogPostPage ? (
-            title
-          ) : (
-            <Link itemProp='url' to={permalink} className={styles.blogPostTitle}>
-              {title}
-            </Link>
-          )}
-        </TitleHeading>
-        {isBlogPostPage && (
-          <div className={styles.blogPostInfo}>
-            <time dateTime={date} className={styles.blogPostDate}>
-              {dayjs(date).format('YYYY-MM-DD')}
-              {isBlogPostPage && readingTime && <> · {Math.ceil(readingTime)} 分钟阅读 </>}
-            </time>
-            {rendenPostTags()}
-          </div>
-        )}
-        {isBlogPostPage && authors && <BlogPostAuthors authors={authors} assets={assets} />}
-      </header>
-    )
-  }
-
-  const renderPostInfo = () => {
-    return (
-      <>
-        <hr />
-        <div className={styles.blogPostInfo}>
-          <FontAwesomeIcon icon={faUser as IconProp} color='#c4d3e0' />
-          {authors.map((a) => (
-            <span key={a.url}>
-              <a href={a.url} className={styles.blogPostAuthor}>
-                {a.name}
-              </a>
-            </span>
-          ))}
-          <FontAwesomeIcon icon={faCalendar as IconProp} color='#c4d3e0' />
-          <time dateTime={date} className={styles.blogPostDate}>
-            {dayjs(date).format('YYYY-MM-DD')}
-          </time>
-          {rendenPostTags()}
-          <FontAwesomeIcon icon={faClock as IconProp} color='#c4d3e0' />
-          {readingTime && <span className={styles.blogPostReadTime}>{Math.ceil(readingTime)} 分钟阅读</span>}
-        </div>
-      </>
-    )
-  }
-
-  const renderCopyright = () => {
-    return (
-      <div className={styles.blogPostCopyright}>
-        <div className={styles.blogPostCopyrightAuthor}>
-          <span className={styles.blogPostCopyrightMeta}>作者:</span> <a>{authors.map((a) => a.name).join(',')}</a>
-        </div>
-        <div>
-          <span className={styles.blogPostCopyrightMeta}>链接:</span> <a href={siteUrl + permalink}>{siteUrl + permalink}</a>
-        </div>
-        <div>
-          <span className={styles.blogPostCopyrightMeta}>来源:</span> <a href={siteUrl}>{siteTitle}</a> 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-        </div>
-      </div>
-    )
-  }
+  const image = assets.image ?? frontMatter.image
+  const truncatedPost = !isBlogPostPage && truncated
+  const tagsExists = tags.length > 0
+  const authorsExists = authors.length > 0
+  const TitleHeading = isBlogPostPage ? 'h1' : 'h2'
 
   return (
     <StyledBlogItem isDark={isDark} isBlogPostPage={isBlogPostPage}>
-      <Head>
-        {image && <meta property='og:image' content={imageUrl} />}
-        {image && <meta property='twitter:image' content={imageUrl} />}
-        {image && <meta name='twitter:image:alt' content={`Image for ${title}`} />}
-      </Head>
-
-      <div className={`row ${!isBlogPostPage ? 'blog-list--item' : ''}`} style={{ margin: '0px' }}>
-        <div className={`col ${isBlogPostPage ? `col--12 article__details` : `col--12`}`}>
+      <div className={clsx('row', !isBlogPostPage && 'blog-list--item')} style={!isBlogPostPage ? { margin: 0 } : {}}>
+        <div className={clsx('col', isBlogPostPage ? `col--12 article__details` : `col--12`)}>
           {/* 博文部分 */}
-          <article className={!isBlogPostPage ? undefined : undefined}>
+          <article itemProp='blogPost' itemScope itemType='http://schema.org/BlogPosting'>
             {/* 标题 */}
-            {renderPostHeader()}
+            <header>
+              <TitleHeading itemProp='headline'>
+                {isBlogPostPage ? (
+                  title
+                ) : (
+                  <Link itemProp='url' to={permalink} className={styles.blogPostTitle}>
+                    {title}
+                  </Link>
+                )}
+              </TitleHeading>
+              {isBlogPostPage && (
+                <div className={styles.blogPostInfo}>
+                  <time dateTime={date} className={styles.blogPostDate} itemProp='datePublished'>
+                    {formattedDate}
+                    {readingTime && <> · {readingTimePlural(readingTime)} </>}
+                  </time>
+                </div>
+              )}
+              {isBlogPostPage && <BlogPostAuthors authors={authors} assets={assets} />}
+            </header>
+            {image && <meta itemProp='image' content={withBaseUrl(image, { absolute: true })} />}
             {/* 正文 */}
-            <MarkdownSection isBlogPostPage={isBlogPostPage} isDark={isDark} className='markdown'>
-              <MDXProvider components={MDXComponents}>{children}</MDXProvider>
-            </MarkdownSection>
+            <div id={isBlogPostPage ? blogPostContainerID : undefined} className='markdown' itemProp='articleBody'>
+              <MDXContent>{children}</MDXContent>
+            </div>
             {/* 信息 */}
-            {!isBlogPostPage && renderPostInfo()}
+            {!isBlogPostPage && (
+              <>
+                <hr />
+                <div className={styles.blogPostInfo}>
+                  {authorsExists && (
+                    <>
+                      <FontAwesomeIcon icon={faUser as IconProp} color='#c4d3e0' />
+                      {authors.map((a) => (
+                        <span key={a.url}>
+                          <a href={a.url} className={styles.blogPostAuthor}>
+                            {a.name}
+                          </a>
+                        </span>
+                      ))}
+                    </>
+                  )}
+                  {date && (
+                    <>
+                      <FontAwesomeIcon icon={faCalendar as IconProp} color='#c4d3e0' />
+                      <time dateTime={date} className={styles.blogPostDate} itemProp='datePublished'>
+                        {formattedDate}
+                      </time>
+                    </>
+                  )}
+                  {tagsExists && (
+                    <>
+                      <FontAwesomeIcon icon={faTags as IconProp} color='#c4d3e0' />
+                      <span className={styles.blogPostInfoTags}>
+                        {tags.map(({ label, permalink: tagPermalink }) => (
+                          <Tag label={label} permalink={tagPermalink} />
+                        ))}
+                      </span>
+                    </>
+                  )}
+                  {readingTime && (
+                    <>
+                      <FontAwesomeIcon icon={faClock as IconProp} color='#c4d3e0' className='blog__readingTime' />
+                      <span className={clsx(styles.blogPostReadTime, 'blog__readingTime')}>{readingTimePlural(readingTime)}</span>
+                    </>
+                  )}
+                  {/* {truncatedPost && (
+                    <div className={clsx('col text--right')}>
+                      <Link
+                        to={metadata.permalink}
+                        aria-label={translate(
+                          {
+                            message: 'Read more about {title}',
+                            id: 'theme.blog.post.readMoreLabel',
+                            description: 'The ARIA label for the link to full blog posts from excerpts',
+                          },
+                          { title },
+                        )}
+                      >
+                        <Translate id='theme.blog.post.readMore' description='The label used in blog post item excerpts to link to full blog posts'>
+                          Read More
+                        </Translate>
+                        <FontAwesomeIcon icon={faArrowRight as IconProp} color='#c4d3e0' />
+                      </Link>
+                    </div>
+                  )} */}
+                </div>
+              </>
+            )}
             {/* 底部 */}
             {isBlogPostPage && (
-              <footer className='article__footer padding-top--md margin-top--sm margin-bottom--sm'>
-                {/* 版权 */}
-                {isBlogPostPage && authors && renderCopyright()}
-                <span className='footer__read_count'></span>
+              <footer className={clsx('row margin-top--lg', isBlogPostPage && styles.blogPostDetailsFull)}>
+                {tagsExists && (
+                  <div className={clsx('col', { 'col--9': truncatedPost })}>
+                    <TagsListInline tags={tags} />
+                  </div>
+                )}
+                {isBlogPostPage && editUrl && (
+                  <div className='col margin-top--sm'>
+                    <EditThisPage editUrl={editUrl} />
+                  </div>
+                )}
               </footer>
             )}
           </article>
@@ -153,5 +175,3 @@ function BlogPostItem(props: Props) {
     </StyledBlogItem>
   )
 }
-
-export default BlogPostItem

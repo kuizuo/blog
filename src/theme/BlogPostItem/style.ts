@@ -41,7 +41,7 @@ export const MarkdownSection = styled.section<{ isBlogPostPage: boolean; isDark:
       ? ''
       : css`
           margin: 1rem 0;
-          
+
           /* img {
             width: 100%;
             height: 40%;
@@ -67,8 +67,8 @@ export const StyledBlogItem = styled.div<{ isBlogPostPage: boolean; isDark: bool
     `}
 
   @media (max-width: 570px) {
-    .article__details {
-      padding: 0;
+    .blog__readingTime {
+      display: none;
     }
   }
 
@@ -150,11 +150,6 @@ export const StyledBlogItem = styled.div<{ isBlogPostPage: boolean; isDark: bool
     position: relative;
   }
 
-  @media (max-width: 1000px) {
-    .blog-list--item {
-      padding-right: 1em;
-    }
-  }
 
   .testt {
     position: absolute;

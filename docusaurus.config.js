@@ -238,6 +238,9 @@ const config = {
       path.resolve(__dirname, './src/plugin/plugin-content-blog'), {
         path: 'blog',
         routeBasePath: '/',
+        editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
+          `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
+        editLocalizedFiles: false,
         blogSidebarTitle: '近期文章',
         blogSidebarCount: 10,
         postsPerPage: 10,
