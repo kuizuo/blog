@@ -81,7 +81,6 @@ export const StyledBlogItem = styled.div<{ isBlogPostPage: boolean; isDark: bool
     > header {
       > h1 {
         font-size: 2em;
-        color: #2f5c85;
         @media (max-width: 570px) {
           & {
             font-size: 1.6em;

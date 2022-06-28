@@ -126,6 +126,9 @@ html[data-theme='dark'] {
   --progress-bar-background-color: #3e3e3e;
   /* 卡片背景 */
   --card-background: #0c0c0c;
+
+  --ifm-text-color: var(--ifm-menu-color);
+  --ifm-secondary-text-color: #eee;
 }
 
 html[data-theme='dark'] h1,
@@ -970,7 +973,7 @@ code {
   transition: all 0.3s ease-in-out;
 }
 
-.bloginfo__note-item:hover{
+.bloginfo__note-item:hover {
   color: #ffffff;
 }
 
