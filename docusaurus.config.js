@@ -2,7 +2,7 @@
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
-const announcementBarContent = `新增基于<a href='https://pypi.org/project/ddddocr/'>ddddocr</a>实现<a href='https://ocr.kuizuo.cn'>图像识别后台系统</a>`
+const announcementBarContent =`当你所拥有的更多，所放弃的也就越多`
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
