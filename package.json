@@ -44,6 +44,7 @@
     "react-popper": "^2.2.5",
     "react-reveal": "^1.2.2",
     "react-spring": "^8.0.27",
+    "react-tooltip": "^4.2.21",
     "react-transition-group": "^4.4.1",
     "unist-util-find": "^1.0.2",
     "unist-util-find-after": "^4.0.0",

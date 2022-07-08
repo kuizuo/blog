@@ -26,7 +26,7 @@ tags: [工具，keyMap]
 <+<!;::Send {End} 
 ```
 
-此时打开任意文本，键入<kbd>Shift</kbd> + <kbd>Ctrl</kbd> + [HIJKL;] 就可以看到光标上下左右移动。
+然后保存双击该文件，即可运行autohotkey，此时打开任意文本，键入<kbd>Shift</kbd> + <kbd>Ctrl</kbd> + [HIJKL;] 就可以看到光标上下左右移动。
 
 这里对上面语法进行讲解
 

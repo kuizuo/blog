@@ -50,7 +50,7 @@ export default function BlogPostItem(props: Props): JSX.Element {
   const { date, formattedDate, permalink, tags, readingTime, title, editUrl, authors = [] } = metadata
 
   const theme = useColorMode()
-  const isDark = theme.isDarkTheme
+  const isDark = theme.colorMode === "dark"
 
   const image = assets.image ?? frontMatter.image
   const truncatedPost = !isBlogPostPage && truncated

@@ -1,0 +1,59 @@
+.websiteCard {
+  background-color: var(--ifm-card-background-color);
+  border-radius: 8px;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.websiteCard:hover {
+  box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.1);
+  background-color: #f2f8fd;
+  transform: translateY(-4px);
+}
+
+.websiteCardImage {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+}
+
+.websiteCardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.websiteCardTitle {
+  margin-bottom: 0;
+  flex: 1 1 auto;
+}
+
+.websiteCardTitle a {
+  text-decoration: none;
+  background: linear-gradient(var(--ifm-color-primary), var(--ifm-color-primary)) 0% 100% / 0% 1px no-repeat;
+  transition: background-size ease-out 200ms;
+}
+
+.websiteCardTitle a:not(:focus):hover {
+  background-size: 100% 1px;
+}
+
+.websiteCardBody {
+  padding: 0.2rem 0 0 var(--ifm-card-horizontal-spacing);
+}
+
+.websiteCardDesc {
+  cursor: pointer;
+  font-size: smaller;
+  line-height: 1.66;
+  width: 100%;
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

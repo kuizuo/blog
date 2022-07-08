@@ -2,7 +2,7 @@
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
-const announcementBarContent =`当你所拥有的更多，所放弃的也就越多`
+const announcementBarContent = `当你所拥有的更多，所放弃的也就越多`
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -69,10 +69,6 @@ const config = {
           position: 'right',
           items: [
             {
-              label: '编程网址导航',
-              to: 'https://nav.kuizuo.cn',
-            },
-            {
               label: 'JS代码混淆与还原',
               to: 'https://deobfuscator.kuizuo.cn',
             },
@@ -91,14 +87,14 @@ const config = {
           ],
         },
         {
-          label: '友链',
+          label: '导航',
           position: 'right',
-          to: 'friends',
+          to: 'website',
         },
         {
           label: '项目',
           position: 'right',
-          to: '/project',
+          to: 'project',
         },
       ],
     },
@@ -146,8 +142,13 @@ const config = {
         {
           title: '更多',
           items: [{
-            label: '...',
-            to: '/',
+            label: '友链',
+            position: 'right',
+            to: 'friends',
+          },{
+            label: '导航',
+            position: 'right',
+            to: 'website',
           }],
         },
       ],
