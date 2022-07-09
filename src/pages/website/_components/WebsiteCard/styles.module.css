@@ -6,13 +6,13 @@
   flex-direction: row;
   align-items: center;
   overflow: hidden;
-  transition: box-shadow 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .websiteCard:hover {
   box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.1);
   background-color: #f2f8fd;
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 }
 
 .websiteCardImage {

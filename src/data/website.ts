@@ -21,7 +21,6 @@ const friends: Website[] = Friends.map((f) => {
     href: f.website,
   }
 })
-console.log(friends)
 
 export const websiteData: WebsiteCategory[] = [
   {
@@ -29,31 +28,52 @@ export const websiteData: WebsiteCategory[] = [
     websites: friends,
   },
   {
-      name: '站点',
-      websites: [
-        {
-          name: '程序员盒子',
-          desc: '程序员一站式编程导航，专注于程序员学习编程提效，官网',
-          logo: 'https://www.coderutil.com/favicon.ico',
-          href: 'https://www.coderutil.com/',
-          tags: [''],
-        },
-        {
-          name: 'Road To Coding',
-          desc: 'Road To Coding，意为「编程自学之路」，是自学编程以来所用资源和分享内容的大聚合',
-          logo: 'https://r2coding.com/favicon.ico',
-          href: 'https://r2coding.com/',
-          tags: [''],
-        },
-  {
-    name: '印记中文',
-    desc: '深入挖掘国外前端新领域，为中国 Web 前端开发人员提供优质文档！',
-    logo: 'https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/img/al1nd-ai8jt.png',
-    href: 'https://docschina.org/',
-    tags: ['前端', '文档'],
+    name: '站点',
+    websites: [
+      {
+        name: '程序员盒子',
+        desc: '程序员一站式编程导航，专注于程序员学习编程提效，官网',
+        logo: 'https://www.coderutil.com/favicon.ico',
+        href: 'https://www.coderutil.com/',
+        tags: [''],
+      },
+      {
+        name: 'Road To Coding',
+        desc: 'Road To Coding，意为「编程自学之路」，是自学编程以来所用资源和分享内容的大聚合',
+        logo: 'https://r2coding.com/favicon.ico',
+        href: 'https://r2coding.com/',
+        tags: [''],
+      },
+      {
+        name: '印记中文',
+        desc: '深入挖掘国外前端新领域，为中国 Web 前端开发人员提供优质文档！',
+        logo: 'https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/img/al1nd-ai8jt.png',
+        href: 'https://docschina.org/',
+        tags: ['前端', '文档'],
+      },
+      {
+        name: 'ES6 入门教程',
+        desc: '《ECMAScript 6 入门教程》是一本开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新引入的语法特性。',
+        logo: '/img/website/es6.png',
+        href: 'https://es6.ruanyifeng.com/',
+        tags: ['前端', '文档'],
+      },
+      {
+        name: '深入理解 TypeScript',
+        desc: '《TypeScript Deep Dive》 是一本很好的开源书，从基础到深入，很全面的阐述了 TypeScript 的各种魔法，不管你是新手，还是老鸟，它都将适应你。',
+        logo: 'https://jkchao.github.io//typescript-book-chinese/logo.png',
+        href: 'https://jkchao.github.io/typescript-book-chinese/',
+        tags: ['前端', '文档'],
+      },
+      {
+        name: 'NGINX 配置',
+        desc: '配置高性能、安全、稳定的NGINX服务器的最简单方法。',
+        logo: '/img/website/digitalocean.png',
+        href: 'https://www.digitalocean.com/community/tools/nginx',
+        tags: [],
+      },
+    ],
   },
-      ]
-    },
   {
     name: '工具',
     websites: [
@@ -74,7 +94,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: '一个工具箱',
         desc: '好用的在线工具都在这里！',
-        logo: 'http://www.atoolbox.net/favicon.ico',
+        logo: '/img/website/atoolbox.ico',
         href: 'http://www.atoolbox.net/',
         tags: ['工具'],
       },
@@ -121,7 +141,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Gitee',
         desc: '蚂蚁集团全新一代数据可视化解决方案',
-        logo: 'https://gitee.com/static/images/logo-black.svg',
+        logo: '/img/website/gitee.ico',
         href: 'https://gitee.com/',
         tags: ['代码托管', '项目源码'],
       },
@@ -175,6 +195,116 @@ export const websiteData: WebsiteCategory[] = [
     ],
   },
   {
+    name: 'Node.js',
+    websites: [
+      {
+        name: 'Node',
+        desc: 'Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时。',
+        logo: 'https://cdn.jsdelivr.net/gh/Yafine/cdn@3.2.1/source/box/images/logo/Node.js.png',
+        href: 'http://nodejs.cn/',
+        tags: ['后端', 'Nodejs', '文档'],
+      },
+      {
+        name: 'Deno',
+        desc: '一个现代的JavaScript和TypeScript运行时。',
+        logo: 'https://deno.land/logo.svg',
+        href: 'https://deno.land/',
+        tags: ['Nodejs', 'Deno', 'JavaScript', 'TypeScript'],
+      },
+      {
+        name: 'NPM',
+        desc: 'NPM是世界上最大的包管理器',
+        logo: 'https://static.npmjs.com/58a19602036db1daee0d7863c94673a4.png',
+        href: 'https://www.npmjs.com',
+        tags: ['Nodejs', '包管理', '文档'],
+      },
+      {
+        name: 'Yarn',
+        desc: 'Yarn 是一个软件包管理器，还可以作为项目管理工具。无论你是小型项目还是大型单体仓库（monorepos），无论是业余爱好者还是企业用户，Yarn 都能满足你的需求。',
+        logo: 'https://www.yarnpkg.cn/favicon-32x32.png',
+        href: 'https://www.yarnpkg.cn',
+        tags: ['Nodejs', '包管理', '文档'],
+      },
+      {
+        name: 'Pnpm',
+        desc: '速度快、节省磁盘空间的软件包管理器',
+        logo: 'https://www.pnpm.cn/img/favicon.png',
+        href: 'https://pnpm.io',
+        tags: ['Nodejs', '包管理', '文档'],
+      },
+      {
+        name: 'Node.js技术栈',
+        desc: '“Nodejs技术栈” 是作者 @五月君 从事 Node.js 开发以来的学习历程，希望这些分享能帮助到正在学习、使用 Node.js 的朋友们',
+        logo: 'https://nodejsred.oss-cn-shanghai.aliyuncs.com/nodejs_roadmap-logo.jpeg?x-oss-process=style/may',
+        href: 'https://www.nodejs.red/',
+        tags: ['Nodejs', '笔记', '教程'],
+      },
+      {
+        name: 'Axios',
+        desc: 'Axios 是一个基于 promise 的网络请求库，可以用于浏览器和 node.js',
+        logo: 'https://axios-http.com/assets/favicon.ico',
+        href: 'https://axios-http.cn/',
+        tags: ['Nodejs', 'HTTP'],
+      },
+      {
+        name: 'Expressjs',
+        desc: '基于 Node.js 平台，快速、开放、极简的 Web 开发框架',
+        logo: 'https://www.expressjs.com.cn/images/favicon.png',
+        href: 'https://www.expressjs.com.cn/',
+        tags: ['Nodejs', '后端', '框架'],
+      },
+      {
+        name: 'Nest.js',
+        desc: '用于构建高效且可伸缩的服务端应用程序的渐进式 Node.js 框架。',
+        logo: 'https://docs.nestjs.cn/_media/icon.svg',
+        href: 'https://docs.nestjs.cn/',
+        tags: ['后端', 'Nodejs', '框架'],
+      },
+      {
+        name: 'Electron',
+        desc: '使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序',
+        logo: 'img/website/electron.ico',
+        href: 'https://www.electronjs.org/',
+        tags: ['Nodejs', '自动化', '爬虫'],
+      },
+      {
+        name: 'Socket.io',
+        desc: 'Socket.IO 是一个可以在浏览器与服务器之间实现实时、双向、基于事件的通信的工具库。',
+        logo: 'https://socket.io/images/favicon.png',
+        href: 'https://socketio.bootcss.com',
+        tags: ['Nodejs', 'socket'],
+      },
+      {
+        name: 'Lodash',
+        desc: '一个 JavaScript 的实用工具库, 表现一致性, 模块化, 高性能, 以及可扩展。',
+        logo: 'https://lodash.com/icons/favicon-32x32.png',
+        href: 'https://lodash.net',
+        tags: ['Nodejs'],
+      },
+      {
+        name: 'TypeORM',
+        desc: 'TypeORM 是一个ORM框架，它可以运行在 NodeJS、Browser、Cordova、PhoneGap、Ionic、React Native、Expo 和 Electron 平台上，可以与 TypeScript 和 JavaScript (ES5,ES6,ES7,ES8)一起使用。',
+        logo: 'https://typeorm.bootcss.com/favicon/favicon.ico',
+        href: 'https://typeorm.bootcss.com',
+        tags: ['Nodejs'],
+      },
+      {
+        name: 'Webpack',
+        desc: 'webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。',
+        logo: 'https://www.webpackjs.com/assets/favicon.ico',
+        href: 'https://www.webpackjs.com',
+        tags: ['Nodejs'],
+      },
+      {
+        name: 'WebAssembly',
+        desc: 'wasm 是一个可移植、体积小、加载快并且兼容 Web 的全新格式',
+        logo: 'https://www.wasm.com.cn/favicon.ico',
+        href: 'https://www.wasm.com.cn',
+        tags: ['Nodejs'],
+      },
+    ],
+  },
+  {
     name: 'Vue',
     websites: [
       {
@@ -182,21 +312,21 @@ export const websiteData: WebsiteCategory[] = [
         desc: '渐进式 JavaScript 框架',
         logo: 'https://vuejs.org/logo.svg',
         href: 'https://vuejs.org',
-        tags: ['前端', 'Vue','框架'],
+        tags: ['前端', 'Vue', '框架'],
       },
       {
         name: 'Vite',
         desc: '下一代的前端工具链，为开发提供极速响应',
         logo: 'https://cn.vitejs.dev/logo.svg',
         href: 'https://cn.vitejs.dev',
-        tags: ['前端', 'Vue','框架'],
+        tags: ['前端', 'Vue', '框架'],
       },
       {
         name: 'Vitest',
         desc: '一个 Vite 原生单元测试框架。它很快！',
         logo: 'https://vitest.dev/favicon.ico',
         href: 'https://cn.vitest.dev/',
-        tags: ['前端', 'Vue','框架'],
+        tags: ['前端', 'Vue', '框架'],
       },
       {
         name: 'Nuxt.js',
@@ -219,7 +349,7 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://vueuse.org/',
         tags: ['前端', 'Vue', '文档', '框架'],
       },
-        {
+      {
         name: 'Element Plus',
         desc: '基于 Vue 3，面向设计师和开发者的组件库',
         logo: 'https://element-plus.gitee.io/images/element-plus-logo-small.svg',
@@ -250,7 +380,7 @@ export const websiteData: WebsiteCategory[] = [
         desc: '用于构建用户界面的 JavaScript 库',
         logo: 'https://reactjs.org/favicon.ico',
         href: 'https://reactjs.org',
-        tags: ['前端', 'React','框架'],
+        tags: ['前端', 'React', '框架'],
       },
       {
         name: 'Next.js',
@@ -390,18 +520,18 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://codeadrian.github.io/clay.css/',
         tags: ['Css', '框架'],
       },
-      {
-        name: 'uiverse.io',
-        desc: '丰富的 UI 元素助您脱颖而出，开源且免费使用',
-        logo: 'https://uiverse.io/favicon.ico',
-        href: 'https://uiverse.io/',
-        tags: ['Css', '动画'],
-      }
+      // {
+      //   name: 'uiverse.io',
+      //   desc: '丰富的 UI 元素助您脱颖而出，开源且免费使用',
+      //   logo: 'https://uiverse.io/favicon.ico',
+      //   href: 'https://uiverse.io/',
+      //   tags: ['Css', '动画'],
+      // },
     ],
   },
   {
-    name:'设计',
-    websites:[
+    name: '设计',
+    websites: [
       {
         name: 'Mastergo',
         desc: '面向团队的专业 UI/UX 设计工具，多人同时编辑、随时在线评审、设计一键交付，让想法更快实现',
@@ -423,7 +553,7 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://pixso.cn/',
         tags: ['设计'],
       },
-    ]
+    ],
   },
   {
     name: '字体图标',
@@ -487,16 +617,9 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'WebGradients',
         desc: 'WebGradients是180个线性渐变的免费集合，您可以将其用作网站任何部分的内容背景',
-        logo: 'https://webgradients.com/img/other/logos/webgradients_logo.png',
+        logo: '/img/website/webgradients.png',
         href: 'https://webgradients.com',
         tags: ['配色', '背景'],
-      },
-      {
-        name: '中国色',
-        desc: '整合所有的中国色',
-        logo: 'http://zhongguose.com/img/favicon.ico',
-        href: 'http://zhongguose.com/',
-        tags: ['配色'],
       },
       // {
       //   name: '谷歌字体',
@@ -508,8 +631,8 @@ export const websiteData: WebsiteCategory[] = [
     ],
   },
   {
-    name:'站点生成',
-    websites:[
+    name: '站点生成',
+    websites: [
       {
         name: 'VitePress',
         desc: 'Vue 驱动并使用Vite构建的静态网站生成器',
@@ -566,7 +689,7 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://halo.run/',
         tags: ['前端', '站点'],
       },
-    ]
+    ],
   },
   {
     name: '杂项',

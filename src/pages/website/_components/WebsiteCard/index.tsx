@@ -7,7 +7,7 @@ import { type Website } from '@site/src/data/website'
 
 const WebsiteCard = memo(({ website }: { website: Website }) => (
   <li key={website.name} className={clsx(styles.websiteCard, 'padding-vert--sm padding-horiz--md')}>
-    <img src={typeof website.logo === 'string' ? website.logo : (website.logo as any).src.src} alt={website.name} className={clsx(styles.websiteCardImage)} />
+    <img src={typeof website.logo === 'string' ? website.logo : (website.logo as any)?.src?.src} alt={website.name} className={clsx(styles.websiteCardImage)} />
     <div className={styles.websiteCardBody}>
       <div className={clsx(styles.websiteCardHeader)}>
         <h4 className={styles.websiteCardTitle}>
