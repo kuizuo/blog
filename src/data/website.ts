@@ -242,7 +242,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Axios',
         desc: 'Axios 是一个基于 promise 的网络请求库，可以用于浏览器和 node.js',
-        logo: 'https://axios-http.com/assets/favicon.ico',
+        logo: '/img/website/axios.ico',
         href: 'https://axios-http.cn/',
         tags: ['Nodejs', 'HTTP'],
       },
