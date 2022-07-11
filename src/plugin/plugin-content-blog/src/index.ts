@@ -3,6 +3,9 @@ import * as blogPluginExports from '@docusaurus/plugin-content-blog'
 import type { PluginOptions } from '@docusaurus/plugin-content-blog'
 import { BlogContent } from './types'
 
+// @ts-ignore
+import { sortedProjects, type Project } from '../../../data/project'
+
 const blogPlugin = blogPluginExports.default
 
 async function blogPluginEnhanced(context: LoadContext, options: PluginOptions): Promise<Plugin<BlogContent>> {
@@ -17,9 +20,12 @@ async function blogPluginEnhanced(context: LoadContext, options: PluginOptions):
       // Create your additional pages
       const { blogPosts, blogTags } = content
       const { setGlobalData } = actions
+
+      const projects = sortedProjects
       setGlobalData({
         blogs: blogPosts,
         tags: blogTags,
+        projects: projects,
       })
     },
   }

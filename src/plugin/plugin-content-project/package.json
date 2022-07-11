@@ -1,9 +1,0 @@
-{
-  "name": "docusaurus-plugin-content-project",
-  "version": "0.0.1",
-  "main": "lib/index.js",
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch"
-  }
-}

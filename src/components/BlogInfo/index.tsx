@@ -19,14 +19,14 @@ export function BlogUser({ count, isNavbar = false }: { count?: Count; isNavbar?
     const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.['default'] as any
     const blogData = blogPluginData?.blogs as BlogPost[]
     const tagData = blogPluginData?.tags as BlogTags
+    const projectData = blogPluginData?.projects
     const docData = (globalData?.['docusaurus-plugin-content-docs']?.['default'] as any)?.versions[0].docs
-    const projectData = globalData?.['docusaurus-plugin-content-project']?.['default'] as any
 
     count = {
       blog: blogData.length,
       tag: Object.keys(tagData).length ?? 0,
       doc: docData?.length ?? 0,
-      project: projectData?.projects?.length ?? 0,
+      project: projectData?.length ?? 0,
     }
   }
 
@@ -55,7 +55,14 @@ export function BlogUser({ count, isNavbar = false }: { count?: Count; isNavbar?
           <FontAwesomeIcon icon={faThLarge as IconProp} /> {count.project}
         </Link>
       </div>
-      <SocialLinks animatedProps={{ maxWidth: '100%', padding: '0.5em 0', justifyContent: 'space-evenly', ...(isNavbar ? { borderBottom: '1px solid #eee' } : null) }} />
+      <SocialLinks
+        animatedProps={{
+          maxWidth: '100%',
+          padding: '0.5em 0',
+          justifyContent: 'space-evenly',
+          ...(isNavbar ? { borderBottom: '1px solid #eee' } : null),
+        }}
+      />
     </div>
   )
 }
@@ -66,7 +73,11 @@ const TagsSection = ({ data }) => {
       {data
         .filter((tag) => tag != null)
         .map((tag) => (
-          <Link className={`post__tags note__item margin-right--sm margin-bottom--sm`} href={tag.permalink} key={tag.permalink}>
+          <Link
+            className={`post__tags note__item margin-right--sm margin-bottom--sm`}
+            href={tag.permalink}
+            key={tag.permalink}
+          >
             {tag.label}
           </Link>
         ))}

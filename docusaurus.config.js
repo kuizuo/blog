@@ -145,7 +145,7 @@ const config = {
             label: '友链',
             position: 'right',
             to: 'friends',
-          },{
+          }, {
             label: '导航',
             position: 'right',
             to: 'website',
@@ -254,9 +254,6 @@ const config = {
           copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
         },
       }
-    ],
-    [
-      path.resolve(__dirname, './src/plugin/plugin-content-project'), {}
     ],
     path.resolve(__dirname, './src/plugin/plugin-baidu-analytics'),
     path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
