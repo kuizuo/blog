@@ -245,6 +245,10 @@ https://kuizuo@github.com/kuizuo/blog
 
 还是挺吃内存的，毕竟安装的时候就要求 4g 内存以上。
 
+有个轻量级的项目管理器 [gitea](https://github.com/go-gitea/gitea) 不妨也是一种选择，但功能上没有Gitlab这么丰富。
+
+对于自建git服务的选择，这里有篇文章推荐阅读 [自建 Git 服务器：Gitea 与 Gitlab 部署踩坑经历与对比总结 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/486410391)
+
 ## 总结
 
 其实回到一开始的问题，既然Github有可能访问不了，为啥不要迁移到国内的[Gitee](https://gitee.com/)上。

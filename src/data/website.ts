@@ -275,6 +275,13 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['Nodejs', 'socket'],
       },
       {
+        name: 'Strapi',
+        desc: 'Socket.IO 是一个可以在浏览器与服务器之间实现实时、双向、基于事件的通信的工具库。',
+        logo: 'https://strapi.io/assets/favicon-32x32.png',
+        href: 'https://strapi.io/',
+        tags: ['Nodejs', 'CMS'],
+      },
+      {
         name: 'Lodash',
         desc: '一个 JavaScript 的实用工具库, 表现一致性, 模块化, 高性能, 以及可扩展。',
         logo: 'https://lodash.com/icons/favicon-32x32.png',
@@ -429,6 +436,13 @@ export const websiteData: WebsiteCategory[] = [
         desc: '一个高质量和可靠的 React Hooks 库',
         logo: 'https://ahooks.js.org/simple-logo.svg',
         href: 'https://ahooks.js.org/',
+        tags: ['前端', 'React', '脚手架'],
+      },
+      {
+        name: 'SWR',
+        desc: '用于数据请求的 React Hooks 库',
+        logo: 'https://swr.vercel.app/favicon/favicon-32x32.png',
+        href: 'https://swr.vercel.app/',
         tags: ['前端', 'React', '脚手架'],
       },
       {
