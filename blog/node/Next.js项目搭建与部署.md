@@ -157,7 +157,7 @@ export async function getServerSideProps(context: { query: { id: any } }) {
 
 从这就能看出客户端渲染与服务端渲染的的区别了。
 
-## SSG 静态生成
+### SSG 静态生成
 
 不过还没完，还有一个静态生成，先来看看代码。
 

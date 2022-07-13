@@ -3,6 +3,7 @@ title: Vite相关插件
 date: 2022-04-10
 authors: kuizuo
 tags: [vue, vite]
+toc_max_heading_level: 2
 ---
 
 记录下日常使用 Vite 的一些相关插件。
@@ -393,7 +394,7 @@ meta:
 </route>
 ```
 
-## [vite-plugin-purge-icons]([vite-plugin-purge-icons - npm (npmjs.com)](https://www.npmjs.com/package/vite-plugin-purge-icons))
+## [vite-plugin-purge-icons](https://www.npmjs.com/package/vite-plugin-purge-icons)
 
 **方便的使用 [Iconify](https://icon-sets.iconify.design/) 图标。**
 
@@ -462,7 +463,7 @@ export default {
 
 之所以使用 Windi CSS，主要是[属性化模式](https://cn.windicss.org/features/attributify.html)太香了（预计会成为一个趋势），属性化默认情况下是可选的，可以在你的 windi 配置中开启。
 
-```typescript title=“windi.config.ts"
+```typescript title="windi.config.ts"
 import { defineConfig } from 'windicss/helpers'
 
 export default defineConfig({

@@ -40,6 +40,29 @@ npm config set registry https://registry.npmmirror.com
 npm get registry
 ```
 
+## nrm镜像管理工具
+
+```
+npm install nrm -g
+```
+
+### nrm ls 查看所有镜像
+
+```
+  npm ---------- https://registry.npmjs.org/
+  yarn --------- https://registry.yarnpkg.com/
+  tencent ------ https://mirrors.cloud.tencent.com/npm/
+  cnpm --------- https://r.cnpmjs.org/
+  taobao ------- https://registry.npmmirror.com/
+  npmMirror ---- https://skimdb.npmjs.com/registry/
+```
+
+### nrm use 镜像 切换镜像
+
+```
+nrm use taobao
+```
+
 ## 清除 npm 缓存
 
 ```sh
@@ -53,3 +76,4 @@ npm config set ELECTRON_MIRROR https://npmmirror.com/mirrors/electron/
 
 npm config set ELECTRON_BUILDER_BINARIES_MIRROR https://npmmirror.com/mirrors/electron-builder-binaries/
 ```
+
