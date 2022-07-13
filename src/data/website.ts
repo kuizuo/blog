@@ -735,14 +735,7 @@ export const websiteData: WebsiteCategory[] = [
         logo: 'https://github.com/favicon.ico',
         href: 'https://github.com/anuraghazra/github-readme-stats',
         tags: ['Github', '素材', '其他'],
-      },
-      {
-        name: '前端工坊',
-        desc: 'Most Popular JavaScript Library 2022 Front End Framework Ranking',
-        logo: 'https://github.com/favicon.ico',
-        href: 'https://www.javascript.fun/',
-        tags: ['前端', '其他'],
-      },
+      }
     ],
   },
 ]
