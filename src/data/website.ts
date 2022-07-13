@@ -534,6 +534,13 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://codeadrian.github.io/clay.css/',
         tags: ['Css', '框架'],
       },
+      {
+        name: 'loading.io',
+        desc: 'Animation Made Easy',
+        logo: 'https://loading.io/favicon.ico',
+        href: 'https://loading.io/',
+        tags: ['Css']
+      },
       // {
       //   name: 'uiverse.io',
       //   desc: '丰富的 UI 元素助您脱颖而出，开源且免费使用',
