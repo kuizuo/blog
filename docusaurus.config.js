@@ -187,13 +187,13 @@ const config = {
       phpLoader: 'matomo.php',
       jsLoader: 'matomo.js',
     },
-    gitalk: {
-      clientID: '3f390a6f6e979a76d1a1',
-      clientSecret: 'e2cd29b8055fcc2265b2292387236c36857e21fc',
-      repo: 'blog',
-      owner: 'kuizuo',
-      admin: ['kuizuo'],
-      distractionFreeMode: false,
+    giscus: {
+      repo: 'kuizuo/blog',
+      repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=',
+      category: 'General',
+      categoryId: 'DIC_kwDOF7NJDM4CPK95',
+      mapping: 'title',
+      lang: 'zh-CN',
     },
     liveCodeBlock: {
       playgroundPosition: 'top',

@@ -1,14 +1,11 @@
 import React from 'react'
 import clsx from 'clsx'
 import Translate, { translate } from '@docusaurus/Translate'
-import { MDXProvider } from '@mdx-js/react'
 
 import Head from '@docusaurus/Head'
 import Link from '@docusaurus/Link'
-import MDXComponents from '@theme/MDXComponents'
 import MDXContent from '@theme/MDXContent'
 import useBaseUrl, { useBaseUrlUtils } from '@docusaurus/useBaseUrl'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
 import { useColorMode, usePluralForm } from '@docusaurus/theme-common'
 import { blogPostContainerID } from '@docusaurus/utils-common'
