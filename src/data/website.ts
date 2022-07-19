@@ -541,6 +541,22 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://loading.io/',
         tags: ['Css']
       },
+      {
+        name: 'gradienta.io',
+        desc: 'Multicolor Gradients. Pure CSS Code, JPG Download, Open Source!',
+        logo: 'https://gradienta.io/favicon.ico',
+        href: 'https://gradienta.io/',
+        tags: ['Css']
+      },
+      {
+        name: 'uigradients.com',
+        desc: '一个渐变色过渡背景网站',
+        logo: 'https://uigradients.com/static/images/favicon-32x32.png',
+        href: 'https://uigradients.com/',
+        tags: ['Css']
+      },
+
+
       // {
       //   name: 'uiverse.io',
       //   desc: '丰富的 UI 元素助您脱颖而出，开源且免费使用',

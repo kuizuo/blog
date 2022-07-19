@@ -61,6 +61,22 @@ const Projects: Project[] = [
     tags: ['opensource', 'favorite', 'product'],
   },
   {
+    title: 'KZ-API',
+    description: '基于Nuxt3 + Vite3 + Vue3 + UnoCSS搭建的API接口服务网站',
+    preview: 'https://img.kuizuo.cn/KZ%20API.png',
+    website: 'https://api.kuizuo.cn',
+    source: 'https://github.com/kuizuo/api-service',
+    tags: ['opensource', 'favorite', 'product'],
+  },
+  {
+    title: 'VScode-extension',
+    description: 'vscode 插件的样品',
+    preview: 'https://img.kuizuo.cn/vscode-extension.png',
+    website: 'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
+    source: 'https://github.com/kuizuo/vscode-extension',
+    tags: ['opensource', 'javascript'],
+  },
+  {
     title: 'ocr-admin',
     description: '基于ddddocr与kz-admin搭建的图像识别后台系统',
     preview: 'https://img.kuizuo.cn/ocr-admin.png',
@@ -74,14 +90,6 @@ const Projects: Project[] = [
     preview: 'https://img.kuizuo.cn/js-de-obfuscator.png',
     website: 'https://deobfuscator.kuizuo.cn',
     source: 'https://github.com/kuizuo/js-de-obfuscator',
-    tags: ['opensource', 'javascript'],
-  },
-  {
-    title: 'VScode-extension',
-    description: '一个 vscode 扩展开发的样品',
-    preview: 'https://img.kuizuo.cn/vscode-extension.png',
-    website: 'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
-    source: 'https://github.com/kuizuo/vscode-extension',
     tags: ['opensource', 'javascript'],
   },
   {

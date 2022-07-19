@@ -2,7 +2,7 @@
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
-const announcementBarContent = `当你所拥有的更多，所放弃的也就越多`
+const announcementBarContent = `基于 <a href='https://v3.nuxtjs.org/'>Nuxt3</a> 实现 <a href='https://api.kuizuo.cn'>KZ API</a> 接口站点`
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -68,6 +68,10 @@ const config = {
           label: '小工具',
           position: 'right',
           items: [
+            {
+              label: 'API接口',
+              to: 'https://api.kuizuo.cn',
+            },
             {
               label: 'JS代码混淆与还原',
               to: 'https://deobfuscator.kuizuo.cn',
@@ -155,7 +159,7 @@ const config = {
       copyright: `<p>Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.</p><p><a href="http://beian.miit.gov.cn/" >${beian}</a></p>`,
     },
     prism: {
-      theme: require('prism-react-renderer/themes/nightOwl'),
+      theme: require('prism-react-renderer/themes/okaidia'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
       additionalLanguages: ['java', 'php'],
       // defaultLanguage: "javascript",
