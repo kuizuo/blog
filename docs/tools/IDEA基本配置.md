@@ -1,4 +1,5 @@
 ---
+id: idea-config
 title: IDEA基本配置
 date: 2022-01-06
 authors: kuizuo

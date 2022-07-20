@@ -1,4 +1,5 @@
 ---
+id: windows-custom-right-click-menu
 title: Windows自定义右键菜单
 date: 2020-09-08
 authors: kuizuo

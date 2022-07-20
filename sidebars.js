@@ -246,14 +246,14 @@ const sidebars = {
   ],
   tools: [
     'tools/introduction',
-    'tools/Everything快速搜索本地文件',
-    'tools/Windows Terminal美化',
-    'tools/Windows自定义右键菜单',
-    'tools/VScode相关配置',
-    'tools/IDEA基本配置',
-    'tools/Vite相关插件',
-    'tools/Wappalyzer识别网站上的技术',
-    'tools/Jetbrains系列产品激活方法',
+    'tools/everything-quick-search-local-files',
+    'tools/wappalyzer-recognize-technology',
+    'tools/windows-custom-right-click-menu',
+    'tools/vscode-config',
+    'tools/idea-config',
+    'tools/vite-plugin',
+    'tools/wappalyzer-recognize-technology',
+    'tools/jetbrains-product-activation-method',
   ]
 }
 

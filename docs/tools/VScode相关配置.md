@@ -1,4 +1,5 @@
 ---
+id: vscode-config
 title: VScode相关配置
 date: 2021-08-03
 authors: kuizuo

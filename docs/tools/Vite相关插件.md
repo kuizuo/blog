@@ -1,4 +1,5 @@
 ---
+id: vite-plugin
 title: Vite相关插件
 date: 2022-04-10
 authors: kuizuo

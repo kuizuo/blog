@@ -1,4 +1,5 @@
 ---
+id: jetbrains-product-activation-method
 title: Jetbrains系列产品激活方法
 date: 2020-09-03
 authors: kuizuo
