@@ -186,6 +186,13 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['在线编码', '开发平台'],
       },
       {
+        name: 'Stackblitz',
+        desc: 'Stackblitz在流程中保持即时的开发体验。没有更多的小时储存/拉/安装本地-只需点击，并开始编码。',
+        logo: '/img/website/stackblitz.png',
+        href: 'https://stackblitz.com/',
+        tags: ['在线编码', '开发平台'],
+      }
+      {
         name: 'vscode.dev',
         desc: 'vscode官方提供在线Web版vscode代码编写网站',
         logo: 'https://vscode.dev/static/stable/favicon.ico',
