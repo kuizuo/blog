@@ -38,6 +38,12 @@ export const Friends: Friend[] = [
     website: 'https://pincman.com/',
     avatar: require('./avatar/pincman.png'),
   },
+  {
+    title: 'ChiroPhy',
+    description: '不会写代码的老师不是好二次元',
+    website: 'https://chirophy.online/',
+    avatar: require('./avatar/shiro.png'),
+  },
 ]
 
 export function sortFriend() {
