@@ -1,4 +1,5 @@
 ---
+slug: api-style
 title: Api接口风格
 date: 2021-08-06
 authors: kuizuo

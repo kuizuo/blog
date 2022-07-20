@@ -1,4 +1,5 @@
 ---
+slug: vscode-plugin
 title: 编写一个VSCode插件
 date: 2022-07-11
 authors: kuizuo

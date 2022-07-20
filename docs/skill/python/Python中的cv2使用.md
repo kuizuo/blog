@@ -1,4 +1,5 @@
 ---
+id: python-cv2-usage
 title: Python中的cv2使用
 date: 2022-03-06
 authors: kuizuo

@@ -1,4 +1,5 @@
 ---
+slug: docusaurus-gitalk-plugin
 title: Docusaurus配置Gitalk评论插件
 date: 2022-01-22
 authors: kuizuo

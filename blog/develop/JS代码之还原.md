@@ -1,4 +1,5 @@
 ---
+slug: js-code-deobfuscator
 title: JS代码之还原
 date: 2021-12-25
 authors: kuizuo

@@ -1,4 +1,5 @@
 ---
+slug: remove-ts-code-type
 title: 去除ts代码的类型
 date: 2022-03-24
 authors: kuizuo

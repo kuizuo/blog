@@ -1,4 +1,5 @@
 ---
+id: brush-magisk
 title: 刷入Magisk
 date: 2021-12-09
 authors: kuizuo

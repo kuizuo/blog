@@ -1,4 +1,5 @@
 ---
+slug: why-javascript
 title: 为什么是JavaScript
 date: 2021-01-03
 authors: kuizuo

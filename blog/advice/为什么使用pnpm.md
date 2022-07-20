@@ -1,4 +1,5 @@
 ---
+slug: why-use-pnpm
 title: 为什么使用pnpm
 date: 2022-01-08
 authors: kuizuo

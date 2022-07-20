@@ -9,11 +9,11 @@ const sidebars = {
         type: 'generated-index',
       },
       items: [
-        'skill/vue/Vue响应式数据之Object',
-        'skill/vue/Vue响应式数据之Array',
-        'skill/vue/Vue响应式数据之基本数据类型',
-        'skill/vue/Vue-component',
-        'skill/vue/Pinia',
+        'skill/vue/vue-reactive-data-object',
+        'skill/vue/vue-reactive-data-array',
+        'skill/vue/vue-reactive-data-basic-type',
+        'skill/vue/vue-component',
+        'skill/vue/pinia',
       ],
     },
     {
@@ -74,7 +74,7 @@ const sidebars = {
       link: {
         type: 'generated-index',
       },
-      items: ['skill/css/记Tailwind CSS使用', 'skill/css/有趣且实用的CSS小技巧'],
+      items: ['skill/css/tailwind-css-usage', 'skill/css/func-and-useful-css-tips'],
     },
     {
       label: 'Go',
@@ -83,12 +83,12 @@ const sidebars = {
         type: 'generated-index',
       },
       items: [
-        'skill/go/Go环境安装',
-        'skill/go/Go语言之json使用',
-        'skill/go/Go发送http请求',
-        'skill/go/Go调用js代码',
-        'skill/go/Go并发',
-        'skill/go/Gin框架初体验'
+        'skill/go/go-environment-install',
+        'skill/go/go-json-usage',
+        'skill/go/go-send-http-request',
+        'skill/go/go-call-js',
+        'skill/go/go-concurrent',
+        'skill/go/try-gin-framework'
       ],
     },
     {
@@ -177,7 +177,7 @@ const sidebars = {
           type: 'category',
           link: {
             type: 'doc',
-            id: 'skill/database/mysql/index',
+            id: 'skill/database/mysql/mysql-note',
           },
           items: [
             {
@@ -191,7 +191,7 @@ const sidebars = {
           type: 'category',
           link: {
             type: 'doc',
-            id: 'skill/database/mongo/index',
+            id: 'skill/database/mongo/mongodb-note',
           },
           items: [
             {
@@ -205,7 +205,7 @@ const sidebars = {
           type: 'category',
           link: {
             type: 'doc',
-            id: 'skill/database/redis/index',
+            id: 'skill/database/redis/redis-note',
           },
           items: [
             {
@@ -219,7 +219,7 @@ const sidebars = {
           type: 'category',
           link: {
             type: 'doc',
-            id: 'skill/database/elasticsearch/index',
+            id: 'skill/database/elasticsearch/elasticsearch-note',
           },
           items: [
             {

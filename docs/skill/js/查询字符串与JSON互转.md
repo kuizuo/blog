@@ -1,4 +1,5 @@
 ---
+slug: querystring-and-json-convert
 title: 查询字符串与JSON互转
 date: 2022-03-15
 authors: kuizuo

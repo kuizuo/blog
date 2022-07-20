@@ -1,4 +1,5 @@
 ---
+slug: chrome-plugin-development
 title: Chrome插件开发
 date: 2020-09-28
 authors: kuizuo

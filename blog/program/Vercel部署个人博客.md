@@ -1,4 +1,5 @@
 ---
+slug: vercel-deploy-blog
 title: Vercel部署个人博客
 date: 2022-05-11
 authors: kuizuo

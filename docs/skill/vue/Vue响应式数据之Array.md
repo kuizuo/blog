@@ -1,4 +1,5 @@
 ---
+id: vue-reactive-data-array
 title: Vue响应式数据之Array
 date: 2022-05-12
 authors: kuizuo

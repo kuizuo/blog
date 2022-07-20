@@ -1,4 +1,5 @@
 ---
+slug: gitlab-code-management-environment
 title: 搭建GitLab代码管理仓库
 date: 2022-04-15
 authors: kuizuo

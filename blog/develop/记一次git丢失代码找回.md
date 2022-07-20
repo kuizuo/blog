@@ -1,4 +1,5 @@
 ---
+slug: lost-code-find-by-git
 title: 记一次git丢失代码找回
 date: 2021-08-15
 authors: kuizuo

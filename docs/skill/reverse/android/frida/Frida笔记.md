@@ -1,4 +1,5 @@
 ---
+id: frida-note
 title: Frida笔记
 date: 2021-02-10
 authors: kuizuo

@@ -1,5 +1,6 @@
 ---
-title: SpringBoot项目目录结构
+slug: springboot-project-structure
+title: SpringBoot项目结构
 date: 2022-01-08
 authors: kuizuo
 tags: [java, springboot, develop]

@@ -1,4 +1,6 @@
 ---
+id: redis-note
+slug: /skill/database/redis
 title: Redis笔记
 date: 2021-05-21
 tags: [redis, database]

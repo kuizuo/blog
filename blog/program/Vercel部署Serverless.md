@@ -1,4 +1,5 @@
 ---
+slug: vercel-deploy-serverless
 title: Vercel部署Serverless
 date: 2022-05-12
 authors: kuizuo

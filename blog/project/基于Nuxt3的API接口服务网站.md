@@ -1,4 +1,5 @@
 ---
+slug: use-nuxt3-build-api-server
 title: 基于Nuxt3的API接口服务网站
 date: 2022-07-20
 authors: kuizuo

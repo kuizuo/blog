@@ -1,5 +1,6 @@
 ---
-title: react中css实现方式
+slug: react-css
+title: react的css
 date: 2022-01-14
 authors: kuizuo
 tags: [react, css]

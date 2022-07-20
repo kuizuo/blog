@@ -1,4 +1,5 @@
 ---
+slug: axios-http-class-library
 title: 基于Axios封装HTTP类库
 date: 2021-08-26
 authors: kuizuo

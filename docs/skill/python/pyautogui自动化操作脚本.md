@@ -1,4 +1,5 @@
 ---
+id: pyautogui
 title: pyautogui自动化操作脚本
 date: 2022-02-18
 authors: kuizuo

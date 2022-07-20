@@ -1,4 +1,6 @@
 ---
+id: elasticsearch-note
+slug: /skill/database/elasticsearch
 title: elasticsearch笔记
 date: 2021-03-15
 tags: [elasticsearch, database]

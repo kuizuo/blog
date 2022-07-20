@@ -1,4 +1,5 @@
 ---
+id: typescript-advanced-grammar
 title: TypeScript高级语法
 date: 2022-06-25
 authors: kuizuo

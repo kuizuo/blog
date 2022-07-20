@@ -1,5 +1,6 @@
 ---
-title: SpringBoot热加载
+slug: springboot-hot-update
+title: SpringBoot热更新
 date: 2022-01-10
 authors: kuizuo
 tags: [java, springboot]

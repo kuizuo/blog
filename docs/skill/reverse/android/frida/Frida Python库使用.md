@@ -1,4 +1,5 @@
 ---
+id: frida-python-usage
 title: Frida Python库使用
 date: 2021-02-10
 authors: kuizuo

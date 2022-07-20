@@ -1,4 +1,5 @@
 ---
+id: solution-of-bootloader-lock
 title: 解Bootloader锁
 date: 2021-12-09
 authors: kuizuo

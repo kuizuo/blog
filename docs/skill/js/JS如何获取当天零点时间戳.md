@@ -1,4 +1,5 @@
 ---
+id: how-does-js-get-today-zero-timestamp
 title: JS如何获取当天零点时间戳
 date: 2021-08-18
 authors: kuizuo

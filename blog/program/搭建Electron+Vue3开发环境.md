@@ -1,4 +1,5 @@
 ---
+slug: electron-vue3-development-environment
 title: 搭建Electron+Vue3开发环境
 date: 2022-03-17
 authors: kuizuo

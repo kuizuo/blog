@@ -1,4 +1,5 @@
 ---
+slug: use-jsonpath-to-parse-json-data
 title: 使用JSONPath解析json数据
 date: 2021-09-20
 authors: kuizuo

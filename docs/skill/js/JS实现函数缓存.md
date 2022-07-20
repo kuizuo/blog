@@ -1,4 +1,5 @@
 ---
+slug: js-implement-function-cache
 title: JS实现函数缓存
 date: 2021-11-22
 authors: kuizuo

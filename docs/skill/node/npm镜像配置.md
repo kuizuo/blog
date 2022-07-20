@@ -1,4 +1,5 @@
 ---
+id: npm-mirror-config
 title: npm镜像配置
 date: 2022-03-17
 authors: kuizuo

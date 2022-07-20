@@ -1,4 +1,5 @@
 ---
+slug: github-pr-experience
 title: 记一次Github提交PR过程
 date: 2022-01-25
 authors: kuizuo

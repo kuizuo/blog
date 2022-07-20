@@ -1,4 +1,5 @@
 ---
+slug: kz-admin
 title: kz-admin后台管理系统
 date: 2022-05-08
 authors: kuizuo

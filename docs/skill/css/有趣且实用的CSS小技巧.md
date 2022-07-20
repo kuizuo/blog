@@ -1,4 +1,5 @@
 ---
+id: func-and-useful-css-tips
 title: 有趣且实用的CSS小技巧
 date: 2022-02-23
 authors: kuizuo
