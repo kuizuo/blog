@@ -74,7 +74,7 @@ const config = {
             },
             {
               label: 'JS代码混淆与还原',
-              to: 'https://deobfuscator.kuizuo.cn',
+              to: 'https://js-de-obfuscator.vercel.app',
             },
             {
               label: 'CyberChef在线加解密',
