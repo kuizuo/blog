@@ -191,7 +191,7 @@ export const websiteData: WebsiteCategory[] = [
         logo: '/img/website/stackblitz.png',
         href: 'https://stackblitz.com/',
         tags: ['在线编码', '开发平台'],
-      }
+      },
       {
         name: 'vscode.dev',
         desc: 'vscode官方提供在线Web版vscode代码编写网站',
@@ -607,6 +607,13 @@ export const websiteData: WebsiteCategory[] = [
         desc: '数千个图标，一个统一的框架。',
         logo: 'https://icon-sets.iconify.design/favicon.ico',
         href: 'https://icon-sets.iconify.design/',
+        tags: ['图标'],
+      },
+      {
+        name: 'icones',
+        desc: 'Icon Explorer with Instant searching, powered by Iconify',
+        logo: 'https://icones.js.org/favicon.svg',
+        href: 'https://icones.js.org/',
         tags: ['图标'],
       },
       {
