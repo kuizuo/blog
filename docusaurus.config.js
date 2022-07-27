@@ -153,7 +153,11 @@ const config = {
             label: '导航',
             position: 'right',
             to: 'website',
-          }],
+          },
+          {
+            html: `<a href="https://docusaurus.io/zh-CN/" target="_blank"><img style="height:50px;margin-top:0.5rem" src="/img/buildwith.png" /><a/>`
+          },
+        ],
         },
       ],
       copyright: `<p>Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.</p><p><a href="http://beian.miit.gov.cn/" >${beian}</a></p>`,

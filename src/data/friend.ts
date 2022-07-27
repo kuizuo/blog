@@ -39,10 +39,10 @@ export const Friends: Friend[] = [
     avatar: require('./avatar/pincman.png'),
   },
   {
-    title: 'ChiroPhy',
-    description: '不会写代码的老师不是好二次元',
-    website: 'https://chirophy.online/',
-    avatar: require('./avatar/shiro.png'),
+    title: 'Jetzihan',
+    description: '有黑羽快斗必有我',
+    website: 'https://jetzihan.netlify.app/',
+    avatar: require('./avatar/jetzihan.png'),
   },
 ]
 
