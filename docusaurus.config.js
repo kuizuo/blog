@@ -170,7 +170,6 @@ const config = {
       theme: require('prism-react-renderer/themes/okaidia'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
       additionalLanguages: ['java', 'php'],
-      // defaultLanguage: "javascript",
     },
     tableOfContents: {
       minHeadingLevel: 2,
