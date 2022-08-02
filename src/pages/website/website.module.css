@@ -62,6 +62,10 @@
   font-weight: 600;
 }
 
+.cateHeader > h2 {
+  font-family: sans-serif;
+}
+
 .cateBody {
   display: flex;
   padding: 0 1rem;

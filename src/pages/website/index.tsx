@@ -79,15 +79,9 @@ export default function Websites() {
     <>
       <PageMetadata title={title} description={description} />
       <Layout>
-        <header className={styles.hero}>
-          <div className="container">
-            <h1 className={styles.heroTitle}>{title}</h1>
-            <p className={styles.heroDesc}>{description}</p>
-          </div>
-        </header>
-        <div className="container margin-top--md">
-          <div className="row">
-            <aside className="col col--1">
+        <div className='container margin-top--md'>
+          <div className='row'>
+            <aside className='col col--1'>
               <CategoryNav />
             </aside>
             <main className="col col--11">
