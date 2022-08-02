@@ -1,32 +1,37 @@
-import React from 'react'
-import Layout from '@theme/Layout'
+import React from 'react';
+import Layout from '@theme/Layout';
 
-import FriendCard from './_components/FriendCard'
-import { sortFriend, type Friend } from '@site/src/data/friend'
+import FriendCard from './_components/FriendCard';
+import {sortFriend, type Friend} from '@site/src/data/friend';
 
-import styles from './styles.module.css'
+import styles from './styles.module.css';
 
-const TITLE = '友情链接'
-const DESCRIPTION = '申请友链请点击下方申请，熟人可直接找我~'
-const ADD_FRIEND_URL = 'https://github.com/kuizuo/blog/edit/main/src/data/friend.ts'
+const TITLE = '友情链接';
+const DESCRIPTION = '申请友链请点击下方申请，熟人可直接找我~';
+const ADD_FRIEND_URL =
+  'https://github.com/kuizuo/blog/edit/main/src/data/friend.ts';
 
 function FriendHeader() {
   return (
-    <section className='margin-top--lg margin-bottom--lg text--center'>
+    <section className="margin-top--lg margin-bottom--lg text--center">
       <h1>{TITLE}</h1>
       <p>{DESCRIPTION}</p>
-      <a className='button button--primary' href={ADD_FRIEND_URL} target='_blank' rel='noreferrer'>
+      <a
+        className="button button--primary"
+        href={ADD_FRIEND_URL}
+        target="_blank"
+        rel="noreferrer">
         申请友链
       </a>
     </section>
-  )
+  );
 }
 
 function FriendCards() {
-  const friends = sortFriend()
+  const friends = sortFriend();
   return (
-    <section className='margin-top--lg margin-bottom--lg'>
-      <div className='container'>
+    <section className="margin-top--lg margin-bottom--lg">
+      <div className="container">
         <ul className={styles.showcaseList}>
           {friends.map((friend) => (
             <FriendCard key={friend.title} friend={friend} />
@@ -34,18 +39,18 @@ function FriendCards() {
         </ul>
       </div>
     </section>
-  )
+  );
 }
 
 function FriendLink(): JSX.Element {
   return (
     <Layout title={TITLE} description={DESCRIPTION}>
-      <main className='margin-vert--lg'>
+      <main className="margin-vert--lg">
         <FriendHeader />
         <FriendCards />
       </main>
     </Layout>
-  )
+  );
 }
 
-export default FriendLink
+export default FriendLink;

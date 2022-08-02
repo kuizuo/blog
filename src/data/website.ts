@@ -1,15 +1,15 @@
-import { Friends } from './friend'
+import {Friends} from './friend';
 export interface Website {
-  name: string
-  logo: string
-  desc?: string
-  href: string
-  tags?: string[]
+  name: string;
+  logo: string;
+  desc?: string;
+  href: string;
+  tags?: string[];
 }
 
 export interface WebsiteCategory {
-  name: string
-  websites: Website[]
+  name: string;
+  websites: Website[];
 }
 
 const friends: Website[] = Friends.map((f) => {
@@ -19,8 +19,8 @@ const friends: Website[] = Friends.map((f) => {
     desc: f.description,
     logo: f.avatar,
     href: f.website,
-  }
-})
+  };
+});
 
 export const websiteData: WebsiteCategory[] = [
   {
@@ -525,22 +525,22 @@ export const websiteData: WebsiteCategory[] = [
         desc: 'Animation Made Easy',
         logo: '/img/websites/loading.png',
         href: 'https://loading.io/',
-        tags: ['Css']
+        tags: ['Css'],
       },
       {
         name: 'gradienta.io',
         desc: 'Multicolor Gradients. Pure CSS Code, JPG Download, Open Source!',
         logo: 'https://gradienta.io/favicon.ico',
         href: 'https://gradienta.io/',
-        tags: ['Css']
+        tags: ['Css'],
       },
       {
         name: 'uigradients.com',
         desc: '一个渐变色过渡背景网站',
         logo: 'https://uigradients.com/static/images/favicon-32x32.png',
         href: 'https://uigradients.com/',
-        tags: ['Css']
-      },
+        tags: ['Css'],
+      }
     ],
   },
   {
@@ -839,4 +839,4 @@ export const websiteData: WebsiteCategory[] = [
       },
     ],
   },
-]
+];

@@ -1,11 +1,9 @@
-import { shuffle } from '../utils/jsUtils'
-
 export type Friend = {
-  title: string
-  description?: string
-  website: string
-  avatar?: any
-}
+  title: string;
+  description?: string;
+  website: string;
+  avatar?: any;
+};
 
 export const Friends: Friend[] = [
   {
@@ -44,11 +42,10 @@ export const Friends: Friend[] = [
     website: 'https://jetzihan.netlify.app/',
     avatar: require('./avatar/jetzihan.png'),
   },
-]
+];
 
 export function sortFriend() {
-  let result = Friends
+  const result = Friends;
 
-  // shuffle(result)
-  return result
+  return result;
 }

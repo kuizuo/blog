@@ -1,7 +1,7 @@
 .friendCard {
   background-color: var(--ifm-card-background-color);
   border-radius: var(--ifm-card-border-radius);
-  box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.1);;
+  box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
   overflow: hidden;
@@ -27,7 +27,11 @@
 
 .friendCardTitle a {
   text-decoration: none;
-  background: linear-gradient(var(--ifm-color-primary), var(--ifm-color-primary)) 0% 100% / 0% 1px no-repeat;
+  background: linear-gradient(
+      var(--ifm-color-primary),
+      var(--ifm-color-primary)
+    )
+    0% 100% / 0% 1px no-repeat;
   transition: background-size ease-out 200ms;
 }
 
