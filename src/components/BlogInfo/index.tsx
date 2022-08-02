@@ -20,7 +20,7 @@ export function BlogUser({ count, isNavbar = false }: { count?: Count; isNavbar?
     navbar: { title, logo = { src: '' } },
   } = useThemeConfig()
 
-  const logoLink = useBaseUrl(logo.src || '/');
+  const logoLink = useBaseUrl(logo.src || '/')
 
   if (!count) {
     const globalData = useGlobalData()
@@ -116,15 +116,14 @@ export default function BlogInfo() {
   const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.['default'] as any
   const blogData = blogPluginData?.blogs as BlogPost[]
   const tagData = blogPluginData?.tags as BlogTags
-  const docData = (globalData?.['docusaurus-plugin-content-docs']?.['default'] as any)?.versions[0]
-    .docs
-  const projectData = globalData?.['docusaurus-plugin-content-project']?.['default'] as any
+  const docData = (globalData?.['docusaurus-plugin-content-docs']?.['default'] as any)?.versions[0].docs
+  const projectData = blogPluginData?.projects
 
   const count: Count = {
     blog: blogData.length,
     tag: Object.keys(tagData).length ?? 0,
     doc: docData?.length ?? 0,
-    project: projectData?.projects?.length ?? 0,
+    project: projectData?.length ?? 0,
   }
 
   return (
