@@ -132,7 +132,7 @@ import styles from './styles.module.css'
 
 ## CSS in JS
 
-由于 React 对 CSS 的封装非常弱，导致了一系列的第三方库，用来加强 CSS 操作，统称为 CSS in JS（），有一种在 js 文件中写 css 代码的感觉，根据不完全统计，各种 CSS in JS 的库至少有[47 种](https://github.com/MicheleBertoli/css-in-js)，其中比较出名的 便是[styled-components](https://link.juejin.cn/?target=https://github.com/styled-components/styled-components)。
+由于 React 对 CSS 的封装非常弱，导致了一系列的第三方库，用来加强 CSS 操作，统称为 CSS in JS，有一种在 js 文件中写 css 代码的感觉，根据不完全统计，各种 CSS in JS 的库至少有[47 种](https://github.com/MicheleBertoli/css-in-js)，其中比较出名的 便是[styled-components](https://link.juejin.cn/?target=https://github.com/styled-components/styled-components)。
 
 ```jsx
 import styled from 'styled-components'
