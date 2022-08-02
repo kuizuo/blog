@@ -12,6 +12,7 @@ import BlogListPaginator from '@theme/BlogListPaginator'
 import SearchMetadata from '@theme/SearchMetadata'
 import type { Props } from '@theme/BlogListPage'
 import BackToTopButton from '@theme/BackToTopButton'
+//@ts-ignore
 import Fade from 'react-reveal/Fade'
 
 import CardFilter from '@site/static/icons/card.svg'

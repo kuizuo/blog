@@ -1,5 +1,5 @@
 import useGlobalData from '@docusaurus/useGlobalData'
-import type { BlogTags, BlogPost } from '@docusaurus/plugin-content-blog'
+import type { BlogTag, BlogTags, BlogPost } from '@docusaurus/plugin-content-blog'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTag, faArchive, faBook, faThLarge } from '@fortawesome/free-solid-svg-icons'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
@@ -7,6 +7,7 @@ import Link from '@docusaurus/Link'
 import { SocialLinks } from '@site/src/components/Hero'
 import { useThemeConfig } from '@docusaurus/theme-common'
 import useBaseUrl from '@docusaurus/useBaseUrl'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
 type Count = {
   blog: number
@@ -16,6 +17,9 @@ type Count = {
 }
 
 export function BlogUser({ count, isNavbar = false }: { count?: Count; isNavbar?: boolean }) {
+  const {
+    siteConfig: { tagline },
+  } = useDocusaurusContext()
   const {
     navbar: { title, logo = { src: '' } },
   } = useThemeConfig()
@@ -49,7 +53,7 @@ export function BlogUser({ count, isNavbar = false }: { count?: Count; isNavbar?
           {title}
         </Link>
       </div>
-      <div className='bloginfo__description'>不是巅峰时的信仰，而是黄昏时的追逐</div>
+      <div className='bloginfo__description'>{tagline}</div>
       <div className='bloginfo__num'>
         <Link className='bloginfo__num-item' href='/archive' data-tips='博客数'>
           <FontAwesomeIcon icon={faArchive as IconProp} /> {count.blog}
@@ -77,7 +81,7 @@ export function BlogUser({ count, isNavbar = false }: { count?: Count; isNavbar?
   )
 }
 
-const TagsSection = ({ data }) => {
+const TagsSection = ({ data }: { data: BlogTag[] }) => {
   return (
     <div className='bloginfo__tags'>
       {data
@@ -97,26 +101,13 @@ const TagsSection = ({ data }) => {
   )
 }
 
-const DocsSection = ({ data }) => {
-  return (
-    <div className='bloginfo__note'>
-      {data
-        .filter((doc) => (doc.id as string).includes('/category'))
-        .map((doc) => (
-          <Link className={`bloginfo__note-item`} href={doc.path} key={doc.id}>
-            {(doc.id as string).replace('/category/', '')}
-          </Link>
-        ))}
-    </div>
-  )
-}
-
 export default function BlogInfo() {
   const globalData = useGlobalData()
   const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.['default'] as any
   const blogData = blogPluginData?.blogs as BlogPost[]
   const tagData = blogPluginData?.tags as BlogTags
-  const docData = (globalData?.['docusaurus-plugin-content-docs']?.['default'] as any)?.versions[0].docs
+  const docData = (globalData?.['docusaurus-plugin-content-docs']?.['default'] as any)?.versions[0]
+    .docs
   const projectData = blogPluginData?.projects
 
   const count: Count = {
