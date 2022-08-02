@@ -109,7 +109,8 @@
   position: relative;
   color: var(--hty-secondary-text-color);
 
-  font-family: 'Source Code Pro', Consolas, Monaco, SFMono-Regular, 'Ubuntu Mono', Menlo, monospace;
+  font-family: 'Source Code Pro', Consolas, Monaco, SFMono-Regular,
+    'Ubuntu Mono', Menlo, monospace;
 }
 
 .archiveItem a > span:hover {

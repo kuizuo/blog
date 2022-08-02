@@ -5,11 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/react'
-import * as components from './components'
-
+import React from 'react';
+import styled from '@emotion/styled';
+import {css} from '@emotion/react';
+import * as components from './components';
 
 // Add react-live imports you need here
 const ReactLiveScope = {
@@ -18,6 +17,6 @@ const ReactLiveScope = {
   styled,
   css,
   ...components,
-}
+};
 
-export default ReactLiveScope
+export default ReactLiveScope;

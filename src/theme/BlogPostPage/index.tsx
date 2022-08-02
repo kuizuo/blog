@@ -13,11 +13,11 @@ import BlogLayout from '@theme/BlogLayout';
 import BlogPostItem from '@theme/BlogPostItem';
 import BlogPostPaginator from '@theme/BlogPostPaginator';
 import BlogPostPageMetadata from '@theme/BlogPostPage/Metadata';
-import BackToTopButton from '@theme/BackToTopButton'
+import BackToTopButton from '@theme/BackToTopButton';
 import TOC from '@theme/TOC';
 import type {Props} from '@theme/BlogPostPage';
 import type {BlogSidebar} from '@docusaurus/plugin-content-blog';
-import BlogComment from '@site/src/components/BlogComment'
+import BlogComment from '@site/src/components/BlogComment';
 
 function BlogPostPageContent({
   sidebar,

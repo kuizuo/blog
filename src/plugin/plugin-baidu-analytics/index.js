@@ -1,11 +1,11 @@
 module.exports = function (context, options) {
   return {
-    name: "docusaurus-baidu-analytics-plugin",
+    name: 'docusaurus-baidu-analytics-plugin',
     injectHtmlTags() {
       return {
         headTags: [
           {
-            tagName: "script",
+            tagName: 'script',
             innerHTML: `
             var _hmt = _hmt || [];
             (function() {
@@ -18,10 +18,10 @@ module.exports = function (context, options) {
           `,
           },
           {
-            tagName: "meta",
+            tagName: 'meta',
             attributes: {
-              name: "baidu-site-verification",
-              content: "code-rqLUw5reVS",
+              name: 'baidu-site-verification',
+              content: 'code-rqLUw5reVS',
             },
           },
         ],

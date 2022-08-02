@@ -1,14 +1,24 @@
-import React, { memo } from 'react'
-import clsx from 'clsx'
-import Link from '@docusaurus/Link'
+import React, {memo} from 'react';
+import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 
-import styles from './styles.module.css'
-import { type Friend } from '@site/src/data/friend'
+import styles from './styles.module.css';
+import {type Friend} from '@site/src/data/friend';
 
-const FriendCard = memo(({ friend }: { friend: Friend }) => (
-  <li key={friend.title} className={clsx(styles.friendCard, 'padding-vert--sm padding-horiz--md')}>
-    <img src={typeof friend.avatar === 'string' ? friend.avatar : friend.avatar.src.src} alt={friend.title} className={clsx(styles.friendCardImage)} />
-    <div className='card__body'>
+const FriendCard = memo(({friend}: {friend: Friend}) => (
+  <li
+    key={friend.title}
+    className={clsx(styles.friendCard, 'padding-vert--sm padding-horiz--md')}>
+    <img
+      src={
+        typeof friend.avatar === 'string'
+          ? friend.avatar
+          : friend.avatar.src.src
+      }
+      alt={friend.title}
+      className={clsx(styles.friendCardImage)}
+    />
+    <div className="card__body">
       <div className={clsx(styles.friendCardHeader)}>
         <h4 className={styles.friendCardTitle}>
           <Link href={friend.website} className={styles.friendCardLink}>
@@ -19,6 +29,6 @@ const FriendCard = memo(({ friend }: { friend: Friend }) => (
       <p className={styles.friendCardDesc}>{friend.description}</p>
     </div>
   </li>
-))
+));
 
-export default FriendCard
+export default FriendCard;

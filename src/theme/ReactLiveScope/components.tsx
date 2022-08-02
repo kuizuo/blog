@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { type ComponentProps } from 'react'
+import React, {type ComponentProps} from 'react';
 
 export function ButtonExample(props: ComponentProps<'button'>): JSX.Element {
   return (
     <button
-      type='button'
+      type="button"
       {...props}
       style={{
         backgroundColor: 'white',
@@ -22,5 +22,5 @@ export function ButtonExample(props: ComponentProps<'button'>): JSX.Element {
         ...props.style,
       }}
     />
-  )
+  );
 }
