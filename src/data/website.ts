@@ -268,13 +268,6 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['后端', 'Nodejs', '框架'],
       },
       {
-        name: 'Electron',
-        desc: '使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序',
-        logo: 'img/website/electron.ico',
-        href: 'https://www.electronjs.org/',
-        tags: ['Nodejs', '自动化', '爬虫'],
-      },
-      {
         name: 'Socket.io',
         desc: 'Socket.IO 是一个可以在浏览器与服务器之间实现实时、双向、基于事件的通信的工具库。',
         logo: 'https://socket.io/images/favicon.png',
@@ -376,14 +369,7 @@ export const websiteData: WebsiteCategory[] = [
         logo: 'https://vvbin.cn/doc-next/logo.png',
         href: 'https://vvbin.cn/doc-next/',
         tags: ['前端', 'Vue', '后台', '项目'],
-      },
-      {
-        name: 'uni-app',
-        desc: 'uni-app 是一个使用 Vue.js 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/QQ/快手/钉钉/淘宝）、快应用等多个平台。',
-        logo: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-a90b5f95-90ba-4d30-a6a7-cd4d057327db/d23e842c-58fc-4574-998d-17fdc7811cc3.png',
-        href: 'https://uniapp.dcloud.io/',
-        tags: ['Vue', '小程序'],
-      },
+      }
     ],
   },
   {
@@ -451,13 +437,6 @@ export const websiteData: WebsiteCategory[] = [
         logo: 'https://swr.vercel.app/favicon/favicon-32x32.png',
         href: 'https://swr.vercel.app/',
         tags: ['前端', 'React', '脚手架'],
-      },
-      {
-        name: 'Taro',
-        desc: '多端统一开发解决方案',
-        logo: 'https://taro-docs.jd.com/taro/img/taroLogo180.png',
-        href: 'https://taro.jd.com',
-        tags: ['前端', 'React', '小程序'],
       },
       {
         name: 'react-spring',
@@ -544,7 +523,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'loading.io',
         desc: 'Animation Made Easy',
-        logo: 'https://loading.io/favicon.ico',
+        logo: '/img/websites/loading.png',
         href: 'https://loading.io/',
         tags: ['Css']
       },
@@ -562,16 +541,61 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://uigradients.com/',
         tags: ['Css']
       },
-
-
-      // {
-      //   name: 'uiverse.io',
-      //   desc: '丰富的 UI 元素助您脱颖而出，开源且免费使用',
-      //   logo: 'https://uiverse.io/favicon.ico',
-      //   href: 'https://uiverse.io/',
-      //   tags: ['Css', '动画'],
-      // },
     ],
+  },
+  {
+    name: '组件库',
+    websites: [
+      {
+        name: 'Element-plus',
+        desc: '基于 Vue 3，面向设计师和开发者的组件库',
+        logo: 'https://element-plus.gitee.io/images/element-plus-logo-small.svg',
+        href: 'https://element-plus.gitee.io',
+        tags: ['组件库', 'vue'],
+      },
+      {
+        name: 'Naive UI',
+        desc: '一个 Vue 3 组件库比较完整，主题可调，使用 TypeScript，快 有点意思',
+        logo: '/img/website/naiveUI.svg',
+        href: 'https://www.naiveui.com/',
+        tags: ['组件库','vue'],
+      },
+      {
+        name: 'Ant Design',
+        desc: '企业级产品设计体系，创造高效愉悦的工作体验',
+        logo: 'https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png',
+        href: 'https://ant.design/',
+        tags: ['组件库', 'react'],
+      },
+      {
+        name: 'TDesign',
+        desc: 'TDesign 是腾讯各业务团队在服务业务过程中沉淀的一套企业级设计体系',
+        logo: 'https://tdesign.tencent.com/favicon.ico',
+        href: 'https://tdesign.tencent.com/',
+        tags: ['组件库', 'react'],
+      },
+      {
+        name: 'Arco Design',
+        desc: '字节跳动出品的企业级设计系统',
+        logo: 'https://unpkg.byted-static.com/latest/byted/arco-config/assets/favicon.ico',
+        href: 'https://arco.design/',
+        tags: ['组件库', 'react'],
+      },
+      {
+        name: 'Vuetify',
+        desc: 'Vuetify 是一个 Vue UI 库，包含手工制作的精美材料组件。不需要设计技能 - 创建令人惊叹的应用程序所需的一切都触手可及。',
+        logo: 'https://vuetify.cn/favicon.ico',
+        href: 'https://vuetify.cn/',
+        tags: ['组件库', 'react'],
+      },
+      {
+        name: 'MATERIAL UI',
+        desc: 'React 组件用于更快速、更简便的 web 开发。你也可以建立你自己的设计系统，或者从 Material Design 开始。',
+        logo: 'https://v4.mui.com/favicon.ico',
+        href: 'https://v4.mui.com/',
+        tags: ['组件库', 'react'],
+      },
+    ]
   },
   {
     name: '设计',
@@ -672,14 +696,54 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://webgradients.com',
         tags: ['配色', '背景'],
       },
-      // {
-      //   name: '谷歌字体',
-      //   desc: '一个生成渐变色背景的网站',
-      //   logo: 'https://googlefonts.cn/favicon.ico',
-      //   href: 'https://googlefonts.cn/',
-      //   tags: ['字体'],
-      // },
+      {
+        name: '谷歌字体',
+        desc: '一个生成渐变色背景的网站',
+        logo: 'https://googlefonts.cn/favicon.ico',
+        href: 'https://googlefonts.cn/',
+        tags: ['字体'],
+      },
     ],
+  },
+  {
+    name: '跨平台',
+    websites: [
+      {
+        name: 'Electron',
+        desc: '使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序',
+        logo: 'img/website/electron.ico',
+        href: 'https://www.electronjs.org/',
+        tags: ['跨平台', 'Nodejs'],
+      },
+      {
+        name: 'Tauri',
+        desc: 'Tauri是一个框架，用于为所有主要桌面平台构建小巧、快速的二进制文件。',
+        logo: 'https://tauri.app/meta/favicon-96x96.png',
+        href: 'https://tauri.app/',
+        tags: ['跨平台', 'Rust'],
+      },
+      {
+        name: 'Flutter',
+        desc: 'Flutter 是 Google 开源的应用开发框架，仅通过一套代码库，就能构建精美的、原生平台编译的多平台应用。',
+        logo: 'https://flutter.cn/assets/images/cn/flutter-icon.png',
+        href: 'https://flutter.cn/',
+        tags: ['跨平台', 'Rust'],
+      },
+      {
+        name: 'Uni-app',
+        desc: 'uni-app 是一个使用 Vue.js 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/QQ/快手/钉钉/淘宝）、快应用等多个平台。',
+        logo: 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-a90b5f95-90ba-4d30-a6a7-cd4d057327db/d23e842c-58fc-4574-998d-17fdc7811cc3.png',
+        href: 'https://uniapp.dcloud.io/',
+        tags: ['Vue', '小程序'],
+      },
+      {
+        name: 'Taro',
+        desc: 'Taro 是一个开放式跨端跨框架解决方案，支持使用 React/Vue/Nerv 等框架来开发 微信 / 京东 / 百度 / 支付宝 / 字节跳动 / QQ / 飞书 小程序 / H5 / RN 等应用。',
+        logo: 'https://taro-docs.jd.com/taro/img/taroLogo180.png',
+        href: 'https://taro.jd.com',
+        tags: ['前端', 'React', '小程序'],
+      },
+    ]
   },
   {
     name: '站点生成',

@@ -65,12 +65,12 @@ export default function Websites() {
     <>
       <PageMetadata title={title} description={description} />
       <Layout>
-        <header className={styles.hero}>
+        {/* <header className={styles.hero}>
           <div className='container'>
             <h1 className={styles.heroTitle}>{title}</h1>
             <p className={styles.heroDesc}>{description}</p>
           </div>
-        </header>
+        </header> */}
         <div className='container margin-top--md'>
           <div className='row'>
             <aside className='col col--1'>
