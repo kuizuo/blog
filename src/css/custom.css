@@ -82,8 +82,8 @@ html {
   --post-shadow-color: rgb(220 220 220 / 30%);
   --post-shadow: 0 0 20px 10px var(--post-shadow-color);
   --content-background-color: #fafafa;
-  --blog-item-background-color: linear-gradient(50deg, #ffffff, hsl(0deg 0% 95%));
-  --blog-item-shadow: 20px 20px 60px #ced1d6, -10px -10px 20px #ffffff;
+  --blog-item-background-color: linear-gradient(145deg, #fff, hsl(0deg 0% 95%));
+  --blog-item-shadow: 20px 20px 60px #ddd, -20px -10px 10px hsl(0deg 0% 95%);
   --ifm-heading-color: #000000;
 
   -webkit-font-smoothing: unset;
@@ -699,6 +699,10 @@ pagination-nav__item:hover .pagination-nav__link {
   .blog-wrapper > .container > .row {
     display: flex;
   }
+
+  .bloginfo {
+    display: none;
+  }
 }
 
 /* post list view adjustment */
@@ -788,15 +792,16 @@ code {
   color: var(--ifm-code-color);
 }
 
-.bloginfo__hidden {
-  display: none;
+.bloginfo__content {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
 }
 
 .bloginfo__card {
   border-radius: 12px;
   background: var(--blog-item-background-color);
   box-shadow: var(--blog-item-shadow);
-  padding: 1em 1em;
+  padding: 0.8em 1em;
   margin: 0;
   position: relative;
   display: block;

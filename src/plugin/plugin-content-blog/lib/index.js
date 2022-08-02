@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const blogPluginExports = require("@docusaurus/plugin-content-blog");
 // @ts-ignore
-const project_1 = require("../../../data/project");
+const project_js_1 = require("../../../../data/project.js");
 const blogPlugin = blogPluginExports.default;
 function blogPluginEnhanced(context, options) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -23,11 +23,10 @@ function blogPluginEnhanced(context, options) {
                     // Create your additional pages
                     const { blogPosts, blogTags } = content;
                     const { setGlobalData } = actions;
-                    const projects = project_1.sortedProjects;
                     setGlobalData({
                         blogs: blogPosts,
                         tags: blogTags,
-                        projects: projects,
+                        projects: project_js_1.projects,
                     });
                 });
             } });

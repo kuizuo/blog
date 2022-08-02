@@ -1,11 +1,10 @@
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import { useThemeConfig } from '@docusaurus/theme-common'
 import { useColorMode } from '@docusaurus/theme-common'
 import BrowserOnly from '@docusaurus/BrowserOnly'
 import Giscus, { GiscusProps } from '@giscus/react'
 
 export default function BlogComment(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext()
-  const { themeConfig } = siteConfig
+  const themeConfig = useThemeConfig() as any
 
   const theme = useColorMode().colorMode === 'dark' ? 'dark' : 'light'
 

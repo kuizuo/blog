@@ -4,11 +4,14 @@ import type { PluginOptions } from '@docusaurus/plugin-content-blog'
 import { BlogContent } from './types'
 
 // @ts-ignore
-import { sortedProjects, type Project } from '../../../data/project'
+import { projects } from '../../../../data/project.js'
 
 const blogPlugin = blogPluginExports.default
 
-async function blogPluginEnhanced(context: LoadContext, options: PluginOptions): Promise<Plugin<BlogContent>> {
+async function blogPluginEnhanced(
+  context: LoadContext,
+  options: PluginOptions,
+): Promise<Plugin<BlogContent>> {
   const blogPluginInstance: any = await blogPlugin(context, options)
 
   return {
@@ -21,7 +24,6 @@ async function blogPluginEnhanced(context: LoadContext, options: PluginOptions):
       const { blogPosts, blogTags } = content
       const { setGlobalData } = actions
 
-      const projects = sortedProjects
       setGlobalData({
         blogs: blogPosts,
         tags: blogTags,
