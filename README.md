@@ -1,11 +1,7 @@
 <h2 align="center">
   <p align="center">个人博客</p>
+  <a href="https://kuizuo.cn">🖥 Online Preview</a>
 </h2>
-
-<p align="center">
-<a href="https://kuizuo.cn">🖥 Online Preview</a>
-<a href="https://kuizuo.cn"><img src="https://img.kuizuo.cn/blog.png" alt="Docusaurus"></a>
-</p>
 
 ## Introduction
 
@@ -31,6 +27,8 @@ yarn run start
 ```sh
 npm build
 ```
+
+### Usage
 
 ## License
 

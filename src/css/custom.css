@@ -83,7 +83,7 @@ html {
   --post-shadow: 0 0 20px 10px var(--post-shadow-color);
   --content-background-color: #fafafa;
   --blog-item-background-color: linear-gradient(145deg, #fff, hsl(0deg 0% 95%));
-  --blog-item-shadow: 20px 20px 60px #ddd, -20px -10px 10px hsl(0deg 0% 95%);
+  --blog-item-shadow: 0px 20px 60px #ddd, 0px 0px 10px 0px hsl(0deg 0% 95%);
   --ifm-heading-color: #000000;
 
   -webkit-font-smoothing: unset;
@@ -110,7 +110,7 @@ html[data-theme='dark'] {
   --post-shadow-color: rgb(29, 77, 150, 0.8);
   --content-background-color: inherit;
   --blog-item-background-color: linear-gradient(145deg, #041a31, #000000);
-  --blog-item-shadow: 20px 20px 60px #253748, -20px -20px 60px #253748;
+  --blog-item-shadow: 0px 10px 60px 5px #253748,  0px 0px 10px 0px #253748;
   --ifm-heading-color: #ffffff;
 
   --ifm-menu-color: #eceef1;
@@ -346,14 +346,14 @@ html[data-theme='dark'] .bloghome__intro > p {
 }
 
 .bloghome__posts-list,
-.bloghome__posts-card {
+.bloghome__posts-grid {
   animation: fading 0.8s;
 }
 
 /* 切换视图按钮 */
 .bloghome__swith-view {
   text-align: center;
-  margin: 2em 0 1em 0;
+  margin: 1em 0;
 }
 
 .blogtag__swith-view {
@@ -376,7 +376,7 @@ html[data-theme='dark'] .bloghome__intro > p {
   fill: var(--btn-unselected);
 }
 
-.bloghome__posts-list {
+.bloghome__posts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
@@ -416,14 +416,9 @@ html[data-theme='dark'] .bloghome__intro > p {
 
 .post__list-item:hover {
   box-sizing: border-box;
-  box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--blog-item-shadow);;
   transition: all 0.5s;
 }
-
-/* .post__list-item[data-theme="dark"]:hover {
-  box-shadow: 5px 3px 3px #0179fa77;
-  transition-duration: 500ms;
-} */
 
 .post__list-stick {
   grid-area: stick;
@@ -707,9 +702,12 @@ pagination-nav__item:hover .pagination-nav__link {
 
 /* post list view adjustment */
 @media only screen and (max-width: 700px) {
-  .bloghome__posts-list {
-    row-gap: 36px;
+  .bloghome__posts-grid {
+    row-gap: 16px;
     grid-template-columns: minmax(0, max-content);
+  }
+  .post__list-item {
+    min-width: 24rem;
   }
   .post__list-style-ad {
     grid-column: initial;
@@ -952,4 +950,13 @@ div[class^='announcementBar_'] {
   position: absolute;
   width: 1px;
   white-space: nowrap;
+}
+
+.blogPost-container {
+  border-radius: var(--ifm-pagination-nav-border-radius);
+  margin-top: 0;
+  border-radius: 12px;
+  background: var(--blog-item-background-color);
+  box-shadow: var(--blog-item-shadow);
+  padding: 1em 2em;
 }
