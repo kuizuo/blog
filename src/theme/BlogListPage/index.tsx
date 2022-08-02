@@ -14,8 +14,9 @@ import type { Props } from '@theme/BlogListPage'
 import BackToTopButton from '@theme/BackToTopButton'
 import Fade from 'react-reveal/Fade'
 
-import ListFilter from '@site/static/icons/list.svg'
 import CardFilter from '@site/static/icons/card.svg'
+import ListFilter from '@site/static/icons/list.svg'
+import GridFilter from '@site/static/icons/grid.svg'
 import { useViewType } from './useViewType'
 import Hero from '@site/src/components/Hero'
 import BlogInfo from '@site/src/components/BlogInfo'
@@ -54,38 +55,57 @@ function BlogListPageContent(props: Props) {
 
   const isCardView = viewType === 'card'
   const isListView = viewType === 'list'
-
-  const showBlogInfo = false // 是否展示右侧博客作者信息
+  const isGridView = viewType === 'grid'
 
   return (
     <Layout description={description} wrapperClassName='blog-list__page'>
       <Head>
-        <meta name='keywords' content='blog, javascript, js, typescript, node, react, vue, web, 前端, 后端' />
+        <meta
+          name='keywords'
+          content='blog, javascript, js, typescript, node, react, vue, web, 前端, 后端'
+        />
         <title>{siteTitle}</title>
       </Head>
       {!isPaginated && isBlogOnlyMode && <Hero />}
       <BackToTopButton />
 
       <div className='container-wrapper'>
-        <div className='container padding-vert--sm' style={!showBlogInfo && isCardView ? { maxWidth: 1140 } : {}}>
+        <div className='container padding-vert--sm' style={!isCardView ? { maxWidth: 1140 } : {}}>
           <div className='row'>
             <div className={'col col--12'}>
               {!isPaginated && (
                 <h1 className='blog__section_title' id='homepage_blogs'>
-                  <Translate description='latest blogs heading'>{!metadata.permalink.includes('essay') ? '最新博客' : '个人随笔'}</Translate>
+                  <Translate description='latest blogs heading'>
+                    {!metadata.permalink.includes('essay') ? '最新博客' : '个人随笔'}
+                  </Translate>
                 </h1>
               )}
-              {/* switch list and card */}
               <div className='bloghome__swith-view'>
-                <CardFilter onClick={() => toggleViewType('card')} className={viewType === 'card' ? 'bloghome__switch--selected' : 'bloghome__switch'} />
-                <ListFilter onClick={() => toggleViewType('list')} className={viewType === 'list' ? 'bloghome__switch--selected' : 'bloghome__switch'} />
+                <ListFilter
+                  onClick={() => toggleViewType('list')}
+                  className={
+                    viewType === 'list' ? 'bloghome__switch--selected' : 'bloghome__switch'
+                  }
+                />
+                <GridFilter
+                  onClick={() => toggleViewType('grid')}
+                  className={
+                    viewType === 'grid' ? 'bloghome__switch--selected' : 'bloghome__switch'
+                  }
+                />
+                <CardFilter
+                  onClick={() => toggleViewType('card')}
+                  className={
+                    viewType === 'card' ? 'bloghome__switch--selected' : 'bloghome__switch'
+                  }
+                />
               </div>
             </div>
           </div>
           <div className='row'>
-            <div className={isCardView && isBlogPage && showBlogInfo ? 'col col--9' : 'col col--12'}>
+            <div className={isCardView ? 'col col--9' : 'col col--12'}>
               <div className='bloghome__posts'>
-                {isCardView && (
+                {(isListView || isCardView) && (
                   <div className='bloghome__posts-card'>
                     {items.map(({ content: BlogPostContent }, index) => (
                       <Fade key={BlogPostContent.metadata.permalink}>
@@ -104,14 +124,17 @@ function BlogListPageContent(props: Props) {
                     ))}
                   </div>
                 )}
-                {isListView && (
+                {isGridView && (
                   <div className='bloghome__posts-list'>
                     {items.map(({ content: BlogPostContent }, index) => {
                       const { metadata: blogMetaData, frontMatter } = BlogPostContent
                       const { title } = frontMatter
                       const { permalink, date, tags } = blogMetaData
                       const dateObj = new Date(date)
-                      const dateString = `${dateObj.getFullYear()}-${('0' + (dateObj.getMonth() + 1)).slice(-2)}-${('0' + dateObj.getDate()).slice(-2)}`
+                      const dateString = `${dateObj.getFullYear()}-${(
+                        '0' +
+                        (dateObj.getMonth() + 1)
+                      ).slice(-2)}-${('0' + dateObj.getDate()).slice(-2)}`
 
                       // const sticky = frontMatter.sticky
                       return (
@@ -123,19 +146,23 @@ function BlogListPageContent(props: Props) {
                             </Link>
                             <div className='post__list-tags'>
                               {tags.length > 0 &&
-                                tags.slice(0, 2).map(({ label, permalink: tagPermalink }, index) => (
-                                  <Link
-                                    key={tagPermalink}
-                                    className={`post__tags ${index < tags.length ? 'margin-right--sm' : ''}`}
-                                    to={tagPermalink}
-                                    style={{
-                                      fontSize: '0.75em',
-                                      fontWeight: 500,
-                                    }}
-                                  >
-                                    {label}
-                                  </Link>
-                                ))}
+                                tags
+                                  .slice(0, 2)
+                                  .map(({ label, permalink: tagPermalink }, index) => (
+                                    <Link
+                                      key={tagPermalink}
+                                      className={`post__tags ${
+                                        index < tags.length ? 'margin-right--sm' : ''
+                                      }`}
+                                      to={tagPermalink}
+                                      style={{
+                                        fontSize: '0.75em',
+                                        fontWeight: 500,
+                                      }}
+                                    >
+                                      {label}
+                                    </Link>
+                                  ))}
                             </div>
                             <div className='post__list-date'>{dateString}</div>
                           </div>
@@ -147,7 +174,7 @@ function BlogListPageContent(props: Props) {
                 <BlogListPaginator metadata={metadata} />
               </div>
             </div>
-            {!isPaginated && isCardView && showBlogInfo && <BlogInfo />}
+            {isCardView && <BlogInfo />}
           </div>
         </div>
       </div>
@@ -157,7 +184,9 @@ function BlogListPageContent(props: Props) {
 
 export default function BlogListPage(props: Props): JSX.Element {
   return (
-    <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}>
+    <HtmlClassNameProvider
+      className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}
+    >
       <BlogListPageMetadata {...props} />
       <BlogListPageContent {...props} />
     </HtmlClassNameProvider>

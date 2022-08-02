@@ -94,7 +94,7 @@ export default function BlogPostItem(props: Props): JSX.Element {
                 <div className={styles.blogPostInfo}>
                   {authorsExists && (
                     <>
-                      <FontAwesomeIcon icon={faUser as IconProp} color='#c4d3e0' className='blog__author' />
+                      <FontAwesomeIcon icon={faUser as IconProp} size='1x' color='#c4d3e0' className='blog__author' />
                       {authors.map((a) => (
                         <span key={a.url} className='blog__author'>
                           <a href={a.url} className={styles.blogPostAuthor}>
