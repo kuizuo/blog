@@ -213,15 +213,6 @@ const config = {
       qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
       cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
     },
-    // googleAnalytics: {
-    //   trackingID: "UA-118572241-1",
-    //   anonymizeIP: true, // Should IPs be anonymized?
-    // },
-    // gtag: {
-    //   trackingID: "G-6PSESJX0BM",
-    //   // Optional fields.
-    //   anonymizeIP: true, // Should IPs be anonymized?
-    // },
   },
   presets: [
     [
@@ -239,6 +230,14 @@ const config = {
         sitemap: {
           changefreq: 'daily',
           priority: 0.5,
+        },
+        // googleAnalytics: {
+        //   trackingID: "UA-118572241-1",
+        //   anonymizeIP: true, // Should IPs be anonymized?
+        // },
+        gtag: {
+          trackingID: "G-S4SD5NXWXF",
+          anonymizeIP: true, // Should IPs be anonymized?
         },
         // debug: true,
       }),

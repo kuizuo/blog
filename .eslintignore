@@ -8,3 +8,5 @@ build
 coverage
 jest.config.js
 jest.transform.js
+docusaurus.config.js
+sidebars.js

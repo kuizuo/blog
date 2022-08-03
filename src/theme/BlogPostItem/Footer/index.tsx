@@ -76,7 +76,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
               <FontAwesomeIcon icon={faTags as IconProp} color="#c4d3e0" />
               <span className={styles.blogPostInfoTags}>
                 {tags.map(({label, permalink: tagPermalink}) => (
-                  <Tag label={label} permalink={tagPermalink} />
+                  <Tag label={label} permalink={tagPermalink} key={tagPermalink} />
                 ))}
               </span>
             </>

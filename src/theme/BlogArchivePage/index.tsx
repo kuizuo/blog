@@ -45,7 +45,7 @@ function YearsSection({years}: {years: YearProp[]}) {
             <span>
               <i>{(years[idx] as YearProp).posts.length}</i> 篇
             </span>
-          </h3>?.
+          </h3>
           <Year {..._props} />
         </div>
       ))}
@@ -87,7 +87,7 @@ export default function BlogArchive({archive}: Props) {
           <div className={styles.archive}>
             <h2>
               <FontAwesomeIcon icon={faArchive as IconProp} color="#23affc" />{' '}
-              归档
+              {title}
             </h2>
             <div className={styles.archiveCount}>
               总共 {archive.blogPosts.length} 篇文章
