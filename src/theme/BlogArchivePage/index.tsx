@@ -1,10 +1,3 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import React from 'react';
 import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
@@ -50,9 +43,9 @@ function YearsSection({years}: {years: YearProp[]}) {
           <h3 className={styles.archiveYear}>
             {_props.year}
             <span>
-              <i>{years[idx].posts.length}</i> 篇
+              <i>{(years[idx] as YearProp).posts.length}</i> 篇
             </span>
-          </h3>
+          </h3>?.
           <Year {..._props} />
         </div>
       ))}

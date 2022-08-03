@@ -24,7 +24,7 @@ const config = {
     metadata: [
       {
         name: 'keywords',
-        content: '愧怍, kuizuo, blog, javascript, typescript, python ,node, react, vue, web, 前端, 后端',
+        content: '愧怍, kuizuo, blog, javascript, typescript, node, react, vue, web, 前端, 后端',
       },
     ],
     docs: {
@@ -113,10 +113,6 @@ const config = {
           title: '学习',
           items: [
             {
-              label: '技术博客',
-              to: '/#homepage_blogs',
-            },
-            {
               label: '技术笔记',
               to: 'docs/skill',
             },
@@ -124,15 +120,15 @@ const config = {
               label: '实战项目',
               to: 'project',
             },
+            {
+              label: '前端示例',
+              to: 'https://example.kuizuo.cn',
+            },
           ],
         },
         {
           title: '社交媒体',
           items: [
-            {
-              label: '首页',
-              to: '/',
-            },
             {
               label: '关于我',
               to: '/about',
@@ -145,6 +141,10 @@ const config = {
               label: '掘金',
               href: 'https://juejin.cn/user/1565318510545901',
             },
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/M8cVcjDxkz',
+            }
           ],
         },
         {
@@ -167,7 +167,7 @@ const config = {
       copyright: `<p>Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.</p><p><a href="http://beian.miit.gov.cn/" >${beian}</a></p>`,
     },
     prism: {
-      theme: require('prism-react-renderer/themes/okaidia'),
+      theme: require('prism-react-renderer/themes/vsLight'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
       additionalLanguages: ['java', 'php'],
     },

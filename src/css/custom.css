@@ -12,14 +12,13 @@
 
 :root {
   /* #006dfe hsl(214deg, 100%, 60%); */
-  --ifm-color-primary: #23affc;
-
-  --ifm-color-primary-dark: #119cc5;
-  --ifm-color-primary-darker: #05879d;
-  --ifm-color-primary-darkest: #007a87;
-  --ifm-color-primary-light: hsl(214deg, 100%, 75%);
-  --ifm-color-primary-lighter: #c6ebfc;
-  --ifm-color-primary-lightest: #f2fbff;
+  --ifm-color-primary: #12affa;
+  --ifm-color-primary-dark: #05a1ec;
+  --ifm-color-primary-darker: #0598df;
+  --ifm-color-primary-darkest: #047eb8;
+  --ifm-color-primary-light: #2cb8fb;
+  --ifm-color-primary-lighter: #39bcfb;
+  --ifm-color-primary-lightest: #61cafc;
   --ifm-code-font-size: 95%;
   --ifm-font-family-base: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti,
     KaiTi, Roboto, serif;
@@ -59,8 +58,8 @@
   --tag-background-light: #1982bb;
 
   /* 代码块背景 */
-  --ifm-code-background: #23affc1a;
-  --ifm-code-color: #3887fe;
+  --ifm-code-background: #12affa1a;
+  --ifm-code-color: #0888ff;
 
   --ifm-bg-color: #f5f5f5;
   --ifm-text-color: #333;
