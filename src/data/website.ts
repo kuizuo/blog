@@ -357,13 +357,6 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['前端', 'Vue', '文档', '框架'],
       },
       {
-        name: 'Element Plus',
-        desc: '基于 Vue 3，面向设计师和开发者的组件库',
-        logo: 'https://element-plus.gitee.io/images/element-plus-logo-small.svg',
-        href: 'https://element-plus.gitee.io/',
-        tags: ['前端', 'Vue', '组件库'],
-      },
-      {
         name: 'VbenAdmin',
         desc: 'Vben是一个基于Vue3、Vite、TypeScript等最新技术栈开发的后台管理框架',
         logo: 'https://vvbin.cn/doc-next/logo.png',
@@ -395,13 +388,6 @@ export const websiteData: WebsiteCategory[] = [
         logo: 'https://remix.run/favicon-light.1.png',
         href: 'https://remix.run',
         tags: ['前端', 'React', '框架'],
-      },
-      {
-        name: 'Ant Design',
-        desc: '一套企业级 UI设计语言和 React 组件库',
-        logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-        href: 'https://ant.design',
-        tags: ['前端', 'React', '组件库'],
       },
       {
         name: 'Ant Design Pro',
@@ -547,11 +533,11 @@ export const websiteData: WebsiteCategory[] = [
     name: '组件库',
     websites: [
       {
-        name: 'Element-plus',
+        name: 'Element Plus',
         desc: '基于 Vue 3，面向设计师和开发者的组件库',
         logo: 'https://element-plus.gitee.io/images/element-plus-logo-small.svg',
-        href: 'https://element-plus.gitee.io',
-        tags: ['组件库', 'vue'],
+        href: 'https://element-plus.gitee.io/',
+        tags: ['前端', 'Vue', '组件库'],
       },
       {
         name: 'Naive UI',
@@ -562,10 +548,10 @@ export const websiteData: WebsiteCategory[] = [
       },
       {
         name: 'Ant Design',
-        desc: '企业级产品设计体系，创造高效愉悦的工作体验',
-        logo: 'https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png',
-        href: 'https://ant.design/',
-        tags: ['组件库', 'react'],
+        desc: '一套企业级 UI设计语言和 React 组件库',
+        logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+        href: 'https://ant.design',
+        tags: ['前端', 'React', '组件库'],
       },
       {
         name: 'TDesign',

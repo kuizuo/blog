@@ -10,7 +10,7 @@ import BackToTopButton from '@theme/BackToTopButton';
 import TOC from '@theme/TOC';
 import type {Props} from '@theme/BlogPostPage';
 import type {BlogSidebar} from '@docusaurus/plugin-content-blog';
-import BlogComment from '@site/src/components/BlogComment';
+import Comment from '@site/src/components/Comment';
 
 function BlogPostPageContent({
   sidebar,
@@ -43,7 +43,7 @@ function BlogPostPageContent({
       {(nextItem || prevItem) && (
         <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
       )}
-      <BlogComment />
+      <Comment />
       <BackToTopButton />
     </BlogLayout>
   );

@@ -2,7 +2,7 @@
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
-const announcementBarContent = `基于 <a href='https://v3.nuxtjs.org/'>Nuxt3</a> 实现 <a href='https://api.kuizuo.cn'>KZ API</a> 接口站点`
+const announcementBarContent = `关于 <a href='/docs/skill/docusaurus/docusaurus-guides'>Docusaurus2 主题魔改</a>`
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -304,7 +304,6 @@ const config = {
     defaultLocale: 'zh',
     locales: ['zh'],
   },
-  onBrokenLinks: 'ignore',
 }
 
 module.exports = config

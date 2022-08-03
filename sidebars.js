@@ -3,6 +3,22 @@ const sidebars = {
   skill: [
     'skill/introduction',
     {
+      label: 'Docusaurus2 主题魔改',
+      type: 'category',
+      link: {
+        type: 'doc',
+        id: 'skill/docusaurus/docusaurus-guides'
+      },
+      items: [
+        'skill/docusaurus/docusaurus-config',
+        'skill/docusaurus/docusaurus-style',
+        'skill/docusaurus/docusaurus-component',
+        'skill/docusaurus/docusaurus-plugin',
+        'skill/docusaurus/docusaurus-search',
+        'skill/docusaurus/docusaurus-comment',
+      ],
+    },
+    {
       label: 'Vue',
       type: 'category',
       link: {

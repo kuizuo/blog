@@ -1,6 +1,6 @@
 module.exports = function (context, options) {
   return {
-    name: 'docusaurus-baidu-push-plugin',
+    name: 'docusaurus-plugin-baidu-push',
     injectHtmlTags() {
       return {
         headTags: [

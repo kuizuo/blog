@@ -24,6 +24,14 @@ exports.projects = [
     tags: ['opensource', 'favorite', 'product'],
   },
   {
+    title: 'JS代码混淆与还原',
+    description: '基于Babel的AST操作对JavaScript代码混淆与还原的网站',
+    preview: 'https://img.kuizuo.cn/js-de-obfuscator.png',
+    website: 'https://deobfuscator.kuizuo.cn',
+    source: 'https://github.com/kuizuo/js-de-obfuscator',
+    tags: ['opensource', 'javascript'],
+  },
+  {
     title: 'VScode-extension',
     description: 'vscode 插件的样品',
     preview: 'https://img.kuizuo.cn/vscode-extension.png',
@@ -38,22 +46,6 @@ exports.projects = [
     website: 'https://ocr.kuizuo.cn',
     source: '',
     tags: ['product'],
-  },
-  {
-    title: 'JS代码混淆与还原',
-    description: '基于Babel的AST操作对JavaScript代码混淆与还原的网站',
-    preview: 'https://img.kuizuo.cn/js-de-obfuscator.png',
-    website: 'https://deobfuscator.kuizuo.cn',
-    source: 'https://github.com/kuizuo/js-de-obfuscator',
-    tags: ['opensource', 'javascript'],
-  },
-  {
-    title: '资源导航',
-    description: '学习编程中遇到的资源整合网站',
-    preview: 'https://img.kuizuo.cn/code-nav.png',
-    website: 'https://nav.kuizuo.cn',
-    source: 'https://github.com/kuizuo/code-nav',
-    tags: ['opensource', 'javascript'],
   },
   {
     title: '愧怍在线工具',

@@ -31,7 +31,8 @@ function BlogListPageMetadata(props: Props): JSX.Element {
   } = useDocusaurusContext();
   const {blogDescription, blogTitle, permalink} = metadata;
   const isBlogOnlyMode = permalink === '/';
-  const title = isBlogOnlyMode ? siteTitle : blogTitle;
+  const title = isBlogOnlyMode ? '首页' : blogTitle;
+
   return (
     <>
       <PageMetadata title={title} description={blogDescription} />

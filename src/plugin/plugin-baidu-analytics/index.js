@@ -1,6 +1,6 @@
 module.exports = function (context, options) {
   return {
-    name: 'docusaurus-baidu-analytics-plugin',
+    name: 'docusaurus-plugin-baidu-analytics',
     injectHtmlTags() {
       return {
         headTags: [
@@ -12,7 +12,7 @@ module.exports = function (context, options) {
               var hm = document.createElement("script");
               hm.src = "https://hm.baidu.com/hm.js?c9a3849aa75f9c4a4e65f846cd1a5155";
               hm.defer = true;
-              var s = document.getElementsByTagName("script")[0]; 
+              var s = document.getElementsByTagName("script")[0];
               s.parentNode.insertBefore(hm, s);
             })();
           `,
