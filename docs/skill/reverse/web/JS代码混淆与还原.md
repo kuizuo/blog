@@ -7,6 +7,6 @@ tags: [javascript, deobfuscator]
 
 <!-- truncate -->
 
-[JS 代码之还原](/js/JS代码之还原)
+[JS 代码之还原](/js-code-deobfuscator)
 
-[JS 代码之混淆](/js/JS代码之混淆)
+[JS 代码之混淆](/js-code-obfuscator)

@@ -104,7 +104,7 @@ ADD [ 0 ]
 
 ## Proxy
 
-但在 Vue3 也可以使用 Proxy 来监听（代理）数据，先引用监听[Object 中的最终代码](./Vue响应式数据之Object#最终代码)，对其稍加修改一下，看看效果
+但在 Vue3 也可以使用 Proxy 来监听（代理）数据，先引用监听[Object 中的最终代码](/docs/skill/vue/vue-reactive-data-object/#最终代码)，对其稍加修改一下，看看效果
 
 ```javascript
 function log(type, index, val) {

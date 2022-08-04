@@ -88,7 +88,7 @@ vercel 部署静态资源网站极其**方便简单**，并且有可观的**访�
 
 同时 vercel 还支持 serverless，也就是说，不仅能部署静态站点，还能部署后端服务，不过肯定有一定的限制。
 
-[Vercel 部署 Serverless](/develop/Vercel部署Serverless)
+[Vercel 部署 Serverless](/vercel-deploy-serverless)
 
 ## Vercel CLI
 

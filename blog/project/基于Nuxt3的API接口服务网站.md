@@ -347,7 +347,7 @@ export default defineEventHandler(async (event) => {
 
 ![img](https://docs.nestjs.com/assets/Interceptors_1.png)
 
-不过 nuxt 只提供了中间件，这够实现接口缓存的功能了，不过需要一些“技巧”，关于这个技巧我写过的一篇文章 [JS 函数 hook](https://kuizuo.cn/js/JS函数hook) 比较详细的介绍该技巧，这里简单说下。
+不过 nuxt 只提供了中间件，这够实现接口缓存的功能了，不过需要一些“技巧”，关于这个技巧我写过的一篇文章 [JS 函数 hook](/js-function-hook) 比较详细的介绍该技巧，这里简单说下。
 
 假设有个 add 函数，我并不想破坏 add 的参数与内部代码结果，但是我又像在调用 add 函数时，查看传入的参数，以及计算的结果，那该如何做？来看下面代码
 
