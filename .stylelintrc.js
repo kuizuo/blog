@@ -1,6 +1,5 @@
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
-  plugins: ['stylelint-copyright'],
   rules: {
     'selector-pseudo-class-no-unknown': [
       true,

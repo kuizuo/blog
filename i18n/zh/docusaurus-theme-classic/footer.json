@@ -38,13 +38,5 @@
   "link.item.label.掘金": {
     "message": "掘金",
     "description": "The label of footer link with label=掘金 linking to https://juejin.cn/user/1565318510545901"
-  },
-  "link.item.label.峰华前端工程师": {
-    "message": "峰华前端工程师",
-    "description": "The label of footer link with label=峰华前端工程师 linking to https://zxuqian.cn/"
-  },
-  "copyright": {
-    "message": "<p>Copyright © 2022 愧怍 Built with Docusaurus.</p><p><a href=\"http://beian.miit.gov.cn/\" >闽ICP备2020017848号-2</a>",
-    "description": "The footer copyright"
   }
 }
