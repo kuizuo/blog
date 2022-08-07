@@ -1,6 +1,6 @@
 module.exports = function (context, options) {
   return {
-    name: 'docusaurus-plugin-baidu-analytics',
+    name: 'docusaurus-plugin-baidu-tongji',
     injectHtmlTags() {
       return {
         headTags: [

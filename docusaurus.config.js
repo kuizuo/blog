@@ -24,7 +24,11 @@ const config = {
     metadata: [
       {
         name: 'keywords',
-        content: '愧怍, kuizuo, blog, javascript, typescript, node, react, vue, web, 前端, 后端',
+        content:'愧怍'
+      },
+      {
+        name: 'keywords',
+        content: 'blog, javascript, typescript, node, react, vue, web, 前端, 后端',
       },
     ],
     docs: {
@@ -277,7 +281,7 @@ const config = {
         },
       }
     ],
-    path.resolve(__dirname, './src/plugin/plugin-baidu-analytics'),
+    path.resolve(__dirname, './src/plugin/plugin-baidu-tongji'),
     path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
     'docusaurus-plugin-matomo',
     'docusaurus-plugin-image-zoom',
