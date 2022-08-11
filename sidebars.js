@@ -90,7 +90,7 @@ const sidebars = {
       link: {
         type: 'generated-index',
       },
-      items: ['skill/css/tailwind-css-usage', 'skill/css/func-and-useful-css-tips'],
+      items: ['skill/css/tailwind-css-usage'],
     },
     {
       label: 'Go',
