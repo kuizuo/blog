@@ -53,15 +53,15 @@ function CategoryList() {
           <section>
             <ul className={styles.websiteList}>
               {cate.websites.map((website) => (
-                <>
-                  <WebsiteCard key={website.name} website={website} />
+                <div key={website.name}>
+                  <WebsiteCard website={website} />
                   <ReactTooltip
                     id="website-desc-tip"
                     effect="solid"
                     place="bottom"
                     type="info"
                   />
-                </>
+                </div>
               ))}
             </ul>
           </section>

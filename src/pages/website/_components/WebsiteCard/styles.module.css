@@ -5,11 +5,11 @@
   display: flex;
   flex-direction: row;
   overflow: hidden;
-  transition: transform 0.5s ease-out 0s, box-shadow 0.5s ease-out 0s;
+  transition: all 0.3s ease-in-out;
 }
 
 .websiteCard:hover {
-  box-shadow: rgb(3 14 44 / 15%) 0 2px 16px 0;
+  box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 10%);
   background-color: #f2f8fd;
   transform: translateY(-5px);
 }
@@ -56,7 +56,8 @@
   line-height: 1.66;
   width: 100%;
   margin: 0;
-  display: box;
+  /* stylelint-disable-next-line value-no-vendor-prefix */
+  display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
