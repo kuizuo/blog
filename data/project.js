@@ -24,6 +24,14 @@ exports.projects = [
     tags: ['opensource', 'favorite', 'product'],
   },
   {
+    title: '前端示例代码库',
+    description: '整理前端样式和功能的实现代码，可以用来寻找灵感或直接使用示例中的代码',
+    preview: 'https://img.kuizuo.cn/example-website.png',
+    website: 'https://example.kuizuo.cn',
+    source: 'https://github.com/kuizuo/example',
+    tags: ['opensource', 'design', 'javascript'],
+  },
+  {
     title: 'JS代码混淆与还原',
     description: '基于Babel的AST操作对JavaScript代码混淆与还原的网站',
     preview: 'https://img.kuizuo.cn/js-de-obfuscator.png',
@@ -38,14 +46,6 @@ exports.projects = [
     website: 'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
     source: 'https://github.com/kuizuo/vscode-extension',
     tags: ['opensource', 'javascript'],
-  },
-  {
-    title: 'ocr-admin',
-    description: '基于ddddocr与kz-admin搭建的图像识别后台系统',
-    preview: 'https://img.kuizuo.cn/ocr-admin.png',
-    website: 'https://ocr.kuizuo.cn',
-    source: '',
-    tags: ['product'],
   },
   {
     title: '愧怍在线工具',

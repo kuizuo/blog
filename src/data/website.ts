@@ -215,7 +215,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Node',
         desc: 'Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时',
-        logo: 'https://cdn.jsdelivr.net/gh/Yafine/cdn@3.2.1/source/box/images/logo/Node.js.png',
+        logo: 'https://nodejs.org/static/images/favicons/apple-touch-icon.png',
         href: 'http://nodejs.cn/',
         tags: ['后端', 'Nodejs', '文档'],
       },
@@ -517,7 +517,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'loading.io',
         desc: 'Animation Made Easy',
-        logo: '/img/websites/loading.png',
+        logo: 'https://loading.io/favicon.ico',
         href: 'https://loading.io/',
         tags: ['Css'],
       },
@@ -693,7 +693,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: '谷歌字体',
         desc: '一个生成渐变色背景的网站',
-        logo: 'https://googlefonts.cn/favicon.ico',
+        logo: '/img/website/google_fonts.ico',
         href: 'https://googlefonts.cn/',
         tags: ['字体'],
       },
