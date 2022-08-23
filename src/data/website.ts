@@ -517,7 +517,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'loading.io',
         desc: 'Animation Made Easy',
-        logo: 'https://loading.io/favicon.ico',
+        logo: '/img/website/loading.ico',
         href: 'https://loading.io/',
         tags: ['Css'],
       },
