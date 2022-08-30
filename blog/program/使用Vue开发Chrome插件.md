@@ -565,6 +565,12 @@ window.onload = function () {
 
 实现类似点赞功能也是同理的。
 
+## 相关模板 
+
+[vitesse-webext](https://github.com/antfu/vitesse-webext)
+
+[plasmo](https://www.plasmo.com/)
+
 ## 整体体验
 
 当时写 Chrome 插件的效率不能说慢，反正不快就是了，像一些 tips，都得自行封装。用过 Vue 的都知道写网页很方便，写 Chrome 插件未尝不是编写一个网页，当时的我在接触了 Vue 后就萌发了使用 vue 来编写 Chrome 的想法，当然肯定不止我一个这么想过，所以我在 github 上就能搜索到相应的源码，于是就有了这篇文章。

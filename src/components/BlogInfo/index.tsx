@@ -77,11 +77,18 @@ export function BlogUser({
       <div className="bloginfo__description">{tagline}</div>
       <div className="bloginfo__num">
         <Link className="bloginfo__num-item" href="/archive" data-tips="博客数">
-          <FontAwesomeIcon icon={faArchive as IconProp} /> {count.blog}
+          <FontAwesomeIcon
+            icon={faArchive as IconProp}
+            width="16"
+            height="16"
+          />{' '}
+          {count.blog}
         </Link>
         <Link className="bloginfo__num-item" href="/tags" data-tips="标签数">
           <FontAwesomeIcon
             icon={faTag as IconProp}
+            width="16"
+            height="16"
             style={{transform: 'rotate(90deg)'}}
           />{' '}
           {count.tag}
@@ -90,10 +97,16 @@ export function BlogUser({
           className="bloginfo__num-item"
           href="/docs/skill"
           data-tips="笔记数">
-          <FontAwesomeIcon icon={faBook as IconProp} /> {count.doc}
+          <FontAwesomeIcon icon={faBook as IconProp} width="16" height="16" />{' '}
+          {count.doc}
         </Link>
         <Link className="bloginfo__num-item" href="/project" data-tips="项目数">
-          <FontAwesomeIcon icon={faThLarge as IconProp} /> {count.project}
+          <FontAwesomeIcon
+            icon={faThLarge as IconProp}
+            width="16"
+            height="16"
+          />{' '}
+          {count.project}
         </Link>
       </div>
       <SocialLinks

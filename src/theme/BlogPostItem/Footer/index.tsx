@@ -49,6 +49,8 @@ export default function BlogPostItemFooter(): JSX.Element | null {
               <FontAwesomeIcon
                 icon={faUser as IconProp}
                 color="#c4d3e0"
+                width="16"
+                height="16"
                 className="blog__author"
               />
               {authors.map((a) => (
@@ -62,7 +64,12 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           )}
           {date && (
             <>
-              <FontAwesomeIcon icon={faCalendar as IconProp} color="#c4d3e0" />
+              <FontAwesomeIcon
+                icon={faCalendar as IconProp}
+                color="#c4d3e0"
+                width="16"
+                height="16"
+              />
               <time
                 dateTime={date}
                 className={styles.blogPostDate}
@@ -73,10 +80,19 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           )}
           {tagsExists && (
             <>
-              <FontAwesomeIcon icon={faTags as IconProp} color="#c4d3e0" />
+              <FontAwesomeIcon
+                icon={faTags as IconProp}
+                color="#c4d3e0"
+                width="16"
+                height="16"
+              />
               <span className={styles.blogPostInfoTags}>
                 {tags.map(({label, permalink: tagPermalink}) => (
-                  <Tag label={label} permalink={tagPermalink} key={tagPermalink} />
+                  <Tag
+                    label={label}
+                    permalink={tagPermalink}
+                    key={tagPermalink}
+                  />
                 ))}
               </span>
             </>
@@ -87,6 +103,8 @@ export default function BlogPostItemFooter(): JSX.Element | null {
                 icon={faClock as IconProp}
                 color="#c4d3e0"
                 className="blog__readingTime"
+                width="16"
+                height="16"
               />
               <span
                 className={clsx(styles.blogPostReadTime, 'blog__readingTime')}>
