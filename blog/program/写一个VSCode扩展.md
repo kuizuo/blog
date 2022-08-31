@@ -1,6 +1,6 @@
 ---
-slug: vscode-plugin
-title: 编写一个VSCode插件
+slug: vscode-extension
+title: 写一个VSCode扩展
 date: 2022-07-11
 authors: kuizuo
 tags: [vscode, plugin, extension, develop]
@@ -8,9 +8,9 @@ tags: [vscode, plugin, extension, develop]
 
 自从使用过 VSCode 后就再也离不开 VSCode，其轻量的代码编辑器与诸多插件让多数开发者爱不释手。同样我也不例外，一年前的我甚至还特意买本《Visual Studio Code 权威指南》的书籍，来更进一步了解与使用。
 
-在购买这本书时就想写一个 vscode 插件（扩展），奈何当时事务繁忙加之不知做何功能，就迟迟未能动手。如今有时间了，就顺带体验下 vscode 插件开发，并记录整个开发过程。
+在购买这本书时就想写一个 vscode 插件（扩展），奈何当时事务繁忙加之不知做何功能，就迟迟未能动手。如今有时间了，就顺带体验下 vscode 扩展开发，并记录整个开发过程。
 
-插件地址：[VSCode-extension](https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample 'VSCode-extension')
+扩展地址：[VSCode-extension](https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample 'VSCode-extension')
 
 开源地址：[kuizuo/vscode-extension (github.com)](https://github.com/kuizuo/vscode-extension)
 
@@ -76,7 +76,7 @@ More info: https://github.com/yeoman/insight & http://yeoman.io
 
 ### 运行 vscode 插件
 
-既然创建好了工程，那必然是要运行的。由于我这里选择的 ts ＋ webpack 进行开发，所以是需要打包，同时脚手架已经生成好了对应.vscode 的设置。只需要按下 F5 即可开始调试，这时会打开一个新的 vscode 窗口，`Ctrl+Shift+P`打开命令行，输入`Hello World`，右下角弹出提示框`Hello World from kuizuo-plugin!`
+既然创建好了工程，那必然是要运行的。由于我这里选择的 ts ＋ webpack 进行开发（视情况勾选webpack），所以是需要打包，同时脚手架已经生成好了对应.vscode 的设置。只需要按下 F5 即可开始调试，这时会打开一个新的 vscode 窗口，`Ctrl+Shift+P`打开命令行，输入`Hello World`，右下角弹出提示框`Hello World from kuizuo-plugin!`
 
 :::danger
 
@@ -669,6 +669,12 @@ npm i vsce -g
 vsce package
 ```
 
+:::danger
+
+如果使用pnpm的话，有可能会打包失败，提示：npm ERR! missing: xxxxxx
+
+:::
+
 在打包时会提示一些信息，例如修改 README.md ，添加 LICENSE 等等，根据提示来操作即可。
 
 生成好的 vsix 文件不能直接拖入安装，只能从扩展的右上角选择`Install from VSIX`安装：
@@ -683,9 +689,9 @@ vsce package
 
 **2、新建一个 token**
 
-![](https://img.kuizuo.cn/token2_SCsFTU3mph.png)
+![image-20220831152146541](https://img.kuizuo.cn/image-20220831152146541.png)
 
-根据图片选择，其中 Scopes 也可以选择：Full access，即所有权限。生成后会得到一个 token，保存它，当你关闭时便不再显示。
+根据图片选择，注意其中 `Organization` 选择 `All aaccessible organizations`，`Scopes` 选择：`Full access`，否则登录会失败。生成后会得到一个 token，保存它，当你关闭时便不再显示。
 
 **3、创建一个发布者**
 
@@ -695,7 +701,7 @@ vsce package
 vsce login <publisher name>
 ```
 
-这里的 publisher name 根据 package.json 中的 publisher，会要求你输入 Personal Access Token，把刚刚创建的 token 的值粘贴过来即可
+这里的 `publisher name` 根据 package.json 中的 `publisher`，会要求你输入 `Personal Access Token`，把刚刚创建的 `token` 的值粘贴过来即可
 
 提示
 `The Personal Access Token verification succeeded for the publisher 'kuizuo'.`

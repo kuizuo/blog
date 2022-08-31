@@ -171,6 +171,9 @@ export default function BlogInfo() {
               <FontAwesomeIcon
                 icon={faTag as IconProp}
                 style={{transform: 'rotate(90deg)'}}
+                color="#12affa"
+                width="16"
+                height="16"
               />
               <Link className="margin-horiz--sm" href="/tags">
                 标签
