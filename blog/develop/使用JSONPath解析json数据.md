@@ -4,6 +4,7 @@ title: 使用JSONPath解析json数据
 date: 2021-09-20
 authors: kuizuo
 tags: [javascript, json, node]
+keywords: [javascript, json, node]
 # sticky: true
 ---
 

@@ -4,6 +4,7 @@ title: JS函数hook
 date: 2021-11-22
 authors: kuizuo
 tags: [javascript, hook]
+keywords: [javascript, hook]
 ---
 
 <!-- truncate -->

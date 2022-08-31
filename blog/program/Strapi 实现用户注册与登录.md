@@ -4,6 +4,8 @@ title: Strapi 实现用户注册与登录
 date: 2022-08-24
 authors: kuizuo
 tags: [strapi, nuxt, next]
+keywords: [strapi, nuxt, next]
+description: Strapi 实现用户注册与登录
 ---
 
 在官方博客 [Registration and Login (Authentication) with Vue.js and Strapi](https://strapi.io/blog/registration-and-login-authentication-with-vue-js-and-strapi-1) 中演示如何实现注册与登录。实际重点部分是 Strapi 的[角色和权限插件](https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html)，可以说这个插件让开发者不用再为项目考虑的用户登录注册与鉴权相关。

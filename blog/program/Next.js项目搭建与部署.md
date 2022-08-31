@@ -4,6 +4,7 @@ title: Next.js项目搭建与部署
 date: 2022-07-13
 authors: kuizuo
 tags: [next, react, ssr, vercel]
+keywords: [next, react, ssr, vercel]
 ---
 
 <!-- truncate -->

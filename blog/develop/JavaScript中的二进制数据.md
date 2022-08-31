@@ -4,6 +4,7 @@ title: JavaScript中的二进制数据
 date: 2022-01-24
 authors: kuizuo
 tags: [javascript]
+keywords: [javascript]
 ---
 
 在我编写 js 代码中，关于处理二进制数据了解甚少，好像都是用数组表示，但是成员又很模糊。尤其是在遇到一些 http 的 post 请求或 websocket，发送二进制数据（字节）时，还有一些算法的翻译，数据的转化，协议的复现，都需要不断的从网络上查阅，并未系统的从文档教程中入手。于是写这篇的目的就是为了加固对二进制数据的理解，以及 JavaScript 中如何操作二进制数据的。

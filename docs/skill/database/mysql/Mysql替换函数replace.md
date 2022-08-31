@@ -3,6 +3,7 @@ id: mysql-replace-function
 title: mysql替换函数replace
 date: 2021-01-07
 tags: [mysql, database]
+keywords: [mysql, database]
 ---
 
 ## 1、前言

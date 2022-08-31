@@ -4,6 +4,7 @@ title: Jetbrains系列产品激活方法
 date: 2020-09-03
 authors: kuizuo
 tags: [Jetbrains, 工具]
+keywords: [Jetbrains, 工具]
 ---
 
 ![jetbrains](https://img.kuizuo.cn/jetbrains.jpg)

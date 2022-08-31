@@ -4,6 +4,7 @@ title: Redis获取六位不重复数字（邀请码）
 date: 2021-08-11
 authors: kuizuo
 tags: [redis]
+keywords: [redis]
 ---
 
 <!-- truncate -->

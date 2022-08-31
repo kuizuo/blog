@@ -4,6 +4,7 @@ title: Go调用js代码
 date: 2022-05-22
 authors: kuizuo
 tags: [go, javascript]
+keywords: [go, javascript]
 ---
 
 <!-- truncate -->

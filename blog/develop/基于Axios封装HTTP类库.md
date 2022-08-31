@@ -4,6 +4,8 @@ title: 基于Axios封装HTTP类库
 date: 2021-08-26
 authors: kuizuo
 tags: [node, http, axios]
+keywords: [node, http, axios]
+description: 基于 Axios 封装 HTTP 类库，并发布到 npm 仓库中
 ---
 
 <!-- truncate -->

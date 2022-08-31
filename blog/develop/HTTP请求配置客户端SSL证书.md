@@ -4,6 +4,7 @@ title: HTTP请求配置客户端SSL证书
 date: 2022-02-17
 authors: kuizuo
 tags: [http, ssl]
+keywords: [http, ssl]
 ---
 
 在学习安卓逆向的时候，遇到一个 APP，服务端检测请求的 SSL 证书，需要提交 SSL 证书上去才能正常发送请求。而在开启抓包和协议复现的时候，请求是能正常发出去，但是服务器会返回 400 错误。于是便有了这篇文章来记录下。

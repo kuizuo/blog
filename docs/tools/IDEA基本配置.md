@@ -4,6 +4,7 @@ title: IDEA基本配置
 date: 2022-01-06
 authors: kuizuo
 tags: [Jetbrains, idea, java, 工具]
+keywords: [Jetbrains, idea, java, 工具]
 ---
 
 准备系统的学习一遍 java（主要是后端与安卓），所以就免不了使用业界好评最高的 IDE 工具——IDEA。

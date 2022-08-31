@@ -4,6 +4,7 @@ title: Python爬虫总结
 date: 2022-03-03
 authors: kuizuo
 tags: [python, node, http]
+keywords: [python, node, http]
 ---
 
 最近临时写了个 python 爬虫的例子（核心代码不开源），总结下这次编写过程中的一些相关知识点与注意事项，以一个用 nodejs 写爬虫的开发者的角度去看待与比对。

@@ -4,6 +4,7 @@ title: 使用Vue开发Chrome插件
 date: 2021-09-18
 authors: kuizuo
 tags: [chrome, plugin, vue, develop]
+keywords: [chrome, plugin, vue, develop]
 # sticky: true
 ---
 

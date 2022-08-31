@@ -4,6 +4,7 @@ title: Gin框架初体验
 date: 2021-09-01
 authors: kuizuo
 tags: [go, gin]
+keywords: [go, gin]
 ---
 
 <!-- truncate -->

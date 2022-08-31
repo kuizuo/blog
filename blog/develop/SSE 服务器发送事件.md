@@ -4,6 +4,7 @@ title: SSE 服务器发送事件
 date: 2022-03-16
 authors: kuizuo
 tags: [http]
+keywords: [http]
 ---
 
 <!-- truncate -->

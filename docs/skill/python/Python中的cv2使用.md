@@ -4,6 +4,7 @@ title: Python中的cv2使用
 date: 2022-03-06
 authors: kuizuo
 tags: [python]
+keywords: [python]
 ---
 
 <!-- truncate -->

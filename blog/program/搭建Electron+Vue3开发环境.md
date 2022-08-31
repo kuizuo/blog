@@ -4,6 +4,8 @@ title: 搭建Electron+Vue3开发环境
 date: 2022-03-17
 authors: kuizuo
 tags: [electron, vue, vite]
+keywords: [electron, vue, vite]
+description: 搭建 Electron Vue3 的开发环境，用于编写跨平台应用
 ---
 
 ![image-20220316204205165](https://img.kuizuo.cn/image-20220316204205165.png)

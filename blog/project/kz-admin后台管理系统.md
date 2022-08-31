@@ -4,6 +4,8 @@ title: kz-admin后台管理系统
 date: 2022-05-08
 authors: kuizuo
 tags: [project, admin, vue, nest]
+keywords: [project, admin, vue, nest]
+description: 基于 NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin 编写的一款前后端分离的权限管理系统
 ---
 
 当时初学 Web 开发的时候，除了写一个网页博客外，第二个选择无非就是一个后台管理系统，可以应用于多种需要数据管理类项目中。

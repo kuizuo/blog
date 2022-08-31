@@ -4,6 +4,7 @@ title: Windows Terminal美化
 date: 2021-05-04
 authors: kuizuo
 tags: [Terminal, 美化]
+keywords: [Terminal, 美化]
 ---
 
 ![image-20210527065050479](https://img.kuizuo.cn/image-20210527065050479.png)

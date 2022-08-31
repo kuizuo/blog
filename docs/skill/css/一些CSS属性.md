@@ -4,6 +4,7 @@ title: 一些CSS属性
 date: 2022-08-12
 authors: kuizuo
 tags: [css]
+keywords: [css]
 ---
 
 最近在写一些 CSS 样例，可以在 [前端示例代码库](https://example.kuizuo.cn/) 中查看，后续也会把一些灵感和设计放在这上面，不过这里主要介绍我之前没怎么用到过的一些 CSS 属性（奇技淫巧），通过这些特性能非常方便的实现一些需求，不会做过多使用介绍，具体可查看 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS) 与 [示例源代码](https://github.com/kuizuo/example)。

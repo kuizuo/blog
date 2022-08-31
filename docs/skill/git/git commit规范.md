@@ -5,6 +5,7 @@ title: git commit规范
 date: 2021-08-31
 authors: kuizuo
 tags: [git, commit]
+keywords: [git, commit]
 ---
 
 <!-- truncate -->

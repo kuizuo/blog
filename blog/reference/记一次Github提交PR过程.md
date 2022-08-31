@@ -4,6 +4,7 @@ title: 记一次Github提交PR过程
 date: 2022-01-25
 authors: kuizuo
 tags: [随笔, github, blog]
+keywords: [随笔, github, blog]
 ---
 
 ## 故事起因

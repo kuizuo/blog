@@ -4,6 +4,7 @@ title: VScode相关配置
 date: 2021-08-03
 authors: kuizuo
 tags: [vscode, 开发工具, 配置]
+keywords: [vscode, 开发工具, 配置]
 ---
 
 关于 vscode 介绍和安装啥的不在这浪费口舌，上号就完事了！

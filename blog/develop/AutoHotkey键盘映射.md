@@ -4,6 +4,7 @@ title: AutoHotkey键盘映射
 date: 2022-07-08
 authors: kuizuo
 tags: [工具, keyMap]
+keywords: [工具, keyMap]
 ---
 
 当我使用笔记本的时候，每次移动光标，都要大费周章，同时由于笔记本的缘故，导致键入Home与End都需要搭配Fn功能键来实现。所以我希望在任何情况下（敲代码，写文章）都可以将某些组合键绑定为上下左右键，在代码编辑器上有键盘映射可以设置，但脱离代码编辑器就不起作用了，在window下有个神器 [AutoHotkey](https://www.autohotkey.com/) 可以实现我想要的功能。

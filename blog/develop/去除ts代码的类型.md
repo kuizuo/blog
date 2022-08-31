@@ -4,6 +4,7 @@ title: 去除ts代码的类型
 date: 2022-03-24
 authors: kuizuo
 tags: [javascript, typescript]
+keywords: [javascript, typescript]
 ---
 
 在**短时间**内有一个需求，原项目代码是 js，而我手里头的项目是 ts 的，需要将其合并。

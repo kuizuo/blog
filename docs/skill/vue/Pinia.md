@@ -4,6 +4,7 @@ title: Pinia
 date: 2020-10-23
 authors: kuizuo
 tags: [vue, pinia]
+keywords: [vue, pinia]
 ---
 
 <!-- truncate -->

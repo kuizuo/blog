@@ -4,6 +4,7 @@ title: JS如何获取当天零点时间戳
 date: 2021-08-18
 authors: kuizuo
 tags: [javascript]
+keywords: [javascript]
 ---
 
 <!-- truncate -->

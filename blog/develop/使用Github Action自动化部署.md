@@ -4,6 +4,7 @@ title: 使用Github Action自动化部署
 date: 2022-05-11
 authors: kuizuo
 tags: [github, git]
+keywords: [github, git]
 ---
 
 如果有写过项目的经历，就免不了将代码上传到服务器上，安装依赖，然后输入启动命令的步骤。但是有的项目往往需要经常性的改动，如果还是照着上面的方式进行部署的话。先不说这样操作的效率，操作个几次就想罢工了。并且上面这样操作的往往容易误操作。而 Github Actions 正是该问题的良药。

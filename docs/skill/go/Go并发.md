@@ -4,6 +4,7 @@ title: Go并发
 date: 2022-05-22
 authors: kuizuo
 tags: [go]
+keywords: [go]
 ---
 
 Go 语言的并发是基于 `goroutine` 的，`goroutine` 类似于线程，但并非线程。可以将 `goroutine` 理解为一种虚拟线程。Go 语言运行时会参与调度 `goroutine`，并将 `goroutine` 合理地分配到每个 CPU 中，最大限度地使用 CPU 性能。开启一个 goroutine 的消耗非常小（大约 2KB 的内存），你可以轻松创建数百万个`goroutine`。

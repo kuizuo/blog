@@ -4,6 +4,7 @@ title: 腾讯云之CDN与SSL配置
 date: 2020-12-15
 authors: kuizuo
 tags: [cloud-services]
+keywords: [cloud-services]
 ---
 
 如题，本人所购买的服务器，以及对象存储，CDN，和 SSL 都是腾讯云的。

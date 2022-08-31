@@ -4,6 +4,7 @@ title: Vue响应式数据之基本数据类型
 date: 2022-05-18
 authors: kuizuo
 tags: [vue, javascript]
+keywords: [vue, javascript]
 ---
 
 <!-- truncate -->

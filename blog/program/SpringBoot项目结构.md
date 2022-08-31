@@ -4,6 +4,7 @@ title: SpringBoot项目结构
 date: 2022-01-08
 authors: kuizuo
 tags: [java, springboot, develop]
+keywords: [java, springboot, develop]
 ---
 
 <!-- truncate -->

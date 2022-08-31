@@ -4,6 +4,7 @@ title: objection笔记
 date: 2021-02-10
 authors: kuizuo
 tags: [frida, app, hook]
+keywords: [frida, app, hook]
 ---
 
 ## objection

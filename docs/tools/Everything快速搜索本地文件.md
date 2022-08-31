@@ -4,6 +4,7 @@ title: Everything快速搜索本地文件
 date: 2020-09-08
 authors: kuizuo
 tags: [工具]
+keywords: [工具]
 ---
 
 ![everything-Everything](https://img.kuizuo.cn/everything-Everything.jpg)

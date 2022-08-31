@@ -4,6 +4,7 @@ title: 记Tailwind CSS使用
 date: 2022-11-11
 authors: kuizuo
 tags: [css, tailind]
+keywords: [css, tailind]
 ---
 
 最近把之前写的一个Web项目的页面给重构了一下，使用上了[Tailwind CSS](https://www.tailwindcss.cn/)，虽然之前就使用过，但是没有记录下来，这次就相当于对该技术栈进行一次总结。

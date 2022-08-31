@@ -4,6 +4,8 @@ title: pnpm monorepo实践
 date: 2022-08-29
 authors: kuizuo
 tags: [pnpm, monorepo]
+keywords: [pnpm, monorepo]
+description: 使用 pnpm monorepo 实践
 ---
 
 老早老早之前就听过 monorepo（单一代码库） 这个名词，也大致了解其出现的意义与功能。但奈何自己的一些小项目中暂时还用不上多项目存储库，所以迟迟没有尝试使用。

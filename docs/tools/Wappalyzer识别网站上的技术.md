@@ -4,6 +4,7 @@ title: Wappalyzer识别网站上的技术
 date: 2021-07-20
 authors: kuizuo
 tags: [chrome, 插件]
+keywords: [chrome, 插件]
 ---
 
 你是否还在为不知道心仪的网站所采用的技术栈而烦恼吗，如果是，那么这款 Chrome 插件值得你拥有

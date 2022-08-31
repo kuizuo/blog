@@ -4,6 +4,8 @@ title: Vercel部署Serverless
 date: 2022-05-12
 authors: kuizuo
 tags: [vercel, serverless]
+keywords: [vercel, serverless]
+description: 使用 Vercel 部署 serverless 过程记录
 ---
 
 Vercel 除了能部署静态站点外，还能运行 Serverless Functions，也是本次的主题

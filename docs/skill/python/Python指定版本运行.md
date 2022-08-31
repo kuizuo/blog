@@ -4,6 +4,7 @@ title: Python指定版本运行
 date: 2020-09-11
 authors: kuizuo
 tags: [python]
+keywords: [python]
 ---
 
 <!-- truncate -->

@@ -4,6 +4,7 @@ title: 第一个博客搭建之Vuepress
 date: 2020-08-30
 authors: kuizuo
 tags: [blog, vuepress, project]
+keywords: [blog, vuepress, project]
 ---
 
 感谢 [vuepress-theme-reco](https://vuepress-theme-reco.recoluan.com/)主题与一篇博客使用文章[使用 vuepress 构建个人博客](https://lookroot.cn/views/article/vuepress.html#reco%E4%B8%BB%E9%A2%98)
