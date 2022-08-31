@@ -1,5 +1,6 @@
 ---
 id: python-specified-versiton-run
+slug: /python-specified-versiton-run
 title: Python指定版本运行
 date: 2020-09-11
 authors: kuizuo

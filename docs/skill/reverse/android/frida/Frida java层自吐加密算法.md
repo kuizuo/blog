@@ -1,5 +1,6 @@
 ---
 id: frida-java-encryption-algorithm
+slug: /frida-java-encryption-algorithm
 title: Frida java层自吐加密算法
 date: 2021-02-10
 authors: kuizuo

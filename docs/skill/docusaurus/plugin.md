@@ -1,5 +1,6 @@
 ---
 id: docusaurus-plugin
+slug: /docusaurus-plugin
 title: 插件
 authors: kuizuo
 ---

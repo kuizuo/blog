@@ -1,5 +1,6 @@
 ---
 id: axios-request-gbk-page-encoding-solution
+slug: /axios-request-gbk-page-encoding-solution
 title: axios请求gbk页面乱码解决
 date: 2021-09-19
 authors: kuizuo

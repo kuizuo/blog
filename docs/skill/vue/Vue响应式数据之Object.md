@@ -1,5 +1,6 @@
 ---
 id: vue-reactive-data-object
+slug: /vue-reactive-data-object
 title: Vue响应式数据之Object
 date: 2022-05-10
 authors: kuizuo

@@ -1,5 +1,6 @@
 ---
 id: mysql-replace-function
+slug: /mysql-replace-function
 title: mysql替换函数replace
 date: 2021-01-07
 tags: [mysql, database]

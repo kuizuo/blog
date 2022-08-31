@@ -1,5 +1,6 @@
 ---
 id: docusaurus-guides
+slug: /docusaurus-guides
 title: Docusaurus2 主题魔改
 authors: kuizuo
 keywords: ['guides', 'docusaurus', 'docusaurus-guides']

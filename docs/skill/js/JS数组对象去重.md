@@ -1,5 +1,6 @@
 ---
 id: js-array-object-unique
+slug: /js-array-object-unique
 title: JS数组对象去重
 date: 2021-07-05
 authors: kuizuo

@@ -1,5 +1,6 @@
 ---
 id: go-environment-install
+slug: /go-environment-install
 title: Go环境安装
 date: 2021-09-01
 authors: kuizuo

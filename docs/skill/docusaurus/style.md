@@ -1,5 +1,6 @@
 ---
 id: docusaurus-style
+slug: /docusaurus-style
 title: 样式与页面
 authors: kuizuo
 ---

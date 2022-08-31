@@ -1,5 +1,6 @@
 ---
 id: go-json-usage
+slug: /go-json-usage
 title: Go语言之json使用
 date: 2022-05-20
 authors: kuizuo

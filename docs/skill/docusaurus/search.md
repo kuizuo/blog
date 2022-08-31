@@ -1,5 +1,6 @@
 ---
 id: docusaurus-search
+slug: /docusaurus-search
 title: 搜索
 authors: kuizuo
 ---

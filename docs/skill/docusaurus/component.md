@@ -1,5 +1,6 @@
 ---
 id: docusaurus-component
+slug: /docusaurus-component
 title: 自定义组件
 authors: kuizuo
 ---

@@ -1,5 +1,6 @@
 ---
 id: go-send-http-request
+slug: /go-send-http-request
 title: Go发送http请求
 date: 2022-05-22
 authors: kuizuo

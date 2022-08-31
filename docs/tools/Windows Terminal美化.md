@@ -1,5 +1,6 @@
 ---
 id: windows-terminal-beautify
+slug: /windows-terminal-beautify
 title: Windows Terminal美化
 date: 2021-05-04
 authors: kuizuo

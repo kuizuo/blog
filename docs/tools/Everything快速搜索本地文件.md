@@ -1,5 +1,6 @@
 ---
 id: everything-quick-search-local-files
+slug: /everything-quick-search-local-files
 title: Everything快速搜索本地文件
 date: 2020-09-08
 authors: kuizuo
