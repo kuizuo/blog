@@ -53,6 +53,7 @@ type(scope?): subject  #scope is optional; multiple scopes are supported (curren
 | style(component): code             | 调整 component 代码样式   |
 | refactor: xxx                      | 重构 xxx                  |
 | perf(utils): random function       | 优化 utils 的 random 函数 |
+| docs: xxx.md                       | 添加 xxx.md 文章          |
 
 更多示例可以参考主流开源项目的 commit。
 
