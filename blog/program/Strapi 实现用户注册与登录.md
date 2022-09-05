@@ -1,7 +1,7 @@
 ---
 slug: strapi-user-register-and-login
 title: Strapi 实现用户注册与登录
-date: 2022-08-24
+date: 2022-09-03
 authors: kuizuo
 tags: [strapi, nuxt, next]
 keywords: [strapi, nuxt, next]
@@ -9,6 +9,8 @@ description: Strapi 实现用户注册与登录
 ---
 
 在官方博客 [Registration and Login (Authentication) with Vue.js and Strapi](https://strapi.io/blog/registration-and-login-authentication-with-vue-js-and-strapi-1) 中演示如何实现注册与登录。实际重点部分是 Strapi 的[角色和权限插件](https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html)，可以说这个插件让开发者不用再为项目考虑的用户登录注册与鉴权相关。
+
+此外这里有个在线示例可供体验：[Vitesse Nuxt 3 Strapi](https://vitesse-nuxt3-strapi.vercel.app)
 
 <!-- truncate -->
 
@@ -127,7 +129,7 @@ axios.post('http://localhost:1337/api/auth/local/register', {
 
 通过相应的 hooks 就可以实现登录注册以及数据增删改查的功能，演示例子可看 [Usage](https://strapi.nuxtjs.org/usage)
 
-这里有一份我创建的预设模板 [kuizuo/nuxt3-strapi](https://github.com/kuizuo/nuxt3-strapi)，不过目前 Strapi 对 TypeScript 支持不是那么友好，尤其在 window 下会出现无法运行的情况，详看这个 [pr](https://github.com/strapi/strapi/pull/14088)。所以目前 backend 还是使用 js，后续根据情况再升级为 ts。顺带写一个 strapi 的一个在线用户登录注册演示。（留个坑）
+这里有一份我创建的预设模板 [kuizuo/vitesse-nuxt3-strapi](https://github.com/kuizuo/vitesse-nuxt3-strapi)，一开始的示例也是基于这个模板来搭建的。不过目前 Strapi 对 TypeScript 支持不是那么友好，尤其在 window 下会出现无法运行的情况，详看这个 [pr](https://github.com/strapi/strapi/pull/14088)。所以目前 backend 使用 js 创建，然后增加 ts 相关支持的，所以有些 ts 支持可能不是那么友好。
 
 :::note
 

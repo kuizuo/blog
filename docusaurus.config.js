@@ -2,7 +2,7 @@
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
-const announcementBarContent = `关于 <a href='/docs/skill/docusaurus/docusaurus-guides'>Docusaurus2 主题魔改</a>`
+const announcementBarContent = `<a href='https://vitesse-nuxt3-strapi.vercel.app'>Vitesse Nuxt3 Strapi 模板</a>`
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
