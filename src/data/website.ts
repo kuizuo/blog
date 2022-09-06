@@ -534,7 +534,15 @@ export const websiteData: WebsiteCategory[] = [
         logo: 'https://uigradients.com/static/images/favicon-32x32.png',
         href: 'https://uigradients.com/',
         tags: ['Css'],
-      }
+      },
+      {
+        name: '神奇UI样式',
+        desc: 'Universe of UI elements tohelp you stand out',
+        logo: 'https://uiverse.io/static/media/framed.0ab7be76.svg',
+        href: 'https://uiverse.io',
+        tags: ['Css'],
+      },
+
     ],
   },
   {
