@@ -28,7 +28,6 @@ const sidebars = {
         'skill/vue/vue-reactive-data-object',
         'skill/vue/vue-reactive-data-array',
         'skill/vue/vue-reactive-data-basic-type',
-        'skill/vue/vue-component',
         'skill/vue/pinia',
       ],
     },

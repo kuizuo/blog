@@ -171,7 +171,7 @@ const config = {
       copyright: `<p><a href="http://beian.miit.gov.cn/" >${beian}</a></p><p>Copyright © 2020 – ${new Date().getFullYear()} 愧怍 Built with Docusaurus.</p>`,
     },
     prism: {
-      theme: require('prism-react-renderer/themes/duotoneLight'),
+      theme: require('prism-react-renderer/themes/vsLight'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
       additionalLanguages: ['java', 'php'],
       defaultLanguage: 'javascript',
@@ -241,7 +241,7 @@ const config = {
         },
         blog: false,
         theme: {
-          customCss: [require.resolve('./src/css/custom.css')],
+          customCss: [require.resolve('./src/css/custom.scss')],
         },
         sitemap: {
           changefreq: 'daily',
@@ -261,6 +261,11 @@ const config = {
   ],
   // themes: ['@docusaurus/theme-live-codeblock'],
   plugins: [
+    'docusaurus-plugin-matomo',
+    'docusaurus-plugin-image-zoom',
+    'docusaurus-plugin-sass',
+    path.resolve(__dirname, './src/plugin/plugin-baidu-tongji'),
+    path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
     [
       path.resolve(__dirname, './src/plugin/plugin-content-blog'), {
         path: 'blog',
@@ -281,10 +286,6 @@ const config = {
         },
       }
     ],
-    path.resolve(__dirname, './src/plugin/plugin-baidu-tongji'),
-    path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
-    'docusaurus-plugin-matomo',
-    'docusaurus-plugin-image-zoom',
     [
       '@docusaurus/plugin-ideal-image', {
         disableInDev: false,
