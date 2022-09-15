@@ -1,0 +1,108 @@
+.sandpackBox {
+  width: 100%;
+}
+
+.liveCodeNav {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%
+}
+
+.navbarBrand {
+  align-items: center;
+  display: flex;
+  margin-right: 1rem;
+  min-width: 0;
+}
+
+.navbarBrand:hover {
+  text-decoration: none;
+}
+
+.navbarBrand b {
+  color: var(--ifm-color-primary);
+}
+
+.navbarLogo {
+  flex: 0 0 auto;
+  height: 2rem;
+  margin-right: .5rem;
+}
+
+.navbarTitle {
+  flex: 1 1 auto;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.consoleButton {
+  position: relative;
+  appearance: none;
+  border: 0;
+  outline: none;
+  display: flex;
+  align-items: center;
+  font-size: inherit;
+  font-family: inherit;
+  transition: color var(--sp-transitions-default), background var(--sp-transitions-default);
+  cursor: pointer;
+  color: var(--sp-colors-clickable);
+
+  background-color: var(--sp-colors-surface2);
+  padding: var(--sp-space-1);
+  width: var(--sp-space-7);
+  height: var(--sp-space-7);
+  border-radius: 99999px;
+  margin-left: var(--sp-space-2);
+}
+
+.consoleButton:hover {
+  color: var(--sp-colors-hover);
+}
+
+.consoleButton  span{
+  background: var(--sp-colors-clickable);
+  color: var(--sp-colors-surface1);
+  min-width: 12px;
+  height: 12px;
+  padding: 0 2px;
+  border-radius: 12px;
+  font-size: 8px;
+  line-height: 12px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.consoleWrapper {
+  transition: height var(--sp-transitions-default);
+  width: 100%;
+  overflow: hidden;
+}
+
+.control {
+  flex: 1;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.select {
+
+}
+
+
+@media (max-width: 768px) {
+  .control {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+}

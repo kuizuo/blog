@@ -2,7 +2,7 @@
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
-const announcementBarContent = `<a href='https://vitesse-nuxt3-strapi.vercel.app'>Vitesse Nuxt3 Strapi 模板</a>`
+const announcementBarContent = `<span>新增 <a href='/liveCode'>在线代码</a></span>`
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -73,9 +73,13 @@ const config = {
           ],
         },
         {
-          label: '小工具',
+          label: '工具',
           position: 'right',
           items: [
+            {
+              label: '在线代码',
+              to: 'liveCode',
+            },
             {
               label: 'API接口',
               to: 'https://api.kuizuo.cn',

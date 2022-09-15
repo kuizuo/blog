@@ -77,7 +77,21 @@ export const websiteData: WebsiteCategory[] = [
         desc: '稳定、快速、免费的前端开源项目 CDN 加速服务',
         logo: 'https://www.bootcdn.cn/assets/ico/favicon.ico',
         href: 'https://www.bootcdn.cn/',
+        tags: ['cdn'],
+      },
+      {
+        name: '那些免费的砖',
+        desc: '发现免费可商用的资源',
+        logo: 'https://img.thosefree.com/static/logo.png',
+        href: 'https://www.thosefree.com/',
         tags: [''],
+      },
+      {
+        name: 'Hoppscotch',
+        desc: '开源 API 开发生态系统',
+        logo: 'https://img.thosefree.com/icon.png',
+        href: 'https://hoppscotch.io/',
+        tags: ['api'],
       },
 
     ],
@@ -811,6 +825,13 @@ export const websiteData: WebsiteCategory[] = [
   {
     name: '杂项',
     websites: [
+      {
+        name: 'Terminal Gif Maker',
+        desc: '在线生成 Terminal GIF',
+        logo: 'https://www.terminalgif.com/favicon.ico',
+        href: 'https://www.terminalgif.com',
+        tags: ['Github', '素材', '其他'],
+      },
       {
         name: 'Gitstar Ranking',
         desc: '针对用户、组织和存储库的非官方 GitHub 星级排名',
