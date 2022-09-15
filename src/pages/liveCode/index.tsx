@@ -1,13 +1,16 @@
 import React, {
   useState,
-  useMemo,
   CSSProperties,
   useLayoutEffect,
   useRef,
+  useEffect,
 } from 'react';
 import clsx from 'clsx';
-import {useWindowSize, useLocalStorage} from 'react-use';
-import {PageMetadata, useColorMode} from '@docusaurus/theme-common';
+import {
+  PageMetadata,
+  useColorMode,
+  createStorageSlot,
+} from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
 import * as sandpackThemes from '@codesandbox/sandpack-themes';
 import {
@@ -71,22 +74,12 @@ const getPreviewHeight =
 const themes = sandpackThemes as unknown as typeof SANDPACK_THEMES;
 
 function MySandPack() {
-  const [theme, setTheme] = useLocalStorage<string>(
-    'sandpack-theme',
-    'aquaBlue',
-  );
-  const [template, setTemplate] = useLocalStorage<SandpackPredefinedTemplate>(
-    'sandpack-template',
-    'react',
-  );
-
+  const [theme, setTheme] = useState<string>('aquaBlue');
+  const [template, setTemplate] = useState<SandpackPredefinedTemplate>('react');
   const [counter, setCounter] = useState(0);
   const [consoleVisibility, setConsoleVisibility] = useState(false);
-
+  const [editorHeight, setEditorHeight] = useState(1000);
   const {colorMode} = useColorMode();
-  const {height} = useWindowSize();
-
-  const editorHeight = useMemo(() => height - 101, [height]);
 
   const actionsChildren = (
     <ConsoleCounterButton
@@ -114,6 +107,8 @@ function MySandPack() {
     gap: consoleVisibility ? 1 : 0,
   };
 
+  const SandpackStorage = createStorageSlot('sandpack');
+
   const firstUpdate = useRef(true);
 
   useLayoutEffect(() => {
@@ -124,6 +119,26 @@ function MySandPack() {
       colorMode === 'dark' ? setTheme('nightOwl') : setTheme('aquaBlue');
     }
   }, [colorMode]);
+
+  useEffect(() => {
+    const config = JSON.parse(
+      SandpackStorage.get()! ?? {theme: 'aquaBlue', template: 'react'},
+    );
+    const {theme, template} = config;
+    setTheme(theme);
+    setTemplate(template);
+
+    setEditorHeight(window.innerHeight - 101);
+  }, []);
+
+  useEffect(() => {
+    SandpackStorage.set(
+      JSON.stringify({
+        theme,
+        template,
+      }),
+    );
+  }, [theme, template]);
 
   return (
     <>
