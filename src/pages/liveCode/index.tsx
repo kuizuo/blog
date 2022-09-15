@@ -122,7 +122,7 @@ function MySandPack() {
 
   useEffect(() => {
     const config = JSON.parse(
-      SandpackStorage.get()! ?? {theme: 'aquaBlue', template: 'react'},
+      SandpackStorage.get()! ?? '{"theme":"aquaBlue","template":"react"}',
     );
     const {theme, template} = config;
     setTheme(theme);
