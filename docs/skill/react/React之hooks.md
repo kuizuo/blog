@@ -188,7 +188,7 @@ useEffect 提供了四种执行副作用的时机：
 - **每次 render 后执行**：不提供第二个依赖项参数。比如 `useEffect(() => {})`
 - **仅第一次 render 后执行**：提供一个空数组作为依赖项。比如 `useEffect(() => {}, [])`
 - **第一次以及依赖项发生变化后执行**：提供依赖项数组。比如 `useEffect(() => {}, [deps])`
-- **组件 unmount 后执行**：返回一个回调函数。比如 `useEffect() => { return () => {} }, [])`
+- **组件 unmount 后执行**：返回一个回调函数。比如 `useEffect(() => { return () => {} }, [])`
 
 ### useMono
 

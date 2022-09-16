@@ -145,7 +145,9 @@ function MySandPack() {
       <nav className={styles.liveCodeNav}>
         <a
           className={styles.navbarBrand}
-          href="https://sandpack.codesandbox.io">
+          href="https://sandpack.codesandbox.io"
+          target="_blank"
+          >
           <div className={styles.navbarLogo}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +175,7 @@ function MySandPack() {
           <b className={styles.navbarTitle}>Sandpack</b>
         </a>
         <div className={styles.control}>
-          <div className={styles.select}>
+          <div>
             Template
             <select
               name="Template"
@@ -189,7 +191,7 @@ function MySandPack() {
               ))}
             </select>
           </div>
-          <div className={styles.select}>
+          <div>
             Theme
             <select
               value={theme}
