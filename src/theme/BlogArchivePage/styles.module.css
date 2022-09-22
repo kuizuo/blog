@@ -8,7 +8,7 @@
 .archive {
   max-width: 860px;
   margin: 0 auto;
-  padding: 1rem 2.5rem 1rem;
+  padding: 1rem 2.5rem;
 
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
   margin-bottom: 1rem;
@@ -63,7 +63,7 @@
   width: 2px;
   top: 0;
   height: 100%;
-  background: rgba(0, 120, 231, 0.3);
+  background: rgb(0 120 231 / 30%);
 }
 
 .archiveItem a {
@@ -82,14 +82,14 @@
 .archiveItem a::before {
   content: '';
   position: absolute;
-  left: 0px;
+  left: 0;
   top: 1.5rem;
   width: 0.5rem;
   height: 0.5rem;
   margin-left: -4px;
   border-radius: 50%;
-  border: 1px solid rgb(0, 120, 231);
-  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(0 120 231);
+  background-color: rgb(255 255 255);
   z-index: 1;
   transition-duration: 0.3s;
   transition-delay: 0s;
@@ -97,7 +97,7 @@
 }
 
 .archiveItem a:hover::before {
-  background: rgb(0, 120, 231);
+  background: rgb(0 120 231);
 }
 
 .archiveTime {

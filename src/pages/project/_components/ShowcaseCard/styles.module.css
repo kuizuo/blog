@@ -2,10 +2,6 @@
   transition: all 0.2s ease-in-out;
 }
 
-.showcaseCard:hover {
-  transform: scale(1.05);
-}
-
 .showcaseCardImage {
   overflow: hidden;
   height: 150px;

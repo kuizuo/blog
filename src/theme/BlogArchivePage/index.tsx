@@ -90,7 +90,7 @@ export default function BlogArchive({archive}: Props) {
               {title}
             </h2>
             <div className={styles.archiveCount}>
-              总共 {archive.blogPosts.length} 篇文章
+              共 {archive.blogPosts.length} 篇文章
             </div>
             {years.length > 0 && <YearsSection years={years} />}
           </div>
