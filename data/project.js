@@ -40,6 +40,14 @@ exports.projects = [
     tags: ['opensource'],
   },
   {
+    title: 'Protocol 模板',
+    description: '一个 协议复现 的模板',
+    preview: 'https://img.kuizuo.cn/protocol-template.png',
+    website: 'https://protocol.vercel.app',
+    source: 'https://github.com/kuizuo/protocol',
+    tags: ['opensource'],
+  },
+  {
     title: 'JS代码混淆与还原',
     description: '基于Babel的AST操作对JavaScript代码混淆与还原的网站',
     preview: 'https://img.kuizuo.cn/js-de-obfuscator.png',

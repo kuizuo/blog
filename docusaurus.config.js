@@ -2,7 +2,7 @@
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
-const announcementBarContent = `<span>新增 <a href='/liveCode'>在线代码</a></span>`
+const announcementBarContent = `<span>新增文章 <a href='/request-protocol-scheme'>模拟请求|协议复现方案</a></span>`
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {

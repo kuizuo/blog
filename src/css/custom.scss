@@ -242,6 +242,11 @@ html[data-theme='dark'] .theme-code-block {
   .markdown-body a:hover::before {
     width: 100%;
   }
+
+  img {
+    display: flex;
+    margin: 0 auto;
+  }
 }
 
 /* 首页背景 */
@@ -471,10 +476,6 @@ html[data-theme='dark'] .post__tags {
     );
     color: white;
     border: none;
-
-    &:hover {
-      color: white;
-    }
 
     .pagination-nav__sublabel {
       color: white;
