@@ -43,7 +43,7 @@ exports.projects = [
     title: 'Protocol 模板',
     description: '一个 协议复现 的模板',
     preview: 'https://img.kuizuo.cn/protocol-template.png',
-    website: 'https://protocol.vercel.app',
+    website: 'https://http-protocol.vercel.app',
     source: 'https://github.com/kuizuo/protocol',
     tags: ['opensource'],
   },
