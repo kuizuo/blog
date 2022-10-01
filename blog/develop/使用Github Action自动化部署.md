@@ -122,7 +122,7 @@ git push 后，稍等片刻再次访问便可得到如下页面
 workflow 要做的就是新建一个 steps，这里选用 [FTP-Deploy-Action](https://github.com/SamKirkland/FTP-Deploy-Action)，以下是我的完整配置内容
 
 ```yml
-name: Build and Deploy
+name: FTP Deploy
 
 on: [push]
 
