@@ -1,28 +1,25 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 
-import {
-  PageMetadata,
-  HtmlClassNameProvider,
-  ThemeClassNames,
-} from '@docusaurus/theme-common';
 import Link from '@docusaurus/Link';
-import Translate from '@docusaurus/Translate';
+import {
+  HtmlClassNameProvider, PageMetadata, ThemeClassNames
+} from '@docusaurus/theme-common';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import BlogListPaginator from '@theme/BlogListPaginator';
-import SearchMetadata from '@theme/SearchMetadata';
-import type {Props} from '@theme/BlogListPage';
 import BackToTopButton from '@theme/BackToTopButton';
+import type { Props } from '@theme/BlogListPage';
+import BlogListPaginator from '@theme/BlogListPaginator';
+import type { Props as BlogPostItemsProps } from '@theme/BlogPostItems';
 import BlogPostItems from '@theme/BlogPostItems';
-import type {Props as BlogPostItemsProps} from '@theme/BlogPostItems';
+import Layout from '@theme/Layout';
+import SearchMetadata from '@theme/SearchMetadata';
 
-import CardFilter from '@site/static/icons/card.svg';
-import ListFilter from '@site/static/icons/list.svg';
-import GridFilter from '@site/static/icons/grid.svg';
-import {useViewType} from './useViewType';
-import Hero from '@site/src/components/Hero';
 import BlogInfo from '@site/src/components/BlogInfo';
+import Hero from '@site/src/components/Hero';
+import CardFilter from '@site/static/icons/card.svg';
+import GridFilter from '@site/static/icons/grid.svg';
+import ListFilter from '@site/static/icons/list.svg';
+import { useViewType } from './useViewType';
 
 function BlogListPageMetadata(props: Props): JSX.Element {
   const {metadata} = props;

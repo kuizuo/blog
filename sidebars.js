@@ -19,6 +19,22 @@ const sidebars = {
       ],
     },
     {
+      label: '代码风格',
+      type: 'category',
+      link: {
+        type: 'doc',
+        id: 'skill/code-specification/code-specification-guides'
+      },
+      items: [
+        'skill/code-specification/eslint',
+        'skill/code-specification/prettier',
+        'skill/code-specification/stylelint',
+        'skill/code-specification/editorconfig',
+        'skill/code-specification/husky',
+        'skill/code-specification/npmrc',
+      ],
+    },
+    {
       label: 'Vue',
       type: 'category',
       link: {

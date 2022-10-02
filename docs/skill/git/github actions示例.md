@@ -171,6 +171,8 @@ publish_dir 为打包后的文件夹.
 
 ## 发布 release / npm 包
 
+[changesets/action (github.com)](https://github.com/changesets/action)
+
 ```yaml title='release.yml'
 name: Release
 

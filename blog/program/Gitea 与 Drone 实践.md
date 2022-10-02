@@ -98,11 +98,13 @@ gitea 也提供镜像仓库的方案，官方文档[Repository Mirror](https://d
 
 由于 Gitea 并没有内置 CI/CD（持续集成/持续部署） 的解决方案，所以需要配置第三方的，这里推荐使用 Drone CI。
 
+Drone 是面向繁忙开发团队的自助服务持续集成平台。相对于常见的Jenkins，选中 Drone 的原因在于它非常简洁，不像 Jenkins 那样复杂，同时它拥有可以满足基本需求的能力，并且提供了许多实用的[插件](https://plugins.drone.io/)，如GitHub，Email，微信，钉钉等
+
 ### 安装 
 
 由于我们使用了 gitea，所以 drone 中选择 gitea 来安装，这是官方文档 [Gitea | Drone](https://docs.drone.io/server/provider/gitea/ 'Gitea | Drone')，照着操作即可。
 
-需要安装 Server 和 Runner，一个是 Drone 的服务，另一个用于检测 GIt 记录，以重新构建项目。
+需要安装 Server 和 Runner，一个是 Drone 的服务，另一个用于检测 Git 记录，以重新构建项目。
 
 这里贴下 drone 的 docker 配置（根据文档和自己部署的 git 服务配置来替换）。
 
@@ -137,6 +139,12 @@ docker run --detach \
   drone/drone-runner-docker:1
 ```
 
+查看连接情况
+
+```bash
+docker logs runner
+```
+
 执行完毕后，然后访问线上的 drone 服务，点击 CONTINUE 将会跳转到你的 Git 授权页面
 
 ![](https://img.kuizuo.cn/image_rUdNHPlB73.png)
@@ -144,6 +152,8 @@ docker run --detach \
 点击应用授权，再次回到 drone，此时页面 Dashboard 列出了 gitea 的所有仓库（如果没有的话，可以点击右上角的 SYNC 来同步）。
 
 ![](https://img.kuizuo.cn/image_TXWZgDOhrQ.png)
+
+
 
 ## 实战
 

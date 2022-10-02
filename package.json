@@ -13,7 +13,7 @@
     "serve": "docusaurus serve",
     "lint": "yarn lint:js && yarn lint:style",
     "lint:js": "eslint --fix --report-unused-disable-directives \"**/*.{js,jsx,ts,tsx,mjs}\"",
-    "lint:style": "stylelint \"**/*.css\"",
+    "lint:style": "stylelint \"**/*.scss\"",
     "lint:fix": "eslint src --fix",
     "prettier:fix": "npx prettier src --check --write",
     "format": "npm run prettier:fix && npm run lint:fix",
@@ -75,7 +75,9 @@
     "prettier": "^2.7.1",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-standard": "^26.0.0",
+    "stylelint-config-standard-scss": "^5.0.0",
     "typescript": "^4.7.4"
   }
 }

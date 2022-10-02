@@ -26,6 +26,8 @@ description: 使用 pnpm monorepo 实践
 
 有篇文章推荐阅读 [5 分钟搞懂 Monorepo - 简书 (jianshu.com)](https://www.jianshu.com/p/c10d0b8c5581)
 
+这里还有份手册可供阅读 [What is a Monorepo? | Turborepo](https://turborepo.org/docs/handbook/what-is-a-monorepo)
+
 ## 上手实践
 
 你可以 clone [https://github.com/kuizuo/monorepo-demo](https://github.com/kuizuo/monorepo-demo) 来查看本文示例代码仓库
