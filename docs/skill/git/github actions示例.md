@@ -169,6 +169,62 @@ jobs:
 
 publish_dir 为打包后的文件夹.
 
+## ssh 部署
+
+[ssh deploy · Actions · GitHub Marketplace](https://github.com/marketplace/actions/ssh-deploy)
+
+```yaml
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - name: Build Project
+        run: |
+          yarn install
+          yarn run build
+
+      - name: SSH Deploy
+        uses: easingthemes/ssh-deploy@v2.2.11
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          ARGS: '-avzr --delete'
+          SOURCE: 'build'
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: 'root'
+          TARGET: '/www/wwwroot/blog'
+```
+
+SSH_PRIVATE_KEY 是 SSH 密钥，可通过 `ssh-keygen` （生成位置/root/.ssh）或通过服务器管理面板的来生成密钥。后者的话需要绑定服务器实例，并且需要关机，我个人推荐使用后者。
+
+## ftp 文件传输
+
+```yaml
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.ftp_server }}
+          username: ${{ secrets.ftp_user }}
+          password: ${{ secrets.ftp_pwd }}
+          local-dir: ./build/
+          server-dir: ./
+```
+
 ## 发布 release / npm 包
 
 [changesets/action (github.com)](https://github.com/changesets/action)

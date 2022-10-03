@@ -33,8 +33,6 @@ AI 写代码，用过都说好。
 
 官网地址 [GitHub Copilot · Your AI pair programmer](https://copilot.github.com/)
 
-不过目前处于测试阶段，需要申请（挺快的），个人体验下十分友好，但 AI 毕竟是 AI，所提供的代码提示也仅供参考，还需根据实际情况使用。
-
 ### Bracket Pair Colorizer 2
 
 ![image-20210817213845020](https://img.kuizuo.cn/image-20210817213845020.png)
@@ -56,6 +54,10 @@ AI 写代码，用过都说好。
 我在用了 vscode 半年后才知道有这么好用的格式化插件，之前用的是 Beautify 但是格式化的效果，并不是我满意的，并且同样的有些文件并未能格式化。如果还在用 Beautify，果然换 Prettier 准没错。
 
 如果是 Vue2 用户的话，Vetur 是必装一个插件，不仅能格式化代码，还能提供相对于的提示，如果转型为 Vue3 的话，同样也有插件 Volar 可供选择。
+
+### ESLint
+
+前端工程化代码规范必备，无需多言。
 
 ### Turbo Console Log
 
@@ -98,6 +100,12 @@ AI 写代码，用过都说好。
 
 :::
 
+### Thunder Client
+
+![image-20221003223247386](https://img.kuizuo.cn/image-20221003223247386.png)
+
+要想在 Vscode 拥有 Postman 或者 ApiPost 的接口调试工具，不妨使用这个插件，支持分类，环境变量，如果仅作为个人测试，不要求接口分享，这个插件就足以满足大部分日常 api 接口调试。
+
 ### CSS Peek
 
 快速查看 CSS 定位的地方，使用也方便，直接按住 Ctrl 对准要查看的样式的类名，然后在补一个鼠标左键即可定位。按住 Ctrl 同样适用于其他定位，如函数，变量等等。。。
@@ -116,7 +124,7 @@ AI 写代码，用过都说好。
 
 一些 Ctrl + C 和 Ctrl + V 等就不做过多解释了，主要说一些有可能不知道，并且还在通过鼠标还完成的一些操作。
 
-- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> 代码格式化（可以说是用的最多的一个了）
+- <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> 代码格式化
 - <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd> 在资源管理器中显示 （右键点文件在选择老累了）
 - <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>A</kbd> 多行注释
 - <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>向下箭头</kbd> 复制当前行到下一行
@@ -125,32 +133,32 @@ AI 写代码，用过都说好。
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> 获取将当前所选内容的所有匹配项 方便快捷删改（上一操作的升级版）
 - <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>向下箭头</kbd> 批量复制光标（向下也同理）
 - <kbd>Ctrl</kbd>+<kbd>~</kbd> 打开终端
-- <kbd>Ctrl</kbd>+<kbd>W</kbd> 关闭当前界面编辑器（浏览器关于当前页面同样适用）
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>[</kbd> 代码折叠
 - <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>]</kbd> 代码展开
 - <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>0</kbd> 全部折叠
 - <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>J</kbd> 展开全部
 
-以上基本就是我常用的快捷键了，可以说些快捷键，确实提升了我编写代码的效率。
+- <kbd>Ctrl</kbd>+<kbd>Backspace</kbd> 删除前一个单词（特别有用）
 
-一些冷门究极好用的(真的很冷门,有很好用,相见恨晚)
+- <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>右箭头</kbd> 快捷将当前文件移动到右边单独标签组 （不用在鼠标点击分页按钮）
 
-<kbd>Ctrl</kbd>+<kbd>Backspace</kbd> 删除前一个单词（特别有用）
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>右箭头</kbd> 可以逐个选择文本,方便
 
-<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> 打开刚刚关闭的页面（手残必备）
+- 如果可以 使用 Ctrl + Shift + K 删除一行 而不是通过 Ctrl +X 剪贴一行
 
-<kbd>Ctrl</kbd>+<kbd>T</kbd> 通过匹配文本,来打开文本 （如果已知什么文件有对应文本,直接用这个快捷键定位贼快）
+以下功能，能用快捷键就别用鼠标了
 
-<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>右箭头</kbd> 快捷将当前文件移动到右边单独标签组 （不用在鼠标点击分页按钮）
+- **<kbd>Ctrl</kbd>+<kbd>E</kbd>/<kbd>P</kbd> 跳转到近期文件(再次按下即可切换下一个文件,加 <kbd>Shift</kbd>则是上一个文件)**
+- **<kbd>Ctrl</kbd>+<kbd>Tab</kbd> 切换Tab （类比于 window <kbd>Alt</kbd>+<kbd>Tab</kbd>）在已显示的 Tab 切换比上面好用一些**
+- <kbd>Ctrl</kbd>+<kbd>G</kbd> 跳转到某行(别再滚动鼠标了)
+- <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd> 跳转(列举)当前文件某个函数
+- **<kbd>Ctrl</kbd>+<kbd>T</kbd> 全局搜索某个函数(markdown则是标题)**
+- <kbd>Ctrl</kbd>+<kbd>N</kbd> 创建一个临时文件(别再鼠标双击tab栏了)
+- <kbd>**Ctrl</kbd>+<kbd>W</kbd> 关闭当前Tab页面（浏览器适用，别加Shift，别再鼠标点击关闭按钮了）**
+- **<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> 打开刚刚关闭的页面（手残必备,浏览器适用）**
+- <kbd>Ctrl</kbd>+<kbd>B</kbd> 切换左侧导航栏
 
-<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>右箭头</kbd> 可以逐个选择文本,方便
-
-如果可以 使用 Ctrl + Shift + K 删除一行 而不是通过 Ctrl +X 剪贴一行
-
-- <kbd>Ctrl</kbd>+<kbd>P</kbd> 跳转指定文件内（特别有用）
-- <kbd>Ctrl</kbd>+<kbd>G</kbd> 跳转指定行号（特别有用）
-
-**<kbd>Ctrl</kbd>+<kbd>Tab</kbd> 切换编辑器 （类比于 window <kbd>Alt</kbd>+<kbd>Tab</kbd>）**
+以上基本就是我常用的快捷键了，可以说些快捷键，确实提升了我编写代码的效率。这里强烈建议马上打开Vscode，在不借用鼠标的情况下，使用以上快捷键。会有意想不到的使用体验！
 
 ### 自定义快捷键
 
