@@ -19,7 +19,7 @@ const sidebars = {
       ],
     },
     {
-      label: '代码风格',
+      label: '代码规范',
       type: 'category',
       link: {
         type: 'doc',

@@ -154,6 +154,12 @@ node packages/components
 
 此外更多的可能会在根目录下创建 script 脚本，然后编写（编译，发布）脚本。
 
+## Turborepo
+
+在上面只是介绍了使用 pnpm workspace 来搭建一个 monorepo 的仓库，但很多时候还需要搭配适当的工具来扩展 monorepo， Turborepo 就是其中之一，利用先进的构建技术和思想来加速开发，构建了无需配置复杂的工作。
+
+这里就不做介绍，这篇 [🚀Turborepo：发布当月就激增 3.8k Star，这款超神的新兴 Monorepo 方案，你不打算尝试下吗？ - 掘金 (juejin.cn)](https://juejin.cn/post/7129267782515949575) 就非常值得推荐阅读。
+
 ## 总结
 
 搭建一个 monorepo 的仓库其实挺简单的，但也并不是什么项目使用 monorepo 就好，想想看，所有项目和依赖都堆积在一起，那么项目启动速度必然不如单项目启动来的快。就比如一个博客项目，就完全不至于将博客细分为文章/评论/搜索等等划分，还不如统一将代码都直接写到 src 目录下。
@@ -167,3 +173,5 @@ node packages/components
 [前端工程化：如何使用 monorepo 进行多项目的高效管理](https://juejin.cn/post/7043990636751503390)
 
 [pnpm workspace](https://pnpm.io/zh/workspaces)
+
+[🚀Turborepo：发布当月就激增 3.8k Star，这款超神的新兴 Monorepo 方案，你不打算尝试下吗？ - 掘金 (juejin.cn)](https://juejin.cn/post/7129267782515949575)

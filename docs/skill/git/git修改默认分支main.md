@@ -35,3 +35,12 @@ git branch -M main
 ## 要求
 
 Git 版本为 **v2.28** 或更高 查看版本 `git --version`
+
+## 其他
+
+#### 禁止忽略大小写
+
+```
+git config core.ignorecase false
+```
+
