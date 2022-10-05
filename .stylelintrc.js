@@ -15,6 +15,7 @@ module.exports = {
     'custom-property-empty-line-before': null,
     'selector-id-pattern': null,
     'declaration-empty-line-before': null,
+    'no-descending-specificity': null,
     'comment-empty-line-before': null,
     'value-keyword-case': ['lower', {camelCaseSvgKeywords: true}],
   },

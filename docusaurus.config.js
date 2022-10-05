@@ -1,4 +1,3 @@
-// @ts-check
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
@@ -45,19 +44,17 @@ const config = {
       },
       items: [
         {
-          label: '标签',
-          to: 'tags',
-          position: 'right',
-        },
-        {
-          label: '归档',
-          to: 'archive',
-          position: 'right',
-        },
-        {
           label: '学习',
           position: 'right',
           items: [
+            {
+              label: '标签',
+              to: 'tags',
+            },
+            {
+              label: '归档',
+              to: 'archive',
+            },
             {
               label: '技术笔记',
               to: 'docs/skill/',
@@ -120,6 +117,14 @@ const config = {
         {
           title: '学习',
           items: [
+            {
+              label: '标签',
+              to: 'tags',
+            },
+            {
+              label: '归档',
+              to: 'archive',
+            },
             {
               label: '技术笔记',
               to: 'docs/skill',
@@ -251,13 +256,9 @@ const config = {
           changefreq: 'daily',
           priority: 0.5,
         },
-        // googleAnalytics: {
-        //   trackingID: "UA-118572241-1",
-        //   anonymizeIP: true, // Should IPs be anonymized?
-        // },
         gtag: {
           trackingID: "G-S4SD5NXWXF",
-          anonymizeIP: true, // Should IPs be anonymized?
+          anonymizeIP: true,
         },
         // debug: true,
       }),

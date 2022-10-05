@@ -8,17 +8,13 @@
   --ifm-color-primary-lightest: #61cafc;
   --ifm-code-font-size: 95%;
   --ifm-font-family-base: 'Inter', ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Segoe UI', 'Helvetica Neue', 'Noto Sans',
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji', consolas, sfmono-regular, menlo, monaco,
     'Liberation Mono', monospace;
 
   --ifm-font-family-name: consolas;
-  --ifm-heading-font-family: 'Inter', ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji', consolas, sfmono-regular, menlo, monaco,
-    'Liberation Mono', monospace;
+  --ifm-heading-font-family: var(var(--ifm-font-family-base))
   /* --content-font-family: "Raleway", "Kai", "楷体", "Kaiti", serif; */
 
   --ifm-navbar-shadow: 0 4px 28px rgb(0 0 0 / 10%);
@@ -59,8 +55,6 @@
   --site-primary-hue-saturation: 167 68%;
   --site-primary-hue-saturation-light: 167 56%; /* do we really need this extra one? */
 
-  --site-primary-hue-saturation: 167 68%;
-  --site-primary-hue-saturation-light: 167 56%; /* do we really need this extra one? */
   --site-color-favorite-background: #f6fdfd;
   --site-color-tooltip: #fff;
   --site-color-tooltip-background: #353738;
@@ -127,17 +121,8 @@ html[data-theme='dark'] :is(h1, h2, h3, h4, h5, h6) {
   --ifm-heading-color: hsl(214deg 100% 96%);
 }
 
-
-
-.iconfont {
-  font-family: iconfont !important;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 body {
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system,
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji', consolas, sfmono-regular, menlo, monaco,
@@ -196,10 +181,6 @@ html[data-theme='dark'] .theme-code-block {
       color: transparent;
       content: '.';
     }
-
-    > a {
-      display: inline-block;
-    }
   }
 
   > h3 {
@@ -215,8 +196,9 @@ html[data-theme='dark'] .theme-code-block {
     }
   }
 
-  >a {
+  > a {
     transition: all 0.1s;
+    display: inline-block;
 
     &:focus,
     &:hover {
@@ -411,7 +393,6 @@ html[data-theme='dark'] .theme-code-block {
     width: 10.5em;
     height: 10.5em;
     margin-top: 1em;
-    font-family: Raleway;
   }
 
   .post__day {
@@ -742,7 +723,7 @@ div[class^='announcementBar_'] {
 }
 
 .blogPost-container {
-  border-radius: var(--ifm-pagination-nav-border-radius);
+  /* border-radius: var(--ifm-pagination-nav-border-radius); */
   margin-top: 0;
   border-radius: 12px;
   background: var(--blog-item-background-color);

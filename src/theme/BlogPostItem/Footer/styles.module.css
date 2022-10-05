@@ -12,7 +12,7 @@
 
 .blogPostInfoTags {
   display: flex;
-  gap: 5px;
+  gap: 4px;
 }
 
 .blogPostInfoTags > a {
@@ -46,4 +46,8 @@
   border: 0;
   height: var(--ifm-hr-height);
   margin: 0.25rem 0;
+}
+
+html[data-theme='dark'] .divider {
+  background-color: #2f3336;
 }
