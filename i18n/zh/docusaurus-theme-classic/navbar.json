@@ -31,16 +31,16 @@
     "message": "资源导航",
     "description": "Navbar item with label 资源导航"
   },
-  "item.label.JS代码混淆与还原": {
-    "message": "JS代码混淆与还原",
-    "description": "Navbar item with label JS代码混淆与还原"
+  "item.label.JS代码还原": {
+    "message": "JS代码还原",
+    "description": "Navbar item with label JS代码还原"
   },
-  "item.label.CyberChef在线加解密": {
-    "message": "CyberChef在线加解密",
-    "description": "Navbar item with label CyberChef在线加解密"
+  "item.label.CyberChef加密": {
+    "message": "CyberChef加密",
+    "description": "Navbar item with label CyberChef加密"
   },
-  "item.label.愧怍在线工具": {
-    "message": "愧怍在线工具",
-    "description": "Navbar item with label 愧怍在线工具"
+  "item.label.网盘": {
+    "message": "网盘",
+    "description": "Navbar item with label 网盘"
   }
 }

@@ -40,7 +40,7 @@ function Hero() {
     <animated.div className={styles.hero}>
       <div className={styles.bloghome__intro}>
         <animated.div style={animatedTexts[0]} className={styles.hero_text}>
-          Hello! 我是
+          你好! 我是
           <span className={styles.intro__name}>愧怍</span>
         </animated.div>
         <animated.p style={animatedTexts[1]}>
@@ -90,7 +90,12 @@ function Hero() {
         {
           <animated.div style={animatedTexts[2]}>
             <Button isLink href={'./about'}>
-              自我介绍
+              <Translate
+                id="homepage.visitMyBlog.linkLabel"
+                description="The label for the link to my blog">
+                blog
+              </Translate>
+              <Translate>自我介绍</Translate>
             </Button>
           </animated.div>
         }

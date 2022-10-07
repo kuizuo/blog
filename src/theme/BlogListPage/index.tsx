@@ -27,7 +27,7 @@ function BlogListPageMetadata(props: Props): JSX.Element {
     siteConfig: {title: siteTitle},
   } = useDocusaurusContext();
   const {blogDescription, blogTitle, permalink} = metadata;
-  const isBlogOnlyMode = permalink === '/';
+  const isBlogOnlyMode = !permalink.includes('page');
   const title = isBlogOnlyMode ? '' : blogTitle;
 
   return (
@@ -119,7 +119,7 @@ function ViewTypeSwitch({viewType, toggleViewType}: any): JSX.Element {
 function BlogListPageContent(props: Props) {
   const {metadata, items} = props;
 
-  const isBlogOnlyMode = metadata.permalink === '/';
+  const isBlogOnlyMode = !metadata.permalink.includes('page');
   const isPaginated = metadata.page > 1;
 
   const {viewType, toggleViewType} = useViewType();
