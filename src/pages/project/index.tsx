@@ -2,7 +2,7 @@ import React, {useState, useMemo, useEffect} from 'react';
 
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
-
+import Translate, {translate} from '@docusaurus/Translate';
 import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon';
 import ShowcaseTagSelect, {
   readSearchTags,
@@ -26,8 +26,15 @@ import {useHistory, useLocation} from '@docusaurus/router';
 
 import styles from './styles.module.css';
 
-const TITLE = '项目展示';
-const DESCRIPTION = '以下项目均由本人开发，均可自由使用，部分开源。';
+const TITLE = translate({
+  id: 'theme.project.title',
+  message: '项目展示',
+});
+const DESCRIPTION = translate({
+  id: 'theme.project.description',
+  message: '以下项目均由本人开发，均可自由使用，部分开源。',
+});
+
 const GITHUB_URL = 'https://github.com/kuizuo';
 
 type ProjectState = {
@@ -118,7 +125,7 @@ function ShowcaseHeader() {
         href={GITHUB_URL}
         target="_blank"
         rel="noreferrer">
-        前往 Github 克隆项目
+        <Translate id="showcase.header.button">🥰 前往 Github 克隆项目</Translate>
       </a>
     </section>
   );
@@ -235,8 +242,7 @@ function ShowcaseCards() {
                 'margin-bottom--md',
                 styles.showcaseFavoriteHeader,
               )}>
-              <h2>所有项目</h2>
-              <SearchBar />
+              {/* <SearchBar /> */}
             </div>
 
             <ul className={styles.showcaseList}>

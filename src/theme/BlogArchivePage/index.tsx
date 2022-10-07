@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
-import {translate} from '@docusaurus/Translate';
+import Translate, {translate} from '@docusaurus/Translate';
 import {PageMetadata} from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
 import type {ArchiveBlogPost, Props} from '@theme/BlogArchivePage';
@@ -43,7 +43,8 @@ function YearsSection({years}: {years: YearProp[]}) {
           <h3 className={styles.archiveYear}>
             {_props.year}
             <span>
-              <i>{(years[idx] as YearProp).posts.length}</i> 篇
+              <i>{(years[idx] as YearProp).posts.length} </i>
+              <Translate id="theme.blog.archive.posts.unit">篇</Translate>
             </span>
           </h3>
           <Year {..._props} />
@@ -90,7 +91,11 @@ export default function BlogArchive({archive}: Props) {
               {title}
             </h2>
             <div className={styles.archiveCount}>
-              共 {archive.blogPosts.length} 篇文章
+              <Translate
+                id="theme.blog.archive.posts.total"
+                values={{total: archive.blogPosts.length}}>
+                {`共 {total} 篇文章`}
+              </Translate>
             </div>
             {years.length > 0 && <YearsSection years={years} />}
           </div>

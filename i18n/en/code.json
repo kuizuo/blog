@@ -1,23 +1,46 @@
 {
+  "homepage.hero.greet": {
+    "message": "Hello! I'm ",
+    "description": "hero greet"
+  },
+  "homepage.hero.name": {
+    "message": "Kuizuo",
+    "description": "hero name"
+  },
   "homepage.hero.text": {
-    "message": "在这里你能了解到各类实战开发的所遇到的问题，帮助你在学习的过程了解最新的技术栈，并希望我的个人经历对你有所启发。",
+    "message": "Here you can learn about the problems encountered in various practical developments, help you understand the latest technology stacks in the process of learning, and hope that my personal experience will inspire you.",
     "description": "hero text"
   },
-  "hompage.hero.text.blog": {
-    "message": "技术博客",
-    "description": "Blog link label"
+  "homepage.hero.need": {
+    "message": " Maybe you need {note}, {project}, {link}.",
+    "description": "hero need"
+  },
+  "hompage.hero.text.note": {
+    "message": "Note"
   },
   "hompage.hero.text.project": {
-    "message": "实战项目",
-    "description": "Project link label"
+    "message": "Project"
   },
   "hompage.hero.text.link": {
-    "message": "资源导航",
-    "description": "Link link label"
+    "message": "Link"
   },
   "hompage.hero.text.introduce": {
-    "message": "自我介绍",
-    "description": "Link link label"
+    "message": "About Me"
+  },
+  "theme.blog.archive.posts.total": {
+    "message": "Total {total} posts"
+  },
+  "theme.blog.archive.posts.unit": {
+    "message": "posts"
+  },
+  "theme.project.title": {
+    "message": "Project Showcase"
+  },
+  "theme.project.description": {
+    "message": "The following projects are developed by me, freely, partially open source."
+  },
+  "showcase.header.button": {
+    "message": "🥰 Go to Github to clone"
   },
   "playground.codesandbox.description": {
     "message": "CodeSandbox is a popular playground solution. Runs Docusaurus in a remote Docker container."
