@@ -19,7 +19,7 @@ keywords: [随笔, github]
 
 介绍完故事背景后，就要开始认证了。
 
-能看到这篇的估计也是想要学生认证的，这里就把我失败所总结的给列举出来。
+能看到这篇的估计也是想要学生认证的，这里就将我的认证过程总结出来。
 
 ### 1、不要科学上网
 
@@ -71,7 +71,27 @@ keywords: [随笔, github]
 
 ## 我的认证过程
 
-我最终认证时提交的信息就是使用**学信网的在线证明英文翻译**，然后按照以上的步骤。在最终 Github 在今早发送邮箱告知我认证成功了！
+按照以上的步骤，我将演示一遍我的认证过程。
+
+1、登录 [github education](https://education.github.com/benefits) ，选择学生那个按钮。
+
+![image-20221010134753749](https://img.kuizuo.cn/image-20221010134753749.png)
+
+2、首次表单填写邮箱，学校，以及使用Github的目的。**表单所提交内容全都要使用英文**
+
+![image-20221010134942952](https://img.kuizuo.cn/image-20221010134942952.png)
+
+3、再次填写一个表单，首先是照片证明，也就是学生认证资料。这里是使用的是**学信网的在线证明英文翻译**，Proof Type 选择 Other (Example: Screenshot of school portal)，备注内容填写证明来源，例如：**这份证明来自中国高等教育学生信息网（学信网），以下是在线证明地址。。。**
+
+![image-20221010135500357](https://img.kuizuo.cn/image-20221010135500357.png)
+
+其次第二个表单，根据你的学校信息填写即可。**切记到这一步的时候请不要使用科学上课，最好使用学校的网络来提交。**
+
+![image-20221010135949606](https://img.kuizuo.cn/image-20221010135949606.png)
+
+4、点击Process my application 提交，等待结果即可。
+
+最终 Github 在今早发送邮箱告知我认证成功了！
 
 ![](https://img.kuizuo.cn/github_eduction_success.jpg)
 
@@ -83,7 +103,7 @@ keywords: [随笔, github]
 
 ![](https://img.kuizuo.cn/github_eduction_eamil.jpg)
 
-Unfortunately 这个单词我都已经熟能生巧了。最终也不负众望，在收到 github 通知的时候的，我就立马编写了这篇文章，记录了自己 github 学生认证的过程。
+最终也不负众望，在收到 github 通知的时候的，我就立马编写了这篇文章，记录了自己 github 学生认证的过程。
 
 如果你有幸看到这篇文章，并想要认证 github 学生资格，希望这篇文章有帮到你。
 
