@@ -63,7 +63,7 @@ function Hero() {
                 </Link>
               ),
               link: (
-                <Link to="/resources">
+                <Link to="/website">
                   <Translate id="hompage.hero.text.link">网址导航</Translate>
                 </Link>
               ),

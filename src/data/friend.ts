@@ -19,10 +19,10 @@ export const Friends: Friend[] = [
     avatar: require('./avatar/mas0n.png'),
   },
   {
-    title: 'Ninjee',
-    description: '个人主义的前端篮子',
-    website: 'https://ninjee.co',
-    avatar: require('./avatar/ninjee.png'),
+    title: 'Jetzihan',
+    description: '有黑羽快斗必有我',
+    website: 'https://jetzihan.netlify.app/',
+    avatar: require('./avatar/jetzihan.png'),
   },
   {
     title: 'KnIFeR博客站',
@@ -35,12 +35,6 @@ export const Friends: Friend[] = [
     description: '中年老码农,专注于全栈开发与教学',
     website: 'https://pincman.com/',
     avatar: require('./avatar/pincman.png'),
-  },
-  {
-    title: 'Jetzihan',
-    description: '有黑羽快斗必有我',
-    website: 'https://jetzihan.netlify.app/',
-    avatar: require('./avatar/jetzihan.png'),
   },
 ];
 
