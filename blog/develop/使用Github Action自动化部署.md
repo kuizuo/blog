@@ -113,7 +113,7 @@ git push 后，稍等片刻再次访问便可得到如下页面
 
 ![image-20220511125536189](https://img.kuizuo.cn/image-20220511125536189.png)
 
-## 将项目发布到自有服务器上
+## FTP发布到自有服务器上
 
 那么现在在 Github Page 上搭建好了，但还要将编译后的文件还可以通过 FTP 协议添加自己的服务器上，这里我就以我的博客为例。
 
@@ -157,6 +157,49 @@ jobs:
 相信第一个实例中的 workflow 应该已经明白了，其中 ftp_server，ftp_user，ftp_pwd 都是私密信息，所以需要 New repository secret 设置这三个变量。
 
 但由于 build 下存在大量文件夹与文件，所以 FTP 速度上传速度堪忧，最终耗时 17 minutes 38.4 seconds。这里只是作为 FTP 演示。
+
+## SCP发布到自有服务器上
+
+FTP 传输文件着实过慢，所以可以通过 SCP 的方式来传输文件，这里用到了[ssh deploy · Actions](https://github.com/marketplace/actions/ssh-deploy)，以下是示例
+
+```yaml
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - name: Build Project
+        run: |
+          yarn install
+          yarn run build
+
+      - name: SSH Deploy
+        uses: easingthemes/ssh-deploy@v2.2.11
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          ARGS: '-avzr --delete'
+          SOURCE: 'build'
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: 'root'
+          TARGET: '/www/wwwroot/blog'
+```
+
+其中 **PRIVATE_KEY** 为服务器SSH登录的私钥，**REMOTE_HOST** 就是服务器的ip地址。当然，这些参数也都作为私密信息，也是要通过New repository secret来设置的。
 
 ## 总结
 
