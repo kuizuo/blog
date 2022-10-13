@@ -56,7 +56,7 @@ const config = {
               to: 'archive',
             },
             {
-              label: '技术笔记',
+              label: '笔记',
               to: 'docs/skill/',
             },
             {
@@ -78,23 +78,19 @@ const config = {
               to: 'liveCode',
             },
             {
-              label: 'API接口',
+              label: 'API服务',
               to: 'https://api.kuizuo.cn',
             },
             {
-              label: 'JS代码混淆与还原',
+              label: 'JS代码还原',
               to: 'https://js-de-obfuscator.vercel.app',
             },
             {
-              label: 'CyberChef在线加解密',
+              label: 'CyberChef加密',
               to: 'https://cipher.kuizuo.cn',
             },
             {
-              label: '愧怍在线工具',
-              to: 'https://tools.kuizuo.cn',
-            },
-            {
-              label: '愧怍网盘',
+              label: '网盘',
               to: 'https://pan.kuizuo.cn',
             },
           ],
@@ -108,6 +104,10 @@ const config = {
           label: '项目',
           position: 'right',
           to: 'project',
+        },
+         {
+          type: 'localeDropdown',
+          position: 'right',
         },
       ],
     },
@@ -177,7 +177,7 @@ const config = {
         ],
         },
       ],
-      copyright: `<p><a href="http://beian.miit.gov.cn/" >${beian}</a></p><p>Copyright © 2020 – ${new Date().getFullYear()} 愧怍 Built with Docusaurus.</p>`,
+      copyright: `<p><a href="http://beian.miit.gov.cn/" >${beian}</a></p><p>Copyright © 2020 - PRESENT 愧怍 Built with Docusaurus.</p>`,
     },
     prism: {
       theme: require('prism-react-renderer/themes/vsLight'),
@@ -278,7 +278,6 @@ const config = {
         editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
           `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
         editLocalizedFiles: false,
-        blogSidebarTitle: '近期文章',
         blogSidebarCount: 10,
         postsPerPage: 10,
         showReadingTime: true,
@@ -324,7 +323,12 @@ const config = {
   stylesheets: [],
   i18n: {
     defaultLocale: 'zh',
-    locales: ['zh'],
+    locales: ['en', 'zh'],
+    localeConfigs: {
+      en: {
+        htmlLang: 'en-GB',
+      },
+    },
   },
 }
 

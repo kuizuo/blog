@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {useTrail, animated} from 'react-spring';
-import Translate, {translate} from '@docusaurus/Translate';
+import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Link from '@docusaurus/Link';
 
@@ -21,7 +21,6 @@ import styles from './styles.module.css';
 
 function Hero() {
   const {
-    // 当前语言
     i18n: {currentLocale},
   } = useDocusaurusContext();
 
@@ -40,57 +39,43 @@ function Hero() {
     <animated.div className={styles.hero}>
       <div className={styles.bloghome__intro}>
         <animated.div style={animatedTexts[0]} className={styles.hero_text}>
-          Hello! 我是
-          <span className={styles.intro__name}>愧怍</span>
+          <Translate id="homepage.hero.greet">你好! 我是</Translate>
+          <span className={styles.intro__name}>
+            <Translate id="homepage.hero.name">愧怍</Translate>
+          </span>
         </animated.div>
         <animated.p style={animatedTexts[1]}>
+          <Translate id="homepage.hero.text">
+            {`在这里你能了解到各类实战开发的所遇到的问题，帮助你在学习的过程了解最新的技术栈，并希望我的个人经历对你有所启发。`}
+          </Translate>
+          <br />
           <Translate
-            id="homepage.hero.text"
-            description="hero text"
+            id="homepage.hero.need"
             values={{
-              blogs: (
-                <Link to="#homepage_blogs">
-                  <Translate
-                    id="hompage.hero.text.blog"
-                    description="Blog link label">
-                    技术博客
-                  </Translate>
+              note: (
+                <Link to="/docs/skill">
+                  <Translate id="hompage.hero.text.note">技术笔记</Translate>
                 </Link>
               ),
               project: (
                 <Link to="/project">
-                  <Translate
-                    id="hompage.hero.text.project"
-                    description="Project link label">
-                    实战项目
-                  </Translate>
+                  <Translate id="hompage.hero.text.project">实战项目</Translate>
                 </Link>
               ),
-              links: (
+              link: (
                 <Link to="/resources">
-                  <Translate
-                    id="hompage.hero.text.link"
-                    description="Link link label">
-                    资源导航
-                  </Translate>
+                  <Translate id="hompage.hero.text.link">网址导航</Translate>
                 </Link>
               ),
             }}>
-            {`在这里你能了解到各类实战开发的所遇到的问题，帮助你在学习的过程了解最新的技术栈，并希望我的个人经历对你有所启发。`}
+            {`也许你需要{note}、{project}、{links}。`}
           </Translate>
         </animated.p>
-        {/* {currentLocale === 'zh-CN' && (
-          <animated.p style={animatedTexts[3]}>
-            <Translate id='homepage.qqgroup1' description='qq group1'>
-              QQ 群：5478458
-            </Translate>
-          </animated.p>
-        )} */}
         <SocialLinks animatedProps={animatedTexts[4]} />
         {
           <animated.div style={animatedTexts[2]}>
             <Button isLink href={'./about'}>
-              自我介绍
+              <Translate id="hompage.hero.text.introduce">自我介绍</Translate>
             </Button>
           </animated.div>
         }
