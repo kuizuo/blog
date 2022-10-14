@@ -1,3 +1,4 @@
+import React from 'react';
 import useGlobalData from '@docusaurus/useGlobalData';
 import type {
   BlogTag,
@@ -76,7 +77,7 @@ export function BlogUser({
       </div>
       <div className="bloginfo__description">{tagline}</div>
       <div className="bloginfo__num">
-        <Link className="bloginfo__num-item" href="/archive" data-tips="博客数">
+        <Link className="bloginfo__num-item" href="/archive" data-tips="blog count">
           <FontAwesomeIcon
             icon={faArchive as IconProp}
             width="16"
@@ -84,7 +85,7 @@ export function BlogUser({
           />{' '}
           {count.blog}
         </Link>
-        <Link className="bloginfo__num-item" href="/tags" data-tips="标签数">
+        <Link className="bloginfo__num-item" href="/tags" data-tips="tag count">
           <FontAwesomeIcon
             icon={faTag as IconProp}
             width="16"
@@ -100,7 +101,7 @@ export function BlogUser({
           <FontAwesomeIcon icon={faBook as IconProp} width="16" height="16" />{' '}
           {count.doc}
         </Link>
-        <Link className="bloginfo__num-item" href="/project" data-tips="项目数">
+        <Link className="bloginfo__num-item" href="/project" data-tips="project count">
           <FontAwesomeIcon
             icon={faThLarge as IconProp}
             width="16"

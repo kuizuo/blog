@@ -27,9 +27,9 @@
     "message": "技术笔记",
     "description": "Navbar item with label 技术笔记"
   },
-  "item.label.资源导航": {
-    "message": "资源导航",
-    "description": "Navbar item with label 资源导航"
+  "item.label.网址导航": {
+    "message": "网址导航",
+    "description": "Navbar item with label 网址导航"
   },
   "item.label.JS代码还原": {
     "message": "JS代码还原",

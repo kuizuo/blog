@@ -68,7 +68,7 @@ function Hero() {
                 </Link>
               ),
             }}>
-            {`也许你需要{note}、{project}、{links}。`}
+            {`也许你需要{note}、{project}、{link}。`}
           </Translate>
         </animated.p>
         <SocialLinks animatedProps={animatedTexts[4]} />
