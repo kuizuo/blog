@@ -327,7 +327,6 @@ const sidebars = {
     'tools/vscode-config',
     'tools/idea-config',
     'tools/vite-plugin',
-    'tools/wappalyzer-recognize-technology',
     'tools/jetbrains-product-activation-method',
   ]
 }
