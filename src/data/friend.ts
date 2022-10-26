@@ -42,6 +42,12 @@ export const Friends: Friend[] = [
     website: 'https://zswei.xyz/',
     avatar: require('./avatar/old_monster.png'),
   },
+  {
+    title: 'Meoo',
+    description: '一杯茶，一根网线，一台电脑',
+    website: 'https://meoo.space/',
+    avatar: require('./avatar/meoo.png'),
+  },
 ];
 
 export function sortFriend() {
