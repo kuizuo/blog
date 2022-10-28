@@ -89,11 +89,10 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Hoppscotch',
         desc: '开源 API 开发生态系统',
-        logo: 'https://hoppscotch/favicon.ico',
+        logo: '/img/wevsite/hoppscotch.png',
         href: 'https://hoppscotch.io/',
         tags: ['api'],
       },
-
     ],
   },
   {
@@ -142,7 +141,7 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['工具', '格式转换'],
       },
       {
-        name: ' JsonT.run',
+        name: 'JsonT.run',
         desc: '一个简洁的在线 JSON 解析器',
         logo: 'https://www.jsont.run/favicon.ico',
         href: 'https://www.jsont.run/',
@@ -172,6 +171,13 @@ export const websiteData: WebsiteCategory[] = [
         desc: '更快地交付安全代码，部署到任何云，并推动业务成果',
         logo: 'https://gitlab.com/uploads/-/system/group/avatar/6543/logo-extra-whitespace.png?width=64',
         href: 'https://gitlab.com/',
+        tags: ['代码托管', '项目源码'],
+      },
+      {
+        name: 'Gitea',
+        desc: 'Gitea 是一个开源社区驱动的轻量级代码托管解决方案，后端采用 Go 编写，采用 MIT 许可证.',
+        logo: 'https://gitea.io/images/favicon.png',
+        href: 'https://gitea.io/',
         tags: ['代码托管', '项目源码'],
       },
       {

@@ -14,6 +14,7 @@ import QqIcon from '@site/static/icons/qq.svg';
 import WxIcon from '@site/static/icons/wx.svg';
 import CsdnIcon from '@site/static/icons/csdn.svg';
 import CloudMusicIcon from '@site/static/icons/cloud-music.svg';
+import ZhihuIcon from '@site/static/icons/zhihu.svg';
 import TwitterIcon from '@site/static/icons/twitter.svg';
 import Button from '../Button';
 
@@ -68,7 +69,7 @@ function Hero() {
                 </Link>
               ),
             }}>
-            {`也许你需要{note}、{project}、{link}。`}
+            {`或许你需要{note}、{project}、{link}。`}
           </Translate>
         </animated.p>
         <SocialLinks animatedProps={animatedTexts[4]} />
@@ -96,6 +97,7 @@ export function SocialLinks({animatedProps, ...props}) {
     qq: string;
     wx: string;
     cloudmusic: string;
+    zhihu: string
   };
 
   return (
@@ -121,9 +123,13 @@ export function SocialLinks({animatedProps, ...props}) {
       <a href={socials.twitter} target="_blank">
         <TwitterIcon />
       </a>
-      <a href={socials.cloudmusic} target="_blank">
-        <CloudMusicIcon />
+      <a href={socials.zhihu} target="_blank">
+        <ZhihuIcon />
       </a>
+      {/* <a href={socials.cloudmusic} target="_blank">
+        <CloudMusicIcon />
+      </a> */}
+
     </animated.div>
   );
 }
