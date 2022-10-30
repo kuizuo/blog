@@ -24,6 +24,14 @@ exports.projects = [
     tags: ['opensource', 'favorite', 'product'],
   },
   {
+    title: 'Protocol',
+    description: '🧪 一个用于快速复现请求协议的 Web 开发模板。',
+    preview: 'https://img.kuizuo.cn/protocol-template.png',
+    website: 'https://protocol.kuizuo..cn',
+    source: 'https://github.com/kuizuo/protocol',
+    tags: ['opensource', 'favorite'],
+  },
+  {
     title: '前端示例代码库',
     description: '整理前端样式和功能的实现代码，可以用来寻找灵感或直接使用示例中的代码',
     preview: 'https://img.kuizuo.cn/example-website.png',
@@ -37,14 +45,6 @@ exports.projects = [
     preview: 'https://img.kuizuo.cn/vitesse-nuxt3-strapi.png',
     website: 'https://vitesse-nuxt3-strapi.vercel.app',
     source: 'https://github.com/kuizuo/vitesse-nuxt3-strapi',
-    tags: ['opensource'],
-  },
-  {
-    title: 'Protocol 模板',
-    description: '一个 协议复现 的模板',
-    preview: 'https://img.kuizuo.cn/protocol-template.png',
-    website: 'https://http-protocol.vercel.app',
-    source: 'https://github.com/kuizuo/protocol',
     tags: ['opensource'],
   },
   {
@@ -62,13 +62,5 @@ exports.projects = [
     website: 'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
     source: 'https://github.com/kuizuo/vscode-extension',
     tags: ['opensource', 'javascript'],
-  },
-  {
-    title: '愧怍在线工具',
-    description: '基于React与MUI组件库编写的在线工具网站',
-    preview: 'https://img.kuizuo.cn/tools.png',
-    website: 'http://tools.kuizuo.cn',
-    source: 'https://github.com/kuizuo/online-tools',
-    tags: ['opensource', 'javascript'],
-  },
+  }
 ]
