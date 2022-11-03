@@ -1,4 +1,4 @@
-import {projects} from '@site/data/project';
+import { projects as _projects } from '@site/data/project';
 
 export type Tag = {
   label: string;
@@ -11,7 +11,14 @@ export type TagType =
   | 'opensource'
   | 'product'
   | 'design'
-  | 'javascript';
+  | 'javascript'
+  | 'personal';
+
+export type ProjectType =
+  | 'personal'
+  | 'web'
+  | 'app'
+  | 'other';
 
 export type Project = {
   title: string;
@@ -20,6 +27,7 @@ export type Project = {
   website: string;
   source?: string | null;
   tags: TagType[];
+  type: ProjectType
 };
 
 export const Tags: Record<TagType, Tag> = {
@@ -48,18 +56,23 @@ export const Tags: Record<TagType, Tag> = {
     description: 'JavaScript 项目',
     color: '#dfd545',
   },
+  personal: {
+    label: '个人',
+    description: '个人项目',
+    color: '#12affa',
+  },
 };
 
-const Projects: Project[] = projects as Project[];
-
 export const TagList = Object.keys(Tags) as TagType[];
-function sortProject() {
-  const result = Projects;
-  // Sort by site name
-  // result = sortBy(result, (user) => user.title.toLowerCase());
-  // Sort by favorite tag, favorites first
-  // result = sortBy(result, (user) => !user.tags.includes('javascript'));
-  return result;
-}
 
-export const sortedProjects = sortProject();
+export const projects: Project[] = _projects as Project[]
+
+export const groupByProjects = projects.reduce((group, project) => {
+  const { type } = project;
+  group[type] = group[type] ?? [];
+  group[type].push(project);
+  return group;
+},
+  {} as Record<ProjectType, Project[]>
+)
+

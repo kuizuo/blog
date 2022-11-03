@@ -6,6 +6,7 @@ exports.projects = [
     website: 'https://kuizuo.cn',
     source: 'https://github.com/kuizuo/blog',
     tags: ['opensource', 'design', 'favorite'],
+    type: 'web',
   },
   {
     title: 'kz-admin',
@@ -14,6 +15,7 @@ exports.projects = [
     website: 'https://admin.kuizuo.cn',
     source: 'https://github.com/kuizuo/kz-nest-admin',
     tags: ['opensource', 'favorite', 'product'],
+    type: 'web',
   },
   {
     title: 'KZ-API',
@@ -22,6 +24,7 @@ exports.projects = [
     website: 'https://api.kuizuo.cn',
     source: 'https://github.com/kuizuo/api-service',
     tags: ['opensource', 'favorite', 'product'],
+    type: 'web',
   },
   {
     title: 'Protocol',
@@ -30,6 +33,7 @@ exports.projects = [
     website: 'https://protocol.kuizuo..cn',
     source: 'https://github.com/kuizuo/protocol',
     tags: ['opensource', 'favorite'],
+    type: 'web',
   },
   {
     title: '前端示例代码库',
@@ -38,6 +42,7 @@ exports.projects = [
     website: 'https://example.kuizuo.cn',
     source: 'https://github.com/kuizuo/example',
     tags: ['opensource', 'design', 'javascript'],
+    type: 'web',
   },
   {
     title: 'Vitesse Nuxt3 Strapi',
@@ -46,6 +51,7 @@ exports.projects = [
     website: 'https://vitesse-nuxt3-strapi.vercel.app',
     source: 'https://github.com/kuizuo/vitesse-nuxt3-strapi',
     tags: ['opensource'],
+    type: 'web',
   },
   {
     title: 'JS代码混淆与还原',
@@ -54,6 +60,7 @@ exports.projects = [
     website: 'https://deobfuscator.vercel.app',
     source: 'https://github.com/kuizuo/js-de-obfuscator',
     tags: ['opensource', 'javascript'],
+    type: 'web',
   },
   {
     title: 'VScode-extension',
@@ -62,5 +69,48 @@ exports.projects = [
     website: 'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
     source: 'https://github.com/kuizuo/vscode-extension',
     tags: ['opensource', 'javascript'],
-  }
+    type: 'web',
+  },
+  // {
+  //   title: 'vscode-settings',
+  //   description: '我的 Vscode 相关配置',
+  //   website: 'https://github/kuizuo/vscode-settings',
+  //   tags: ['opensource', 'personal'],
+  //   type: 'personal'
+  // },
+  {
+    title: '@kuizuo/http',
+    description: '基于 Axios 封装的 HTTP 类库',
+    website: 'https://www.npmjs.com/package/@kuizuo/http',
+    tags: ['opensource', 'personal'],
+    type: 'personal'
+  },
+  {
+    title: '@kuizuo/utils',
+    description: '整理JavaScript / TypeScript的相关工具函数',
+    website: 'https://www.npmjs.com/package/@kuizuo/utils',
+    tags: ['opensource', 'personal'],
+    type: 'personal'
+  },
+  {
+    title: '@kuizuo/eslint-config',
+    description: 'WebSocket远程调用浏览器函数',
+    website: 'https://github.com/kuizuo/eslint-config',
+    tags: ['opensource', 'personal'],
+    type: 'personal'
+  },
+  {
+    title: 'browser-rpc',
+    description: 'WebSocket远程调用浏览器函数',
+    website: 'https://github.com/kuizuo/rpc-browser',
+    tags: ['opensource'],
+    type: 'personal'
+  },
+  // {
+  //   title: 'mini-vue',
+  //   description: '🙃mini vue3 实现',
+  //   website: 'https://github.com/kuizuo/mini-vue',
+  //   tags: ['opensource'],
+  //   type: 'personal'
+  // },
 ]

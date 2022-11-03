@@ -51,24 +51,26 @@ function ShowcaseCardTag({tags}: {tags: TagType[]}) {
   );
 }
 
-const ShowcaseCard = memo(({user}: {user: Project}) => (
-  <li key={user.title} className={clsx('card shadow--md', styles.showcaseCard)}>
-    <div className={clsx('card__image', styles.showcaseCardImage)}>
-      <Image img={user.preview} alt={user.title} />
-    </div>
+const ShowcaseCard = memo(({project}: {project: Project}) => (
+  <li key={project.title} className={clsx('card shadow--md', styles.showcaseCard)}>
+    {project.preview && (
+      <div className={clsx('card__image', styles.showcaseCardImage)}>
+        <Image img={project.preview} alt={project.title} />
+      </div>
+    )}
     <div className="card__body">
       <div className={clsx(styles.showcaseCardHeader)}>
         <h4 className={styles.showcaseCardTitle}>
-          <Link href={user.website} className={styles.showcaseCardLink}>
-            {user.title}
+          <Link href={project.website} className={styles.showcaseCardLink}>
+            {project.title}
           </Link>
         </h4>
-        {user.tags.includes('favorite') && (
+        {project.tags.includes('favorite') && (
           <FavoriteIcon svgClass={styles.svgIconFavorite} size="small" />
         )}
-        {user.source && (
+        {project.source && (
           <Link
-            href={user.source}
+            href={project.source}
             className={clsx(
               'button button--secondary button--sm',
               styles.showcaseCardSrcBtn,
@@ -77,10 +79,10 @@ const ShowcaseCard = memo(({user}: {user: Project}) => (
           </Link>
         )}
       </div>
-      <p className={styles.showcaseCardBody}>{user.description}</p>
+      <p className={styles.showcaseCardBody}>{project.description}</p>
     </div>
     <ul className={clsx('card__footer', styles.cardFooter)}>
-      <ShowcaseCardTag tags={user.tags} />
+      <ShowcaseCardTag tags={project.tags} />
     </ul>
   </li>
 ));

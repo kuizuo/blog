@@ -1,5 +1,13 @@
 .showcaseCard {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s esase-in-out;
+}
+
+.showcaseCard::before {
+  display: block;
+  font-weight: bold;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
 }
 
 .showcaseCardImage {
@@ -22,9 +30,9 @@
 .showcaseCardTitle a {
   text-decoration: none;
   background: linear-gradient(
-      var(--ifm-color-primary),
-      var(--ifm-color-primary)
-    )
+    var(--ifm-color-primary),
+    var(--ifm-color-primary)
+  )
     0% 100% / 0% 1px no-repeat;
   transition: background-size ease-out 200ms;
 }
