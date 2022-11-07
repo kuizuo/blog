@@ -26,7 +26,7 @@ description: 基于 NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin �
 
 ### [项目结构](https://vvbin.cn/doc-next/guide/#%E7%9B%AE%E5%BD%95%E8%AF%B4%E6%98%8E)
 
-```
+```bash
 ├── build # 打包脚本相关
 │   ├── config # 配置文件
 │   ├── generate # 生成器
@@ -82,7 +82,7 @@ description: 基于 NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin �
 
 建议使用 pnpm 包管理器来管理 node 项目，使用`npm install -g pnpm`即可安装。
 
-```sh
+```bash
 pnpm install
 
 pnpm run dev
@@ -90,7 +90,7 @@ pnpm run dev
 
 运行结果
 
-```
+```bash
   vite v2.9.5 dev server running at:
 
   > Network:  https://192.168.184.1:3100/
@@ -111,7 +111,7 @@ pnpm run dev
 
 ### [项目结构](https://blog.si-yee.com/sf-admin-cli/nest/usage.html#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E)
 
-```
+```bash
 |─setup-swagger.ts # Swaager文档配置
 |─main.ts # 主入口
 |─config # 配置文件
@@ -273,41 +273,13 @@ permission 的值如
 
 至此，菜单表的数据被拆分为这 3 部分数据，以实现权限管理，动态路由的目的。
 
-#### 后台 webSocket 服务重启后，导致前端 webSocket 断开
-
-后台 webSocket 服务重启后，会导致 vite 下 dev 模式崩溃，报如下错误
-
-```sh
-Error: read ECONNRESET
-    at TLSWrap.onStreamRead (node:internal/stream_base_commons:220:20)
-Emitted 'error' event on TLSSocket instance at:
-    at emitErrorNT (node:internal/streams/destroy:157:8)
-    at emitErrorCloseNT (node:internal/streams/destroy:122:3)
-    at processTicksAndRejections (node:internal/process/task_queues:83:21) {
-  errno: -4077,
-  code: 'ECONNRESET',
-  syscall: 'read'
-}
-```
-
-其问题是由 vite 开发服务器的反向代理断连导致的。
-
-但目前没有一个很好的解决方案，日常开发中会将 store/modules/user.ts 下的 getUserInfoAction 方法中 websocket 连接的代码给屏蔽了。
-
-```typescript
-const wsStore = useWsStore()
-!wsStore.client && wsStore.initSocket()
-```
-
 #### 其他文档
 
-[apipost 文档](https://console-docs.apipost.cn/preview/33adde8eab3596f4/5667cbce79bf9c98) 密码: kz-admin
+你可以访问 [https://admin.kuizuo.cn/swagger-ui](https://admin.kuizuo.cn/swagger-ui "https://admin.kuizuo.cn/swagger-ui") 来查看kz-admin的Swagger文档
 
-## 致谢
+json格式为 [https://admin.kuizuo.cn/swagger-ui/json](https://admin.kuizuo.cn/swagger-ui/json "https://admin.kuizuo.cn/swagger-ui/json")，用于导入ApiFox中。
 
-- [sf-nest-admin](https://github.com/hackycy/sf-nest-admin)
-- [vite-vue3-admin](https://github.com/buqiyuan/vite-vue3-admin)
-- [vue-vben-admin](https://github.com/vbenjs/vue-vben-admin)
+ApiFox在线链接: [https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25](https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25 "https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25") 访问密码: kz-admin
 
 ## 写后感
 

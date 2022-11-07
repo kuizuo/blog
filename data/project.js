@@ -13,7 +13,7 @@ exports.projects = [
     description: '基于NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin编写的一款前后端分离的权限管理系统',
     preview: 'https://img.kuizuo.cn/kz-admin.png',
     website: 'https://admin.kuizuo.cn',
-    source: 'https://github.com/kuizuo/kz-nest-admin',
+    source: 'https://github.com/kuizuo/kz-admin',
     tags: ['opensource', 'favorite', 'product'],
     type: 'web',
   },
