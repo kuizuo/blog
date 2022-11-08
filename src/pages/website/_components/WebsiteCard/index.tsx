@@ -1,14 +1,16 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 
 import styles from './styles.module.css';
-import {type Website} from '@site/src/data/website';
+import { type Website } from '@site/src/data/website';
+import Tooltip from '../../../project/_components/ShowcaseTooltip';
 
-const WebsiteCard = memo(({website}: {website: Website}) => (
+const WebsiteCard = memo(({ website }: { website: Website }) => (
   <li
     key={website.name}
-    className={clsx(styles.websiteCard, 'padding-vert--sm padding-horiz--md')}>
+    className={clsx(styles.websiteCard, 'padding-vert--sm padding-horiz--md')}
+  >
     <img
       src={
         typeof website.logo === 'string'
@@ -26,12 +28,14 @@ const WebsiteCard = memo(({website}: {website: Website}) => (
           </Link>
         </h4>
       </div>
-      <p
-        className={styles.websiteCardDesc}
-        data-for="website-desc-tip"
-        data-tip={website.desc}>
-        {website.desc}
-      </p>
+      <Tooltip
+        key={website.name}
+        text={website.desc}
+        anchorEl="#__docusaurus"
+        id={`tooltip-${website.name}`}
+      >
+        <p className={styles.websiteCardDesc}>{website.desc}</p>
+      </Tooltip>
     </div>
   </li>
 ));

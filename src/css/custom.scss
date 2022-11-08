@@ -69,9 +69,10 @@ html {
   --divider-color: #ebebeb;
   --post-shadow-color: rgb(220 220 220 / 30%);
   --post-shadow: 0 0 20px 10px var(--post-shadow-color);
-  --content-background-color: #fafafa;
-  --blog-item-background-color: linear-gradient(145deg, #fff, hsl(0deg 0% 95%));
-  --blog-item-shadow: 0 20px 60px #ddd, 0 0 10px 0 hsl(0deg 0% 95%);
+  --content-background-color: #fcfcfc;
+  --blog-item-background-color: linear-gradient(180deg, #fff, #fcfcfc);
+  --blog-item-shadow: 0 20px 20px rgb(0 0 0 / 2.5%), 0 50px 80px rgb(0 0 0 / 9%);
+
   --ifm-heading-color: #000;
 
   -webkit-font-smoothing: unset;
@@ -218,8 +219,9 @@ html[data-theme='dark'] .theme-code-block {
 /* 首页背景 */
 .container-wrapper {
   background: var(--content-background-color);
-  box-shadow: 0 -16px 24px var(--post-shadow-color);
-  box-shadow: var(--blog-item-shadow);
+
+/*   box-shadow: 0 -16px 24px var(--post-shadow-color);
+  box-shadow: var(--blog-item-shadow); */
 }
 
 /* navbar */

@@ -1,6 +1,6 @@
 export type Friend = {
   title: string;
-  description?: string;
+  description: string;
   website: string;
   avatar?: any;
 };

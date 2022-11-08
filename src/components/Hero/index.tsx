@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {useTrail, animated} from 'react-spring';
+import { useTrail, animated } from '@react-spring/web';
 import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Link from '@docusaurus/Link';
@@ -21,31 +21,26 @@ import Button from '../Button';
 import styles from './styles.module.css';
 
 function Hero() {
-  const {
-    i18n: {currentLocale},
-  } = useDocusaurusContext();
-
-  // animation
-  const animatedTexts = useTrail(5, {
-    from: {opacity: 0, transform: 'translateY(3em)'},
-    to: {opacity: 1, transform: 'translateY(0)'},
+  const trails = useTrail(5, {
+    from: { opacity: 0, transform: 'translate3d(0px, 3em, 0px)' },
+    to: { opacity: 1, transform: 'translate3d(0px, 0px, 0px)' },
     config: {
       mass: 3,
-      friction: 45,
       tension: 460,
+      friction: 45,
     },
   });
 
   return (
     <animated.div className={styles.hero}>
       <div className={styles.bloghome__intro}>
-        <animated.div style={animatedTexts[0]} className={styles.hero_text}>
+        <animated.div style={trails[0]} className={styles.hero_text}>
           <Translate id="homepage.hero.greet">你好! 我是</Translate>
           <span className={styles.intro__name}>
             <Translate id="homepage.hero.name">愧怍</Translate>
           </span>
         </animated.div>
-        <animated.p style={animatedTexts[1]}>
+        <animated.p style={trails[1]}>
           <Translate id="homepage.hero.text">
             {`在这里你能了解到各类实战开发的所遇到的问题，帮助你在学习的过程了解最新的技术栈，并希望我的个人经历对你有所启发。`}
           </Translate>
@@ -68,13 +63,14 @@ function Hero() {
                   <Translate id="hompage.hero.text.link">网址导航</Translate>
                 </Link>
               ),
-            }}>
+            }}
+          >
             {`或许你需要{note}、{project}、{link}。`}
           </Translate>
         </animated.p>
-        <SocialLinks animatedProps={animatedTexts[4]} />
+        <SocialLinks animatedProps={trails[4]} />
         {
-          <animated.div style={animatedTexts[2]}>
+          <animated.div style={trails[2]}>
             <Button isLink href={'./about'}>
               <Translate id="hompage.hero.text.introduce">自我介绍</Translate>
             </Button>
@@ -86,9 +82,9 @@ function Hero() {
   );
 }
 
-export function SocialLinks({animatedProps, ...props}) {
-  const {siteConfig} = useDocusaurusContext();
-  const {themeConfig} = siteConfig;
+export function SocialLinks({ animatedProps, ...props }) {
+  const { siteConfig } = useDocusaurusContext();
+  const { themeConfig } = siteConfig;
   const socials = themeConfig.socials as {
     github: string;
     twitter: string;
@@ -97,7 +93,7 @@ export function SocialLinks({animatedProps, ...props}) {
     qq: string;
     wx: string;
     cloudmusic: string;
-    zhihu: string
+    zhihu: string;
   };
 
   return (
@@ -129,7 +125,6 @@ export function SocialLinks({animatedProps, ...props}) {
       {/* <a href={socials.cloudmusic} target="_blank">
         <CloudMusicIcon />
       </a> */}
-
     </animated.div>
   );
 }

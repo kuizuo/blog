@@ -38,6 +38,37 @@ function BlogListPageMetadata(props: Props): JSX.Element {
   );
 }
 
+function ViewTypeSwitch({viewType, toggleViewType}: any): JSX.Element {
+  return (
+    <div className="bloghome__swith-view">
+      <ListFilter
+        onClick={() => toggleViewType('list')}
+        className={
+          viewType === 'list'
+            ? 'bloghome__switch--selected'
+            : 'bloghome__switch'
+        }
+      />
+      <GridFilter
+        onClick={() => toggleViewType('grid')}
+        className={
+          viewType === 'grid'
+            ? 'bloghome__switch--selected'
+            : 'bloghome__switch'
+        }
+      />
+      <CardFilter
+        onClick={() => toggleViewType('card')}
+        className={
+          viewType === 'card'
+            ? 'bloghome__switch--selected'
+            : 'bloghome__switch'
+        }
+      />
+    </div>
+  );
+}
+
 function BlogPostGridItems({items}: BlogPostItemsProps): JSX.Element {
   return (
     <>
@@ -85,37 +116,6 @@ function BlogPostGridItems({items}: BlogPostItemsProps): JSX.Element {
   );
 }
 
-function ViewTypeSwitch({viewType, toggleViewType}: any): JSX.Element {
-  return (
-    <div className="bloghome__swith-view">
-      <ListFilter
-        onClick={() => toggleViewType('list')}
-        className={
-          viewType === 'list'
-            ? 'bloghome__switch--selected'
-            : 'bloghome__switch'
-        }
-      />
-      <GridFilter
-        onClick={() => toggleViewType('grid')}
-        className={
-          viewType === 'grid'
-            ? 'bloghome__switch--selected'
-            : 'bloghome__switch'
-        }
-      />
-      <CardFilter
-        onClick={() => toggleViewType('card')}
-        className={
-          viewType === 'card'
-            ? 'bloghome__switch--selected'
-            : 'bloghome__switch'
-        }
-      />
-    </div>
-  );
-}
-
 function BlogListPageContent(props: Props) {
   const {metadata, items} = props;
 
@@ -146,7 +146,7 @@ function BlogListPageContent(props: Props) {
             </div>
           </div>
           <div className="row">
-            <div className={isCardView ? 'col col--9' : 'col col--12'}>
+            <div className={isCardView ? 'col col--9' : 'col col--12'} style={{transition:"all 0.3s ease"}}>
               <div className="bloghome__posts">
                 {(isListView || isCardView) && (
                   <div className="bloghome__posts-list">

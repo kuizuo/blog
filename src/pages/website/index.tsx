@@ -1,17 +1,16 @@
 import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import {PageMetadata} from '@docusaurus/theme-common';
+import { PageMetadata } from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
 import WebsiteCard from './_components/WebsiteCard';
-import ReactTooltip from 'react-tooltip';
-import {websiteData} from '@site/src/data/website';
+import { websiteData } from '@site/src/data/website';
 import styles from './website.module.css';
 
 function CategoryNav() {
   const sidebar = {
     title: '',
-    items: websiteData.map((w) => ({title: w.name, permalink: `#${w.name}`})),
+    items: websiteData.map((w) => ({ title: w.name, permalink: `#${w.name}` })),
   };
 
   return (
@@ -26,7 +25,8 @@ function CategoryNav() {
               isNavLink
               to={item.permalink}
               className={styles.sidebarItemLink}
-              activeClassName={styles.sidebarItemLinkActive}>
+              activeClassName={styles.sidebarItemLinkActive}
+            >
               {item.title}
             </Link>
           </li>
@@ -47,21 +47,14 @@ function CategoryList() {
               <a
                 className="hash-link"
                 href={`#${cate.name}`}
-                title={cate.name}></a>
+                title={cate.name}
+              ></a>
             </h2>
           </div>
           <section>
             <ul className={styles.websiteList}>
               {cate.websites.map((website) => (
-                <div key={website.name}>
-                  <WebsiteCard website={website} />
-                  <ReactTooltip
-                    id="website-desc-tip"
-                    effect="solid"
-                    place="bottom"
-                    type="info"
-                  />
-                </div>
+                <WebsiteCard key={website.name} website={website} />
               ))}
             </ul>
           </section>
@@ -79,9 +72,9 @@ export default function Websites() {
     <>
       <PageMetadata title={title} description={description} />
       <Layout>
-        <div className='container margin-top--md'>
-          <div className='row'>
-            <aside className='col col--1'>
+        <div className="container margin-top--md">
+          <div className="row">
+            <aside className="col col--1">
               <CategoryNav />
             </aside>
             <main className="col col--11">

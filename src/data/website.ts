@@ -2,7 +2,7 @@ import {Friends} from './friend';
 export interface Website {
   name: string;
   logo: string;
-  desc?: string;
+  desc: string;
   href: string;
   tags?: string[];
 }
@@ -457,7 +457,7 @@ export const websiteData: WebsiteCategory[] = [
         desc: '通过简单的动画基元使您的组件栩栩如生',
         logo: 'https://react-spring.dev/favicon.ico',
         href: 'https://react-spring.dev/',
-        tags: ['前端', 'React', '小程序'],
+        tags: ['前端', 'React', '动画'],
       },
     ],
   },
