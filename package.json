@@ -32,8 +32,6 @@
     "index": "docker run -it --env-file=.env -e \"CONFIG=$(cat docsearch.json | jq -r tostring)\" algolia/docsearch-scraper"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^1.7.2",
-    "@codesandbox/sandpack-themes": "^1.6.0",
     "@docusaurus/core": "^2.0.1",
     "@docusaurus/plugin-debug": "^2.0.1",
     "@docusaurus/plugin-ideal-image": "^2.0.1",

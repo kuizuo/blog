@@ -74,10 +74,6 @@ const config = {
           position: 'right',
           items: [
             {
-              label: '在线代码',
-              to: 'liveCode',
-            },
-            {
               label: 'API服务',
               to: 'https://api.kuizuo.cn',
             },
