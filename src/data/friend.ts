@@ -25,7 +25,7 @@ export const Friends: Friend[] = [
     avatar: require('./avatar/jetzihan.png'),
   },
   {
-    title: 'KnIFeR博客站',
+    title: 'KnIFeR',
     description: 'Web开发学习者，分享编程相关的技术和见闻',
     website: 'http://knifer.fun/',
     avatar: require('./avatar/knifer.png'),
@@ -47,6 +47,12 @@ export const Friends: Friend[] = [
     description: '一杯茶，一根网线，一台电脑',
     website: 'https://meoo.space/',
     avatar: require('./avatar/meoo.png'),
+  },
+  {
+    title: '尚宇',
+    description: '心怀理想，仰望星空，埋头苦干',
+    website: 'https://www.disnox.top/',
+    avatar: require('./avatar/disnox.png'),
   },
 ];
 
