@@ -5,7 +5,6 @@ date: 2021-12-25
 authors: kuizuo
 tags: [javascript, ast, reverse, project]
 keywords: [javascript, ast, reverse, project]
-sticky: true
 ---
 
 基于 Babel 对 JS 代码进行混淆与还原操作的网站 [JS 代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)

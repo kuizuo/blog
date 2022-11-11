@@ -5,7 +5,9 @@ date: 2021-09-18
 authors: kuizuo
 tags: [chrome, plugin, vue, develop]
 keywords: [chrome, plugin, vue, develop]
-# sticky: true
+description: 使用 Vue2 开发一个 Chrome 插件
+image: /img/blog/vue-chrome-extension.png
+sticky: 4
 ---
 
 ![mini](https://img.kuizuo.cn/mini.jpg)

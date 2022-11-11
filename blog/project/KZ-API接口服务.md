@@ -1,11 +1,13 @@
 ---
 slug: use-nuxt3-build-api-server
-title: 基于Nuxt3的API接口服务网站
+title: KZ-API接口服务
 date: 2022-07-20
 authors: kuizuo
 tags: [nuxt, vite, vue, ssr]
 keywords: [nuxt, vite, vue, ssr]
-description: 一个基于 Nuxt3 的 API 接口服务网站，易于封装，调用，开源。可部署到主流的网站托管服务
+description: 基于 Nuxt3 的 API 接口服务网站，易于封装，调用，部署。
+image: /img/blog/kz-api.png
+sticky: 2
 ---
 
 挺早之前就想写个 api 接口服务，封装下自己收集的一些 api 接口，以便调用，正好最近在接触 SSR 框架，所以就使用 [Nuxt3](https://v3.nuxtjs.org/) 来编写该项目。

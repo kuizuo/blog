@@ -5,7 +5,6 @@ date: 2021-08-20
 authors: kuizuo
 tags: [blog, docusaurus, project]
 keywords: [blog, docusaurus, project]
-sticky: true
 ---
 
 博客地址: [愧怍的小站](https://kuizuo.cn/)

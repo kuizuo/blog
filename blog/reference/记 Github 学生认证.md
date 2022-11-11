@@ -5,6 +5,9 @@ date: 2022-09-06
 authors: kuizuo
 tags: [随笔, github]
 keywords: [随笔, github]
+description: 记录本人 Github 学生认证艰辛过程，与经验分享。
+image: /img/blog/github-success.png
+sticky: 1
 ---
 
 ![](https://img.kuizuo.cn/github_copilot_ready.jpg)
