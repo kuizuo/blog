@@ -9,7 +9,7 @@ import React, {
 import {useHistory, useLocation} from '@docusaurus/router';
 import {toggleListItem} from '@site/src/utils/jsUtils';
 import {prepareUserState} from '../../index.tsx';
-import type {TagType} from '@site/src/data/users';
+import type {TagType} from '@site/data/users';
 
 import styles from './styles.module.css';
 

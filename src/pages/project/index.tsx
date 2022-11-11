@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
 
 import ShowcaseCard from './_components/ShowcaseCard';
-import {projects, groupByProjects} from '@site/src/data/project';
+import {projects, groupByProjects} from '@site/data/project';
 
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import {useHistory, useLocation} from '@docusaurus/router';

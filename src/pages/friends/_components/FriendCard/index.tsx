@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 
 import styles from './styles.module.css';
-import {type Friend} from '@site/src/data/friend';
+import {type Friend} from '@site/data/friend';
 
 const FriendCard = memo(({friend}: {friend: Friend}) => (
   <li

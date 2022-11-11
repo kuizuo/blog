@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import { PageMetadata } from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
 import WebsiteCard from './_components/WebsiteCard';
-import { websiteData } from '@site/src/data/website';
+import { websiteData } from '@site/data/website';
 import styles from './website.module.css';
 
 function CategoryNav() {

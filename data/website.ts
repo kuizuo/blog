@@ -1,4 +1,5 @@
 import {Friends} from './friend';
+
 export interface Website {
   name: string;
   logo: string;

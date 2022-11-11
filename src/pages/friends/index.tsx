@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 
 import FriendCard from './_components/FriendCard';
-import {sortFriend, type Friend} from '@site/src/data/friend';
+import {Friends, type Friend} from '@site/data/friend';
 
 import styles from './styles.module.css';
 
@@ -28,7 +28,7 @@ function FriendHeader() {
 }
 
 function FriendCards() {
-  const friends = sortFriend();
+  const friends = Friends
   return (
     <section className="margin-top--lg margin-bottom--lg">
       <div className="container">

@@ -13,7 +13,7 @@ import {
   type TagType,
   type Project,
   type Tag,
-} from '@site/src/data/project';
+} from '@site/data/project';
 import { sortBy } from '@site/src/utils/jsUtils';
 import { useGesture } from 'react-use-gesture';
 

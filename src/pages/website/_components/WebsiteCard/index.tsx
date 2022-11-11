@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 
 import styles from './styles.module.css';
-import { type Website } from '@site/src/data/website';
+import { type Website } from '@site/data/website';
 import Tooltip from '../../../project/_components/ShowcaseTooltip';
 
 const WebsiteCard = memo(({ website }: { website: Website }) => (

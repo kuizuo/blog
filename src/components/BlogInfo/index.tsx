@@ -19,6 +19,7 @@ import { useThemeConfig } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { Fade } from "react-awesome-reveal";
+import { projects } from '@site/data/project';
 
 type Count = {
   blog: number;
@@ -50,7 +51,7 @@ export function BlogUser({
     ] as any;
     const blogData = blogPluginData?.blogs as BlogPost[];
     const tagData = blogPluginData?.tags as BlogTags;
-    const projectData = blogPluginData?.projects;
+
     const docData = (
       globalData?.['docusaurus-plugin-content-docs']?.['default'] as any
     )?.versions[0].docs;
@@ -59,7 +60,7 @@ export function BlogUser({
       blog: blogData.length,
       tag: Object.keys(tagData).length ?? 0,
       doc: docData?.length ?? 0,
-      project: projectData?.length ?? 0,
+      project: projects?.length ?? 0,
     };
   }
 
@@ -151,13 +152,12 @@ export default function BlogInfo() {
   const docData = (
     globalData?.['docusaurus-plugin-content-docs']?.['default'] as any
   )?.versions[0].docs;
-  const projectData = blogPluginData?.projects;
 
   const count: Count = {
     blog: blogData.length,
     tag: Object.keys(tagData).length ?? 0,
     doc: docData?.length ?? 0,
-    project: projectData?.length ?? 0,
+    project: projects?.length ?? 0,
   };
 
   return (
