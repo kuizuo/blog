@@ -2,7 +2,7 @@ exports.projects = [
   {
     title: '愧怍的小站',
     description: '基于Docusaurus v2 静态网站生成器实现个人博客',
-    preview: 'https://img.kuizuo.cn/blog.png',
+    preview: '/img/blog/blog.png',
     website: 'https://kuizuo.cn',
     source: 'https://github.com/kuizuo/blog',
     tags: ['opensource', 'design', 'favorite'],
@@ -11,7 +11,7 @@ exports.projects = [
   {
     title: 'kz-admin',
     description: '基于NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin编写的一款前后端分离的权限管理系统',
-    preview: 'https://img.kuizuo.cn/kz-admin.png',
+    preview: '/img/blog/kz-admin.png',
     website: 'https://admin.kuizuo.cn',
     source: 'https://github.com/kuizuo/kz-admin',
     tags: ['opensource', 'favorite', 'product'],
@@ -20,7 +20,7 @@ exports.projects = [
   {
     title: 'KZ-API',
     description: '基于Nuxt3 + Vite3 + Vue3 + UnoCSS搭建的API接口服务网站',
-    preview: 'https://img.kuizuo.cn/KZ%20API.png',
+    preview: '/img/blog/kz-api.png',
     website: 'https://api.kuizuo.cn',
     source: 'https://github.com/kuizuo/api-service',
     tags: ['opensource', 'favorite', 'product'],
@@ -29,7 +29,7 @@ exports.projects = [
   {
     title: 'Protocol',
     description: '🧪 一个用于快速复现请求协议的 Web 开发模板。',
-    preview: 'https://img.kuizuo.cn/protocol-template.png',
+    preview: '/img/blog/protocol-template.png',
     website: 'https://protocol.kuizuo..cn',
     source: 'https://github.com/kuizuo/protocol',
     tags: ['opensource', 'favorite'],
@@ -38,7 +38,7 @@ exports.projects = [
   {
     title: '前端示例代码库',
     description: '整理前端样式和功能的实现代码，可以用来寻找灵感或直接使用示例中的代码',
-    preview: 'https://img.kuizuo.cn/example-website.png',
+    preview: '/img/blog/example-website.png',
     website: 'https://example.kuizuo.cn',
     source: 'https://github.com/kuizuo/example',
     tags: ['opensource', 'design', 'javascript'],
@@ -47,7 +47,7 @@ exports.projects = [
   {
     title: 'Vitesse Nuxt3 Strapi',
     description: '一个 Vitesse Nuxt3 Strapi 的模板，灵感来源 Vitesse',
-    preview: 'https://img.kuizuo.cn/vitesse-nuxt3-strapi.png',
+    preview: '/img/blog/vitesse-nuxt3-strapi.png',
     website: 'https://vitesse-nuxt3-strapi.vercel.app',
     source: 'https://github.com/kuizuo/vitesse-nuxt3-strapi',
     tags: ['opensource'],
@@ -56,7 +56,7 @@ exports.projects = [
   {
     title: 'JS代码混淆与还原',
     description: '基于Babel的AST操作对JavaScript代码混淆与还原的网站',
-    preview: 'https://img.kuizuo.cn/js-de-obfuscator.png',
+    preview: '/img/blog/js-de-obfuscator.png',
     website: 'https://deobfuscator.vercel.app',
     source: 'https://github.com/kuizuo/js-de-obfuscator',
     tags: ['opensource', 'javascript'],
@@ -65,7 +65,7 @@ exports.projects = [
   {
     title: 'VScode-extension',
     description: 'vscode 插件的样品',
-    preview: 'https://img.kuizuo.cn/vscode-extension.png',
+    preview: '/img/blog/vscode-extension.png',
     website: 'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
     source: 'https://github.com/kuizuo/vscode-extension',
     tags: ['opensource', 'javascript'],
