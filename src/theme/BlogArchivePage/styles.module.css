@@ -16,6 +16,11 @@
   background: var(--card-background);
 }
 
+.archiveTitle {
+  display: inline-flex;
+  align-items: center;
+}
+
 .archiveYear {
   position: relative;
   display: inline-flex;

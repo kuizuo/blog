@@ -1,12 +1,10 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
-import Translate, {translate} from '@docusaurus/Translate';
-import {PageMetadata} from '@docusaurus/theme-common';
+import Translate, { translate } from '@docusaurus/Translate';
+import { PageMetadata } from '@docusaurus/theme-common';
 import Layout from '@theme/Layout';
-import type {ArchiveBlogPost, Props} from '@theme/BlogArchivePage';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArchive} from '@fortawesome/free-solid-svg-icons';
-import {IconProp} from '@fortawesome/fontawesome-svg-core';
+import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage';
+import { Icon } from '@iconify/react';
 import styles from './styles.module.css';
 
 import dayjs from 'dayjs';
@@ -16,7 +14,7 @@ type YearProp = {
   posts: ArchiveBlogPost[];
 };
 
-function Year({posts}: YearProp) {
+function Year({ posts }: YearProp) {
   return (
     <>
       <ul className={styles.archiveList}>
@@ -35,7 +33,7 @@ function Year({posts}: YearProp) {
   );
 }
 
-function YearsSection({years}: {years: YearProp[]}) {
+function YearsSection({ years }: { years: YearProp[] }) {
   return (
     <div className="margin-top--md margin-left--sm">
       {years.map((_props, idx) => (
@@ -67,7 +65,7 @@ function listPostsByYears(blogPosts: readonly ArchiveBlogPost[]): YearProp[] {
   })).reverse();
 }
 
-export default function BlogArchive({archive}: Props) {
+export default function BlogArchive({ archive }: Props) {
   const title = translate({
     id: 'theme.blog.archive.title',
     message: 'Archive',
@@ -86,14 +84,14 @@ export default function BlogArchive({archive}: Props) {
       <Layout>
         <div className="container-wrapper padding-vert--md">
           <div className={styles.archive}>
-            <h2>
-              <FontAwesomeIcon icon={faArchive as IconProp} color="#23affc" />{' '}
+            <h2 className={styles.archiveTitle}>
+              <Icon icon="carbon:blog" width={24} height={24} />
               {title}
             </h2>
             <div className={styles.archiveCount}>
               <Translate
                 id="theme.blog.archive.posts.total"
-                values={{total: archive.blogPosts.length}}>
+                values={{ total: archive.blogPosts.length }}>
                 {`共 {total} 篇文章`}
               </Translate>
             </div>

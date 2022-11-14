@@ -108,7 +108,7 @@ html[data-theme='dark'] .bloghome__intro > p {
   max-width: 300px;
   align-items: center;
   justify-content: space-between;
-  padding: 1em 0;
+  padding: 0.5em 0;
   z-index: 100;
   position: relative;
 }
@@ -159,23 +159,51 @@ html[data-theme='dark'] .bloghome__intro > p {
 }
 
 .intro {
-  display: inline-block;
-  color: white;
-  padding: 0.75em 20px;
-  margin-left: -2px;
-  font-weight: 600;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.25rem 0.5rem;
   background: linear-gradient(
     90deg,
     var(--ifm-color-primary) 11.3%,
     var(--ifm-color-primary-light) 161.54%
   );
-  box-shadow: 0 0 32px rgb(0 105 165 / 35%);
-  border-radius: 7px;
-}
+  background-clip: text;
+  border: 1px solid var(--ifm-color-primary);
 
-.intro:hover {
-  color: white;
-  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+
+  &::before {
+    background: var(--ifm-color-primary);
+    opacity: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 0;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.5s ease-in-out;
+  }
+
+  &:hover::before {
+    background: var(--ifm-color-primary-light);
+    width: 100%;
+    opacity: 0.5;
+  }
+
+  > svg {
+    transition: all 0.3s ease-in-out;
+    margin-left: 0.25rem;
+  }
+
+  &:hover svg {
+    transform: translateX(0.5rem);
+  }
 }
 
 @media (max-width: 1000px) {

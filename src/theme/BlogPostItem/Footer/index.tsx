@@ -1,25 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
-import {useBlogPost} from '@docusaurus/theme-common/internal';
+import { useBlogPost } from '@docusaurus/theme-common/internal';
 import EditThisPage from '@theme/EditThisPage';
 import TagsListInline from '@theme/TagsListInline';
 import Tag from '@theme/Tag';
 import ReadMoreLink from '@theme/BlogPostItem/Footer/ReadMoreLink';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {
-  faTags,
-  faUser,
-  faCalendar,
-  faClock,
-  faArrowRight,
-} from '@fortawesome/free-solid-svg-icons';
-import {IconProp} from '@fortawesome/fontawesome-svg-core';
+import { Icon } from '@iconify/react'
+import { ReadingTime } from '../Header/Info/index';
 
 import styles from './styles.module.css';
-import {ReadingTime} from '../Header/Info/index';
 
 export default function BlogPostItemFooter(): JSX.Element | null {
-  const {metadata, isBlogPostPage} = useBlogPost();
+  const { metadata, isBlogPostPage } = useBlogPost();
   const {
     tags,
     title,
@@ -46,13 +38,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
         <div className={styles.blogPostInfo}>
           {authorsExists && (
             <>
-              <FontAwesomeIcon
-                icon={faUser as IconProp}
-                color="#c4d3e0"
-                width="16"
-                height="16"
-                className="blog__author"
-              />
+              <Icon icon='ri:user-fill' color='#c4d3e0' />
               {authors.map((a) => (
                 <span key={a.url} className="blog__author">
                   <a href={a.url} className={styles.blogPostAuthor}>
@@ -64,12 +50,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           )}
           {date && (
             <>
-              <FontAwesomeIcon
-                icon={faCalendar as IconProp}
-                color="#c4d3e0"
-                width="16"
-                height="16"
-              />
+              <Icon icon='ri:calendar-fill' color='#c4d3e0' />
               <time
                 dateTime={date}
                 className={styles.blogPostDate}
@@ -80,14 +61,9 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           )}
           {tagsExists && (
             <>
-              <FontAwesomeIcon
-                icon={faTags as IconProp}
-                color="#c4d3e0"
-                width="16"
-                height="16"
-              />
+              <Icon icon='ri:price-tag-3-fill' color='#c4d3e0' />
               <span className={styles.blogPostInfoTags}>
-                {tags.map(({label, permalink: tagPermalink}) => (
+                {tags.map(({ label, permalink: tagPermalink }) => (
                   <Tag
                     label={label}
                     permalink={tagPermalink}
@@ -99,13 +75,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           )}
           {readingTime && (
             <>
-              <FontAwesomeIcon
-                icon={faClock as IconProp}
-                color="#c4d3e0"
-                className="blog__readingTime"
-                width="16"
-                height="16"
-              />
+              <Icon icon='ri:time-fill' color='#c4d3e0' />
               <span
                 className={clsx(styles.blogPostReadTime, 'blog__readingTime')}>
                 <ReadingTime readingTime={readingTime} />
@@ -124,7 +94,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
         isBlogPostPage && styles.blogPostFooterDetailsFull,
       )}>
       {tagsExists && (
-        <div className={clsx('col', {'col--9': truncatedPost})}>
+        <div className={clsx('col', { 'col--9': truncatedPost })}>
           <TagsListInline tags={tags} />
         </div>
       )}

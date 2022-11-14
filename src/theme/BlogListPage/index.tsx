@@ -19,11 +19,9 @@ import useGlobalData from '@docusaurus/useGlobalData';
 import BlogInfo from '@site/src/components/BlogInfo';
 import Hero from '@site/src/components/Hero';
 import { BlogPost } from '@site/src/plugin/plugin-content-blog/src/types';
-import CardFilter from '@site/static/icons/card.svg';
-import GridFilter from '@site/static/icons/grid.svg';
-import ListFilter from '@site/static/icons/list.svg';
 import { useViewType } from './useViewType';
 import Translate from '@docusaurus/Translate';
+import { Icon } from '@iconify/react';
 
 function BlogListPageMetadata(props: Props): JSX.Element {
   const { metadata } = props;
@@ -45,30 +43,12 @@ function BlogListPageMetadata(props: Props): JSX.Element {
 function ViewTypeSwitch({ viewType, toggleViewType }: any): JSX.Element {
   return (
     <div className="bloghome__swith-view">
-      <ListFilter
-        onClick={() => toggleViewType('list')}
-        className={
-          viewType === 'list'
-            ? 'bloghome__switch--selected'
-            : 'bloghome__switch'
-        }
-      />
-      <GridFilter
-        onClick={() => toggleViewType('grid')}
-        className={
-          viewType === 'grid'
-            ? 'bloghome__switch--selected'
-            : 'bloghome__switch'
-        }
-      />
-      <CardFilter
-        onClick={() => toggleViewType('card')}
-        className={
-          viewType === 'card'
-            ? 'bloghome__switch--selected'
-            : 'bloghome__switch'
-        }
-      />
+      <Icon icon='ph:list-fill' width="24" height="24" onClick={() => toggleViewType('list')}
+        color={viewType === 'list' ? 'var(--ifm-color-primary)' : '#ccc'} />
+      <Icon icon='ph:grid-four' width="24" height="24" onClick={() => toggleViewType('grid')}
+        color={viewType === 'grid' ? 'var(--ifm-color-primary)' : '#ccc'} />
+      <Icon icon='ph:columns' width="24" height="24" onClick={() => toggleViewType('card')}
+        color={viewType === 'card' ? 'var(--ifm-color-primary)' : '#ccc'} />
     </div>
   );
 }
@@ -122,7 +102,7 @@ function BlogRecommend({ isPaginated, isCardView }: { isPaginated: boolean, isCa
     .sort((a, b) => (a.frontMatter.sticky as number) - (b.frontMatter.sticky as number))
     .slice(0, 8);
 
-  if (recommendedPosts.length === 0){
+  if (recommendedPosts.length === 0) {
     return <></>
   }
 

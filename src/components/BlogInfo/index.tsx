@@ -5,15 +5,8 @@ import type {
   BlogTags,
   BlogPost,
 } from '@docusaurus/plugin-content-blog';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faTag,
-  faArchive,
-  faBook,
-  faThLarge,
-} from '@fortawesome/free-solid-svg-icons';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import Link from '@docusaurus/Link';
+import { Icon } from '@iconify/react';
 import { SocialLinks } from '@site/src/components/Hero';
 import { useThemeConfig } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -78,41 +71,25 @@ export function BlogUser({
       </div>
       <div className="bloginfo__description">{tagline}</div>
       <div className="bloginfo__num">
-        <Link className="bloginfo__num-item" href="/archive" data-tips="blog count">
-          <FontAwesomeIcon
-            icon={faArchive as IconProp}
-            width="16"
-            height="16"
-          />{' '}
+        <Link className="bloginfo__num-item" href="/archive">
+          <Icon icon="carbon:blog" width="20" height="20" />
           {count.blog}
         </Link>
-        <Link className="bloginfo__num-item" href="/tags" data-tips="tag count">
-          <FontAwesomeIcon
-            icon={faTag as IconProp}
-            width="16"
-            height="16"
-            style={{ transform: 'rotate(90deg)' }}
-          />{' '}
+        <Link className="bloginfo__num-item" href="/tags">
+          <Icon icon="ri:price-tag-3-line" width="20" height="20" />
           {count.tag}
         </Link>
-        <Link
-          className="bloginfo__num-item"
-          href="/docs/skill"
-          data-tips="笔记数">
-          <FontAwesomeIcon icon={faBook as IconProp} width="16" height="16" />{' '}
+        <Link className="bloginfo__num-item" href="/docs/skill">
+          <Icon icon="carbon:notebook" width="20" height="20" />
           {count.doc}
         </Link>
         <Link className="bloginfo__num-item" href="/project" data-tips="project count">
-          <FontAwesomeIcon
-            icon={faThLarge as IconProp}
-            width="16"
-            height="16"
-          />{' '}
+          <Icon icon="ph:projector-screen" width="20" height="20" />
           {count.project}
         </Link>
       </div>
       <SocialLinks
-        animatedProps={{
+        style={{
           maxWidth: '100%',
           padding: '0.5em 0',
           justifyContent: 'space-evenly',
@@ -170,17 +147,9 @@ export default function BlogInfo() {
           </div>
           <div className="bloghome__posts-card margin-bottom--md">
             <div className="row bloginfo__card">
-              <div>
-                <FontAwesomeIcon
-                  icon={faTag as IconProp}
-                  style={{ transform: 'rotate(90deg)' }}
-                  color="#12affa"
-                  width="16"
-                  height="16"
-                />
-                <Link className="margin-horiz--sm" href="/tags">
-                  标签
-                </Link>
+              <div style={{ display: 'inline-flex', alignItems: 'center' }}>
+                <Icon icon="ri:price-tag-3-line" width="20" height="20" />
+                <span className="margin-horiz--sm">标签</span>
               </div>
               <TagsSection data={Object.values(tagData)} />
             </div>

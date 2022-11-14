@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import {
   PageMetadata,
@@ -9,13 +9,12 @@ import {
 import Layout from '@theme/Layout';
 import TagsListByLetter from '@theme/TagsListByLetter';
 import SearchMetadata from '@theme/SearchMetadata';
-import type {Props} from '@theme/DocTagsListPage';
+import type { Props } from '@theme/DocTagsListPage';
+import { Icon } from '@iconify/react';
 
-import ListFilter from '@site/static/icons/list.svg';
-import GridFilter from '@site/static/icons/grid.svg';
-import {TagsListByFlat} from '../TagsListByLetter';
+import { TagsListByFlat } from '../TagsListByLetter';
 
-export default function DocTagsListPage({tags}: Props): JSX.Element {
+export default function DocTagsListPage({ tags }: Props): JSX.Element {
   const title = translateTagsPageTitle();
 
   const [type, setType] = useState('letter');
@@ -35,22 +34,12 @@ export default function DocTagsListPage({tags}: Props): JSX.Element {
               <div className="blogtag__swith-view">
                 <h1>{title}</h1>
                 <div>
-                  <ListFilter
-                    onClick={() => setType('letter')}
-                    className={
-                      type === 'letter'
-                        ? 'bloghome__switch--selected'
-                        : 'bloghome__switch'
-                    }
-                  />
-                  <GridFilter
-                    onClick={() => setType('flat')}
-                    className={
-                      type === 'flat'
-                        ? 'bloghome__switch--selected'
-                        : 'bloghome__switch'
-                    }
-                  />
+                  <div>
+                    <Icon icon='ph:list-fill' width="24" height="24" onClick={() => setType('list')}
+                      color={type === 'list' ? 'var(--ifm-color-primary)' : '#ccc'} />
+                    <Icon icon='ph:grid-four' width="24" height="24" onClick={() => setType('grid')}
+                      color={type === 'grid' ? 'var(--ifm-color-primary)' : '#ccc'} />
+                  </div>
                 </div>
               </div>
               {type === 'letter' && <TagsListByLetter tags={tags} />}

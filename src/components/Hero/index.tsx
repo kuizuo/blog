@@ -7,17 +7,10 @@ import Link from '@docusaurus/Link';
 
 import HeroMain from './img/hero_main.svg';
 
-import GithubIcon from '@site/static/icons/github.svg';
 import JuejinIcon from '@site/static/icons/juejin.svg';
-import RssIcon from '@site/static/icons/rss.svg';
-import QqIcon from '@site/static/icons/qq.svg';
-import WxIcon from '@site/static/icons/wx.svg';
-import CsdnIcon from '@site/static/icons/csdn.svg';
-import CloudMusicIcon from '@site/static/icons/cloud-music.svg';
-import ZhihuIcon from '@site/static/icons/zhihu.svg';
-import TwitterIcon from '@site/static/icons/twitter.svg';
+import { Icon } from '@iconify/react';
 
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 function Hero() {
   const trails = useTrail(4, {
@@ -71,7 +64,7 @@ function Hero() {
         <animated.div style={trails[3]}>
           <a className={styles.intro} href={'./about'}>
             <Translate id="hompage.hero.text.introduce">自我介绍</Translate>
-
+            <Icon icon='ri:arrow-right-line' />
           </a>
         </animated.div>
       </div>
@@ -98,23 +91,23 @@ export function SocialLinks({ ...prop }) {
 
   return (
     <animated.div className={styles.social__links} {...prop}>
-      <a href="./rss.xml" target="_blank">
-        <RssIcon />
+      <a href="/rss.xml" target="_blank">
+        <Icon icon='ri:rss-line' />
       </a>
       <a href={socials.github} target="_blank">
-        <GithubIcon />
+        <Icon icon='ri:github-line' />
       </a>
       <a href={socials.juejin} target="_blank">
         <JuejinIcon />
       </a>
       <a href={socials.qq} target="_blank">
-        <QqIcon />
+        <Icon icon='ri:qq-line' />
       </a>
       <a href={socials.twitter} target="_blank">
-        <TwitterIcon />
+        <Icon icon='ri:twitter-line' />
       </a>
       <a href={socials.zhihu} target="_blank">
-        <ZhihuIcon />
+        <Icon icon='ri:zhihu-line' />
       </a>
     </animated.div>
   );

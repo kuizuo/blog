@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   align-items: center;
   margin-bottom: var(--ifm-spacing-m);
-  gap: 5px;
+  gap: 4px;
 }
 
 .blogPostInfoTags {
@@ -22,7 +22,7 @@
 
 .blogPostAuthor {
   display: inline-block;
-  margin: 0 4px;
+  margin: 0 2px;
   font-size: 0.95rem;
   font-weight: 400;
   color: inherit;

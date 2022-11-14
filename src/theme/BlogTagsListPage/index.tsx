@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import {
   PageMetadata,
@@ -8,14 +8,12 @@ import {
 } from '@docusaurus/theme-common';
 import BlogLayout from '@theme/BlogLayout';
 import TagsListByLetter from '@theme/TagsListByLetter';
-import {TagsListByFlat} from '../TagsListByLetter';
-import type {Props} from '@theme/BlogTagsListPage';
+import { TagsListByFlat } from '../TagsListByLetter';
+import type { Props } from '@theme/BlogTagsListPage';
 import SearchMetadata from '@theme/SearchMetadata';
+import { Icon } from '@iconify/react';
 
-import ListFilter from '@site/static/icons/list.svg';
-import GridFilter from '@site/static/icons/grid.svg';
-
-export default function BlogTagsListPage({tags, sidebar}: Props): JSX.Element {
+export default function BlogTagsListPage({ tags, sidebar }: Props): JSX.Element {
   const title = translateTagsPageTitle();
 
   const [type, setType] = useState<'list' | 'grid'>('list');
@@ -32,22 +30,10 @@ export default function BlogTagsListPage({tags, sidebar}: Props): JSX.Element {
         <div className="blogtag__swith-view">
           <h1>{title}</h1>
           <div>
-            <ListFilter
-              onClick={() => setType('list')}
-              className={
-                type === 'list'
-                  ? 'bloghome__switch--selected'
-                  : 'bloghome__switch'
-              }
-            />
-            <GridFilter
-              onClick={() => setType('grid')}
-              className={
-                type === 'grid'
-                  ? 'bloghome__switch--selected'
-                  : 'bloghome__switch'
-              }
-            />
+            <Icon icon='ph:list-fill' width="24" height="24" onClick={() => setType('list')}
+              color={type === 'list' ? 'var(--ifm-color-primary)' : '#ccc'} />
+            <Icon icon='ph:grid-four' width="24" height="24" onClick={() => setType('grid')}
+              color={type === 'grid' ? 'var(--ifm-color-primary)' : '#ccc'} />
           </div>
         </div>
         {type === 'list' && <TagsListByLetter tags={tags} />}
