@@ -1,3 +1,4 @@
+import React from 'react';
 import {useThemeConfig} from '@docusaurus/theme-common';
 import {useColorMode} from '@docusaurus/theme-common';
 import BrowserOnly from '@docusaurus/BrowserOnly';

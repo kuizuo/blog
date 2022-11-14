@@ -27,8 +27,8 @@
 }
 
 .bloghome__intro > p {
-  margin: 26px 0px 24px 0;
-  color: hsl(215, 19%, 48%);
+  margin: 26px 0 24px;
+  color: hsl(215deg 19% 48%);
   /* text-shadow: 0 0 #8c99ab; */
   font-size: 1.125rem;
   text-align: justify;
@@ -108,7 +108,7 @@ html[data-theme='dark'] .bloghome__intro > p {
   max-width: 300px;
   align-items: center;
   justify-content: space-between;
-  padding: 1em 0 2.5em 0;
+  padding: 1em 0;
   z-index: 100;
   position: relative;
 }
@@ -129,7 +129,7 @@ html[data-theme='dark'] .bloghome__intro > p {
 }
 
 .social__links a:hover {
-  background-color: rgba(0, 120, 231, 0.1);
+  background-color: rgb(0 120 231 / 10%);
 }
 
 .social__links > *,
@@ -158,6 +158,26 @@ html[data-theme='dark'] .bloghome__intro > p {
   top: 120%;
 }
 
+.intro {
+  display: inline-block;
+  color: white;
+  padding: 0.75em 20px;
+  margin-left: -2px;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    var(--ifm-color-primary) 11.3%,
+    var(--ifm-color-primary-light) 161.54%
+  );
+  box-shadow: 0 0 32px rgb(0 105 165 / 35%);
+  border-radius: 7px;
+}
+
+.intro:hover {
+  color: white;
+  text-decoration: none;
+}
+
 @media (max-width: 1000px) {
   .hero {
     grid-template-columns: 1fr;
@@ -167,8 +187,9 @@ html[data-theme='dark'] .bloghome__intro > p {
     /* background-position: center bottom;
         background-size: 70vh; */
   }
+
   .bloghome__intro {
-    padding: 0em var(--ifm-spacing-horizontal);
+    padding: 0 var(--ifm-spacing-horizontal);
     padding-top: 4em;
     display: flex;
     flex-direction: column;
@@ -194,14 +215,17 @@ html[data-theme='dark'] .bloghome__intro > p {
   .hero {
     height: auto;
   }
+
   .bloghome__image {
     padding-top: 2em;
   }
+
   .bloghome__image svg {
     width: 100%;
     height: auto;
     padding-left: 12px;
   }
+
   .bloghome__intro {
     padding-top: 2em;
   }
@@ -217,9 +241,11 @@ html[data-theme='dark'] .bloghome__intro > p {
   from {
     transform: rotateY(0deg);
   }
+
   50% {
     transform: rotateY(360deg);
   }
+
   100% {
     transform: rotateY(360deg);
   }

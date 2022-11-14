@@ -16,13 +16,12 @@ import CsdnIcon from '@site/static/icons/csdn.svg';
 import CloudMusicIcon from '@site/static/icons/cloud-music.svg';
 import ZhihuIcon from '@site/static/icons/zhihu.svg';
 import TwitterIcon from '@site/static/icons/twitter.svg';
-import Button from '../Button';
 
 import styles from './styles.module.css';
 
 function Hero() {
-  const trails = useTrail(5, {
-    from: { opacity: 0, transform: 'translate3d(0px, 3em, 0px)' },
+  const trails = useTrail(4, {
+    from: { opacity: 0, transform: 'translate3d(0px, 2em, 0px)' },
     to: { opacity: 1, transform: 'translate3d(0px, 0px, 0px)' },
     config: {
       mass: 3,
@@ -68,21 +67,22 @@ function Hero() {
             {`或许你需要{note}、{project}、{link}。`}
           </Translate>
         </animated.p>
-        <SocialLinks animatedProps={trails[4]} />
-        {
-          <animated.div style={trails[2]}>
-            <Button isLink href={'./about'}>
-              <Translate id="hompage.hero.text.introduce">自我介绍</Translate>
-            </Button>
-          </animated.div>
-        }
+        <SocialLinks style={trails[2]} />
+        <animated.div style={trails[3]}>
+          <a className={styles.intro} href={'./about'}>
+            <Translate id="hompage.hero.text.introduce">自我介绍</Translate>
+
+          </a>
+        </animated.div>
       </div>
-      <HeroMainImage />
+      <div className={styles.bloghome__image}>
+        <HeroMain />
+      </div>
     </animated.div>
   );
 }
 
-export function SocialLinks({ animatedProps, ...props }) {
+export function SocialLinks({ ...prop }) {
   const { siteConfig } = useDocusaurusContext();
   const { themeConfig } = siteConfig;
   const socials = themeConfig.socials as {
@@ -97,7 +97,7 @@ export function SocialLinks({ animatedProps, ...props }) {
   };
 
   return (
-    <animated.div className={styles.social__links} style={animatedProps}>
+    <animated.div className={styles.social__links} {...prop}>
       <a href="./rss.xml" target="_blank">
         <RssIcon />
       </a>
@@ -107,33 +107,16 @@ export function SocialLinks({ animatedProps, ...props }) {
       <a href={socials.juejin} target="_blank">
         <JuejinIcon />
       </a>
-      {/* <a href='https://blog.csdn.net/kuizuo12' target='_blank'>
-        <CsdnIcon />
-      </a> */}
       <a href={socials.qq} target="_blank">
         <QqIcon />
       </a>
-      {/* <a href='' target='_blank'>
-        <WxIcon />
-      </a> */}
       <a href={socials.twitter} target="_blank">
         <TwitterIcon />
       </a>
       <a href={socials.zhihu} target="_blank">
         <ZhihuIcon />
       </a>
-      {/* <a href={socials.cloudmusic} target="_blank">
-        <CloudMusicIcon />
-      </a> */}
     </animated.div>
-  );
-}
-
-function HeroMainImage() {
-  return (
-    <div className={styles.bloghome__image}>
-      <HeroMain />
-    </div>
   );
 }
 

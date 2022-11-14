@@ -110,7 +110,7 @@ function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.Element {
   );
 }
 
-function BlogRecommend(): JSX.Element {
+function BlogRecommend({ isPaginated, isCardView }: { isPaginated: boolean, isCardView: boolean }): JSX.Element {
   const globalData = useGlobalData();
   const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.[
     'default'
@@ -122,28 +122,47 @@ function BlogRecommend(): JSX.Element {
     .sort((a, b) => (a.frontMatter.sticky as number) - (b.frontMatter.sticky as number))
     .slice(0, 8);
 
+  if (recommendedPosts.length === 0){
+    return <></>
+  }
+
   return <>
-    <ul className="blog__recommend">
-      {recommendedPosts.map((post) => (
-        <li className={clsx('card')} key={post.permalink}>
-          {post.description && (
-            <div className={clsx('card__image')}>
-              {post.frontMatter.image &&
-                <Image src={post.frontMatter.image!} alt={post.title} img={''} />
-              }
+    <div className="container-wrapper">
+      <div className="container padding-vert--sm transition" style={!isCardView ? { maxWidth: 1200 } : {}} >
+        {!isPaginated && (
+          <h2 className='blog__section-title'>
+            <Translate id="theme.blog.title.recommend">推荐阅读</Translate>
+          </h2>
+        )}
+        <div className="row">
+          <div className='col col--12'>
+            <div className="bloghome__posts">
+              <ul className="blog__recommend">
+                {recommendedPosts.map((post) => (
+                  <li className={clsx('card')} key={post.permalink}>
+                    {post.description && (
+                      <div className={clsx('card__image')}>
+                        {post.frontMatter.image &&
+                          <Image src={post.frontMatter.image!} alt={post.title} img={''} />
+                        }
+                      </div>
+                    )}
+                    <div className="card__body">
+                      <h4>
+                        <Link href={post.permalink}>
+                          {post.title}
+                        </Link>
+                      </h4>
+                      <p>{post.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
-          )}
-          <div className="card__body">
-            <h4>
-              <Link href={post.permalink}>
-                {post.title}
-              </Link>
-            </h4>
-            <p>{post.description}</p>
           </div>
-        </li>
-      ))}
-    </ul>
+        </div>
+      </div>
+    </div>
   </>
 }
 
@@ -165,22 +184,7 @@ function BlogListPageContent(props: Props) {
       <BackToTopButton />
 
       {/* 推荐阅读 */}
-      <div className="container-wrapper">
-        <div className="container padding-vert--sm transition" style={!isCardView ? { maxWidth: 1200 } : {}} >
-          {!isPaginated && (
-            <h2 className='blog__section-title'>
-              <Translate id="theme.blog.title.recommend">推荐阅读</Translate>
-            </h2>
-          )}
-          <div className="row">
-            <div className='col col--12'>
-              <div className="bloghome__posts">
-                <BlogRecommend />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <BlogRecommend isPaginated={isPaginated} isCardView={isCardView} />
 
       {/* 最新博客 */}
       <div className="container-wrapper">
