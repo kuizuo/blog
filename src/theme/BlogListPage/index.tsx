@@ -22,6 +22,7 @@ import { BlogPost } from '@site/src/plugin/plugin-content-blog/src/types';
 import { useViewType } from './useViewType';
 import Translate from '@docusaurus/Translate';
 import { Icon } from '@iconify/react';
+import { Fade } from "react-awesome-reveal";
 
 function BlogListPageMetadata(props: Props): JSX.Element {
   const { metadata } = props;
@@ -118,25 +119,27 @@ function BlogRecommend({ isPaginated, isCardView }: { isPaginated: boolean, isCa
           <div className='col col--12'>
             <div className="bloghome__posts">
               <ul className="blog__recommend">
-                {recommendedPosts.map((post) => (
-                  <li className={clsx('card')} key={post.permalink}>
-                    {post.description && (
-                      <div className={clsx('card__image')}>
-                        {post.frontMatter.image &&
-                          <Image src={post.frontMatter.image!} alt={post.title} img={''} />
-                        }
+                <Fade direction="up" duration={800} triggerOnce={true}>
+                  {recommendedPosts.map((post) => (
+                    <li className={clsx('card')} key={post.permalink}>
+                      {post.description && (
+                        <div className={clsx('card__image')}>
+                          {post.frontMatter.image &&
+                            <Image src={post.frontMatter.image!} alt={post.title} img={''} />
+                          }
+                        </div>
+                      )}
+                      <div className="card__body">
+                        <h4>
+                          <Link href={post.permalink}>
+                            {post.title}
+                          </Link>
+                        </h4>
+                        <p>{post.description}</p>
                       </div>
-                    )}
-                    <div className="card__body">
-                      <h4>
-                        <Link href={post.permalink}>
-                          {post.title}
-                        </Link>
-                      </h4>
-                      <p>{post.description}</p>
-                    </div>
-                  </li>
-                ))}
+                    </li>
+                  ))}
+                </Fade>
               </ul>
             </div>
           </div>
