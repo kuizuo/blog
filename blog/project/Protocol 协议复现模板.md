@@ -6,7 +6,7 @@ authors: kuizuo
 tags: [project, protocol, template, nuxt3]
 keywords: [project, protocol, template, nuxt3]
 description: 一个用于快速复现请求协议的 Web 开发模板。基于 Nuxt3 开发，并集成了NaiveUI，Unocss，等相关工具库封装。
-image: /img/blog/protocol.png
+image: /img/project/protocol.png
 ---
 
 <p align="center">

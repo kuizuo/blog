@@ -7,7 +7,7 @@ import Link from '@docusaurus/Link';
 
 import HeroMain from './img/hero_main.svg';
 
-import JuejinIcon from '@site/static/icons/juejin.svg';
+import JuejinIcon from '@site/static/svg/juejin.svg';
 import { Icon } from '@iconify/react';
 
 import styles from './styles.module.scss';

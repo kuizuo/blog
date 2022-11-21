@@ -6,7 +6,7 @@ authors: kuizuo
 tags: [nuxt, vite, vue, ssr]
 keywords: [nuxt, vite, vue, ssr]
 description: 基于 Nuxt3 的 API 接口服务网站，易于封装，调用，部署。
-image: /img/blog/kz-api.png
+image: /img/project/kz-api.png
 sticky: 2
 ---
 

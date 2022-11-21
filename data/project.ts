@@ -2,7 +2,7 @@ export const projects: Project[] = [
   {
     title: '愧怍的小站',
     description: '基于Docusaurus v2 静态网站生成器实现个人博客',
-    preview: '/img/blog/blog.png',
+    preview: '/img/project/blog.png',
     website: 'https://kuizuo.cn',
     source: 'https://github.com/kuizuo/blog',
     tags: ['opensource', 'design', 'favorite'],
@@ -11,16 +11,16 @@ export const projects: Project[] = [
   {
     title: 'kz-admin',
     description: '基于NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin编写的一款前后端分离的权限管理系统',
-    preview: '/img/blog/kz-admin.png',
+    preview: '/img/project/kz-admin.png',
     website: 'https://admin.kuizuo.cn',
     source: 'https://github.com/kuizuo/kz-admin',
-    tags: ['opensource', 'favorite', 'product'],
+    tags: ['opensource', 'favorite', 'product', 'large'],
     type: 'web',
   },
   {
     title: 'KZ-API',
     description: '基于Nuxt3 + Vite3 + Vue3 + UnoCSS搭建的API接口服务网站',
-    preview: '/img/blog/kz-api.png',
+    preview: '/img/project/kz-api.png',
     website: 'https://api.kuizuo.cn',
     source: 'https://github.com/kuizuo/api-service',
     tags: ['opensource', 'favorite', 'product'],
@@ -29,8 +29,8 @@ export const projects: Project[] = [
   {
     title: 'Protocol',
     description: '🧪 一个用于快速复现请求协议的 Web 开发模板。',
-    preview: '/img/blog/protocol-template.png',
-    website: 'https://protocol.kuizuo..cn',
+    preview: '/img/project/protocol.png',
+    website: 'https://protocol.kuizuo.cn',
     source: 'https://github.com/kuizuo/protocol',
     tags: ['opensource', 'favorite'],
     type: 'web',
@@ -38,16 +38,16 @@ export const projects: Project[] = [
   {
     title: '前端示例代码库',
     description: '整理前端样式和功能的实现代码，可以用来寻找灵感或直接使用示例中的代码',
-    preview: '/img/blog/example-website.png',
+    preview: '/img/project/example-website.png',
     website: 'https://example.kuizuo.cn',
     source: 'https://github.com/kuizuo/example',
-    tags: ['opensource', 'design', 'javascript'],
+    tags: ['opensource', 'design'],
     type: 'web',
   },
   {
     title: 'Vitesse Nuxt3 Strapi',
     description: '一个 Vitesse Nuxt3 Strapi 的模板，灵感来源 Vitesse',
-    preview: '/img/blog/vitesse-nuxt3-strapi.png',
+    preview: '/img/project/vitesse-nuxt3-strapi.png',
     website: 'https://vitesse-nuxt3-strapi.vercel.app',
     source: 'https://github.com/kuizuo/vitesse-nuxt3-strapi',
     tags: ['opensource'],
@@ -56,21 +56,46 @@ export const projects: Project[] = [
   {
     title: 'JS代码混淆与还原',
     description: '基于Babel的AST操作对JavaScript代码混淆与还原的网站',
-    preview: '/img/blog/js-de-obfuscator.png',
+    preview: '/img/project/js-de-obfuscator.png',
     website: 'https://deobfuscator.vercel.app',
     source: 'https://github.com/kuizuo/js-de-obfuscator',
-    tags: ['opensource', 'javascript'],
+    tags: ['opensource'],
     type: 'web',
   },
   {
     title: 'VScode-extension',
     description: 'vscode 插件的样品',
-    preview: '/img/blog/vscode-extension.png',
+    preview: '/img/project/vscode-extension.png',
     website: 'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
     source: 'https://github.com/kuizuo/vscode-extension',
-    tags: ['opensource', 'javascript'],
+    tags: ['opensource'],
     type: 'web',
   },
+  {
+    title: 'Link-admin',
+    description: '基于 kz-admin 编写的一次性充值链接销售系统',
+    preview: '/img/project/link-admin.png',
+    website: 'http://link.kuizuo.cn',
+    tags: ['product', 'large'],
+    type: 'other',
+  },
+  {
+    title: 'ocr-admin',
+    description: '基于 ddddocr 与 kz-admin 搭建的图像识别后台系统',
+    preview: '/img/project/ocr-admin.png',
+    website: 'http://ocr.kuizuo.cn',
+    tags: ['product', 'large'],
+    type: 'other',
+  },
+  // {
+  //   title: '卡密系统',
+  //   description: '基于 Protocol 搭建的一个卡密充值系统',
+  //   preview: '/img/project/ticket-system.png',
+  //   website: 'https://ticket.kuizuo.cn',
+  //   source: 'https://github.com/kuizuo/protocol/tree/ticket',
+  //   tags: ['opensource', 'product'],
+  //   type: 'other',
+  // },
   // {
   //   title: 'vscode-settings',
   //   description: '我的 Vscode 相关配置',
@@ -126,7 +151,7 @@ export type TagType =
   | 'opensource'
   | 'product'
   | 'design'
-  | 'javascript'
+  | 'large'
   | 'personal';
 
 export type ProjectType =
@@ -166,10 +191,10 @@ export const Tags: Record<TagType, Tag> = {
     description: '设计漂亮的网站!',
     color: '#a44fb7',
   },
-  javascript: {
-    label: 'JavaScript',
-    description: 'JavaScript 项目',
-    color: '#dfd545',
+  large: {
+    label: '大型',
+    description: '大型项目，原多于平均数的页面',
+    color: '#8c2f00',
   },
   personal: {
     label: '个人',

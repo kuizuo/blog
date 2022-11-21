@@ -25,11 +25,11 @@ const friends: Website[] = Friends.map((f) => {
 
 export const websiteData: WebsiteCategory[] = [
   {
-    name: '友链',
+    name: '友链👨‍💻',
     websites: friends,
   },
   {
-    name: '站点',
+    name: '站点🖥️',
     websites: [
       {
         name: '程序员盒子',
@@ -97,7 +97,7 @@ export const websiteData: WebsiteCategory[] = [
     ],
   },
   {
-    name: '工具',
+    name: '工具🛠️',
     websites: [
       {
         name: '菜鸟教程',

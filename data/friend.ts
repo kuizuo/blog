@@ -13,7 +13,7 @@ export const Friends: Friend[] = [
   },
   {
     title: 'Jetzihan',
-    description: '有黑羽快斗必有我',
+    description: 'A bug maker.',
     website: 'https://jetzihan.netlify.app/',
     avatar: require('./avatar/jetzihan.png'),
   },
@@ -47,6 +47,12 @@ export const Friends: Friend[] = [
     website: 'https://www.disnox.top/',
     avatar: require('./avatar/disnox.png'),
   },
+  {
+    title: 'Faith&Passion',
+    description: '有些鱼是关不住的，因为他们属于天空',
+    website: 'https://jpy.wiki',
+    avatar: require('./avatar/faith&passion.png')
+  }
 ];
 
 export type Friend = {
