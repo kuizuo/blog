@@ -69,9 +69,10 @@ html {
   --divider-color: #ebebeb;
   --post-shadow-color: rgb(220 220 220 / 30%);
   --post-shadow: 0 0 20px 10px var(--post-shadow-color);
-  --content-background-color: #fcfcfc;
+  --content-background-color: #f8f9fa;
   --blog-item-background-color: linear-gradient(180deg, #fff, #fcfcfc);
-  --blog-item-shadow: 0 20px 20px rgb(0 0 0 / 2.5%), 0 50px 80px rgb(0 0 0 / 9%);
+
+  --blog-item-shadow: 0 20px 20px rgb(0 0 0 / 2.5%), 0 50px 80px rgb(0 0 0 / 5%);
 
   --ifm-heading-color: #000;
 
@@ -127,8 +128,10 @@ body {
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji', consolas, sfmono-regular, menlo, monaco,
     'Liberation Mono', monospace;
-  /*   font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif; */
+}
+
+html, body {
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -781,7 +784,7 @@ div[class^='announcementBar_'] {
   border-radius: 12px;
   background: var(--blog-item-background-color);
   box-shadow: var(--blog-item-shadow);
-  padding: 1em 2em;
+  padding: 1em 2em 0.75em;
 }
 
 .transition {

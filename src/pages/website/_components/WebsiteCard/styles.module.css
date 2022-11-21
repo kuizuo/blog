@@ -10,14 +10,12 @@
 }
 
 .websiteCard:hover {
-  box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 10%);
-  background-color: #f2f8fd;
+  box-shadow: 0 10px 20px -10px rgb(0 0 0 / 20%);
   transform: translateY(-5px);
 }
 
 html[data-theme='dark'] .websiteCard:hover {
-  box-shadow: 5px 5px 20px 0 rgb(0 0 0 / 10%);
-  background-color: #12181d;
+  box-shadow: 0 10px 20px -10px rgb(255 255 255 / 20%);
   transform: translateY(-5px);
 }
 
