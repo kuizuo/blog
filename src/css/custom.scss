@@ -4,8 +4,8 @@
   --ifm-color-primary-darker: #0598df;
   --ifm-color-primary-darkest: #047eb8;
   --ifm-color-primary-light: #2cb8fb;
-  --ifm-color-primary-lighter: #39bcfb;
-  --ifm-color-primary-lightest: #61cafc;
+  --ifm-color-primary-lighter: #b0e6ff;
+  --ifm-color-primary-lightest: #d5f1fd;
   --ifm-code-font-size: 95%;
   --ifm-font-family-base: 'Inter', ui-sans-serif, system-ui, -apple-system,
     'Segoe UI', 'Helvetica Neue', 'Noto Sans',
@@ -44,7 +44,7 @@
 
   /* 代码块背景 */
   --ifm-code-background: #12affa1a;
-  --ifm-code-color: #0888ff;
+  --ifm-code-color: var(--ifm-color-primary);
   --prism-background-color: #f6f8fa;
 
   --ifm-bg-color: #f5f5f5;
