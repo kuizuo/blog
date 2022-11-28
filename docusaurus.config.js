@@ -27,7 +27,11 @@ const config = {
       },
       {
         name: 'keywords',
-        content: 'blog, javascript, typescript, node, react, vue, web, 前端, 后端',
+        content: 'blog, javascript, typescript, node, react, vue, web',
+      },
+      {
+        name: 'keywords',
+        content: '编程爱好者, Web开发者, 写过爬虫, 学过逆向，现在主攻ts全栈',
       },
     ],
     docs: {

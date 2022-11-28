@@ -158,6 +158,7 @@ export type ProjectType =
   | 'personal'
   | 'web'
   | 'app'
+  | 'toy'
   | 'other';
 
 export type Project = {

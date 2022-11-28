@@ -364,6 +364,16 @@ export class Blog {
 
 而 `@Field()` 则是作为可展示的字段，比如 `password` 字段无需返回，就不必要加该装饰器。
 
+:::tip
+如果你认为 添加 `@Field()` 是件繁琐的事情（nest 官方自然也想到），于是提供了 [GraphQL + TypeScript - CLI Plugin ](https://docs.nestjs.com/graphql/cli-plugin) 用于省略 `@Field()` 等其他操作。（类似于语法糖）
+
+借用官方的话: 
+
+> Thus, you won't have to struggle with @Field decorators scattered throughout the code.
+
+因此，您不必为分散在代码中的@Field 装饰符而烦恼。
+:::
+
 :::caution
 
 `@nestjs/graphql` 会将 typescript 的 number 类型视为 Float，所以需要转成 Int 类型，即 `@Field(() => Int)`
