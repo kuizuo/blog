@@ -52,6 +52,12 @@ export const Friends: Friend[] = [
     description: '有些鱼是关不住的，因为他们属于天空',
     website: 'https://jpy.wiki',
     avatar: require('./avatar/faith&passion.png')
+  },
+  {
+    title: 'CWorld Blog',
+    description: '求知若愚，虚怀若谷',
+    website: 'https://blog.cworld.top',
+    avatar: require('./avatar/cworld.png')
   }
 ];
 
