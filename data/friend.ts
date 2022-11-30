@@ -57,7 +57,7 @@ export const Friends: Friend[] = [
     title: 'CWorld Blog',
     description: '求知若愚，虚怀若谷',
     website: 'https://blog.cworld.top',
-    avatar: require('https://gravatar.loli.top/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200')
+    avatar: require('./avatar/cworld.png')
   }
 ];
 
