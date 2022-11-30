@@ -37,21 +37,23 @@ yarn run build
 ## Catalogue
 
 ```bash
-├── blog                           
-│   ├── first-blog.md              # 博客文件
-├── docs                           
-│   └── doc.md                     # 文档             
+├── blog                           # 博客
+│   ├── first-blog.md              
+├── docs                           # 文档/笔记
+│   └── doc.md                     
+├── data                           # 项目/导航/友链数据
+│   ├── friend.ts                  # 友链
+│   ├── project.ts                 # 项目
+│   └── website.ts                 # 导航
 ├── i18n                           # 国际化
 ├── src
 │   ├── components                 # 组件
 │   ├── css                        # 自定义CSS
-│   ├── data                       # 项目/导航/友链数据
 │   ├── pages                      # 自定义页面
 │   ├── plugin                     # 自定义插件
 │   └── theme                      # 自定义主题组件
 ├── static                         # 静态资源文件
-│   ├── icons                      # 静态图标
-│   ├── img                        # 静态图片
+│   └── img                        # 静态图片
 ├── docusaurus.config.js           # 站点的配置信息
 ├── sidebars.js                    # 文档的侧边栏
 ├── package.json
@@ -59,6 +61,10 @@ yarn run build
 └── yarn.lock
 ```
 
+## My Change
+
+[Docusaurus2 主题魔改](https://kuizuo.cn/docs/docusaurus-guides)
+
 ## License
 
-[MIT](https://github.com/kuizuo/blog/blob/main/LICENSE)
+[MIT](./LICENSE)
