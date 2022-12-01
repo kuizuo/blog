@@ -29,6 +29,41 @@ export const websiteData: WebsiteCategory[] = [
     websites: friends,
   },
   {
+    name: '每周必刷🔥',
+    websites: [
+      {
+        name: "稀土掘金",
+        desc: "稀土掘金是一个技术博客平台，是程序员发布自己的技术文章、分享知识的地方",
+        logo: "/img/website/juejin.png",
+        href: "https://juejin.cn/",
+      },
+      {
+        name: 'Github Trending',
+        desc: '看看今天 GitHub 社区对什么最感兴趣。',
+        logo: '/img/website/github.png',
+        href: 'https://github.com/trending',
+      },
+      {
+        name: 'State of JavaScript',
+        desc: 'JavaScript 生态系统的年度开发人员调查',
+        logo: '/img/website/stateofjs.svg',
+        href: 'https://stateofjs.com',
+      },
+      {
+        name: '前端食堂',
+        desc: '周周尝鲜，人工筛选前端圈每周最新资讯。—— 由 童欧巴 创作',
+        logo: '/img/website/zhubai.png',
+        href: 'https://hungryturbo.zhubai.love/',
+      },
+      {
+        name: 'Koala聊开源',
+        desc: '了解科技资讯、把握行业脉搏。每周快速浏览 Hacker News 精选。',
+        logo: '/img/website/bilibili.ico',
+        href: 'https://space.bilibili.com/489667127/channel/collectiondetail?sid=249279&ctype=0',
+      },
+    ],
+  },
+  {
     name: '站点🖥️',
     websites: [
       {
@@ -631,7 +666,7 @@ export const websiteData: WebsiteCategory[] = [
     ]
   },
   {
-    name: 'Node.js',
+    name: 'Node/Deno',
     websites: [
       {
         name: 'Node',
@@ -812,12 +847,20 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['设计'],
       },
       {
+        name: 'Figma',
+        desc: 'Figma 是为 UI 设计而生的设计工具，除了有和 Sketch 一样基本的操作和功能，还有许多专为 UI 设计而生的强大功能。',
+        logo: '/img/website/figma.png',
+        href: 'https://www.figma.com/',
+        tags: ['设计'],
+      },
+      {
         name: 'Pixso',
         desc: '一站式完成原型、设计、交互与交付，为数字化团队协作提效',
         logo: 'https://cms.pixso.cn/images/logo.svg',
         href: 'https://pixso.cn/',
         tags: ['设计'],
       },
+
     ],
   },
   {
