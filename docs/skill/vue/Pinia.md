@@ -135,14 +135,14 @@ export const useUserStore = defineStore({
 安装
 
 ```sh
-npm i pinia-plugin-persist
+npm i pinia-plugin-persistedstate
 ```
 
 使用
 
 ```typescript {2,5}
 import { createPinia } from 'pinia'
-import piniaPluginPersist from 'pinia-plugin-persist'
+import piniaPluginPersist from 'pinia-plugin-persistedstate'
 
 const store = createPinia()
 store.use(piniaPluginPersist)

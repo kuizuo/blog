@@ -122,11 +122,9 @@ function BlogRecommend({ isPaginated, isCardView }: { isPaginated: boolean, isCa
                 <Fade direction="up" duration={800} triggerOnce={true}>
                   {recommendedPosts.map((post) => (
                     <li className={clsx('card')} key={post.permalink}>
-                      {post.description && (
+                      {post.frontMatter.image && (
                         <div className={clsx('card__image')}>
-                          {post.frontMatter.image &&
-                            <Image src={post.frontMatter.image!} alt={post.title} img={''} />
-                          }
+                          <Image src={post.frontMatter.image!} alt={post.title} img={''} />
                         </div>
                       )}
                       <div className="card__body">
@@ -167,7 +165,7 @@ function BlogListPageContent(props: Props) {
       <BackToTopButton />
 
       {/* 推荐阅读 */}
-      {!isPaginated && isBlogOnlyMode &&  <BlogRecommend isPaginated={isPaginated} isCardView={isCardView} />}
+      {!isPaginated && isBlogOnlyMode && <BlogRecommend isPaginated={isPaginated} isCardView={isCardView} />}
 
 
       {/* 最新博客 */}

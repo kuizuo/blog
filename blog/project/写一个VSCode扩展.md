@@ -7,6 +7,7 @@ tags: [vscode, plugin, extension, develop]
 keywords: [vscode, plugin, extension, develop]
 description: 编写一个属于个人定制化的 VSCode 扩展，并将其发布到应用商店中
 image: /img/project/vscode-extension.png
+sticky: 4
 ---
 
 自从使用过 VSCode 后就再也离不开 VSCode，其轻量的代码编辑器与诸多插件让多数开发者爱不释手。同样我也不例外，一年前的我甚至还特意买本《Visual Studio Code 权威指南》的书籍，来更进一步了解与使用。
