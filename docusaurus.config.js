@@ -1,7 +1,7 @@
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
-const announcementBarContent = `🌟<span>更新 <a href='/website'>网址导航</a> 带你发现感兴趣的技术</span>`
+const announcementBarContent = `🌟<span>如果你对 Web 开发感兴趣，不妨到 <a href='https://github.com/kuizuo'>我的Github</a> 看看</span>`
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {

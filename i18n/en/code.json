@@ -8,24 +8,27 @@
     "description": "hero name"
   },
   "homepage.hero.text": {
-    "message": "Here you can learn about the problems encountered in various practical developments, help you understand the latest technology stacks in the process of learning, and hope that my personal experience will inspire you.",
+    "message": "Here I will share the problems and solutions encountered by various technology stacks, take you to understand the latest technology stacks and how to apply them in actual development, and hope that my development experience will inspire you",
     "description": "hero text"
   },
-  "homepage.hero.need": {
-    "message": " Maybe you need {note}, {project}, {link}.",
+  "homepage.hero.look": {
+    "message": "You can take a look at it casually and check {note}, {project}, {link}. I will also share {idea} for programming learning",
     "description": "hero need"
   },
-  "hompage.hero.text.note": {
+  "hompage.hero.note": {
     "message": "Note"
   },
-  "hompage.hero.text.project": {
+  "hompage.hero.project": {
     "message": "Project"
   },
-  "hompage.hero.text.link": {
+  "hompage.hero.link": {
     "message": "Link"
   },
-  "hompage.hero.text.introduce": {
-    "message": "About Me"
+  "hompage.hero.idea": {
+    "message": "Idea"
+  },
+  "hompage.hero.introduce": {
+    "message": "Introduce"
   },
   "theme.blog.archive.posts.total": {
     "message": "Total {total} posts"

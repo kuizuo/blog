@@ -159,37 +159,35 @@ html[data-theme='dark'] .bloghome__intro > p {
 }
 
 .intro {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
+  color: white;
+  padding: 0.75em 20px;
   margin-top: 1rem;
-  padding: 0.25rem 0.5rem;
-  background: linear-gradient(
-    90deg,
-    var(--ifm-color-primary) 11.3%,
-    var(--ifm-color-primary-light) 161.54%
-  );
-  background-clip: text;
-  border: 1px solid var(--ifm-color-primary);
-  box-shadow: 0 10px 50px -10px rgb(18 175 250 / 40%);
+  margin-left: -2px;
+  font-weight: 600;
+  background: linear-gradient( 90deg, var(--ifm-color-primary) 11.3%, var(--ifm-color-primary-light) 161.54% );
+  box-shadow: rgb(0 105 165 / 35%) 0 0 32px;
+  border-radius: 7px;
+  font-family: "Yuanti SC", Youyuan, "You Yuan", "幼圆", "PingFang SC", "Microsoft Yahei", Helvetica, sans-serif;
 
   &:hover {
     text-decoration: none;
+    color: white;
   }
 
-  &::before {
-    background: var(--ifm-color-primary);
-    opacity: 0;
-    content: "";
-    display: block;
-    height: 105%;
-    width: 0;
-    left: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all 0.5s ease-in-out;
-  }
+  // &::before {
+  //   background: var(--ifm-color-primary);
+  //   opacity: 0;
+  //   content: "";
+  //   display: block;
+  //   height: 105%;
+  //   width: 0;
+  //   left: 0;
+  //   position: absolute;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   transition: all 0.5s ease-in-out;
+  // }
 
   // &:hover::before {
   //   background: var(--ifm-color-primary-light);

@@ -17,24 +17,28 @@
     "description": "my name"
   },
   "homepage.hero.text": {
-    "message": "在这里你能了解到各类实战开发的所遇到的问题，帮助你在学习的过程了解最新的技术栈，并希望我的个人经历对你有所启发。",
+    "message": "在这里我会分享各类技术栈所遇到问题与解决方案，带你了解最新的技术栈以及实际开发中如何应用，并希望我的开发经历对你有所启发",
     "description": "hero text"
   },
-  "hompage.hero.text.blog": {
-    "message": "技术博客",
-    "description": "Blog link label"
+  "hompage.hero.note": {
+    "message": "技术笔记",
+    "description": "Note link label"
   },
-  "hompage.hero.text.project": {
+  "hompage.hero.project": {
     "message": "实战项目",
     "description": "Project link label"
   },
-  "hompage.hero.text.link": {
+  "hompage.hero.link": {
     "message": "网址导航",
     "description": "Link link label"
   },
-  "homepage.qqgroup1": {
+  "hompage.hero.idea": {
+    "message": "想法感悟",
+    "description": "Idea label"
+  },
+  "homepage.qqgroup": {
     "message": "QQ 群：5478458",
-    "description": "qq group1"
+    "description": "qq group"
   },
   "自我介绍": {
     "message": "自我介绍",

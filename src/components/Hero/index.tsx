@@ -34,37 +34,42 @@ function Hero() {
         </animated.div>
         <animated.p style={trails[1]}>
           <Translate id="homepage.hero.text">
-            {`在这里你能了解到各类实战开发的所遇到的问题，帮助你在学习的过程了解最新的技术栈，并希望我的个人经历对你有所启发。`}
+            {`在这里我会分享各类技术栈所遇到问题与解决方案，带你了解最新的技术栈，以及在实际开发中如何应用，提升开发效率同时。`}
           </Translate>
           <br />
+          <br />
           <Translate
-            id="homepage.hero.need"
+            id="homepage.hero.look"
             values={{
               note: (
                 <Link to="/docs/skill">
-                  <Translate id="hompage.hero.text.note">技术笔记</Translate>
+                  <Translate id="hompage.hero.note">技术笔记</Translate>
                 </Link>
               ),
               project: (
                 <Link to="/project">
-                  <Translate id="hompage.hero.text.project">实战项目</Translate>
+                  <Translate id="hompage.hero.project">实战项目</Translate>
                 </Link>
               ),
               link: (
                 <Link to="/website">
-                  <Translate id="hompage.hero.text.link">网址导航</Translate>
+                  <Translate id="hompage.hero.link">网址导航</Translate>
+                </Link>
+              ),
+              idea: (
+                <Link to="/tags/随笔">
+                  <Translate id="hompage.hero.idea">想法感悟</Translate>
                 </Link>
               ),
             }}
           >
-            {`或许你需要{note}、{project}、{link}。`}
+            {`你可以随处逛逛，查看{note}、{project}、{link}。以及我的{idea}`}
           </Translate>
         </animated.p>
         <SocialLinks style={trails[2]} />
         <animated.div style={trails[3]}>
           <a className={styles.intro} href={'./about'}>
-            <Translate id="hompage.hero.text.introduce">自我介绍</Translate>
-            <Icon icon='ri:arrow-right-line' />
+            <Translate id="hompage.hero.introduce">自我介绍</Translate>
           </a>
         </animated.div>
       </div>
