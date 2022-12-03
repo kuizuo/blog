@@ -1,7 +1,7 @@
 {
   "name": "愧怍的小站",
   "short_name": "愧怍的小站",
-  "theme_color": "#2196f3",
+  "theme_color": "#12affa",
   "background_color": "#424242",
   "display": "standalone",
   "scope": "./",
@@ -14,18 +14,13 @@
   ],
   "icons": [
     {
-      "src": "img/icons/icon-128.png",
+      "src": "img/icons/icon-128.pnag",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
       "src": "img/icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "img/icons/icon-512.png",
-      "sizes": "512x512",
       "type": "image/png"
     }
   ]
