@@ -2,6 +2,7 @@ import React, { memo, useEffect, useRef } from 'react';
 import clsx from 'clsx';
 import Image from '@theme/IdealImage';
 import Link from '@docusaurus/Link';
+import Translate from '@docusaurus/Translate';
 import { useSpring, animated, to } from '@react-spring/web';
 
 import styles from './styles.module.css';
@@ -86,7 +87,7 @@ const ShowcaseCard = memo(({ project }: { project: Project }) => {
     >
       {project.preview && (
         <div className={clsx('card__image', styles.showcaseCardImage)}>
-          <Image src={project.preview} alt={project.title} img={project.preview}/>
+          <Image src={project.preview} alt={project.title} img={project.preview} />
         </div>
       )}
       <div className="card__body">
@@ -107,7 +108,7 @@ const ShowcaseCard = memo(({ project }: { project: Project }) => {
                 styles.showcaseCardSrcBtn
               )}
             >
-              Source
+              <Translate id="showcase.card.sourceLink">source</Translate>
             </Link>
           )}
         </div>

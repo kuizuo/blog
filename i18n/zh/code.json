@@ -375,5 +375,9 @@
   "theme.Playground.liveEditor": {
     "message": "实时编辑器",
     "description": "The live editor label of the live codeblocks"
+  },
+  "showcase.card.sourceLink":{
+    "message": "源码",
+    "description": "The label for the source link of a showcase card"
   }
 }

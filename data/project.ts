@@ -96,22 +96,13 @@ export const projects: Project[] = [
     tags: ['product', 'large'],
     type: 'other',
   },
-  // {
-  //   title: '卡密系统',
-  //   description: '基于 Protocol 搭建的一个卡密充值系统',
-  //   preview: '/img/project/ticket-system.png',
-  //   website: 'https://ticket.kuizuo.cn',
-  //   source: 'https://github.com/kuizuo/protocol/tree/ticket',
-  //   tags: ['opensource', 'product'],
-  //   type: 'other',
-  // },
-  // {
-  //   title: 'vscode-settings',
-  //   description: '我的 Vscode 相关配置',
-  //   website: 'https://github/kuizuo/vscode-settings',
-  //   tags: ['opensource', 'personal'],
-  //   type: 'personal'
-  // },
+  {
+    title: 'vscode-settings',
+    description: '我的 Vscode 相关配置',
+    website: 'https://github/kuizuo/vscode-settings',
+    tags: ['opensource', 'personal'],
+    type: 'personal'
+  },
   {
     title: '@kuizuo/http',
     description: '基于 Axios 封装的 HTTP 类库',
@@ -140,13 +131,6 @@ export const projects: Project[] = [
     tags: ['opensource'],
     type: 'personal'
   },
-  // {
-  //   title: 'mini-vue',
-  //   description: '🙃mini vue3 实现',
-  //   website: 'https://github.com/kuizuo/mini-vue',
-  //   tags: ['opensource'],
-  //   type: 'personal'
-  // },
 ]
 
 export type Tag = {
