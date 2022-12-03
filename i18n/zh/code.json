@@ -17,8 +17,12 @@
     "description": "my name"
   },
   "homepage.hero.text": {
-    "message": "在这里我会分享各类技术栈所遇到问题与解决方案，带你了解最新的技术栈以及实际开发中如何应用，并希望我的开发经历对你有所启发",
+    "message": "在这里我会分享各类技术栈所遇到问题与解决方案，带你了解最新的技术栈以及实际开发中如何应用，并希望我的开发经历对你有所启发。",
     "description": "hero text"
+  },
+  "homepage.hero.look":{
+    "message": "你可以随处逛逛，查看{note}、{project}、{link}、以及我的{idea}。",
+    "description": "hero look"
   },
   "hompage.hero.note": {
     "message": "技术笔记",

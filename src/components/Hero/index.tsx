@@ -63,7 +63,7 @@ function Hero() {
               ),
             }}
           >
-            {`你可以随处逛逛，查看{note}、{project}、{link}。以及我的{idea}`}
+            {`你可以随处逛逛，查看{note}、{project}、{link}、以及我的{idea}。`}
           </Translate>
         </animated.p>
         <SocialLinks style={trails[2]} />
