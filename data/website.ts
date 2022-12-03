@@ -44,6 +44,12 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://github.com/trending',
       },
       {
+        name: 'Javascript Weekly',
+        desc: 'A newsletter of JavaScript articles, news and cool projects',
+        logo: '/img/website/javascript.svg',
+        href: 'https://javascriptweekly.com/',
+      },
+      {
         name: 'State of JavaScript',
         desc: 'JavaScript 生态系统的年度开发人员调查',
         logo: '/img/website/stateofjs.svg',
@@ -54,13 +60,7 @@ export const websiteData: WebsiteCategory[] = [
         desc: '周周尝鲜，人工筛选前端圈每周最新资讯。—— 由 童欧巴 创作',
         logo: '/img/website/zhubai.png',
         href: 'https://hungryturbo.zhubai.love/',
-      },
-      {
-        name: 'Koala聊开源',
-        desc: '了解科技资讯、把握行业脉搏。每周快速浏览 Hacker News 精选。',
-        logo: '/img/website/bilibili.ico',
-        href: 'https://space.bilibili.com/489667127/channel/collectiondetail?sid=249279&ctype=0',
-      },
+      }
     ],
   },
   {
@@ -153,13 +153,6 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['工具'],
       },
       {
-        name: '一个工具箱',
-        desc: '好用的在线工具都在这里！',
-        logo: '/img/website/atoolbox.ico',
-        href: 'http://www.atoolbox.net/',
-        tags: ['工具'],
-      },
-      {
         name: '菜鸟工具',
         desc: '菜鸟工具，为开发设计人员提供在线工具，提供在线PHP、Python、 CSS、JS 调试，中文简繁体转换，进制转换等工具',
         logo: '/img/website/runoob.png',
@@ -176,7 +169,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Terminal Gif Maker',
         desc: '在线生成 Terminal GIF',
-        logo: 'https://www.terminalgif.com/favicon.ico',
+        logo: '/img/website/favicon.ico',
         href: 'https://www.terminalgif.com',
         tags: [],
       },

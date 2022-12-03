@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-
+import _ from 'loadsh'
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import Translate, {translate} from '@docusaurus/Translate';
@@ -8,7 +8,6 @@ import ShowcaseCard from './_components/ShowcaseCard';
 import {projects, groupByProjects} from '@site/data/project';
 
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
-import {useHistory, useLocation} from '@docusaurus/router';
 
 import styles from './styles.module.css';
 
@@ -27,16 +26,6 @@ type ProjectState = {
   scrollTopPosition: number;
   focusedElementId: string | undefined;
 };
-
-function restoreProjectState(projectState: ProjectState | null) {
-  const {scrollTopPosition, focusedElementId} = projectState ?? {
-    scrollTopPosition: 0,
-    focusedElementId: undefined,
-  };
-  // @ts-expect-error: if focusedElementId is undefined it returns null
-  document.getElementById(focusedElementId)?.focus();
-  window.scrollTo({top: scrollTopPosition});
-}
 
 export function prepareUserState(): ProjectState | undefined {
   if (ExecutionEnvironment.canUseDOM) {
@@ -73,47 +62,12 @@ function ShowcaseHeader() {
   );
 }
 
-function SearchBar() {
-  const history = useHistory();
-  const location = useLocation();
-  const [value, setValue] = useState<string | null>(null);
-  useEffect(() => {
-    setValue(readSearchName(location.search));
-  }, [location]);
-  return (
-    <div className={styles.searchContainer}>
-      <input
-        id="searchbar"
-        placeholder="搜索项目"
-        value={value ?? undefined}
-        onInput={(e) => {
-          setValue(e.currentTarget.value);
-          const newSearch = new URLSearchParams(location.search);
-          newSearch.delete(SearchNameQueryKey);
-          if (e.currentTarget.value) {
-            newSearch.set(SearchNameQueryKey, e.currentTarget.value);
-          }
-          history.push({
-            ...location,
-            search: newSearch.toString(),
-            state: prepareUserState(),
-          });
-          setTimeout(() => {
-            document.getElementById('searchbar')?.focus();
-          }, 0);
-        }}
-      />
-    </div>
-  );
-}
-
 function ShowcaseCards() {
   if (projects.length === 0) {
     return (
       <section className="margin-top--lg margin-bottom--xl">
         <div className="container padding-vert--md text--center">
           <h2>No result</h2>
-          <SearchBar />
         </div>
       </section>
     );
@@ -128,7 +82,6 @@ function ShowcaseCards() {
               'margin-bottom--md',
               styles.showcaseFavoriteHeader,
             )}>
-            {/* <SearchBar /> */}
           </div>
 
           {Object.entries(groupByProjects).map(([key, value]) => {
@@ -139,7 +92,7 @@ function ShowcaseCards() {
                     'margin-bottom--md',
                     styles.showcaseFavoriteHeader,
                   )}>
-                  <h2>{key}</h2>
+                  <h2>{_.upperFirst(key)}</h2>
                 </div>
                 <ul className={styles.showcaseList}>
                   {value.map((project) => (

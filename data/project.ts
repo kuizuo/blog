@@ -28,11 +28,20 @@ export const projects: Project[] = [
   },
   {
     title: 'Protocol',
-    description: '🧪 一个用于快速复现请求协议的 Web 开发模板。',
+    description: '🧪 一个用于快速复现请求协议的 Web 开发模板',
     preview: '/img/project/protocol.png',
     website: 'https://protocol.kuizuo.cn',
     source: 'https://github.com/kuizuo/protocol',
     tags: ['opensource', 'favorite'],
+    type: 'web',
+  },
+  {
+    title: 'Hoppx',
+    description: '👽 仿 Hoppscotch 风格的网站模板',
+    preview: '/img/project/hoppx.png',
+    website: 'https://hoppx.vercel.app',
+    source: 'https://github.com/kuizuo/hoppx',
+    tags: ['opensource'],
     type: 'web',
   },
   {
@@ -72,7 +81,7 @@ export const projects: Project[] = [
     type: 'web',
   },
   {
-    title: 'Link-admin',
+    title: 'link-admin',
     description: '基于 kz-admin 编写的一次性充值链接销售系统',
     preview: '/img/project/link-admin.png',
     website: 'http://link.kuizuo.cn',
