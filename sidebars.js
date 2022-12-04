@@ -3,7 +3,7 @@ const sidebars = {
   skill: [
     'skill/introduction',
     {
-      label: 'Docusaurus2 主题魔改',
+      label: 'Docusaurus 主题魔改',
       type: 'category',
       link: {
         type: 'doc',
@@ -16,6 +16,7 @@ const sidebars = {
         'skill/docusaurus/docusaurus-plugin',
         'skill/docusaurus/docusaurus-search',
         'skill/docusaurus/docusaurus-comment',
+        'skill/docusaurus/docusaurus-deploy',
       ],
     },
     {

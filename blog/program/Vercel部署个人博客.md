@@ -5,28 +5,40 @@ date: 2022-05-11
 authors: kuizuo
 tags: [vercel, blog]
 keywords: [vercel, blog]
-description: 使用 Vercel 部署个人博客过程记录
+description: 使用 Vercel 部署个人博客过程记录，简单方便、访问快、免费部署。
+image: https://img.kuizuo.cn/image-20220511170700075.png
+sticky: 5
 ---
 
 ![image-20220511170700075](https://img.kuizuo.cn/image-20220511170700075.png)
 
 :::tip 观前提醒
 
-[Vercel](https://vercel.com/) 部署静态资源网站极其**方便简单**，并且有可观的**访问速度**，最主要的是**免费部署**。
+[Vercel](https://vercel.com/) 部署静态资源网站极其**简单方便**，并且有可观的**访问速度**，最主要的是**免费部署**。
 
 如果你还没有尝试的话，强烈建议去使用一下。
 
-与之相似的产品叫 Netfily
+:::
+
+[vercel 介绍](https://zhuanlan.zhihu.com/p/452654619)
+
+与之相似的产品 [Netfily](https://netlify.com)，如果你想部署私有化，推荐 [Coolify](https://coolify.io)
+
+如果你想搭建一个类似这样的站点，不妨参考我的 [Docusaurus 主题魔改](/docs/docusaurus-guides)
+
+:::danger DNS 污染
+
+由于某些原因，vercel.app 被 DNS 污染（即被墙），目前在国内已经无法打开，除非你有自己的域名，通过 CNAME 解析访问你的域名。
+
+**因此想要在国内访问，建议不要使用 Vercel 部署了，最好选用 Netlify。**
 
 :::
 
 <!-- truncate -->
 
-## [vercel 介绍](https://zhuanlan.zhihu.com/p/452654619)
-
 ## 注册账号
 
-进入[Vercel](https://vercel.com)官网，先去注册一个账号，建议注册一个[Github](https://github.com/)账号后，使用 GIthub 账号来登录 Vercel。
+进入 [Vercel](https://vercel.com) 官网，先去注册一个账号，建议注册一个 [Github](https://github.com/) 账号后，使用 Github 账号来登录 Vercel。
 
 ## 部署网站
 
@@ -40,7 +52,7 @@ description: 使用 Vercel 部署个人博客过程记录
 
 这里可以从已有的 git repository 中导入，也可以选择一个模板。
 
-这里登录我的 Github 账号选择仓库，然后点击 blog 仓库旁的 Import 即可。当然，你也可以直接拉取我的仓库，仓库地址：https://github.com/kuizuo/blog
+这里登录我的 Github 账号选择仓库，然后点击 blog 仓库旁的 Import 即可。当然，你也可以直接拉取我的仓库，仓库地址：[kuizuo/blog](https://github.com/kuizuo/blog)
 
 ![image-20220511165513526](https://img.kuizuo.cn/image-20220511165513526.png)
 
@@ -50,7 +62,7 @@ description: 使用 Vercel 部署个人博客过程记录
 
 此时网站已经成功搭建完毕了，点击图片即可跳转到 vercel 所提供的二级域名访问。
 
-是不是极其简单？甚至不需要你输入任何命令，便可访问构建好的网站。
+是不是极其简单？**甚至不需要你输入任何命令，便可访问构建好的网站。**
 
 ## 自定义域名
 
@@ -76,7 +88,7 @@ description: 使用 Vercel 部署个人博客过程记录
 
 ### 自动颁发 SSL 证书
 
-默认状态下，Vercel 将会颁发并自动更新 SSL 证书。（着实方便，不用自己手动去申请证书，同时配置证书）
+默认状态下，Vercel 将会颁发并自动更新 SSL 证书。（着实方便，不用自己手动去申请证书，配置证书）
 
 ![image-20220511172240999](https://img.kuizuo.cn/image-20220511172240999.png)
 
@@ -93,6 +105,14 @@ description: 使用 Vercel 部署个人博客过程记录
 同时 vercel 还支持 serverless，也就是说，不仅能部署静态站点，还能部署后端服务，不过肯定有一定的限制。
 
 [Vercel 部署 Serverless](/vercel-deploy-serverless)
+
+## Edge Functions
+
+翻译过来叫边缘函数，你可以理解为在 Vercel 的 CDN 上运行的函数，可以在 Vercel 的 CDN 上运行代码，而不需要在服务器上运行。
+
+由于这类函数和静态资源一样，都通过 CDN 分发，因此它们的执行速度非常快。
+
+官网介绍：[Edge Functions](https://vercel.com/docs/concepts/functions/edge-functions)
 
 ## Vercel CLI
 
@@ -147,3 +167,7 @@ Auto-detected Project Settings (Create React App):
 ```
 
 还有一个 VERCEL_TOKEN 需要到 [Vercel Settings Tokens](https://vercel.com/account/tokens) 新建一个 Token。
+
+## 总结
+
+没什么好总结，直接上手使用，相信你会爱上 Vercel，以及他旗下的产品，[Next.js](https://github.com/vercel/next.js) 和 [Turbo](https://github.com/vercel/turbo) 等等。

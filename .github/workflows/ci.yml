@@ -32,12 +32,3 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: 'root'
           TARGET: '/www/wwwroot/blog'
-
-      # - name: FTP Deploy
-      #   uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      #   with:
-      #     server: ${{ secrets.ftp_server }}
-      #     username: ${{ secrets.ftp_user }}
-      #     password: ${{ secrets.ftp_pwd }}
-      #     local-dir: ./build/
-      #     server-dir: ./

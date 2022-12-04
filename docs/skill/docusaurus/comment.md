@@ -13,15 +13,15 @@ Waline：需要搭建后端服务与数据库服务，提供评论与浏览量�
 
 ## [giscus](https://giscus.app)
 
-之前的评论使用的是gitalk，但是那个是基于github issue的，并且issue不能关闭，每次打开仓库的时候都会看到几十个issue。
+之前的评论使用的是 gitalk，但是那个是基于 github issue 的，并且 issue 不能关闭，每次打开仓库的时候都会看到几十个 issue，特别不友好。
 
-所以后面就考虑换成[giscus](https://giscus.app/zh-CN)，由 [GitHub Discussions](https://docs.github.com/en/discussions) 驱动的评论系统。首先要确保以下几点：
+所以后面就考虑换成 [giscus](https://giscus.app/zh-CN)，由 [GitHub Discussions](https://docs.github.com/en/discussions) 驱动的评论系统。首先要确保以下几点：
 
-1. **此仓库是[公开的](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/setting-repository-visibility#making-a-repository-public)**，否则访客将无法查看 discussion。
+1. **此仓库是[公开的](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/setting-repository-visibility#making-a-repository-public)**，否则访客将无法查看 discussion（并不需要一定是博客的项目，随便一个仓库都可以）。
 2. **[giscus](https://github.com/apps/giscus) app 已安装**否则访客将无法评论和回应。
-3. **Discussions**功能已[在你的仓库中启用](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository)。
+3. **Discussions** 功能已[在你的仓库中启用](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository)。
 
-本博客已经内置好评论组件`src/component/Comment`，所以只需要在docusaurus.config.js中设置giscus的配置即可。
+本博客已经内置好评论组件 `src/component/Comment`，所以只需要在 docusaurus.config.js 中设置 giscus 的配置即可。
 
 ### 配置giscus
 
@@ -45,7 +45,7 @@ Waline：需要搭建后端服务与数据库服务，提供评论与浏览量�
 </script>
 ```
 
-复制`data-repo`, `data-repo-id`, `data-category` 和 `data-category-id`填写到`docusaurus.config.js`中即可，
+复制 `data-repo`, `data-repo-id`, `data-category` 和  `data-category-id` 填写到 `docusaurus.config.js` 中即可，
 
 ```javascript title='docusaurus.config.js'
 giscus: {
@@ -60,12 +60,12 @@ giscus: {
 
 :::info
 
-如果不替换的话，评论的信息都将会在我的Discussions下😂
+如果不替换的话，评论的信息都将会在我的 Discussions 下😂
 
 :::
 
 ## [waline](https://github.com/walinejs/waline)
 
-目前比较流行的博客评论系统还有waline，它可以提供评论与浏览量服务，由于需要搭配后端服务与数据库服务，所以在配置方面会比giscus来的麻烦，但它无需github Discussions，仓库也无需公开，所以也是绝大多数博客作者的标配。
+目前比较流行的博客评论系统还有 waline，它可以提供评论与浏览量服务，由于需要搭配后端服务与数据库服务，所以在配置方面会比 giscus 来的麻烦，但它无需 github Discussions，所以也是绝大多数博客作者的标配。
 
 关于如何配置，参见官方 [快速上手 | Waline](https://waline.js.org/guide/get-started.html)

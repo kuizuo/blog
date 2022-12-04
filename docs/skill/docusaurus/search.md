@@ -101,5 +101,3 @@ docker run -it --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)
 如果你嫌algolia申请比较麻烦，docusaurus也提供本地搜索，不过搜索上肯定会比全文搜索来的差一些。
 
 本地搜索插件：[docusaurus-search-local](https://github.com/cmfcmf/docusaurus-search-local)
-
-由于我没有配置过本地搜索，这里也就不在演示了。

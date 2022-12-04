@@ -84,11 +84,15 @@ const config = {
             },
             {
               label: 'JS代码还原',
-              to: 'https://js-de-obfuscator.vercel.app',
+              to: 'https://js-de-obfuscator.kuizuo.cn',
             },
             {
               label: 'CyberChef加密',
               to: 'https://cipher.kuizuo.cn',
+            },
+            {
+              label: 'Transform',
+              to: 'https://transform.kuizuo.cn',
             },
             {
               label: '网盘',

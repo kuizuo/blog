@@ -17,7 +17,7 @@ keywords: [blog, docusaurus, project]
 
 不过国内 docusaurus 的使用者是真的少。Vuepress 都快烂大街了...
 
-关于主题魔改可以看 [Docusaurus 主题魔改](https://kuizuo.cn/docs/skill/docusaurus/docusaurus-guides)
+关于主题魔改可以看 [Docusaurus 主题魔改](/docs/docusaurus-guides)
 
 <!-- truncate -->
 
@@ -29,11 +29,11 @@ keywords: [blog, docusaurus, project]
 
 ## 额外功能页面
 
-### [归档页](https://kuizuo.cn/archive)
+### [归档页](/archive)
 
 ![image-20220804052418993](https://img.kuizuo.cn/image-20220804052418993.png)
 
-### [网址导航](https://kuizuo.cn/website)
+### [网址导航](/website)
 
 ![image-20220804052016538](https://img.kuizuo.cn/image-20220804052016538.png)
 
@@ -41,9 +41,9 @@ keywords: [blog, docusaurus, project]
 
 ![image-20220804052746803](https://img.kuizuo.cn/image-20220804052746803.png)
 
-相关文章: [Docusaurus 配置 Gitalk 评论插件](https://kuizuo.cn/docusaurus-gitalk-plugin)
+相关文章: [Docusaurus 配置 Gitalk 评论插件](/docusaurus-gitalk-plugin)
 
-### [项目](https://kuizuo.cn/project)
+### [项目](/project)
 
 ![image-20220804052117492](https://img.kuizuo.cn/image-20220804052117492.png)
 
@@ -51,7 +51,7 @@ keywords: [blog, docusaurus, project]
 
 由于我是有个人的域名和服务器，所以之前部署项目都是直接将编译后的文件直接上传至服务器上，然后通过 nginx 就可以直接通过域名访问了，优点的话就是方便，但缺点很明显，每次更新一篇博客的话，就需要重新编译，然后重新拉去文件，并不能做到自动化编译部署。于是就想着采用第三方服务进行部署。
 
-这里推荐使用 Vercel，我写过一篇 [Vercel 部署个人博客](https://kuizuo.cn/vercel-deploy-blog) 的文章，部署十分简单。
+这里推荐使用 Vercel，我写过一篇 [Vercel 部署个人博客](/vercel-deploy-blog) 的文章，部署十分简单。
 
 ## 最后
 
