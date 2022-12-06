@@ -97,13 +97,6 @@ export const projects: Project[] = [
     type: 'other',
   },
   {
-    title: 'vscode-settings',
-    description: '我的 Vscode 相关配置',
-    website: 'https://github/kuizuo/vscode-settings',
-    tags: ['opensource', 'personal'],
-    type: 'personal'
-  },
-  {
     title: '@kuizuo/http',
     description: '基于 Axios 封装的 HTTP 类库',
     website: 'https://www.npmjs.com/package/@kuizuo/http',
