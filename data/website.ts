@@ -1036,6 +1036,13 @@ export const websiteData: WebsiteCategory[] = [
         tags: [],
       },
       {
+        name: 'Metrics',
+        desc: 'Create your own metrics',
+        logo: '/img/website/github.ico',
+        href: 'https://metrics.lecoq.io/',
+        tags: [],
+      },
+      {
         name: 'Github主页 README 生成器',
         desc: '一个Github 个人主页 README 生成器',
         logo: '/img/website/github.ico',
