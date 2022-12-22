@@ -199,6 +199,19 @@ html[data-theme='dark'] .theme-code-block {
     }
   }
 
+  > h4 {
+    font-size: 1.2em;
+
+    &::before {
+      margin-right: 0.3em;
+      width: 0.2em;
+      display: inline-block;
+      background: var(--ifm-color-primary);
+      color: transparent;
+      content: '.';
+    }
+  }
+
   > a {
     transition: all 0.1s;
     display: inline-block;
