@@ -187,7 +187,7 @@ const config = {
     prism: {
       theme: require('prism-react-renderer/themes/vsLight'),
       darkTheme: require('prism-react-renderer/themes/vsDark'),
-      additionalLanguages: ['java', 'php'],
+      additionalLanguages: ['java', 'php', 'rust', 'toml'],
       defaultLanguage: 'javascript',
       magicComments: [
         {
