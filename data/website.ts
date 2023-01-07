@@ -38,10 +38,10 @@ export const websiteData: WebsiteCategory[] = [
         href: "https://juejin.cn/",
       },
       {
-        name: 'Github Trending',
-        desc: '看看今天 GitHub 社区对什么最感兴趣。',
-        logo: '/img/website/github.png',
-        href: 'https://github.com/trending',
+        name: 'OSS Insight',
+        desc: 'Open Source Software Insight',
+        logo: '/img/website/ossinsight.png',
+        href: 'https://ossinsight.io/',
       },
       {
         name: 'Javascript Weekly',
