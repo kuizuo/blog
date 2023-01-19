@@ -1,7 +1,7 @@
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
-const announcementBarContent = `🌟更新 2022 年终总结`
+const announcementBarContent = `<a href="https://firework.kuizuo.cn">2023 新年快乐</a> 🎉`
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
