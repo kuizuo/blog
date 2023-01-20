@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 const TITLE = '友情链接';
 const DESCRIPTION = '申请友链请点击下方申请，熟人可直接找我~';
 const ADD_FRIEND_URL =
-  'https://github.com/kuizuo/blog/edit/main/src/data/friend.ts';
+  'https://github.com/kuizuo/blog/edit/main/data/friend.ts';
 
 function FriendHeader() {
   return (
