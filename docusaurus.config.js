@@ -245,6 +245,15 @@ const config = {
       cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
     },
   },
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'description',
+        content: '愧怍的个人博客',
+      },
+    }
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -285,6 +294,7 @@ const config = {
           `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
         editLocalizedFiles: false,
         blogSidebarCount: 10,
+        blogDescription: '愧怍的个人博客',
         postsPerPage: 10,
         showReadingTime: true,
         readingTime: ({ content, frontMatter, defaultReadingTime }) =>

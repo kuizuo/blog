@@ -31,7 +31,7 @@ function BlogListPageMetadata(props: Props): JSX.Element {
   } = useDocusaurusContext();
   const { blogDescription, blogTitle, permalink } = metadata;
   const isBlogOnlyMode = !permalink.includes('page');
-  const title = isBlogOnlyMode ? '' : blogTitle;
+  const title = isBlogOnlyMode ? '' : siteTitle;
 
   return (
     <>
