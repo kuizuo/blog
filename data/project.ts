@@ -19,7 +19,7 @@ export const projects: Project[] = [
   },
   {
     title: 'KZ-API',
-    description: '基于Nuxt3 + Vite3 + Vue3 + UnoCSS搭建的API接口服务网站',
+    description: '🔗 基于Nuxt3 + Vite3 + Vue3 + UnoCSS搭建的API接口服务网站',
     preview: '/img/project/kz-api.png',
     website: 'https://api.kuizuo.cn',
     source: 'https://github.com/kuizuo/api-service',
@@ -41,6 +41,15 @@ export const projects: Project[] = [
     preview: '/img/project/hoppx.png',
     website: 'https://hoppx.vercel.app',
     source: 'https://github.com/kuizuo/hoppx',
+    tags: ['opensource'],
+    type: 'web',
+  },
+  {
+    title: 'Link Maker',
+    description: '🍋 一个用于将链接转换为卡片样式的预览网站',
+    preview: '/img/project/link-maker.png',
+    website: 'https://link-maker.deno.dev',
+    source: 'https://github.com/kuizuo/link-maker',
     tags: ['opensource'],
     type: 'web',
   },
@@ -121,6 +130,13 @@ export const projects: Project[] = [
     title: 'browser-rpc',
     description: 'WebSocket远程调用浏览器函数',
     website: 'https://github.com/kuizuo/rpc-browser',
+    tags: ['opensource'],
+    type: 'personal'
+  },
+  {
+    title: 'rust-wasm-md5',
+    description: '🦀 Rust + WebAssembly 实现的 MD5 加密',
+    website: 'https://github.com/kuizuo/rust-wasm-md5',
     tags: ['opensource'],
     type: 'personal'
   },
