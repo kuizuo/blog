@@ -12,6 +12,7 @@
   height: 100px;
   min-width: 100px;
   border-radius: 50%;
+  object-fit: contain;
 }
 
 .friendCardHeader {

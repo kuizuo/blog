@@ -217,9 +217,9 @@ const {data, error} = await supabase.auth.signInWithOAuth({
 
 你可以到[Supabase Storage API](https://supabase.github.io/storage-api/ 'Supabase Storage API') 查看 storage 相关 api。
 
-:::caution
+:::tip 现学现用
 
-本文中的所有图片数据都来源于 supabase bucket，现学现用了属于是。
+本文中的所有图片数据都来源于 supabase bucket。
 
 :::
 

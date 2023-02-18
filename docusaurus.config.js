@@ -229,8 +229,8 @@ const config = {
       repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=',
       category: 'General',
       categoryId: 'DIC_kwDOF7NJDM4CPK95',
-      mapping: 'title',
-      lang: 'zh-CN',
+      theme: 'light',
+      darkTheme: 'dark',
     },
     liveCodeBlock: {
       playgroundPosition: 'top',
@@ -338,8 +338,8 @@ const config = {
   ],
   stylesheets: [],
   i18n: {
-    defaultLocale: 'zh',
-    locales: ['en', 'zh'],
+    defaultLocale: 'zh-CN',
+    locales: ['en', 'zh-CN'],
     localeConfigs: {
       en: {
         htmlLang: 'en-GB',

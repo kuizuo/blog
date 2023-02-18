@@ -3,7 +3,7 @@
 </h2><br>
 
 <pre align="center">
- Build with 🦖<a href="https://kuizuo.cn">Docusaurus</a> 
+ Build with 🦖<a href="https://docusaurus.io/">Docusaurus</a> 
 </pre>
 
 <p align="center">

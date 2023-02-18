@@ -21,7 +21,7 @@ function FriendHeader() {
         href={ADD_FRIEND_URL}
         target="_blank"
         rel="noreferrer">
-        申请友链
+        🔗 申请友链
       </a>
     </section>
   );
