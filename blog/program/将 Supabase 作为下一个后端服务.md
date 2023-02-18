@@ -5,13 +5,13 @@ date: 2023-02-18
 authors: kuizuo
 tags: [supabase, nuxt, project]
 keywords: [supabase, nuxt, project]
-description: 使用
+description: 本文介绍了如何使用 Supabase 作为后端服务，使开发人员可以更快地构建和部署应用程序，无需配置数据库或编写复杂的身份验证代码。将使用 Nuxt.js 和 Supabase，以实现一个图床网站为例，来演示如何在前端中使用 Supabase API 和 Storage 服务。
 toc_max_heading_level: 3
 ---
 
 ![](https://supabase.com/favicon/apple-touch-icon.png)
 
-对于想快速实现一个产品而言，如果使用传统开发，又要兼顾前端开发，同时又要花费时间构建后端服务。然后有这么一个平台（Baas Backend as a service）后端即服务，能够让开发人员可以专注于前端开发，而无需花费大量时间和精力来构建和维护后端基础设施。
+对于想快速实现一个产品而言，如果使用传统开发，又要兼顾前端开发，同时又要花费时间构建后端服务。然而有这么一个平台（Baas Backend as a service）后端即服务，能够让开发人员可以专注于前端开发，而无需花费大量时间和精力来构建和维护后端基础设施。
 
 对于只会前端的人来说，这是一个非常好的选择。后端即服务的平台使得开发人员能够快速构建应用程序，更快地将其推向市场。当然了，你可以将你的后端应用接入 Baas，这样你就无需配置数据库，编写复杂的身份效验。
 
@@ -21,11 +21,11 @@ toc_max_heading_level: 3
 
 ## 什么是 [Supabase](https://supabase.com/ 'Supabase')?
 
-在摘要部分也介绍到名词 BaaS (Backend as a Service) ，意思为**后端即服务**。这个概念我是接触 Serverless 的时候了解到，更准确来说是腾讯云开发。当时在编写小程序的时候，我只需要专注与你的应用业务，而不用编写数据存储，身份验证，文件存储等后端逻辑，这些统统由 BaaS 平台所提供。 所编写的通常都是 Serverless 函数，通常也叫 Faas（Function as a Service）。通常来说，Faas 会依赖于 BaaS 平台。
+在摘要部分也介绍到名词 BaaS (Backend as a Service) ，意思为**后端即服务**。这个概念是在我接触 Serverless 的时候了解到的，更准确来说是腾讯云开发。当时在编写小程序的时候，只需要专注与应用业务逻辑，而不用编写数据存储，身份验证，文件存储等后端服务，这些统统由 BaaS 平台所提供。 通常会配合 Serverless 函数使用，通常也叫 FaaS（Function as a Service）。通常来说，FaaS 会依赖于 BaaS 平台。
 
-而 Supabase 便是 Bass 的平台之一。Supabase 是一个开源的 Firebase 替代品。使用 Postgres 数据库、身份验证、即时 API、边缘函数、实时订阅和存储启动项目。
+而 Supabase 便是 BaaS 的平台之一。Supabase 是一个开源的 Firebase 替代品。使用 Postgres 数据库、身份验证、即时 API、边缘函数、实时订阅和存储启动项目。
 
-你也许听过 Firebase，由 Google 提供的私有云服务，但开发者无法修改和扩展其底层代码。而 Supabase 是开源的，提供了类似 Firebase 的功能，且定价灵活，并且官方自称为[Firebase](https://link.juejin.cn/?target=https://firebase.google.com/ 'Firebase')的替代品。
+你也许听过 Firebase，由 Google 提供的私有云服务，但开发者无法修改和扩展其底层代码。而 Supabase 是开源的，提供了类似 Firebase 的功能，且定价灵活，并且官方自称为 [Firebase](https://link.juejin.cn/?target=https://firebase.google.com/ 'Firebase')的替代品。
 
 ## BaaS 与 CMS 有何不同？
 
@@ -45,7 +45,7 @@ BaaS 通常只专注于应用的后端服务，而 CMS 则是专注与内容管�
 
 :::caution
 
-supabase 对密码要求非常严格，像 123456 这种根本无法通过，比如我的密码 ●●●●●●●●●● 就可以。
+创建 supabase 项目对密码要求非常严格，像 a123456 这种根本无法通过，像 ●●●●●●●●●● 密码就可以。
 
 地区方面优先就近原则，而最近的也就是日本与韩国，很无奈 supabase 在大陆和港澳台并未设立服务器。
 
@@ -57,7 +57,7 @@ supabase 对密码要求非常严格，像 123456 这种根本无法通过，比
 
 ![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_Z33n9aUOC7.png)
 
-supabase 会提供一个二级域名供开发者访问，也就是这里 Project Configuration 的 URL，对应的这个二级域名 azlbliyjwcxxxxx 也就是你这个项目的唯一标识 Reference ID（下文称项目 id）。你可以到 [https://app.supabase.com/project/你的项目 id/settings/api](https://app.supabase.com/project/azlbliyjwcemojkwazto/settings/api 'https://app.supabase.com/project/你的项目id/settings/api') 中查看相关配置。
+supabase 会提供一个二级域名供开发者访问，也就是这里 Project Configuration 的 URL，对应的这个二级域名 azlbliyjwcxxxxx 也就是你这个项目的唯一标识 Reference ID（下文称 项目id）。你可以到 [https://app.supabase.com/project/你的项目id/settings/api](https://app.supabase.com/project/azlbliyjwcemojkwazto/settings/api 'https://app.supabase.com/project/你的项目id/settings/api') 中查看相关配置。
 
 ## 体验一下
 
@@ -73,9 +73,9 @@ Insert row 添加一行记录，id 为 1，task 为 code。
 
 ![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_MLm6_i1Pb-.png)
 
-现在有了数据后，正常来说我们应该做什么？请求一下数据看看？不不不，应该是设置数据的权限。有些东西只能自己偷偷看，被发现了可就不好。（希望我说的是 todo）
+现在有了数据后，正常来说我们应该做什么？请求一下数据看看？不不不，应该是设置数据的权限。
 
-打开到下图界面，我们要为 todos 数据新增一个 policy 策略
+打开到下图界面，我们要为 todos 数据新增一个 policy 策略。
 
 ![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_MEKk1-qQFl.png)
 
@@ -89,7 +89,7 @@ supabase 针对不同的场景提供了相应的策略方案模板，你也可�
 
 ![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_wV_MqXQXcK.png)
 
-此时就新增了一个所有用户(public)都可查询的 todo 的策略，同样的你还可以添加只有授权用户()才能够创建更新删除 todo，而更新与删除只能操作属于自己的 todo。
+此时就新增了一个所有用户都可查询的 todo 的策略，同样的你还可以添加只有授权用户才能够创建更新删除 todo，更新与删除只能操作属于自己的 todo 资源。
 
 这时候设置好了数据的权限后，就可以尝试去请求了，打开下图页面，将 URL 与 apikey 复制下来。
 
@@ -106,6 +106,42 @@ supabase 针对不同的场景提供了相应的策略方案模板，你也可�
 ### 使用类库
 
 正常情况肯定不会像上面那样去使用，而是通过代码的方式进行登录，CRUD。这里使用 [Javascript Client Library](https://supabase.com/docs/reference/javascript/installing 'Javascript Client Library')，替我们封装好了 supabase 的功能。
+
+首先，安装依赖
+
+```bash
+npm install @supabase/supabase-js
+```
+
+创建 客户端实例 
+
+```typescript
+import { createClient } from '@supabase/supabase-js'
+```
+
+此时准备好上述的URL与apikey，用于创建supabase实例，不过supabase还提供 [type类型支持](https://supabase.com/docs/reference/javascript/typescript-support)，可以将生成的 `database.types.ts` 导入到实例中，如
+
+```typescript
+import { createClient } from '@supabase/supabase-js'
+import { Database } from 'lib/database.types'
+
+const supabase = createClient<Database>(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_ANON_KEY
+)
+```
+
+此时有了supabse对象后，就能够请求数据了，想上述通过http的方式，在这里对应的代码为
+
+```typescript
+const { data, error } = await supabase
+  .from('todos')
+  .select()
+```
+
+[官方的演示例子](https://supabase.com/docs/reference/javascript/select) 非常清晰，这里就不在演示新增更新等示例。
+
+![image-20230218182910913](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image-20230218182910913.png)
 
 ## [Supabase 主要功能](https://supabase.com/docs)
 
@@ -175,13 +211,13 @@ const {data, error} = await supabase.auth.signInWithOAuth({
 
 ![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_vkuzeZZVJ_.png)
 
-你可以访问[1.png](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/new-bucket/1.png?t=2023-02-17T04:20:48.383Z '1.png') 来查看这张图片。如果是公开的话 一般都是类似https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/new-bucket/1.png
+你可以访问 [1.png](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/publilc/1.png) 来查看这张图片。如果是公开的话 一般都是类似https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/new-bucket/1.png
 
 而私有的为 https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/sign/new-bucket/1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCIxxxxxxxxxxxxxxxxx 路径稍微变化了下，还有就是多了个 token，如果不携带 token 则访问不了图片。
 
 你可以到[Supabase Storage API](https://supabase.github.io/storage-api/ 'Supabase Storage API') 查看 storage 相关 api。
 
-:::cation
+:::caution
 
 本文中的所有图片数据都来源于 supabase bucket，现学现用了属于是。
 
