@@ -54,8 +54,17 @@ export const projects: Project[] = [
     type: 'web',
   },
   {
+    title: 'Image Hosting',
+    description: '🖼️ 使用 Supabase 搭建一个简易图床',
+    preview: '/img/project/image-hosting.png',
+    website: 'https://image.kuizuo.cn',
+    source: 'https://github.com/kuizuo/image-hosting',
+    tags: ['opensource'],
+    type: 'web',
+  },
+  {
     title: '前端示例代码库',
-    description: '整理前端样式和功能的实现代码，可以用来寻找灵感或直接使用示例中的代码',
+    description: '📦 整理前端样式和功能的实现代码，可以用来寻找灵感或直接使用示例中的代码',
     preview: '/img/project/example-website.png',
     website: 'https://example.kuizuo.cn',
     source: 'https://github.com/kuizuo/example',
