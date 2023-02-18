@@ -69,7 +69,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: "Developer Roadmap",
         desc: "Roadmap to becoming a web developer.",
-        logo: "https://roadmap.sh/logo.svg",
+        logo: "/img/website/roadmap.png",
         href: "https://roadmap.sh/",
       },
       {
@@ -129,7 +129,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: '深入理解 TypeScript',
         desc: '《TypeScript Deep Dive》 是一本很好的开源书，从基础到深入，很全面的阐述了 TypeScript 的各种魔法，不管你是新手，还是老鸟，它都将适应你',
-        logo: 'https://jkchao.github.io//typescript-book-chinese/logo.png',
+        logo: '/img/website/typescript.png',
         href: 'https://jkchao.github.io/typescript-book-chinese/',
         tags: ['文档'],
       },
@@ -169,7 +169,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Terminal Gif Maker',
         desc: '在线生成 Terminal GIF',
-        logo: '/img/website/favicon.ico',
+        logo: 'https://www.terminalgif.com/favicon.ico',
         href: 'https://www.terminalgif.com',
         tags: [],
       },
@@ -283,13 +283,19 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['网站托管'],
       },
       {
-        name: 'railway',
+        name: 'Railway',
         desc: '带上你的代码，剩下交给我们 ',
         logo: '/img/website/railway.png',
         href: 'https://railway.app/',
         tags: ['网站托管'],
       },
-
+      {
+        name: 'Supabase',
+        desc: 'Supabase 是一个开源的后端即服务（BaaS）平台，它可以帮助开发者快速构建应用程序，无需编写后端代码。',
+        logo: '/img/website/supabase.png',
+        href: 'https://supabase.com/',
+        tags: ['BaaS'],
+      },
     ],
   },
   {
@@ -732,11 +738,25 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['后端', 'Nodejs', '框架'],
       },
       {
+        name: 'Fresh',
+        desc: 'Deno 下一代 Web 框架，专注于速度、可靠性和简单性的构建。',
+        logo: '/img/website/fresh.ico',
+        href: 'https://fresh.deno.dev/',
+        tags: ['Nodejs'],
+      },
+      {
         name: 'Socket.io',
         desc: 'Socket.IO 是一个可以在浏览器与服务器之间实现实时、双向、基于事件的通信的工具库',
         logo: 'https://socket.io/images/favicon.png',
         href: 'https://socketio.bootcss.com',
         tags: ['Nodejs', 'socket'],
+      },
+      {
+        name: 'tRPC',
+        desc: 'tRPC 是一个轻量级的、类型安全的远程过程调用框架，它使用 TypeScript 进行开发，可以帮助开发者轻松地编写和部署高性能的分布式应用程序。',
+        logo: 'https://trpc.io/img/logo.svg',
+        href: 'https://trpc.io/',
+        tags: ['Nodejs'],
       },
       {
         name: 'Strapi',
@@ -764,7 +784,7 @@ export const websiteData: WebsiteCategory[] = [
         desc: 'GraphQL 既是一种用于 API 的查询语言也是一个满足你数据查询的运行时',
         logo: '/img/website/graphQL.svg',
         href: 'https://graphql.cn',
-        tags: [],
+        tags: ['Nodejs','GraphQL'],
       },
       {
         name: 'ECharts',
@@ -1014,13 +1034,6 @@ export const websiteData: WebsiteCategory[] = [
         desc: 'WordPress是一款能让您建立出色网站、博客或应用程序的开源软件',
         logo: 'https://s.w.org/images/wmark.png',
         href: 'https://cn.wordpress.org/',
-        tags: ['前端', '站点'],
-      },
-      {
-        name: 'Halo',
-        desc: '一款现代化的开源博客/CMS系统，值得一试',
-        logo: 'https://halo.run/themes/run.halo.official2/assets/favicons/favicon-96x96.png',
-        href: 'https://halo.run/',
         tags: ['前端', '站点'],
       },
     ],

@@ -24,6 +24,7 @@ html[data-theme='dark'] .websiteCard:hover {
   width: 64px;
   height: 64px;
   min-width: 64px;
+  object-fit: contain;
 }
 
 .websiteCardHeader {
