@@ -131,7 +131,7 @@ const supabase = createClient<Database>(
 )
 ```
 
-此时有了supabse对象后，就能够请求数据了，想上述通过http的方式，在这里对应的代码为
+此时有了supabse对象后，就能够请求数据了，像上述通过 http 的方式获取 todos 数据，在这里对应的代码为
 
 ```typescript
 const { data, error } = await supabase

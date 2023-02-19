@@ -23,7 +23,7 @@ const config = {
     metadata: [
       {
         name: 'keywords',
-        content:'愧怍'
+        content: '愧怍'
       },
       {
         name: 'keywords',
@@ -110,7 +110,7 @@ const config = {
           position: 'right',
           to: 'project',
         },
-         {
+        {
           type: 'localeDropdown',
           position: 'right',
         },
@@ -179,7 +179,7 @@ const config = {
           {
             html: `<a href="https://docusaurus.io/zh-CN/" target="_blank"><img style="height:50px;margin-top:0.5rem" src="/img/buildwith.png" /><a/>`
           },
-        ],
+          ],
         },
       ],
       copyright: `<p><a href="http://beian.miit.gov.cn/" >${beian}</a></p><p>Copyright © 2020 - PRESENT 愧怍 Built with Docusaurus.</p>`,
@@ -193,7 +193,7 @@ const config = {
         {
           className: 'theme-code-block-highlighted-line',
           line: 'highlight-next-line',
-          block: {start: 'highlight-start', end: 'highlight-end'},
+          block: { start: 'highlight-start', end: 'highlight-end' },
         },
         {
           className: 'code-block-error-line',
