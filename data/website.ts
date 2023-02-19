@@ -21,7 +21,7 @@ const friends: Website[] = Friends.map((f) => {
     logo: f.avatar,
     href: f.website,
   };
-});
+})
 
 export const websiteData: WebsiteCategory[] = [
   {
@@ -71,6 +71,12 @@ export const websiteData: WebsiteCategory[] = [
         desc: "Roadmap to becoming a web developer.",
         logo: "/img/website/roadmap.png",
         href: "https://roadmap.sh/",
+      },
+      {
+        name: "JS delivr",
+        desc: "一个免费的CDN开源项目",
+        logo: "https://www.jsdelivr.com/img/icon_256x256.png",
+        href: "https://www.jsdelivr.com/",
       },
       {
         name: 'Shields.io',

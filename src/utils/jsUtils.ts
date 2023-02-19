@@ -34,4 +34,6 @@ export function shuffle(arr) {
 
     [arr[j], arr[i]] = [arr[i], arr[j]];
   }
+
+  return arr;
 }

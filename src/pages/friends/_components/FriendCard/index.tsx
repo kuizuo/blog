@@ -7,7 +7,6 @@ import {type Friend} from '@site/data/friend';
 
 const FriendCard = memo(({friend}: {friend: Friend}) => (
   <li
-    key={friend.title}
     className={clsx(styles.friendCard, 'padding-vert--sm padding-horiz--md')}>
     <img
       src={
