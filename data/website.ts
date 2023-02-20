@@ -1,26 +1,26 @@
-import { Friends } from './friend';
+import { Friends } from './friend'
 
 export interface Website {
-  name: string;
-  logo: string;
-  desc: string;
-  href: string;
-  tags?: string[];
+  name: string
+  logo: string
+  desc: string
+  href: string
+  tags?: string[]
 }
 
 export interface WebsiteCategory {
-  name: string;
-  websites: Website[];
+  name: string
+  websites: Website[]
 }
 
-const friends: Website[] = Friends.map((f) => {
+const friends: Website[] = Friends.map(f => {
   return {
     ...f,
     name: f.title,
     desc: f.description,
     logo: f.avatar,
     href: f.website,
-  };
+  }
 })
 
 export const websiteData: WebsiteCategory[] = [
@@ -32,10 +32,10 @@ export const websiteData: WebsiteCategory[] = [
     name: '每周必刷🔥',
     websites: [
       {
-        name: "稀土掘金",
-        desc: "稀土掘金是一个技术博客平台，是程序员发布自己的技术文章、分享知识的地方",
-        logo: "/img/website/juejin.png",
-        href: "https://juejin.cn/",
+        name: '稀土掘金',
+        desc: '稀土掘金是一个技术博客平台，是程序员发布自己的技术文章、分享知识的地方',
+        logo: '/img/website/juejin.png',
+        href: 'https://juejin.cn/',
       },
       {
         name: 'OSS Insight',
@@ -60,23 +60,23 @@ export const websiteData: WebsiteCategory[] = [
         desc: '周周尝鲜，人工筛选前端圈每周最新资讯。—— 由 童欧巴 创作',
         logo: '/img/website/zhubai.png',
         href: 'https://hungryturbo.zhubai.love/',
-      }
+      },
     ],
   },
   {
     name: '站点🖥️',
     websites: [
       {
-        name: "Developer Roadmap",
-        desc: "Roadmap to becoming a web developer.",
-        logo: "/img/website/roadmap.png",
-        href: "https://roadmap.sh/",
+        name: 'Developer Roadmap',
+        desc: 'Roadmap to becoming a web developer.',
+        logo: '/img/website/roadmap.png',
+        href: 'https://roadmap.sh/',
       },
       {
-        name: "JS delivr",
-        desc: "一个免费的CDN开源项目",
-        logo: "https://www.jsdelivr.com/img/icon_256x256.png",
-        href: "https://www.jsdelivr.com/",
+        name: 'JS delivr',
+        desc: '一个免费的CDN开源项目',
+        logo: 'https://www.jsdelivr.com/img/icon_256x256.png',
+        href: 'https://www.jsdelivr.com/',
       },
       {
         name: 'Shields.io',
@@ -249,11 +249,11 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['代码托管'],
       },
       {
-        name: "Coding",
-        desc: "提供一站式研发管理平台及云原生开发工具，让软件研发如同工业生产般简单高效，助力企业提升研发管理效能",
-        logo: "/img/website/coding.png",
-        href: "https://coding.net/",
-        tags: ["代码托管"],
+        name: 'Coding',
+        desc: '提供一站式研发管理平台及云原生开发工具，让软件研发如同工业生产般简单高效，助力企业提升研发管理效能',
+        logo: '/img/website/coding.png',
+        href: 'https://coding.net/',
+        tags: ['代码托管'],
       },
     ],
   },
@@ -456,6 +456,34 @@ export const websiteData: WebsiteCategory[] = [
     name: 'CSS',
     websites: [
       {
+        name: 'TailwindCSS',
+        desc: 'Tailwind CSS 是一个功能类优先的 CSS 框架，它集成了诸如 flex, pt-4, text-center 和 rotate-90 这样的的类，它们能直接在脚本标记语言中组合起来，构建出任何设计',
+        logo: 'https://www.tailwindcss.cn/favicon-32x32.png',
+        href: 'https://www.tailwindcss.cn',
+        tags: ['Css', '框架'],
+      },
+      {
+        name: 'WindiCSS',
+        desc: 'Windi CSS 是下一代工具优先的 CSS 框架',
+        logo: 'https://windicss.org/assets/logo.svg',
+        href: 'https://windicss.org',
+        tags: ['Css', '框架'],
+      },
+      {
+        name: 'Twind',
+        desc: '现存最小、最快、功能最齐全的完整 Tailwind-in-JS 解决方案',
+        logo: '/img/website/twind.svg',
+        href: 'https://github.com/tw-in-js/twind',
+        tags: ['Css', '框架'],
+      },
+      {
+        name: 'UnoCSS',
+        desc: '即时按需原子 CSS 引擎',
+        logo: 'https://uno.antfu.me//favicon.svg',
+        href: 'https://uno.antfu.me/',
+        tags: ['Css', '框架'],
+      },
+      {
         name: 'Bootstrap',
         desc: 'Bootstrap 是全球最受欢迎的前端开源工具库，它支持 Sass 变量和 mixin、响应式栅格系统、自带大量组件和众多强大的 JavaScript 插件。基于 Bootstrap 提供的强大功能，能够让你快速设计并定制你的网站',
         logo: 'https://img.kuizuo.cn/20210907055816.png',
@@ -491,34 +519,6 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['Css', '样式'],
       },
       {
-        name: 'TailwindCSS',
-        desc: 'Tailwind CSS 是一个功能类优先的 CSS 框架，它集成了诸如 flex, pt-4, text-center 和 rotate-90 这样的的类，它们能直接在脚本标记语言中组合起来，构建出任何设计',
-        logo: 'https://www.tailwindcss.cn/favicon-32x32.png',
-        href: 'https://www.tailwindcss.cn',
-        tags: ['Css', '框架'],
-      },
-      {
-        name: 'WindiCSS',
-        desc: 'Windi CSS 是下一代工具优先的 CSS 框架',
-        logo: 'https://windicss.org/assets/logo.svg',
-        href: 'https://windicss.org',
-        tags: ['Css', '框架'],
-      },
-      {
-        name: 'Twind',
-        desc: '现存最小、最快、功能最齐全的完整 Tailwind-in-JS 解决方案',
-        logo: '/img/website/twind.svg',
-        href: 'https://github.com/tw-in-js/twind',
-        tags: ['Css', '框架'],
-      },
-      {
-        name: 'UnoCSS',
-        desc: '即时按需原子 CSS 引擎',
-        logo: 'https://uno.antfu.me//favicon.svg',
-        href: 'https://uno.antfu.me/',
-        tags: ['Css', '框架'],
-      },
-      {
         name: 'NES.css',
         desc: '一个像素风格的CSS框架',
         logo: 'https://nostalgic-css.github.io/NES.css/favicon.png',
@@ -544,6 +544,41 @@ export const websiteData: WebsiteCategory[] = [
         desc: '我们赋予任何人创建、分享和使用用 CSS 和 HTML 制作的漂亮自定义元素的权力。',
         logo: '/img/website/uiverse.png',
         href: 'https://uiverse.io',
+        tags: ['Css'],
+      },
+      {
+        name: 'HYPE4',
+        desc: '透明玻璃态生成器',
+        logo: 'https://hype4.academy/_next/static/media/logorwd@2x.b40bc92c.png',
+        href: 'https://hype4.academy/tools/glassmorphism-generator',
+        tags: ['Css'],
+      },
+      {
+        name: 'Omatsuri',
+        desc: '收集不同的发电机，让您的生活更轻松。',
+        logo: 'https://omatsuri.app/assets/favicon.ico',
+        href: 'https://omatsuri.app',
+        tags: ['Css'],
+      },
+      {
+        name: 'smooth shadow',
+        desc: '快速轻松地实现基于 CSS 阴影的绝佳工具。您只需要指定一些阴影设置，代码就在您的路上。',
+        logo: 'https://shadows.brumm.af/favicon.svg',
+        href: 'https://shadows.brumm.af/',
+        tags: ['Css'],
+      },
+      {
+        name: 'FANCY-BORDER-RADIUS',
+        desc: '花式边界半径,有助于创建 CSS 花式边框。',
+        logo: 'https://9elements.github.io/fancy-border-radius/favicon-32x32.png',
+        href: 'https://9elements.github.io/fancy-border-radius/',
+        tags: ['Css'],
+      },
+      {
+        name: 'Coolors',
+        desc: '创建调色板',
+        logo: 'https://coolors.co/assets/img/ios_icon.png',
+        href: 'https://coolors.co/',
         tags: ['Css'],
       },
     ],
@@ -606,18 +641,18 @@ export const websiteData: WebsiteCategory[] = [
         logo: '/img/website/vben-admin.png',
         href: 'https://vvbin.cn/doc-next/',
         tags: ['前端', 'Vue', '后台', '项目'],
-      }
-    ]
+      },
+    ],
   },
   {
     name: 'Frontend',
     websites: [
       {
-        name: "Component party",
-        desc: "前端框架开Party🎉，Web 组件 JS 框架通过其语法和特性进行概述",
-        logo: "/img/website/component party.svg",
-        href: "https://component-party.dev/",
-        tags: ["前端", "css", "动画"],
+        name: 'Component party',
+        desc: '前端框架开Party🎉，Web 组件 JS 框架通过其语法和特性进行概述',
+        logo: '/img/website/component party.svg',
+        href: 'https://component-party.dev/',
+        tags: ['前端', 'css', '动画'],
       },
       {
         name: 'Lodash',
@@ -634,18 +669,18 @@ export const websiteData: WebsiteCategory[] = [
         tags: ['Nodejs'],
       },
       {
-        name: "Greensock",
-        desc: "超强大h5动画库",
-        logo: "https://greensock.com/favicon.ico",
-        href: "https://greensock.com/docs/",
-        tags: ["前端", "css", "动画"],
+        name: 'Greensock',
+        desc: '超强大h5动画库',
+        logo: 'https://greensock.com/favicon.ico',
+        href: 'https://greensock.com/docs/',
+        tags: ['前端', 'css', '动画'],
       },
       {
-        name: "Threejs",
-        desc: "强大的3D-Js库",
-        logo: "https://threejs.org/favicon.ico",
-        href: "https://threejs.org/",
-        tags: ["前端", "JavaScript", "3D"],
+        name: 'Threejs',
+        desc: '强大的3D-Js库',
+        logo: 'https://threejs.org/favicon.ico',
+        href: 'https://threejs.org/',
+        tags: ['前端', 'JavaScript', '3D'],
       },
       {
         name: 'Jest',
@@ -668,7 +703,7 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://playwright.dev/',
         tags: ['自动化测试'],
       },
-    ]
+    ],
   },
   {
     name: 'Node/Deno',
@@ -790,7 +825,7 @@ export const websiteData: WebsiteCategory[] = [
         desc: 'GraphQL 既是一种用于 API 的查询语言也是一个满足你数据查询的运行时',
         logo: '/img/website/graphQL.svg',
         href: 'https://graphql.cn',
-        tags: ['Nodejs','GraphQL'],
+        tags: ['Nodejs', 'GraphQL'],
       },
       {
         name: 'ECharts',
@@ -846,7 +881,7 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://turbo.build/pack',
         tags: ['构建工具'],
       },
-    ]
+    ],
   },
   {
     name: '设计',
@@ -879,7 +914,6 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://pixso.cn/',
         tags: ['设计'],
       },
-
     ],
   },
   {
@@ -948,6 +982,13 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://googlefonts.cn/',
         tags: ['字体'],
       },
+      {
+        name: 'Typing SVG',
+        desc: '一个动态生成的可自定义 SVG 打字效果',
+        logo: '/img/website/typing-svg.png',
+        href: 'https://readme-typing-svg.herokuapp.com/demo/',
+        tags: ['字体'],
+      },
     ],
   },
   {
@@ -988,7 +1029,7 @@ export const websiteData: WebsiteCategory[] = [
         href: 'https://taro.jd.com',
         tags: ['前端', 'React', '小程序'],
       },
-    ]
+    ],
   },
   {
     name: '站点生成',
@@ -1077,4 +1118,4 @@ export const websiteData: WebsiteCategory[] = [
       },
     ],
   },
-];
+]

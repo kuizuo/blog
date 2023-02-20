@@ -1,18 +1,18 @@
-import React from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import { PageMetadata } from '@docusaurus/theme-common';
-import Layout from '@theme/Layout';
-import WebsiteCard from './_components/WebsiteCard';
-import BackToTopButton from '@theme/BackToTopButton';
-import { websiteData } from '@site/data/website';
-import styles from './website.module.css';
+import React from 'react'
+import clsx from 'clsx'
+import Link from '@docusaurus/Link'
+import { PageMetadata } from '@docusaurus/theme-common'
+import Layout from '@theme/Layout'
+import WebsiteCard from './_components/WebsiteCard'
+import BackToTopButton from '@theme/BackToTopButton'
+import { websiteData } from '@site/data/website'
+import styles from './website.module.css'
 
 function CategoryNav() {
   const sidebar = {
     title: '',
-    items: websiteData.map((w) => ({ title: w.name, permalink: `#${w.name}` })),
-  };
+    items: websiteData.map(w => ({ title: w.name, permalink: `#${w.name}` })),
+  }
 
   return (
     <nav className={clsx(styles.sidebar, 'thin-scrollbar')}>
@@ -20,7 +20,7 @@ function CategoryNav() {
         {sidebar.title}
       </div>
       <ul className={clsx(styles.sidebarItemList, 'clean-list')}>
-        {sidebar.items.map((item) => (
+        {sidebar.items.map(item => (
           <li key={item.permalink} className={styles.sidebarItem}>
             <Link
               isNavLink
@@ -34,13 +34,13 @@ function CategoryNav() {
         ))}
       </ul>
     </nav>
-  );
+  )
 }
 
 function CategoryList() {
   return (
     <div className={styles.category}>
-      {websiteData.map((cate) => (
+      {websiteData.map(cate => (
         <div key={cate.name}>
           <div className={styles.cateHeader}>
             <h2 id={cate.name} className="anchor">
@@ -54,7 +54,7 @@ function CategoryList() {
           </div>
           <section>
             <ul className={styles.websiteList}>
-              {cate.websites.map((website) => (
+              {cate.websites.map(website => (
                 <WebsiteCard key={website.name} website={website} />
               ))}
             </ul>
@@ -62,12 +62,12 @@ function CategoryList() {
         </div>
       ))}
     </div>
-  );
+  )
 }
 
 export default function Websites() {
-  const title = '网址导航';
-  const description = '整合日常开发常用，推荐的网站导航页';
+  const title = '网址导航'
+  const description = '整合日常开发常用，推荐的网站导航页'
 
   return (
     <>
@@ -86,5 +86,5 @@ export default function Websites() {
         </div>
       </Layout>
     </>
-  );
+  )
 }

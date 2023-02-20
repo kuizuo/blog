@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from 'react'
+import styled from '@emotion/styled'
 
-function Button({isLink = false, children, ...rest}) {
+function Button({ isLink = false, children, ...rest }) {
   return (
     <StyledButton as={isLink ? 'a' : 'button'} {...rest}>
       {children}
     </StyledButton>
-  );
+  )
 }
 
 const StyledButton = styled.button`
@@ -29,6 +29,6 @@ const StyledButton = styled.button`
     color: white;
     text-decoration: none;
   }
-`;
+`
 
-export default Button;
+export default Button

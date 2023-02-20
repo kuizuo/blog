@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
-function BrowserWindow({children, minHeight, url}) {
+function BrowserWindow({ children, minHeight, url }) {
   return (
-    <div className={styles.browserWindow} style={{minHeight}}>
+    <div className={styles.browserWindow} style={{ minHeight }}>
       <div className={styles.browserWindowHeader}>
         <div className={styles.buttons}>
-          <span className={styles.dot} style={{background: '#f25f58'}} />
-          <span className={styles.dot} style={{background: '#fbbe3c'}} />
-          <span className={styles.dot} style={{background: '#58cb42'}} />
+          <span className={styles.dot} style={{ background: '#f25f58' }} />
+          <span className={styles.dot} style={{ background: '#fbbe3c' }} />
+          <span className={styles.dot} style={{ background: '#58cb42' }} />
         </div>
         <div className={styles.browserWindowAddressBar}>{url}</div>
         <div className={styles.browserWindowMenuIcon}>
@@ -23,7 +23,7 @@ function BrowserWindow({children, minHeight, url}) {
 
       <div className={styles.browserWindowBody}>{children}</div>
     </div>
-  );
+  )
 }
 
-export default BrowserWindow;
+export default BrowserWindow

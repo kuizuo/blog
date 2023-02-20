@@ -1,10 +1,10 @@
-import React, { memo } from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
+import React, { memo } from 'react'
+import clsx from 'clsx'
+import Link from '@docusaurus/Link'
 
-import styles from './styles.module.css';
-import { type Website } from '@site/data/website';
-import Tooltip from '../../../project/_components/ShowcaseTooltip';
+import styles from './styles.module.css'
+import { type Website } from '@site/data/website'
+import Tooltip from '../../../project/_components/ShowcaseTooltip'
 
 const WebsiteCard = memo(({ website }: { website: Website }) => (
   <li
@@ -38,6 +38,6 @@ const WebsiteCard = memo(({ website }: { website: Website }) => (
       </Tooltip>
     </div>
   </li>
-));
+))
 
-export default WebsiteCard;
+export default WebsiteCard

@@ -1,15 +1,14 @@
-import React from 'react';
-import Layout from '@theme/Layout';
+import React from 'react'
+import Layout from '@theme/Layout'
 
-import FriendCard from './_components/FriendCard';
-import {Friends, type Friend} from '@site/data/friend';
+import FriendCard from './_components/FriendCard'
+import { Friends, type Friend } from '@site/data/friend'
 
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
-const TITLE = '友情链接';
-const DESCRIPTION = '申请友链请点击下方申请，熟人可直接找我~';
-const ADD_FRIEND_URL =
-  'https://github.com/kuizuo/blog/edit/main/data/friend.ts';
+const TITLE = '友情链接'
+const DESCRIPTION = '申请友链请点击下方申请，熟人可直接找我~'
+const ADD_FRIEND_URL = 'https://github.com/kuizuo/blog/edit/main/data/friend.ts'
 
 function FriendHeader() {
   return (
@@ -20,11 +19,12 @@ function FriendHeader() {
         className="button button--primary"
         href={ADD_FRIEND_URL}
         target="_blank"
-        rel="noreferrer">
+        rel="noreferrer"
+      >
         🔗 申请友链
       </a>
     </section>
-  );
+  )
 }
 
 function FriendCards() {
@@ -33,13 +33,13 @@ function FriendCards() {
     <section className="margin-top--lg margin-bottom--lg">
       <div className="container">
         <ul className={styles.showcaseList}>
-          {friends.map((friend) => (
+          {friends.map(friend => (
             <FriendCard key={friend.avatar} friend={friend} />
           ))}
         </ul>
       </div>
     </section>
-  );
+  )
 }
 
 function FriendLink(): JSX.Element {
@@ -50,7 +50,7 @@ function FriendLink(): JSX.Element {
         <FriendCards />
       </main>
     </Layout>
-  );
+  )
 }
 
-export default FriendLink;
+export default FriendLink

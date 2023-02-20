@@ -1,24 +1,25 @@
-import React from 'react';
-import Translate, {translate} from '@docusaurus/Translate';
-import Link from '@docusaurus/Link';
-import type {Props} from '@theme/BlogPostItem/Footer/ReadMoreLink';
+import React from 'react'
+import Translate, { translate } from '@docusaurus/Translate'
+import Link from '@docusaurus/Link'
+import type { Props } from '@theme/BlogPostItem/Footer/ReadMoreLink'
 
 function ReadMoreLabel() {
   return (
     <b>
       <Translate
         id="theme.blog.post.readMore"
-        description="The label used in blog post item excerpts to link to full blog posts">
+        description="The label used in blog post item excerpts to link to full blog posts"
+      >
         Read More
       </Translate>
     </b>
-  );
+  )
 }
 
 export default function BlogPostItemFooterReadMoreLink(
   props: Props,
 ): JSX.Element {
-  const {blogPostTitle, ...linkProps} = props;
+  const { blogPostTitle, ...linkProps } = props
   return (
     <Link
       aria-label={translate(
@@ -28,10 +29,11 @@ export default function BlogPostItemFooterReadMoreLink(
           description:
             'The ARIA label for the link to full blog posts from excerpts',
         },
-        {title: blogPostTitle},
+        { title: blogPostTitle },
       )}
-      {...linkProps}>
+      {...linkProps}
+    >
       <ReadMoreLabel />
     </Link>
-  );
+  )
 }

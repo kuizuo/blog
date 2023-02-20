@@ -1,47 +1,47 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react'
 import _ from 'loadsh'
-import Layout from '@theme/Layout';
-import clsx from 'clsx';
-import Translate, {translate} from '@docusaurus/Translate';
+import Layout from '@theme/Layout'
+import clsx from 'clsx'
+import Translate, { translate } from '@docusaurus/Translate'
 
-import ShowcaseCard from './_components/ShowcaseCard';
-import {projects, groupByProjects} from '@site/data/project';
+import ShowcaseCard from './_components/ShowcaseCard'
+import { projects, groupByProjects } from '@site/data/project'
 
-import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment'
 
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
 const TITLE = translate({
   id: 'theme.project.title',
   message: '项目展示',
-});
+})
 const DESCRIPTION = translate({
   id: 'theme.project.description',
   message: '以下项目均由本人开发，均可自由使用，部分开源。',
-});
+})
 
-const GITHUB_URL = 'https://github.com/kuizuo';
+const GITHUB_URL = 'https://github.com/kuizuo'
 
 type ProjectState = {
-  scrollTopPosition: number;
-  focusedElementId: string | undefined;
-};
+  scrollTopPosition: number
+  focusedElementId: string | undefined
+}
 
 export function prepareUserState(): ProjectState | undefined {
   if (ExecutionEnvironment.canUseDOM) {
     return {
       scrollTopPosition: window.scrollY,
       focusedElementId: document.activeElement?.id,
-    };
+    }
   }
 
-  return undefined;
+  return undefined
 }
 
-const SearchNameQueryKey = 'name';
+const SearchNameQueryKey = 'name'
 
 function readSearchName(search: string) {
-  return new URLSearchParams(search).get(SearchNameQueryKey);
+  return new URLSearchParams(search).get(SearchNameQueryKey)
 }
 
 function ShowcaseHeader() {
@@ -53,13 +53,14 @@ function ShowcaseHeader() {
         className="button button--primary"
         href={GITHUB_URL}
         target="_blank"
-        rel="noreferrer">
+        rel="noreferrer"
+      >
         <Translate id="showcase.header.button">
           🥰 前往 Github 克隆项目
         </Translate>
       </a>
     </section>
-  );
+  )
 }
 
 function ShowcaseCards() {
@@ -70,7 +71,7 @@ function ShowcaseCards() {
           <h2>No result</h2>
         </div>
       </section>
-    );
+    )
   }
 
   return (
@@ -78,11 +79,8 @@ function ShowcaseCards() {
       <>
         <div className="container margin-top--lg">
           <div
-            className={clsx(
-              'margin-bottom--md',
-              styles.showcaseFavoriteHeader,
-            )}>
-          </div>
+            className={clsx('margin-bottom--md', styles.showcaseFavoriteHeader)}
+          ></div>
 
           {Object.entries(groupByProjects).map(([key, value]) => {
             return (
@@ -91,21 +89,22 @@ function ShowcaseCards() {
                   className={clsx(
                     'margin-bottom--md',
                     styles.showcaseFavoriteHeader,
-                  )}>
+                  )}
+                >
                   <h2>{_.upperFirst(key)}</h2>
                 </div>
                 <ul className={styles.showcaseList}>
-                  {value.map((project) => (
+                  {value.map(project => (
                     <ShowcaseCard key={project.title} project={project} />
                   ))}
                 </ul>
               </div>
-            );
+            )
           })}
         </div>
       </>
     </section>
-  );
+  )
 }
 
 function Showcase(): JSX.Element {
@@ -116,7 +115,7 @@ function Showcase(): JSX.Element {
         <ShowcaseCards />
       </main>
     </Layout>
-  );
+  )
 }
 
-export default Showcase;
+export default Showcase

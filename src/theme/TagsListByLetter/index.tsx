@@ -1,16 +1,19 @@
-import React from 'react';
-import {listTagsByLetters, type TagLetterEntry} from '@docusaurus/theme-common';
-import Tag from '@theme/Tag';
-import type {Props} from '@theme/TagsListByLetter';
+import React from 'react'
+import {
+  listTagsByLetters,
+  type TagLetterEntry,
+} from '@docusaurus/theme-common'
+import Tag from '@theme/Tag'
+import type { Props } from '@theme/TagsListByLetter'
 
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
-function TagLetterEntryItem({letterEntry}: {letterEntry: TagLetterEntry}) {
+function TagLetterEntryItem({ letterEntry }: { letterEntry: TagLetterEntry }) {
   return (
     <article>
       <h2>{letterEntry.letter}</h2>
       <ul className="padding--none">
-        {letterEntry.tags.map((tag) => (
+        {letterEntry.tags.map(tag => (
           <li key={tag.permalink} className={styles.tag}>
             <Tag {...tag} />
           </li>
@@ -18,34 +21,34 @@ function TagLetterEntryItem({letterEntry}: {letterEntry: TagLetterEntry}) {
       </ul>
       <hr />
     </article>
-  );
+  )
 }
 
-export default function TagsListByLetter({tags}: Props): JSX.Element {
-  const letterList = listTagsByLetters(tags);
+export default function TagsListByLetter({ tags }: Props): JSX.Element {
+  const letterList = listTagsByLetters(tags)
   return (
     <section className="margin-vert--lg">
-      {letterList.map((letterEntry) => (
+      {letterList.map(letterEntry => (
         <TagLetterEntryItem
           key={letterEntry.letter}
           letterEntry={letterEntry}
         />
       ))}
     </section>
-  );
+  )
 }
 
-export function TagsListByFlat({tags}: Props): JSX.Element {
-  console.log(tags);
+export function TagsListByFlat({ tags }: Props): JSX.Element {
+  console.log(tags)
   return (
     <section className="margin-vert--lg">
       <ul className="padding--none">
-        {tags.map((tag) => (
+        {tags.map(tag => (
           <li key={tag.permalink} className={styles.tag}>
             <Tag {...tag} />
           </li>
         ))}
       </ul>
     </section>
-  );
+  )
 }

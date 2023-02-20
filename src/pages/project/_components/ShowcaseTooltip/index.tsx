@@ -1,14 +1,14 @@
-import React, {useEffect, useState, useRef} from 'react';
-import ReactDOM from 'react-dom';
-import {usePopper} from 'react-popper';
-import styles from './styles.module.css';
+import React, { useEffect, useState, useRef } from 'react'
+import ReactDOM from 'react-dom'
+import { usePopper } from 'react-popper'
+import styles from './styles.module.css'
 
 interface Props {
-  anchorEl?: HTMLElement | string;
-  id: string;
-  text: string;
-  delay?: number;
-  children: React.ReactElement;
+  anchorEl?: HTMLElement | string
+  id: string
+  text: string
+  delay?: number
+  children: React.ReactElement
 }
 
 export default function Tooltip({
@@ -18,14 +18,14 @@ export default function Tooltip({
   text,
   delay,
 }: Props): JSX.Element {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
     null,
-  );
-  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
-  const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
-  const [container, setContainer] = useState<Element | null>(null);
-  const {styles: popperStyles, attributes} = usePopper(
+  )
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null)
+  const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null)
+  const [container, setContainer] = useState<Element | null>(null)
+  const { styles: popperStyles, attributes } = usePopper(
     referenceElement,
     popperElement,
     {
@@ -44,69 +44,69 @@ export default function Tooltip({
         },
       ],
     },
-  );
+  )
 
-  const timeout = useRef<number | null>(null);
-  const tooltipId = `${id}_tooltip`;
+  const timeout = useRef<number | null>(null)
+  const tooltipId = `${id}_tooltip`
 
   useEffect(() => {
     if (anchorEl) {
       if (typeof anchorEl === 'string') {
-        setContainer(document.querySelector(anchorEl));
+        setContainer(document.querySelector(anchorEl))
       } else {
-        setContainer(anchorEl);
+        setContainer(anchorEl)
       }
     } else {
-      setContainer(document.body);
+      setContainer(document.body)
     }
-  }, [container, anchorEl]);
+  }, [container, anchorEl])
 
   useEffect(() => {
-    const showEvents = ['mouseenter', 'focus'];
-    const hideEvents = ['mouseleave', 'blur'];
+    const showEvents = ['mouseenter', 'focus']
+    const hideEvents = ['mouseleave', 'blur']
 
     const handleOpen = () => {
       // There is no point in displaying an empty tooltip.
       if (text === '') {
-        return;
+        return
       }
 
       // Remove the title ahead of time to avoid displaying
       // two tooltips at the same time (native + this one).
-      referenceElement?.removeAttribute('title');
+      referenceElement?.removeAttribute('title')
 
       timeout.current = window.setTimeout(() => {
-        setOpen(true);
-      }, delay || 400);
-    };
+        setOpen(true)
+      }, delay || 400)
+    }
 
     const handleClose = () => {
-      clearInterval(timeout.current!);
-      setOpen(false);
-    };
+      clearInterval(timeout.current!)
+      setOpen(false)
+    }
 
     if (referenceElement) {
-      showEvents.forEach((event) => {
-        referenceElement.addEventListener(event, handleOpen);
-      });
+      showEvents.forEach(event => {
+        referenceElement.addEventListener(event, handleOpen)
+      })
 
-      hideEvents.forEach((event) => {
-        referenceElement.addEventListener(event, handleClose);
-      });
+      hideEvents.forEach(event => {
+        referenceElement.addEventListener(event, handleClose)
+      })
     }
 
     return () => {
       if (referenceElement) {
-        showEvents.forEach((event) => {
-          referenceElement.removeEventListener(event, handleOpen);
-        });
+        showEvents.forEach(event => {
+          referenceElement.removeEventListener(event, handleOpen)
+        })
 
-        hideEvents.forEach((event) => {
-          referenceElement.removeEventListener(event, handleClose);
-        });
+        hideEvents.forEach(event => {
+          referenceElement.removeEventListener(event, handleClose)
+        })
       }
-    };
-  }, [referenceElement, text, delay]);
+    }
+  }, [referenceElement, text, delay])
 
   return (
     <>
@@ -123,7 +123,8 @@ export default function Tooltip({
                 ref={setPopperElement}
                 className={styles.tooltip}
                 style={popperStyles.popper}
-                {...attributes.popper}>
+                {...attributes.popper}
+              >
                 {text}
                 <span
                   ref={setArrowElement}
@@ -136,5 +137,5 @@ export default function Tooltip({
           )
         : container}
     </>
-  );
+  )
 }

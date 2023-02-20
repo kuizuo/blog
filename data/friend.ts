@@ -71,11 +71,11 @@ export const Friends: Friend[] = [
     website: 'https://www.alanwang.site',
     avatar: '/img/friend/alan.png',
   },
-];
+]
 
 export type Friend = {
-  title: string;
-  description: string;
-  website: string;
-  avatar?: any;
-};
+  title: string
+  description: string
+  website: string
+  avatar?: any
+}

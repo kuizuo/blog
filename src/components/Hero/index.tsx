@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 
-import { useTrail, animated } from '@react-spring/web';
-import Translate from '@docusaurus/Translate';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Link from '@docusaurus/Link';
+import { useTrail, animated } from '@react-spring/web'
+import Translate from '@docusaurus/Translate'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import Link from '@docusaurus/Link'
 
-import HeroMain from './img/hero_main.svg';
+import HeroMain from './img/hero_main.svg'
 
-import JuejinIcon from '@site/static/svg/juejin.svg';
-import { Icon } from '@iconify/react';
+import JuejinIcon from '@site/static/svg/juejin.svg'
+import { Icon } from '@iconify/react'
 
-import styles from './styles.module.scss';
+import styles from './styles.module.scss'
 
 function Hero() {
   const trails = useTrail(4, {
@@ -21,7 +21,7 @@ function Hero() {
       tension: 460,
       friction: 45,
     },
-  });
+  })
 
   return (
     <animated.div className={styles.hero}>
@@ -77,45 +77,45 @@ function Hero() {
         <HeroMain />
       </div>
     </animated.div>
-  );
+  )
 }
 
 export function SocialLinks({ ...prop }) {
-  const { siteConfig } = useDocusaurusContext();
-  const { themeConfig } = siteConfig;
+  const { siteConfig } = useDocusaurusContext()
+  const { themeConfig } = siteConfig
   const socials = themeConfig.socials as {
-    github: string;
-    twitter: string;
-    juejin: string;
-    csdn: string;
-    qq: string;
-    wx: string;
-    cloudmusic: string;
-    zhihu: string;
-  };
+    github: string
+    twitter: string
+    juejin: string
+    csdn: string
+    qq: string
+    wx: string
+    cloudmusic: string
+    zhihu: string
+  }
 
   return (
     <animated.div className={styles.social__links} {...prop}>
       <a href="/rss.xml" target="_blank">
-        <Icon icon='ri:rss-line' />
+        <Icon icon="ri:rss-line" />
       </a>
       <a href={socials.github} target="_blank">
-        <Icon icon='ri:github-line' />
+        <Icon icon="ri:github-line" />
       </a>
       <a href={socials.juejin} target="_blank">
         <JuejinIcon />
       </a>
       <a href={socials.qq} target="_blank">
-        <Icon icon='ri:qq-line' />
+        <Icon icon="ri:qq-line" />
       </a>
       <a href={socials.twitter} target="_blank">
-        <Icon icon='ri:twitter-line' />
+        <Icon icon="ri:twitter-line" />
       </a>
       <a href={socials.zhihu} target="_blank">
-        <Icon icon='ri:zhihu-line' />
+        <Icon icon="ri:zhihu-line" />
       </a>
     </animated.div>
-  );
+  )
 }
 
-export default Hero;
+export default Hero

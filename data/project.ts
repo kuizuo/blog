@@ -10,7 +10,8 @@ export const projects: Project[] = [
   },
   {
     title: 'kz-admin',
-    description: '基于NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin编写的一款前后端分离的权限管理系统',
+    description:
+      '基于NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin编写的一款前后端分离的权限管理系统',
     preview: '/img/project/kz-admin.png',
     website: 'https://admin.kuizuo.cn',
     source: 'https://github.com/kuizuo/kz-admin',
@@ -64,7 +65,8 @@ export const projects: Project[] = [
   },
   {
     title: '前端示例代码库',
-    description: '📦 整理前端样式和功能的实现代码，可以用来寻找灵感或直接使用示例中的代码',
+    description:
+      '📦 整理前端样式和功能的实现代码，可以用来寻找灵感或直接使用示例中的代码',
     preview: '/img/project/example-website.png',
     website: 'https://example.kuizuo.cn',
     source: 'https://github.com/kuizuo/example',
@@ -93,7 +95,8 @@ export const projects: Project[] = [
     title: 'VScode-extension',
     description: 'vscode 插件的样品',
     preview: '/img/project/vscode-extension.png',
-    website: 'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
+    website:
+      'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
     source: 'https://github.com/kuizuo/vscode-extension',
     tags: ['opensource'],
     type: 'web',
@@ -119,43 +122,43 @@ export const projects: Project[] = [
     description: '基于 Axios 封装的 HTTP 类库',
     website: 'https://www.npmjs.com/package/@kuizuo/http',
     tags: ['opensource', 'personal'],
-    type: 'personal'
+    type: 'personal',
   },
   {
     title: '@kuizuo/utils',
     description: '整理JavaScript / TypeScript的相关工具函数',
     website: 'https://www.npmjs.com/package/@kuizuo/utils',
     tags: ['opensource', 'personal'],
-    type: 'personal'
+    type: 'personal',
   },
   {
     title: '@kuizuo/eslint-config',
     description: 'WebSocket远程调用浏览器函数',
     website: 'https://github.com/kuizuo/eslint-config',
     tags: ['opensource', 'personal'],
-    type: 'personal'
+    type: 'personal',
   },
   {
     title: 'browser-rpc',
     description: 'WebSocket远程调用浏览器函数',
     website: 'https://github.com/kuizuo/rpc-browser',
     tags: ['opensource'],
-    type: 'personal'
+    type: 'personal',
   },
   {
     title: 'rust-wasm-md5',
     description: '🦀 Rust + WebAssembly 实现的 MD5 加密',
     website: 'https://github.com/kuizuo/rust-wasm-md5',
     tags: ['opensource'],
-    type: 'personal'
+    type: 'personal',
   },
 ]
 
 export type Tag = {
-  label: string;
-  description: string;
-  color: string;
-};
+  label: string
+  description: string
+  color: string
+}
 
 export type TagType =
   | 'favorite'
@@ -163,24 +166,19 @@ export type TagType =
   | 'product'
   | 'design'
   | 'large'
-  | 'personal';
-
-export type ProjectType =
   | 'personal'
-  | 'web'
-  | 'app'
-  | 'toy'
-  | 'other';
+
+export type ProjectType = 'personal' | 'web' | 'app' | 'toy' | 'other'
 
 export type Project = {
-  title: string;
-  description: string;
-  preview?: any;
-  website: string;
-  source?: string | null;
-  tags: TagType[];
+  title: string
+  description: string
+  preview?: any
+  website: string
+  source?: string | null
+  tags: TagType[]
   type: ProjectType
-};
+}
 
 export const Tags: Record<TagType, Tag> = {
   favorite: {
@@ -213,16 +211,13 @@ export const Tags: Record<TagType, Tag> = {
     description: '个人项目',
     color: '#12affa',
   },
-};
+}
 
-export const TagList = Object.keys(Tags) as TagType[];
+export const TagList = Object.keys(Tags) as TagType[]
 
 export const groupByProjects = projects.reduce((group, project) => {
-  const { type } = project;
-  group[type] = group[type] ?? [];
-  group[type].push(project);
-  return group;
-},
-  {} as Record<ProjectType, Project[]>
-)
-
+  const { type } = project
+  group[type] = group[type] ?? []
+  group[type].push(project)
+  return group
+}, {} as Record<ProjectType, Project[]>)

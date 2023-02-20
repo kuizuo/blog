@@ -1,8 +1,8 @@
-import React from 'react';
-import Translate from '@docusaurus/Translate';
-import Link from '@docusaurus/Link';
-import Image from '@theme/IdealImage';
-import clsx from 'clsx';
+import React from 'react'
+import Translate from '@docusaurus/Translate'
+import Link from '@docusaurus/Link'
+import Image from '@theme/IdealImage'
+import clsx from 'clsx'
 
 const Playgrounds = [
   {
@@ -29,16 +29,17 @@ const Playgrounds = [
               WebContainers
             </Link>
           ),
-        }}>
+        }}
+      >
         {
           'StackBlitz uses a novel {webContainersLink} technology to run Docusaurus directly in your browser.'
         }
       </Translate>
     ),
   },
-];
+]
 
-function PlaygroundCard({name, image, url, description}) {
+function PlaygroundCard({ name, image, url, description }) {
   return (
     <div className="col col--6 margin-bottom--lg">
       <div className={clsx('card')}>
@@ -60,15 +61,15 @@ function PlaygroundCard({name, image, url, description}) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export function PlaygroundCardsRow() {
   return (
     <div className="row">
-      {Playgrounds.map((playground) => (
+      {Playgrounds.map(playground => (
         <PlaygroundCard key={playground.name} {...playground} />
       ))}
     </div>
-  );
+  )
 }
