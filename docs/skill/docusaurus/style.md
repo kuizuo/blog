@@ -25,4 +25,4 @@ Docusaurus 网站是一个 React 单页应用。 你可以像一般的 React 应
 
 ## 自定义页面
 
-[友链](/friends)、[导航](/website)、[项目](/project)以及[关于我](/about)页面都在 `src/pages` 目录下定义，根据文件名映射对应路由。页面的创建可以查看 [创建页面 | Docusaurus](https://docusaurus.io/zh-CN/docs/creating-pages)
+[友链](/friends)、[导航](/resource)、[项目](/project)以及[关于我](/about)页面都在 `src/pages` 目录下定义，根据文件名映射对应路由。页面的创建可以查看 [创建页面 | Docusaurus](https://docusaurus.io/zh-CN/docs/creating-pages)

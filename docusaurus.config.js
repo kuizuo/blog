@@ -103,7 +103,7 @@ const config = {
         {
           label: '导航',
           position: 'right',
-          to: 'website',
+          to: 'resource',
         },
         {
           label: '项目',
@@ -176,8 +176,13 @@ const config = {
             {
               label: '导航',
               position: 'right',
-              to: 'website',
+              to: 'resource',
             },
+            // {
+            //   label: '我的站点',
+            //   position: 'right',
+            //   to: 'website',
+            // },
             {
               html: `<a href="https://docusaurus.io/zh-CN/" target="_blank"><img style="height:50px;margin-top:0.5rem" src="/img/buildwith.png" /><a/>`,
             },

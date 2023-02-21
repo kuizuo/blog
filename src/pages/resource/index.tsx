@@ -3,15 +3,15 @@ import clsx from 'clsx'
 import Link from '@docusaurus/Link'
 import { PageMetadata } from '@docusaurus/theme-common'
 import Layout from '@theme/Layout'
-import WebsiteCard from './_components/WebsiteCard'
+import ResourceCard from './_components/ResourceCard'
 import BackToTopButton from '@theme/BackToTopButton'
-import { websiteData } from '@site/data/website'
-import styles from './website.module.css'
+import { resourceData } from '@site/data/resource'
+import styles from './resource.module.css'
 
 function CategoryNav() {
   const sidebar = {
     title: '',
-    items: websiteData.map(w => ({ title: w.name, permalink: `#${w.name}` })),
+    items: resourceData.map(w => ({ title: w.name, permalink: `#${w.name}` })),
   }
 
   return (
@@ -40,7 +40,7 @@ function CategoryNav() {
 function CategoryList() {
   return (
     <div className={styles.category}>
-      {websiteData.map(cate => (
+      {resourceData.map(cate => (
         <div key={cate.name}>
           <div className={styles.cateHeader}>
             <h2 id={cate.name} className="anchor">
@@ -53,9 +53,9 @@ function CategoryList() {
             </h2>
           </div>
           <section>
-            <ul className={styles.websiteList}>
-              {cate.websites.map(website => (
-                <WebsiteCard key={website.name} website={website} />
+            <ul className={styles.resourceList}>
+              {cate.resources.map(resource => (
+                <ResourceCard key={resource.name} resource={resource} />
               ))}
             </ul>
           </section>
@@ -65,7 +65,7 @@ function CategoryList() {
   )
 }
 
-export default function Websites() {
+export default function Resources() {
   const title = '网址导航'
   const description = '整合日常开发常用，推荐的网站导航页'
 

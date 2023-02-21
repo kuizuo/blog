@@ -33,7 +33,7 @@ yarn start
 
 关于主题魔改可以看 [Docusaurus 主题魔改](https://kuizuo.cn/docs/docusaurus-guides)
 
-## 额外功能页面
+## 一些页面
 
 ### [博客页](/)
 
@@ -47,7 +47,7 @@ yarn start
 
 ![image-20220804052418993](https://img.kuizuo.cn/image-20220804052418993.png)
 
-### [网址导航](/website)
+### [资源导航](/resource)
 
 ![image-20220804052016538](https://img.kuizuo.cn/image-20220804052016538.png)
 
@@ -63,7 +63,7 @@ yarn start
 
 ![image-20220804052117492](https://img.kuizuo.cn/image-20220804052117492.png)
 
-- 存放你的项目，或是当做一个作品集用于展示。文件存放在 [data/website.ts](https://github.com/kuizuo/blog/blob/main/data/project.ts) 中，可以自行添加。
+- 存放你的项目，或是当做一个作品集用于展示。
 
 ## 部署
 

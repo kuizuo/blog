@@ -53,7 +53,7 @@
   },
   "link.item.label.导航": {
     "message": "Links",
-    "description": "The label of footer link with label=导航 linking to website"
+    "description": "The label of footer link with label=导航 linking to resource"
   },
   "copyright": {
     "message": "<p><a href=\"http://beian.miit.gov.cn/\" >闽ICP备2020017848号-2</a></p><p>Copyright © 2020 – PRESENT kuizuo Built with Docusaurus.</p>",

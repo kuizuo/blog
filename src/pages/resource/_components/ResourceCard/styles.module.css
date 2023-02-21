@@ -1,4 +1,4 @@
-.websiteCard {
+.resourceCard {
   background-color: var(--ifm-card-background-color);
   border-radius: 8px;
   border: 1px solid rgb(204 204 204 / 50%);
@@ -9,17 +9,17 @@
   transition: all 0.3s ease-in-out;
 }
 
-.websiteCard:hover {
+.resourceCard:hover {
   box-shadow: 0 10px 20px -10px rgb(0 0 0 / 20%);
   transform: translateY(-5px);
 }
 
-html[data-theme='dark'] .websiteCard:hover {
+html[data-theme='dark'] .resourceCard:hover {
   box-shadow: 0 10px 20px -10px rgb(255 255 255 / 20%);
   transform: translateY(-5px);
 }
 
-.websiteCardImage {
+.resourceCardImage {
   align-self: center;
   width: 64px;
   height: 64px;
@@ -27,18 +27,18 @@ html[data-theme='dark'] .websiteCard:hover {
   object-fit: contain;
 }
 
-.websiteCardHeader {
+.resourceCardHeader {
   display: flex;
   align-items: center;
   margin-bottom: 4px;
 }
 
-.websiteCardTitle {
+.resourceCardTitle {
   margin-bottom: 0;
   flex: 1 1 auto;
 }
 
-.websiteCardTitle a {
+.resourceCardTitle a {
   text-decoration: none;
   background: linear-gradient(
       var(--ifm-color-primary),
@@ -48,15 +48,15 @@ html[data-theme='dark'] .websiteCard:hover {
   transition: background-size ease-out 200ms;
 }
 
-.websiteCardTitle a:not(:focus):hover {
+.resourceCardTitle a:not(:focus):hover {
   background-size: 100% 1px;
 }
 
-.websiteCardBody {
+.resourceCardBody {
   padding: 0.2rem 0 0 var(--ifm-card-horizontal-spacing);
 }
 
-.websiteCardDesc {
+.resourceCardDesc {
   cursor: pointer;
   font-size: smaller;
   line-height: 1.66;

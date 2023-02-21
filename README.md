@@ -23,14 +23,14 @@
 
 ## ✨ Features
 
--   ✍️ **Markdown** - 写作方便
--   🎨 **Beautiful** - 整洁，美观
--   🖥️ **PWA** - 支持 PWA，可安装，离线可用
--   🏞️ **i18n** - 支持国际化
--   💯 **SEO** - 搜索引擎优化，易于收录
--   📊 **谷歌分析** - 支持 Google Analytics
--   🔎 **全文搜索** - 支持 [Algolia DocSearch](https://github.com/algolia/docsearch)
--   🗃️ **博文视图** - 不同的博文视图，列表、宫格、卡片
+- ✍️ **Markdown** - 写作方便
+- 🎨 **Beautiful** - 整洁，美观
+- 🖥️ **PWA** - 支持 PWA，可安装，离线可用
+- 🏞️ **i18n** - 支持国际化
+- 💯 **SEO** - 搜索引擎优化，易于收录
+- 📊 **谷歌分析** - 支持 Google Analytics
+- 🔎 **全文搜索** - 支持 [Algolia DocSearch](https://github.com/algolia/docsearch)
+- 🗃️ **博文视图** - 不同的博文视图，列表、宫格、卡片
 - 🌈 **资源导航** - 收集并分享有用、有意思的资源
 - 📦 **项目展示** - 展示你的项目，可用作于作品集
 
@@ -40,13 +40,13 @@
 
 ```bash
 ├── blog                           # 博客
-│   ├── first-blog.md              
+│   ├── first-blog.md
 ├── docs                           # 文档/笔记
-│   └── doc.md                     
+│   └── doc.md
 ├── data                           # 项目/导航/友链数据
 │   ├── friend.ts                  # 友链
 │   ├── project.ts                 # 项目
-│   └── website.ts                 # 导航
+│   └── resource.ts                # 资源导航
 ├── i18n                           # 国际化
 ├── src
 │   ├── components                 # 组件

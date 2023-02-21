@@ -1,6 +1,6 @@
 import { Friends } from './friend'
 
-export interface Website {
+export interface Resource {
   name: string
   logo: string
   desc: string
@@ -8,12 +8,12 @@ export interface Website {
   tags?: string[]
 }
 
-export interface WebsiteCategory {
+export interface ResourceCategory {
   name: string
-  websites: Website[]
+  resources: Resource[]
 }
 
-const friends: Website[] = Friends.map(f => {
+const friends: Resource[] = Friends.map(f => {
   return {
     ...f,
     name: f.title,
@@ -23,53 +23,53 @@ const friends: Website[] = Friends.map(f => {
   }
 })
 
-export const websiteData: WebsiteCategory[] = [
+export const resourceData: ResourceCategory[] = [
   {
     name: '友链👨‍💻',
-    websites: friends,
+    resources: friends,
   },
   {
     name: '每周必刷🔥',
-    websites: [
+    resources: [
       {
         name: '稀土掘金',
         desc: '稀土掘金是一个技术博客平台，是程序员发布自己的技术文章、分享知识的地方',
-        logo: '/img/website/juejin.png',
+        logo: '/img/resource/juejin.png',
         href: 'https://juejin.cn/',
       },
       {
         name: 'OSS Insight',
         desc: 'Open Source Software Insight',
-        logo: '/img/website/ossinsight.png',
+        logo: '/img/resource/ossinsight.png',
         href: 'https://ossinsight.io/',
       },
       {
         name: 'Javascript Weekly',
         desc: 'A newsletter of JavaScript articles, news and cool projects',
-        logo: '/img/website/javascript.svg',
+        logo: '/img/resource/javascript.svg',
         href: 'https://javascriptweekly.com/',
       },
       {
         name: 'State of JavaScript',
         desc: 'JavaScript 生态系统的年度开发人员调查',
-        logo: '/img/website/stateofjs.svg',
+        logo: '/img/resource/stateofjs.svg',
         href: 'https://stateofjs.com',
       },
       {
         name: '前端食堂',
         desc: '周周尝鲜，人工筛选前端圈每周最新资讯。—— 由 童欧巴 创作',
-        logo: '/img/website/zhubai.png',
+        logo: '/img/resource/zhubai.png',
         href: 'https://hungryturbo.zhubai.love/',
       },
     ],
   },
   {
     name: '站点🖥️',
-    websites: [
+    resources: [
       {
         name: 'Developer Roadmap',
         desc: 'Roadmap to becoming a web developer.',
-        logo: '/img/website/roadmap.png',
+        logo: '/img/resource/roadmap.png',
         href: 'https://roadmap.sh/',
       },
       {
@@ -81,14 +81,14 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Shields.io',
         desc: '为你的开源项目生成高质量小徽章图标',
-        logo: '/img/website/shields.png',
+        logo: '/img/resource/shields.png',
         href: 'https://shields.io/',
         tags: ['图标', '首页'],
       },
       {
         name: 'NGINX 配置',
         desc: '配置高性能、安全、稳定的NGINX服务器的最简单方法',
-        logo: '/img/website/digitalocean.png',
+        logo: '/img/resource/digitalocean.png',
         href: 'https://www.digitalocean.com/community/tools/nginx',
         tags: ['nginx'],
       },
@@ -109,7 +109,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: '正则大全',
         desc: '🦕 常用正则大全, 支持web / vscode / idea / Alfred Workflow多平台',
-        logo: '/img/website/any-rule.ico',
+        logo: '/img/resource/any-rule.ico',
         href: 'https://any-rule.vercel.app/',
         tags: [''],
       },
@@ -117,32 +117,32 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: '文档📘',
-    websites: [
+    resources: [
       {
         name: 'MDN',
         desc: '从2005年开始记录网络技术，包括 CSS、 HTML 和 JavaScript。',
-        logo: '/img/website/mdn.png',
+        logo: '/img/resource/mdn.png',
         href: 'https://developer.mozilla.org/zh-CN/',
         tags: ['Css', '教程'],
       },
       {
         name: 'ES6 入门教程',
         desc: '《ECMAScript 6 入门教程》是一本开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新引入的语法特性',
-        logo: '/img/website/es6.png',
+        logo: '/img/resource/es6.png',
         href: 'https://es6.ruanyifeng.com/',
         tags: ['文档'],
       },
       {
         name: '深入理解 TypeScript',
         desc: '《TypeScript Deep Dive》 是一本很好的开源书，从基础到深入，很全面的阐述了 TypeScript 的各种魔法，不管你是新手，还是老鸟，它都将适应你',
-        logo: '/img/website/typescript.png',
+        logo: '/img/resource/typescript.png',
         href: 'https://jkchao.github.io/typescript-book-chinese/',
         tags: ['文档'],
       },
       {
         name: 'Rust语言圣经',
         desc: '一份高质量 Rust 教程',
-        logo: '/img/website/rust.svg',
+        logo: '/img/resource/rust.svg',
         href: 'https://course.rs',
         tags: ['文档'],
       },
@@ -150,7 +150,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: '工具🛠️',
-    websites: [
+    resources: [
       {
         name: '在线工具',
         desc: '在线工具,开发人员工具,代码格式化、压缩、加密、解密,下载链接转换,ico图标制作,字帖生成',
@@ -161,7 +161,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: '菜鸟工具',
         desc: '菜鸟工具，为开发设计人员提供在线工具，提供在线PHP、Python、 CSS、JS 调试，中文简繁体转换，进制转换等工具',
-        logo: '/img/website/runoob.png',
+        logo: '/img/resource/runoob.png',
         href: 'https://c.runoob.com/',
         tags: ['工具'],
       },
@@ -197,7 +197,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Hoppscotch',
         desc: '开源 API 开发生态系统',
-        logo: '/img/website/hoppscotch.png',
+        logo: '/img/resource/hoppscotch.png',
         href: 'https://hoppscotch.io/',
         tags: ['api'],
       },
@@ -211,7 +211,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Apifox',
         desc: 'API 文档、API 调试、API Mock、API 自动化测试',
-        logo: '/img/website/apifox.png',
+        logo: '/img/resource/apifox.png',
         href: 'https://www.apifox.cn/',
         tags: ['工具'],
       },
@@ -219,7 +219,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: '代码托管',
-    websites: [
+    resources: [
       {
         name: 'GitHub',
         desc: '全球最大的软件项目托管平台，发现优质开源项目',
@@ -230,7 +230,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Gitee',
         desc: '蚂蚁集团全新一代数据可视化解决方案',
-        logo: '/img/website/gitee.ico',
+        logo: '/img/resource/gitee.ico',
         href: 'https://gitee.com/',
         tags: ['代码托管'],
       },
@@ -251,7 +251,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Coding',
         desc: '提供一站式研发管理平台及云原生开发工具，让软件研发如同工业生产般简单高效，助力企业提升研发管理效能',
-        logo: '/img/website/coding.png',
+        logo: '/img/resource/coding.png',
         href: 'https://coding.net/',
         tags: ['代码托管'],
       },
@@ -259,7 +259,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: '网站托管',
-    websites: [
+    resources: [
       {
         name: 'Vercel',
         desc: 'Vercel将最好的开发人员体验与对最终用户性能的执着关注相结合',
@@ -277,7 +277,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Coolify',
         desc: '一个开源和自我托管的 Heroku/Netlify 替代品',
-        logo: '/img/website/coolify.png',
+        logo: '/img/resource/coolify.png',
         href: 'https://coolify.io',
         tags: ['网站托管'],
       },
@@ -291,14 +291,14 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Railway',
         desc: '带上你的代码，剩下交给我们 ',
-        logo: '/img/website/railway.png',
+        logo: '/img/resource/railway.png',
         href: 'https://railway.app/',
         tags: ['网站托管'],
       },
       {
         name: 'Supabase',
         desc: 'Supabase 是一个开源的后端即服务（BaaS）平台，它可以帮助开发者快速构建应用程序，无需编写后端代码。',
-        logo: '/img/website/supabase.png',
+        logo: '/img/resource/supabase.png',
         href: 'https://supabase.com/',
         tags: ['BaaS'],
       },
@@ -306,7 +306,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: '在线代码',
-    websites: [
+    resources: [
       {
         name: 'CodesandBox',
         desc: 'CodeSandbox是一个在线代码编辑器和原型工具，可以更快地创建和共享web应用程序',
@@ -324,7 +324,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Stackblitz',
         desc: 'Stackblitz在流程中保持即时的开发体验。没有更多的小时储存/拉/安装本地-只需点击，并开始编码',
-        logo: '/img/website/stackblitz.png',
+        logo: '/img/resource/stackblitz.png',
         href: 'https://stackblitz.com/',
         tags: ['在线代码'],
       },
@@ -346,7 +346,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: 'Vue',
-    websites: [
+    resources: [
       {
         name: 'Vue.js',
         desc: '渐进式 JavaScript 框架',
@@ -357,7 +357,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Nuxt',
         desc: '使用 Nuxt 自信地构建您的下一个 Vue.js 应用程序。使 Web 开发简单而强大。',
-        logo: '/img/website/nuxt.svg',
+        logo: '/img/resource/nuxt.svg',
         href: 'https://nuxt.com/',
         tags: ['前端', 'Vue', '文档', '框架'],
       },
@@ -386,7 +386,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: 'React',
-    websites: [
+    resources: [
       {
         name: 'React',
         desc: '用于构建用户界面的 JavaScript 库',
@@ -432,7 +432,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'SWR',
         desc: '用于数据请求的 React Hooks 库',
-        logo: '/img/website/swr.png',
+        logo: '/img/resource/swr.png',
         href: 'https://swr.vercel.app/',
         tags: ['前端', 'React', '脚手架'],
       },
@@ -454,7 +454,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: 'CSS',
-    websites: [
+    resources: [
       {
         name: 'TailwindCSS',
         desc: 'Tailwind CSS 是一个功能类优先的 CSS 框架，它集成了诸如 flex, pt-4, text-center 和 rotate-90 这样的的类，它们能直接在脚本标记语言中组合起来，构建出任何设计',
@@ -472,7 +472,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Twind',
         desc: '现存最小、最快、功能最齐全的完整 Tailwind-in-JS 解决方案',
-        logo: '/img/website/twind.svg',
+        logo: '/img/resource/twind.svg',
         href: 'https://github.com/tw-in-js/twind',
         tags: ['Css', '框架'],
       },
@@ -500,7 +500,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'CSS-Inspiration',
         desc: 'CSS灵感',
-        logo: '/img/website/css-inspiration.png',
+        logo: '/img/resource/css-inspiration.png',
         href: 'https://csscoco.com/inspiration',
         tags: ['Css', '样式'],
       },
@@ -514,7 +514,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'CSSFX',
         desc: '一个精心制作的集合设计的重点是流动性，简单性和易用性。使用最小标记的 CSS 支持',
-        logo: '/img/website/cssfx.png',
+        logo: '/img/resource/cssfx.png',
         href: 'https://cssfx.netlify.app/',
         tags: ['Css', '样式'],
       },
@@ -535,14 +535,14 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'loading.io',
         desc: 'Animation Made Easy',
-        logo: '/img/website/loading.ico',
+        logo: '/img/resource/loading.ico',
         href: 'https://loading.io/',
         tags: ['Css'],
       },
       {
         name: '神奇UI样式',
         desc: '我们赋予任何人创建、分享和使用用 CSS 和 HTML 制作的漂亮自定义元素的权力。',
-        logo: '/img/website/uiverse.png',
+        logo: '/img/resource/uiverse.png',
         href: 'https://uiverse.io',
         tags: ['Css'],
       },
@@ -577,7 +577,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Coolors',
         desc: '创建调色板',
-        logo: 'https://coolors.co/assets/img/ios_icon.png',
+        logo: 'img/resource/coolors.png',
         href: 'https://coolors.co/',
         tags: ['Css'],
       },
@@ -585,7 +585,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: '组件库',
-    websites: [
+    resources: [
       {
         name: 'Element Plus',
         desc: '基于 Vue 3，面向设计师和开发者的组件库',
@@ -596,7 +596,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Naive UI',
         desc: '一个 Vue 3 组件库比较完整，主题可调，使用 TypeScript，快 有点意思',
-        logo: '/img/website/naiveUI.svg',
+        logo: '/img/resource/naiveUI.svg',
         href: 'https://www.naiveui.com/',
         tags: ['组件库', 'vue'],
       },
@@ -638,7 +638,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'VbenAdmin',
         desc: 'Vben是一个基于Vue3、Vite、TypeScript等最新技术栈开发的后台管理框架',
-        logo: '/img/website/vben-admin.png',
+        logo: '/img/resource/vben-admin.png',
         href: 'https://vvbin.cn/doc-next/',
         tags: ['前端', 'Vue', '后台', '项目'],
       },
@@ -646,11 +646,11 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: 'Frontend',
-    websites: [
+    resources: [
       {
         name: 'Component party',
         desc: '前端框架开Party🎉，Web 组件 JS 框架通过其语法和特性进行概述',
-        logo: '/img/website/component party.svg',
+        logo: '/img/resource/component party.svg',
         href: 'https://component-party.dev/',
         tags: ['前端', 'css', '动画'],
       },
@@ -685,21 +685,21 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Jest',
         desc: 'Jest 是一个令人愉快的 JavaScript 测试框架，注重简单性。',
-        logo: '/img/website/jest.png',
+        logo: '/img/resource/jest.png',
         href: 'https://jestjs.io/',
         tags: ['自动化测试'],
       },
       {
         name: 'Cypress',
         desc: '对任何在浏览器中运行的东西进行快速、简单和可靠的测试。',
-        logo: '/img/website/cypress.png',
+        logo: '/img/resource/cypress.png',
         href: 'https://www.cypress.io/',
         tags: ['自动化测试'],
       },
       {
         name: 'Playwright',
         desc: 'Playwright 为现代网络应用程序提供了可靠的端到端测试。',
-        logo: '/img/website/playwright.svg',
+        logo: '/img/resource/playwright.svg',
         href: 'https://playwright.dev/',
         tags: ['自动化测试'],
       },
@@ -707,7 +707,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: 'Node/Deno',
-    websites: [
+    resources: [
       {
         name: 'Node',
         desc: 'Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时',
@@ -725,7 +725,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Bun',
         desc: 'Bun 是一个快速的一体化 JavaScript 运行时',
-        logo: '/img/website/bun.svg',
+        logo: '/img/resource/bun.svg',
         href: 'https://bun.sh',
         tags: ['Nodejs', 'Deno', 'JavaScript', 'TypeScript'],
       },
@@ -760,7 +760,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Axios',
         desc: 'Axios 是一个基于 promise 的网络请求库，可以用于浏览器和 node.js',
-        logo: '/img/website/axios.ico',
+        logo: '/img/resource/axios.ico',
         href: 'https://axios-http.cn/',
         tags: ['Nodejs', 'HTTP'],
       },
@@ -781,7 +781,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Fresh',
         desc: 'Deno 下一代 Web 框架，专注于速度、可靠性和简单性的构建。',
-        logo: '/img/website/fresh.ico',
+        logo: '/img/resource/fresh.ico',
         href: 'https://fresh.deno.dev/',
         tags: ['Nodejs'],
       },
@@ -802,28 +802,28 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Strapi',
         desc: 'Socket.IO 是一个可以在浏览器与服务器之间实现实时、双向、基于事件的通信的工具库',
-        logo: '/img/website/strapi.png',
+        logo: '/img/resource/strapi.png',
         href: 'https://strapi.io/',
         tags: ['Nodejs', 'CMS'],
       },
       {
         name: 'TypeORM',
         desc: 'TypeORM 是一个 ORM 框架，它可以运行在 NodeJS、Browser、Cordova、PhoneGap、Ionic、React Native、Expo 和 Electron 平台上，可以与 TypeScript 和 JavaScript (ES5,ES6,ES7,ES8)一起使用',
-        logo: '/img/website/typeorm.ico',
+        logo: '/img/resource/typeorm.ico',
         href: 'https://typeorm.bootcss.com',
         tags: ['Nodejs', 'ORM'],
       },
       {
         name: 'Prisma',
         desc: 'Prisma 下一代 Node.js 和 TypeScript 的ORM框架',
-        logo: '/img/website/prisma.png',
+        logo: '/img/resource/prisma.png',
         href: 'https://prisma.io/',
         tags: ['Nodejs', 'ORM'],
       },
       {
         name: 'GraphQL',
         desc: 'GraphQL 既是一种用于 API 的查询语言也是一个满足你数据查询的运行时',
-        logo: '/img/website/graphQL.svg',
+        logo: '/img/resource/graphQL.svg',
         href: 'https://graphql.cn',
         tags: ['Nodejs', 'GraphQL'],
       },
@@ -837,7 +837,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'AntV',
         desc: '蚂蚁集团全新一代数据可视化解决方案,让数据栩栩如生',
-        logo: '/img/website/antv.png',
+        logo: '/img/resource/antv.png',
         href: 'https://antv.vision/',
         tags: ['图表', '可视化'],
       },
@@ -845,11 +845,11 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: '构建工具',
-    websites: [
+    resources: [
       {
         name: 'Webpack',
         desc: 'webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle',
-        logo: '/img/website/webpack.png',
+        logo: '/img/resource/webpack.png',
         href: 'https://www.webpackjs.com',
         tags: ['构建工具'],
       },
@@ -870,14 +870,14 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Turborepo',
         desc: 'Turborepo 是一个用于 JavaScript 和 TypeScript 代码库的高性能构建系统。',
-        logo: '/img/website/turborepo.svg',
+        logo: '/img/resource/turborepo.svg',
         href: 'https://turbo.build/repo',
         tags: ['构建工具'],
       },
       {
         name: 'Turbopack',
         desc: 'Turbopack 是一个用 Rust 编写的针对 JavaScript 和 TypeScript 优化的增量式捆绑包。',
-        logo: '/img/website/turbopack.svg',
+        logo: '/img/resource/turbopack.svg',
         href: 'https://turbo.build/pack',
         tags: ['构建工具'],
       },
@@ -885,7 +885,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: '设计',
-    websites: [
+    resources: [
       {
         name: 'Mastergo',
         desc: '面向团队的专业 UI/UX 设计工具，多人同时编辑、随时在线评审、设计一键交付，让想法更快实现',
@@ -903,7 +903,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Figma',
         desc: 'Figma 是为 UI 设计而生的设计工具，除了有和 Sketch 一样基本的操作和功能，还有许多专为 UI 设计而生的强大功能。',
-        logo: '/img/website/figma.png',
+        logo: '/img/resource/figma.png',
         href: 'https://www.figma.com/',
         tags: ['设计'],
       },
@@ -918,7 +918,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: '字体图标',
-    websites: [
+    resources: [
       {
         name: 'iconify',
         desc: '数千个图标，一个统一的框架',
@@ -957,7 +957,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'igoutu',
         desc: '图标、插图、照片、音乐和设计工具',
-        logo: '/img/website/igoutu.png',
+        logo: '/img/resource/igoutu.png',
         href: 'https://igoutu.cn/',
         tags: ['插画', 'svg'],
       },
@@ -978,14 +978,14 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: '谷歌字体',
         desc: '一个生成渐变色背景的网站',
-        logo: '/img/website/google_fonts.ico',
+        logo: '/img/resource/google_fonts.ico',
         href: 'https://googlefonts.cn/',
         tags: ['字体'],
       },
       {
         name: 'Typing SVG',
         desc: '一个动态生成的可自定义 SVG 打字效果',
-        logo: '/img/website/typing-svg.png',
+        logo: '/img/resource/typing-svg.png',
         href: 'https://readme-typing-svg.herokuapp.com/demo/',
         tags: ['字体'],
       },
@@ -993,11 +993,11 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: '跨平台',
-    websites: [
+    resources: [
       {
         name: 'Electron',
         desc: '使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序',
-        logo: '/img/website/electron.ico',
+        logo: '/img/resource/electron.ico',
         href: 'https://www.electronjs.org/',
         tags: ['跨平台', 'Nodejs'],
       },
@@ -1025,7 +1025,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Taro',
         desc: 'Taro 是一个开放式跨端跨框架解决方案，支持使用 React/Vue/Nerv 等框架来开发 微信 / 京东 / 百度 / 支付宝 / 字节跳动 / QQ / 飞书 小程序 / H5 / RN 等应用',
-        logo: '/img/website/taro.png',
+        logo: '/img/resource/taro.png',
         href: 'https://taro.jd.com',
         tags: ['前端', 'React', '小程序'],
       },
@@ -1033,7 +1033,7 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: '站点生成',
-    websites: [
+    resources: [
       {
         name: 'VitePress',
         desc: 'Vue 驱动并使用Vite构建的静态网站生成器',
@@ -1051,7 +1051,7 @@ export const websiteData: WebsiteCategory[] = [
       {
         name: 'Docusaurus',
         desc: '快速构建以内容为核心的最佳网站',
-        logo: '/img/website/docusaurus.svg',
+        logo: '/img/resource/docusaurus.svg',
         href: 'https://docusaurus.io',
         tags: ['前端', 'React', '静态站点'],
       },
@@ -1087,32 +1087,32 @@ export const websiteData: WebsiteCategory[] = [
   },
   {
     name: 'Github',
-    websites: [
+    resources: [
       {
         name: 'Gitstar Ranking',
         desc: '针对用户、组织和存储库的非官方 GitHub 星级排名',
-        logo: '/img/website/github.ico',
+        logo: '/img/resource/github.ico',
         href: 'https://gitstar-ranking.com/',
         tags: [],
       },
       {
         name: 'Metrics',
         desc: 'Create your own metrics',
-        logo: '/img/website/github.ico',
+        logo: '/img/resource/github.ico',
         href: 'https://metrics.lecoq.io/',
         tags: [],
       },
       {
         name: 'Github主页 README 生成器',
         desc: '一个Github 个人主页 README 生成器',
-        logo: '/img/website/github.ico',
+        logo: '/img/resource/github.ico',
         href: 'https://rahuldkjain.github.io/gh-profile-readme-generator/',
         tags: [],
       },
       {
         name: 'Github 统计生成器',
         desc: 'Github 在你的 README 中获取动态生成的 GitHub 统计信息！',
-        logo: '/img/website/github.ico',
+        logo: '/img/resource/github.ico',
         href: 'https://github.com/anuraghazra/github-readme-stats',
         tags: [],
       },
