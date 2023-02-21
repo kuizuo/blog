@@ -5,29 +5,43 @@ date: 2021-08-20
 authors: kuizuo
 tags: [blog, docusaurus, project]
 keywords: [blog, docusaurus, project]
+description: 使用 docusaurus 搭建个人博客，并对其主题进行魔改
+image: /img/project/blog.png
+sticky: 5
 ---
 
 博客地址: [愧怍的小站](https://kuizuo.cn/)
 
-源码地址：[kuizuo/blog](https://github.com/kuizuo/blog)
-
 时隔近半年没好好整理文章，博客也写的不像个人样。:joy:
 
-大半年没更新博客，一直忙着写项目（写到手软的那种），然后无意间在 B 站看到一个 Up 主 [峰华前端工程师 ](https://zxuqian.cn/) 基于 React 驱动的静态网站生成器搭建的个人博客。第一眼看到该站点的时候惊艳到我了，于是也想着搭建一个，作为个人站点使用。
+大半年没更新博客，一直忙着写项目（写到手软的那种），然后无意间在 B 站看到一个 Up 主 [峰华前端工程师](https://zxuqian.cn/) 基于 React 驱动的静态网站生成器搭建的个人博客。第一眼看到该站点的时候惊艳到我了，于是我在其基础上并魔改了一些页面功能，作为个人站点使用。
 
-不过国内 docusaurus 的使用者是真的少。Vuepress 都快烂大街了...
-
-关于主题魔改可以看 [Docusaurus 主题魔改](/docs/docusaurus-guides)
+> 不过国内 docusaurus 的使用者是真的少，Vuepress 都快烂大街了...
 
 <!-- truncate -->
 
 ## 安装
 
-下载代码，根据相应命令运行即可，在本地运行还是相对比较容易的。
+如果你想搭建一个类似的博客，可以 [fork 本项目](https://github.com/kuizuo/blog/fork)，修改个人信息，并将文章迁移过来。这里推荐使用 [Vercel 部署个人博客](https://kuizuo.cn/vercel-deploy-blog)，以下是本地安装示例。
 
-修改了下个人信息，然后将之前的博客文章迁移过来即可。
+```bash
+git clone https://github.com/kuizuo/blog
+cd blog
+yarn
+yarn start
+```
+
+关于主题魔改可以看 [Docusaurus 主题魔改](https://kuizuo.cn/docs/docusaurus-guides)
 
 ## 额外功能页面
+
+### [博客页](/)
+
+![image-20230221120937768](https://img.kuizuo.cn/image-20230221120937768.png)
+
+- 支持 3 种博文信息展示
+- 博客个人信息卡片
+- 可根据 `sticky` 字段对文章进行置顶推荐
 
 ### [归档页](/archive)
 
@@ -37,28 +51,28 @@ keywords: [blog, docusaurus, project]
 
 ![image-20220804052016538](https://img.kuizuo.cn/image-20220804052016538.png)
 
+- 在此分享所收藏的一些好用、实用网站。
+
 ### 评论
 
 ![image-20220804052746803](https://img.kuizuo.cn/image-20220804052746803.png)
 
-相关文章: [Docusaurus 配置 Gitalk 评论插件](/docusaurus-gitalk-plugin)
+- 接入 [giscus](https://giscus.app) 作为评论系统，支持 GitHub 登录。
 
 ### [项目](/project)
 
 ![image-20220804052117492](https://img.kuizuo.cn/image-20220804052117492.png)
 
+- 存放你的项目，或是当做一个作品集用于展示。文件存放在 [data/website.ts](https://github.com/kuizuo/blog/blob/main/data/project.ts) 中，可以自行添加。
+
 ## 部署
 
-由于我是有个人的域名和服务器，所以之前部署项目都是直接将编译后的文件直接上传至服务器上，然后通过 nginx 就可以直接通过域名访问了，优点的话就是方便，但缺点很明显，每次更新一篇博客的话，就需要重新编译，然后重新拉去文件，并不能做到自动化编译部署。于是就想着采用第三方服务进行部署。
+按传统的方式，你编写好一篇文章后，需要重新打包成静态文件（.html），然后将静态文件上传到服务器（需要自己准备）上，然后通过 nginx 配置域名访问。如今有了自动化部署，你只需要将代码 push 到 Github 上，然后通过 CI/CD 自动化部署到服务器上。可以参考 [ci.yml](https://github.com/kuizuo/blog/blob/main/.github/workflows/ci.yml) 配置文件。
 
-这里推荐使用 Vercel，我写过一篇 [Vercel 部署个人博客](/vercel-deploy-blog) 的文章，部署十分简单。
+这里推荐使用 [Vercel 部署个人博客](/vercel-deploy-blog)，部署十分简单，你甚至不需要服务器，只需要有个 Github 账号，将你的博客项目添加为一个仓库中即可（也许需要科学上网）。
 
 ## 最后
 
-我个人是比较满意该博客的，搜索，SEO，暗黑模式，博客列表，没有其他博客系统那么花里胡哨的，该有的整洁都有了，最主要是我个人不喜欢文章配背景图，尤其是那种与文章毫不相干的图，图片也许能减少阅读疲倦感，但欣赏的是内容的，而不是背景。
+博客的意义在于记录，记录自己的成长，记录自己的所思所想，记录自己的所学所得。希望更多的时间用在创作内容上，而不是在搭建博客上。
 
-而且又是基于 Docusaurus，到时候是用来做一个项目的文档也方便许多。
-
-还是要感谢下所开源的代码，同时 B 站视频教程也非常好，让我学到了一些前沿的前端技术。:smile:
-
-也就不多浪费口舌了，博客既然搭建好了，那么接下来就可以专心的编写文章了。
+也就不浪费口舌了，博客搭建完毕，应该好好的去编写有意义的文章，才能够吸引他人的阅读。

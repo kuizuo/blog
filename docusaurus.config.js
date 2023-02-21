@@ -23,7 +23,7 @@ const config = {
     metadata: [
       {
         name: 'keywords',
-        content: '愧怍'
+        content: '愧怍',
       },
       {
         name: 'keywords',
@@ -37,7 +37,7 @@ const config = {
     docs: {
       sidebar: {
         hideable: true,
-      }
+      },
     },
     navbar: {
       title: '愧怍',
@@ -162,23 +162,25 @@ const config = {
             {
               label: 'Discord',
               href: 'https://discord.gg/M8cVcjDxkz',
-            }
+            },
           ],
         },
         {
           title: '更多',
-          items: [{
-            label: '友链',
-            position: 'right',
-            to: 'friends',
-          }, {
-            label: '导航',
-            position: 'right',
-            to: 'website',
-          },
-          {
-            html: `<a href="https://docusaurus.io/zh-CN/" target="_blank"><img style="height:50px;margin-top:0.5rem" src="/img/buildwith.png" /><a/>`
-          },
+          items: [
+            {
+              label: '友链',
+              position: 'right',
+              to: 'friends',
+            },
+            {
+              label: '导航',
+              position: 'right',
+              to: 'website',
+            },
+            {
+              html: `<a href="https://docusaurus.io/zh-CN/" target="_blank"><img style="height:50px;margin-top:0.5rem" src="/img/buildwith.png" /><a/>`,
+            },
           ],
         },
       ],
@@ -214,9 +216,9 @@ const config = {
       selector: '.markdown :not(em) > img',
       background: {
         light: 'rgb(255, 255, 255)',
-        dark: 'rgb(50, 50, 50)'
+        dark: 'rgb(50, 50, 50)',
       },
-      config: {}
+      config: {},
     },
     matomo: {
       matomoUrl: 'https://matomo.kuizuo.cn/',
@@ -252,7 +254,7 @@ const config = {
         name: 'description',
         content: '愧怍的个人博客',
       },
-    }
+    },
   ],
   presets: [
     [
@@ -272,7 +274,7 @@ const config = {
           priority: 0.5,
         },
         gtag: {
-          trackingID: "G-S4SD5NXWXF",
+          trackingID: 'G-S4SD5NXWXF',
           anonymizeIP: true,
         },
         // debug: true,
@@ -287,14 +289,16 @@ const config = {
     path.resolve(__dirname, './src/plugin/plugin-baidu-tongji'),
     path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
     [
-      path.resolve(__dirname, './src/plugin/plugin-content-blog'), {
+      path.resolve(__dirname, './src/plugin/plugin-content-blog'),
+      {
         path: 'blog',
         routeBasePath: '/',
         editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
           `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
         editLocalizedFiles: false,
-        blogSidebarCount: 10,
         blogDescription: '愧怍的个人博客',
+        blogSidebarCount: 10,
+        blogSidebarTitle: '最近更新',
         postsPerPage: 10,
         showReadingTime: true,
         readingTime: ({ content, frontMatter, defaultReadingTime }) =>
@@ -304,18 +308,23 @@ const config = {
           title: '愧怍',
           copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
         },
-      }
+      },
     ],
     [
-      '@docusaurus/plugin-ideal-image', {
+      '@docusaurus/plugin-ideal-image',
+      {
         disableInDev: false,
-      }
+      },
     ],
     [
       '@docusaurus/plugin-pwa',
       {
         debug: true,
-        offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
+        offlineModeActivationStrategies: [
+          'appInstalled',
+          'standalone',
+          'queryString',
+        ],
         pwaHead: [
           {
             tagName: 'link',

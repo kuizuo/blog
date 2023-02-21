@@ -11,6 +11,12 @@ keywords: [blog, vuepress, project]
 
 在写这篇文章前，本人非前端专业人士，只是一时兴起想开始搭建一个博客，在该博客上记录与分享一下自己所学的一切内容。（然后现在都在往前端这方向走了:joy:）
 
+:::info 新博客 🥳
+
+[第二个博客搭建之 Docusaurus](/second-blog-is-docusaurus)
+
+:::
+
 <!-- truncate -->
 
 ## 补充
@@ -183,7 +189,9 @@ isShowComments: false
 ---
 
 ::: tip
+
 这是 tip
+
 :::
 
 <!--more -->

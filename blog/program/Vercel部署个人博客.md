@@ -7,7 +7,6 @@ tags: [vercel, blog]
 keywords: [vercel, blog]
 description: 使用 Vercel 部署个人博客过程记录，简单方便、访问快、免费部署。
 image: https://img.kuizuo.cn/image-20220511170700075.png
-sticky: 5
 ---
 
 ![image-20220511170700075](https://img.kuizuo.cn/image-20220511170700075.png)
