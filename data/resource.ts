@@ -86,6 +86,20 @@ export const resourceData: ResourceCategory[] = [
         tags: ['图标', '首页'],
       },
       {
+        name: 'namae',
+        desc: 'namae可让您给您的应用程序、Web服务或组织起一个好名字',
+        logo: '/img/resource/namae.png',
+        href: 'https://namae.dev/',
+        tags: ['起名'],
+      },
+      {
+        name: 'Quick Reference',
+        desc: '为开发人员分享快速参考备忘清单【速查表】',
+        logo: '/img/resource/quick reference.svg',
+        href: 'https://jaywcjlove.github.io/reference',
+        tags: ['手册'],
+      },
+      {
         name: 'NGINX 配置',
         desc: '配置高性能、安全、稳定的NGINX服务器的最简单方法',
         logo: '/img/resource/digitalocean.png',
@@ -95,7 +109,7 @@ export const resourceData: ResourceCategory[] = [
       {
         name: 'BootCDN',
         desc: '稳定、快速、免费的前端开源项目 CDN 加速服务',
-        logo: 'https://www.bootcdn.cn/assets/ico/favicon.ico',
+        logo: '/img/resource/bootcdn.png',
         href: 'https://www.bootcdn.cn/',
         tags: ['cdn'],
       },
@@ -404,7 +418,7 @@ export const resourceData: ResourceCategory[] = [
       {
         name: 'Remix',
         desc: 'Remix 是一个全栈 Web 框架，可让您专注于用户界面，并通过 Web 标准进行回溯，以提供快速、流畅且有弹性的用户体验',
-        logo: 'https://remix.run/favicon-light.1.png',
+        logo: '/img/resource/remix.png',
         href: 'https://remix.run',
         tags: ['前端', 'React', '框架'],
       },
