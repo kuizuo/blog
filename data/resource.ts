@@ -75,7 +75,7 @@ export const resourceData: ResourceCategory[] = [
       {
         name: 'JS delivr',
         desc: '一个免费的CDN开源项目',
-        logo: 'https://www.jsdelivr.com/img/icon_256x256.png',
+        logo: '/img/resource/jsdelivr.webp',
         href: 'https://www.jsdelivr.com/',
       },
       {
@@ -97,6 +97,13 @@ export const resourceData: ResourceCategory[] = [
         desc: '为开发人员分享快速参考备忘清单【速查表】',
         logo: '/img/resource/quick reference.svg',
         href: 'https://jaywcjlove.github.io/reference',
+        tags: ['手册'],
+      },
+      {
+        name: 'Can I use',
+        desc: '对浏览器支持的 API 兼容性查询',
+        logo: 'https://caniuse.com/img/favicon-128.png',
+        href: 'https://caniuse.com',
         tags: ['手册'],
       },
       {
@@ -284,7 +291,7 @@ export const resourceData: ResourceCategory[] = [
       {
         name: 'Netlify',
         desc: 'Netlify 是一家提供静态网站托管的云平台，支持从 Github, GitLab, Bitbucket 等代码仓库中自动拉取代码 然后进行项目打包和部署等功能',
-        logo: 'https://www.netlify.com/v3/static/favicon/apple-touch-icon.png',
+        logo: '/img/resource/netlify.png',
         href: 'https://www.netlify.com',
         tags: ['网站托管'],
       },
@@ -877,7 +884,7 @@ export const resourceData: ResourceCategory[] = [
       {
         name: 'Vite',
         desc: '下一代的前端工具链，为开发提供极速响应',
-        logo: 'https://cn.vitejs.dev/logo.svg',
+        logo: '/img/resource/vite.svg',
         href: 'https://cn.vitejs.dev',
         tags: ['构建工具'],
       },
@@ -893,6 +900,13 @@ export const resourceData: ResourceCategory[] = [
         desc: 'Turbopack 是一个用 Rust 编写的针对 JavaScript 和 TypeScript 优化的增量式捆绑包。',
         logo: '/img/resource/turbopack.svg',
         href: 'https://turbo.build/pack',
+        tags: ['构建工具'],
+      },
+      {
+        name: 'SWC',
+        desc: 'SWC 是下一代快速开发工具的可扩展的基于 Rust 的平台。',
+        logo: '/img/resource/swc.png',
+        href: 'https://swc.rs/',
         tags: ['构建工具'],
       },
     ],
