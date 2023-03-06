@@ -52,7 +52,7 @@ my-project
 ├── dev.ts            #
 ├── fresh.gen.ts      #
 ├── import_map.json   # 依赖导入映射
-├── islands           # 岛屿(交互式组件)
+├── islands           # 群岛(组件群岛)
 │   └── Counter.tsx
 ├── main.ts           # 入口文件
 ├── routes            # 路由
@@ -85,7 +85,7 @@ my-project
 
 ### islands
 
-**`Islands/`**: 暂且翻译为岛屿(算是 deno 所定义的一个名词），主要作用就是用于存放交互式组件（服务端组件），可以在客户端和服务端运行。有点类似与 next.js 的服务端组件，同样有两种状态（服务端，浏览器端）。
+**`Islands/`**: 群岛，Fresh中我并未看到对这一词的解释，你可以到 [astro 群岛](https://docs.astro.build/zh-cn/concepts/islands/) 看看新的 Web 架构模式，主要作用就是用于存放交互式组件（服务端组件），可以在客户端和服务端运行。有点类似与 next.js 的服务端组件，同样有两种状态（服务端，浏览器端）。
 
 这一部分会有点难理解，你只要知道 IsLands 存放的组件有两种状态（服务端，浏览器端），下文称服务端组件，不同于 components 下的组件，服务端组件有一些优势，例如说
 
