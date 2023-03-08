@@ -35,7 +35,7 @@ toc_max_heading_level: 3
 
 对于大部分前端应用而言，类型往往常被忽略的，这就导致不知道这个请求的提交参数、响应结果有什么数据字段。举个 axios 发送 post 请求的例子
 
-![](https://img.kuizuo.cn/image_RpiLdRPO7X.png)
+![image-20230308142331808](https://img.kuizuo.cn/image-20230308142331808.png)
 
 这是一个 post 请求用于实现登录的，但是这个响应数据 data 没有任何具体提示（这里的提示是 vscode 记录用户最近输入的提示），这时候如果一旦对象属性拼写错误，就会导致某个数据没拿到，从而诱发 bug。同理提交的请求体 body 不做约束，万一这个请求还有验证码 code 参数，但是我没写上，那请求就会失败，这是就需要通过调试输出，甚至需要抓包比对原始数据包，其过程可想而知。
 
@@ -51,7 +51,7 @@ Cannot read properties of undefined (reading 'xxx')
 
 当然 axios 是可以通过泛型的方式拿到 data 的数据类型提示，就如下图所示。
 
-![](https://img.kuizuo.cn/image_j-kcSoqBdM.png)
+![image-20230308142452678](https://img.kuizuo.cn/image-20230308142452678.png)
 
 但这样为了更好的类型提示，无形之间又增加了工作量，我需要定义每个接口的 Response 与 Body 类型，就极易造成开发疲惫，不愿维护代码。而本次所要介绍的技术栈 tRPC 就能够帮你省去重复的类型定义的一个 web 全栈框架。
 
@@ -81,7 +81,7 @@ tRPC 可以作为 REST/GraphQL 的替代品，如果前端与后端共享代码�
 
 <video src="https://assets.trpc.io/www/v10/v10-dark-landscape.mp4" controls="controls" width="100%" height="auto"></video>
 
-一图胜千言，你可以点击 [这里](https://trpc.io/#try-it-out '这里') 在线体验一下 tRPC，并且查看其没目录结构，以及调用方式。下面我一步步讲解如何进行接口调用。
+一图胜千言，你可以点击 [这里](https://trpc.io/#try-it-out '这里') 在线体验一下 tRPC，并且查看其目录结构，以及调用方式。下面我一步步讲解如何进行接口调用。
 
 ### 定义服务端
 
@@ -564,7 +564,7 @@ DATABASE_URL=postgresql://myuser:mypassword@localhost:5432/mydb
 
 ## 示例
 
-这里我提供了一个简单的示例，你可以 [点我](trpc-demo-kuizuo.vercel.app '点我') 访问体验一下（项目部署在 Vercel，而数据库服务在腾讯云，登录服务又依赖 Github，所以项目会稍微有那么慢）。整个项目结构大致如下
+这里我提供了一个简单的示例，你可以 [点我](https://trpc.kuizuo.cn) 访问体验一下（项目部署在 Vercel，而数据库服务在腾讯云，登录服务又依赖 Github，所以项目会稍微有那么慢）。整个项目结构大致如下
 
 ![](https://img.kuizuo.cn/image_z_YaR-RnSu.png)
 
