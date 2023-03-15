@@ -250,7 +250,7 @@ export const resourceData: ResourceCategory[] = [
       },
       {
         name: 'Gitee',
-        desc: '蚂蚁集团全新一代数据可视化解决方案',
+        desc: 'Gitee 是中国领先的基于 Git 的代码托管平台，类似于全球知名的 GitHub',
         logo: '/img/resource/gitee.ico',
         href: 'https://gitee.com/',
         tags: ['代码托管'],
