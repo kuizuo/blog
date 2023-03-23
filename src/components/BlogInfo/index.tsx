@@ -1,5 +1,5 @@
 import React from 'react'
-import useGlobalData from '@docusaurus/useGlobalData'
+import { usePluginData } from '@docusaurus/useGlobalData'
 import type {
   BlogTag,
   BlogTags,
@@ -21,13 +21,7 @@ type Count = {
   project: number
 }
 
-export function BlogUser({
-  count,
-  isNavbar = false,
-}: {
-  count?: Count
-  isNavbar?: boolean
-}) {
+export function BlogUser({ isNavbar = false }: { isNavbar?: boolean }) {
   const {
     siteConfig: { tagline },
   } = useDocusaurusContext()
@@ -37,24 +31,17 @@ export function BlogUser({
 
   const logoLink = useBaseUrl(logo.src || '/')
 
-  if (!count) {
-    const globalData = useGlobalData()
-    const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.[
-      'default'
-    ] as any
-    const blogData = blogPluginData?.blogs as BlogPost[]
-    const tagData = blogPluginData?.tags as BlogTags
+  const blogPluginData = usePluginData('docusaurus-plugin-content-blog') as any
+  const docData = (usePluginData('docusaurus-plugin-content-docs') as any)
+    ?.versions[0].docs
+  const blogData = blogPluginData?.blogs as BlogPost[]
+  const tagData = blogPluginData?.tags as BlogTags
 
-    const docData = (
-      globalData?.['docusaurus-plugin-content-docs']?.['default'] as any
-    )?.versions[0].docs
-
-    count = {
-      blog: blogData.length,
-      tag: Object.keys(tagData).length ?? 0,
-      doc: docData?.length ?? 0,
-      project: projects?.length ?? 0,
-    }
+  const count: Count = {
+    blog: blogData.length,
+    tag: Object.keys(tagData).length ?? 0,
+    doc: docData?.length ?? 0,
+    project: projects?.length ?? 0,
   }
 
   return (
@@ -125,29 +112,15 @@ const TagsSection = ({ data }: { data: BlogTag[] }) => {
 }
 
 export default function BlogInfo() {
-  const globalData = useGlobalData()
-  const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.[
-    'default'
-  ] as any
-  const blogData = blogPluginData?.blogs as BlogPost[]
+  const blogPluginData = usePluginData('docusaurus-plugin-content-blog') as any
   const tagData = blogPluginData?.tags as BlogTags
-  const docData = (
-    globalData?.['docusaurus-plugin-content-docs']?.['default'] as any
-  )?.versions[0].docs
-
-  const count: Count = {
-    blog: blogData.length,
-    tag: Object.keys(tagData).length ?? 0,
-    doc: docData?.length ?? 0,
-    project: projects?.length ?? 0,
-  }
 
   return (
     <div className="bloginfo col col--3 margin-bottom--md">
       <section className="bloginfo__content">
         <Fade direction="up" triggerOnce={true}>
           <div className="bloghome__posts-card bloginfo__user margin-bottom--md">
-            <BlogUser count={count} />
+            <BlogUser />
           </div>
           <div className="bloghome__posts-card margin-bottom--md">
             <div className="row bloginfo__card">
