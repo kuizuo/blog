@@ -14,7 +14,7 @@ export const Friends: Friend[] = [
   {
     title: 'Jetzihan',
     description: 'A bug maker.',
-    website: 'https://jetzihan.netlify.app',
+    website: 'https://jetlab.live/',
     avatar: '/img/friend/jetzihan.png',
   },
   {

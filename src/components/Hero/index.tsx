@@ -2,7 +2,9 @@ import React from 'react'
 
 import { useTrail, animated } from '@react-spring/web'
 import Translate from '@docusaurus/Translate'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import { useThemeConfig} from '@docusaurus/theme-common'
+import { ThemeConfig } from '@docusaurus/preset-classic'
+
 import Link from '@docusaurus/Link'
 
 import HeroMain from './img/hero_main.svg'
@@ -81,8 +83,8 @@ function Hero() {
 }
 
 export function SocialLinks({ ...prop }) {
-  const { siteConfig } = useDocusaurusContext()
-  const { themeConfig } = siteConfig
+  const themeConfig = useThemeConfig() as ThemeConfig
+
   const socials = themeConfig.socials as {
     github: string
     twitter: string
