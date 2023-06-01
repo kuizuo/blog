@@ -1,7 +1,7 @@
 export const projects: Project[] = [
   {
     title: '愧怍的小站',
-    description: '基于Docusaurus v2 静态网站生成器实现个人博客',
+    description: '🦖 基于 Docusaurus 静态网站生成器实现个人博客',
     preview: '/img/project/blog.png',
     website: 'https://kuizuo.cn',
     source: 'https://github.com/kuizuo/blog',
@@ -9,18 +9,17 @@ export const projects: Project[] = [
     type: 'web',
   },
   {
-    title: 'kz-admin',
-    description:
-      '基于NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin编写的一款前后端分离的权限管理系统',
-    preview: '/img/project/kz-admin.png',
+    title: 'nest-vben-admin',
+    description: '基于 NestJs + Vben Admin 编写的一款前后端分离的权限管理系统',
+    preview: '/img/project/nest-vben-admin.png',
     website: 'https://admin.kuizuo.cn',
-    source: 'https://github.com/kuizuo/kz-admin',
+    source: 'https://github.com/kuizuo/nest-vben-admin',
     tags: ['opensource', 'favorite', 'product', 'large'],
     type: 'web',
   },
   {
-    title: 'KZ-API',
-    description: '🔗 基于Nuxt3 + Vite3 + Vue3 + UnoCSS搭建的API接口服务网站',
+    title: 'api-server',
+    description: '🔗 基于Nuxt3搭建的API接口服务网站',
     preview: '/img/project/kz-api.png',
     website: 'https://api.kuizuo.cn',
     source: 'https://github.com/kuizuo/api-service',
@@ -34,6 +33,15 @@ export const projects: Project[] = [
     website: 'https://protocol.kuizuo.cn',
     source: 'https://github.com/kuizuo/protocol',
     tags: ['opensource', 'favorite'],
+    type: 'web',
+  },
+  {
+    title: 'Chaoxing-sign',
+    description: '🌟 超星学习通在线签到',
+    preview: '/img/project/chaoxing-sign.png',
+    website: 'https://sign.kuizuo.cn',
+    source: 'https://github.com/kuizuo/chaoxing-sign',
+    tags: ['opensource', 'product'],
     type: 'web',
   },
   {

@@ -112,7 +112,7 @@ const ShowcaseCard = memo(({ project }: { project: Project }) => {
                 styles.showcaseCardSrcBtn,
               )}
             >
-              <Translate id="showcase.card.sourceLink">source</Translate>
+              <Translate id="showcase.card.sourceLink">源码</Translate>
             </Link>
           )}
         </div>

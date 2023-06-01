@@ -473,5 +473,9 @@
   "theme.PwaReloadPopup.closeButtonAriaLabel": {
     "message": "Close",
     "description": "The ARIA label for close button of PWA reload popup"
+  },
+  "showcase.card.sourceLink":{
+    "message": "source",
+    "description": "The label for the source link of a showcase card"
   }
 }
