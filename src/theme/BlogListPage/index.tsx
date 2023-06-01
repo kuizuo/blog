@@ -47,7 +47,7 @@ function ViewTypeSwitch({ viewType, toggleViewType }: any): JSX.Element {
   return (
     <div className="bloghome__swith-view">
       <Icon
-        icon="ph:list-fill"
+        icon="ph:list"
         width="24"
         height="24"
         onClick={() => toggleViewType('list')}

@@ -35,7 +35,7 @@ export default function BlogTagsListPage({
           <h1>{title}</h1>
           <div>
             <Icon
-              icon="ph:list-fill"
+              icon="ph:list"
               width="24"
               height="24"
               onClick={() => setType('list')}

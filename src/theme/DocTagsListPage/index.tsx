@@ -37,7 +37,7 @@ export default function DocTagsListPage({ tags }: Props): JSX.Element {
                 <div>
                   <div>
                     <Icon
-                      icon="ph:list-fill"
+                      icon="ph:list"
                       width="24"
                       height="24"
                       onClick={() => setType('list')}
