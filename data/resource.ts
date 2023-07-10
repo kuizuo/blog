@@ -25,7 +25,7 @@ const friends: Resource[] = Friends.map(f => {
 
 export const resourceData: ResourceCategory[] = [
   {
-    name: '友链👨‍💻',
+    name: '友链 👨‍💻',
     resources: friends,
   },
   {
@@ -64,7 +64,7 @@ export const resourceData: ResourceCategory[] = [
     ],
   },
   {
-    name: '站点🖥️',
+    name: '站点 🖥️',
     resources: [
       {
         name: 'Developer Roadmap',
@@ -137,7 +137,7 @@ export const resourceData: ResourceCategory[] = [
     ],
   },
   {
-    name: '文档📘',
+    name: '文档 📘',
     resources: [
       {
         name: 'MDN',
@@ -170,7 +170,7 @@ export const resourceData: ResourceCategory[] = [
     ],
   },
   {
-    name: '工具🛠️',
+    name: '工具 🛠️',
     resources: [
       {
         name: '在线工具',
@@ -366,7 +366,7 @@ export const resourceData: ResourceCategory[] = [
     ],
   },
   {
-    name: 'Vue',
+    name: 'Vue 生态',
     resources: [
       {
         name: 'Vue.js',
@@ -374,6 +374,13 @@ export const resourceData: ResourceCategory[] = [
         logo: 'https://vuejs.org/logo.svg',
         href: 'https://vuejs.org',
         tags: ['前端', 'Vue', '框架'],
+      },
+      {
+        name: 'Vue Router',
+        desc: '为 Vue.js 提供富有表现力、可配置的、方便的路由',
+        logo: 'https://vuejs.org/logo.svg',
+        href: 'https://router.vuejs.org',
+        tags: ['前端', 'Vue'],
       },
       {
         name: 'Nuxt',
@@ -406,14 +413,14 @@ export const resourceData: ResourceCategory[] = [
     ],
   },
   {
-    name: 'React',
+    name: 'React 生态',
     resources: [
       {
         name: 'React',
         desc: '用于构建用户界面的 JavaScript 库',
-        logo: 'https://reactjs.org/favicon.ico',
-        href: 'https://reactjs.org',
-        tags: ['前端', 'React', '框架'],
+        logo: 'https://react.dev/favicon.ico',
+        href: 'hhttps://react.dev/',
+        tags: ['前端', 'React'],
       },
       {
         name: 'Next.js',
@@ -423,39 +430,32 @@ export const resourceData: ResourceCategory[] = [
         tags: ['前端', 'React', '框架'],
       },
       {
-        name: 'Remix',
-        desc: 'Remix 是一个全栈 Web 框架，可让您专注于用户界面，并通过 Web 标准进行回溯，以提供快速、流畅且有弹性的用户体验',
-        logo: '/img/resource/remix.png',
-        href: 'https://remix.run',
-        tags: ['前端', 'React', '框架'],
-      },
-      {
-        name: 'Ant Design Pro',
-        desc: '开箱即用的中台前端/设计解决方案',
-        logo: 'https://pro.ant.design/favicon.png',
-        href: 'https://pro.ant.design',
-        tags: ['前端', 'React', '后台', '项目'],
+        name: 'zustand',
+        desc: '一种小型、快速且可扩展的 Bearbones 状态管理解决方案，使用简化的通量原理。拥有基于钩子的舒适 API，不是样板文件或固执己见。',
+        logo: '/img/resource/zustand.png',
+        href: 'https://docs.pmnd.rs/zustand/',
+        tags: ['前端', 'React'],
       },
       {
         name: 'react-use',
         desc: '一个强大的 React Hooks 库',
         logo: 'https://reactjs.org/favicon.ico',
         href: 'https://github.com/streamich/react-use',
-        tags: ['前端', 'React', '脚手架'],
-      },
-      {
-        name: 'ahooks',
-        desc: '一个高质量和可靠的 React Hooks 库',
-        logo: 'https://ahooks.js.org/simple-logo.svg',
-        href: 'https://ahooks.js.org/',
-        tags: ['前端', 'React', '脚手架'],
+        tags: ['前端', 'React'],
       },
       {
         name: 'SWR',
         desc: '用于数据请求的 React Hooks 库',
         logo: '/img/resource/swr.png',
         href: 'https://swr.vercel.app/',
-        tags: ['前端', 'React', '脚手架'],
+        tags: ['前端', 'React'],
+      },
+      {
+        name: 'TanStack Query',
+        desc: '适用于 TS/JS、React、Solid、Vue 和 Svelte 的强大异步状态管理',
+        logo: 'https://tanstack.com/favicons/apple-touch-icon.png',
+        href: 'https://tanstack.com/query/latest/',
+        tags: ['前端', 'React'],
       },
       {
         name: 'react-spring',
@@ -627,6 +627,13 @@ export const resourceData: ResourceCategory[] = [
         logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
         href: 'https://ant.design',
         tags: ['前端', 'React', '组件库'],
+      },
+      {
+        name: 'shadcn/ui',
+        desc: '设计精美的组件，您可以将其复制并粘贴到您的应用程序中。无障碍。可定制。开源。',
+        logo: 'https://ui.shadcn.com/favicon.ico',
+        href: 'https://ui.shadcn.com/',
+        tags: ['组件库', 'react', 'tailwindcss'],
       },
       {
         name: 'TDesign',

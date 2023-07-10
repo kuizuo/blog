@@ -8,7 +8,7 @@ export const Friends: Friend[] = [
   {
     title: 'Mas0n',
     description: '梦想是咸鱼',
-    website: 'https://blog.shi1011.cn',
+    website: 'https://mas0n.cn/',
     avatar: '/img/friend/mas0n.png',
   },
   {
@@ -24,10 +24,10 @@ export const Friends: Friend[] = [
     avatar: '/img/friend/pincman.png',
   },
   {
-    title: 'KnIFeR',
-    description: 'Web开发学习者，分享编程相关的技术和见闻',
-    website: 'http://knifer.fun',
-    avatar: '/img/friend/knifer.png',
+    title: '静かな森',
+    description: '致虚极，守静笃',
+    website: 'https://innei.in/',
+    avatar: '/img/friend/innei.png',
   },
   {
     title: '前端老怪兽',

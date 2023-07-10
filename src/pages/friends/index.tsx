@@ -1,13 +1,14 @@
 import React from 'react'
 import Layout from '@theme/Layout'
+import CodeBlock from '@theme/CodeBlock'
 
 import FriendCard from './_components/FriendCard'
 import { Friends, type Friend } from '@site/data/friend'
 
 import styles from './styles.module.css'
 
-const TITLE = '友情链接'
-const DESCRIPTION = '申请友链请点击下方申请，熟人可直接找我~'
+const TITLE = '友链'
+const DESCRIPTION = '请点击下方按钮申请友链，熟人可直接找我~'
 const ADD_FRIEND_URL = 'https://github.com/kuizuo/blog/edit/main/data/friend.ts'
 
 function FriendHeader() {
@@ -15,6 +16,16 @@ function FriendHeader() {
     <section className="margin-top--lg margin-bottom--lg text--center">
       <h1>{TITLE}</h1>
       <p>{DESCRIPTION}</p>
+      <div className={styles.siteInfo}>
+        <CodeBlock language="jsx">
+          {`{
+  // 本站信息
+  title: '愧怍的小站',
+  description: '道阻且长，行则将至',
+  avatar: 'https://kuizuo.cn/img/logo.png'
+}`}
+        </CodeBlock>
+      </div>
       <a
         className="button button--primary"
         href={ADD_FRIEND_URL}
