@@ -1,13 +1,13 @@
 ---
 slug: deno-is-not-only-a-javascript-runtime
-title: Deno不只是个Javascript运行时
+title: Deno 不只是个 Javascript 运行时
 date: 2023-01-20
 authors: kuizuo
 tags: [deno, node, javascript, typescript]
 keywords: [deno, node, javascript, typescript]
 ---
 
-<img src="https://deno.land/logo.svg" width="150" height="150" />
+![](https://img.kuizuo.cn/202307110217498.png)
 
 Deno 是一个安全的 JavaScript 和 TypeScript 运行时，作者是 Ryan Dahl（也是 Node.js 的原作者）。Deno 的诞生之初是为了[解决 2009 年首次设计 Node.js 时的一些疏忽](https://link.juejin.cn?target=https://www.youtube.com/watch?v=M3BM9TB-8yA)。我认为这种改造动机很有道理，因为**我相信每个程序员都希望有机会能重写他们已有 10 年历史的代码。**
 

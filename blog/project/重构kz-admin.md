@@ -1,24 +1,25 @@
 ---
-slug: refactor-kz-admin
-title: 重构kz-admin
+slug: refactor-vben-nest-admin
+title: 重构vben-nest-admin
 date: 2022-11-07
 authors: kuizuo
 tags: [project, admin]
 keywords: [project, admin]
-description: kz-admin 是一个基于 NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin 编写的一款前后端分离的权限管理系统
-image: /img/project/kz-admin.png
+description: vben-nest-admin 是一个基于 NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin 编写的一款前后端分离的权限管理系统
+image: /img/project/nest-vben-admin.png
+draft: false
 ---
 
 ![](https://img.kuizuo.cn/logo_irKdpu5Epv.png)
 
-> kz-admin 使用 NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin
+> nest-vben-admin 使用 NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin
 > 等技术栈，并采用 monorepo 管理项目，希望这个项目在 ts 全栈的路上能够帮助到你。
 
-详细介绍可以参见 [kz-admin后台管理系统](/kz-admin)
+详细介绍可以参见 [nest-vben-admin后台管理系统](/nest-vben-admin)
 
 ## 为何重构
 
-前段时间基于我的 [kz-admin](https://github.com/kuizuo/kz-admin "kz-admin")
+前段时间基于我的 [nest-vben-admin](https://github.com/kuizuo/nest-vben-admin "nest-vben-admin")
 模板写了一个link-admin的项目（可以访问 [link.kuizuo.cn](http://link.kuizuo.cn/ "link.kuizuo.cn") 在线体验，账号 admin，密码a123456），是一个“一次性”充值链接管理系统，具体自行体验即可（项目未开源）。
 
 该项目有前端管理页面，后端服务，和一个链接使用页面，共三个项目。
@@ -35,7 +36,7 @@ monorepo的重构相对简单，首先使用 [Turborepo](https://turbo.build/rep
 
 ![](https://img.kuizuo.cn/image_Svd1WZKBdf.png)
 
-将 packages 与 apps 下的文件清空，然后把原 kz-admin 的[前端项目](https://github.com/kuizuo/kz-vue-admin)与[后端项目](https://github.com/kuizuo/kz-nest-admin)放到 apps 下。修改下 README.md 与 package.json 其启动命令即可。
+将 packages 与 apps 下的文件清空，然后把原 nest-vben-admin 的[前端项目](https://github.com/kuizuo/kz-vue-admin)与[后端项目](https://github.com/kuizuo/kz-nest-admin)放到 apps 下。修改下 README.md 与 package.json 其启动命令即可。
 
 ![](https://img.kuizuo.cn/image_eYL2rKrakb.png)
 
@@ -64,11 +65,11 @@ npx taze -r
 
 其实早听闻ApiFox，但当时我还在用ApiPost，觉得ApiPost足够好用就没有更换的欲望。直到看到别人给我分享用ApiFox编写的接口文档时，让我眼前一亮，至于有多好用，可以参阅官方的介绍视频[21分钟学会Apifox](https://www.bilibili.com/video/BV1ae4y1y7bf "21分钟学会Apifox")。发自使用者内心的好用，下面会有些实际接口案例来说明到底有多好用。
 
-你可以访问 [https://admin.kuizuo.cn/swagger-ui](https://admin.kuizuo.cn/swagger-ui "https://admin.kuizuo.cn/swagger-ui") 来查看kz-admin的Swagger文档
+你可以访问 [https://admin.kuizuo.cn/swagger-ui](https://admin.kuizuo.cn/swagger-ui "https://admin.kuizuo.cn/swagger-ui") 来查看nest-vben-admin的Swagger文档
 
 json格式为[https://admin.kuizuo.cn/swagger-ui/json](https://admin.kuizuo.cn/swagger-ui/json "https://admin.kuizuo.cn/swagger-ui/json")，用于导入ApiFox中。
 
-ApiFox在线链接: [https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25](https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25 "https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25") 访问密码: kz-admin
+ApiFox在线链接: [https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25](https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25 "https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25") 访问密码: nest-vben-admin
 
 ### 数据实体
 
@@ -116,8 +117,6 @@ Apifox是以文档作为驱动的，可以说把Swagger文档写好，Apifox就�
 
 Vben admin 是我21年6月当时接触 Vue3 的第一个项目，在当时Vue3测试版已经发布，而vue-element-admin都早已烂大街了，也有点审美疲劳了。想给自己换一个后台管理系统的模板，恰好无意间刷到了 Vben Admin，管理面板的效果让我眼前一亮，迄今为止我都认为非常耐看。
 
-但是Vben Admin仅仅只是前端模板与mock数据，并无后端数据，于是就正好利用我使用的 Node 后端框架 Nestjs 来编写后端服务。但当时项目并不完善，在我编写了几个相似的后端管理的项目后，将核心部分抽离出来，并将其封装出来，kz-admin也就此诞生。
-
-鸣谢 [hackycy/sf-nest-admin](https://github.com/hackycy/sf-nest-admin)，我的后端 nestjs 架构与部分代码都借鉴该项目。
+但是Vben Admin仅仅只是前端模板与mock数据，并无后端数据，于是就正好利用我使用的 Node 后端框架 Nestjs 来编写后端服务。但当时项目并不完善，在我编写了几个相似的后端管理的项目后，将核心部分抽离出来，并将其封装出来，nest-vben-admin也就此诞生。
 
 最后也要感谢 Vben 项目，在当时让我进一步了解到 Vite + Vue + TypeScript 等最新前端相关技术。
