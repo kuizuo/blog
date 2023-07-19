@@ -125,13 +125,13 @@ export class TransformInterceptor implements NestInterceptor {
 
 此时返回的数据都会转换为 `{ "data": { }, "code": 200, "message": "success" }` 的形式，这部分不为就本文重点，就不赘述了。
 
-回到 Swagger 文档中，只需要 `@ApiResponse({ type: TodoEntity })` 改写成 `@ApiResponse({ type: ResOp<TodoEntity> })`，就可以实现下图需求。
+回到 Swagger 文档中，只需将 `@ApiResponse({ type: TodoEntity })` 改写成 `@ApiResponse({ type: ResOp<TodoEntity> })`，就可以实现下图需求。
 
 ![image-20230718012618710](https://img.kuizuo.cn/202307180126751.png)
 
 ## 自定义 Api 装饰器
 
-然后对于庞大的业务而言，使用 `@ApiResponse({ type: ResOp<TodoEntity> })`的写法，肯定不如`@ApiResponse({ type: TodoEntity })`来的高效，有没有什么办法能够用后者的方式，却能达到前者的效果，答案是肯定有的。
+然而对于庞大的业务而言，使用 `@ApiResponse({ type: ResOp<TodoEntity> })`的写法，肯定不如 `@ApiResponse({ type: TodoEntity })`来的高效，有没有什么办法能够用后者的写法，却能达到前者的效果，答案是肯定有的。
 
 这里需要先自定义一个装饰器，命名为 `ApiResult`，完整代码如下
 
@@ -215,7 +215,7 @@ export const ApiResult = <TModel extends Type<any>>({
 }
 ```
 
-其核心代码就是在 ApiResponse 上进行扩展，这一部分代码在官方文档: [advanced-generic-apiresponse](https://docs.nestjs.com/openapi/operations#advanced-generic-apiresponse) 中提供相关示例，这里我简单说明下
+其核心代码就是在 `@ApiResponse` 上进行扩展，这一部分代码在官方文档: [advanced-generic-apiresponse](https://docs.nestjs.com/openapi/operations#advanced-generic-apiresponse) 中提供相关示例，这里我简单说明下：
 
 `{ $ref: getSchemaPath(ResOp) }` 表示原始数据，要被“塞”到那个类下，而第二个参数 `properties: { data: prop }` 则表示 `ResOp` 的 `data` 属性要如何替换，替换的部分则由 `prop` 变量决定，只需要根据实际需求构造相应的字段结构。
 
