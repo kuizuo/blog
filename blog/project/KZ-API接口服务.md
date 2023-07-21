@@ -1,6 +1,6 @@
 ---
 slug: use-nuxt3-build-api-server
-title: KZ-API接口服务
+title: api-service 接口服务
 date: 2022-07-20
 authors: kuizuo
 tags: [nuxt, vite, vue, ssr]
@@ -12,11 +12,11 @@ sticky: 2
 
 挺早之前就想写个 api 接口服务，封装下自己收集的一些 api 接口，以便调用，正好最近在接触 SSR 框架，所以就使用 [Nuxt3](https://v3.nuxtjs.org/) 来编写该项目。
 
-在线地址: [KZ API](https://api.kuizuo.cn)
+在线地址: [API-Service](https://api.kuizuo.cn)
 
 开源地址: [kuizuo/api-service](https://github.com/kuizuo/api-service)
 
-![KZ API](https://img.kuizuo.cn/KZ%20API.png)
+![API-Service](https://img.kuizuo.cn/KZ%20API.png)
 
 <!-- truncate -->
 
@@ -65,7 +65,7 @@ Nuxt3 中的的 api 接口服务引擎使用的是[⚗️ Nitro](https://nitro.u
 创建一个服务，创建文件`server/api/hello.ts`
 
 ```typescript title="server/api/helloWord.ts"
-export default defineEventHandler((event) => {
+export default defineEventHandler(event => {
   return 'hello nuxt'
 })
 ```
@@ -73,7 +73,7 @@ export default defineEventHandler((event) => {
 请求 http://localhost/api/hello 便可得到`hello nuxt`，在 event 可以得到 req 与 res 对象。不过在 req 身上是获取不到 query 和 body 的，这里需要使用 h3 提供的 hooks，如`useMethod()`,`useQuery()`,`useBody()`来获取，例如。
 
 ```typescript
-export default eventHandler(async (event) => {
+export default eventHandler(async event => {
   const body = await useBody(event)
 
   return `User updated!`
@@ -211,8 +211,7 @@ export default defineEventHandler(async (event) => {
 
 这里省略模块的导入的步骤，在根目录下创建 content 目录，目录下的文件可以是`markdonw`，`json`，`yaml`，`csv`。和 pages 一样，这里的文件都会映射对应的路由，不过这里需要映射的路由前缀是`/api/_content/query/`。举个例子
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value="json" label="content/hello.json" default>
@@ -298,7 +297,7 @@ const { name, desc, params, path, method, returnType, example } = data.value
 创建`server/middleware/limit.ts` 文件
 
 ```typescript title="server/middleware/limit.ts"
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   console.log(`limit`)
 })
 ```
@@ -308,7 +307,10 @@ export default defineEventHandler(async (event) => {
 不过由于没有使用到用户鉴权等功能（在这个项目中也没打算上），所以限流的操作只有从 IP 的手段下手。这里我选用的是[node-rate-limiter-flexible](https://github.com/animir/node-rate-limiter-flexible)这个库，下面是实现代码
 
 ```typescript title="server/middleware/limit.ts"
-import { RLWrapperBlackAndWhite, RateLimiterMemory } from 'rate-limiter-flexible'
+import {
+  RLWrapperBlackAndWhite,
+  RateLimiterMemory,
+} from 'rate-limiter-flexible'
 
 const rateLimiter = new RLWrapperBlackAndWhite({
   limiter: new RateLimiterMemory({
@@ -319,11 +321,12 @@ const rateLimiter = new RLWrapperBlackAndWhite({
 
 function getIP(req) {
   return (
-    (req.headers['x-forwarded-for'] as string) || (req.socket?.remoteAddress as string)
+    (req.headers['x-forwarded-for'] as string) ||
+    (req.socket?.remoteAddress as string)
   ).replace('::ffff:', '')
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const { req, res } = event
 
   if (/^\/api\/[A-Za-z0-9].*/.test(req.url || '')) {
@@ -374,7 +377,7 @@ add = function () {
 知道了这个修改 add 函数的技巧，要拦截 nuxt 的服务端数据也就不难了。只需要将这里的 add 函数替换成 http 框架的返回函数即可，也就是`res.end()`。大致逻辑如下
 
 ```typescript title="server/middleware/cache.ts"
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const { req, res } = event
 
   const original_res_end = res.end
@@ -405,7 +408,7 @@ const options = {
 }
 const cache = new LRU(options)
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   defaultContentType(event, 'text/plain; charset=utf-8')
 
   const { req, res } = event
@@ -432,7 +435,7 @@ export default defineEventHandler(async (event) => {
 定义接口代码
 
 ```typescript {2} title="server/api/test.ts"
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   event.context.cache = { ttl: 1000 * 5 } // 缓存5s
 
   // ... 其他代码 ...
@@ -472,6 +475,7 @@ if (data) {
 - [ ] 接口分类
 - [ ] 代码示例
 - [ ] ip 白名单
+
 ### 收集接口
 
 就此整个项目的核心功能就已经实现完毕了，接下来要做的就是收集 api 接口，写 api 文档了。然而这部分也是最头疼的部分，因为在互联网上很难有免费的资源。
@@ -506,17 +510,17 @@ node .output/server/index.mjs
 
 ### 打包失败
 
-cherrio中的parse5包无法打包至生成环境，提示如下
+cherrio 中的 parse5 包无法打包至生成环境，提示如下
 
 ```
 WARN  Could not resolve import "parse5/lib/parser/index.js" in ~\.pnpm\hast-util-raw@7.2.1\node_modules\hast-util-raw\lib\index.js using exports defined in ~\parse5\package.json.
 ```
 
-我猜测是因为hast-util-raw包和cheerio的parse5冲突，而nuxt服务端的nitro在用rollup打包时没有将两者冲突部分合并，而是选择前者，这就导致生产环境下cheerio无法使用。我尝试搜索没有得到一个很好结果，而我的解决方案是降级cherrio版本至0.22.0，因为这个版本中没有引入parse5。
+我猜测是因为 hast-util-raw 包和 cheerio 的 parse5 冲突，而 nuxt 服务端的 nitro 在用 rollup 打包时没有将两者冲突部分合并，而是选择前者，这就导致生产环境下 cheerio 无法使用。我尝试搜索没有得到一个很好结果，而我的解决方案是降级 cherrio 版本至 0.22.0，因为这个版本中没有引入 parse5。
 
 ### 版本切换
 
-在我最终准备上线的时候，发现nuxt又有新版本了，于是我将项目从rc.4升级到rc.6，然后再次测试的时候，发现在动态路由页面切换的时候，无法正常的向后端发送请求，甚至都监听不到路由变化，相当于页面被缓存了。
+在我最终准备上线的时候，发现 nuxt 又有新版本了，于是我将项目从 rc.4 升级到 rc.6，然后再次测试的时候，发现在动态路由页面切换的时候，无法正常的向后端发送请求，甚至都监听不到路由变化，相当于页面被缓存了。
 
 其实这也侧面说明了，目前 Nuxt3 的兼容性是比较差的。
 
@@ -524,4 +528,4 @@ WARN  Could not resolve import "parse5/lib/parser/index.js" in ~\.pnpm\hast-util
 
 ## 总结
 
-体验了一周的 Nuxt3，整个的开发过程不敢说特别顺利，因为存在一定的兼容和Bug。目前 Nuxt3 的目前还处于 rc 版，实际项目还得考虑上线。不过个人还是非常推荐 Nuxt 这个框架，在代码编写与开发体验上实在是太香了，不出意外后续的 web 项目都会采用 Nuxt3 来构建，期待正式版的发布。
+体验了一周的 Nuxt3，整个的开发过程不敢说特别顺利，因为存在一定的兼容和 Bug。目前 Nuxt3 的目前还处于 rc 版，实际项目还得考虑上线。不过个人还是非常推荐 Nuxt 这个框架，在代码编写与开发体验上实在是太香了，不出意外后续的 web 项目都会采用 Nuxt3 来构建，期待正式版的发布。

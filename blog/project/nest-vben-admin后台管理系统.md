@@ -5,7 +5,7 @@ date: 2022-05-08
 authors: kuizuo
 tags: [project, admin, vue, nest]
 keywords: [project, admin, vue, nest]
-description: 基于 NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin 编写的一款前后端分离的权限管理系统
+description: 一款基于 NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin 编写的一款前后端分离的权限管理系统
 image: /img/project/nest-vben-admin.png
 ---
 
@@ -265,7 +265,13 @@ pnpm run dev
 permission 的值如
 
 ```json
-["sys:user:add", "sys:user:delete", "sys:user:update", "sys:user:list", "sys:user:info"]
+[
+  "sys:user:add",
+  "sys:user:delete",
+  "sys:user:update",
+  "sys:user:list",
+  "sys:user:info"
+]
 ```
 
 然后在 auth.guard.ts 守卫中获取 permission，然后每次请求需要鉴权的接口时，将权限标识转为接口 url，判断是否包含该 url，不包含则无访问权限。
@@ -276,11 +282,11 @@ permission 的值如
 
 #### 其他文档
 
-你可以访问 [https://admin.kuizuo.cn/swagger-ui](https://admin.kuizuo.cn/swagger-ui "https://admin.kuizuo.cn/swagger-ui") 来查看nest-vben-admin的Swagger文档
+你可以访问 [https://admin.kuizuo.cn/swagger-ui](https://admin.kuizuo.cn/swagger-ui 'https://admin.kuizuo.cn/swagger-ui') 来查看 nest-vben-admin 的 Swagger 文档
 
-json格式为 [https://admin.kuizuo.cn/swagger-ui/json](https://admin.kuizuo.cn/swagger-ui/json "https://admin.kuizuo.cn/swagger-ui/json")，用于导入ApiFox中。
+json 格式为 [https://admin.kuizuo.cn/swagger-ui/json](https://admin.kuizuo.cn/swagger-ui/json 'https://admin.kuizuo.cn/swagger-ui/json')，用于导入 ApiFox 中。
 
-ApiFox在线链接: [https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25](https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25 "https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25") 访问密码: nest-vben-admin
+ApiFox 在线链接: [https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25](https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25 'https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25') 访问密码: nest-vben-admin
 
 ## 写后感
 

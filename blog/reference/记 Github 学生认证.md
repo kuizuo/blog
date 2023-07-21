@@ -5,7 +5,7 @@ date: 2022-09-06
 authors: kuizuo
 tags: [随笔, github]
 keywords: [随笔, github]
-description: 记录本人 Github 学生认证艰辛过程与经验分享。
+description: 记录 Github 学生认证艰辛过程与经验分享。
 image: /img/blog/github-success.png
 sticky: 1
 ---
@@ -80,7 +80,7 @@ sticky: 1
 
 ![image-20221010134753749](https://img.kuizuo.cn/image-20221010134753749.png)
 
-2、首次表单填写邮箱，学校，以及使用Github的目的。**表单所提交内容全都要使用英文**
+2、首次表单填写邮箱，学校，以及使用 Github 的目的。**表单所提交内容全都要使用英文**
 
 ![image-20221010134942952](https://img.kuizuo.cn/image-20221010134942952.png)
 
@@ -92,7 +92,7 @@ sticky: 1
 
 ![image-20221010135949606](https://img.kuizuo.cn/image-20221010135949606.png)
 
-4、点击Process my application 提交，等待结果即可。
+4、点击 Process my application 提交，等待结果即可。
 
 最终 Github 在今早发送邮箱告知我认证成功了！
 
@@ -109,6 +109,18 @@ sticky: 1
 最终也不负众望，在收到 github 通知的时候的，我就立马编写了这篇文章，记录了自己 github 学生认证的过程。
 
 如果你有幸看到这篇文章，并想要认证 github 学生资格，希望这篇文章有帮到你。
+
+## 认证到期
+
+![](https://img.kuizuo.cn/202307210745506.png)
+
+时隔一年，我的 github 学生认证到期了，然而就当我准备按照上述方式续期的时候。发现我的学校认证方式变得严格了起来，
+
+![](https://img.kuizuo.cn/202307210748905.png)
+
+由于我之前的信息(学信网在线认证)已经使用过了，告知我换个文件，我猜测是因为 审核流程 检测到页面相似度过高，就 Reject 了。还有一点在这次提交的时候，明确告诉需要我校的教育邮箱来进行认证，然而我并未申请，并且申请也不是那么容易，所以便暂时放弃。
+
+不过目前来看，我使用最多的还是 github copilot，但学生认证过期后并不影响使用，所以我就不急着续期了。但 Jetbrains 的产品估计是跑不了的。
 
 ## 感谢
 

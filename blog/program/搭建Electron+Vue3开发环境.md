@@ -6,6 +6,7 @@ authors: kuizuo
 tags: [electron, vue, vite]
 keywords: [electron, vue, vite]
 description: 搭建 Electron Vue3 的开发环境，用于编写跨平台应用
+image: https://img.kuizuo.cn/image-20220316204205165.png
 ---
 
 ![image-20220316204205165](https://img.kuizuo.cn/image-20220316204205165.png)

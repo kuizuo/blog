@@ -30,11 +30,11 @@ POST /user/delete // 删除用户
 与之对应 Restful Api 风格
 
 ```js
-GET / user // 获取列表
-GET / user / { id } // 获取用户
-POST / user // 添加用户
-PUT / user / { id } // 编辑用户
-DELETE / user / { id } // 删除用户
+GET /user // 获取列表
+GET /user/:id // 获取用户
+POST /user // 添加用户
+PUT /user/id // 编辑用户
+DELETE /user/id // 删除用户
 
 // {id} 通过后端路由 参数Params可以获取到
 ```
