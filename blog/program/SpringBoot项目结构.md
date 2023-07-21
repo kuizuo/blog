@@ -126,8 +126,7 @@ public class UserService {
 
 #### service 接口实现
 
-此外 service 服务还可以有另一种写法，在 service 中添加一个 impl 目录，通过对 userService **接口**进行实现的服务。
-在上面所写的 UserService 是一个类，这边将其改为一个接口，代码如下
+此外 service 服务还可以有另一种写法，在 service 中添加一个 impl 目录，通过对 userService **接口**进行实现的服务。在上面所写的 UserService 是一个类，这边将其改为一个接口，代码如下
 
 ```java title="service/UserService.java"
 public interface UserService {
@@ -161,8 +160,7 @@ public class UserServiceImpl implements UserService {
 
 #### 数据接口
 
-[POJO、PO、DTO、DAO、BO、VO 需要搞清楚的概念](https://developer.aliyun.com/article/694418)
-此外还可能对不同层的数据进行命令
+[POJO、PO、DTO、DAO、BO、VO 需要搞清楚的概念](https://developer.aliyun.com/article/694418) 此外还可能对不同层的数据进行命令
 
 - 数据实体(entity)类`PO` ：
   - jpa 项目: domain 目录

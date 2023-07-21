@@ -112,7 +112,7 @@ TODO...
 
 ## 总结
 
-因为 Electron 本质上还是一个浏览器，无论是 Vue 还是 React 开发也好，在传统网页开发的时候都有对应的调试地址，如http://127.0.0.1:3000，而electron的做法无非就是开启一个浏览器，然后和正常的网页开发一样，并提供桌面端的api使用。
+因为 Electron 本质上还是一个浏览器，无论是 Vue 还是 React 开发也好，在传统网页开发的时候都有对应的调试地址，如 [http://127.0.0.1:3000](http://127.0.0.1:3000)，而 electron 的做法无非就是开启一个浏览器，然后和正常的网页开发一样，并提供桌面端的 api 使用。
 
 目前社区两大 Vue+Electron 的脚手架主要是[electron-vue](https://github.com/SimulatedGREG/electron-vue)和[vue-cli-plugin-electron-builder](https://github.com/nklayman/vue-cli-plugin-electron-builder)，更多 electron 的开源项目都遵循着前者的项目结构，像上面的模板也就是。
 

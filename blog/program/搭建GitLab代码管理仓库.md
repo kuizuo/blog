@@ -5,11 +5,12 @@ date: 2022-04-15
 authors: kuizuo
 tags: [git, gitlab]
 keywords: [git, gitlab]
+description: 搭建 GitLab 代码管理仓库，用于管理代码
 ---
 
 ![image-20220414235645607](https://img.kuizuo.cn/image-20220414235645607.png)
 
-我只要有代码的项目，都会放到 Github 上，无论公开还是私有项目。一是相当于在云端备份了一份代码，二是可以很方便的分享给别人。但对于私有项目而言存放在别人那总归不好，而且Github 时常会出现无法访问的情况（即使搭了梯子）。所以就打算搭建一个私有的仓库，基于[GitLab](https://gitlab.com/)。
+我只要有代码的项目，都会放到 Github 上，无论公开还是私有项目。一是相当于在云端备份了一份代码，二是可以很方便的分享给别人。但对于私有项目而言存放在别人那总归不好，而且 Github 时常会出现无法访问的情况（即使搭了梯子）。所以就打算搭建一个私有的仓库，基于[GitLab](https://gitlab.com/)。
 
 可以访问 [kuizuo · GitLab](https://gitlab.kuizuo.cn/kuizuo) 来查看搭建效果。
 
@@ -108,25 +109,25 @@ gitlab-ctl restart
 
 ![image-20220414215528543](https://img.kuizuo.cn/image-20220414215528543.png)
 
-### 配置HTTPS
+### 配置 HTTPS
 
-gitlab内部集成了letsencrypt，因此，这里只需要启用letsencrypt，并进行一些必要的配置
+gitlab 内部集成了 letsencrypt，因此，这里只需要启用 letsencrypt，并进行一些必要的配置
 
 打开/opt/gitlab/etc/gitlab.rb.template，修改以下内容
 
-1. 在32行左右，将external_url前面的#删掉，并在单引号中填写gitlab服务器的https地址，例如[https://gitlab.kuizuo.cn](https://gitlab.kuizuo.cn)
+1. 在 32 行左右，将 external_url 前面的#删掉，并在单引号中填写 gitlab 服务器的 https 地址，例如[https://gitlab.kuizuo.cn](https://gitlab.kuizuo.cn)
 
    ```
     external_url 'https://gitlab.kuizuo.cn'
    ```
 
-2. gitlab默认占用nginx80端口，所以需要更改下
+2. gitlab 默认占用 nginx80 端口，所以需要更改下
 
    ```
    nginx['listen_port'] = 8100
    ```
 
-3. 在2434行左右（可通过搜索letsencrypt定位），修改下面几项
+3. 在 2434 行左右（可通过搜索 letsencrypt 定位），修改下面几项
 
    ```
    letsencrypt['enable'] = true #删除前面的#号，并将值修改为true
@@ -140,19 +141,19 @@ gitlab内部集成了letsencrypt，因此，这里只需要启用letsencrypt，�
 gitlab-ctl reconfigure
 ```
 
-然后重启gitlab使配置生效
+然后重启 gitlab 使配置生效
 
 ```
 gitlab-ctl restart
 ```
 
-gitlab就会通过letsencrypt自动签发免费的HTTPS证书，等证书签发成功，就可以通过上面指定的域名访问代码仓库了。
+gitlab 就会通过 letsencrypt 自动签发免费的 HTTPS 证书，等证书签发成功，就可以通过上面指定的域名访问代码仓库了。
 
-**其实也可以在nginx创建一个站点，然后该站点配置ssl，通过反向代理到127.0.0.1:8099 也是能实现配置HTTPS的。（推荐）**
+**其实也可以在 nginx 创建一个站点，然后该站点配置 ssl，通过反向代理到 127.0.0.1:8099 也是能实现配置 HTTPS 的。（推荐）**
 
 :::danger
 
-如果上面的操作的话，可能会导致gitlab的nginx无法启动（原因应该是修改了gitlab自带的nginx服务，或者与自带的冲突）。修改`/opt/gitlab/sv/nginx/run`
+如果上面的操作的话，可能会导致 gitlab 的 nginx 无法启动（原因应该是修改了 gitlab 自带的 nginx 服务，或者与自带的冲突）。修改`/opt/gitlab/sv/nginx/run`
 
 ```sh
 exec chpst -P /opt/gitlab/embedded/sbin/nginx -p /var/opt/gitlab/nginx
@@ -160,7 +161,7 @@ exec chpst -P /opt/gitlab/embedded/sbin/nginx -p /var/opt/gitlab/nginx
 exec chpst -P /opt/gitlab/embedded/sbin/gitlab-web -p /var/opt/gitlab/nginx
 ```
 
-重启gitlab
+重启 gitlab
 
 ```sh
 gitlab-ctl start
@@ -170,7 +171,7 @@ gitlab-ctl start
 
 ## 管理中心
 
-点击左上角的菜单选择管理员，可在管理中心设置GitLab的相关设置。例如
+点击左上角的菜单选择管理员，可在管理中心设置 GitLab 的相关设置。例如
 
 ### 禁止注册
 
@@ -223,17 +224,15 @@ https://kuizuo@github.com/kuizuo/blog
 
 ![image-20220414232028397](https://img.kuizuo.cn/image-20220414232028397.png)
 
-------
+---
 
-基本上github能实现的操作gitlab也都能实现。
+基本上 github 能实现的操作 gitlab 也都能实现。
 
 ## 其他功能
 
 ### Web IDE（在线编辑代码）
 
 ![image-20220415001914123](https://img.kuizuo.cn/image-20220415001914123.png)
-
-
 
 ## 运行状态
 
@@ -247,13 +246,12 @@ https://kuizuo@github.com/kuizuo/blog
 
 还是挺吃内存的，毕竟安装的时候就要求 4g 内存以上。
 
-有个轻量级的项目管理器 [gitea](https://github.com/go-gitea/gitea) 不妨也是一种选择，但功能上没有Gitlab这么丰富。
+有个轻量级的项目管理器 [gitea](https://github.com/go-gitea/gitea) 不妨也是一种选择，但功能上没有 Gitlab 这么丰富。
 
-对于自建git服务的选择，这里有篇文章推荐阅读 [自建 Git 服务器：Gitea 与 Gitlab 部署踩坑经历与对比总结 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/486410391)
+对于自建 git 服务的选择，这里有篇文章推荐阅读 [自建 Git 服务器：Gitea 与 Gitlab 部署踩坑经历与对比总结 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/486410391)
 
 ## 总结
 
-其实回到一开始的问题，既然Github有可能访问不了，为啥不要迁移到国内的[Gitee](https://gitee.com/)上。
+其实回到一开始的问题，既然 Github 有可能访问不了，为啥不要迁移到国内的[Gitee](https://gitee.com/)上。
 
-~~除了瞎玩瞎折腾外~~，对于一些公司而言，他们不一定会使用这类开源的代码托管平台，而是自建一个像GitLab这样的代码仓库管理系统。此外别人的东西，多半都会有一定的限制，例如项目成员数量等等，所以才会有这次的尝试，整体体验感觉可玩性很大。
-
+~~除了瞎玩瞎折腾外~~，对于一些公司而言，他们不一定会使用这类开源的代码托管平台，而是自建一个像 GitLab 这样的代码仓库管理系统。此外别人的东西，多半都会有一定的限制，例如项目成员数量等等，所以才会有这次的尝试，整体体验感觉可玩性很大。

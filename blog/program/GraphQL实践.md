@@ -6,6 +6,7 @@ authors: kuizuo
 tags: [api, graphql, nest, strapi]
 keywords: [api, graphql, nest, strapi]
 description: 有关 GraphQL 介绍及上手实践，并在 Nest.js 和 Strapi 中搭建 GraphQL 服务
+image: https://img.kuizuo.cn/320f3e5a66900d68e93de38154989948.png
 ---
 
 ![](https://img.kuizuo.cn/320f3e5a66900d68e93de38154989948.png)
@@ -16,9 +17,7 @@ description: 有关 GraphQL 介绍及上手实践，并在 Nest.js 和 Strapi �
 
 事实上从 2012 年 Facebook 首次将 GraphQL 应用于移动应用，到 GraphQL 规范于 2015 年实现开源。可如今现状是 GraphQL 不温不火，时不时又有新的文章介绍，不知道的还以为是什么新技术。
 
-:::tip 目标
-本文将上手使用 GraphQL，并用 Nestjs 与 Strapi 这两个 Node 框架搭建 GraphQL 服务。
-:::
+:::tip 目标本文将上手使用 GraphQL，并用 Nestjs 与 Strapi 这两个 Node 框架搭建 GraphQL 服务。 :::
 
 <!-- truncate -->
 
@@ -58,21 +57,15 @@ GET /blog/1/author
 
 REST API 构建在请求方法（method）和端点（endpoint）之间的连接上，而 GraphQL API 被设计为只通过一个端点，即 `/graphql`，始终使用 POST 请求进行查询，其集中的 API 如 http://localhost:3000/graphql，所有的操作都通过这个接口来执行，这会在后面的操作中在展示到。
 
-:::info
-但是想要一条请求就能得到客户端想要的数据字段，那么服务端必然要做比较多的任务😟（想想也是，后端啥都不干，前端就啥都能获取，怎么可能嘛）。
+:::info 但是想要一条请求就能得到客户端想要的数据字段，那么服务端必然要做比较多的任务 😟（想想也是，后端啥都不干，前端就啥都能获取，怎么可能嘛）。
 
-而服务端要做的就是搭建一个 GraphQL 服务，这在后面也会操作到，也算是本文的重点。
-:::
+而服务端要做的就是搭建一个 GraphQL 服务，这在后面也会操作到，也算是本文的重点。 :::
 
 接下来便会在客户端中体验下 GraphQL，看看 GraphQL 究竟有多好用。
 
 ## **在线体验 GraphQL**
 
-可以到 [官网](https://graphql.cn/learn/ '官网') 中简单尝试入门一下，在 [Studio](https://studio.apollographql.com/sandbox/explorer 'Studio (apollographql.com)') 可在线体验 GraphQL，也可以到 [SWAPI GraphQL API](<https://swapi-graphql.netlify.app/?query={
-  person(personID: 1) {
-    name
-  }
-}> 'SWAPI GraphQL API (swapi-graphql.netlify.app)') 中体验。
+可以到 [官网](https://graphql.cn/learn/ '官网') 中简单尝试入门一下，在 [Studio](https://studio.apollographql.com/sandbox/explorer 'Studio (apollographql.com)') 可在线体验 GraphQL，也可以到 [SWAPI GraphQL API](<https://swapi-graphql.netlify.app/?query={ person(personID: 1) { name } }> 'SWAPI GraphQL API (swapi-graphql.netlify.app)') 中体验。
 
 下面以 `apollographql` 为例，并查询 People 对象。
 
@@ -94,8 +87,8 @@ REST API 构建在请求方法（method）和端点（endpoint）之间的连接
 
 ```javascript
 {
-	person{ 
-		# 写上想获取的字段 
+	person{
+		# 写上想获取的字段
 	}
 }
 ```
@@ -126,7 +119,7 @@ GraphQL 提供了 [变更(Mutations)](https://graphql.cn/learn/queries/#mutation
 
 可目前只是使用了别人配置好的 GraphQL 服务，让前端开发用了特别友好的 API。但是，对于后端开发而言，想要提供 GraphQL 服务可就不那么友善了。因为它不像传统的 restful 请求，需要专门配置 GraphQL 服务，而整个过程是需要花费一定的工作量（定义 Schema，Mutations 等等），前面也提到想要一条请求就能得到客户端想要的数据字段，那服务端必然需要额外的工作量。
 
-不仅需要在后端中配置 GraphQL 服务，用于接收 GraphQL 查询并验证和执行，此外前端通常需要 GraphQL 客户端，来方便使用 GraphQL 获取数据，目前实用比较多的是[Apollo Graph](https://www.apollographql.com/platform/ 'Apollo Graph')，不过本文侧重搭建GraphQL 服务，因此前端暂不演示如何使用 GraphQL。
+不仅需要在后端中配置 GraphQL 服务，用于接收 GraphQL 查询并验证和执行，此外前端通常需要 GraphQL 客户端，来方便使用 GraphQL 获取数据，目前实用比较多的是[Apollo Graph](https://www.apollographql.com/platform/ 'Apollo Graph')，不过本文侧重搭建 GraphQL 服务，因此前端暂不演示如何使用 GraphQL。
 
 你可能听过一句话是，**graphq​l 大部分时间在折磨后端**，并且要求比较严格的数据字段，但是好处都是前端。把工作量基本都丢给了后端，所以在遇到使用这门技术的公司，尤其是后端岗位就需要考虑有没有加班的可能了。
 
@@ -155,9 +148,9 @@ npm i @nestjs/graphql @nestjs/apollo graphql apollo-server-express
 **修改 app.module.ts**
 
 ```typescript title='app.module.ts'
-import {Module} from '@nestjs/common';
-import {GraphQLModule} from '@nestjs/graphql';
-import {ApolloDriver, ApolloDriverConfig} from '@nestjs/apollo';
+import { Module } from '@nestjs/common'
+import { GraphQLModule } from '@nestjs/graphql'
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 
 @Module({
   imports: [
@@ -175,13 +168,13 @@ export class AppModule {}
 设置了`autoSchemaFile: true` ，nest.js 将会自动搜索整个项目所有以 `.resolver.ts` 为后缀的文件，将其解析为 `schema.gql` 比如说创建`app.resolver.ts`
 
 ```typescript title='app.resolver.ts'
-import {Resolver, Query} from '@nestjs/graphql';
+import { Resolver, Query } from '@nestjs/graphql'
 
 @Resolver()
 export class AppResolver {
   @Query(() => String) // 定义一个查询,并且返回字符类型
   hello() {
-    return 'hello world';
+    return 'hello world'
   }
 }
 ```
@@ -200,7 +193,7 @@ export class AppResolver {
 
 ### [Code first](https://docs.nestjs.com/graphql/quick-start#code-first) 与 [Schema first](https://docs.nestjs.com/graphql/quick-start#schema-first)
 
-在 nestjs 中有 [Code first](https://docs.nestjs.com/graphql/quick-start#code-first) 与 [Schema first](https://docs.nestjs.com/graphql/quick-start#schema-first) 两种方式来生成上面的 Schema，从名字上来看，前者是优先定义代码会自动生成 Schema，而后者是传统方式先定义Schema。
+在 nestjs 中有 [Code first](https://docs.nestjs.com/graphql/quick-start#code-first) 与 [Schema first](https://docs.nestjs.com/graphql/quick-start#schema-first) 两种方式来生成上面的 Schema，从名字上来看，前者是优先定义代码会自动生成 Schema，而后者是传统方式先定义 Schema。
 
 在上面一开始的例子中是 Code First 方式，通常使用该方式即可，无需关心 Schema 是如何生成的。下文也会以 Code First 方式来编写 GraphQL 服务。
 
@@ -238,11 +231,11 @@ UPDATE src/app.module.ts (643 bytes)
 ![](https://img.kuizuo.cn/image_XemqTcfz_D.png)
 
 ```typescript title='blog.resolver.ts'
-import {Resolver, Query, Mutation, Args, Int} from '@nestjs/graphql';
-import {BlogService} from './blog.service';
-import {Blog} from './entities/blog.entity';
-import {CreateBlogInput} from './dto/create-blog.input';
-import {UpdateBlogInput} from './dto/update-blog.input';
+import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql'
+import { BlogService } from './blog.service'
+import { Blog } from './entities/blog.entity'
+import { CreateBlogInput } from './dto/create-blog.input'
+import { UpdateBlogInput } from './dto/update-blog.input'
 
 @Resolver(() => Blog)
 export class BlogResolver {
@@ -250,27 +243,27 @@ export class BlogResolver {
 
   @Mutation(() => Blog)
   createBlog(@Args('createBlogInput') createBlogInput: CreateBlogInput) {
-    return this.blogService.create(createBlogInput);
+    return this.blogService.create(createBlogInput)
   }
 
-  @Query(() => [Blog], {name: 'blogs'})
+  @Query(() => [Blog], { name: 'blogs' })
   findAll() {
-    return this.blogService.findAll();
+    return this.blogService.findAll()
   }
 
-  @Query(() => Blog, {name: 'blog'})
-  findOne(@Args('id', {type: () => Int}) id: number) {
-    return this.blogService.findOne(id);
+  @Query(() => Blog, { name: 'blog' })
+  findOne(@Args('id', { type: () => Int }) id: number) {
+    return this.blogService.findOne(id)
   }
 
   @Mutation(() => Blog)
   updateBlog(@Args('updateBlogInput') updateBlogInput: UpdateBlogInput) {
-    return this.blogService.update(updateBlogInput.id, updateBlogInput);
+    return this.blogService.update(updateBlogInput.id, updateBlogInput)
   }
 
   @Mutation(() => Blog)
-  removeBlog(@Args('id', {type: () => Int}) id: number) {
-    return this.blogService.remove(id);
+  removeBlog(@Args('id', { type: () => Int }) id: number) {
+    return this.blogService.remove(id)
   }
 }
 ```
@@ -292,14 +285,14 @@ pnpm install @nestjs/typeorm typeorm sqlite3
 ```
 
 ```typescript title='app.module.ts'
-import {Module} from '@nestjs/common';
-import {AppController} from './app.controller';
-import {AppService} from './app.service';
-import {GraphQLModule} from '@nestjs/graphql';
-import {ApolloDriver, ApolloDriverConfig} from '@nestjs/apollo';
-import {AppResolver} from './app.resolver';
-import {BlogModule} from './blog/blog.module';
-import {TypeOrmModule} from '@nestjs/typeorm';
+import { Module } from '@nestjs/common'
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
+import { GraphQLModule } from '@nestjs/graphql'
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
+import { AppResolver } from './app.resolver'
+import { BlogModule } from './blog/blog.module'
+import { TypeOrmModule } from '@nestjs/typeorm'
 
 @Module({
   imports: [
@@ -326,37 +319,37 @@ export class AppModule {}
 将 `blog.entity.ts` 改成实体类，代码为
 
 ```typescript title='blog.entity.ts'
-import {ObjectType, Field} from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql'
 import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-} from 'typeorm';
+} from 'typeorm'
 
 @ObjectType()
 @Entity()
 export class Blog {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number
 
   @Field()
   @Column()
-  title: string;
+  title: string
 
   @Field()
-  @Column({type: 'text'})
-  content: string;
+  @Column({ type: 'text' })
+  content: string
 
   @Field()
-  @CreateDateColumn({name: 'created_at', comment: '创建时间'})
-  createdAt: Date;
+  @CreateDateColumn({ name: 'created_at', comment: '创建时间' })
+  createdAt: Date
 
   @Field()
-  @UpdateDateColumn({name: 'updated_at', comment: '更新时间'})
-  updatedAt: Date;
+  @UpdateDateColumn({ name: 'updated_at', comment: '更新时间' })
+  updatedAt: Date
 }
 ```
 
@@ -364,15 +357,13 @@ export class Blog {
 
 而 `@Field()` 则是作为可展示的字段，比如 `password` 字段无需返回，就不必要加该装饰器。
 
-:::tip
-如果你认为 添加 `@Field()` 是件繁琐的事情（nest 官方自然也想到），于是提供了 [GraphQL + TypeScript - CLI Plugin ](https://docs.nestjs.com/graphql/cli-plugin) 用于省略 `@Field()` 等其他操作。（类似于语法糖）
+:::tip 如果你认为 添加 `@Field()` 是件繁琐的事情（nest 官方自然也想到），于是提供了 [GraphQL + TypeScript - CLI Plugin ](https://docs.nestjs.com/graphql/cli-plugin) 用于省略 `@Field()` 等其他操作。（类似于语法糖）
 
-借用官方的话: 
+借用官方的话:
 
 > Thus, you won't have to struggle with @Field decorators scattered throughout the code.
 
-因此，您不必为分散在代码中的@Field 装饰符而烦恼。
-:::
+因此，您不必为分散在代码中的@Field 装饰符而烦恼。 :::
 
 :::caution
 
@@ -382,13 +373,13 @@ export class Blog {
 
 为 BlogService 编写 CRUD 数据库业务代码，并在 dto 编写参数效验代码，这里简单暂时部分代码。
 
-```typescript title='blog.service.ts' 
-import {Injectable} from '@nestjs/common';
-import {InjectRepository} from '@nestjs/typeorm';
-import {Repository} from 'typeorm';
-import {CreateBlogInput} from './dto/create-blog.input';
-import {UpdateBlogInput} from './dto/update-blog.input';
-import {Blog} from './entities/blog.entity';
+```typescript title='blog.service.ts'
+import { Injectable } from '@nestjs/common'
+import { InjectRepository } from '@nestjs/typeorm'
+import { Repository } from 'typeorm'
+import { CreateBlogInput } from './dto/create-blog.input'
+import { UpdateBlogInput } from './dto/update-blog.input'
+import { Blog } from './entities/blog.entity'
 
 @Injectable()
 export class BlogService {
@@ -398,39 +389,39 @@ export class BlogService {
   ) {}
 
   create(createBlogInput: CreateBlogInput) {
-    return this.blogRepository.save(createBlogInput);
+    return this.blogRepository.save(createBlogInput)
   }
 
   findAll() {
-    return this.blogRepository.find();
+    return this.blogRepository.find()
   }
 
   findOne(id: number) {
-    return this.blogRepository.findOneBy({id});
+    return this.blogRepository.findOneBy({ id })
   }
 
   async update(id: number, updateBlogInput: UpdateBlogInput) {
-    const blog = await this.blogRepository.findOneBy({id});
-    const item = {...blog, ...updateBlogInput};
-    return this.blogRepository.save(item);
+    const blog = await this.blogRepository.findOneBy({ id })
+    const item = { ...blog, ...updateBlogInput }
+    return this.blogRepository.save(item)
   }
 
   remove(id: number) {
-    return this.blogRepository.delete(id);
+    return this.blogRepository.delete(id)
   }
 }
 ```
 
 ```typescript title='create-blog.input.ts'
-import {InputType, Field} from '@nestjs/graphql';
+import { InputType, Field } from '@nestjs/graphql'
 
 @InputType()
 export class CreateBlogInput {
   @Field()
-  title: string;
+  title: string
 
   @Field()
-  content: string;
+  content: string
 }
 ```
 
@@ -504,8 +495,8 @@ npm install @strapi/plugin-graphql
 
 ```html
 <script setup lang="ts">
-  const route = useRoute();
-  const graphql = useStrapiGraphQL();
+  const route = useRoute()
+  const graphql = useStrapiGraphQL()
 
   // Option 1: use inline query
   const restaurant = await graphql(`
@@ -519,10 +510,10 @@ npm install @strapi/plugin-graphql
       }
     }
   }
-`);
+`)
 
   // Option 2: use imported query
-  const restaurant = await graphql(query, {id: route.params.id});
+  const restaurant = await graphql(query, { id: route.params.id })
 </script>
 ```
 
@@ -536,7 +527,6 @@ npm install @strapi/plugin-graphql
 
 如今看来，GraphQL 还处于不温不火的状态，目前更多的站点主流还是使用 Restful API 架构。我不过我猜测，主要还是大多数业务没有 API 架构的升级的需求，原有的 Restful API 虽说不够优雅，但是也能够满足业务的需求，反而 GraphQL 是一个新项目 API 架构的选择，但不是一个必须的选择。
 
-至于如何选择，可以参阅官方 [GraphQL 最佳实践](https://graphql.cn/learn/best-practices/)，至于说有没有必要学 GraphQL，这篇文章 [都快 2022 年了 GraphQL 还值得学吗](https://blog.csdn.net/kevin_tech/article/details/120735500) 能给你答案。我的建议是了解即可，新项目可以考虑使用，就别想着用 GraphQL 来重构原有的 API 接口，工作量将会十分巨大，并且还可能是费力不讨好的事。反正我认为这门技术不像 Git 这种属于必学的技能，我的五星评分是⭐⭐
+至于如何选择，可以参阅官方 [GraphQL 最佳实践](https://graphql.cn/learn/best-practices/)，至于说有没有必要学 GraphQL，这篇文章 [都快 2022 年了 GraphQL 还值得学吗](https://blog.csdn.net/kevin_tech/article/details/120735500) 能给你答案。我的建议是了解即可，新项目可以考虑使用，就别想着用 GraphQL 来重构原有的 API 接口，工作量将会十分巨大，并且还可能是费力不讨好的事。反正我认为这门技术不像 Git 这种属于必学的技能，我的五星评分是 ⭐⭐
 
 但多了解一门技术，就是工作面试的资本。回想我为何尝试 GraphQL，就是因为我无意间看到了一份 ts 全栈的远程面试招聘，在这份招聘单中写到 【会 graphql 编写是加分项】。所以抱着这样的态度去尝试了一番，说不准未来就是因为 graphql 让我拿到该 offer。当然也是因为很早之前就听闻 GraphQL，想亲手目睹下是否有所谓的那么神奇。
-

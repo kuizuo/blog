@@ -23,8 +23,7 @@ keywords: [redis]
 
 先随机生成一个六位随机数字，然后在存的时候判断数据库是否存在该邀请码，如果存在那么就重新生成一个，直到该邀请码不存在，便存入。
 
-优点：方便，如果用户量不大，完全可以
-缺点：用户量上来的情况下，判断邀请码是否存在有可能需要一段时间，并且由于需要判断，故性能欠缺
+优点：方便，如果用户量不大，完全可以缺点：用户量上来的情况下，判断邀请码是否存在有可能需要一段时间，并且由于需要判断，故性能欠缺
 
 ### 方案 2
 
@@ -43,15 +42,15 @@ keywords: [redis]
 ### 预先存入数据
 
 ```js
-let key = 'code';
+let key = 'code'
 function genCode() {
-  let num = 999999;
+  let num = 999999
   for (let i = 100000; i < num; i++) {
-    client.sadd(key, i, function (err, data) {});
+    client.sadd(key, i, function (err, data) {})
   }
-  console.log('数据导入完毕');
+  console.log('数据导入完毕')
 }
-genCode();
+genCode()
 ```
 
 ### 获取数据并删除
@@ -59,17 +58,15 @@ genCode();
 ```js
 // 输出所有成员
 client.smembers(key, function (err, data) {
-  console.log(data);
-});
+  console.log(data)
+})
 
 // 随机获取一个数据
 client.srandmember(key, function (err, data) {
-  console.log(data);
-  client.srem(key, data, function (err, data) {});
-});
+  console.log(data)
+  client.srem(key, data, function (err, data) {})
+})
 ```
-
-整体耗时不会超过 3 分钟
 
 通过`console.time()`获取数据耗时如下
 

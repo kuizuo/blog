@@ -29,12 +29,6 @@ AST 仅仅只是静态分析，但可以将还原出来的代码替换原来的�
 
 **同时也别过于追求还原，因为还原很容易破坏原有代码，导致一些未知 bug。**
 
-:::tip
-
-如需要定制化还原，也可联系。（还是要说下，绝对无法还原出最原始代码）
-
-:::
-
 ## 例子
 
 下文将会针对主流的一些混淆手段（至少是在我遇到的混淆中相对比较好还原的），并会附上对应代码供参考（不放置代码出处）。
@@ -206,11 +200,11 @@ traverse(this.ast, {
       let binding = path.scope.getBinding(DecryptFuncName)
       // 通过referencePaths可以获取所有引用的地方
       binding &&
-        binding.referencePaths.map((p) => {
+        binding.referencePaths.map(p => {
           // 判断父节点是调用表达式，且参数为两个
           if (p.parentPath.isCallExpression()) {
             // 输出参数与解密后的结果
-            let args = p.parentPath.node.arguments.map((a) => a.value).join(' ')
+            let args = p.parentPath.node.arguments.map(a => a.value).join(' ')
             let str = eval(p.parentPath.toString())
             console.log(args, str)
             p.parentPath.replaceWith(t.stringLiteral(str))
@@ -253,8 +247,16 @@ var _0x505b30 = (function () {
 
         if (0 === _0xb2c58f[_0x3028('0x3', '2Q@E')]) return _0x1efd4e
 
-        for (_0x46992c = 0; _0x46992c < _0xb2c58f[_0x3028('0x4', '[YLR')]; _0x46992c++)
-          (_0x1efd4e = (_0x1efd4e << (_0x5cae2b ? 5 : 16)) - _0x1efd4e + _0xb2c58f[_0x3028('0x5', 'QvlS')](_0x46992c)), (_0x1efd4e = _0x5cae2b ? _0x1efd4e : ~_0x1efd4e)
+        for (
+          _0x46992c = 0;
+          _0x46992c < _0xb2c58f[_0x3028('0x4', '[YLR')];
+          _0x46992c++
+        )
+          (_0x1efd4e =
+            (_0x1efd4e << (_0x5cae2b ? 5 : 16)) -
+            _0x1efd4e +
+            _0xb2c58f[_0x3028('0x5', 'QvlS')](_0x46992c)),
+            (_0x1efd4e = _0x5cae2b ? _0x1efd4e : ~_0x1efd4e)
 
         return 2147483647 & _0x1efd4e
       } else {
@@ -271,7 +273,10 @@ var _0x505b30 = (function () {
               } else {
                 if (_0x35fd15) {
                   if (_0x3028('0x13', 'r8Qx') !== _0x3028('0x14', 'YLF%')) {
-                    var _0x1fa1e3 = _0x35fd15[_0x3028('0x15', 'sLdn')](_0x3d32a2, arguments)
+                    var _0x1fa1e3 = _0x35fd15[_0x3028('0x15', 'sLdn')](
+                      _0x3d32a2,
+                      arguments,
+                    )
 
                     _0x35fd15 = null
                     return _0x1fa1e3
@@ -290,9 +295,11 @@ var _0x505b30 = (function () {
   } else {
     ;(function () {
       return ![]
-    }
-      [_0x3028('0x16', 'Yp5j')](_0x3028('0x17', ']R4I') + _0x3028('0x18', 'M10H'))
-      [_0x3028('0x19', '%#u0')]('stateObject'))
+    })
+      [_0x3028('0x16', 'Yp5j')](
+        _0x3028('0x17', ']R4I') + _0x3028('0x18', 'M10H'),
+      )
+      [_0x3028('0x19', '%#u0')]('stateObject')
   }
 })()
 ```
@@ -311,7 +318,11 @@ var _0x505b30 = (function () {
         if (0 === _0xb2c58f['length']) return _0x1efd4e
 
         for (_0x46992c = 0; _0x46992c < _0xb2c58f['length']; _0x46992c++)
-          (_0x1efd4e = (_0x1efd4e << (_0x5cae2b ? 5 : 16)) - _0x1efd4e + _0xb2c58f['charCodeAt'](_0x46992c)), (_0x1efd4e = _0x5cae2b ? _0x1efd4e : ~_0x1efd4e)
+          (_0x1efd4e =
+            (_0x1efd4e << (_0x5cae2b ? 5 : 16)) -
+            _0x1efd4e +
+            _0xb2c58f['charCodeAt'](_0x46992c)),
+            (_0x1efd4e = _0x5cae2b ? _0x1efd4e : ~_0x1efd4e)
 
         return 2147483647 & _0x1efd4e
       } else {
@@ -347,9 +358,9 @@ var _0x505b30 = (function () {
   } else {
     ;(function () {
       return ![]
-    }
+    })
       ['constructor']('debu' + 'gger')
-      ['apply']('stateObject'))
+      ['apply']('stateObject')
   }
 })()
 ```
@@ -644,14 +655,14 @@ test()
 
 虽然说这种只针对 if 条件为 Boolean，如果条件为`if(1===1)`的情况也是可以，因为在前面还原中 计算二项式字面量，就已经将`if(1===1)` 替换成了 `if(true)`，所以这里只需要判断`isBooleanLiteral`即可。最终还原后的结果会将 if 代码块去除，同时保留 BlockStatement，代码如下
 
-```
+```javascript
 function test() {
   {
-    return "123";
+    return '123'
   }
 }
 
-test();
+test()
 ```
 
 ### 添加注释
@@ -722,7 +733,11 @@ hexUnicodeToString() {
 不过还有一些可以特定的替换，比如 for i
 
 ```javascript
-for (var _0x1e5665 = 0, _0x3620b9 = this['JIyEgF']['length']; _0x1e5665 < _0x3620b9; _0x1e5665++) {
+for (
+  var _0x1e5665 = 0, _0x3620b9 = this['JIyEgF']['length'];
+  _0x1e5665 < _0x3620b9;
+  _0x1e5665++
+) {
   this['JIyEgF']['push'](Math['round'](Math['random']()))
   _0x3620b9 = this['JIyEgF']['length']
 }

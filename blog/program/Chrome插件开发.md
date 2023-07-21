@@ -9,6 +9,12 @@ keywords: [chrome, plugin, develop]
 
 <!-- truncate -->
 
+:::danger
+
+Chrome v3 已发布，而本文基于 v2 编写，故本文内容不再具有时效性。
+
+:::
+
 ## 前言
 
 相关文章 [谷歌官方文档](https://developer.chrome.com/extensions/manifest) (需翻墙)
@@ -172,9 +178,12 @@ function sendMessageToContentScript(message, callback) {
   })
 }
 
-sendMessageToContentScript({ cmd: 'test', value: '你好，我是popup！' }, function (response) {
-  console.log('来自content的回复：' + response)
-})
+sendMessageToContentScript(
+  { cmd: 'test', value: '你好，我是popup！' },
+  function (response) {
+    console.log('来自content的回复：' + response)
+  },
+)
 ```
 
 `content.js`通过监听事件接收：
@@ -191,9 +200,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 ```js
 // content.js
-chrome.runtime.sendMessage({ greeting: '你好，我是content呀，我主动发消息给后台！' }, function (response) {
-  console.log('收到来自后台的回复：' + response)
-})
+chrome.runtime.sendMessage(
+  { greeting: '你好，我是content呀，我主动发消息给后台！' },
+  function (response) {
+    console.log('收到来自后台的回复：' + response)
+  },
+)
 ```
 
 ```js
@@ -371,15 +383,20 @@ function addViewMouseListener() {
     //计算出现在的位置是多少
     if (view.cache.mouse_x == -1) return
     if (view.cache.mouse_y - view.cache.y > view.kz_title.height()) return
-    let new_position_left = event.originalEvent.clientX - view.cache.mouse_x + view.cache.x,
-      new_position_top = event.originalEvent.clientY - view.cache.mouse_y + view.cache.y
+    let new_position_left =
+        event.originalEvent.clientX - view.cache.mouse_x + view.cache.x,
+      new_position_top =
+        event.originalEvent.clientY - view.cache.mouse_y + view.cache.y
     //加上边界限制
     if (new_position_top < 0) {
       //当上边的偏移量小于0的时候，就是上边的临界点，就让新的位置为0
       new_position_top = 0
     }
     //如果向下的偏移量大于文档对象的高度减去自身的高度，就让它等于这个高度
-    if (new_position_top > $(document).height() - view.float.height() && $(document).height() - view.float.height() > 0) {
+    if (
+      new_position_top > $(document).height() - view.float.height() &&
+      $(document).height() - view.float.height() > 0
+    ) {
       new_position_top = $(document).height() - view.float.height()
     }
     //右限制
@@ -405,8 +422,17 @@ function log(msg, color) {
   let date = new Date()
   let t = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
   msg = t + '  ' + msg
-  let div = $('<div class="log"></div>').css({ 'border-color': 'rgba(121, 187, 255, 0.2)', 'background-color': 'rgba(121, 187, 255, 0.2)' })
-  let log = $('<p><span style="color: ' + (color || '#409EFF') + '">' + msg + '</span></p>')
+  let div = $('<div class="log"></div>').css({
+    'border-color': 'rgba(121, 187, 255, 0.2)',
+    'background-color': 'rgba(121, 187, 255, 0.2)',
+  })
+  let log = $(
+    '<p><span style="color: ' +
+      (color || '#409EFF') +
+      '">' +
+      msg +
+      '</span></p>',
+  )
 
   if ($('.log').length > 15) {
     for (let i = 0; $('.log').length - 15; i++) {
@@ -437,7 +463,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ```json
 {
-  "permissions": ["http://www.google.com/", "http://*.google.com/", "https://*.google.com/", "http://*/"]
+  "permissions": [
+    "http://www.google.com/",
+    "http://*.google.com/",
+    "https://*.google.com/",
+    "http://*/"
+  ]
 }
 ```
 
@@ -472,9 +503,12 @@ chrome.runtime.onMessage.addListener(function (req, sender, sendResponse) {
 ```js
 // content.js
 function sendAjaxToBg(url, type, data, callback) {
-  chrome.runtime.sendMessage({ cmd: 'ajax', url: url, type: type, data: data }, function (response) {
-    callback(response)
-  })
+  chrome.runtime.sendMessage(
+    { cmd: 'ajax', url: url, type: type, data: data },
+    function (response) {
+      callback(response)
+    },
+  )
 }
 ```
 
