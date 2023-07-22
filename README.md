@@ -60,7 +60,7 @@
 ├── sidebars.js                    # 文档的侧边栏
 ├── package.json
 ├── tsconfig.json
-└── yarn.lock
+└── pnpm-lock.yaml
 ```
 
 ## 📥 Start
@@ -68,14 +68,14 @@
 ```sh
 git clone https://github.com/kuizuo/blog.git
 cd blog
-yarn
-yarn start
+pnpm install
+pnpm start
 ```
 
 Build
 
 ```sh
-yarn run build
+pnpm build
 ```
 
 ## 📝License
