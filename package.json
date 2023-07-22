@@ -39,8 +39,6 @@
     "@docusaurus/preset-classic": "^2.4.0",
     "@docusaurus/theme-live-codeblock": "^2.4.0",
     "@docusaurus/theme-search-algolia": "^2.4.0",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.8.1",
     "@giscus/react": "^2.0.6",
     "@popperjs/core": "^2.11.2",
     "@react-spring/web": "^9.5.5",
