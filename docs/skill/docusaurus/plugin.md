@@ -9,7 +9,6 @@ authors: kuizuo
 
 ```json title='docusaurus.config.js'
 plugins: [
-    'docusaurus-plugin-matomo',
     'docusaurus-plugin-image-zoom',
     'docusaurus-plugin-sass',
     path.resolve(__dirname, './src/plugin/plugin-baidu-tongji'),
@@ -52,19 +51,18 @@ plugins: [
 主动推送代码，用于网站收录，这部分代码无需变动。
 
 ```javascript
-(function(){
-              var bp = document.createElement('script');
-              var curProtocol = window.location.protocol.split(':')[0];
-              if (curProtocol === 'https') {
-                  bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-              }
-              else {
-                  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-              }
-              bp.defer = true;
-              var s = document.getElementsByTagName("script")[0];
-              s.parentNode.insertBefore(bp, s);
-          })();
+;(function () {
+  var bp = document.createElement('script')
+  var curProtocol = window.location.protocol.split(':')[0]
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+  } else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+  }
+  bp.defer = true
+  var s = document.getElementsByTagName('script')[0]
+  s.parentNode.insertBefore(bp, s)
+})()
 ```
 
 ## plugin-matomo
