@@ -78,7 +78,7 @@ http
   .listen(8844, '127.0.0.1')
 ```
 
-通过 node server.js 运行服务端，此时浏览器访问 http://127.0.0.1:8844/stream 得到的效果就是开头的 gif 所演示的。
+通过 node server.js 运行服务端，此时浏览器访问 [http://127.0.0.1:8844/stream](http://127.0.0.1:8844/stream) 得到的效果就是开头的 gif 所演示的。
 
 ## 客户端 API
 

@@ -430,7 +430,7 @@ Kibana server is not ready yet
 
 **解决办法**
 
-将配置文件 kibana.yml 中的 elasticsearch.url 改为正确的链接，默认为: http://elasticsearch:9200，改为 http://自己的 IP 地址:9200
+将配置文件 kibana.yml 中的 elasticsearch.url 改为正确的链接，默认为: [http://elasticsearch:9200](http://elasticsearch:9200)，改为 http://自己的 IP 地址:9200
 
 ```
 # Default Kibana configuration for docker target

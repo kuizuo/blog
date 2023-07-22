@@ -54,7 +54,7 @@ let ws = new WebSocketServer({
   port: 8080,
 })
 
-ws.on('connection', (socket) => {
+ws.on('connection', socket => {
   function message(msg) {
     console.log('接受到的msg: ' + msg)
     socket.send('我接受到你的数据: ' + msg)
@@ -77,7 +77,7 @@ import WebSocket, { WebSocketServer } from 'ws'
 
 let ws = new WebSocketServer({ port: 8080 })
 
-ws.on('connection', (socket) => {
+ws.on('connection', socket => {
   console.log('有人连接了')
   function message(data) {
     try {
@@ -190,7 +190,7 @@ async function getPasswordEnc(password) {
       ws.send(jsonStr)
     })
 
-    ws.on('message', (message) => {
+    ws.on('message', message => {
       let json = JSON.parse(message)
       let { type, value } = json
       switch (type) {
@@ -226,7 +226,7 @@ let ws = new WebSocketServer({ port: 8080 })
 let browserWebsocket = null
 let clients = []
 
-ws.on('connection', (socket) => {
+ws.on('connection', socket => {
   let client_id = uuidv4()
   clients.push({
     id: client_id,
@@ -242,7 +242,7 @@ ws.on('connection', (socket) => {
     }
   })
 
-  socket.on('message', (message) => {
+  socket.on('message', message => {
     try {
       let json = JSON.parse(message)
       let { id, type, value } = json
@@ -257,7 +257,7 @@ ws.on('connection', (socket) => {
         // 发送给浏览器 让浏览器来调用并返回
         case 'callbackPasswordEnc':
           // 根据id找到调用用户的socket,并向该用户发送加密后的密文
-          let temp_socket = clients.find((c) => c.id == id).socket
+          let temp_socket = clients.find(c => c.id == id).socket
 
           temp_socket.send(message)
           break
@@ -307,7 +307,7 @@ async function getPasswordEnc(password) {
       ws.send(jsonStr)
     })
 
-    ws.on('message', (message) => {
+    ws.on('message', message => {
       let json = JSON.parse(message)
       let { type, value } = json
       switch (type) {
@@ -335,7 +335,7 @@ app.listen(8000, () => {
 })
 ```
 
-发送 GET 请求 URL 为 http://127.0.0.1:8000/getPasswordEnc?password=a123456 实现效果如图
+发送 GET 请求 URL 为 [http://127.0.0.1:8000/getPasswordEnc?password=a123456](http://127.0.0.1:8000/getPasswordEnc?password=a123456) 实现效果如图
 
 ![image-20211009040704534](https://img.kuizuo.cn/image-20211009040704534.png)
 

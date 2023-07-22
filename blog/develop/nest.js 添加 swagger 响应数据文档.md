@@ -229,7 +229,7 @@ export const ApiResult = <TModel extends Type<any>>({
 
 ## 导入第三方接口管理工具
 
-通过上述的操作后，此时记下项目的 swagger-ui 地址，例如 http://127.0.0.1:5001/api-docs, 此时再后面添加`-json`，即 http://127.0.0.1:5001/api-docs-json 所得到的数据便可导入到第三方的接口管理工具，就能够很好的第三方的接口协同，接口测试等功能。
+通过上述的操作后，此时记下项目的 swagger-ui 地址，例如 [http://127.0.0.1:5001/api-docs](http://127.0.0.1:5001/api-docs), 此时再后面添加`-json`，即 [http://127.0.0.1:5001/api-docs-json ](http://127.0.0.1:5001/api-docs-json) 所得到的数据便可导入到第三方的接口管理工具，就能够很好的第三方的接口协同，接口测试等功能。
 
 ![image-20230718022612215](https://img.kuizuo.cn/202307180226265.png)
 

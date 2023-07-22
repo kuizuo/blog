@@ -100,11 +100,16 @@ vercel 允许响应携带自定义的协议头，例如设置允许跨域的协�
 
 Vercel 支持路由重写功能，因此我们可以实现反向代理。
 
-例如将前缀为/proxy 的所有请求都代理到 http://127.0.0.1:5000，其写法如下
+例如将前缀为/proxy 的所有请求都代理到 ，其写法如下
 
 ```json title='vercel.json'
 {
-  "rewrites": [{ "source": "/proxy/:match*", "destination": "http://127.0.0.1:5000/:match*" }]
+  "rewrites": [
+    {
+      "source": "/proxy/:match*",
+      "destination": "http://127.0.0.1:5000/:match*"
+    }
+  ]
 }
 ```
 
