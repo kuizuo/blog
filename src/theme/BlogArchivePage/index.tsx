@@ -1,7 +1,12 @@
 import React from 'react'
 import Link from '@docusaurus/Link'
 import Translate, { translate } from '@docusaurus/Translate'
-import { PageMetadata } from '@docusaurus/theme-common'
+import clsx from 'clsx'
+import {
+  PageMetadata,
+  HtmlClassNameProvider,
+  ThemeClassNames,
+} from '@docusaurus/theme-common'
 import Layout from '@theme/Layout'
 import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage'
 import { Icon } from '@iconify/react'
@@ -38,13 +43,13 @@ function YearsSection({ years }: { years: YearProp[] }) {
     <div className="margin-top--md margin-left--sm">
       {years.map((_props, idx) => (
         <div key={idx}>
-          <h3 className={styles.archiveYear}>
-            {_props.year}
+          <div className={styles.archiveYear}>
+            <h3 className={styles.archiveYearTitle}>{_props.year}</h3>
             <span>
               <i>{(years[idx] as YearProp).posts.length} </i>
               <Translate id="theme.blog.archive.posts.unit">篇</Translate>
             </span>
-          </h3>
+          </div>
           <Year {..._props} />
         </div>
       ))}
@@ -79,27 +84,30 @@ export default function BlogArchive({ archive }: Props) {
 
   const years = listPostsByYears(archive.blogPosts)
   return (
-    <>
+    <HtmlClassNameProvider
+      className={clsx(
+        ThemeClassNames.wrapper.blogPages,
+        ThemeClassNames.page.blogTagsListPage,
+      )}
+    >
       <PageMetadata title={title} description={description} />
       <Layout>
-        <div className="container-wrapper padding-vert--md">
-          <div className={styles.archive}>
-            <h2 className={styles.archiveTitle}>
-              <Icon icon="carbon:blog" width={24} height={24} />
-              {title}
-            </h2>
-            <div className={styles.archiveCount}>
-              <Translate
-                id="theme.blog.archive.posts.total"
-                values={{ total: archive.blogPosts.length }}
-              >
-                {`共 {total} 篇文章`}
-              </Translate>
-            </div>
-            {years.length > 0 && <YearsSection years={years} />}
+        <div className={styles.archiveContainer}>
+          <h2 className={styles.archiveTitle}>
+            <Icon icon="carbon:blog" width={24} height={24} />
+            {title}
+          </h2>
+          <div className={styles.archiveCount}>
+            <Translate
+              id="theme.blog.archive.posts.total"
+              values={{ total: archive.blogPosts.length }}
+            >
+              {`共 {total} 篇文章`}
+            </Translate>
           </div>
+          {years.length > 0 && <YearsSection years={years} />}
         </div>
       </Layout>
-    </>
+    </HtmlClassNameProvider>
   )
 }

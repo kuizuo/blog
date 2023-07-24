@@ -6,12 +6,14 @@ import {
   ThemeClassNames,
   translateTagsPageTitle,
 } from '@docusaurus/theme-common'
-import BlogLayout from '@theme/BlogLayout'
+import Layout from '@theme/Layout'
 import TagsListByLetter from '@theme/TagsListByLetter'
 import { TagsListByFlat } from '../TagsListByLetter'
 import type { Props } from '@theme/BlogTagsListPage'
 import SearchMetadata from '@theme/SearchMetadata'
 import { Icon } from '@iconify/react'
+
+import MyLayout from '../MyLayout'
 
 export default function BlogTagsListPage({
   tags,
@@ -30,10 +32,10 @@ export default function BlogTagsListPage({
     >
       <PageMetadata title={title} />
       <SearchMetadata tag="blog_tags_list" />
-      <BlogLayout sidebar={sidebar}>
+      <MyLayout>
         <div className="blogtag__swith-view">
           <h1>{title}</h1>
-          <div>
+          <span>
             <Icon
               icon="ph:list"
               width="24"
@@ -48,11 +50,11 @@ export default function BlogTagsListPage({
               onClick={() => setType('grid')}
               color={type === 'grid' ? 'var(--ifm-color-primary)' : '#ccc'}
             />
-          </div>
+          </span>
         </div>
         {type === 'list' && <TagsListByLetter tags={tags} />}
         {type === 'grid' && <TagsListByFlat tags={tags} />}
-      </BlogLayout>
+      </MyLayout>
     </HtmlClassNameProvider>
   )
 }

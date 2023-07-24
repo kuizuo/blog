@@ -1,0 +1,16 @@
+.paginationLink {
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.paginationLink:hover,
+.paginationLink:focus,
+.paginationLink:active {
+  color: white;
+  box-shadow: 0 0 2px var(--ifm-color-primary), 0 0 0 3px rgb(59 130 246 / 50%); /* Add the ring shadow */
+  border: none;
+  outline: none;
+}

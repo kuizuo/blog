@@ -60,6 +60,8 @@
   --site-color-checkbox-checked-bg: hsl(167deg 56% 73% / 25%);
   --site-color-feedback-background: #fff;
   --docusaurus-highlighted-code-line-bg: rgb(200 200 200);
+
+  --ifm-container-width: 1024px;
 }
 
 html {
@@ -132,26 +134,6 @@ body {
 html,
 body {
   scroll-behavior: smooth;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 2px;
-  background-color: var(--ifm-color-primary);
-}
-
-html[data-theme='dark'] ::-webkit-scrollbar-thumb {
-  border-radius: 2px;
-  background-color: var(--ifm-color-primary-dark);
-}
-
-::-webkit-scrollbar-track {
-  border-radius: 2px;
-  background-color: rgb(255 255 255 / 10%);
 }
 
 .theme-code-block {
@@ -434,39 +416,6 @@ html[data-theme='dark'] .theme-code-block {
 html[data-theme='dark'] .post__tags {
   color: #d4e8fa;
   background: var(--tag-background-dark);
-}
-
-.pagination-nav {
-  margin: 2em 0;
-
-  .pagination-nav__link {
-    background: linear-gradient(
-      90deg,
-      var(--ifm-color-primary-light) 11.3%,
-      var(--ifm-color-primary) 161.54%
-    );
-    color: white;
-    border: none;
-
-    .pagination-nav__sublabel {
-      color: white;
-    }
-  }
-}
-
-html[data-theme='dark'] .pagination-nav__link {
-  background: var(--tag-background-dark);
-  box-shadow: 0 0 32px rgb(0 105 165 / 35%);
-  color: white;
-  border: none;
-}
-
-.pagination-nav__item--next > .pagination-nav__link {
-  background: linear-gradient(
-    90deg,
-    var(--ifm-color-primary) 11.3%,
-    var(--ifm-color-primary-light) 161.54%
-  );
 }
 
 /* 文档侧栏字体大小 */
@@ -799,8 +748,4 @@ div[class^='announcementBar_'] {
   background: var(--blog-item-background-color);
   box-shadow: var(--blog-item-shadow);
   padding: 1em 2em 0.75em;
-}
-
-.transition {
-  transition: all 0.3s ease;
 }
