@@ -1,14 +1,18 @@
 import React from 'react'
 import clsx from 'clsx'
 import Link from '@docusaurus/Link'
-import { PageMetadata } from '@docusaurus/theme-common'
+import {
+  PageMetadata,
+  HtmlClassNameProvider,
+  ThemeClassNames,
+} from '@docusaurus/theme-common'
 import Layout from '@theme/Layout'
 import ResourceCard from './_components/ResourceCard'
 import BackToTopButton from '@theme/BackToTopButton'
 import { resourceData } from '@site/data/resource'
 import styles from './resource.module.css'
 
-function CategoryNav() {
+function CategorySidebar() {
   const sidebar = {
     title: '',
     items: resourceData.map(w => ({ title: w.name, permalink: `#${w.name}` })),
@@ -70,21 +74,26 @@ export default function Resources() {
   const description = '整合日常开发常用，推荐的网站导航页'
 
   return (
-    <>
+    <HtmlClassNameProvider
+      className={clsx(
+        ThemeClassNames.wrapper.blogPages,
+        ThemeClassNames.page.blogTagsListPage,
+      )}
+    >
       <PageMetadata title={title} description={description} />
       <Layout>
         <div className="container margin-top--md">
           <div className="row">
-            <aside className="col col--1">
-              <CategoryNav />
+            <aside className={clsx('col col--2')}>
+              <CategorySidebar />
             </aside>
-            <main className="col col--11">
+            <main className="col col--10">
               <CategoryList />
-              <BackToTopButton />
             </main>
           </div>
         </div>
+        <BackToTopButton />
       </Layout>
-    </>
+    </HtmlClassNameProvider>
   )
 }
