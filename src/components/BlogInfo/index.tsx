@@ -1,5 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 import { usePluginData } from '@docusaurus/useGlobalData'
 import type {
   BlogTag,
@@ -12,7 +13,7 @@ import { SocialLinks } from '@site/src/components/Hero'
 import { useThemeConfig } from '@docusaurus/theme-common'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import { Fade } from 'react-awesome-reveal'
+
 import { projects } from '@site/data/project'
 
 import styles from './styles.module.scss'
@@ -124,7 +125,7 @@ export default function BlogInfo() {
   return (
     <div className={clsx(styles.bloginfo, 'col col--3 margin-bottom--md')}>
       <section className={styles.bloginfo__content}>
-        <Fade direction="up" triggerOnce={true}>
+        <motion.div>
           <div className="margin-bottom--md">
             <BlogUser />
           </div>
@@ -137,7 +138,7 @@ export default function BlogInfo() {
               <TagsSection data={Object.values(tagData)} />
             </div>
           </div>
-        </Fade>
+        </motion.div>
       </section>
     </div>
   )

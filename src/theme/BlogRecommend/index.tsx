@@ -1,11 +1,11 @@
 import React from 'react'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 import { BlogPost } from '@site/src/plugin/plugin-content-blog/src/types'
 import useGlobalData from '@docusaurus/useGlobalData'
 import Translate from '@docusaurus/Translate'
 import Link from '@docusaurus/Link'
 import Image from '@theme/IdealImage'
-import { Fade } from 'react-awesome-reveal'
 
 import styles from './styles.module.scss'
 
@@ -40,27 +40,25 @@ export default function BlogRecommend(): JSX.Element {
             <div className="col col--12">
               <div>
                 <ul className={styles.blog__recommend}>
-                  <Fade direction="up" duration={800} triggerOnce={true}>
-                    {recommendedPosts.map(post => (
-                      <li className={clsx('card')} key={post.permalink}>
-                        {post.frontMatter.image && (
-                          <div className={styles.card__image}>
-                            <Image
-                              src={post.frontMatter.image!}
-                              alt={post.title}
-                              img={''}
-                            />
-                          </div>
-                        )}
-                        <div className={'card__body'}>
-                          <h4>
-                            <Link href={post.permalink}>{post.title}</Link>
-                          </h4>
-                          <p>{post.description}</p>
+                  {recommendedPosts.map(post => (
+                    <motion.li className={clsx('card')} key={post.permalink}>
+                      {post.frontMatter.image && (
+                        <div className={styles.card__image}>
+                          <Image
+                            src={post.frontMatter.image!}
+                            alt={post.title}
+                            img={''}
+                          />
                         </div>
-                      </li>
-                    ))}
-                  </Fade>
+                      )}
+                      <div className={'card__body'}>
+                        <h4>
+                          <Link href={post.permalink}>{post.title}</Link>
+                        </h4>
+                        <p>{post.description}</p>
+                      </div>
+                    </motion.li>
+                  ))}
                 </ul>
               </div>
             </div>

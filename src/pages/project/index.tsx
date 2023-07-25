@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import _ from 'loadsh'
 import Layout from '@theme/Layout'
 import clsx from 'clsx'
@@ -13,11 +13,12 @@ import styles from './styles.module.css'
 
 const TITLE = translate({
   id: 'theme.project.title',
-  message: '项目展示',
+  message: '项目',
 })
 const DESCRIPTION = translate({
   id: 'theme.project.description',
-  message: '以下项目均由本人开发，均可自由使用，部分开源。',
+  message:
+    '学而无用，不如学而用之。这里是我在技术领域中努力实践和应用的最佳证明。',
 })
 
 const GITHUB_URL = 'https://github.com/kuizuo'

@@ -2,7 +2,22 @@ import React from 'react'
 import { BlogPostProvider } from '@docusaurus/theme-common/internal'
 import BlogPostItem from '@theme/BlogPostItem'
 import type { Props } from '@theme/BlogPostItems'
-import { Fade } from 'react-awesome-reveal'
+
+import { motion, Variants } from 'framer-motion'
+
+const cardVariants: Variants = {
+  from: {
+    y: 50,
+  },
+  to: {
+    y: 0,
+    transition: {
+      type: 'spring',
+      bounce: 0.2,
+      duration: 0.8,
+    },
+  },
+}
 
 export default function BlogPostItems({
   items,
@@ -15,11 +30,16 @@ export default function BlogPostItems({
           key={BlogPostContent.metadata.permalink}
           content={BlogPostContent}
         >
-          <Fade direction="left" duration={800} triggerOnce={true}>
+          <motion.div
+            initial="from"
+            whileInView="to"
+            viewport={{ once: true, amount: 0.8 }}
+            variants={cardVariants}
+          >
             <BlogPostItemComponent>
               <BlogPostContent />
             </BlogPostItemComponent>
-          </Fade>
+          </motion.div>
         </BlogPostProvider>
       ))}
     </>

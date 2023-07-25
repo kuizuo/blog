@@ -458,10 +458,10 @@ export const resourceData: ResourceCategory[] = [
         tags: ['前端', 'React'],
       },
       {
-        name: 'react-spring',
-        desc: '通过简单的动画基元使您的组件栩栩如生',
-        logo: 'https://react-spring.dev/favicon.ico',
-        href: 'https://react-spring.dev/',
+        name: 'framer-motion',
+        desc: 'Framer Motion是一个用于React的开源动画库，提供简单易用的API来创建流畅、高性能的动画效果，使Web应用程序和界面变得更加生动和吸引人。',
+        logo: 'https://www.framer.com/images/favicons/favicon.png',
+        href: 'https://www.framer.com/motion',
         tags: ['前端', 'React', '动画'],
       },
       {
