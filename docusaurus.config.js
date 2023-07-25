@@ -268,7 +268,7 @@ const config = {
         editLocalizedFiles: false,
         blogDescription: '愧怍的个人博客',
         blogSidebarCount: 10,
-        blogSidebarTitle: '最近更新',
+        blogSidebarTitle: 'Blogs',
         postsPerPage: 10,
         showReadingTime: true,
         readingTime: ({ content, frontMatter, defaultReadingTime }) =>
