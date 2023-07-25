@@ -7,10 +7,11 @@ import {
   HtmlClassNameProvider,
   ThemeClassNames,
 } from '@docusaurus/theme-common'
-import Layout from '@theme/Layout'
 import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage'
 import { Icon } from '@iconify/react'
 import styles from './styles.module.css'
+
+import { motion, Variants } from 'framer-motion'
 
 import dayjs from 'dayjs'
 import MyLayout from '../MyLayout'
@@ -20,19 +21,43 @@ type YearProp = {
   posts: ArchiveBlogPost[]
 }
 
+const variants = {
+  from: { opacity: 0.01, y: 50 },
+  to: i => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      damping: 25,
+      stiffness: 100,
+      bounce: 0.2,
+      duration: 0.3,
+      delay: i * 0.1,
+    },
+  }),
+}
+
 function Year({ posts }: YearProp) {
   return (
     <>
       <ul className={styles.archiveList}>
-        {posts.map(post => (
-          <li key={post.metadata.permalink} className={styles.archiveItem}>
+        {posts.map((post, i) => (
+          <motion.li
+            key={post.metadata.permalink}
+            className={styles.archiveItem}
+            custom={i}
+            initial="from"
+            animate="to"
+            variants={variants}
+            viewport={{ once: true, amount: 0.8 }}
+          >
             <Link to={post.metadata.permalink}>
               <time className={styles.archiveTime}>
                 {dayjs(post.metadata.date).format('MM-DD')}
               </time>
               <span>{post.metadata.title}</span>
             </Link>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </>
@@ -43,7 +68,13 @@ function YearsSection({ years }: { years: YearProp[] }) {
   return (
     <div className="margin-top--md margin-left--sm">
       {years.map((_props, idx) => (
-        <div key={idx}>
+        <motion.div
+          key={idx}
+          initial="from"
+          animate="to"
+          custom={idx}
+          variants={variants}
+        >
           <div className={styles.archiveYear}>
             <h3 className={styles.archiveYearTitle}>{_props.year}</h3>
             <span>
@@ -52,7 +83,7 @@ function YearsSection({ years }: { years: YearProp[] }) {
             </span>
           </div>
           <Year {..._props} />
-        </div>
+        </motion.div>
       ))}
     </div>
   )

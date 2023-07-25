@@ -385,3 +385,11 @@ div[class^='announcementBar_'] {
   box-shadow: var(--blog-item-shadow);
   padding: 1em 2em 0.75em;
 }
+
+.box {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  border: 3px dotted var(--ifm-color-primary);
+  pointer-events: none;
+}

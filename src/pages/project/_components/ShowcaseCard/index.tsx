@@ -3,8 +3,7 @@ import clsx from 'clsx'
 import Image from '@theme/IdealImage'
 import Link from '@docusaurus/Link'
 import Translate from '@docusaurus/Translate'
-import { useSpring, animated, to } from '@react-spring/web'
-
+import { motion } from 'framer-motion'
 import styles from './styles.module.css'
 import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon'
 import Tooltip from '../ShowcaseTooltip'
@@ -16,7 +15,6 @@ import {
   type Tag,
 } from '@site/data/project'
 import { sortBy } from '@site/src/utils/jsUtils'
-import { useGesture } from 'react-use-gesture'
 
 const TagComp = React.forwardRef<HTMLLIElement, Tag>(
   ({ label, color, description }, ref) => (
@@ -56,34 +54,13 @@ function ShowcaseCardTag({ tags }: { tags: TagType[] }) {
 }
 
 const ShowcaseCard = memo(({ project }: { project: Project }) => {
-  const domTarget = useRef(null)
-  const [{ scale, zoom }, api] = useSpring(() => ({
-    scale: 1,
-    zoom: 0,
-    config: {
-      mass: 5,
-      tension: 500,
-      friction: 40,
-    },
-  }))
-
-  useGesture(
-    {
-      onHover: ({ hovering }) =>
-        hovering ? api({ scale: 1.05 }) : api({ scale: 1 }),
-    },
-    { domTarget, eventOptions: { passive: false } },
-  )
-
   return (
-    <animated.li
-      ref={domTarget}
-      style={{
-        transform: 'perspective(100px)',
-        scale: to([scale, zoom], (s, z) => s + z),
-      }}
+    <motion.li
       key={project.title}
       className={clsx('card shadow--md', styles.showcaseCard)}
+      whileHover={{ scale: 1.025 }}
+      whileTap={{ scale: 0.975 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
     >
       {project.preview && (
         <div className={clsx('card__image', styles.showcaseCardImage)}>
@@ -121,7 +98,7 @@ const ShowcaseCard = memo(({ project }: { project: Project }) => {
       <ul className={clsx('card__footer', styles.cardFooter)}>
         <ShowcaseCardTag tags={project.tags} />
       </ul>
-    </animated.li>
+    </motion.li>
   )
 })
 
