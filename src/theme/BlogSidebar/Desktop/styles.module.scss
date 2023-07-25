@@ -41,3 +41,32 @@
     display: none;
   }
 }
+
+.backButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-align: right;
+  float: right;
+
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  background-color: #fafaf9;
+
+  &:hover {
+    background-color: #f1f5f9;
+  }
+}
+
+html[data-theme='dark'] .backButton {
+  background-color: #1e293b;
+
+  &:hover {
+    background-color: #334155;
+  }
+}
