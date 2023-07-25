@@ -6,7 +6,6 @@ const announcementBarContent = ''
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '愧怍的小站',
-  titleDelimiter: '-',
   url: 'https://kuizuo.cn',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
@@ -23,7 +22,7 @@ const config = {
     metadata: [
       {
         name: 'keywords',
-        content: '愧怍',
+        content: '愧怍, kuizuo',
       },
       {
         name: 'keywords',
@@ -40,7 +39,7 @@ const config = {
       },
     },
     navbar: {
-      title: '愧怍',
+      title: '愧怍的小站',
       logo: {
         alt: '愧怍',
         src: 'img/logo.webp',
@@ -49,16 +48,17 @@ const config = {
       hideOnScroll: true,
       items: [
         {
-          label: '学习',
+          label: '博客',
           position: 'right',
+          to: 'blog',
           items: [
             {
               label: '标签',
-              to: 'tags',
+              to: 'blog/tags',
             },
             {
               label: '归档',
-              to: 'archive',
+              to: 'blog/archive',
             },
             {
               label: '笔记',
@@ -71,32 +71,6 @@ const config = {
             {
               label: '前端示例',
               to: 'https://example.kuizuo.cn',
-            },
-          ],
-        },
-        {
-          label: '工具',
-          position: 'right',
-          items: [
-            {
-              label: 'API服务',
-              to: 'https://api.kuizuo.cn',
-            },
-            {
-              label: 'JS代码还原',
-              to: 'https://js-de-obfuscator.kuizuo.cn',
-            },
-            {
-              label: 'CyberChef加密',
-              to: 'https://cipher.kuizuo.cn',
-            },
-            {
-              label: 'Transform',
-              to: 'https://transform.kuizuo.cn',
-            },
-            {
-              label: '网盘',
-              to: 'https://pan.kuizuo.cn',
             },
           ],
         },
@@ -123,12 +97,12 @@ const config = {
           title: '学习',
           items: [
             {
-              label: '标签',
-              to: 'tags',
+              label: '博客',
+              to: 'blog',
             },
             {
               label: '归档',
-              to: 'archive',
+              to: 'blog/archive',
             },
             {
               label: '技术笔记',
@@ -289,7 +263,6 @@ const config = {
       path.resolve(__dirname, './src/plugin/plugin-content-blog'),
       {
         path: 'blog',
-        routeBasePath: '/',
         editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
           `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
         editLocalizedFiles: false,

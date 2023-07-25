@@ -55,9 +55,7 @@ function ShowcaseHeader() {
         target="_blank"
         rel="noreferrer"
       >
-        <Translate id="showcase.header.button">
-          🥰 前往 Github 克隆项目
-        </Translate>
+        <Translate id="showcase.header.button">前往 Github 克隆项目</Translate>
       </a>
     </section>
   )

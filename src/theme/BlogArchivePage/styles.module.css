@@ -1,9 +1,3 @@
-.archiveContainer {
-  max-width: 768px;
-  margin: 0 auto;
-  padding: 1rem 2.5rem;
-}
-
 .archiveTitle {
   display: inline-flex;
   align-items: center;

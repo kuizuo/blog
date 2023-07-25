@@ -13,6 +13,7 @@ import { Icon } from '@iconify/react'
 import styles from './styles.module.css'
 
 import dayjs from 'dayjs'
+import MyLayout from '../MyLayout'
 
 type YearProp = {
   year: string
@@ -91,23 +92,21 @@ export default function BlogArchive({ archive }: Props) {
       )}
     >
       <PageMetadata title={title} description={description} />
-      <Layout>
-        <div className={styles.archiveContainer}>
-          <h2 className={styles.archiveTitle}>
-            <Icon icon="carbon:blog" width={24} height={24} />
-            {title}
-          </h2>
-          <div className={styles.archiveCount}>
-            <Translate
-              id="theme.blog.archive.posts.total"
-              values={{ total: archive.blogPosts.length }}
-            >
-              {`共 {total} 篇文章`}
-            </Translate>
-          </div>
-          {years.length > 0 && <YearsSection years={years} />}
+      <MyLayout>
+        <h2 className={styles.archiveTitle}>
+          <Icon icon="carbon:blog" width={24} height={24} />
+          {title}
+        </h2>
+        <div className={styles.archiveCount}>
+          <Translate
+            id="theme.blog.archive.posts.total"
+            values={{ total: archive.blogPosts.length }}
+          >
+            {`共 {total} 篇文章`}
+          </Translate>
         </div>
-      </Layout>
+        {years.length > 0 && <YearsSection years={years} />}
+      </MyLayout>
     </HtmlClassNameProvider>
   )
 }

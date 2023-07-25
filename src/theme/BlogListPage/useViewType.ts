@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 
-type ViewType = 'list' | 'grid' | 'card'
+type ViewType = 'list' | 'grid'
 
 export function useViewType() {
-  const [viewType, setViewType] = useState<ViewType>('card')
+  const [viewType, setViewType] = useState<ViewType>('list')
 
   useEffect(() => {
-    setViewType((localStorage.getItem('viewType') as ViewType) || 'card')
+    setViewType((localStorage.getItem('viewType') as ViewType) || 'list')
   }, [])
 
   const toggleViewType = useCallback((newViewType: ViewType) => {

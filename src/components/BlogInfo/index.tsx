@@ -1,4 +1,5 @@
 import React from 'react'
+import clsx from 'clsx'
 import { usePluginData } from '@docusaurus/useGlobalData'
 import type {
   BlogTag,
@@ -13,6 +14,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import { Fade } from 'react-awesome-reveal'
 import { projects } from '@site/data/project'
+
+import styles from './styles.module.scss'
 
 type Count = {
   blog: number
@@ -93,14 +96,17 @@ export function BlogUser({ isNavbar = false }: { isNavbar?: boolean }) {
 
 const TagsSection = ({ data }: { data: BlogTag[] }) => {
   return (
-    <div className="bloginfo__tags">
+    <div className={styles.bloginfo__tags}>
       {data
         .filter(tag => tag != null)
         .sort((a, b) => b.items.length - a.items.length)
         .slice(0, 25)
         .map(tag => (
           <Link
-            className={`post__tags note__item margin-right--sm margin-bottom--sm`}
+            className={clsx(
+              styles.noteItem,
+              `post__tags margin-right--sm margin-bottom--sm`,
+            )}
             href={tag.permalink}
             key={tag.permalink}
           >
@@ -116,13 +122,13 @@ export default function BlogInfo() {
   const tagData = blogPluginData?.tags as BlogTags
 
   return (
-    <div className="bloginfo col col--3 margin-bottom--md">
-      <section className="bloginfo__content">
+    <div className={clsx(styles.bloginfo, 'col col--3 margin-bottom--md')}>
+      <section className={styles.bloginfo__content}>
         <Fade direction="up" triggerOnce={true}>
-          <div className="bloghome__posts-card bloginfo__user margin-bottom--md">
+          <div className="margin-bottom--md">
             <BlogUser />
           </div>
-          <div className="bloghome__posts-card margin-bottom--md">
+          <div className="margin-bottom--md">
             <div className="row bloginfo__card">
               <div style={{ display: 'inline-flex', alignItems: 'center' }}>
                 <Icon icon="ri:price-tag-3-line" width="20" height="20" />
