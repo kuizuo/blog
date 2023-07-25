@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useTrail, animated } from '@react-spring/web'
 import Translate from '@docusaurus/Translate'
-import { useThemeConfig} from '@docusaurus/theme-common'
+import { useThemeConfig } from '@docusaurus/theme-common'
 import { ThemeConfig } from '@docusaurus/preset-classic'
 
 import Link from '@docusaurus/Link'
@@ -69,11 +69,12 @@ function Hero() {
           </Translate>
         </animated.p>
         <SocialLinks style={trails[2]} />
-        <animated.div style={trails[3]}>
-          <a className={styles.intro} href={'./about'}>
+        <div style={trails[3]} className={styles.introOuter}>
+          <div className={styles.introGradient}></div>
+          <a className={styles.introButton} href={'./about'}>
             <Translate id="hompage.hero.introduce">自我介绍</Translate>
           </a>
-        </animated.div>
+        </div>
       </div>
       <div className={styles.bloghome__image}>
         <HeroMain />
