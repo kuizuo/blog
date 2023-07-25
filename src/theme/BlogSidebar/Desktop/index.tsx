@@ -8,7 +8,7 @@ import styles from './styles.module.css'
 
 export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
   return (
-    <aside className="col col--3">
+    <aside className="col col--2">
       <nav
         className={clsx(styles.sidebar, 'thin-scrollbar')}
         aria-label={translate({
@@ -17,7 +17,7 @@ export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
           description: 'The ARIA label for recent posts in the blog sidebar',
         })}
       >
-        <div className={clsx(styles.sidebarItemTitle, 'margin-bottom--md')}>
+        <div className={clsx(styles.sidebarItemTitle, 'margin-bottom--sm')}>
           {sidebar.title}
         </div>
         <ul className={clsx(styles.sidebarItemList, 'clean-list')}>
