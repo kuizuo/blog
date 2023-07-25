@@ -50,7 +50,9 @@ function BlogPostPageContent({
       <BlogPostItem>{children}</BlogPostItem>
 
       {(nextItem || prevItem) && (
-        <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
+        <div className="margin-bottom--md">
+          <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
+        </div>
       )}
       {!hideComment && <Comment />}
       <BackToTopButton />

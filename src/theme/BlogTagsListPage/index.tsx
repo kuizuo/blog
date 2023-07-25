@@ -33,7 +33,13 @@ export default function BlogTagsListPage({
       <PageMetadata title={title} />
       <SearchMetadata tag="blog_tags_list" />
       <MyLayout>
-        <div className="blogtag__swith-view">
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
           <h1>{title}</h1>
           <span>
             <Icon

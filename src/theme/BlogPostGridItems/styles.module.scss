@@ -1,0 +1,65 @@
+.postGridItem {
+  min-width: 24rem;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-areas:
+    'title title'
+    'tags date';
+  column-gap: 2em;
+  row-gap: 1em;
+  align-items: center;
+  padding: 1em 1.2em;
+  background: var(--card-background);
+  border-radius: 6px;
+  position: relative;
+
+  &:hover {
+    box-sizing: border-box;
+    box-shadow: var(--blog-item-shadow);
+    transition: all 0.5s;
+  }
+
+  .itemTitle {
+    color: inherit;
+    font-size: 1em;
+    text-decoration: none;
+    transition: 0.6s;
+    grid-area: title;
+
+    &:hover {
+      color: var(--ifm-color-primary);
+    }
+  }
+
+  .itemStick {
+    grid-area: stick;
+    justify-self: end;
+    color: #6ebdff;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    display: inline-block;
+    font-size: 1.5rem;
+
+    &::before {
+      content: '\e62b';
+    }
+  }
+
+  .itemTags {
+    grid-area: tags;
+    /* overflow-x: auto; */
+    padding: 0.2em 0;
+    white-space: nowrap;
+
+    a {
+      background: white;
+    }
+  }
+
+  .itemDate {
+    grid-area: date;
+    justify-self: end;
+    color: var(--ifm-color-emphasis-600);
+  }
+}

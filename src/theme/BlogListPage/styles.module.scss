@@ -1,0 +1,40 @@
+.blogTitle {
+  text-align: center;
+}
+
+.blogList,
+.blogGrid {
+  animation: fading 0.8s;
+  margin-bottom: 1rem;
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* post list view adjustment */
+@media only screen and (max-width: 700px) {
+  .blogGrid {
+    row-gap: 16px;
+    grid-template-columns: minmax(0, max-content);
+  }
+}
+
+.blogSwithView {
+  text-align: center;
+  margin: 0 0 1em;
+
+  svg {
+    cursor: pointer;
+    transition: 0.6s;
+  }
+}
+
+@media (max-width: 570px) {
+  h2 {
+    font-size: 1.3rem;
+  }
+}

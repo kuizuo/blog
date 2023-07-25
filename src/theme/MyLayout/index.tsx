@@ -11,10 +11,10 @@ export default function MyLayout({
 }): JSX.Element {
   return (
     <Layout>
-      <div className={clsx(styles.myContainer, 'margin-vert--lg')}>
-        <main itemScope itemType="http://schema.org/Blog">
-          {children}
-        </main>
+      <div className={styles.containerWrapper}>
+        <div className={clsx(styles.myContainer, 'margin-vert--lg')}>
+          <main>{children}</main>
+        </div>
       </div>
     </Layout>
   )

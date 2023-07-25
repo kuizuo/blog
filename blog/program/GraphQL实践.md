@@ -17,7 +17,11 @@ image: https://img.kuizuo.cn/320f3e5a66900d68e93de38154989948.png
 
 事实上从 2012 年 Facebook 首次将 GraphQL 应用于移动应用，到 GraphQL 规范于 2015 年实现开源。可如今现状是 GraphQL 不温不火，时不时又有新的文章介绍，不知道的还以为是什么新技术。
 
-:::tip 目标本文将上手使用 GraphQL，并用 Nestjs 与 Strapi 这两个 Node 框架搭建 GraphQL 服务。 :::
+:::tip 目标
+
+本文将上手使用 GraphQL，并用 Nestjs 与 Strapi 这两个 Node 框架搭建 GraphQL 服务。
+
+:::
 
 <!-- truncate -->
 
