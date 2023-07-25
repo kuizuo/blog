@@ -5,7 +5,7 @@ title: 部署
 authors: kuizuo
 ---
 
-我之前使用 [Vercel](https://vercel.com) 一把梭，无需任何配置，我只需要专注输出内容即可，这是我当时使用 Vercel 部署的文章 [Vercel部署个人博客](/vercel-deploy-blog)
+我之前使用 [Vercel](https://vercel.com) 一把梭，无需任何配置，我只需要专注输出内容即可，这是我当时使用 Vercel 部署的文章 [Vercel 部署个人博客](/blog/vercel-deploy-blog)
 
 但如今，`vercel.app` 被 DNS 污染，即被墙了，导致国内无法访问，虽然使用有自己的域名解析到 Vercel 上也可能访问，但被墙了，也就意味着国内 DNS 的解析速度必然有所下降，从而导致站点访问速度有所下降。
 
@@ -15,9 +15,9 @@ authors: kuizuo
 
 ![image-20221204161431863](https://img.kuizuo.cn/image-20221204161431863.png)
 
-这样我国内访问就是访问国内的 CDN，访问国外访问就是 Vercel 的 CDN，这样针对不同的地区的网络都能有一个不错的访问速度，可以到 [Ping.cn:网站测速-ping检测](https://www.ping.cn/) 中测试测试你的站点访问速度如何。
+这样我国内访问就是访问国内的 CDN，访问国外访问就是 Vercel 的 CDN，这样针对不同的地区的网络都能有一个不错的访问速度，可以到 [Ping.cn:网站测速-ping 检测](https://www.ping.cn/) 中测试测试你的站点访问速度如何。
 
-以下是我的网站测速结果，也可通过访问 [kuizuo.cn在全国各地区网络速度测试情况-Ping.cn](https://www.ping.cn/http/kuizuo.cn) 在线查看
+以下是我的网站测速结果，也可通过访问 [kuizuo.cn 在全国各地区网络速度测试情况-Ping.cn](https://www.ping.cn/http/kuizuo.cn) 在线查看
 
 ![image-20221204161146327](https://img.kuizuo.cn/image-20221204161146327.png)
 
@@ -74,5 +74,4 @@ Github Action 帮我构建好之后，并通过 ssh 连接我的服务器，将�
 
 当然了上述只是我的配置方案，有许多伙伴可能没有自己的域名或者自己的服务器，就想着白嫖，那么这里目前我只能推荐 [Netlify](https://www.netlify.com/)。
 
-我个人还是非常建议去弄一个属于自己的域名，通过 Vercel 的自定义域名就可以访问，并且无需像上述那样搞特别复杂的配置。由于自己的域名解析的不是大陆的服务器（Vercel的服务器就不是国内大陆的），所以也就无需备案。
-
+我个人还是非常建议去弄一个属于自己的域名，通过 Vercel 的自定义域名就可以访问，并且无需像上述那样搞特别复杂的配置。由于自己的域名解析的不是大陆的服务器（Vercel 的服务器就不是国内大陆的），所以也就无需备案。

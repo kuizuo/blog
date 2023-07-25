@@ -13,7 +13,7 @@ keywords: [blog, vuepress, project]
 
 :::info 新博客 🥳
 
-[第二个博客搭建之 Docusaurus](/second-blog-is-docusaurus)
+[第二个博客搭建之 Docusaurus](/blog/second-blog-is-docusaurus)
 
 :::
 
