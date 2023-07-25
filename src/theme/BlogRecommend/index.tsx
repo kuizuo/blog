@@ -41,7 +41,13 @@ export default function BlogRecommend(): JSX.Element {
               <div>
                 <ul className={styles.blog__recommend}>
                   {recommendedPosts.map(post => (
-                    <motion.li className={clsx('card')} key={post.permalink}>
+                    <motion.li
+                      className={clsx('card')}
+                      key={post.permalink}
+                      initial={{ y: 50, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 1 }}
+                    >
                       {post.frontMatter.image && (
                         <div className={styles.card__image}>
                           <Image

@@ -8,7 +8,6 @@ import {
   usePluralForm,
 } from '@docusaurus/theme-common'
 import Link from '@docusaurus/Link'
-import Layout from '@theme/Layout'
 import BackToTopButton from '@theme/BackToTopButton'
 import BlogListPaginator from '@theme/BlogListPaginator'
 import SearchMetadata from '@theme/SearchMetadata'

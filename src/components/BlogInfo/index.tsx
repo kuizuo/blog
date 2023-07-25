@@ -106,7 +106,7 @@ const TagsSection = ({ data }: { data: BlogTag[] }) => {
           <Link
             className={clsx(
               styles.noteItem,
-              `post__tags margin-right--sm margin-bottom--sm`,
+              `margin-right--sm margin-bottom--sm`,
             )}
             href={tag.permalink}
             key={tag.permalink}

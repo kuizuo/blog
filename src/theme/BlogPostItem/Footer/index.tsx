@@ -8,7 +8,7 @@ import ReadMoreLink from '@theme/BlogPostItem/Footer/ReadMoreLink'
 import { Icon } from '@iconify/react'
 import { ReadingTime } from '../Header/Info/index'
 
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
 export default function BlogPostItemFooter(): JSX.Element | null {
   const { metadata, isBlogPostPage } = useBlogPost()
@@ -34,11 +34,10 @@ export default function BlogPostItemFooter(): JSX.Element | null {
   if (!renderFooter) {
     return (
       <>
-        <hr className={styles.divider} />
         <div className={styles.blogPostInfo}>
-          {authorsExists && (
+          {/* {authorsExists && (
             <>
-              <Icon icon="ri:user-fill" color="#c4d3e0" />
+              <Icon icon="ri:user-fill" color="#9ca3af" />
               {authors.map(a => (
                 <span key={a.url} className="blog__author">
                   <a href={a.url} className={styles.blogPostAuthor}>
@@ -47,10 +46,10 @@ export default function BlogPostItemFooter(): JSX.Element | null {
                 </span>
               ))}
             </>
-          )}
+          )} */}
           {date && (
             <>
-              <Icon icon="ri:calendar-fill" color="#c4d3e0" />
+              <Icon icon="ri:calendar-fill" color="#9ca3af" />
               <time
                 dateTime={date}
                 className={styles.blogPostDate}
@@ -62,7 +61,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           )}
           {tagsExists && (
             <>
-              <Icon icon="ri:price-tag-3-fill" color="#c4d3e0" />
+              <Icon icon="ri:price-tag-3-fill" color="#9ca3af" />
               <span className={styles.blogPostInfoTags}>
                 {tags.map(({ label, permalink: tagPermalink }) => (
                   <Tag
@@ -76,13 +75,23 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           )}
           {readingTime && (
             <>
-              <Icon icon="ri:time-fill" color="#c4d3e0" />
+              <Icon icon="ri:time-fill" color="#9ca3af" />
               <span
                 className={clsx(styles.blogPostReadTime, 'blog__readingTime')}
               >
                 <ReadingTime readingTime={readingTime} />
               </span>
             </>
+          )}
+          {truncatedPost && (
+            <div
+              className={clsx(styles.readMore, {
+                'col--3': tagsExists,
+              })}
+            >
+              <ReadMoreLink blogPostTitle={title} to={metadata.permalink} />
+              <Icon icon="ri:arrow-right-line"></Icon>
+            </div>
           )}
         </div>
       </>

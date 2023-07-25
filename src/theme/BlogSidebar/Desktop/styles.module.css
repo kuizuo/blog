@@ -6,13 +6,13 @@
 }
 
 .sidebarItemTitle {
-  font-size: var(--ifm-h3-font-size);
+  font-size: var(--ifm-h4-font-size);
   font-weight: var(--ifm-font-weight-bold);
   font-family: var(--ifm-heading-font-family);
 }
 
 .sidebarItemList {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .sidebarItem {
@@ -22,6 +22,10 @@
 .sidebarItemLink {
   color: var(--ifm-font-color-base);
   display: block;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .sidebarItemLink:hover {

@@ -21,7 +21,7 @@ type YearProp = {
   posts: ArchiveBlogPost[]
 }
 
-const variants = {
+const variants: Variants = {
   from: { opacity: 0.01, y: 50 },
   to: i => ({
     opacity: 1,

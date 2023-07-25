@@ -9,21 +9,21 @@
   row-gap: 1em;
   align-items: center;
   padding: 1em 1.2em;
-  background: var(--card-background);
+  background: var(--blog-item-background-color);
   border-radius: 6px;
   position: relative;
+  transition: all 0.3s;
 
   &:hover {
     box-sizing: border-box;
     box-shadow: var(--blog-item-shadow);
-    transition: all 0.5s;
   }
 
   .itemTitle {
     color: inherit;
     font-size: 1em;
     text-decoration: none;
-    transition: 0.6s;
+    transition: 0.5s;
     grid-area: title;
 
     &:hover {
@@ -49,15 +49,20 @@
   .itemTags {
     grid-area: tags;
     /* overflow-x: auto; */
+
+    display: flex;
+    gap: 4px;
     padding: 0.2em 0;
     white-space: nowrap;
+    font-size: 0.8rem;
 
     a {
-      background: white;
+      padding: 1px 4px;
     }
   }
 
   .itemDate {
+    font-size: 0.8rem;
     grid-area: date;
     justify-self: end;
     color: var(--ifm-color-emphasis-600);
