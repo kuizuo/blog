@@ -35,7 +35,7 @@ yarn start
 
 ## 一些页面
 
-### [博客页](/)
+### [博客页](/blog/)
 
 ![image-20230221120937768](https://img.kuizuo.cn/image-20230221120937768.png)
 
@@ -43,7 +43,7 @@ yarn start
 - 博客个人信息卡片
 - 可根据 `sticky` 字段对文章进行置顶推荐
 
-### [归档页](/archive)
+### [归档页](/blog/archive)
 
 ![image-20220804052418993](https://img.kuizuo.cn/image-20220804052418993.png)
 
@@ -69,7 +69,7 @@ yarn start
 
 按传统的方式，你编写好一篇文章后，需要重新打包成静态文件（.html），然后将静态文件上传到服务器（需要自己准备）上，然后通过 nginx 配置域名访问。如今有了自动化部署，你只需要将代码 push 到 Github 上，然后通过 CI/CD 自动化部署到服务器上。可以参考 [ci.yml](https://github.com/kuizuo/blog/blob/main/.github/workflows/ci.yml) 配置文件。
 
-这里推荐使用 [Vercel 部署个人博客](/vercel-deploy-blog)，部署十分简单，你甚至不需要服务器，只需要有个 Github 账号，将你的博客项目添加为一个仓库中即可（也许需要科学上网）。
+这里推荐使用 [Vercel 部署个人博客](/blog/vercel-deploy-blog)，部署十分简单，你甚至不需要服务器，只需要有个 Github 账号，将你的博客项目添加为一个仓库中即可（也许需要科学上网）。
 
 ## 最后
 
