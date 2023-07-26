@@ -5,6 +5,8 @@ date: 2023-07-18
 authors: kuizuo
 tags: [nest, swagger]
 keywords: [nest, swagger]
+description: nest.js 添加 swagger 响应数据文档
+image: https://img.kuizuo.cn/202307180126751.png
 ---
 
 <!-- truncate -->
