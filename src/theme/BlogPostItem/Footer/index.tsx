@@ -90,7 +90,6 @@ export default function BlogPostItemFooter(): JSX.Element | null {
               })}
             >
               <ReadMoreLink blogPostTitle={title} to={metadata.permalink} />
-              <Icon icon="ri:arrow-right-line"></Icon>
             </div>
           )}
         </div>

@@ -6,6 +6,7 @@ authors: kuizuo
 tags: [supabase, nuxt, project]
 keywords: [supabase, nuxt, project]
 description: 本文介绍了如何使用 Supabase 作为后端服务，使开发人员可以更快地构建和部署应用程序，无需配置数据库或编写复杂的身份验证代码。将使用 Nuxt.js 和 Supabase，以实现一个图床网站为例，来演示如何在前端中使用 Supabase API 和 Storage 服务。
+image: https://img.kuizuo.cn/213727234-cda046d6-28c6-491a-b284-b86c5cede25d.png
 toc_max_heading_level: 3
 ---
 
@@ -57,7 +58,7 @@ BaaS 通常只专注于应用的后端服务，而 CMS 则是专注与内容管�
 
 ![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_Z33n9aUOC7.png)
 
-supabase 会提供一个二级域名供开发者访问，也就是这里 Project Configuration 的 URL，对应的这个二级域名 azlbliyjwcxxxxx 也就是你这个项目的唯一标识 Reference ID（下文称 项目id）。你可以到 [https://app.supabase.com/project/你的项目id/settings/api](https://app.supabase.com/project/azlbliyjwcemojkwazto/settings/api 'https://app.supabase.com/project/你的项目id/settings/api') 中查看相关配置。
+supabase 会提供一个二级域名供开发者访问，也就是这里 Project Configuration 的 URL，对应的这个二级域名 azlbliyjwcxxxxx 也就是你这个项目的唯一标识 Reference ID（下文称 项目 id）。你可以到 [https://app.supabase.com/project/你的项目 id/settings/api](https://app.supabase.com/project/azlbliyjwcemojkwazto/settings/api 'https://app.supabase.com/project/你的项目id/settings/api') 中查看相关配置。
 
 ## 体验一下
 
@@ -113,13 +114,13 @@ supabase 针对不同的场景提供了相应的策略方案模板，你也可�
 npm install @supabase/supabase-js
 ```
 
-创建 客户端实例 
+创建 客户端实例
 
 ```typescript
 import { createClient } from '@supabase/supabase-js'
 ```
 
-此时准备好上述的URL与apikey，用于创建supabase实例，不过supabase还提供 [type类型支持](https://supabase.com/docs/reference/javascript/typescript-support)，可以将生成的 `database.types.ts` 导入到实例中，如
+此时准备好上述的 URL 与 apikey，用于创建 supabase 实例，不过 supabase 还提供 [type 类型支持](https://supabase.com/docs/reference/javascript/typescript-support)，可以将生成的 `database.types.ts` 导入到实例中，如
 
 ```typescript
 import { createClient } from '@supabase/supabase-js'
@@ -127,16 +128,14 @@ import { Database } from 'lib/database.types'
 
 const supabase = createClient<Database>(
   process.env.SUPABASE_URL,
-  process.env.SUPABASE_ANON_KEY
+  process.env.SUPABASE_ANON_KEY,
 )
 ```
 
-此时有了supabse对象后，就能够请求数据了，像上述通过 http 的方式获取 todos 数据，在这里对应的代码为
+此时有了 supabse 对象后，就能够请求数据了，像上述通过 http 的方式获取 todos 数据，在这里对应的代码为
 
 ```typescript
-const { data, error } = await supabase
-  .from('todos')
-  .select()
+const { data, error } = await supabase.from('todos').select()
 ```
 
 [官方的演示例子](https://supabase.com/docs/reference/javascript/select) 非常清晰，这里就不在演示新增更新等示例。
@@ -192,9 +191,9 @@ supabase 令我感兴趣的是 [Row Level Security](https://supabase.com/docs/le
 此时 supabase 支持 github 登录就已经配置完毕，当你在前端触发登录按钮后，借助[supabase 的 js 库](https://supabase.com/docs/reference/javascript/auth-signinwithoauth 'supabase 的js库')，如
 
 ```typescript
-const {data, error} = await supabase.auth.signInWithOAuth({
+const { data, error } = await supabase.auth.signInWithOAuth({
   provider: 'github',
-});
+})
 ```
 
 便可完成 Github 第三方登录。

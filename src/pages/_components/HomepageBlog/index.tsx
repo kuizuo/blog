@@ -1,20 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import clsx from 'clsx'
-import {
-  motion,
-  useMotionValue,
-  useMotionValueEvent,
-  useScroll,
-  useSpring,
-  useTransform,
-  useVelocity,
-} from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import type { BlogPost } from '@site/src/plugin/plugin-content-blog/src/types'
 import useGlobalData from '@docusaurus/useGlobalData'
 import Translate from '@docusaurus/Translate'
 import Link from '@docusaurus/Link'
 import Image from '@theme/IdealImage'
-
+import { Icon } from '@iconify/react'
 import { useWindowSize } from '@site/src/hooks/useWindowSize'
 
 import styles from './styles.module.scss'
@@ -34,8 +26,8 @@ export function BlogItem({ post }: { post: BlogPost }) {
       <motion.li
         className={clsx('card', 'margin-bottom--md')}
         key={permalink}
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1, transition: { duration: 0.3 } }}
+        initial={{ y: 100, opacity: 0.001 }}
+        whileInView={{ y: 0, opacity: 1, transition: { duration: 0.5 } }}
         whileHover={{ y: -10, transition: { duration: 0.3 } }}
         viewport={{ once: true }}
       >
@@ -69,7 +61,7 @@ export default function BlogRecent(): JSX.Element {
   const ref = React.useRef<HTMLDivElement>(null)
 
   const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 0.5, 1], [20, 0, -10], {
+  const y = useTransform(scrollYProgress, [0, 0.5, 1], [20, 0, -20], {
     clamp: false,
   })
 
@@ -79,18 +71,20 @@ export default function BlogRecent(): JSX.Element {
 
   return (
     <>
-      <div
-        className={clsx(
-          'container padding-vert--sm margin-vert--md',
-          styles.blogContainer,
-        )}
-      >
-        <h2 style={{ textAlign: 'center' }}>
-          <Translate id="theme.blog.title.recommend">近期博客</Translate>
-        </h2>
+      <div className={clsx('container padding-vert--sm', styles.blogContainer)}>
+        <div className={styles.blogTitle}>
+          <h2>
+            <Icon icon="ri:quill-pen-line"></Icon>
+            <Translate id="theme.blog.title.recommend">近期博客</Translate>
+          </h2>
+          <Link href="/blog" className={styles.moreButton}>
+            查看更多
+            <Icon icon="ri:arrow-right-s-line"></Icon>
+          </Link>
+        </div>
         <div ref={ref} className={clsx('row', styles.list)}>
           {posts.map((postGroup, index) => (
-            <div className="col col-6" key={index}>
+            <div className="col col-6 margin-top--sm" key={index}>
               {postGroup.map((post, i) =>
                 width < 998 ? (
                   <BlogItem key={post.id} post={post} />
