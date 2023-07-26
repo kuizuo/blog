@@ -1,0 +1,66 @@
+.blogContainer {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+.list {
+  margin: 0;
+  overflow: hidden;
+  max-height: 520px;
+
+  li {
+    display: flex;
+    width: 100%;
+    background: var(--blog-item-background-color);
+    box-shadow: var(--blog-item-shadow);
+  }
+
+  .image {
+    overflow: hidden;
+    object-fit: cover;
+
+    max-height: 240px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  p {
+    font-size: smaller;
+  }
+
+  h4 {
+    font-size: 1rem;
+
+    a {
+      position: relative;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.moreButton {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 996px) {
+  .blogContainer {
+    max-width: 768px;
+  }
+
+  .list {
+    max-height: none;
+  }
+}

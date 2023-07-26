@@ -6,12 +6,12 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import styles from './styles.module.css'
 import Hero from '../components/Hero'
-import BlogRecommend from '../theme/BlogRecommend'
+import BlogRecent from '../theme/BlogRecent'
 
 const features = [
   {
     title: <>Easy to Use</>,
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    imageUrl: 'https://img.kuizuo.cn/image-20220511170700075.png',
     description: (
       <>
         Docusaurus was designed from the ground up to be easily installed and
@@ -21,7 +21,7 @@ const features = [
   },
   {
     title: <>Focus on What Matters</>,
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    imageUrl: 'https://img.kuizuo.cn/image-20220511170700075.png',
     description: (
       <>
         Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
@@ -31,7 +31,7 @@ const features = [
   },
   {
     title: <>Powered by React</>,
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    imageUrl: 'https://img.kuizuo.cn/image-20220511170700075.png',
     description: (
       <>
         Extend or customize your website layout by reusing React. Docusaurus can
@@ -66,18 +66,20 @@ function Home() {
     >
       <Hero></Hero>
       <main>
-        <BlogRecommend></BlogRecommend>
-        {/* {features && features.length && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
-                ))}
+        <div className="container-wrapper ">
+          <BlogRecent />
+          {features && features.length && (
+            <section className={styles.features}>
+              <div className="container">
+                <div className="row">
+                  {features.map((props, idx) => (
+                    <Feature key={idx} {...props} />
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
-        )} */}
+            </section>
+          )}
+        </div>
       </main>
     </Layout>
   )

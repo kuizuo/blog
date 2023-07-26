@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import { useNavbarSecondaryMenu } from '@docusaurus/theme-common/internal'
 import type { Props } from '@theme/Navbar/MobileSidebar/Layout'
-import { BlogUser } from '@site/src/components/BlogInfo/index'
+import UserCard from '@site/src/components/UserCard'
 
 export default function NavbarMobileSidebarLayout({
   header,
@@ -13,7 +13,7 @@ export default function NavbarMobileSidebarLayout({
   return (
     <div className="navbar-sidebar">
       {header}
-      <BlogUser isNavbar />
+      <UserCard isNavbar />
       <div
         className={clsx('navbar-sidebar__items', {
           'navbar-sidebar__items--show-secondary': secondaryMenuShown,

@@ -6,6 +6,7 @@ authors: kuizuo
 tags: [trpc, next, prisma, zod, auth.js]
 keywords: [trpc, next, prisma, zod, auth.js]
 description: 本文介绍了 tRPC 技术以及它与传统 RESTful API 的区别。同时 tRPC 可以帮助人们更快地开发全栈 TypeScript 应用程序，同时无需传统的 API 层，并保证应用程序在快速迭代时的稳定性。
+image: https://img.kuizuo.cn/trpc-banner.png
 toc_max_heading_level: 3
 ---
 
@@ -444,17 +445,17 @@ export const prisma = new PrismaClient()
 在上面所定义的 model，都会被 prisma client 创建对应的 typescript 类型（在`node_modules/.prisma/index.d.ts`），你就可以直接通过 prisma.modelName 来操作 model，例如 Example（这里就不做注释了）
 
 ```typescript
-import { prisma } from "~/server/db";
+import { prisma } from '~/server/db'
 
-prisma.post.findUnique({ where: { id: 1 } });
+prisma.post.findUnique({ where: { id: 1 } })
 
-prisma.post.create({ data: {} });
+prisma.post.create({ data: {} })
 
-prisma.post.update(id, { data: {} });
+prisma.post.update(id, { data: {} })
 
-prisma.post.delete(id);
+prisma.post.delete(id)
 
-prisma.post.count();
+prisma.post.count()
 ```
 
 #### 数据迁移
@@ -467,9 +468,9 @@ prisma.post.count();
 
 你可以编写一个 [seed 脚本](https://www.prisma.io/docs/guides/database/seed-database#example-seed-scripts)，用于插种（生成）自定义数据。
 
-------
+---
 
-prisma 不是本文重点，篇幅略少，但是作为 Typeorm 的长期使用者而言，我认为 prisma 会比 typeorm 友善一些，至少从文档上来说 prisma 大胜一筹，而且很多 node 的 web 框架都优先 prisma 作为 orm 框架（除了nest.js），但不过这两个仓库的 issues 数量有点惨不忍睹。。。
+prisma 不是本文重点，篇幅略少，但是作为 Typeorm 的长期使用者而言，我认为 prisma 会比 typeorm 友善一些，至少从文档上来说 prisma 大胜一筹，而且很多 node 的 web 框架都优先 prisma 作为 orm 框架（除了 nest.js），但不过这两个仓库的 issues 数量有点惨不忍睹。。。
 
 ### next-auth
 
@@ -552,7 +553,7 @@ export const authOptions: NextAuthOptions = {
 DATABASE_URL=postgresql://myuser:mypassword@localhost:5432/mydb
 ```
 
-这里推荐 [railway](https://railway.app/ 'railway') 与 [supabase](https://supabase.com/ 'supabase') 都提供远程数据服务，且有免费额度。（不过我比较好奇为啥好多远程数据服务多数都是postgresql）
+这里推荐 [railway](https://railway.app/ 'railway') 与 [supabase](https://supabase.com/ 'supabase') 都提供远程数据服务，且有免费额度。（不过我比较好奇为啥好多远程数据服务多数都是 postgresql）
 
 如果你执意要使用 vercel 部署，当你触发数据库服务时便会报错，以下是相关截图。
 
