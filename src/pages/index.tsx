@@ -3,7 +3,6 @@ import Layout from '@theme/Layout'
 import HomepageHero from './_components/HomepageHero'
 import HomepageBlog from './_components/HomepageBlog'
 import HomepageFeatures from './_components/HomepageFeatures'
-import HomepageSkill from './_components/HomepageSkill'
 import HomepageProject from './_components/HomepageProject'
 
 function Home() {
@@ -12,8 +11,8 @@ function Home() {
       <HomepageHero></HomepageHero>
       <main className="container-wrapper">
         <HomepageBlog />
-        {/* <HomepageFeatures /> */}
         <HomepageProject />
+        <HomepageFeatures />
       </main>
     </Layout>
   )
