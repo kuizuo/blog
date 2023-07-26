@@ -62,59 +62,6 @@ html[data-theme='dark'] .bloghome__intro > p {
   height: auto;
 }
 
-@media (max-width: 1000px) {
-  .hero {
-    grid-template-columns: 1fr;
-    grid-template-rows: max-content minmax(0, max-content);
-    align-items: start;
-    height: auto;
-    /* background-position: center bottom;
-        background-size: 70vh; */
-  }
-
-  .bloghome__intro {
-    padding: 0 var(--ifm-spacing-horizontal);
-    padding-top: 4em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .bloghome__image {
-    width: 100%;
-    justify-self: center;
-    padding-top: 4em;
-    height: 100%;
-    display: grid;
-    place-items: center;
-  }
-
-  .bloghome__image svg {
-    width: 90%;
-    height: auto;
-  }
-}
-
-@media (max-width: 570px) {
-  .hero {
-    height: auto;
-  }
-
-  .bloghome__image {
-    padding-top: 2em;
-  }
-
-  .bloghome__image svg {
-    width: 100%;
-    height: auto;
-    padding-left: 12px;
-  }
-
-  .bloghome__intro {
-    padding-top: 2em;
-  }
-}
-
 @keyframes surround {
   0% {
     transform: translateY(-25%) translateX(40%) rotate(0deg);
@@ -171,6 +118,7 @@ html[data-theme='dark'] .bloghome__intro > p {
   z-index: 1;
   align-items: center;
 
+  text-align: center;
   display: inline-block;
   padding: 0.75em 1.5em;
   font-weight: 600;
@@ -196,5 +144,66 @@ html[data-theme='dark'] {
   .introButton {
     border: 1px solid hsl(0deg 0% 100% / 10%);
     background-color: #262626;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content minmax(0, max-content);
+    align-items: start;
+    height: auto;
+    /* background-position: center bottom;
+        background-size: 70vh; */
+  }
+
+  .bloghome__intro {
+    padding: 0 var(--ifm-spacing-horizontal);
+    padding-top: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bloghome__image {
+    width: 100%;
+    justify-self: center;
+    padding-top: 4em;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .bloghome__image svg {
+    width: 90%;
+    height: auto;
+  }
+
+  .introOuter {
+    width: 200px;
+  }
+
+  .introButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 570px) {
+  .hero {
+    height: auto;
+  }
+
+  .bloghome__image {
+    padding-top: 2em;
+  }
+
+  .bloghome__image svg {
+    width: 100%;
+    height: auto;
+    padding-left: 12px;
+  }
+
+  .bloghome__intro {
+    padding-top: 2em;
   }
 }
