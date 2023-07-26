@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import styles from './styles.module.css'
 import Hero from '../components/Hero'
-import BlogRecent from '../theme/BlogRecent'
+import BlogRecent from '../components/BlogRecent'
 
 const features = [
   {
@@ -56,6 +56,24 @@ function Feature({ imageUrl, title, description }) {
   )
 }
 
+function Features() {
+  return (
+    <>
+      {features && features.length && (
+        <section className={styles.features}>
+          <div className="container">
+            <div className="row">
+              {features.map((props, idx) => (
+                <Feature key={idx} {...props} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+    </>
+  )
+}
+
 function Home() {
   const context = useDocusaurusContext()
   const { siteConfig } = context
@@ -68,17 +86,7 @@ function Home() {
       <main>
         <div className="container-wrapper ">
           <BlogRecent />
-          {features && features.length && (
-            <section className={styles.features}>
-              <div className="container">
-                <div className="row">
-                  {features.map((props, idx) => (
-                    <Feature key={idx} {...props} />
-                  ))}
-                </div>
-              </div>
-            </section>
-          )}
+          {/* <Features /> */}
         </div>
       </main>
     </Layout>
