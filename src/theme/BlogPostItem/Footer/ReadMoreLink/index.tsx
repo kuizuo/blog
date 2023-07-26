@@ -1,6 +1,7 @@
 import React from 'react'
 import Translate, { translate } from '@docusaurus/Translate'
 import Link from '@docusaurus/Link'
+import { Icon } from '@iconify/react'
 import type { Props } from '@theme/BlogPostItem/Footer/ReadMoreLink'
 
 function ReadMoreLabel() {
@@ -31,9 +32,11 @@ export default function BlogPostItemFooterReadMoreLink(
         },
         { title: blogPostTitle },
       )}
+      style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}
       {...linkProps}
     >
       <ReadMoreLabel />
+      <Icon icon="ri:arrow-right-line"></Icon>
     </Link>
   )
 }

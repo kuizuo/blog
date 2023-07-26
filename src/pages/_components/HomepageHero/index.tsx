@@ -1,13 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion' // Import motion from framer-motion
 
-import Link from '@docusaurus/Link'
 import Translate from '@docusaurus/Translate'
 
 import HeroMain from './img/hero_main.svg'
 
 import styles from './styles.module.scss'
-import SocialLinks from '../SocialLinks'
+import SocialLinks from '@site/src/components/SocialLinks'
 
 const variants = {
   visible: i => ({

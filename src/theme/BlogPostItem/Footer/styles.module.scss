@@ -18,6 +18,14 @@
 .blogPostInfoTags {
   display: flex;
   gap: 4px;
+
+  a {
+    color: #9ca3af;
+  }
+
+  a:hover {
+    color: var(--ifm-link-color);
+  }
 }
 
 .blogPostInfoTags > a {
@@ -47,14 +55,6 @@
 
 html[data-theme='dark'] .divider {
   background-color: #2f3336;
-}
-
-.tag {
-  color: #9ca3af;
-}
-
-.tag:hover {
-  color: var(--ifm-link-color);
 }
 
 .readMore {

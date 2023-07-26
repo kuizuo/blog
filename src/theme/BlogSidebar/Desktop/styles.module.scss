@@ -9,6 +9,13 @@
   font-size: var(--ifm-h4-font-size);
   font-weight: var(--ifm-font-weight-bold);
   font-family: var(--ifm-heading-font-family);
+
+  color: var(--ifm-text-color);
+
+  &:hover {
+    color: var(--ifm-link-color);
+    text-decoration: none;
+  }
 }
 
 .sidebarItemList {
@@ -59,6 +66,7 @@
   background-color: #fafaf9;
 
   &:hover {
+    color: var(--ifm-link-color);
     background-color: #f1f5f9;
   }
 }

@@ -1,0 +1,188 @@
+.projectContainer {
+  max-width: 1280px;
+}
+
+.projectTitle {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 var(--ifm-spacing-horizontal);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  h2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .moreButton {
+    display: inlint-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1rem;
+  }
+}
+
+.slider {
+  height: 200px;
+  margin: auto;
+  position: relative;
+  width: 1800%;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotate(180deg);
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slide-track:hover {
+  animation-play-state: paused;
+}
+
+.slide-track {
+  display: flex;
+  width: 100%;
+
+  animation: scroll 120s linear infinite;
+
+  margin-bottom: 0.5rem;
+}
+
+.slide {
+  height: 100px;
+  width: 200px;
+  margin: 0 0.5rem;
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    padding: 0 1rem;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.slideBody {
+  padding: 0.5rem 0;
+  text-align: center;
+  width: 100%;
+
+  .title {
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .website {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--ifm-color-primary);
+    margin: 0;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translate(-20%);
+  }
+}
+
+.gradientBox {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  height: 100%;
+  width: 20px;
+  z-index: 1;
+}
+
+.leftBox {
+  left: 0;
+  background-image: linear-gradient(
+    to right,
+    var(--content-background-color),
+    transparent
+  );
+}
+
+.rightBox {
+  right: 0;
+  background-image: linear-gradient(
+    to left,
+    var(--content-background-color),
+    transparent
+  );
+}
+
+html[data-theme='dark'] .leftBox {
+  background-image: linear-gradient(to right, #1e293b, transparent);
+}
+
+html[data-theme='dark'] .rightBox {
+  background-image: linear-gradient(to left, #1e293b, transparent);
+}
+
+@media (min-width: 640px) {
+  .slider {
+    height: 250px;
+  }
+
+  .slide {
+    height: 200px;
+    width: 300px;
+  }
+
+  .gradientBox {
+    width: 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  .gradientBox {
+    width: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slider {
+    height: 300px;
+  }
+
+  .slide {
+    height: 200px;
+    width: 400px;
+  }
+
+  .gradientBox {
+    width: 200px;
+  }
+}
+
+/* Dark mode styles */
+.gradient-box[data-v-1413e9b7] {
+  background-image: linear-gradient(to right, black, transparent);
+}
