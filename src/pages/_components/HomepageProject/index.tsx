@@ -15,6 +15,7 @@ import {
   useVelocity,
   wrap,
 } from 'framer-motion'
+import SectionTitle from '../SectionTitle'
 
 const removeHttps = (url: string) => {
   return url.replace(/(^\w+:|^)\/\//, '')
@@ -116,16 +117,9 @@ const HomepageProject = () => {
     <section
       className={clsx('container padding-vert--sm', styles.projectContainer)}
     >
-      <div className={styles.projectTitle}>
-        <h2>
-          <Icon icon="ri:projector-line"></Icon>
-          <Translate id="theme.blog.title">项目展示</Translate>
-        </h2>
-        <Link href="/project" className={styles.moreButton}>
-          查看更多
-          <Icon icon="ri:arrow-right-s-line"></Icon>
-        </Link>
-      </div>
+      <SectionTitle icon={'ri:projector-line'} href={'/project'}>
+        <Translate id="theme.homepage.project.title">项目展示</Translate>
+      </SectionTitle>
       <div className={styles.content}>
         <div style={{ overflow: 'hidden' }}>
           <Slider items={showProjects}></Slider>

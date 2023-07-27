@@ -10,6 +10,7 @@ import { Icon } from '@iconify/react'
 import { useWindowSize } from '@site/src/hooks/useWindowSize'
 
 import styles from './styles.module.scss'
+import SectionTitle from '../SectionTitle'
 
 const chunk = (arr, size) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
@@ -73,16 +74,9 @@ export default function BlogRecent(): JSX.Element {
     <section
       className={clsx('container padding-vert--sm', styles.blogContainer)}
     >
-      <div className={styles.blogTitle}>
-        <h2>
-          <Icon icon="ri:quill-pen-line"></Icon>
-          <Translate id="theme.blog.title.recommend">近期博客</Translate>
-        </h2>
-        <Link href="/blog" className={styles.moreButton}>
-          查看更多
-          <Icon icon="ri:arrow-right-s-line"></Icon>
-        </Link>
-      </div>
+      <SectionTitle icon="ri:quill-pen-line" href={'/blog'}>
+        <Translate id="theme.homepage.blog.title">近期博客</Translate>
+      </SectionTitle>
       <div ref={ref} className={clsx('row', styles.list)}>
         {posts.map((postGroup, index) => (
           <div className="col col-6 margin-top--sm" key={index}>

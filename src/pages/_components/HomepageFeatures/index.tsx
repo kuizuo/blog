@@ -8,6 +8,7 @@ import styles from './styles.module.scss'
 import WebDeveloperSvg from '@site/static/svg/undraw_web_developer.svg'
 import OpenSourceSvg from '@site/static/svg/undraw_open_source.svg'
 import SpiderSvg from '@site/static/svg/undraw_spider.svg'
+import SectionTitle from '../SectionTitle'
 
 type FeatureItem = {
   title: string
@@ -65,12 +66,9 @@ export default function HomepageFeatures(): JSX.Element {
     <section
       className={clsx(styles.featureContainer, 'container padding-vert--sm')}
     >
-      <div className={styles.featureTitle}>
-        <h2>
-          <Icon icon="ri:map-pin-user-line"></Icon>
-          <Translate id="theme.blog.title.recommend">个人特点</Translate>
-        </h2>
-      </div>
+      <SectionTitle icon={'ri:map-pin-user-line'}>
+        <Translate id="theme.homepage.feature.title">个人特点</Translate>
+      </SectionTitle>
       <div className={clsx('row', styles.features)}>
         {FeatureList.map((props, idx) => (
           <Feature key={idx} {...props} />
