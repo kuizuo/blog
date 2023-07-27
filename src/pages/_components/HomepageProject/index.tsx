@@ -116,7 +116,7 @@ const HomepageProject = () => {
       className={clsx('container padding-vert--sm', styles.projectContainer)}
     >
       <SectionTitle icon={'ri:projector-line'} href={'/project'}>
-        <Translate id="theme.homepage.project.title">项目展示</Translate>
+        <Translate id="homepage.project.title">项目展示</Translate>
       </SectionTitle>
       <div className={styles.content}>
         <div style={{ overflow: 'hidden' }}>

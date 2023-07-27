@@ -20,7 +20,7 @@ export default function SectionTitle({ children, icon, href }: Props) {
       </h2>
       {href && (
         <Link href={href} className={styles.moreButton}>
-          <Translate id="theme.blog.title">查看更多</Translate>
+          <Translate id="homepage.lookMore">查看更多</Translate>
           <Icon icon="ri:arrow-right-s-line"></Icon>
         </Link>
       )}

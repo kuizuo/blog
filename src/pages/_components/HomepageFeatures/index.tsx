@@ -1,6 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
-import Translate from '@docusaurus/Translate'
+import Translate, { translate } from '@docusaurus/Translate'
 
 import styles from './styles.module.scss'
 
@@ -17,7 +17,10 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'TypeScript 全栈工程师',
+    title: translate({
+      id: 'homepage.feature.developer',
+      message: 'TypeScript 全栈工程师',
+    }),
     Svg: WebDeveloperSvg,
     description: (
       <>
@@ -27,7 +30,10 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: '会点逆向 & 爬虫',
+    title: translate({
+      id: 'homepage.feature.spider',
+      message: '会点逆向 & 爬虫',
+    }),
     Svg: SpiderSvg,
     description: (
       <>
@@ -36,7 +42,10 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: '开源爱好者',
+    title: translate({
+      id: 'homepage.feature.enthusiast',
+      message: '开源爱好者',
+    }),
     Svg: OpenSourceSvg,
     description: (
       <>
@@ -66,7 +75,7 @@ export default function HomepageFeatures(): JSX.Element {
       className={clsx(styles.featureContainer, 'container padding-vert--sm')}
     >
       <SectionTitle icon={'ri:map-pin-user-line'}>
-        <Translate id="theme.homepage.feature.title">个人特点</Translate>
+        <Translate id="homepage.feature.title">个人特点</Translate>
       </SectionTitle>
       <div className={clsx('row', styles.features)}>
         {FeatureList.map((props, idx) => (

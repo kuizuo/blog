@@ -71,7 +71,7 @@ export default function BlogRecent(): JSX.Element {
       className={clsx('container padding-vert--sm', styles.blogContainer)}
     >
       <SectionTitle icon="ri:quill-pen-line" href={'/blog'}>
-        <Translate id="theme.homepage.blog.title">近期博客</Translate>
+        <Translate id="homepage.blog.title">近期博客</Translate>
       </SectionTitle>
       <div ref={ref} className={clsx('row', styles.list)}>
         {posts.map((postGroup, index) => (

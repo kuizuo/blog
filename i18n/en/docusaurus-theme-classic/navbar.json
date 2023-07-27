@@ -3,9 +3,9 @@
     "message": "kuizuo",
     "description": "The title in the navbar"
   },
-  "item.label.学习": {
-    "message": "Study",
-    "description": "Navbar item with label 学习"
+  "item.label.博客": {
+    "message": "Blogs",
+    "description": "Navbar item with label 博客"
   },
   "item.label.工具": {
     "message": "Tools",

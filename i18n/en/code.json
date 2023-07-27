@@ -11,24 +11,29 @@
     "message": "Here I will share the problems and solutions encountered by various technology stacks, take you to understand the latest technology stacks and how to apply them in actual development, and hope that my development experience will inspire you",
     "description": "hero text"
   },
-  "homepage.hero.look": {
-    "message": "You can take a look at it casually and check {note}, {project}, {link}. I will also share {idea} for programming learning",
-    "description": "hero need"
-  },
-  "hompage.hero.note": {
-    "message": "Note"
-  },
-  "hompage.hero.project": {
-    "message": "Project"
-  },
-  "hompage.hero.link": {
-    "message": "Link"
-  },
-  "hompage.hero.idea": {
-    "message": "Idea"
-  },
   "hompage.hero.introduce": {
     "message": "Introduce"
+  },
+  "homepage.blog.title": {
+    "message": "Recent Blogs"
+  },
+  "homepage.lookMore": {
+    "message": "Look More"
+  },
+  "homepage.project.title": {
+    "message": "Project Showcase"
+  },
+  "homepage.feature.title": {
+    "message": "Feature"
+  },
+  "homepage.feature.developer": {
+    "message": "Typescript Developer"
+  },
+  "homepage.feature.spider": {
+    "message": "Know a little Reverse"
+  },
+  "homepage.feature.enthusiast": {
+    "message": "Open source enthusiast"
   },
   "theme.blog.archive.posts.total": {
     "message": "Total {total} posts"
@@ -40,19 +45,10 @@
     "message": "Project Showcase"
   },
   "theme.project.description": {
-    "message": "The following projects are developed by me, freely, partially open source."
+    "message": "Here is the best proof of my hard practice and application in the field of technology."
   },
   "showcase.header.button": {
-    "message": "🥰 Go to Github to clone"
-  },
-  "playground.codesandbox.description": {
-    "message": "CodeSandbox is a popular playground solution. Runs Docusaurus in a remote Docker container."
-  },
-  "playground.stackblitz.description": {
-    "message": "StackBlitz uses a novel {webContainersLink} technology to run Docusaurus directly in your browser."
-  },
-  "playground.tryItButton": {
-    "message": "Try it now!"
+    "message": "Go to Github to clone"
   },
   "theme.blog.archive.title": {
     "message": "Archive",
@@ -78,10 +74,10 @@
     "message": "One min read|{readingTime} min read",
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
-  "theme.blog.title.recommend":{
+  "theme.blog.title.recommend": {
     "message": "Recommend Blog"
   },
-  "theme.blog.title.new":{
+  "theme.blog.title.new": {
     "message": "New Blog"
   },
   "theme.ErrorPageContent.title": {
@@ -474,7 +470,7 @@
     "message": "Close",
     "description": "The ARIA label for close button of PWA reload popup"
   },
-  "showcase.card.sourceLink":{
+  "showcase.card.sourceLink": {
     "message": "source",
     "description": "The label for the source link of a showcase card"
   }
