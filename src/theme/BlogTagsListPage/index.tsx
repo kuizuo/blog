@@ -6,7 +6,6 @@ import {
   ThemeClassNames,
   translateTagsPageTitle,
 } from '@docusaurus/theme-common'
-import Layout from '@theme/Layout'
 import TagsListByLetter from '@theme/TagsListByLetter'
 import { TagsListByFlat } from '../TagsListByLetter'
 import type { Props } from '@theme/BlogTagsListPage'

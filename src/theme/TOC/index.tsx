@@ -1,6 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
-import { motion, useScroll, useSpring } from 'framer-motion'
+import { motion } from 'framer-motion'
 import TOCItems from '@theme/TOCItems'
 import type { Props } from '@theme/TOC'
 import styles from './styles.module.css'

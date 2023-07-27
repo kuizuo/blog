@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import useThemeContext from '@theme/hooks/useThemeContext'
+import { useColorMode } from '@docusaurus/theme-common'
 
 function index({ slug, title, height = '600px' }) {
-  const { isDarkTheme } = useThemeContext()
+  const { isDarkTheme } = useColorMode()
   const themedSrc = `https://codesandbox.io/embed/${slug}?fontsize=14&hidenavigation=1&view=preview&theme=${
     isDarkTheme ? 'dark' : 'light'
   }`
@@ -15,7 +14,7 @@ function index({ slug, title, height = '600px' }) {
           width: '100%',
           height,
           border: 0,
-          'border-radius': '4px',
+          borderRadius: '4px',
           overflow: 'hidden',
         }}
         title={title}
@@ -25,7 +24,5 @@ function index({ slug, title, height = '600px' }) {
     </div>
   )
 }
-
-index.propTypes = {}
 
 export default index
