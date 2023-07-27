@@ -1,9 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react'
 import clsx from 'clsx'
 import { Project, projects } from '@site/data/project'
-import { Icon } from '@iconify/react'
 import Translate from '@docusaurus/Translate'
-import Link from '@docusaurus/Link'
 import styles from './styles.module.scss'
 import {
   motion,
