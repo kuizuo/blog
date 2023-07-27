@@ -21,12 +21,21 @@
   }
 
   .moreButton {
-    display: inlint-flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 
     font-size: 1rem;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
+}
+
+.content {
+  position: relative;
+  border-radius: var(--ifm-card-border-radius);
 }
 
 .slider {
@@ -171,9 +180,4 @@ html[data-theme='dark'] .rightBox {
   .gradientBox {
     width: 200px;
   }
-}
-
-/* Dark mode styles */
-.gradient-box[data-v-1413e9b7] {
-  background-image: linear-gradient(to right, black, transparent);
 }

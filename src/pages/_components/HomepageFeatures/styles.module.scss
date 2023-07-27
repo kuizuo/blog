@@ -1,0 +1,72 @@
+.featureContainer {
+  max-width: 1280px;
+  padding: 2rem 1rem;
+}
+
+.featureTitle {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 var(--ifm-spacing-horizontal);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  h2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .moreButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1rem;
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+
+  gap: 1.5rem;
+
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.feature {
+  position: relative;
+  background: transparent;
+
+  border-radius: 0.375rem;
+  width: 100%;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  transition: all 0.3s linear;
+}
+
+.featureSvg {
+  height: 150px;
+  width: 100%;
+}
+
+.feature:hover {
+  box-shadow: var(--blog-item-shadow);
+}
+
+@media screen and (max-width: 768px) {
+  .features {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.75rem;
+  }
+}

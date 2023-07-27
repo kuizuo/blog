@@ -70,34 +70,34 @@ export default function BlogRecent(): JSX.Element {
   }
 
   return (
-    <>
-      <div className={clsx('container padding-vert--sm', styles.blogContainer)}>
-        <div className={styles.blogTitle}>
-          <h2>
-            <Icon icon="ri:quill-pen-line"></Icon>
-            <Translate id="theme.blog.title.recommend">近期博客</Translate>
-          </h2>
-          <Link href="/blog" className={styles.moreButton}>
-            查看更多
-            <Icon icon="ri:arrow-right-s-line"></Icon>
-          </Link>
-        </div>
-        <div ref={ref} className={clsx('row', styles.list)}>
-          {posts.map((postGroup, index) => (
-            <div className="col col-6 margin-top--sm" key={index}>
-              {postGroup.map((post, i) =>
-                width < 998 ? (
-                  <BlogItem key={post.id} post={post} />
-                ) : (
-                  <motion.div style={{ y: i / 2 ? y : 0 }}>
-                    <BlogItem key={post.id} post={post} />
-                  </motion.div>
-                ),
-              )}
-            </div>
-          ))}
-        </div>
+    <section
+      className={clsx('container padding-vert--sm', styles.blogContainer)}
+    >
+      <div className={styles.blogTitle}>
+        <h2>
+          <Icon icon="ri:quill-pen-line"></Icon>
+          <Translate id="theme.blog.title.recommend">近期博客</Translate>
+        </h2>
+        <Link href="/blog" className={styles.moreButton}>
+          查看更多
+          <Icon icon="ri:arrow-right-s-line"></Icon>
+        </Link>
       </div>
-    </>
+      <div ref={ref} className={clsx('row', styles.list)}>
+        {posts.map((postGroup, index) => (
+          <div className="col col-6 margin-top--sm" key={index}>
+            {postGroup.map((post, i) =>
+              width < 998 ? (
+                <BlogItem key={post.id} post={post} />
+              ) : (
+                <motion.div style={{ y: i / 2 ? y : 0 }}>
+                  <BlogItem key={post.id} post={post} />
+                </motion.div>
+              ),
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
   )
 }
