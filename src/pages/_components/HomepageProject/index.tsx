@@ -113,29 +113,27 @@ const Slider = ({ items }: { items: Project[] }) => {
 
 const HomepageProject = () => {
   return (
-    <>
-      <div
-        className={clsx('container padding-vert--sm', styles.projectContainer)}
-      >
-        <div className={styles.projectTitle}>
-          <h2>
-            <Icon icon="ri:projector-line"></Icon>
-            <Translate id="theme.blog.title">一些项目</Translate>
-          </h2>
-          <Link href="/project" className={styles.moreButton}>
-            查看更多
-            <Icon icon="ri:arrow-right-s-line"></Icon>
-          </Link>
-        </div>
-        <div style={{ position: 'relative' }}>
-          <div style={{ overflow: 'hidden' }}>
-            <Slider items={showProjects}></Slider>
-          </div>
-          <div className={clsx(styles.gradientBox, styles.leftBox)} />
-          <div className={clsx(styles.gradientBox, styles.rightBox)} />
-        </div>
+    <section
+      className={clsx('container padding-vert--sm', styles.projectContainer)}
+    >
+      <div className={styles.projectTitle}>
+        <h2>
+          <Icon icon="ri:projector-line"></Icon>
+          <Translate id="theme.blog.title">项目展示</Translate>
+        </h2>
+        <Link href="/project" className={styles.moreButton}>
+          查看更多
+          <Icon icon="ri:arrow-right-s-line"></Icon>
+        </Link>
       </div>
-    </>
+      <div className={styles.content}>
+        <div style={{ overflow: 'hidden' }}>
+          <Slider items={showProjects}></Slider>
+        </div>
+        <div className={clsx(styles.gradientBox, styles.leftBox)} />
+        <div className={clsx(styles.gradientBox, styles.rightBox)} />
+      </div>
+    </section>
   )
 }
 

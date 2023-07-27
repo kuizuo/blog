@@ -1,8 +1,13 @@
 import React from 'react'
 import clsx from 'clsx'
-import styles from './styles.module.css'
+import { Icon } from '@iconify/react'
+import Translate from '@docusaurus/Translate'
 
-import juejinSvg from '@site/static/svg/juejin.svg'
+import styles from './styles.module.scss'
+
+import WebDeveloperSvg from '@site/static/svg/undraw_web_developer.svg'
+import OpenSourceSvg from '@site/static/svg/undraw_open_source.svg'
+import SpiderSvg from '@site/static/svg/undraw_spider.svg'
 
 type FeatureItem = {
   title: string
@@ -12,32 +17,30 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'TS 全栈工程师',
-    Svg: juejinSvg,
+    title: 'TypeScript 全栈工程师',
+    Svg: WebDeveloperSvg,
     description: (
       <>
-        作为一名
-        TypeScript（TS）全栈工程师，在前端和后端开发中都拥有丰富经验，并且熟练运用
-        TypeScript。善于构建稳健、可扩展的应用程序，充分利用强类型和现代
-        JavaScript 特性。
+        作为一名 TypeScript 全栈工程师，秉着能用 TS 绝不用 JS
+        的原则，为项目提供类型安全的保障，提高代码质量和开发效率。
       </>
     ),
   },
   {
-    title: '会点逆向、爬虫',
-    Svg: juejinSvg,
+    title: '会点逆向 & 爬虫',
+    Svg: SpiderSvg,
     description: (
       <>
-        在逆向工程和网络爬虫领域有一些经验和知识。熟悉逆向工程，可以分析和理解软件或系统的内部工作原理。此外，你在网络爬虫方面的技能使你能够高效地从各种在线资源中提取有价值的数据。这种组合技能使你能够解决各种独特的挑战，并为广泛的技术项目做出贡献。
+        作为一名曾学习与实践逆向工程两年半的开发者，对于逆向工程有着浓厚的兴趣，同时造就了超凡的阅读代码能力。没有看不懂的代码，只有不想看的代码。
       </>
     ),
   },
   {
     title: '开源爱好者',
-    Svg: juejinSvg,
+    Svg: OpenSourceSvg,
     description: (
       <>
-        作为一名开源爱好者，热衷于为全球开发者社区贡献力量。积极参与开源项目，可以通过提交代码、修复问题或协助撰写文档等方式进行贡献。对开源软件的热爱促进了协作、知识分享，并推动技术的进步，造福所有人。
+        作为一名开源爱好者，热衷于为全球开发者社区贡献力量。对开源软件的热爱促进了协作、知识分享，并推动技术的进步，造福所有人。
       </>
     ),
   },
@@ -45,11 +48,11 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, Svg, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col', styles.feature)}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
-      <div className="text--center padding-horiz--md">
+      <div className="text--left padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
@@ -59,13 +62,19 @@ function Feature({ title, Svg, description }: FeatureItem) {
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
+    <section
+      className={clsx(styles.featureContainer, 'container padding-vert--sm')}
+    >
+      <div className={styles.featureTitle}>
+        <h2>
+          <Icon icon="ri:map-pin-user-line"></Icon>
+          <Translate id="theme.blog.title.recommend">个人特点</Translate>
+        </h2>
+      </div>
+      <div className={clsx('row', styles.features)}>
+        {FeatureList.map((props, idx) => (
+          <Feature key={idx} {...props} />
+        ))}
       </div>
     </section>
   )

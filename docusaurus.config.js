@@ -130,6 +130,10 @@ const config = {
               href: 'https://github.com/kuizuo',
             },
             {
+              label: 'Twitter',
+              to: 'https://twitter.com/kuizuo',
+            },
+            {
               label: '掘金',
               href: 'https://juejin.cn/user/1565318510545901',
             },
