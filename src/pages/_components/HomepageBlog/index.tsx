@@ -6,8 +6,6 @@ import useGlobalData from '@docusaurus/useGlobalData'
 import Translate from '@docusaurus/Translate'
 import Link from '@docusaurus/Link'
 import Image from '@theme/IdealImage'
-import { Icon } from '@iconify/react'
-import { useWindowSize } from '@site/src/hooks/useWindowSize'
 
 import styles from './styles.module.scss'
 import SectionTitle from '../SectionTitle'
@@ -49,8 +47,6 @@ export function BlogItem({ post }: { post: BlogPost }) {
 }
 
 export default function BlogRecent(): JSX.Element {
-  const { width } = useWindowSize()
-
   const globalData = useGlobalData()
   const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.[
     'default'
@@ -80,15 +76,11 @@ export default function BlogRecent(): JSX.Element {
       <div ref={ref} className={clsx('row', styles.list)}>
         {posts.map((postGroup, index) => (
           <div className="col col-6 margin-top--sm" key={index}>
-            {postGroup.map((post, i) =>
-              width < 998 ? (
+            {postGroup.map((post, i) => (
+              <motion.div style={{ y: i / 2 ? y : 0 }}>
                 <BlogItem key={post.id} post={post} />
-              ) : (
-                <motion.div style={{ y: i / 2 ? y : 0 }}>
-                  <BlogItem key={post.id} post={post} />
-                </motion.div>
-              ),
-            )}
+              </motion.div>
+            ))}
           </div>
         ))}
       </div>
