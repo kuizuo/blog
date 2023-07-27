@@ -59,6 +59,8 @@ export default function BlogPostGridItems({
                       label={label}
                       permalink={tagPermalink}
                       key={tagPermalink}
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore
                       className={styles.tag}
                     />
                   ))}

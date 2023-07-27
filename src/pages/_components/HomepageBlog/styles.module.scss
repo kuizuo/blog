@@ -2,37 +2,6 @@
   max-width: 1280px;
 }
 
-.blogTitle {
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 0 var(--ifm-spacing-horizontal);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  width: 100%;
-
-  h2 {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    margin: 0;
-    font-size: 1.1rem;
-  }
-
-  .moreButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 1rem;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
 .list {
   margin: 0;
   padding: 0.5rem 0;
@@ -50,7 +19,6 @@
   .image {
     overflow: hidden;
     object-fit: cover;
-
     max-height: 240px;
     cursor: pointer;
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useThemeConfig } from '@docusaurus/theme-common'
 import { ThemeConfig } from '@docusaurus/preset-classic'
-
 import { Icon } from '@iconify/react'
 import JuejinIcon from '@site/static/svg/juejin.svg'
 
