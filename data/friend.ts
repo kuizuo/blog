@@ -24,6 +24,12 @@ export const Friends: Friend[] = [
     avatar: '/img/friend/pincman.png',
   },
   {
+    title: 'Opacity',
+    description: '助力每一个梦想',
+    website: 'https://www.opacity.ink/',
+    avatar: '/img/friend/opacity.png',
+  },
+  {
     title: '静かな森',
     description: '致虚极，守静笃',
     website: 'https://innei.in/',
@@ -70,6 +76,12 @@ export const Friends: Friend[] = [
     description: '此刻想举重若轻，之前必要负重前行',
     website: 'https://www.alanwang.site',
     avatar: '/img/friend/alan.png',
+  },
+  {
+    title: '鲸落',
+    description: '热爱前端，喜欢探索前端的相关技术，热爱分享',
+    website: 'http://www.xiaojunnan.cn/',
+    avatar: '/img/friend/xiaojunnan.png',
   },
 ]
 
