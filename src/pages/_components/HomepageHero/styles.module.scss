@@ -138,7 +138,7 @@ html[data-theme='dark'] .bloghome__intro > p {
 }
 
 html[data-theme='dark'] {
-  .introGradient {
+  .gradient {
     background: conic-gradient(
       transparent 50deg,
       var(--ifm-color-primary-darker) 80deg,
@@ -182,10 +182,6 @@ html[data-theme='dark'] {
   .bloghome__image svg {
     width: 90%;
     height: auto;
-  }
-
-  .buttonGroup {
-    // flex-direction: column;
   }
 
   .outer {

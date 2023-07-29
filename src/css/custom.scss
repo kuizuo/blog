@@ -195,6 +195,11 @@ html[data-theme='dark'] .theme-code-block {
 .navbar {
   box-shadow: none;
 
+  // background-color: transparent;
+  // background-image: radial-gradient(transparent 1px, #fff 1px);
+  // background-size: 3px 3px;
+  // backdrop-filter: saturate(50%) blur(4px);
+
   .navbar__title {
     margin-left: 12px;
     color: var(--ifm-color-primary);

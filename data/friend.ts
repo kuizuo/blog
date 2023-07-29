@@ -79,7 +79,7 @@ export const Friends: Friend[] = [
   },
   {
     title: '鲸落',
-    description: '热爱前端，喜欢探索前端的相关技术，热爱分享',
+    description: '心中无女人，代码自然神',
     website: 'http://www.xiaojunnan.cn/',
     avatar: '/img/friend/xiaojunnan.png',
   },

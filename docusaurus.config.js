@@ -39,23 +39,27 @@ const config = {
       },
     },
     navbar: {
-      title: '愧怍的小站',
       logo: {
         alt: '愧怍',
         src: 'img/logo.webp',
         srcDark: 'img/logo.webp',
       },
-      hideOnScroll: true,
+      hideOnScroll: false,
       items: [
         {
           label: '博客',
           position: 'right',
           to: 'blog',
+        },
+        {
+          label: '项目',
+          position: 'right',
+          to: 'project',
+        },
+        {
+          label: '更多',
+          position: 'right',
           items: [
-            {
-              label: '标签',
-              to: 'blog/tags',
-            },
             {
               label: '归档',
               to: 'blog/archive',
@@ -65,24 +69,18 @@ const config = {
               to: 'docs/skill/',
             },
             {
+              label: '资源',
+              to: 'resource',
+            },
+            {
+              label:  '友链',
+              to: 'friends',
+            },
+            {
               label: '工具推荐',
               to: 'docs/tools/',
             },
-            {
-              label: '前端示例',
-              to: 'https://example.kuizuo.cn',
-            },
           ],
-        },
-        {
-          label: '导航',
-          position: 'right',
-          to: 'resource',
-        },
-        {
-          label: '项目',
-          position: 'right',
-          to: 'project',
         },
         {
           type: 'localeDropdown',
