@@ -8,58 +8,117 @@
   grid-template-columns: 8fr 11fr;
   align-items: center;
   position: relative;
-  /* background: url("/img/hero_main.svg") no-repeat right; */
-  /* background-size: 60vw; */
+
   letter-spacing: 0.04em;
   padding: 0;
 }
 
-.bloghome__intro {
+.intro {
   padding: 1em;
   padding-left: 4em;
   position: relative;
   z-index: 10;
 }
 
-.bloghome__intro .hero_text {
-  font-size: calc(1.8em + 1.2vw);
-  /* font-weight: 600; */
-}
-
-.bloghome__intro > p {
-  margin: 26px 0 24px;
+.intro > p {
+  margin: 24px 0;
   color: hsl(215deg 19% 48%);
-  /* text-shadow: 0 0 #8c99ab; */
-  font-size: 1.125rem;
+  text-shadow: 0 0 #8c99ab;
+  font-size: 1rem;
   text-align: justify;
   letter-spacing: -0.04em;
   line-height: 32px;
 }
 
-.bloghome__intro > p:nth-child(3) {
-  align-self: start;
-  margin-top: 0;
+.hero_text {
+  font-size: calc(1.5em + 1.2vw);
+
+  --x: 0;
+  --y: 0;
 }
 
-html[data-theme='dark'] .bloghome__intro > p {
-  color: #dfdfdf;
+.name {
+  --lighting-size: 300px;
+  --lighting-color: var(--ifm-color-primary);
+  --lighting-highlight-color: var(--ifm-color-primary-lightest);
+
+  background-image: radial-gradient(
+    var(--lighting-highlight-color),
+    var(--lighting-color),
+    var(--lighting-color)
+  );
+  background-size: var(--lighting-size) var(--lighting-size);
+  background-repeat: no-repeat;
+
+  background-position-x: calc(
+    var(--x) - var(--positionX) - calc(var(--lighting-size) / 2)
+  );
+  background-position-y: calc(
+    var(--y) - var(--positionY) - calc(var(--lighting-size) / 2)
+  );
+
+  background-color: var(--lighting-color);
+
+  color: transparent;
+  background-clip: text;
 }
 
-.intro__name {
-  color: var(--ifm-color-primary);
+.wave {
+  margin-left: 2px;
 }
 
-.bloghome__image {
-  overflow: hidden;
+.background {
+  position: relative;
+
   width: 100%;
+  height: 90%;
   z-index: 5;
   align-items: center;
+  align-self: flex-start;
   justify-items: center;
 }
 
-.bloghome__image svg {
+.background svg {
   width: 100%;
   height: auto;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgb(150 255 244 / 81.3%) 0%,
+    rgb(0 71 252 / 80.6%) 100%
+  );
+  border-radius: 50%;
+  opacity: 0.3;
+
+  // animation: heartbeat 10s infinite;
+  filter: blur(80px);
+  z-index: -1;
+}
+
+.box {
+  position: absolute;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: transparent;
+
+  backdrop-filter: blur(2px);
+
+  box-shadow: inset 1px 1px 5px rgb(255 255 255 / 30%), 0 0 5px rgb(0 0 0 / 20%);
+
+  border-radius: 8px;
+
+  padding: 0.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
 }
 
 @keyframes surround {
@@ -84,9 +143,28 @@ html[data-theme='dark'] .bloghome__intro > p {
   }
 }
 
+@keyframes heartbeat {
+  0% {
+    transform: rotate(45deg);
+    opacity: 0.1;
+  }
+
+  50% {
+    transform: rotate(45deg);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: rotate(45deg);
+    opacity: 0.1;
+  }
+}
+
 .buttonGroup {
   display: flex;
   gap: 0.5rem;
+
+  margin-top: 1rem;
 }
 
 .outer {
@@ -162,7 +240,7 @@ html[data-theme='dark'] {
         background-size: 70vh; */
   }
 
-  .bloghome__intro {
+  .intro {
     padding: 0 var(--ifm-spacing-horizontal);
     padding-top: 4em;
     display: flex;
@@ -170,7 +248,7 @@ html[data-theme='dark'] {
     align-items: center;
   }
 
-  .bloghome__image {
+  .background {
     width: 100%;
     justify-self: center;
     padding-top: 4em;
@@ -179,9 +257,14 @@ html[data-theme='dark'] {
     place-items: center;
   }
 
-  .bloghome__image svg {
+  .background svg {
     width: 90%;
     height: auto;
+  }
+
+  .box {
+    width: 3rem;
+    height: 3rem;
   }
 
   .outer {
@@ -198,17 +281,21 @@ html[data-theme='dark'] {
     height: auto;
   }
 
-  .bloghome__image {
+  .background {
     padding-top: 2em;
   }
 
-  .bloghome__image svg {
+  .background svg {
     width: 100%;
     height: auto;
-    padding-left: 12px;
   }
 
-  .bloghome__intro {
+  .box {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .intro {
     padding-top: 2em;
   }
 }

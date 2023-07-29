@@ -46,6 +46,10 @@
   }
 }
 
+html[data-theme='dark'] .social__links a:hover {
+  background-color: #515967;
+}
+
 .social__links > *,
 .social__links svg,
 .social__links svg path {

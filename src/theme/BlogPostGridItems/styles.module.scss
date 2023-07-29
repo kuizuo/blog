@@ -1,3 +1,19 @@
+.blogGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+/* post list view adjustment */
+@media only screen and (max-width: 700px) {
+  .blogGrid {
+    row-gap: 16px;
+    grid-template-columns: minmax(0, max-content);
+  }
+}
+
 .postGridItem {
   min-width: 24rem;
   display: grid;

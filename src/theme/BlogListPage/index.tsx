@@ -74,11 +74,7 @@ function BlogListPageContent(props: Props) {
                 <BlogPostItems items={items} />
               </div>
             )}
-            {isGridView && (
-              <div className={styles.blogGrid}>
-                <BlogPostGridItems items={items} />
-              </div>
-            )}
+            {isGridView && <BlogPostGridItems items={items} />}
           </>
           <BlogListPaginator metadata={metadata} />
         </div>

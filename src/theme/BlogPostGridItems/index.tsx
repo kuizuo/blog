@@ -6,27 +6,36 @@ import Tag from '@theme/Tag'
 
 import styles from './styles.module.scss'
 
-const variants: Variants = {
-  from: { opacity: 0.01, y: 20 },
-  to: i => ({
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
     opacity: 1,
-    y: 0,
+    scale: 1,
     transition: {
-      type: 'spring',
-      damping: 25,
-      stiffness: 100,
-      bounce: 0.3,
-      duration: 0.3,
-      delay: i * 0.1,
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
     },
-  }),
+  },
+}
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
 }
 
 export default function BlogPostGridItems({
   items,
 }: BlogPostItemsProps): JSX.Element {
   return (
-    <>
+    <motion.div
+      className={styles.blogGrid}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
       {items.map(({ content: BlogPostContent }, i) => {
         const { metadata: blogMetaData, frontMatter } = BlogPostContent
         const { title } = frontMatter
@@ -41,11 +50,7 @@ export default function BlogPostGridItems({
           <motion.div
             className={styles.postGridItem}
             key={blogMetaData.permalink}
-            initial="from"
-            animate="to"
-            custom={i / 2}
-            viewport={{ once: true, amount: 0.8 }}
-            variants={variants}
+            variants={item}
           >
             <Link to={permalink} className={styles.itemTitle}>
               {title}
@@ -69,6 +74,6 @@ export default function BlogPostGridItems({
           </motion.div>
         )
       })}
-    </>
+    </motion.div>
   )
 }
