@@ -84,7 +84,12 @@ html[data-theme='dark'] .bloghome__intro > p {
   }
 }
 
-.introOuter {
+.buttonGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.outer {
   position: relative;
   overflow: hidden;
   padding: 2px;
@@ -94,7 +99,7 @@ html[data-theme='dark'] .bloghome__intro > p {
   transform: translateZ(0);
 }
 
-.introGradient {
+.gradient {
   position: absolute;
   top: 50%;
   left: 0;
@@ -113,7 +118,7 @@ html[data-theme='dark'] .bloghome__intro > p {
   will-change: transform;
 }
 
-.introButton {
+.button {
   position: relative;
   z-index: 1;
   align-items: center;
@@ -141,7 +146,7 @@ html[data-theme='dark'] {
     );
   }
 
-  .introButton {
+  .button {
     border: 1px solid hsl(0deg 0% 100% / 10%);
     background-color: #262626;
   }
@@ -179,11 +184,15 @@ html[data-theme='dark'] {
     height: auto;
   }
 
-  .introOuter {
+  .buttonGroup {
+    // flex-direction: column;
+  }
+
+  .outer {
     width: 200px;
   }
 
-  .introButton {
+  .button {
     width: 100%;
   }
 }
