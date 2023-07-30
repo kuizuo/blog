@@ -65,7 +65,7 @@ export default function FriendLink(): JSX.Element {
 
   return (
     <Layout title={TITLE} description={DESCRIPTION}>
-      <motion.main ref={ref} className="margin-vert--lg">
+      <motion.main ref={ref} className="margin-vert--md">
         <FriendHeader />
         <FriendCards />
         <motion.div drag dragConstraints={ref} className={styles.dragBox}>

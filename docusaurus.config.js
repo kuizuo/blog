@@ -44,7 +44,7 @@ const config = {
         src: 'img/logo.webp',
         srcDark: 'img/logo.webp',
       },
-      hideOnScroll: false,
+      hideOnScroll: true,
       items: [
         {
           label: '博客',
@@ -129,7 +129,7 @@ const config = {
             },
             {
               label: 'Twitter',
-              to: 'https://twitter.com/kuizuo',
+              href: 'https://twitter.com/kuizuo',
             },
             {
               label: '掘金',

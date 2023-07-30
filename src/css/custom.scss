@@ -13,99 +13,63 @@
     sfmono-regular, menlo, monaco, 'Liberation Mono', monospace;
 
   --ifm-heading-font-family: var(--ifm-font-family-base);
-  /* --content-font-family: "Raleway", "Kai", "楷体", "Kaiti", serif; */
 
   --ifm-navbar-shadow: 0 4px 28px rgb(0 0 0 / 10%);
-  --ifm-toc-border-color: #f7f7f7;
   --text-color: #2b333e;
-  /* --ifm-heading-color: hsl(200deg, 20%, 20%); */
 
   --ifm-menu-color: #0d203a;
-
-  /* 搜索框 */
-  --search-local-modal-background: hsl(0deg 0% 100%);
-  --search-local-modal-shadow: 0 0 48px hsl(0deg 0% 0% / 12%);
-
-  /* 标签背景 */
-  --tag-background: var(--ifm-color-primary);
-  --tag-background-dark: #0179fa77;
-  --tag-background-light: #1982bb;
 
   /* 代码块背景 */
   --ifm-code-background: #12affa1a;
   --ifm-code-color: var(--ifm-color-primary);
   --prism-background-color: #f6f8fa;
 
-  --ifm-bg-color: #f5f5f5;
   --ifm-text-color: #333;
   --ifm-secondary-text-color: #555;
 
   --site-primary-hue-saturation: 167 68%;
-  --site-primary-hue-saturation-light: 167 56%; /* do we really need this extra one? */
+  --site-primary-hue-saturation-light: 167 56%;
 
   --site-color-favorite-background: #f6fdfd;
   --site-color-tooltip: #fff;
   --site-color-tooltip-background: #353738;
   --site-color-svg-icon-favorite: #e9669e;
   --site-color-checkbox-checked-bg: hsl(167deg 56% 73% / 25%);
-  --site-color-feedback-background: #fff;
-  --docusaurus-highlighted-code-line-bg: rgb(200 200 200);
 
   --ifm-container-width: 1024px;
-}
 
-html {
-  --post-title-color: hsl(220deg 79% 58%);
-  --post-pub-date-color: #8c8c8c;
-  --divider-color: #ebebeb;
-  --post-shadow-color: rgb(220 220 220 / 30%);
-  --post-shadow: 0 0 20px 10px var(--post-shadow-color);
+  --ifm-heading-color: hsl(214deg 78% 17%);
+  --ifm-heading-font-weight: 500;
+  --ifm-toc-border-color: #f1f5f9;
+
   --content-background-color: #f8fafc;
 
   --blog-item-background-color: linear-gradient(180deg, #fcfcfc, #fff);
   --blog-item-shadow: 0 10px 60px 5px #f1f5f9, 0 0 10px 0 #e4e4e7;
 
-  --ifm-heading-color: #000;
-
   -webkit-font-smoothing: unset;
-  /* 文字颜色 */
-  color: hsl(214deg 37% 25%);
-}
 
-html :is(h1, h2, h3, h4, h5, h6) {
-  --ifm-heading-color: hsl(214deg 78% 17%);
+  color: hsl(214deg 37% 25%);
+
+  --docusaurus-highlighted-code-line-bg: #d1d5db;
 }
 
 html[data-theme='dark'] {
   --ifm-color-primary: hsl(214deg 100% 60%);
   --ifm-color-primary-light: hsl(214deg 100% 75%);
-  --post-title-color: rgb(255 255 255);
-  --post-pub-date-color: var(--ifm-color-gray-100);
-  --divider-color: #353535;
+  --ifm-heading-color: hsl(0deg 0% 100%);
+  --ifm-menu-color: #eceef1;
+  --ifm-text-color: var(--ifm-menu-color);
+  --ifm-secondary-text-color: #eee;
   --ifm-toc-border-color: #313131;
-  --post-shadow-color: #253748;
+
   --content-background-color: #18181b;
   --blog-item-background-color: linear-gradient(180deg, #18181b, #000);
   --blog-item-shadow: 0 10px 60px 5px #253748, 0 0 10px 0 #253748;
-  --ifm-heading-color: #fff;
-
-  --ifm-menu-color: #eceef1;
 
   color: hsl(214deg 15% 85%);
 
-  /* 搜索 */
-  /* 搜索框 */
-  --search-local-modal-background: var(--ifm-background-color);
-  --search-local-modal-shadow: 0 0 48px hsl(0deg 100% 100% / 12%);
-
-  --ifm-text-color: var(--ifm-menu-color);
-  --ifm-secondary-text-color: #eee;
-
-  --docusaurus-highlighted-code-line-bg: rgb(100 100 100);
-}
-
-html[data-theme='dark'] :is(h1, h2, h3, h4, h5, h6) {
-  --ifm-heading-color: hsl(214deg 100% 96%);
+  --docusaurus-highlighted-code-line-bg: #4b5563;
 }
 
 body {
@@ -128,16 +92,40 @@ html[data-theme='dark'] .theme-code-block {
 }
 
 .markdown {
+  a {
+    transition: all 0.1s;
+    display: inline-block;
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  code {
+    border: 0.1rem solid transparent;
+  }
+
+  .alert {
+    border: 2px solid var(--ifm-alert-border-color);
+  }
+
+  img {
+    border-radius: 10px;
+
+    // box-shadow: 0 0 25px rgb(132 167 156 / 10%);
+  }
+
   > h2 {
     font-size: 1.8em;
-    border-bottom: 1px solid #338bff;
+    border-bottom: 1px solid var(--ifm-color-primary-light);
     margin-top: 1rem;
 
     &::before {
       margin-right: 0.3em;
       width: 0.4em;
       display: inline-block;
-      background: var(--ifm-color-primary);
+      background: var(--ifm-color-primary-light);
       color: transparent;
       content: '.';
     }
@@ -150,7 +138,7 @@ html[data-theme='dark'] .theme-code-block {
       margin-right: 0.3em;
       width: 0.3em;
       display: inline-block;
-      background: var(--ifm-color-primary);
+      background: var(--ifm-color-primary-light);
       color: transparent;
       content: '.';
     }
@@ -163,19 +151,9 @@ html[data-theme='dark'] .theme-code-block {
       margin-right: 0.3em;
       width: 0.2em;
       display: inline-block;
-      background: var(--ifm-color-primary);
+      background: var(--ifm-color-primary-light);
       color: transparent;
       content: '.';
-    }
-  }
-
-  > a {
-    transition: all 0.1s;
-    display: inline-block;
-
-    &:focus,
-    &:hover {
-      color: #db2828;
     }
   }
 
@@ -189,11 +167,10 @@ html[data-theme='dark'] .theme-code-block {
   }
 }
 
-/* navbar */
 .navbar {
   box-shadow: none;
+  background-color: transparent;
 
-  // background-color: transparent;
   // background-image: radial-gradient(transparent 1px, #fff 1px);
   // background-size: 3px 3px;
   // backdrop-filter: saturate(50%) blur(4px);
@@ -217,12 +194,6 @@ html[data-theme='dark'] .theme-code-block {
 
   &:hover {
     background-color: #a1d8f71b;
-  }
-}
-
-@media only screen and (max-width: 996px) {
-  .blog-wrapper > .container > .row {
-    display: flex;
   }
 }
 

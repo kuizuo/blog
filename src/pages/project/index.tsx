@@ -109,7 +109,7 @@ function ShowcaseCards() {
 function Showcase(): JSX.Element {
   return (
     <Layout title={TITLE} description={DESCRIPTION}>
-      <main className="margin-vert--lg">
+      <main className="margin-vert--md">
         <ShowcaseHeader />
         <ShowcaseCards />
       </main>

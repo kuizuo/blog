@@ -6,14 +6,6 @@
   margin-bottom: 1rem;
 }
 
-/* post list view adjustment */
-@media only screen and (max-width: 700px) {
-  .blogGrid {
-    row-gap: 16px;
-    grid-template-columns: minmax(0, max-content);
-  }
-}
-
 .postGridItem {
   min-width: 24rem;
   display: grid;
@@ -82,5 +74,24 @@
     grid-area: date;
     justify-self: end;
     color: var(--ifm-color-emphasis-600);
+  }
+}
+
+/* post list view adjustment */
+@media only screen and (max-width: 768px) {
+  .postGridItem {
+    min-width: 100%;
+  }
+}
+
+/* post list view adjustment */
+@media only screen and (max-width: 576px) {
+  .blogGrid {
+    grid-template-columns: minmax(0, max-content);
+  }
+
+  .postGridItem {
+    max-width: 100%;
+    min-width: 28rem;
   }
 }

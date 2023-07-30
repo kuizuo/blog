@@ -18,11 +18,7 @@
 .hr {
   margin: 0;
   border: none;
-  border-top: 1px solid #f7f7f7;
-}
-
-html[data-theme='dark'] .hr {
-  border-top: 1px solid #313131;
+  border-top: 1px solid var(--ifm-toc-border-color);
 }
 
 .percent {

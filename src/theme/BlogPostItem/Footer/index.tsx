@@ -110,11 +110,11 @@ export default function BlogPostItemFooter(): JSX.Element | null {
         </div>
       )}
 
-      {isBlogPostPage && editUrl && (
+      {/* {isBlogPostPage && editUrl && (
         <div className="col margin-top--sm">
           <EditThisPage editUrl={editUrl} />
         </div>
-      )}
+      )} */}
 
       {truncatedPost && (
         <div

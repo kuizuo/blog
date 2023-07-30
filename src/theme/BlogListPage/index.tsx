@@ -65,6 +65,9 @@ function BlogListPageContent(props: Props) {
       <h2 className={styles.blogTitle}>
         <Translate id="theme.blog.title.new">博客</Translate>
       </h2>
+      <p className={styles.blogDescription}>
+        代码人生：编织技术与生活的博客之旅。
+      </p>
       <ViewTypeSwitch viewType={viewType} toggleViewType={toggleViewType} />
       <div className="row">
         <div className={'col col--12'}>
