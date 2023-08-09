@@ -3,9 +3,9 @@ slug: protocol-template
 title: Protocol 协议复现模板
 date: 2022-10-30
 authors: kuizuo
-tags: [project, protocol, template, nuxt3]
-keywords: [project, protocol, template, nuxt3]
-description: 一个用于快速复现请求协议的 Web 开发模板。基于 Nuxt3 开发，并集成了NaiveUI，Unocss，等相关工具库封装。
+tags: [project, protocol, template, nuxt]
+keywords: [project, protocol, template, nuxt]
+description: 一个用于快速复现请求协议的 Web 开发模板。基于 Nuxt 开发，并集成了NaiveUI，Unocss，等相关工具库封装。
 image: /img/project/protocol.png
 ---
 
@@ -140,15 +140,15 @@ ts 的类型提示仅是其次，此外还配置了 eslint 对代码检查，让
 既然是全栈框架，那么必然少不了数据库的存取，[nitro](https://nitro.unjs.io/guide/introduction/storage 'nitro') 自然是提供了数据存储选择，即 [unjs/unstorage](https://github.com/unjs/unstorage#http-universal 'unjs/unstorage')。使用特别简单：
 
 ```javascript
-await useStorage().setItem('test:foo', {hello: 'world'});
-await useStorage().getItem('test:foo');
+await useStorage().setItem('test:foo', { hello: 'world' })
+await useStorage().getItem('test:foo')
 ```
 
 不指定则使用内存，当然了想要持久化配置，[nitro](https://nitro.unjs.io/guide/introduction/storage#defining-mountpoints 'nitro') 也提供了相关配置
 
 ```javascript title='nitro.config.ts'
 // nitro.config.ts
-import {defineNitroConfig} from 'nitropack';
+import { defineNitroConfig } from 'nitropack'
 export default defineNitroConfig({
   storage: {
     redis: {
@@ -160,23 +160,23 @@ export default defineNitroConfig({
       base: './data/db',
     },
   },
-});
+})
 ```
 
 并根据不同前缀（根据 nitro.config.ts 中的 storage 对象的属性）存储在不同存储位置，如
 
 ```javascript
 // 存内存缓存中
-await useStorage().setItem('cache:foo', {hello: 'world'});
-await useStorage().getItem('cache:foo');
+await useStorage().setItem('cache:foo', { hello: 'world' })
+await useStorage().getItem('cache:foo')
 
 // 存db中
-await useStorage().setItem('db:foo', {hello: 'world'});
-await useStorage().getItem('db:foo');
+await useStorage().setItem('db:foo', { hello: 'world' })
+await useStorage().getItem('db:foo')
 
 // 存redis中
-await useStorage().setItem('redis:foo', {hello: 'world'});
-await useStorage().getItem('redis:foo');
+await useStorage().setItem('redis:foo', { hello: 'world' })
+await useStorage().getItem('redis:foo')
 ```
 
 从目前来看，[unjs/unstorage](https://github.com/unjs/unstorage#http-universal 'unjs/unstorage')并没有提供 sql 数据库的方案。不过对于这类项目而言，似乎也没有上 sql 数据库的必要，文件和 redis 就足以了。如果需要也可以[自定义 drivers](https://github.com/unjs/unstorage#making-custom-drivers '自定义 drivers')。
@@ -197,13 +197,13 @@ await useStorage().getItem('redis:foo');
 
 我提供了两个 md 页面，更新日志（ChangeLog）和帮助说明（Usage），如果需要更新内容，在根目录下 `content` 文件夹中找到对应文件修改即可。
 
-如果你想在创建新的 md 页面只需要在 content 中新建一个文件（如test.md），在页面路由创建同名vue文件(test.vue)，将下方的 path 修改相应文件名即可。
+如果你想在创建新的 md 页面只需要在 content 中新建一个文件（如 test.md），在页面路由创建同名 vue 文件(test.vue)，将下方的 path 修改相应文件名即可。
 
 ```html title='pages/test.vue'
 <script setup lang="ts">
-definePageMeta({
-  layout: 'markdown',
-});
+  definePageMeta({
+    layout: 'markdown',
+  })
 </script>
 
 <template>
@@ -241,7 +241,7 @@ module.exports = {
       script: './.output/server/index.mjs',
     },
   ],
-};
+}
 ```
 
 接着执行 `pm2 start ecosystem.config.js --env production` 即可运行。相比传统需要手动下载依赖的方式，Nuxt3 则是直接将 web 项目实际所需要的依赖都打包在一起，只需要在有 node 环境下机器中就可以立马运行，无需等待依赖下载。
@@ -257,10 +257,16 @@ module.exports = {
 如何修改某文字内容或某图标，这里就不再赘述了，Ctrl + Shift + F 搜索你想修改的内容并修改即可。大部分能修改的配置都写在了 `app.config.ts` 下。
 
 ```javascript title='app.config.ts'
-export default defineAppConfig({ title: 'Protocol', description:
-'一个用于快速复现请求协议的Web开发模板。', author: { name: 'kuizuo', link:
-'https://github.com/kuizuo', qq: 'https://im.qq.com/', wx: 'https://wx.qq.com/',
-}, })
+export default defineAppConfig({
+  title: 'Protocol',
+  description: '一个用于快速复现请求协议的Web开发模板。',
+  author: {
+    name: 'kuizuo',
+    link: 'https://github.com/kuizuo',
+    qq: 'https://im.qq.com/',
+    wx: 'https://wx.qq.com/',
+  },
+})
 ```
 
 通过 `const appConfig = useAppConfig()` 获取配置对象数据。
@@ -327,12 +333,12 @@ export class Blog {
 定义完这些后，我只需要实例化一个对象 account，调用 login 方法即可登录，后续的获取博文列表与评论操作我只需要拿这个 account 来操作即可。
 
 ```javascript
-const account = new Blog({username: 'kuizuo', password: '123456'});
-await account.login();
+const account = new Blog({ username: 'kuizuo', password: '123456' })
+await account.login()
 
-const blogList = await account.getBlogList();
+const blogList = await account.getBlogList()
 
-await account.comment(1);
+await account.comment(1)
 ```
 
 如果想换一个账号操作，就需要重新按照上面的方式实例化一个新的对象，拿这个对象操作即可。
@@ -349,13 +355,12 @@ await account.comment(1);
 import { Github } from '~~/server/protocol/github'
 import { ResOp } from '~~/server/utils'
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const { username } = event.context.params
 
   const user = await Github.getUser(username)
 
-  if (!user.login)
-    return ResOp.error(404, user.message ?? 'User not found')
+  if (!user.login) return ResOp.error(404, user.message ?? 'User not found')
 
   await useStorage().setItem(`db:github:user:${username}`, user)
 
@@ -427,20 +432,20 @@ export const useUserStore = definePiniaStore('user', () => {
 
 ```html title='components\Demo.vue'
 <script setup lang="ts">
-let username = $ref('kuizuo');
-let loading = $ref(false);
+  let username = $ref('kuizuo')
+  let loading = $ref(false)
 
-const userStore = useUserStore();
-const user = $computed(() => userStore.user);
+  const userStore = useUserStore()
+  const user = $computed(() => userStore.user)
 
-async function getUser() {
-  loading = true;
-  try {
-    await userStore.getUser(username);
-  } finally {
-    loading = false;
+  async function getUser() {
+    loading = true
+    try {
+      await userStore.getUser(username)
+    } finally {
+      loading = false
+    }
   }
-}
 </script>
 ```
 
@@ -496,7 +501,7 @@ async function getUser() {
 
 这种开发形态自打我接触协议复现到前端开发我就考虑过，但奈何在没接触 ssr 框架之前，这种开发形态多半是需要前后端分离，要么使用模板语言，这样接口交互方面将会十分繁琐，开发效率过于低效。
 
-因此当我发觉 ssr框架的可行性后，我几乎整整花费了两周的时间在不断的探索与完善中，希望将其编写成一个我日后随时都会用到的模板，即写即用，极速上线。因为这样的开发场景对我来说太过于常见了，而很多时间就是因为没有一个相应的模板与工具库，代码总是东凑西凑，后续维护与测试总是花费不小的时间去解决。
+因此当我发觉 ssr 框架的可行性后，我几乎整整花费了两周的时间在不断的探索与完善中，希望将其编写成一个我日后随时都会用到的模板，即写即用，极速上线。因为这样的开发场景对我来说太过于常见了，而很多时间就是因为没有一个相应的模板与工具库，代码总是东凑西凑，后续维护与测试总是花费不小的时间去解决。
 
 目前这种方案已有初步雏形，由于一些特殊的因素，我并未将已经写过的站点作为案例放在这上面作为演示，而将 Github api 作为演示，后续大概率会弄个案例展示供参考学习。
 

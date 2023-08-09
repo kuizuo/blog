@@ -3,8 +3,8 @@ slug: /macbook-experience
 title: MacBook 体验有感
 date: 2023-05-05
 authors: kuizuo
-tags: [macOS, MacBook, 使用体验]
-keywords: [macOS, MacBook, 使用体验]
+tags: [macOS, MacBook, 记录, 使用体验]
+keywords: [macOS, MacBook, 记录, 使用体验]
 description: 作者是一位从来没用过苹果产品的程序员，但在使用了一周的 MacBook Pro 14 寸后，便爱不释手。
 image: https://img.kuizuo.cn/My%20Mac.png
 ---
