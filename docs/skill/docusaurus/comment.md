@@ -29,17 +29,18 @@ Waline：需要搭建后端服务与数据库服务，提供评论与浏览量�
 
 ```html
 <script src="https://giscus.app/client.js"
-        data-repo="kuizuo/blog"
-        data-repo-id="MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI="
-        data-category="General"
-        data-category-id="DIC_kwDOF7NJDM4CPK95"
-        data-mapping="title"
+        data-repo="ydaydayup/myblog"
+        data-repo-id="R_kgDOKMY26A"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOKMY26M4CY_q7"
+        data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
-        data-emit-metadata="0"
+        data-emit-metadata="1"
         data-input-position="top"
-        data-theme="light"
+        data-theme="preferred_color_scheme"
         data-lang="zh-CN"
+        data-loading="lazy"
         crossorigin="anonymous"
         async>
 </script>
