@@ -82,8 +82,8 @@ npm run build
 ```markdown
 ---
 home: true
-heroText: 愧怍的个人空间
-tagline: 我是愧怍,沉迷于代码无法自拔
+heroText: Sunny的个人空间
+tagline: 我是Sunny,沉迷于代码无法自拔
 ...
 ```
 
@@ -95,7 +95,7 @@ tagline: 我是愧怍,沉迷于代码无法自拔
 
 ```js {2-3}
 module.exports = {
-  title: '愧怍的小站',
+  title: 'Sunny的小站',
   description: '如果代码都解决不了的话,那可能真的解决不了',
 }
 ```
@@ -107,7 +107,7 @@ module.exports = {
     "search": true,
     "searchMaxSuggestions": 10,
     "lastUpdated": "Last Updated",
-    "author": "愧怍",
+    "author": "Sunny",
     "authorAvatar": "/logo.png",
     "record": "xxxx",
     "startYear": "2017"
@@ -181,7 +181,7 @@ tags:
   - 笔记
 categories:
   - 个人学习笔记
-author: 愧怍
+author: Sunny
 keys:
   - 'e9bc0e13a8a16cbb07b175d92a113126'
 publish: false

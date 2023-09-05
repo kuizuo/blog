@@ -13,7 +13,7 @@ authors: kuizuo
 
 ```javascript title='docusaurus.config.js'
 const config = {
-  title: '愧怍的小站',
+  title: 'Sunny的小站',
   titleDelimiter: '-',
   url: 'https://kuizuo.cn',
   baseUrl: '/',
@@ -27,7 +27,7 @@ const config = {
     metadata: [
       {
         name: 'keywords',
-        content: '愧怍, kuizuo, blog, javascript, typescript, node, react, vue, web, 前端, 后端',
+        content: 'Sunny, kuizuo, blog, javascript, typescript, node, react, vue, web, 前端, 后端',
       },
     ],
     // ...
@@ -51,7 +51,7 @@ module.exports = config
 
 ### 基本信息
 
-站点名和作者名只需要搜索 **愧怍** 便能找到关键位置
+站点名和作者名只需要搜索 **Sunny** 便能找到关键位置
 
 ### 关于我
 

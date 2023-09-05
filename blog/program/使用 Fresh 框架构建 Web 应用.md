@@ -113,7 +113,7 @@ SSR 通常是将数据通过服务端的前端框架渲染成 HTML，直接将 H
 
 ```json
 {
-  "title": "愧怍的小站",
+  "title": "Sunny的小站",
   "description": "Blog",
   "image": "https://kuizuo.cn/img/logo.png",
   "url": "https://kuizuo.cn"

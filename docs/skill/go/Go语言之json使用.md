@@ -78,7 +78,7 @@ type Person struct {
 func main() {
   var persons []Person
 
-  jsonString := `[{"name": "kuizuo", "age" : 20},{"name": "愧怍", "age" : 22}]`
+  jsonString := `[{"name": "kuizuo", "age" : 20},{"name": "Sunny", "age" : 22}]`
 
   err := json.Unmarshal([]byte(jsonString), &persons)
 

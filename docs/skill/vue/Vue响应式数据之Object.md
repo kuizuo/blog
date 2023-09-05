@@ -46,7 +46,7 @@ function observe(data) {
 observe(data)
 
 data.username
-data.username = '愧怍'
+data.username = 'Sunny'
 ```
 
 从上面的代码中就可以发现，只要取值与赋值就会进入 get 和 set 函数内，在这里面便可以实现一些功能，例如 Vue 中收集依赖，在想监听浏览器中 cookies 的取值与赋值，就可以使用如下代码

@@ -23,7 +23,7 @@ gbk 编码中文是占 2 个字节，utf8 编码中文占 3 个字节
 ```python
 from urllib.parse import urlencode, parse_qs, quote, unquote
 
-quote("愧怍", encoding="gbk")
+quote("Sunny", encoding="gbk")
 # %C0%A2%E2%F4
 ```
 
@@ -39,7 +39,7 @@ quote("?", safe=";/?:@&=+$,", encoding="utf8")
 
 ```python
 unquote("%C0%A2%E2%F4", encoding="gbk")
-# 愧怍
+# Sunny
 ```
 
 如果编码格式错误，比如 gbk 编码用 utf8 解码将会变成不可见字符 ����，而用 utf8 编码用 gbk 解码，存在一个字节差，会输出成其他字符串，比如 `你好` 就会变成 `浣犲ソ`，代码 `unquote(quote("你好",encoding='utf8'), encoding="gbk")`
@@ -50,7 +50,7 @@ unquote("%C0%A2%E2%F4", encoding="gbk")
 
 ```python
 urlencode({
-    "username": '愧怍',
+    "username": 'Sunny',
     "password": 'a123456'
 })
 # username=%E6%84%A7%E6%80%8D&password=a123456
@@ -101,7 +101,7 @@ print(f'username: {user} age: {20+1}')
 如果是 python3.6 之前的话,则是用使用 string.format 方法（不常用，也不好用）
 
 ```python
-"username: {} age: {}".format("愧怍", 18)
+"username: {} age: {}".format("Sunny", 18)
 ```
 
 而 js 中的模板字符串则是使用反引号`和${}，像下面这样

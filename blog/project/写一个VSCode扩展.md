@@ -178,7 +178,7 @@ import { exec } from 'child_process'
 
 export function activate(context: vscode.ExtensionContext) {
   vscode.window
-    .showInformationMessage('是否要打开愧怍的小站？', '是', '否', '不再提示')
+    .showInformationMessage('是否要打开Sunny的小站？', '是', '否', '不再提示')
     .then(result => {
       if (result === '是') {
         exec(`start 'https://kuizuo.cn'`)
@@ -234,7 +234,7 @@ export async function activate(context: vscode.ExtensionContext) {
   const showTip = vscode.workspace.getConfiguration().get(key)
   if (showTip) {
     const result = await vscode.window.showInformationMessage(
-      '是否要打开愧怍的小站？',
+      '是否要打开Sunny的小站？',
       '是',
       '否',
       '不再提示',
@@ -389,7 +389,7 @@ export function deactivate() {}
   "activitybar": [
     {
       "id": "demo",
-      "title": "愧怍",
+      "title": "Sunny",
       "icon": "public/lollipop.svg"
     }
   ]
