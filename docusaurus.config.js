@@ -220,7 +220,7 @@ const config = {
       qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
       zhihu: 'https://www.zhihu.com/people/kuizuo',
       cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
-      mail: 'mailto:hi@kuizuo.cn',
+      email: 'mailto:hi@kuizuo.cn',
     },
   },
   headTags: [
