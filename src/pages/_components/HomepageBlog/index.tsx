@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import type { BlogPost } from '@site/src/plugin/plugin-content-blog/src/types'
+import { BlogPost } from '@docusaurus/plugin-content-blog'
 import useGlobalData from '@docusaurus/useGlobalData'
 import Translate from '@docusaurus/Translate'
 import Link from '@docusaurus/Link'

@@ -11,3 +11,4 @@ jest.transform.js
 docusaurus.config.js
 sidebars.js
 *.md
+lib

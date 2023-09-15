@@ -210,7 +210,7 @@ module.exports = async function createConfigAsync() {
       path.resolve(__dirname, './src/plugin/plugin-baidu-tongji'),
       path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
       [
-        path.resolve(__dirname, './src/plugin/plugin-content-blog'),
+        path.resolve(__dirname, './src/plugin/plugin-content-blog'), // 为了实现全局 blog 数据，必须改写 plugin-content-blog 插件
         {
           path: 'blog',
           editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
