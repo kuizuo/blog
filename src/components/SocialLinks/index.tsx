@@ -43,7 +43,7 @@ export default function SocialLinks({ ...prop }) {
       <SocialLink href={socials.twitter} icon="ri:twitter-line" />
       <SocialLink href={socials.qq} icon="ri:qq-line" />
       <SocialLink href={socials.zhihu} icon="ri:zhihu-line" />
-      <SocialLink href={socials.email} icon="ri:mail-line" />
+      <SocialLink href={socials.mail} icon="ri:mail-line" />
       <SocialLink
         href={socials.cloudmusic}
         icon="ri:netease-cloud-music-line"
