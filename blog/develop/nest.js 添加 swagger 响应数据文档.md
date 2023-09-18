@@ -221,7 +221,7 @@ export const ApiResult = <TModel extends Type<any>>({
 
 `{ $ref: getSchemaPath(ResOp) }` 表示原始数据，要被“塞”到那个类下，而第二个参数 `properties: { data: prop }` 则表示 `ResOp` 的 `data` 属性要如何替换，替换的部分则由 `prop` 变量决定，只需要根据实际需求构造相应的字段结构。
 
-由于有些 类 没有被任何控制器直接引用， SwaggerModule 目前还无法生成相应的模型定义，所以需要 @ApiExtraModels(model) 将其额外导入。
+由于有些类没有被任何控制器直接引用， SwaggerModule `SwaggerModule` 还无法生成相应的模型定义，所以需要 `@ApiExtraModels(model)` 将其额外导入。
 
 此时只需要将 `@ApiResponse({ type: TodoEntity })` 改写为 `@ApiResult({ type: TodoEntity })`，就可达到最终目的。
 

@@ -604,7 +604,7 @@ context.subscriptions.push(
 
 这里要说下 vscode 编辑器中的 Position，了解这个对代码替换、代码定位、代码高亮有很大帮助。
 
-position 有两个属性`line`和`character`，对应的也就是行号和列号（后文以`line`和`character` 为称），**\*\***和\***\*都是从 0 开始算起，而在 vscode 自带的状态栏提示中则是从 1 开始算起**，这两者可别混淆了。
+position 有两个属性`line`和`character`，对应的也就是行号和列号（后文以`line`和`character` 为称），和 **都是从 0 开始算起，而在 vscode 自带的状态栏提示中则是从 1 开始算起**，这两者可别混淆了。
 
 其中 position 有如下几个方法
 

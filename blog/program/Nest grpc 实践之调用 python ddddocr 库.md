@@ -89,7 +89,7 @@ await app.startAllMicroservices()
 
 其实不然，protobuf 不同于 JSON、XML 数据，是以二进制数据流传输，数据在经 protobuf 序列化后的消息体积很小（传输内容少，传输相对就快）。同时在加上 HTTP/2 协议的加持（底层传输协议，可替换为其他协议），使得 gRPC 的传输性能要优于传统 Restful。
 
-protobuf 对于数据传输的优点有很多，如 \***\*支持流式传输，不过这就不是本文所述的内容了。总之你只要知道 grpc 性能高的原因就是因为 protobuf。\*\***
+protobuf 对于数据传输的优点有很多，如 **支持流式传输，不过这就不是本文所述的内容了。总之你只要知道 grpc 性能高的原因就是因为 protobuf。**
 
 首先来看 `hero.proto` 这个文件的内容
 
@@ -181,7 +181,7 @@ message CharacterReply {
 client: ClientGrpc
 ```
 
-> 这一部分也可以通过构造函数的方式注入，因人而异。 `constructor(@**Inject**('OCR_PACKAGE') private readonly client: ClientGrpc) {}`
+> 这一部分也可以通过构造函数的方式注入，因人而异。 `constructor(@Inject('OCR_PACKAGE') private readonly client: ClientGrpc) {}`
 
 有了这个 client 就能够获取 ocrService 了，完整 ocr.controller.ts 代码如下
 
@@ -232,7 +232,7 @@ export class OcrController implements OnModuleInit {
 
 在之前是通过 python 来启动一个 http 服务来供其他语言调用，现在有了 gRPC 就完全没必要启动 http 服务。
 
-可以在 **[这里](https://grpc.io/docs/languages/python/quickstart/#download-the-example) 下载官方的 python 示例。**
+可以在 [这里](https://grpc.io/docs/languages/python/quickstart/#download-the-example) 下载官方的 python 示例。
 
 先安装 grpc_tools
 
@@ -246,9 +246,9 @@ python3 -m pip install grpcio-tools
 python3 -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. ocr.proto
 ```
 
-它将会在下方根据 ocr.proto 生成 ocr_pb2.py 与 ocr_pb2_grpc.py 两个文件，事实上这两个文件都无需改动，你只需要每次修改 .proto 文件后再重新执行上方代码将新的内容复写到文件上便可。
+它将会在下方根据 `ocr.proto` 生成 `ocr_pb2.py` 与 `ocr_pb2_grpc.py` 两个文件，事实上这两个文件都无需改动，你只需要每次修改 .proto 文件后再重新执行上方代码将新的内容复写到文件上便可。
 
-不过要搞清流程，还要是在意这些文件便可。其中在 ocr_pb2_grpc.py \*\*\*\*文件中，你会找到 OCRServicer 类的接口定义。
+不过要搞清流程，还要是在意这些文件便可。其中在 `ocr_pb2_grpc.py` 文件中，你会找到 OCRServicer 类的接口定义。
 
 ```python
 class OCRServicer(object):
