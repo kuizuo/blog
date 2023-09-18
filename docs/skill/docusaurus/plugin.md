@@ -65,7 +65,7 @@ plugins: [
 })()
 ```
 
-## plugin-matomo
+## plugin-matomo(弃用)
 
 [Matomo Analytics](https://matomo.org/) 站点统计，分析用户行为，停留时间。
 

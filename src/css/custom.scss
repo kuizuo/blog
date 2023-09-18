@@ -91,79 +91,83 @@ html[data-theme='dark'] .theme-code-block {
   --prism-background-color: #1e1e1e !important;
 }
 
-.markdown {
-  a {
-    transition: all 0.1s;
-    display: inline-block;
-
-    &:focus,
-    &:hover {
+article {
+  .markdown {
+    a:not(.hash-link) {
       text-decoration: none;
+      font-weight: inherit;
+      border-bottom: 1px solid rgb(125 125 125 / 30%);
+      transition: border 0.3s ease-in-out;
+
+      &:hover,
+      &:focus {
+        border-bottom: 1px solid var(--ifm-color-primary-light);
+      }
     }
-  }
 
-  code {
-    border: 0.1rem solid transparent;
-  }
-
-  .alert {
-    border: 2px solid var(--ifm-alert-border-color);
-  }
-
-  img {
-    border-radius: 10px;
-
-    // box-shadow: 0 0 25px rgb(132 167 156 / 10%);
-  }
-
-  > h2 {
-    font-size: 1.8em;
-    border-bottom: 1px solid var(--ifm-color-primary-light);
-    margin-top: 1rem;
-
-    &::before {
-      margin-right: 0.3em;
-      width: 0.4em;
-      display: inline-block;
-      background: var(--ifm-color-primary-light);
-      color: transparent;
-      content: '.';
+    code {
+      border: 0.1rem solid transparent;
     }
-  }
 
-  > h3 {
-    font-size: 1.5em;
-
-    &::before {
-      margin-right: 0.3em;
-      width: 0.3em;
-      display: inline-block;
-      background: var(--ifm-color-primary-light);
-      color: transparent;
-      content: '.';
+    .alert {
+      border: 2px solid var(--ifm-alert-border-color);
     }
-  }
 
-  > h4 {
-    font-size: 1.2em;
+    img {
+      border-radius: 10px;
 
-    &::before {
-      margin-right: 0.3em;
-      width: 0.2em;
-      display: inline-block;
-      background: var(--ifm-color-primary-light);
-      color: transparent;
-      content: '.';
+      // box-shadow: 0 0 25px rgb(132 167 156 / 10%);
     }
-  }
 
-  .markdown-body a:hover::before {
-    width: 100%;
-  }
+    > h2 {
+      font-size: 1.7em;
+      border-bottom: 1px solid var(--ifm-color-primary-light);
+      margin-top: 1rem;
 
-  img {
-    display: flex;
-    margin: 0 auto;
+      &::before {
+        margin-right: 0.3em;
+        width: 0.3em;
+        display: inline-block;
+        background: var(--ifm-color-primary-light);
+        color: transparent;
+        content: '.';
+      }
+    }
+
+    > h3 {
+      font-size: 1.5em;
+
+      &::before {
+        margin-right: 0.3em;
+        width: 0.2em;
+        display: inline-block;
+        background: var(--ifm-color-primary-light);
+        color: transparent;
+        content: '.';
+      }
+    }
+
+    > h4 {
+      font-size: 1.2em;
+
+      &::before {
+        margin-right: 0.3em;
+        width: 0.1em;
+        display: inline-block;
+        background: var(--ifm-color-primary-light);
+        color: transparent;
+        content: '.';
+      }
+    }
+
+    .markdown-body a:hover::before {
+      width: 100%;
+    }
+
+    img {
+      display: flex;
+      margin: 0 auto;
+    }
   }
 }
 

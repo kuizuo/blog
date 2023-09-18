@@ -3,6 +3,7 @@ id: docusaurus-component
 slug: /docusaurus-component
 title: 自定义组件
 authors: kuizuo
+description: 介绍如何自定义 docusaurus 组件
 ---
 
 初始化的一个 docusaurus 项目就已经有预留好的的组件，例如博客布局，标签页归档页等等。但是这些组件的样式可能不满你的审美，或者是想增加在这些主题组件中增加点东西。那么就需要用到 [Swizzle](https://docusaurus.io/zh-CN/docs/swizzling)
@@ -50,7 +51,7 @@ yarn run swizzle @docusaurus/theme-classic BlogArchivePage -- --eject --typescri
 
 这样会创建 `src/theme/BlogArchivePage/index.tsx`，也就是归档页面的代码，而要做的就是修改代码，实现自己所需的样式与功能。
 
-不过这样获取到的只是index.tsx文件，有可能还存在子组件。所有我一般的做法是在 `node_modules/@docusaurus/theme-classic/src/theme` 中找到组件所在文件夹，然后将整个文件夹复制到 `src/theme` 下。这样能得到就是最原始的ts文件，同时所能修改的地方也就越多，更方便的个性化。
+不过这样获取到的只是 index.tsx 文件，有可能还存在子组件。所有我一般的做法是在 `node_modules/@docusaurus/theme-classic/src/theme` 中找到组件所在文件夹，然后将整个文件夹复制到 `src/theme` 下。这样能得到就是最原始的 ts 文件，同时所能修改的地方也就越多，更方便的个性化。
 
 :::caution
 
