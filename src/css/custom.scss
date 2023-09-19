@@ -149,15 +149,6 @@ article {
 
     > h4 {
       font-size: 1.2em;
-
-      &::before {
-        margin-right: 0.3em;
-        width: 0.1em;
-        display: inline-block;
-        background: var(--ifm-color-primary-light);
-        color: transparent;
-        content: '.';
-      }
     }
 
     .markdown-body a:hover::before {

@@ -171,7 +171,8 @@ const sidebars = {
       items: [
         'skill/algorithm/two-sum',
         'skill/algorithm/three-sum',
-        'skill/algorithm/sliding-window'
+        'skill/algorithm/sliding-window',
+        'skill/algorithm/double-pointer'
       ],
     },
     {
