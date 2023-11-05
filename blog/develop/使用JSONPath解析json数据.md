@@ -5,7 +5,7 @@ date: 2021-09-20
 authors: kuizuo
 tags: [javascript, json, node]
 keywords: [javascript, json, node]
-description: jsonpath 能够帮助我们快速的从json数据中提取想要的数据  
+description: jsonpath 能够帮助我们快速的从json数据中提取想要的数据
 image: /img/blog/jsonpath.png
 sticky: 3
 ---
@@ -22,38 +22,23 @@ sticky: 3
 
 ## 基本语法
 
-| JSONPath          | 描述                                                       |
-| ----------------- | ---------------------------------------------------------- |
-| $                 | 根对象或元素.                                              |
-| @                 | 当前对象或元素.                                            |
-| . or []           | 子元素操作符.                                              |
-| ..                | 递归匹配所有子元素.                                        |
-| \*                | 通配符. 匹配所有对象或元素.                                |
-| []                | 下标运算符，JsonPath 索引从 0 开始.                        |
-| [,]               | 连接运算符，将多个结果拼成数组返回，JSONPath 允许使用别名. |
-| [start:end1:step] | 数组切片运算符.                                            |
-| ?()               | 过滤器（脚本）表达式.                                      |
-| ()                | 脚本表达式.                                                |
-| \|\|              | 表达式 或                                                  |
-| &&                | 表达式 且                                                  |
-
 ### 过滤器表达式
 
-通常的表达式格式为：[?(@.age > 18)] 表示当前节点属性 age 大于 18
+通常的表达式格式为：`[?(@.age > 18)]` 表示当前节点属性 age 大于 18
 
-| 操作符 | 描述                                                             |
-| ------ | ---------------------------------------------------------------- |
-| ==     | 等于符号，但数字 1 不等于字符 1(note that 1 is not equal to ‘1’) |
-| !=     | 不等于符号                                                       |
-| <      | 小于符号                                                         |
-| <=     | 小于等于符号                                                     |
-| >      | 大于符号                                                         |
-| >=     | 大于等于符号                                                     |
-| =~     | 判断是否符合正则表达式，例如[?(@.name =~ /foo.*?/i)]             |
-| in     | 所属符号，例如[?(@.size in [‘S’, ‘M’])]                          |
-| nin    | 排除符号                                                         |
-| size   | size of left (array or string) should match right                |
-| empty  | 判空 Null 符号                                                   |
+| 操作符  | 描述                                                             |
+| ------- | ---------------------------------------------------------------- |
+| `==`    | 等于符号，但数字 1 不等于字符 1(note that 1 is not equal to ‘1’) |
+| `!=`    | 不等于符号                                                       |
+| `<`     | 小于符号                                                         |
+| `<=`    | 小于等于符号                                                     |
+| `>`     | 大于符号                                                         |
+| `>=`    | 大于等于符号                                                     |
+| `=~`    | 判断是否符合正则表达式，例如[?(@.name =~ /foo.*?/i)]             |
+| `in`    | 所属符号，例如[?(@.size in [‘S’, ‘M’])]                          |
+| `nin`   | 排除符号                                                         |
+| `size`  | size of left (array or string) should match right                |
+| `empty` | 判空 Null 符号                                                   |
 
 语法就这些，不过单单有语法，不实践肯定是不够的。下面就是一些官方简单例子操作，还有一个终极实战
 
@@ -77,7 +62,7 @@ var names = jp.query(cities, '$..name')
 如果使用 js 来遍历的话，也简单
 
 ```js
-let names = cities.map((c) => c.name)
+let names = cities.map(c => c.name)
 ```
 
 这个数据可能还没那么复杂，在看看下面这个例子，代码来源于https://goessner.net/articles/JsonPath
@@ -121,18 +106,18 @@ let names = cities.map((c) => c.name)
 }
 ```
 
-| JsonPath                                   | Result                                       |
-| ------------------------------------------ | -------------------------------------------- |
-| `$.store.book[*].author`                   | 所有 book 的 author 节点                     |
-| `$..author`                                | 所有 author 节点                             |
-| `$.store.*`                                | store 下的所有节点，book 数组和 bicycle 节点 |
-| `$.store..price`                           | store 下的所有 price 节点                    |
-| `$..book[2]`                               | 匹配第 3 个 book 节点                        |
-| `$..book[(@.length-1)]`，或 `$..book[-1:]` | 匹配倒数第 1 个 book 节点                    |
-| `$..book[0,1]`，或 `$..book[:2]`           | 匹配前两个 book 节点                         |
-| `$..book[?(@.isbn)]`                       | 过滤含 isbn 字段的节点                       |
-| `$..book[?(@.price<10)]`                   | 过滤`price<10`的节点                         |
-| `$..*`                                     | 递归匹配所有子节点                           |
+| JsonPath | Result |
+| --- | --- |
+| `$.store.book[*].author` | 所有 book 的 author 节点 |
+| `$..author` | 所有 author 节点 |
+| `$.store.*` | store 下的所有节点，book 数组和 bicycle 节点 |
+| `$.store..price` | store 下的所有 price 节点 |
+| `$..book[2]` | 匹配第 3 个 book 节点 |
+| `$..book[(@.length-1)]`，或 `$..book[-1:]` | 匹配倒数第 1 个 book 节点 |
+| `$..book[0,1]`，或 `$..book[:2]` | 匹配前两个 book 节点 |
+| `$..book[?(@.isbn)]` | 过滤含 isbn 字段的节点 |
+| `$..book[?(@.price<10)]` | 过滤`price<10`的节点 |
+| `$..*` | 递归匹配所有子节点 |
 
 对应的语法可直接到在 JSONPath 在线验证网站上进行测试。要提一点的是，jsonpath 是支持使用 || 与 && 进行过滤的，比如上面要获取 category 为 fiction，price 大于 10 的语法为`$..book[?(@.price>10 && @.category=="fiction")]` 结果如下
 

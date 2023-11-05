@@ -115,7 +115,7 @@ Vercel 支持路由重写功能，因此我们可以实现反向代理。
 
 请求`/proxy/hello` 将会请求到 `http://127.0.0.1:5000/hello`（不带有`/proxy`）
 
-:::caution
+:::warning
 
 注意无法代理前缀为/api 的接口，即使设置了也无效。
 

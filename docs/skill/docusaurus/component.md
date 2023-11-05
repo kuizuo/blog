@@ -53,7 +53,7 @@ yarn run swizzle @docusaurus/theme-classic BlogArchivePage -- --eject --typescri
 
 不过这样获取到的只是 index.tsx 文件，有可能还存在子组件。所有我一般的做法是在 `node_modules/@docusaurus/theme-classic/src/theme` 中找到组件所在文件夹，然后将整个文件夹复制到 `src/theme` 下。这样能得到就是最原始的 ts 文件，同时所能修改的地方也就越多，更方便的个性化。
 
-:::caution
+:::warning
 
 **但是**，在使用自定义组件的时候，有些主题组件可能会存在一定**风险**。尤其是在升级 Docusaurus 变得更困难，因为如果接收的属性发生变化，或内部使用的主题 API 发生变化，有可能就会导致页面渲染失败。
 

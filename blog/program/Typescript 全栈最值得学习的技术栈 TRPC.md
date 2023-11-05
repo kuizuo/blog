@@ -545,7 +545,7 @@ export const authOptions: NextAuthOptions = {
 
 通常来说 tRPC 会配合全栈框架使用，因此可以非常轻松的部署在 Vercel，Netlify 上。如今 Vercel 应该也已经家喻户晓了，因此这里就不演示如何部署，可到 [Vercel • Create T3 App](https://create.t3.gg/en/deployment/vercel 'Vercel • Create T3 App') 中查看相关步骤。
 
-:::caution
+:::warning
 
 不过要注意，Vercel 并不提供文件读写操作，即无法实现数据存储，因此你如果需要提供数据读取的操作，那么普通需要一个远程的数据库服务，将 DATABASE_URL 环境变量替换成线上地址。如
 

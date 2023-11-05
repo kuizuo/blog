@@ -20,7 +20,7 @@ description: 使用 Fresh 框架构建Web 应用，用于将链接转换为卡�
 
 [fresh](https://fresh.deno.dev/) 自称是下一代 web 开发框架（这句话怎么这么熟悉?），是一个基于 Deno 的 Web 框架。它提供了许多用于构建 Web 应用程序和 API 的工具和功能。Fresh 框架特别强调简单性和灵活性，并着重于提供最佳的性能和开发体验。它支持 TypeScript，并且不需要任何配置或构建步骤。这些特性使得 Fresh 框架成为构建高效和现代 Web 应用程序的理想选择。
 
-:::caution 声明
+:::warning 声明
 
 Fresh 的前端渲染层由 Preact 完成，包括 Islands 架构的实现也是基于 Preact。如果你想在 Fresh 中使用其他主流前端框架，目前来说有点无能为力。
 
@@ -85,7 +85,7 @@ my-project
 
 ### islands
 
-**`Islands/`**: 群岛，Fresh中我并未看到对这一词的解释，你可以到 [astro 群岛](https://docs.astro.build/zh-cn/concepts/islands/) 看看新的 Web 架构模式，主要作用就是用于存放交互式组件（服务端组件），可以在客户端和服务端运行。有点类似与 next.js 的服务端组件，同样有两种状态（服务端，浏览器端）。
+**`Islands/`**: 群岛，Fresh 中我并未看到对这一词的解释，你可以到 [astro 群岛](https://docs.astro.build/zh-cn/concepts/islands/) 看看新的 Web 架构模式，主要作用就是用于存放交互式组件（服务端组件），可以在客户端和服务端运行。有点类似与 next.js 的服务端组件，同样有两种状态（服务端，浏览器端）。
 
 这一部分会有点难理解，你只要知道 IsLands 存放的组件有两种状态（服务端，浏览器端），下文称服务端组件，不同于 components 下的组件，服务端组件有一些优势，例如说
 
@@ -142,19 +142,19 @@ fresh 的 handler 提供两个参数，一般来都会写成下面这种形式�
 export const handler = {
   async GET(req: Request, ctx: HandlerContext): Promise<Response> {},
   async POST(req: Request, ctx: HandlerContext): Promise<Response> {},
-};
+}
 ```
 
 假设当前的请求是 /api/test?q=123，我想要获取 query 参数的 q，我得这么做
 
 ```typescript
-const url = new URL(req.url);
-const q = url.searchParams.get('q');
+const url = new URL(req.url)
+const q = url.searchParams.get('q')
 ```
 
 当时我尝试用 ctx.query 和 req.query 来获取 q 参数，然而 ctx 与 req 并没有 query 属性，在翻阅文档与源码，才得知 fresh 并没有将 query 参数解析到 req 或 ctx 下。
 
-至于说为何要用 query 而不是用 param，主要是因为 url 的缘故，比如说 `/api/link/https://kuizuo.cn` 这个链接，这时 param 是解析不出 `https://kuizuo.cn` 完整 url 的，除非url编码，但这对使用者来说就不是很好，于是就舍弃了 param 参数的方案。
+至于说为何要用 query 而不是用 param，主要是因为 url 的缘故，比如说 `/api/link/https://kuizuo.cn` 这个链接，这时 param 是解析不出 `https://kuizuo.cn` 完整 url 的，除非 url 编码，但这对使用者来说就不是很好，于是就舍弃了 param 参数的方案。
 
 ### 有些 npm 包在 fresh 无法正常使用
 
@@ -169,11 +169,10 @@ const q = url.searchParams.get('q');
 通常的做法是判断组件当前的状态，可以用如下方式来判断是否为浏览器环境。
 
 ```typescript
-import {IS_BROWSER} from '$fresh/runtime.ts';
+import { IS_BROWSER } from '$fresh/runtime.ts'
 ```
 
-然后将 localStorage等 Web 相关 API 的调用放在 IS_BROWSER 的判断中。
-
+然后将 localStorage 等 Web 相关 API 的调用放在 IS_BROWSER 的判断中。
 
 有篇相关文件非常值得阅读，或许对组件的 hydration 有更好的理解
 

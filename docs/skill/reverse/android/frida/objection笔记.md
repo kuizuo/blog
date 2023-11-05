@@ -49,13 +49,13 @@ objection log 文件位置: `C:\Users\zeyu\.objection\objection.log`
 
 #### hook 命令
 
-| 命令                                                                 | 功能                              |
-| -------------------------------------------------------------------- | --------------------------------- |
-| `android hooking list classes`                                       | 列出所有已加载的类                |
-| `android hooking search classes <pattern>`                           | 搜索特定关键字的类                |
-| `android hooking list class_methods <路径.类名>`                     | 列出类下所有方法                  |
-| `android hooking watch class <路径.类名>`                            | hook 类的所有方法(不包括构造方法) |
-| `android hooking watch class_method <路径.类名.方法名>`              | hook 类的方法(所有重载方法)       |
+| 命令 | 功能 |
+| --- | --- |
+| `android hooking list classes` | 列出所有已加载的类 |
+| `android hooking search classes <pattern>` | 搜索特定关键字的类 |
+| `android hooking list class_methods <路径.类名>` | 列出类下所有方法 |
+| `android hooking watch class <路径.类名>` | hook 类的所有方法(不包括构造方法) |
+| `android hooking watch class_method <路径.类名.方法名>` | hook 类的方法(所有重载方法) |
 | `android hooking watch class_method <路径.类名.方法名> "<参数类型>"` | hook 单个重载方法，需指定参数类型 |
 
 #### 查看 hook 列表
@@ -98,19 +98,17 @@ android intent launch_activity <activityName>
 
 ### 插件
 
-:::danger
-注: 在 Window 下插件路径需要使用两个//或使用\，不然会报 Missing `__init__.py`错误
-:::
+:::danger 注: 在 Window 下插件路径需要使用两个//或使用\，不然会报 Missing `__init__.py`错误 :::
 
 #### 加载插件
 
-```
+```bash
 objection -g com.app.name explore -P <插件路径>
 ```
 
 or
 
-```
+```bash
 objection -g com.app.name explore
 plugin load <插件路径>
 ```
@@ -137,7 +135,7 @@ plugin wallbreaker objectdump <object-handle> [--fullname] # 输出指定对象�
 
 #### [FRIDA-DEXDump](https://github.com/hluwa/FRIDA-DEXDump)
 
-进入 objection，加载插件 plugin load <插件路径> [指定插件名字]
+进入 objection，加载插件 `plugin load <插件路径> [指定插件名字]`
 
 ```
 plugin load F:\\Frida\\objection-plugin\\FRIDA-DEXDump\\frida_dexdump

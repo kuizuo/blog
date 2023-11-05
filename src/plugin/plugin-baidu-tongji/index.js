@@ -2,6 +2,10 @@ module.exports = function (context, options) {
   return {
     name: 'docusaurus-plugin-baidu-tongji',
     injectHtmlTags() {
+      if (process.env.NODE_ENV === 'development') {
+        return {}
+      }
+
       return {
         headTags: [
           {

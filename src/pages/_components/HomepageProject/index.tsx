@@ -89,7 +89,7 @@ const Slider = ({ items }: { items: Project[] }) => {
       >
         {items.map((item, index) => {
           return (
-            <div className={styles.slide}>
+            <div className={styles.slide} key={item.title}>
               <a href={item.website} target="_blank">
                 <img
                   src={item.preview}

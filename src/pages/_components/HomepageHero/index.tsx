@@ -108,6 +108,7 @@ function Logos() {
               ...l.style,
               y: yValue,
             }}
+            key={index}
           >
             <Icon icon={l.icon}></Icon>
           </motion.div>

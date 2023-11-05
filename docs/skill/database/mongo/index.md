@@ -23,7 +23,7 @@ keywords: [mongodb, database]
 
 ### Docker
 
-[mongo (docker.com)](https://hub.docker.com/_/mongo)
+[`mongo (docker.com)`](https://hub.docker.com/_/mongo)
 
 ```shell
 docker pull mongo:latest
@@ -67,7 +67,7 @@ security:
 
 配置文件如下
 
-```
+```bash
 # 数据库文件存储位置
 dbpath = /data/db/
 # log文件存储位置
@@ -84,8 +84,7 @@ auth  = true
 oplogSize=2048
 ```
 
-- 开启防火墙
-  systemctl start firewall
+- 开启防火墙 systemctl start firewall
 
 - 防火墙放端口
 
@@ -131,11 +130,11 @@ db.user.ensureIndex({"userId":1},{"unique",true})
 
 #### 1.创建用户
 
-```shell
+```js
 use admin
 
 # root 超级管理员
-db.createUser({ user:'admin',pwd:'123456',roles:[ { role:'root', db: 'admin'}]});
+db.createUser({ user:'admin', pwd:'123456',roles:[ { role:'root', db: 'admin'} ] });
 db.auth('admin', '123456')
 
 # 创建有可读写权限的用户. 对于一个特定的数据库, 比如 my，添加用户 user1，角色：dbOwner
@@ -146,7 +145,7 @@ db.createUser({user:"user1",pwd:"pwd",roles:[{role:"dbOwner",db:"my"}]})
 
 ### 角色命令
 
-```
+```js
 show users   // 查看当前数据库下角色
 
 db.updateUser("admin",pwd:"password")
@@ -198,15 +197,15 @@ db.order.aggregate([
 ### 连接
 
 ```js
-const mongoose = require('mongoose');
-let url = 'mongodb://localhost:27017/kuizuo';
-mongoose.connect(url, { useNewUrlParser: true }, function (err) {});
+const mongoose = require('mongoose')
+let url = 'mongodb://localhost:27017/kuizuo'
+mongoose.connect(url, { useNewUrlParser: true }, function (err) {})
 ```
 
 ### 定义 Schema
 
 ```js
-import * as mongoose from 'mongoose';
+import * as mongoose from 'mongoose'
 
 let UserSchema = mongoose.Schema({
   username: {
@@ -218,7 +217,7 @@ let UserSchema = mongoose.Schema({
   age: {
     type: Number,
     get(params) {
-      return params + '岁';
+      return params + '岁'
     }, // get不建议使用  因为不是获取的时候添加 而是实例化的时候取的时候添加
   },
   status: Number,
@@ -226,32 +225,32 @@ let UserSchema = mongoose.Schema({
     type: String,
     set(params) {
       if (!params.includes('https://') || !params.includes('http://')) {
-        return 'http://' + params;
+        return 'http://' + params
       }
-      return params;
+      return params
     },
   },
-});
+})
 ```
 
 ### 定义模型
 
 ```js
 // let User = mongoose.model('User', UserSchema) // 首字母大写  默认users表
-let User = mongoose.model('User', UserSchema, 'user'); // 指定user表
+let User = mongoose.model('User', UserSchema, 'user') // 指定user表
 
 User.find({}, (err, doc) => {
-  console.log(doc);
-});
+  console.log(doc)
+})
 
 // 增加数据
 // 实例化对象
 let user = new User({
   username: 'kuizuo',
   password: 'a12345678',
-});
+})
 
-user.save();
+user.save()
 ```
 
 ### 自定义封装方法(一般很少使用)
@@ -318,10 +317,10 @@ let filter = {
 }
 ```
 
-1. (>) 大于 - $gt
-2. (<) 小于 - $lt
-3. (>=) 大于等于 - $gte
-4. (<= ) 小于等于 - $lte
+1. `(>)` 大于 - $gt
+2. `(<)` 小于 - $lt
+3. `(>=)` 大于等于 - $gte
+4. `(<=)` 小于等于 - $lte
 
 如果时间日期格式是 ISO，则需用使用 ISODate 函数转为一下
 
@@ -349,10 +348,10 @@ var userSchema = new mongoose.Schema(
     },
   },
   { versionKey: false },
-);
+)
 ```
 
-如果在数据库中扔向保留这个字段，只是在查询的时候不想返回**v 字段，可以通过设置{ **v: 0}在返回结果中过滤掉这一字段
+如果在数据库中扔向保留这个字段，只是在查询的时候不想返回 `**v` 字段，可以通过设置 `{ **v: 0}` 在返回结果中过滤掉这一字段
 
 ```js
 UserModel.findOne({username, password}, {__v: 0}, function (err, user){
@@ -399,7 +398,7 @@ UserModel.findOne({username, password}, {__v: 0}, function (err, user){
 #### $elemMatch
 
 ```js
-Model.find({ username: '15212345678', name: { $elemMatch: { name: '前端' } } });
+Model.find({ username: '15212345678', name: { $elemMatch: { name: '前端' } } })
 ```
 
 要注意的是：**对于数组中只有一个返回元素，我们可以使用$elemMatch来查询，但是对于多个元素$elemMatch 是不适应。**
@@ -457,25 +456,23 @@ db.getCollection("user").aggregate([
 
 方法二：使用$match过滤符合条件的根文档结果集，然后使用$project 返回对应字段的同时，在 tags 数组中使用$filter 进行内部过滤，返回最终结果集
 
-```
-db.getCollection('user').aggregate(
-  [
-    { "$match": { }},
-    {
-      $project: {
-        "uid": 1,
-        "username": 1,
-        "tags": {
-          $filter: {
-            input: "$tags",
-            as: "item",
-            cond: { $eq : ["$$item.name","前端"] }
-          }
-        }
-      }
-    }
-  ]
-)
+```js
+db.getCollection('user').aggregate([
+  { $match: {} },
+  {
+    $project: {
+      uid: 1,
+      username: 1,
+      tags: {
+        $filter: {
+          input: '$tags',
+          as: 'item',
+          cond: { $eq: ['$$item.name', '前端'] },
+        },
+      },
+    },
+  },
+])
 ```
 
 相比 group 而言，filter 比较直接，但通过 group 可以直接统计对应的数量啥的，毕竟分组聚合才是关键精髓。
@@ -500,11 +497,11 @@ mongodump -h dbhost -d dbname -o dbdirectory
 
 mongodump 命令可选参数列表如下所示：
 
-| 语法                                              | 描述                           | 实例                                             |
-| :------------------------------------------------ | :----------------------------- | :----------------------------------------------- |
-| mongodump --host HOST_NAME --port PORT_NUMBER     | 该命令将备份所有 MongoDB 数据  | mongodump --host runoob.com --port 27017         |
-| mongodump --dbpath DB_PATH --out BACKUP_DIRECTORY | 指定备份数据库位置             | mongodump --dbpath /data/db/ --out /data/backup/ |
-| mongodump --collection COLLECTION --db DB_NAME    | 该命令将备份指定数据库的集合。 | mongodump --collection mycol --db test           |
+| 语法 | 描述 | 实例 |
+| :-- | :-- | :-- |
+| mongodump --host HOST_NAME --port PORT_NUMBER | 该命令将备份所有 MongoDB 数据 | mongodump --host runoob.com --port 27017 |
+| mongodump --dbpath DB_PATH --out BACKUP_DIRECTORY | 指定备份数据库位置 | mongodump --dbpath /data/db/ --out /data/backup/ |
+| mongodump --collection COLLECTION --db DB_NAME | 该命令将备份指定数据库的集合。 | mongodump --collection mycol --db test |
 
 例: 备份 test 数据库
 
@@ -520,19 +517,19 @@ mongorestore 命令脚本语法如下：
 mongorestore -h <hostname><:port> -d dbname <path>
 ```
 
-- --host <:port>, -h <:port>：MongoDB 所在服务器地址，默认为： localhost:27017
+- `--host <:port>, -h <:port>` ：MongoDB 所在服务器地址，默认为：localhost:27017
 
-- --db , -d ：需要恢复的数据库实例，例如：test，当然这个名称也可以和备份时候的不一样，比如 test2
+- `--db , -d` ：需要恢复的数据库实例，例如：test，当然这个名称也可以和备份时候的不一样，比如 test2
 
-- --drop：恢复的时候，遇到重复值先删除当前数据，然后恢复备份的数据。就是说，恢复后，备份后添加修改的数据都会被删除，慎用哦！
+- `--drop`：恢复的时候，遇到重复值先删除当前数据，然后恢复备份的数据。就是说，恢复后，备份后添加修改的数据都会被删除，慎用哦！
 
-- \<path\>：mongorestore 最后的一个参数，设置备份数据所在位置，例如：c:\data\dump\test。
+- `\<path\>`：mongorestore 最后的一个参数，设置备份数据所在位置，例如：c:\data\dump\test。
 
-  你不能同时指定 \<path\> 和 --dir 选项，--dir 也可以设置备份目录。
+  你不能同时指定 `\<path\>` 和 --dir 选项，--dir 也可以设置备份目录。
 
 - --dir：指定备份的目录
 
-  你不能同时指定 \<path\> 和 --dir 选项。
+  你不能同时指定 `\<path\>` 和 --dir 选项。
 
 例:
 

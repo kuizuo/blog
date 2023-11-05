@@ -1,11 +1,11 @@
-// @ts-check
+const { themes } = require('prism-react-renderer');
 
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
 const announcementBarContent = ''
 
-module.exports = async function createConfigAsync() {
+export default async function createConfigAsync() {
   /** @type {import('@docusaurus/types').Config} */
   return {
     title: '愧怍的小站',
@@ -148,9 +148,9 @@ module.exports = async function createConfigAsync() {
         email: 'mailto:hi@kuizuo.cn',
       },
       prism: {
-        theme: require('prism-react-renderer/themes/vsLight'),
-        darkTheme: require('prism-react-renderer/themes/vsDark'),
-        additionalLanguages: ['java', 'php', 'rust', 'toml'],
+        theme: themes.vsLight,
+        darkTheme: themes.vsDark,
+        additionalLanguages: ['bash', 'json', 'java', 'php', 'rust', 'toml'],
         defaultLanguage: 'javascript',
         magicComments: [
           {
@@ -182,15 +182,14 @@ module.exports = async function createConfigAsync() {
     presets: [
       [
         '@docusaurus/preset-classic',
-        /** @type {import('@docusaurus/preset-classic').Options} */
-        ({
+        {
           docs: {
             path: 'docs',
             sidebarPath: 'sidebars.js',
           },
           blog: false,
           theme: {
-            customCss: [require.resolve('./src/css/custom.scss')],
+            customCss: ['./src/css/custom.scss'],
           },
           sitemap: {
             changefreq: 'daily',
@@ -201,7 +200,7 @@ module.exports = async function createConfigAsync() {
             anonymizeIP: true,
           },
           // debug: true,
-        }),
+        },
       ],
     ],
     plugins: [
@@ -232,9 +231,7 @@ module.exports = async function createConfigAsync() {
       ],
       [
         '@docusaurus/plugin-ideal-image',
-        {
-          disableInDev: false,
-        },
+        { disableInDev: false },
       ],
       [
         '@docusaurus/plugin-pwa',

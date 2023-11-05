@@ -181,7 +181,7 @@ await useStorage().getItem('redis:foo')
 
 从目前来看，[unjs/unstorage](https://github.com/unjs/unstorage#http-universal 'unjs/unstorage')并没有提供 sql 数据库的方案。不过对于这类项目而言，似乎也没有上 sql 数据库的必要，文件和 redis 就足以了。如果需要也可以[自定义 drivers](https://github.com/unjs/unstorage#making-custom-drivers '自定义 drivers')。
 
-:::caution 注意
+:::warning 注意
 
 由于 Vercel 是不支持文件读写的，所以想要文件方式数据存储功能就行不通，需要更换存储方案，比如远程 redis 数据库。
 

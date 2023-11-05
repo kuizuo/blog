@@ -83,7 +83,10 @@ console.log(JSON.stringify(modules[0].enumerateExports()[0]))
 注: **函数名以汇编中出现的为准**
 
 ```javascript
-const funcAddr = Module.findExportByName('libencryptlib.so', '_ZN7MD5_CTX11MakePassMD5EPhjS0_')
+const funcAddr = Module.findExportByName(
+  'libencryptlib.so',
+  '_ZN7MD5_CTX11MakePassMD5EPhjS0_',
+)
 // 返回的是函数地址  第二个参数根据汇编中为准
 console.log(funcAddr)
 
@@ -223,14 +226,16 @@ function stringToHex(str) {
 }
 
 function hexToBytes(hex) {
-  for (let bytes = [], c = 0; c < hex.length; c += 2) bytes.push(parseInt(hex.substr(c, 2), 16))
+  for (let bytes = [], c = 0; c < hex.length; c += 2)
+    bytes.push(parseInt(hex.substr(c, 2), 16))
   return bytes
 }
 
 function hexToString(hexStr) {
   let hex = hexStr.toString()
   let str = ''
-  for (let i = 0; i < hex.length; i += 2) str += String.fromCharCode(parseInt(hex.substr(i, 2), 16))
+  for (let i = 0; i < hex.length; i += 2)
+    str += String.fromCharCode(parseInt(hex.substr(i, 2), 16))
   return str
 }
 ```
@@ -348,14 +353,11 @@ Memory.patchCode(codeAddr, 8, function (code) {
 
 1. 声明函数指针
 
-   文档：https://frida.re/docs/javascript-api/#NativeFunction
-   语法：`new NativeFunction(address, returnType, argTypes[, abi])`
+   文档：https://frida.re/docs/javascript-api/#NativeFunction 语法：`new NativeFunction(address, returnType, argTypes[, abi])`
 
 2. 支持的 returnType 和 argTypes
 
-   void、pointer、int、uint、long、ulong、char、uchar、float、double
-   int8、uint8、int16、uint16、int32、uint32、int64、uint64、bool
-   size_t、ssize_t
+   void、pointer、int、uint、long、ulong、char、uchar、float、double int8、uint8、int16、uint16、int32、uint32、int64、uint64、bool size_t、ssize_t
 
 3. 代码示例
 
@@ -392,7 +394,9 @@ let fputs = new NativeFunction(fputsAddr, 'int', ['pointer', 'pointer'])
 let fclose = new NativeFunction(fcloseAddr, 'int', ['pointer'])
 
 // 需要申请内存地址 (由于需要传入指针)
-let fileName = Memory.allocUtf8String('/data/data/com.xiaojianbang.app/xiaojianbang.txt')
+let fileName = Memory.allocUtf8String(
+  '/data/data/com.xiaojianbang.app/xiaojianbang.txt',
+)
 let openMode = Memory.allocUtf8String('w')
 let data = Memory.allocUtf8String('QQ24358757\n')
 
@@ -494,18 +498,31 @@ let symbols = Process.getModuleByName('libart.so').enumerateSymbols()
 let newStringUtf = null
 for (let i = 0; i < symbols.length; i++) {
   let symbol = symbols[i]
-  if (symbol.name.indexOf('CheckJNI') == -1 && symbol.name.indexOf('NewStringUTF') != -1) {
+  if (
+    symbol.name.indexOf('CheckJNI') == -1 &&
+    symbol.name.indexOf('NewStringUTF') != -1
+  ) {
     console.log(symbol.name, symbol.address)
     newStringUtf = symbol.address
   }
 }
-let newStringUtf_func = new NativeFunction(newStringUtf, 'pointer', ['pointer', 'pointer'])
-let jstring = newStringUtf_func(Java.vm.tryGetEnv().handle, Memory.allocUtf8String('xiaojianbang'))
+let newStringUtf_func = new NativeFunction(newStringUtf, 'pointer', [
+  'pointer',
+  'pointer',
+])
+let jstring = newStringUtf_func(
+  Java.vm.tryGetEnv().handle,
+  Memory.allocUtf8String('xiaojianbang'),
+)
 console.log(jstring)
 
 let envAddr = Java.vm.tryGetEnv().handle.readPointer()
 let GetStringUTFChars = envAddr.add(0x548).readPointer()
-let GetStringUTFChars_func = new NativeFunction(GetStringUTFChars, 'pointer', ['pointer', 'pointer', 'pointer'])
+let GetStringUTFChars_func = new NativeFunction(GetStringUTFChars, 'pointer', [
+  'pointer',
+  'pointer',
+  'pointer',
+])
 let cstr = GetStringUTFChars_func(Java.vm.tryGetEnv().handle, jstring, ptr(0))
 console.log(cstr.readCString())
 ```
@@ -513,7 +530,11 @@ console.log(cstr.readCString())
 ### 打印函数调用堆栈
 
 ```javascript
-console.log(Thread.backtrace(this.context, Backtracer.FUZZY).map(DebugSymbol.fromAddress).join('\n') + '\n')
+console.log(
+  Thread.backtrace(this.context, Backtracer.FUZZY)
+    .map(DebugSymbol.fromAddress)
+    .join('\n') + '\n',
+)
 ```
 
 ### frida trace + IDA 插件 trace-natives 打印函数调用流程
@@ -532,7 +553,7 @@ frida-trace -UF -O C:\Users\zeyu\Desktop\libmfw_1644263290.txt
 
 结果如下
 
-```
+```bash
            /* TID 0x4da4 */
  11249 ms  sub_1e3c()
  11250 ms     | sub_15fc()
@@ -557,8 +578,7 @@ frida-trace -UF -O C:\Users\zeyu\Desktop\libmfw_1644263290.txt
 
 ### 确认 native 函数在哪个 so
 
-静态分析查看静态代码块中加载的 so，但并不靠谱，因为 native 函数声明在一个类中，so 加载可以在其他的类中
-此外还可以在另外的类中，一次性加载所有的 so
+静态分析查看静态代码块中加载的 so，但并不靠谱，因为 native 函数声明在一个类中，so 加载可以在其他的类中此外还可以在另外的类中，一次性加载所有的 so
 
 hook 系统函数来得到绑定的 native 函数地址，然后再得到 so 地址
 
@@ -599,7 +619,9 @@ function hook_RegisterNatives() {
           .add(i * Process.pointerSize * 3 + Process.pointerSize)
           .readPointer()
           .readCString()
-        let fnPtr_ptr = methods_ptr.add(i * Process.pointerSize * 3 + Process.pointerSize * 2).readPointer()
+        let fnPtr_ptr = methods_ptr
+          .add(i * Process.pointerSize * 3 + Process.pointerSize * 2)
+          .readPointer()
         let find_module = Process.findModuleByAddress(fnPtr_ptr)
         console.log(
           'RegisterNatives java_class: ',
@@ -637,7 +659,12 @@ function hook_dlsym() {
     onLeave: function (retval) {
       let module = Process.findModuleByAddress(retval)
       if (module == null) return
-      console.log(this.args1.readCString(), module.name, retval, retval.sub(module.base))
+      console.log(
+        this.args1.readCString(),
+        module.name,
+        retval,
+        retval.sub(module.base),
+      )
     },
   })
 }
@@ -703,7 +730,10 @@ function hook_func() {
 }
 
 let dlopen = Module.findExportByName('libdl.so', 'dlopen') // 低版本安卓系统
-let android_dlopen_ext = Module.findExportByName('libdl.so', 'android_dlopen_ext') // 高版本安卓系统
+let android_dlopen_ext = Module.findExportByName(
+  'libdl.so',
+  'android_dlopen_ext',
+) // 高版本安卓系统
 //console.log(JSON.stringify(Process.getModuleByAddress(dlopen)));
 hook_dlopen(dlopen, 'libxiaojianbang.so', hook_func)
 hook_dlopen(android_dlopen_ext, 'libxiaojianbang.so', hook_func)
@@ -723,7 +753,10 @@ function main() {
     })
   }
   var dlopen = Module.findExportByName('libdl.so', 'dlopen')
-  var android_dlopen_ext = Module.findExportByName('libdl.so', 'android_dlopen_ext')
+  var android_dlopen_ext = Module.findExportByName(
+    'libdl.so',
+    'android_dlopen_ext',
+  )
   hook_dlopen(dlopen, 'libxiaojianbang.so', inlineHook)
   hook_dlopen(android_dlopen_ext, 'libxiaojianbang.so', inlineHook)
 
@@ -828,7 +861,11 @@ hook_pthread_create()
 
 ```javascript
 function showStacks() {
-  console.log(Thread.backtrace(this.context, Backtracer.ACCURATE).map(DebugSymbol.fromAddress).join('\n') + '\n')
+  console.log(
+    Thread.backtrace(this.context, Backtracer.ACCURATE)
+      .map(DebugSymbol.fromAddress)
+      .join('\n') + '\n',
+  )
 }
 
 function findJNIFunc(func) {
@@ -889,7 +926,9 @@ function hook_native_addr(funcPtr, params = [], result = {}) {
     onEnter: function (args) {
       this.logs = []
       this.args = []
-      this.logs.push('call ' + module.name + '!' + ptr(funcPtr).sub(module.base))
+      this.logs.push(
+        'call ' + module.name + '!' + ptr(funcPtr).sub(module.base),
+      )
       for (let i = 0; i < params.length; i++) {
         let param = params[i]
         this.args.push(args[i])
@@ -933,8 +972,7 @@ let baseAddr = Module.findBaseAddress(moduleName)
 
 ## JNItrace
 
-so 中会应用很多的 jni 函数，比如：Java 的字符串到 C，需要先使用 GetStringUtfChars 来转成 C 语言字符串。
-而加密后的结果，如果要转成 jstring，又需要用到 NewStringUtf，所以可以通过 hook 这些 jni 函数，来可以定位关键代码，也可以大体上了解函数的代码逻辑。
+so 中会应用很多的 jni 函数，比如：Java 的字符串到 C，需要先使用 GetStringUtfChars 来转成 C 语言字符串。而加密后的结果，如果要转成 jstring，又需要用到 NewStringUtf，所以可以通过 hook 这些 jni 函数，来可以定位关键代码，也可以大体上了解函数的代码逻辑。
 
 **jnitrace 就是 hook 一系列的 jni 函数**
 
@@ -954,9 +992,9 @@ pip install jnitrace
 jnitrace -m attach -l <模块.so> <包名>
 ```
 
--m <spawn|attach> 附加方式去运行
+`-m <spawn|attach>` 附加方式去运行
 
--o path/output.json 将结果输出到文件上
+`-o path/output.json` 将结果输出到文件上
 
 ## ollvm 字符串解密
 
@@ -973,14 +1011,17 @@ jnitrace -m attach -l <模块.so> <包名>
 ```javascript
 function dump_so(so_name) {
   Java.perform(function () {
-    let currentApplication = Java.use('android.app.ActivityThread').currentApplication()
+    let currentApplication = Java.use(
+      'android.app.ActivityThread',
+    ).currentApplication()
     let dir = currentApplication.getApplicationContext().getFilesDir().getPath()
     let libso = Process.getModuleByName(so_name)
     console.log('[name]:', libso.name)
     console.log('[base]:', libso.base)
     console.log('[size]:', ptr(libso.size))
     console.log('[path]:', libso.path)
-    let file_path = dir + '/' + libso.name + '_' + libso.base + '_' + ptr(libso.size) + '.so'
+    let file_path =
+      dir + '/' + libso.name + '_' + libso.base + '_' + ptr(libso.size) + '.so'
     let file_handle = new File(file_path, 'wb')
     if (file_handle && file_handle != null) {
       Memory.protect(ptr(libso.base), libso.size, 'rwx')
@@ -1012,8 +1053,7 @@ github 地址：[F8LEFT/SoFixer (github.com)](https://github.com/F8LEFT/SoFixer)
 
 #### ptrace 占坑
 
-ptrace(0, 0 ,0 ,0);
-开启一个子进程附加父进程，通常有一下几种
+ptrace(0, 0 ,0 ,0); 开启一个子进程附加父进程，通常有一下几种
 
 - 守护进程
 - 子进程附加父进程 目的是不让别人附加
@@ -1033,22 +1073,17 @@ ptrace(0, 0 ,0 ,0);
 
 app 运行时，会创建/proc/进程 pid 的文件夹
 
-Frida 使用 D-Bus 协议通信，可以遍历/proc/net/tcp 文件，或者直接从 0-65535
-向每个开放的端口发送 D-Bus 认证消息，哪个端口回复了 REJECT，就是 frida-server
+Frida 使用 D-Bus 协议通信，可以遍历/proc/net/tcp 文件，或者直接从 0-65535 向每个开放的端口发送 D-Bus 认证消息，哪个端口回复了 REJECT，就是 frida-server
 
 #### 扫描 maps 文件
 
 cat maps
 
-maps 文件用于显示当前 app 中加载的依赖库
-Frida 在运行时会先确定路径下是否有 re.frida.server 文件夹
-若没有则创建该文件夹并存放 frida-agent.so 等文件，该 so 会出现在 maps 文件中
+maps 文件用于显示当前 app 中加载的依赖库 Frida 在运行时会先确定路径下是否有 re.frida.server 文件夹若没有则创建该文件夹并存放 frida-agent.so 等文件，该 so 会出现在 maps 文件中
 
 #### 扫描 task 目录
 
-扫描目录下所有/task/pid/status 中的 Name 字段
-寻找是否存在 frida 注入的特征
-具体线程名为 gmain、gdbus、gum-js-loop、pool-frida 等
+扫描目录下所有/task/pid/status 中的 Name 字段寻找是否存在 frida 注入的特征具体线程名为 gmain、gdbus、gum-js-loop、pool-frida 等
 
 #### 通过 readlink
 
@@ -1062,18 +1097,7 @@ strstr、strcmp、open、read、fread、readlink
 
 #### 通常比较会被检测的文件
 
-riru 的特征文件
-/system/lib/libmemtrack.so
-/system/lib/libmemtrack_real.so
-cmdline 检测进程名，防重打包
-status 检测进程是否被附加
-stat 检测进程是否被附加
-task/xxx/cmdline 检测进程名，防重打包
-task/xxx/stat 检测进程是否被附加
-task/xxx/status 检测线程 name 是否包含 Frida 关键字
-fd/xxx 检测 app 是否打开的 Frida 相关文件
-maps 检测 app 是否加载的依赖库里是否有 Frida
-net/tcp 检测 app 打开的端口
+riru 的特征文件 /system/lib/libmemtrack.so /system/lib/libmemtrack_real.so cmdline 检测进程名，防重打包 status 检测进程是否被附加 stat 检测进程是否被附加 task/xxx/cmdline 检测进程名，防重打包 task/xxx/stat 检测进程是否被附加 task/xxx/status 检测线程 name 是否包含 Frida 关键字 fd/xxx 检测 app 是否打开的 Frida 相关文件 maps 检测 app 是否加载的依赖库里是否有 Frida net/tcp 检测 app 打开的端口
 
 huluda-server 处理了 re.frida.server 文件夹以及该文件夹下的文件的名字
 

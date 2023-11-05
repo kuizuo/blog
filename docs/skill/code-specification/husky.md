@@ -69,12 +69,12 @@ pnpm i -g @commitlint/cli @commitlint/config-conventional
 echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
 ```
 
-:::caution 注意
+:::warning 注意
 
 windows 系统请勿使用上行命令，否则会导致编码不是 UTF-8。建议直接复制文本内容到 `commitlint.config.js`
 
 ```javascript title='commitlint.config.js'
-module.exports = {extends: ['@commitlint/config-conventional']};
+module.exports = { extends: ['@commitlint/config-conventional'] }
 ```
 
 :::

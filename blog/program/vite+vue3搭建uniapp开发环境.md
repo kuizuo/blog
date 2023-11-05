@@ -12,7 +12,7 @@ description: 使用 vite vue3 搭建 uniapp 开发环境
 
 最近想搞个移动端或小程序的 Vue3 项目，所以选择跨端开发平台就显得十分重要。在业内主要有两个跨端开发平台，Taro 与 uniapp，但 uniapp 貌似对 vue3 的支持不是特别友好。所以让我在 Taro 和 uniapp 之间抉择了一段时间，最终还是尝试选择相对熟悉的 uniapp 来进行开发。
 
-:::caution 前排提醒
+:::warning 前排提醒
 
 目前 uniapp 对 Vue3 的支持还处于 alpha 版，即开发阶段，大概率是会遇到很多问题的。
 
@@ -26,7 +26,7 @@ description: 使用 vite vue3 搭建 uniapp 开发环境
 
 这里建议安装 Alpha 版，后文会说明缘由。
 
-:::caution 注意
+:::warning 注意
 
 在 HBuilderX 正式版中是无法直接创建 Vue3 项目的，而 Alpha 版有 Vue2 和 3 可供选择，但创建的自带的模板大部分的写法还是 vue2 的写法（无 setup 语法糖），所以这时候要么改代码自建，要么使用官方所提供的 [Vue3 模板](https://uniapp.dcloud.io/worktile/CLI.html#%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B)
 
@@ -130,8 +130,7 @@ uniapp 官方中提供了一个 uni-ui 的组件库，但有一个 uniapp 相对
 
 但很遗憾，这里的支持也只是局限于 h5 开发。官方也有声明只能开发 h5
 
-> @nutui/nutui@next 基于 Vue3 视觉风格 JD APP 10.0 规范 ，只能开发 h5
-> @nutui/nutui-taro 基于 Vue3 视觉风格 JD APP 10.0 规范 ，必须基于 taro + vue3 框架 进行开发多端（多端指一套代码 部署多端环境 微信小程序 h5、等第三方小程序）
+> @nutui/nutui@next 基于 Vue3 视觉风格 JD APP 10.0 规范 ，只能开发 h5 @nutui/nutui-taro 基于 Vue3 视觉风格 JD APP 10.0 规范 ，必须基于 taro + vue3 框架 进行开发多端（多端指一套代码 部署多端环境 微信小程序 h5、等第三方小程序）
 
 而且想要多端开发，也必须基于 taro + vue3 框架，所以在 uniapp 上的 app 与小程序上自然无法运行（已测试）
 

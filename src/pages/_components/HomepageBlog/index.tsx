@@ -77,7 +77,7 @@ export default function BlogRecent(): JSX.Element {
         {posts.map((postGroup, index) => (
           <div className="col col-6 margin-top--sm" key={index}>
             {postGroup.map((post, i) => (
-              <motion.div style={{ y: i / 2 ? y : 0 }}>
+              <motion.div style={{ y: i / 2 ? y : 0 }} key={i}>
                 <BlogItem key={post.id} post={post} />
               </motion.div>
             ))}

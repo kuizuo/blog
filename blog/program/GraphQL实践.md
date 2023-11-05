@@ -369,7 +369,7 @@ export class Blog {
 
 因此，您不必为分散在代码中的@Field 装饰符而烦恼。 :::
 
-:::caution
+:::warning
 
 `@nestjs/graphql` 会将 typescript 的 number 类型视为 Float，所以需要转成 Int 类型，即 `@Field(() => Int)`
 

@@ -26,7 +26,6 @@ description: 使用 Gitea 搭建一个轻量级 git 私有仓库，并配置 Dro
 
 这里我选用 Docker 进行安装，安装文档可在[官方文档](https://docs.gitea.io/zh-cn/ '官方文档')中查看其他安装方式
 
-
 ```yaml title='docker-compose.yml'
 version: '3'
 
@@ -69,9 +68,8 @@ services:
 
 假设要修改其中的配置的话，gitea 的后台管理面板是无法直接修改的。需要到 `/data/gitea/conf/app.ini` 中修改，具体修改的配置 参阅 [自定义 Gitea 配置 - Docs](https://docs.gitea.io/zh-cn/customizing-gitea/ '自定义 Gitea 配置 - Docs')
 
-:::caution 注意
-必须完全重启 Gitea 以使配置生效。
-:::
+:::warning 注意必须完全重启 Gitea 以使配置生效。 :::
+
 ### 迁移仓库
 
 从其他第三方 git 仓库迁移到 gitea，可以访问[https://git.kuizuo.cn/repo/migrate](https://git.kuizuo.cn/repo/migrate 'https://git.kuizuo.cn/repo/migrate') 来迁移仓库
@@ -98,9 +96,9 @@ gitea 也提供镜像仓库的方案，官方文档[Repository Mirror](https://d
 
 由于 Gitea 并没有内置 CI/CD（持续集成/持续部署） 的解决方案，所以需要配置第三方的，这里推荐使用 Drone CI。
 
-Drone 是面向繁忙开发团队的自助服务持续集成平台。相对于常见的Jenkins，选中 Drone 的原因在于它非常简洁，不像 Jenkins 那样复杂，同时它拥有可以满足基本需求的能力，并且提供了许多实用的[插件](https://plugins.drone.io/)，如GitHub，Email，微信，钉钉等
+Drone 是面向繁忙开发团队的自助服务持续集成平台。相对于常见的 Jenkins，选中 Drone 的原因在于它非常简洁，不像 Jenkins 那样复杂，同时它拥有可以满足基本需求的能力，并且提供了许多实用的[插件](https://plugins.drone.io/)，如 GitHub，Email，微信，钉钉等
 
-### 安装 
+### 安装
 
 由于我们使用了 gitea，所以 drone 中选择 gitea 来安装，这是官方文档 [Gitea | Drone](https://docs.drone.io/server/provider/gitea/ 'Gitea | Drone')，照着操作即可。
 
@@ -109,34 +107,11 @@ Drone 是面向繁忙开发团队的自助服务持续集成平台。相对于�
 这里贴下 drone 的 docker 配置（根据文档和自己部署的 git 服务配置来替换）。
 
 ```yaml title='server'
-docker run \
-  --volume=/var/lib/drone:/data \
-  --env=DRONE_GITEA_SERVER=https://try.gitea.io \
-  --env=DRONE_GITEA_CLIENT_ID=05136e57d80189bef462 \
-  --env=DRONE_GITEA_CLIENT_SECRET=7c229228a77d2cbddaa61ddc78d45e \
-  --env=DRONE_RPC_SECRET=super-duper-secret \
-  --env=DRONE_SERVER_HOST=drone.company.com \
-  --env=DRONE_SERVER_PROTO=https \
-  --publish=80:80 \
-  --publish=443:443 \
-  --restart=always \
-  --detach=true \
-  --name=drone \
-  drone/drone:2
+docker run \ --volume=/var/lib/drone:/data \ --env=DRONE_GITEA_SERVER=https://try.gitea.io \ --env=DRONE_GITEA_CLIENT_ID=05136e57d80189bef462 \ --env=DRONE_GITEA_CLIENT_SECRET=7c229228a77d2cbddaa61ddc78d45e \ --env=DRONE_RPC_SECRET=super-duper-secret \ --env=DRONE_SERVER_HOST=drone.company.com \ --env=DRONE_SERVER_PROTO=https \ --publish=80:80 \ --publish=443:443 \ --restart=always \ --detach=true \ --name=drone \ drone/drone:2
 ```
 
 ```yaml title='runner'
-docker run --detach \
-  --volume=/var/run/docker.sock:/var/run/docker.sock \
-  --env=DRONE_RPC_PROTO=https \
-  --env=DRONE_RPC_HOST=drone.company.com \
-  --env=DRONE_RPC_SECRET=super-duper-secret \
-  --env=DRONE_RUNNER_CAPACITY=2 \
-  --env=DRONE_RUNNER_NAME=my-first-runner \
-  --publish=3000:3000 \
-  --restart=always \
-  --name=runner \
-  drone/drone-runner-docker:1
+docker run --detach \ --volume=/var/run/docker.sock:/var/run/docker.sock \ --env=DRONE_RPC_PROTO=https \ --env=DRONE_RPC_HOST=drone.company.com \ --env=DRONE_RPC_SECRET=super-duper-secret \ --env=DRONE_RUNNER_CAPACITY=2 \ --env=DRONE_RUNNER_NAME=my-first-runner \ --publish=3000:3000 \ --restart=always \ --name=runner \ drone/drone-runner-docker:1
 ```
 
 查看连接情况
@@ -153,11 +128,9 @@ docker logs runner
 
 ![](https://img.kuizuo.cn/image_TXWZgDOhrQ.png)
 
-
-
 ## 实战
 
-上述只是安装了，我们还需要编写 `.drone.yml` 配置文件来告诉 drone 我们要做什么，编写过程与 Github Action类似。相关文档: [Pipeline | Drone](https://docs.drone.io/pipeline/overview/ 'Overview | Drone')
+上述只是安装了，我们还需要编写 `.drone.yml` 配置文件来告诉 drone 我们要做什么，编写过程与 Github Action 类似。相关文档: [Pipeline | Drone](https://docs.drone.io/pipeline/overview/ 'Overview | Drone')
 
 ### 部署前端项目
 
@@ -209,20 +182,20 @@ steps:
   - name: deploy
     image: appleboy/drone-ssh
     environment:
-        DEPLOY_PATH:
-            from_secret: /www/wwwroot/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}
+      DEPLOY_PATH:
+        from_secret: /www/wwwroot/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}
     settings:
-        host:
-            from_secret: host
-        username:
-            from_secret: username
-        password:
-            from_secret: password
-        port: 22
-        command_timeout: 2m
-        envs: [DEPLOY_PATH]
-        script:
-            - rm -rf $${DEPLOY_PATH}
+      host:
+        from_secret: host
+      username:
+        from_secret: username
+      password:
+        from_secret: password
+      port: 22
+      command_timeout: 2m
+      envs: [DEPLOY_PATH]
+      script:
+        - rm -rf $${DEPLOY_PATH}
 ```
 
 具体就因人而异了，这里我仅作为演示。
