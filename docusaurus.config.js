@@ -148,8 +148,8 @@ export default async function createConfigAsync() {
         email: 'mailto:hi@kuizuo.cn',
       },
       prism: {
-        theme: themes.vsLight,
-        darkTheme: themes.vsDark,
+        theme: themes.oneLight,
+        darkTheme: themes.oneDark,
         additionalLanguages: ['bash', 'json', 'java', 'php', 'rust', 'toml'],
         defaultLanguage: 'javascript',
         magicComments: [
