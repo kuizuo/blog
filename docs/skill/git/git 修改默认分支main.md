@@ -1,7 +1,7 @@
 ---
 id: git-change-default-branch
 slug: git-change-default-branch
-title: git修改默认分支main
+title: git 修改默认分支main
 date: 2021-08-04
 authors: kuizuo
 tags: [git]

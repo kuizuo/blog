@@ -1,7 +1,7 @@
 ---
 id: git-conmit-specification
 slug: git-conmit-specification
-title: git commit规范
+title: git commit 规范
 date: 2021-08-31
 authors: kuizuo
 tags: [git, commit]
