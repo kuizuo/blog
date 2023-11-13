@@ -2,7 +2,7 @@
 id: stylelint
 slug: /stylelint
 title: stylelint
-authors: kuizuo
+authors: Sunny
 keywords: ['code-specification', 'stylelint']
 ---
 

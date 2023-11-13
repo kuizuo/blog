@@ -3,7 +3,7 @@ id: solution-of-bootloader-lock
 slug: /solution-of-bootloader-lock
 title: 解Bootloader锁
 date: 2021-12-09
-authors: kuizuo
+authors: Sunny
 tags: [android, bootloader, 刷机]
 keywords: [android, bootloader, 刷机]
 ---
@@ -52,17 +52,17 @@ https://developer.android.com/studio/run/oem-usb.html#InstallingDriver
 
 3、找到新出现的设备就是你的手机，右击更新驱动—自动搜索更新驱动或者手动在桌面搜索刚才下载的驱动并安装
 
-![img](https://img.kuizuo.cn/f49f1e5afc077dafab5d74a72965f8ba.png)
+![img](assert/4d3545f9296cbfc4774ffd36be9df7e3_MD5.png)
 
 如下图提示则说明安装成，接着就要开始解锁了
 
-![image-20211209133458792](https://img.kuizuo.cn/image-20211209133458792.png)
+![image-20211209133458792](assert/8917951516231863b1c535a8eda9cfb0_MD5.png)
 
 ### Bootloader 解锁
 
 1、**关机**后，同时按住**电源键**和**音量减键**，进入 Bootloader 界面。
 
-![image-20211209135203559](https://img.kuizuo.cn/image-20211209135203559.png)
+![image-20211209135203559](assert/7bb46fb42abb593698e85f5eff86706b_MD5.png)
 
 可以看到**Device-State: locked** 表明为加锁状态
 

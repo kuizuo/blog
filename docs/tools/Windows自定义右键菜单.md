@@ -3,7 +3,7 @@ id: windows-custom-right-click-menu
 slug: /windows-custom-right-click-menu
 title: Windows自定义右键菜单
 date: 2020-09-08
-authors: kuizuo
+authors: Sunny
 tags: [工具]
 keywords: [工具]
 ---
@@ -20,19 +20,19 @@ keywords: [工具]
 
 打开运行(Windows 键＋ R)，输入 regedit，点击确定打开注册表。
 
-​ ![image-20200908114639158](https://img.kuizuo.cn/image-20200908114639158.png)
+​ ![image-20200908114639158](assert/10e90e6867215b2c8cdc2fd171c3f0e3_MD5.png)
 
 这里建议右键 文件->导出，以防不小心误操作还原为原先配置。
 
 接着可以在 编辑 -> 查找 (Ctrl+F)，接着搜索对应的关键词。输入要查找的目标的值，具体操作会在后面详细说明。
 
-![image-20200908154701753](https://img.kuizuo.cn/image-20200908154701753.png)
+![image-20200908154701753](assert/c863ea1d825e1b285e8c176ce5cc8881_MD5.png)
 
 ### 右键打开 Cmd
 
 最终效果，右键空白处，可以使用打开 CMD，如图
 
-![image-20200908152557371](https://img.kuizuo.cn/image-20200908152557371.png)
+![image-20200908152557371](assert/f0f102691df49ee9d71d4d66ac855215_MD5.png)
 
 用于你在对应的文件夹下输入 cmd 命令，免去 cd 等繁杂操作。个人建议设置一下，将下面的代码复制，然后创建一个`1.reg`文件（文件名无所谓，后缀名是 reg 就行，**注意保存为 ANSI**，不然带中文会乱码）,点击运行，会有提示，放心，绝对安全。接着右键空白处，就可也看到打开 CMD 的字样，点击就能打开 cmd 窗口。
 
@@ -71,9 +71,9 @@ Windows Registry Editor Version 5.00
 
 有的时候安装了一个开发软件，不小心勾上了什么`open Folder as …`然后就出现下图情况
 
-![image-20200908115455647](https://img.kuizuo.cn/image-20200908115455647.png)
+![image-20200908115455647](assert/0305b059baed20295f0a6fd01711674c_MD5.png)
 
-但有时候我并不需要这么长的选项，或者说我想改一下名字，让他不那么长。这时候我们同样打开注册表，首先这是*右键在文件夹空白处下*的（桌面也是一个文件夹，路径是 C:\User\用户名\Desktop）那么对应的注册表的位置是 `计算机\HKEY_CLASSES_ROOT\Directory\Background\shell` （或搜索对应的关键词），输入完定位目录为下图![image-20200908151408855](https://img.kuizuo.cn/image-20200908151408855.png)
+但有时候我并不需要这么长的选项，或者说我想改一下名字，让他不那么长。这时候我们同样打开注册表，首先这是*右键在文件夹空白处下*的（桌面也是一个文件夹，路径是 C:\User\用户名\Desktop）那么对应的注册表的位置是 `计算机\HKEY_CLASSES_ROOT\Directory\Background\shell` （或搜索对应的关键词），输入完定位目录为下图![image-20200908151408855](assert/38fe19ab2009624d8b48476feebdce10_MD5.png)
 
 看到画框的 IDEA 没，那就是 IDEA 安装的时候为用户添加的右键菜单，现在我不要这个右键菜单，那就把这个文件夹整个删了就行（这里推荐你删了，太占空间了）。但这时我只想改一下右键菜单的文件名，不想让他这么长，那么你在默认哪里鼠标右键，选择修改，然后输入修改后的文件名即可。而下面的 Icon 则是图标路径，对应的也就是 exe 路径。如果图标没了，那么多半就是这里的问题。
 
@@ -81,21 +81,21 @@ Windows Registry Editor Version 5.00
 
 ### 右键文件夹菜单
 
-![image-20200908152835802](https://img.kuizuo.cn/image-20200908152835802.png)
+![image-20200908152835802](assert/5ef12526271246b855db4a5bc211da26_MD5.png)
 
 本以为上面设置好删除了`Open Folder as IntelliJ IDEA Project` 这个长的要死的文件夹，没想到右键文件夹竟然也有，不管了定位在对应的位置再说，路径 `计算机\HKEY_CLASSES_ROOT\Directory\shell`，我擦，原来就在上一步操作的文件夹的下面一点。定位的结果如下
 
-![image-20200908153930520](https://img.kuizuo.cn/image-20200908153930520.png)
+![image-20200908153930520](assert/d51f640e84d1ad732557af427297def5_MD5.png)
 
 然后同上一步操作，这里修改一下名字就行，我就设置短点名字`Open Folder as IDEA`。结果如下
 
-![image-20200908154339744](https://img.kuizuo.cn/image-20200908154339744.png)
+![image-20200908154339744](assert/9aeec757809e081a30b0ac86c4430207_MD5.png)
 
 ### 右键程序菜单
 
 既然上两步的操作你都会了，那么右键程序菜单也是一样，定位到对应的路径`计算机\HKEY_CLASSES_ROOT\*\shell\` 我就放一张定位路径图。
 
-![image-20200908164515142](https://img.kuizuo.cn/image-20200908164515142.png)
+![image-20200908164515142](assert/5896a1c6a2a2d993d34fd65f25f0faf9_MD5.png)
 
 ### 右键手动新建
 
@@ -103,7 +103,7 @@ Windows Registry Editor Version 5.00
 
 作为一个`vscode`使用者，右键不设置`通过 Code 打开`怎么行，而你安装了`vscode`却没有`Open with Code`，那就是你安装时没有勾上这两项。
 
-![20190530203030700](https://img.kuizuo.cn/20190530203030700.png)
+![20190530203030700](assert/87c682fff14c6b8331a52c2cd8c75d33_MD5.png)
 
 当然你也可以百度 右键菜单添加 vscode，会有相关像我提供的右键`打开 Cmd`这样的操作。这里也将对应代码贴出来，但*需要更改一下的 vscode 的路径*与右键菜单名，并且要将单反斜杠都换成双反斜杠 防止转义。例如，这里右键菜单名为`Open with Code`，而我的`Code.exe`路径为`E:\VSCode\Code.exe`那么我就要改为`E:\\VSCode\\Code.exe`，你只需要改为你的路径即可。
 
@@ -138,7 +138,7 @@ Windows Registry Editor Version 5.00
 
 不过这里还是说下手动的操作，话不多说先看 gif 操作
 
-![demo](https://img.kuizuo.cn/demo.gif)
+![demo](assert/6a767b41e6bf8cb913dd074a573bba33_MD5.gif)
 
 由于我设置过了 VSCode，这里我将 S 改成 B，对应的操作就是这样。对应的数据我在上面也已经说过了。一般来说也没必要手动操作添加，都会有对应的`.reg`文件，点击运行即可。
 
@@ -152,11 +152,11 @@ Windows Registry Editor Version 5.00
 
 #### 3.然后右键新建 DWORD，名称为`NoCustomizeWebView`，数值为 1。
 
-![image-20200908163225915](https://img.kuizuo.cn/image-20200908163225915.png)
+![image-20200908163225915](assert/5440f79c1d3e2ea98af018c973bca7db_MD5.png)
 
 #### 4.打开任务管理器，找到 Windows 资源管理器，右键重新启动，再次打开就会发现右键不在有自定义文件夹了。
 
-![image-20200908163415434](https://img.kuizuo.cn/image-20200908163415434.png)
+![image-20200908163415434](assert/c0df0950410e4ee4e76d1b922640f22d_MD5.png)
 
 ## 总结
 

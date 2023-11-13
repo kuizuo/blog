@@ -3,7 +3,7 @@ id: js-print-stack-of-function
 slug: /js-print-stack-of-function
 title: JS输出函数调用栈
 date: 2021-10-15
-authors: kuizuo
+authors: Sunny
 tags: [javascript, callstack]
 keywords: [javascript, callstack]
 ---
@@ -113,7 +113,7 @@ hello world
 
 成功的将我们当前运行的函数给打印了出来（这里使用 toString 方便将函数打印出来），而上级的函数的话通过`fun.caller`和`arguments.callee.caller`都能得到。
 
-![image-20211015094231693](https://img.kuizuo.cn/image-20211015094231693.png)
+![image-20211015094231693](assert/8dd69f63283e88777cba247038182849_MD5.png)
 
 `caller`便是调用的上层函数，也就是这里的 main 函数，不难发现每个 caller 对象下都有一个 caller 属性，也就是`caller`的上层函数，由于我这里是 node 环境，所以这里的 caller 的 caller 我也不知道是个什么玩意。。。反正这不是所要关注的重点，重点是**`fun.caller`和``arguments.callee.caller`便可以打印出上层函数**，直到 caller 为空
 

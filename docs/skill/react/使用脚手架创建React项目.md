@@ -3,7 +3,7 @@ id: create-react-app
 slug: /create-react-app
 title: 使用脚手架创建React项目
 date: 2021-09-15
-authors: kuizuo
+authors: Sunny
 tags: [react]
 keywords: [react]
 ---
@@ -80,7 +80,7 @@ cd myapp && npm install
 
 顺便吐槽下我第一次启动的时候电脑所占用的资源（电脑 i7-9750H，16g 内存）
 
-![image-20210902050243256](https://img.kuizuo.cn/image-20210902050243256.png)
+![image-20210902050243256](assert/8c366033f764389482d02b6eaaeaffa8_MD5.png)
 
 ## Vite
 
@@ -90,4 +90,4 @@ npm create vite@latest my-vue-app
 
 选择 react 即可
 
-![image-20220412161447441](https://img.kuizuo.cn/image-20220412161447441.png)
+![image-20220412161447441](assert/ca27a4a8bc25dbd56e025363c7feb12f_MD5.png)

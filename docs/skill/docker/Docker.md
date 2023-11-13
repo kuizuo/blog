@@ -3,7 +3,7 @@ id: docker
 slug: /docker
 title: Docker笔记
 date: 2021-05-26
-authors: kuizuo
+authors: Sunny
 tags: [docker]
 keywords: [docker]
 ---
@@ -67,11 +67,11 @@ sudo rm -rf /var/lib/containerd
 
 登录阿里云 找到容器镜像服务,按照下图命令复制粘贴即可
 
-![](https://img.kuizuo.cn/image-20210527011655512.png)
+![](assert/7d2166a77f5f669f21ba3700b25826d4_MD5.png)
 
 ## Docker 的命令
 
-![](https://img.kuizuo.cn/v2-820aee2a33654099d87cdd2b7a1ce741_r.jpg)
+![](assert/9e0666846f2bc1e91512e3404e748b38_MD5.jpg)
 
 ```shell
 docker info # 显示docker 系统信息
@@ -285,7 +285,7 @@ docker run -d -p 6379:6379 --privileged=true -v /app/redis/redis.conf:/etc/redis
 
 ## DockerFile
 
-![](https://img.kuizuo.cn/OIP.p3NmHHlewBvLwukFPGudFgHaFV.jpg)
+![](assert/d261563a070c5efd9d418d85e0c321ca_MD5.jpg)
 
 所有命令大小写不敏感（但推荐大写）
 
@@ -299,7 +299,7 @@ docker build -t 自定镜像名 .
 
 ```dockerfile
 FROM cetnos
-MAINTAINER kuizuo<911993023@qq.com>
+MAINTAINER Sunny<911993023@qq.com>
 
 ENV MYPATH /usr/local
 WORKDIR $MYPATH
@@ -335,15 +335,15 @@ docker commit -m="描述信息" -a="作者" 容器id 自定镜像名:[TAG]
 
 1、登录[Docker Hub](https://hub.docker.com/) 注册一个账号
 
-2、docker login -u kuizuo
+2、docker login -u Sunny
 
 3、输入密码
 
 ```
-[root@localhost ~]# docker login -u kuizuo
+[root@localhost ~]# docker login -u Sunny
 Password:
 Error response from daemon: Get https://registry-1.docker.io/v2/: unauthorized: incorrect username or password
-[root@localhost ~]# docker login -u kuizuo
+[root@localhost ~]# docker login -u Sunny
 Password:
 WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
 Configure a credential helper to remove this warning. See

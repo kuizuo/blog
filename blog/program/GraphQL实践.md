@@ -2,14 +2,14 @@
 slug: graphql-practice
 title: GraphQL 实践与服务搭建
 date: 2022-11-24
-authors: kuizuo
+authors: Sunny
 tags: [api, graphql, nest, strapi]
 keywords: [api, graphql, nest, strapi]
 description: 有关 GraphQL 介绍及上手实践，并在 Nest.js 和 Strapi 中搭建 GraphQL 服务
-image: https://img.kuizuo.cn/320f3e5a66900d68e93de38154989948.png
+image: https://img.Sunny.cn/320f3e5a66900d68e93de38154989948.png
 ---
 
-![](https://img.kuizuo.cn/320f3e5a66900d68e93de38154989948.png)
+![](assert/7e43843bec25cd316db492ffef12389d_MD5.png)
 
 > GraphQL 既是一种用于 API 的查询语言也是一个满足你数据查询的运行时。 GraphQL 对你的 API 中的数据提供了一套易于理解的完整描述，使得客户端能够准确地获得它需要的数据，而且没有任何冗余，也让 API 更容易地随着时间推移而演进，还能用于构建强大的开发者工具。
 
@@ -29,13 +29,13 @@ image: https://img.kuizuo.cn/320f3e5a66900d68e93de38154989948.png
 
 ## GraphQL 与 Restful API 相比
 
-![](https://img.kuizuo.cn/9a7412200a062646b729c8419be28b35.jpeg)
+![](assert/843b7aee964cca11aa6408d3c53157b5_MD5.jpg)
 
 ### Restful API
 
 Restful 架构的设计范式侧重于分配 HTTP 请求方法（GET、POST、PUT、PA TCH、DELETE）和 URL 端点之间的关系。如下图
 
-![](https://img.kuizuo.cn/17fc41e2de8d829dc2d41e31a0775df3.png)
+![](assert/5ed428009910ab1abf8f44820e8d6e48_MD5.png)
 
 但是实际复杂的业务中，单靠 Restful 接口，需要发送多条请求，例如获取博客中某篇博文数据与作者数据
 
@@ -49,7 +49,7 @@ GET /blog/1/author
 
 有没有这样一个功能，将这些接口做一下聚合，然后**将结果的集合返回给前端**呢？在目前比较流行微服务架构体系下，有一个专门的中间层专门来处理这个事情，这个中间层叫 BFF（Backend For Frontend）。可以参阅 [BFF——服务于前端的后端](https://blog.csdn.net/qianduan666a/article/details/107271974 'BFF——服务于前端的后端')
 
-![](https://img.kuizuo.cn/image_Y4u9tNpZwR.png)
+![](assert/ea811f486b02c2efeebcdb48d2acfe3d_MD5.png)
 
 但这些接口一般来说都比较重，里面有很多当前页面并不需要的字段，那还有没有一种请求：**客户端只需要发送一次请求就能获取所需要的字段**
 
@@ -57,7 +57,7 @@ GET /blog/1/author
 
 ### GraphQL
 
-![](https://img.kuizuo.cn/8a141ec5fa73781d66fb2e1b60f9b49d.jpg)
+![](assert/7b72c191539de3b67517353651fed30e_MD5.jpg)
 
 REST API 构建在请求方法（method）和端点（endpoint）之间的连接上，而 GraphQL API 被设计为只通过一个端点，即 `/graphql`，始终使用 POST 请求进行查询，其集中的 API 如 http://localhost:3000/graphql，所有的操作都通过这个接口来执行，这会在后面的操作中在展示到。
 
@@ -77,15 +77,15 @@ REST API 构建在请求方法（method）和端点（endpoint）之间的连接
 
 查询所有 People 并且只获取 `name`、`gender`、`height` 字段
 
-![](https://img.kuizuo.cn/image_kvWUNtlUbf.png)
+![](assert/0ca651150e81c8e56db2b822ffbb0505_MD5.png)
 
 查询 personID 为 1 的 Person 并且只获取 `name`，`gender`，`height` 字段
 
-![](https://img.kuizuo.cn/image_Msg9xwWFrl.png)
+![](assert/8a112616edbdf39ff9610b76c9b924e5_MD5.png)
 
 查询 personID 为 2 的 Person 并且只获取 `name`，`eyeColor`、`skinColor`、`hairColor` 字段
 
-![](https://img.kuizuo.cn/image_hX0l36Acme.png)
+![](assert/a51a997251b04599df99770c116c3a0a_MD5.png)
 
 从上面查询案例中其实就可以发现，我只需要在 person 中写上想要获取的字段，GraphQL 便会返回带有该字段的数据。避免了返回结果中不必要的数据字段。
 
@@ -99,7 +99,7 @@ REST API 构建在请求方法（method）和端点（endpoint）之间的连接
 
 如果你不想要 person 数据或者想要其他其他的数据，不用像 Restful API 那样请求多条接口，依旧请求`/graphql`，如
 
-![](https://img.kuizuo.cn/image_Z0b6ya-auG.png)
+![](assert/9ca6fd01bdc968196d72ae7f3d1fdf34_MD5.png)
 
 :::info
 
@@ -135,7 +135,7 @@ GraphQL 提供了 [变更(Mutations)](https://graphql.cn/learn/queries/#mutation
 
 模块：[nestjs/graphql](https://github.com/nestjs/graphql 'nestjs/graphql')
 
-仓库本文实例代码仓库： [kuizuo/nest-graphql-demo](https://github.com/kuizuo/nest-graphql-demo 'kuizuo/nest-graphql-demo')
+仓库本文实例代码仓库： [ydaydayup/nest-graphql-demo](https://github.com/ydaydayup/nest-graphql-demo 'ydaydayup/nest-graphql-demo')
 
 **创建项目**
 
@@ -189,11 +189,11 @@ export class AppResolver {
 
 尝试输入 GraphQL 的 query 查询（可以按 Ctrl + i 触发代码建议（Trigger Suggest），与 vscode 同理）
 
-![](https://img.kuizuo.cn/image_a3yl4oVtSU.png)
+![](assert/f03028a54998fdfca54ac7c306fcfedb_MD5.png)
 
 此时点击执行，可以得到右侧结果，即`app.resolver.ts` 中 `hello` 函数所定义的返回体。
 
-![](https://img.kuizuo.cn/image_bK9bvZ3QMm.png)
+![](assert/d076a72eb02a1af49531e2e807067ef1_MD5.png)
 
 ### [Code first](https://docs.nestjs.com/graphql/quick-start#code-first) 与 [Schema first](https://docs.nestjs.com/graphql/quick-start#schema-first)
 
@@ -211,7 +211,7 @@ nest 提供 cli 的方式来快速生成 GraphQL 模块
 nest g resource <name>
 ```
 
-![](https://img.kuizuo.cn/image_L9yYAn78Dw.png)
+![](assert/7f9dfef2310377ab9ccf44fc13a2515d_MD5.png)
 
 比如创建一个 blog 模块
 
@@ -232,7 +232,7 @@ UPDATE src/app.module.ts (643 bytes)
 
 便会生成如下文件
 
-![](https://img.kuizuo.cn/image_XemqTcfz_D.png)
+![](assert/623e17c5e23bebf9c3cb980b91d2e800_MD5.png)
 
 ```typescript title='blog.resolver.ts'
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql'
@@ -274,7 +274,7 @@ export class BlogResolver {
 
 此时 Schema 如下
 
-![](https://img.kuizuo.cn/image_sJCQpllOXK.png)
+![](assert/2e49b9646f41baecf3d6bcf10ff7138f_MD5.png)
 
 不过`nest cli`创建的`blog.service.ts` 只是示例代码，并没有实际业务的代码。
 
@@ -431,7 +431,7 @@ export class CreateBlogInput {
 
 此时
 
-![](https://img.kuizuo.cn/image_7-twN56Aym.png)
+![](assert/f9b66785f8327216619c2d84a24c594b_MD5.png)
 
 ### CRUD
 
@@ -439,15 +439,15 @@ export class CreateBlogInput {
 
 #### 新增
 
-![](https://img.kuizuo.cn/image_NPqShDN3Pl.png)
+![](assert/336788c8ad1f72aec7b9c7229ab852d3_MD5.png)
 
 #### 修改
 
-![](https://img.kuizuo.cn/image_c4ycwRs-po.png)
+![](assert/9a1f1c184cb022f714ea3345f0c0c294_MD5.png)
 
 #### 删除
 
-![](https://img.kuizuo.cn/image_xpkHhpS1-K.png)
+![](assert/1db6630f2a0f891cc424d05efe936042_MD5.png)
 
 Query 就不在演示。
 
@@ -459,7 +459,7 @@ Query 就不在演示。
 
 Strapi 官方提供 [GraphQL 插件](https://market.strapi.io/plugins/@strapi-plugin-graphql 'GraphQL插件') 免去了配置的繁琐。更具体的配置参见 [GraphQL - Strapi Developer Documentation](https://docs.strapi.io/developer-docs/latest/development/plugins/graphql.html 'GraphQL - Strapi Developer Documentation')
 
-这里我就选用 [kuizuo/vitesse-nuxt-strapi](https://github.com/kuizuo/vitesse-nuxt-strapi 'kuizuo/vitesse-nuxt-strapi') 作为演示，并为其提供 graphQL 支持。
+这里我就选用 [ydaydayup/vitesse-nuxt-strapi](https://github.com/ydaydayup/vitesse-nuxt-strapi 'ydaydayup/vitesse-nuxt-strapi') 作为演示，并为其提供 graphQL 支持。
 
 strapi 安装
 
@@ -473,27 +473,27 @@ npm install @strapi/plugin-graphql
 
 #### 查询所有 todo
 
-![](https://img.kuizuo.cn/image_4GFUs8CmQJ.png)
+![](assert/c6f8e4a69b8b576e87b43044e230fdaa_MD5.png)
 
 #### 查询 id 为 2 的 todo
 
-![](https://img.kuizuo.cn/image_NMM4e3L_y8.png)
+![](assert/452255671fd3a1d99194963bf39d4693_MD5.png)
 
 #### 查询 id 为 2 的 todo 并只返回 value 属性
 
-![](https://img.kuizuo.cn/image_E1eWrzjaEs.png)
+![](assert/1fd852801c0ba9dbc9e88f67023889be_MD5.png)
 
 #### 新增 todo
 
-![](https://img.kuizuo.cn/image_pclR7Zb6TE.png)
+![](assert/a2f5d8f2901c04395f5d3ac3a4c6c7c8_MD5.png)
 
 #### 更新 todo
 
-![](https://img.kuizuo.cn/image_g3RJL7RQWR.png)
+![](assert/72909dc2ab9a7270eb08e8d91b530b7a_MD5.png)
 
 #### 删除 todo
 
-![](https://img.kuizuo.cn/image_m7s17q2TG0.png)
+![](assert/2f1b8d4ad67cdd436d957cbebea4b14d_MD5.png)
 
 由于 [Nuxt Strapi](https://strapi.nuxtjs.org/ 'Nuxt Strapi') 提供 [useStrapiGraphQL](https://strapi.nuxtjs.org/usage#usestrapigraphql 'useStrapiGraphQL') 可以非常方便是在客户端调用 GraphQL 服务。
 

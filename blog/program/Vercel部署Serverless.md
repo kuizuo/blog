@@ -2,7 +2,7 @@
 slug: vercel-deploy-serverless
 title: Vercel部署Serverless
 date: 2022-05-12
-authors: kuizuo
+authors: Sunny
 tags: [vercel, serverless]
 keywords: [vercel, serverless]
 description: 使用 Vercel 部署 serverless 过程记录
@@ -29,7 +29,7 @@ export default function handler(request, response) {
 
 接口信息可以在 Functions 中查看
 
-![image-20220512155341109](https://img.kuizuo.cn/image-20220512155341109.png)
+![image-20220512155341109](assert/6d5d24368e3c4b5a6558503c16c364de_MD5.png)
 
 ### 使用 typescript
 

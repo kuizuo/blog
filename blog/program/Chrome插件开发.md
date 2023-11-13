@@ -2,7 +2,7 @@
 slug: chrome-plugin-development
 title: Chrome插件开发
 date: 2020-09-28
-authors: kuizuo
+authors: Sunny
 tags: [chrome, plugin, develop]
 keywords: [chrome, plugin, develop]
 ---
@@ -31,7 +31,7 @@ Chrome v3 已发布，而本文基于 v2 编写，故本文内容不再具有时
 
 首先打开 Chrome，如下图即可进入插件的管理页面
 
-![image-20200922225606159](https://img.kuizuo.cn/image-20200922225606159.png)
+![image-20200922225606159](assert/dbd4492a7f958fe3f119b5711c6e812c_MD5.png)
 
 这时候记得把右上角的开发者模式给勾上，如果不勾上的话你无法直接将文件夹拖入 Chrome 进行安装，就只能安装`.crx`格式的文件。Chrome 要求插件必须从它的 Chrome 应用商店（需要翻墙）安装，其它任何网站下载的都无法直接安装，所以可以把`crx`文件解压，然后通过开发者模式直接加载。
 
@@ -78,7 +78,7 @@ Chrome v3 已发布，而本文基于 v2 编写，故本文内容不再具有时
 
 有时候你在编写代码中出现了中文可能会出现了如下的乱码，
 
-![image-20200923214834081](https://img.kuizuo.cn/image-20200923214834081.png)
+![image-20200923214834081](assert/615d4ba7a80b575095b58c67d591e956_MD5.png)
 
 我遇到的原因是就是我原先的`background.html`代码写成如下的情况
 
@@ -258,7 +258,7 @@ window.addEventListener(
 
 关于 Chrome 的主要内容也就这些，实际开发如果有个模板就能大大方便开发，在原文章中该作者已经分享了有对应的源代码，这里放上我自写的 Chrome 模板编写过程。
 
-![image-20210820004414785](https://img.kuizuo.cn/image-20210820004414785.png)
+![image-20210820004414785](assert/e16bde4577bee7bf165314aa5fc31d88_MD5.png)
 
 当然，这里需要提几点地方：
 
@@ -529,8 +529,8 @@ sendAjaxToBg("http://...", "GET", null, function(response){
 
 一个验证码识别，有时候在登录的时候需要输入验证码是件非常痛苦的事情。于是乎我就通过调用打码 Api 接口写了个自动识别验证码并填写的。也提供了非常方便的右键识别验证码的功能。具体效果如图（实际上还是得第一次先确认要识别的图片框与输入框，下次加载的时候需要手动点击验证码才会自动生效，还是不够智能的，不过成就感十足）
 
-![image-20210820001938051](https://img.kuizuo.cn/image-20210820001938051.png)
+![image-20210820001938051](assert/170459426e797eb9bdc59b2886130361_MD5.png)
 
-![wydm](https://img.kuizuo.cn/wydm.gif)
+![wydm](assert/9b7e65028402a82db4a50c440a69be88_MD5.gif)
 
 另一个是基于某布大佬的 WebHook 工具，所更改的，不过一直停滞着，有空将其完善一下。

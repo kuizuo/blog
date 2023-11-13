@@ -3,12 +3,12 @@ id: everything-quick-search-local-files
 slug: /everything-quick-search-local-files
 title: Everything快速搜索本地文件
 date: 2020-09-08
-authors: kuizuo
+authors: Sunny
 tags: [工具]
 keywords: [工具]
 ---
 
-![everything-Everything](https://img.kuizuo.cn/everything-Everything.jpg)
+![everything-Everything](assert/af9debba0722d0a15c759f0290d16ea0_MD5.jpg)
 
 你有没有经历过为了找一个**本地**文件，反复点开一个个文件夹，甚至有可能还找不到，于是开始 Windows 自带的搜索引擎去搜索想要的文件，然后等你吃完饭回来，搜索的进度条竟然还没有走完。而现在有一个软件，它可以让你不必等待，一个眨眼的功夫，你想要的文件就呈现在你的面前，它就是`Everything`
 
@@ -28,7 +28,7 @@ keywords: [工具]
 
 设置方式如下图
 
-![demo](https://img.kuizuo.cn/demo.gif)
+![demo](assert/6a767b41e6bf8cb913dd074a573bba33_MD5.gif)
 
 其余的相关快捷键感兴趣可以自行设置，这里就举我最常用的一个。
 
@@ -36,17 +36,17 @@ keywords: [工具]
 
 在搜索前建议你设置一下排除列表，避免文件过多，根据自己需求来设置排除的文件夹，这里我把我基本用不上的文件夹放在这。
 
-![image-20200908001436884](https://img.kuizuo.cn/image-20200908001436884.png)
+![image-20200908001436884](assert/d8dd26bc69338d9ee683a1103a227fd4_MD5.png)
 
 这里我先放一个 gif 图，先感受一下
 
-![demo1](https://img.kuizuo.cn/demo1.gif)
+![demo1](assert/45fbb7d30a909e068b4d08ca08ea0952_MD5.gif)
 
 我也只是简单的使用一下，实际使用过就知道这个工具有多牛逼，你就会知道我为什么会推荐了。想上面的简单使用已经够用了，还有一些针对性的操作，可以在 帮助->搜索语法 即可看到相关搜索语法帮助。
 
 这里我就简单说几个常用的 比如我要打开`pycharm` 这个软件，这时候我会肯定会先输入`pycharm`，但是发现出现了特别多的结果且没有我想要的，于是我尝试补上`.exe`后缀，然后发现竟然没有！怎么可能我明明安装了，其实这个文件名是`pycharm64.exe`你输入`pycharm.exe`肯定搜不到。而遇到这种问题一般都不是这样搜索而是输入 `pycharm exe:` 意思就是我要找` 包含``pycharm `文件名同时又要是`exe`为后缀的。操作情况如下
 
-![demo2](https://img.kuizuo.cn/demo2.gif)
+![demo2](assert/7943b37868f6e9c9b2d15bb8e246b660_MD5.gif)
 
 不过一般这种常用软件的话我还是建议你把这个文件设置一个快捷方式放在桌面，开始菜单或者任务栏。
 
@@ -60,7 +60,7 @@ keywords: [工具]
 
 有时候我要搜索一个文件，文件名是`demo123.txt`，但是我输入`demo`的时候下面却没有`demo123`，而当我补上`123`的时候`demo123.txt`又出现了的我的面前了。别急，你多半是不小心按下了 Ctrl+B 触发了全字匹配，从而搜索不到文件，你只要在按一下 Ctrl+B 关闭即可。
 
-![image-20200908004645736](https://img.kuizuo.cn/image-20200908004645736.png)
+![image-20200908004645736](assert/44cf3ba65019ce258f50b4ed4b306562_MD5.png)
 
 ## 总结
 

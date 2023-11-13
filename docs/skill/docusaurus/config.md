@@ -2,7 +2,7 @@
 id: docusaurus-config
 slug: /docusaurus-config
 title: 配置文件
-authors: kuizuo
+authors: Sunny
 ---
 
 ## docusaurus.config.js
@@ -15,10 +15,10 @@ authors: kuizuo
 const config = {
   title: 'Sunny的小站',
   titleDelimiter: '-',
-  url: 'https://kuizuo.cn',
+  url: 'https://ydaydayup.cn',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  organizationName: 'kuizuo',
+  organizationName: 'Sunny',
   projectName: 'blog',
   tagline: '记录所学知识，领略编程之美',
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -27,7 +27,7 @@ const config = {
     metadata: [
       {
         name: 'keywords',
-        content: 'Sunny, kuizuo, blog, javascript, typescript, node, react, vue, web, 前端, 后端',
+        content: 'Sunny, Sunny, blog, javascript, typescript, node, react, vue, web, 前端, 后端',
       },
     ],
     // ...
@@ -67,10 +67,10 @@ module.exports = config
 
 ```javascript title='docusaurus.config.js'
 socials: {
-    github: 'https://github.com/kuizuo',
-    twitter: 'https://twitter.com/kuizuo',
+    github: 'https://github.com/ydaydayup',
+    twitter: 'https://twitter.com/ydaydayup',
     juejin: 'https://juejin.cn/user/1565318510545901',
-    csdn: 'https://blog.csdn.net/kuizuo12',
+    csdn: 'https://blog.csdn.net/ydaydayup12',
     qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
     cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
 },

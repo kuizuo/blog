@@ -2,7 +2,7 @@
 slug: cookie-of-node-and-browser
 title: node与浏览器中的cookie
 date: 2020-12-10
-authors: kuizuo
+authors: Sunny
 tags: [node, axios, cookie]
 keywords: [node, axios, cookie]
 ---
@@ -120,7 +120,7 @@ export function logout() {
 
 ```js
 instance.interceptors.request.use((config) => {
-  config.headers['cookie'] = 'cookie=this_is_cookies;username=kuizuo;'
+  config.headers['cookie'] = 'cookie=this_is_cookies;username=Sunny;'
   console.log('config.headers', config.headers)
   return config
 })
@@ -133,13 +133,13 @@ instance.interceptors.response.use((response) => {
 
 控制台结果：
 
-![image-20201210060704240](https://img.kuizuo.cn/image-20201210060704240.png)
+![image-20201210060704240](assert/86e56884283703a96fa94bec73c68268_MD5.png)
 
 首先，就是圈的这个，浏览器是不许允许设置一些不安全的协议头，例如 Cookie，Orgin，Referer 等等，即便你看到控制台 config.headers 确实有刚刚设置 cookie，但我们输出的也只是 headers 对象，在 Network 中找到这个请求，也同样看不到 Cookie 设置的（这就不放图了）。
 
 同样的，通过响应拦截器中输出的 headers 中也没有 set-cookies 这个字样。网络上很多都是说，添加这么一行代码 `withCredentials: true`，确实，但是没说到重点，都没讲述到怎么获取 cookies 的，因为在**浏览器环境中 axios 压根就获取不到 set-cookies 这个协议头**，实际上 axios 就没必要，因为浏览器会自行帮你获取服务器返回的 Cookies，并将其写入在 Storage 里的 Cookies 中，再下次请求的时候根据同源策略携带上对应的 Cookie。
 
-![image-20201210061627824](https://img.kuizuo.cn/image-20201210061627824.png)
+![image-20201210061627824](assert/667beaf51833beb523eeb5c2303ff7ed_MD5.png)
 
 要获取也很简单，vue 中通过`js-cookie`模块即可，而在 electron 中通过`const { session } = require('electron').remote` （electron 可以设置允许跨域，好用）有关更多可以自行查看文档。
 
@@ -288,7 +288,7 @@ function test() {
     t: 'true',
   };
   let headers = {};
-  let cookies = 'username=kuizuo;uid=123;';
+  let cookies = 'username=Sunny;uid=123;';
   let res = await request({
     url: url,
     data,
@@ -309,7 +309,7 @@ GET /fanyalogin HTTP/1.1
 Accept: application/json, text/plain, */*
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
 Referer: https://passport2.chaoxing.com/fanyalogin
-Cookie: username=kuizuo;uid=123;
+Cookie: username=Sunny;uid=123;
 Host: passport2.chaoxing.com
 Connection: keep-alive
 Content-Length: 100
@@ -384,7 +384,7 @@ return res
 
 在 axios 中也有这么一段配置，翻看了 lib/adapters 下目录我才瞬间醒悟过来，两者环境是不同的。
 
-![image-20201210214055696](https://img.kuizuo.cn/image-20201210214055696.png)
+![image-20201210214055696](assert/5ba9c01628af1e0f13fb019351ca5d77_MD5.png)
 
 就我使用而言，在浏览器环境下 axios 处理的特别好，允许设置拦截器处理请求与响应，但在 nodejs 下在处理模拟请求确实不如 Python 的 request 模块，奈何 axios 最大的便携就是能直接在浏览器中，尤大推荐的 http 请求库也是 axios。
 

@@ -6,10 +6,10 @@ const announcementBarContent = ''
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Sunny的小站',
-  url: 'https://kuizuo.cn',
+  url: 'https://ydaydayup.cn',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  organizationName: 'kuizuo',
+  organizationName: 'Sunny',
   projectName: 'blog',
   tagline: '道阻且长，行则将至',
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -22,7 +22,7 @@ const config = {
     metadata: [
       {
         name: 'keywords',
-        content: 'Sunny, kuizuo',
+        content: 'Sunny, Sunny',
       },
       {
         name: 'keywords',
@@ -138,7 +138,7 @@ const config = {
             },
             {
               label: '前端示例',
-              to: 'https://example.kuizuo.cn',
+              to: 'https://example.Sunny.cn',
             },
           ],
         },
@@ -151,11 +151,11 @@ const config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/kuizuo',
+              href: 'https://github.com/ydaydayup',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/kuizuo',
+              href: 'https://twitter.com/ydaydayup',
             },
             {
               label: '掘金',
@@ -217,7 +217,7 @@ const config = {
     algolia: {
       appId: 'GV6YN1ODMO',
       apiKey: '50303937b0e4630bec4a20a14e3b7872',
-      indexName: 'kuizuo',
+      indexName: 'Sunny',
     },
     zoom: {
       selector: '.markdown :not(em) > img',
@@ -239,14 +239,14 @@ const config = {
       playgroundPosition: 'top',
     },
     socials: {
-      github: 'https://github.com/kuizuo',
-      twitter: 'https://twitter.com/kuizuo',
+      github: 'https://github.com/ydaydayup',
+      twitter: 'https://twitter.com/ydaydayup',
       juejin: 'https://juejin.cn/user/1565318510545901',
-      csdn: 'https://blog.csdn.net/kuizuo12',
+      csdn: 'https://blog.csdn.net/ydaydayup12',
       qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
-      zhihu: 'https://www.zhihu.com/people/kuizuo',
+      zhihu: 'https://www.zhihu.com/people/ydaydayup',
       cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
-      mail: 'mailto:hi@kuizuo.cn',
+      mail: 'mailto:hi@Sunny.cn',
     },
   },
   headTags: [

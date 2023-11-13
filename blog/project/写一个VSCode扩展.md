@@ -2,7 +2,7 @@
 slug: vscode-extension
 title: 写一个 VSCode 扩展
 date: 2022-07-11
-authors: kuizuo
+authors: Sunny
 tags: [vscode, plugin, extension, develop]
 keywords: [vscode, plugin, extension, develop]
 description: 编写个人定制化的 VSCode 扩展，并将其发布到应用商店中。
@@ -13,11 +13,11 @@ image: /img/project/vscode-extension.png
 
 在购买这本书时就想写一个 vscode 插件（扩展），奈何当时事务繁忙加之不知做何功能，就迟迟未能动手。如今有时间了，就顺带体验下 vscode 扩展开发，并记录整个开发过程。
 
-扩展地址：[VSCode-extension](https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample 'VSCode-extension')
+扩展地址：[VSCode-extension](https://marketplace.visualstudio.com/items?itemName=Sunny.vscode-extension-sample 'VSCode-extension')
 
-开源地址：[kuizuo/vscode-extension (github.com)](https://github.com/kuizuo/vscode-extension)
+开源地址：[ydaydayup/vscode-extension (github.com)](https://github.com/ydaydayup/vscode-extension)
 
-![vscode-extension](https://img.kuizuo.cn/image-20220711195038039.png)
+![vscode-extension](assert/860986cd279b10ac7a5cf01d7d2e6790_MD5.png)
 
 <!-- truncate -->
 
@@ -75,17 +75,17 @@ More info: https://github.com/yeoman/insight & http://yeoman.io
 
 根据指示一步步选择，这里省略勾选过程，最终生成的项目结果如下
 
-![](https://img.kuizuo.cn/image_StiMqQrFCi.png)
+![](assert/1443db98592722887ec29858101c5340_MD5.png)
 
 ### 运行 vscode 插件
 
-既然创建好了工程，那必然是要运行的。由于我这里选择的 ts ＋ webpack 进行开发（视情况勾选 webpack），所以是需要打包，同时脚手架已经生成好了对应.vscode 的设置。只需要按下 F5 即可开始调试，这时会打开一个新的 vscode 窗口，`Ctrl+Shift+P`打开命令行，输入`Hello World`，右下角弹出提示框`Hello World from kuizuo-plugin!`
+既然创建好了工程，那必然是要运行的。由于我这里选择的 ts ＋ webpack 进行开发（视情况勾选 webpack），所以是需要打包，同时脚手架已经生成好了对应.vscode 的设置。只需要按下 F5 即可开始调试，这时会打开一个新的 vscode 窗口，`Ctrl+Shift+P`打开命令行，输入`Hello World`，右下角弹出提示框`Hello World from Sunny-plugin!`
 
 :::danger
 
 注意: 由于是 webpack 开发，在调用堆栈中可以看到有两个进程，一个是 webpack，另一个是新开的插件窗口的，同时在该调试窗口也能查看调试输出信息。
 
-![](https://img.kuizuo.cn/image_Yv4X32qLE5.png)
+![](assert/914c984329c9cd953f1d4850533ee95d_MD5.png)
 
 **切记一定要等到第二个调试进程加载完毕**（时间根据电脑性能而定），再打开命令行输入 Hello World 才会有命令，否则会提示 没有匹配命令。
 
@@ -100,9 +100,9 @@ import * as vscode from 'vscode'
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
-    'kuizuo-plugin.helloWorld',
+    'Sunny-plugin.helloWorld',
     () => {
-      vscode.window.showInformationMessage('Hello World from kuizuo-plugin!')
+      vscode.window.showInformationMessage('Hello World from Sunny-plugin!')
     },
   )
 
@@ -112,17 +112,17 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() {}
 ```
 
-`vscode.commands.registerCommand`用于注册命令，`kuizuo-plugin.helloWorld` 为命令 ID，在后续`package.json`中要与之匹配。第二个参数为一个回调函数，当触发该命令时，弹出提示框。
+`vscode.commands.registerCommand`用于注册命令，`Sunny-plugin.helloWorld` 为命令 ID，在后续`package.json`中要与之匹配。第二个参数为一个回调函数，当触发该命令时，弹出提示框。
 
 在 package.json 中关注 activationEvents 与 contributes
 
 ```json title="package.json"
 {
-  "activationEvents": ["onCommand:kuizuo-plugin.helloWorld"],
+  "activationEvents": ["onCommand:Sunny-plugin.helloWorld"],
   "contributes": {
     "commands": [
       {
-        "command": "kuizuo-plugin.helloWorld",
+        "command": "Sunny-plugin.helloWorld",
         "title": "Hello World"
       }
     ]
@@ -130,14 +130,14 @@ export function deactivate() {}
 }
 ```
 
-activationEvents 激活事件，`onCommand:kuizuo-plugin.helloWorld`中`kuizuo-plugin`是插件 ID 要与 extension.ts 中的注册命令匹配，`helloWorld`则是命令标识，而 onCommand 则是监听的类型，此外还有`onView`、`onUri`、`onLanguage`等等。
+activationEvents 激活事件，`onCommand:Sunny-plugin.helloWorld`中`Sunny-plugin`是插件 ID 要与 extension.ts 中的注册命令匹配，`helloWorld`则是命令标识，而 onCommand 则是监听的类型，此外还有`onView`、`onUri`、`onLanguage`等等。
 
-contributes 则是配置那些地方来显示命令，像官方的例子中，就是在 Ctrl + Shift + P 命令行中输入 Hello World 来调用`kuizuo-plugin.helloWorld` 命令。此外还可以设置按键与菜单
+contributes 则是配置那些地方来显示命令，像官方的例子中，就是在 Ctrl + Shift + P 命令行中输入 Hello World 来调用`Sunny-plugin.helloWorld` 命令。此外还可以设置按键与菜单
 
 ```json title="package.json"
 "keybindings": [
       {
-        "command": "kuizuo-plugin.helloWorld",
+        "command": "Sunny-plugin.helloWorld",
         "key": "ctrl+f10",
         "mac": "cmd+f10",
         "when": "editorTextFocus"
@@ -147,7 +147,7 @@ contributes 则是配置那些地方来显示命令，像官方的例子中，�
       "editor/context": [
         {
           "when": "editorFocus",
-          "command": "kuizuo-plugin.helloWorld",
+          "command": "Sunny-plugin.helloWorld",
           "group": "navigation"
         }
       ]
@@ -181,7 +181,7 @@ export function activate(context: vscode.ExtensionContext) {
     .showInformationMessage('是否要打开Sunny的小站？', '是', '否', '不再提示')
     .then(result => {
       if (result === '是') {
-        exec(`start 'https://kuizuo.cn'`)
+        exec(`start 'https://ydaydayup.cn'`)
       } else if (result === '不再提示') {
         // 其他操作 后文会说
       }
@@ -191,7 +191,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 此时重启窗口，就会有如下弹窗显示
 
-![](https://img.kuizuo.cn/image_9oqLzZl-wE.png)
+![](assert/6ccc582182956aa038a2e2c9beec0050_MD5.png)
 
 但如果你是 mac 用户的话，你会发现无法打开，其原因是 window 下打开链接的指令是 start，而 mac 则是 open，所以需要区分不同的系统。要区分系统就可以使用 node 中的 os 模块的 platform 方法获取系统，如下（省略部分代码）
 
@@ -200,19 +200,19 @@ import * as os from 'os'
 
 const commandLine =
   os.platform() === 'win32'
-    ? `start https://kuizuo.cn`
-    : `open https://kuizuo.cn`
+    ? `start https://ydaydayup.cn`
+    : `open https://ydaydayup.cn`
 exec(commandLine)
 ```
 
-当然了，当用户选择不再提示的时候，下次再打开 vscode 就别提示了，不然大概率就是卸载插件了。这里就需要设置全局参数了，在 package.json 中 contributes 设置 configuration，具体如下，注意`kuizuoPlugin.showTip` 为全局参数之一
+当然了，当用户选择不再提示的时候，下次再打开 vscode 就别提示了，不然大概率就是卸载插件了。这里就需要设置全局参数了，在 package.json 中 contributes 设置 configuration，具体如下，注意`SunnyPlugin.showTip` 为全局参数之一
 
 ```json title="package.json"
 "contributes": {
   "configuration": {
-    "title": "kuizuo-plugin",
+    "title": "Sunny-plugin",
     "properties": {
-      "kuizuoPlugin.showTip": {
+      "SunnyPlugin.showTip": {
         "type": "boolean",
         "default": true,
         "description": "是否在每次启动时显示欢迎提示！"
@@ -222,15 +222,15 @@ exec(commandLine)
 }
 ```
 
-该参数可以在设置 → 扩展中找到`kuizuo-plugin`插件来手动选择，也可以是通过 api 来修改
+该参数可以在设置 → 扩展中找到`Sunny-plugin`插件来手动选择，也可以是通过 api 来修改
 
-![](https://img.kuizuo.cn/image_teNrxe9D9O.png)
+![](assert/1c96b246f43bc58fa3a8b77bff668143_MD5.png)
 
 然后读取`vscode.workspace.getConfiguration().get(key)`和设置该参数`vscode.workspace.getConfiguration().update(key, value)`
 
 ```typescript title="extension.ts"
 export async function activate(context: vscode.ExtensionContext) {
-  const key = 'kuizuoPlugin.showTip'
+  const key = 'SunnyPlugin.showTip'
   const showTip = vscode.workspace.getConfiguration().get(key)
   if (showTip) {
     const result = await vscode.window.showInformationMessage(
@@ -242,8 +242,8 @@ export async function activate(context: vscode.ExtensionContext) {
     if (result === '是') {
       const commandLine =
         os.platform() === 'win32'
-          ? `start https://kuizuo.cn`
-          : `open https://kuizuo.cn`
+          ? `start https://ydaydayup.cn`
+          : `open https://ydaydayup.cn`
       exec(commandLine)
     } else if (result === '不再提示') {
       //最后一个参数，为true时表示写入全局配置，为false或不传时则只写入工作区配置
@@ -259,7 +259,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 我日常开发中写的最多的文件就是 js/ts 了，有时候就会在目录下创建 demo.js 来简单测试编写 js 代码，那么我就要点击资源管理器，然后右键新建文件，输入 demo.js。于是我想的是将该功能**封装成快捷键**的方式，当然右键也有**新建测试文件**这一选项。
 
-![](https://img.kuizuo.cn/image_3SRybBGaF1.png)
+![](assert/96da243828bb1f4a4350c91358357f1b_MD5.png)
 
 功能其实挺鸡肋的，也挺高不了多少效率，这里可以说**为了演示和测试这个功能而实现**。
 
@@ -273,7 +273,7 @@ import * as fs from 'fs'
 
 export async function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
-    'kuizuo-plugin.newFile',
+    'Sunny-plugin.newFile',
     (uri: vscode.Uri) => {
       vscode.window.showQuickPick(['js', 'ts'], {}).then(async item => {
         if (!uri?.fsPath) {
@@ -307,7 +307,7 @@ export function deactivate() {}
 ```json title="package.json"
 "keybindings": [
   {
-    "command": "kuizuo-plugin.newFile",
+    "command": "Sunny-plugin.newFile",
     "key": "shift+alt+n",
   }
 ],
@@ -315,7 +315,7 @@ export function deactivate() {}
 
 然后就当我实现完功能的时候，我在想**自带的新建文件是不是就是个 command？只是没有绑定快捷键？** 于是我到键盘快捷方式中找到答案
 
-![](https://img.kuizuo.cn/image_nQu3Y8DWSw.png)
+![](assert/00ecd9feff360ea46da79632b1f7b4c2_MD5.png)
 
 图中的`explorer.newFile`就是资源管理器右键新建文件的命令，只是没有键绑定。所以我只需要简单的加上`shift + alt + n`即可实现我一开始想要的快捷键功能，此时再次右键资源管理器新建文件右侧就有对应的快捷键。
 
@@ -366,7 +366,7 @@ export function deactivate() {}
     ]
 ```
 
-![](https://img.kuizuo.cn/image_SnnPUABJN5.png)
+![](assert/18f0ffcaa02f00fd5ff456956c7a4d49_MD5.png)
 
 仔细看右侧来源就可以知道是没问题的，第一个为我之前设置的，而扩展则是通过上面的方法。
 
@@ -374,7 +374,7 @@ export function deactivate() {}
 
 在 vscode 中有几个地方可以用于扩展，具体可看[Extending Workbench | Visual Studio Code Extension API](https://code.visualstudio.com/api/extension-capabilities/extending-workbench#status-bar-item 'Extending Workbench | Visual Studio Code Extension API')
 
-![](https://code.visualstudio.com/assets/api/extension-capabilities/extending-workbench/workbench-contribution.png)
+![](assert/3f0ce02d941a1a7eb9dd9a4dcdd99a3b_MD5.png)
 
 - 左侧图标（活动栏）：主要有资源管理器、搜索、调试、源代码管理、插件
 
@@ -413,7 +413,7 @@ export function deactivate() {}
 ```json title="package.json"
 "commands": [
     {
-      "command": "kuizuo-plugin.helloWorld",
+      "command": "Sunny-plugin.helloWorld",
       "title": "Hello World",
       "icon": {
         "light": "public/lollipop.svg",
@@ -425,7 +425,7 @@ export function deactivate() {}
     "editor/title": [
       {
         "when": "resourceLangId == javascript",
-        "command": "kuizuo-plugin.helloWorld",
+        "command": "Sunny-plugin.helloWorld",
         "group": "navigation"
       }
     ],
@@ -434,7 +434,7 @@ export function deactivate() {}
 
 至于底部状态栏，这里借用官方例子[vscode-extension-samples/statusbar-sample at main · microsoft/vscode-extension-samples (github.com)](https://github.com/microsoft/vscode-extension-samples/tree/main/statusbar-sample 'vscode-extension-samples/statusbar-sample at main · microsoft/vscode-extension-samples (github.com)')，最终效果如下
 
-![](https://img.kuizuo.cn/image_yQRsMkT6f5.png)
+![](assert/fb379c3a2f66aa1c38d04da6c8248c7c_MD5.png)
 
 那个 🍭 就是所添加的图标，不过并不实际功能，这里只是作为展示。
 
@@ -514,7 +514,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 当你尝试运行上述代码时，会发现在任何值后面输入`.`都会有`log`提示。
 
-![](https://img.kuizuo.cn/image_-ZCy88xVyq.png)
+![](assert/47d2ba0a0fed3c396503495d4902b0c5_MD5.png)
 
 但是点击后只是满足了代码补全的功能，而选择 log 选项后所要执行的操作则是在 `resolveCompletionItem` 中实现，这里仅仅只是返回一个 null，即只有简单的补全功能，这里对整个过程进行描述（可以自行下个断点调试查看）：。
 
@@ -525,7 +525,7 @@ export function activate(context: vscode.ExtensionContext) {
 要做代码替换的话就需要注册文本编辑命令`vscode.commands.registerTextEditorCommand` ，内容如下
 
 ```typescript title="extension.ts"
-const commandId = 'kuizuo-plugin.log'
+const commandId = 'Sunny-plugin.log'
 const commandHandler = (
   editor: vscode.TextEditor,
   edit: vscode.TextEditorEdit,
@@ -588,7 +588,7 @@ context.subscriptions.push(
     const label = item.label
     if (this.position && typeof label === 'string') {
       item.command = {
-        command: 'kuizuo-plugin.log',
+        command: 'Sunny-plugin.log',
         title: 'refactor',
         arguments: [this.position.translate(0, label.length + 1)], // 这里可以传递参数给该命令
       }
@@ -633,7 +633,7 @@ position 有两个属性`line`和`character`，对应的也就是行号和列号
 ```typescript title="extension.ts"
 context.subscriptions.push(
   vscode.commands.registerTextEditorCommand(
-    'kuizuo-plugin.insertLog',
+    'Sunny-plugin.insertLog',
     (editor: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
       // 获取选中代码 在其下方插入 console.log(xxx)
       const { selection, selections } = editor
@@ -663,9 +663,9 @@ context.subscriptions.push(
 
 ### 悬停提示
 
-这里也一笔带过，具体可看 hover.ts 中的代码。只要在 json 文件中，将鼠标悬停在`kuizuo`这个词中即可触发，试试看看。
+这里也一笔带过，具体可看 hover.ts 中的代码。只要在 json 文件中，将鼠标悬停在`Sunny`这个词中即可触发，试试看看。
 
-![](https://img.kuizuo.cn/image_RUIjdDI90l.png)
+![](assert/64d14b00e6bd140a885af120e95ff263_MD5.png)
 
 ### WebView
 
@@ -679,7 +679,7 @@ context.subscriptions.push(
 
 不过这里还只是作为一个演示，点击右上角的 logo 图标便可在 vscode 中打开网页。
 
-![](https://img.kuizuo.cn/image_nVO_YmRit4.png)
+![](assert/6d61d3caceea8818d8b9bc00b0b8d17b_MD5.png)
 
 不过要注意一点。新开的 webview 的背景是对应主题颜色的背景，如果网站有黑白模式的话，那么可能会导致颜色不对，故这里设置了 webview 的背景为白色。
 
@@ -689,7 +689,7 @@ context.subscriptions.push(
 
 大部分常用的 vscode 插件实现就此完毕，实际上有很多 api 还没尝试过，篇幅有限，就不一一列举了，后续若有开发实际作用插件再研究。具体可自行安装尝试一番，既然要让别人安装，这里就需要介绍发布了。
 
-这里在打包前重构下命令 ID，从 kuizuo-plugin → vscode-extension，同时把 package.json 的 name 改成了 vscode-extension-sample，因为发布的时候这个 id 必须唯一，不能与已有重名，到时候生成的为 kuizuo.vscode-extension-sample。（demo 给取了，不然我也不想起名为 sample）
+这里在打包前重构下命令 ID，从 Sunny-plugin → vscode-extension，同时把 package.json 的 name 改成了 vscode-extension-sample，因为发布的时候这个 id 必须唯一，不能与已有重名，到时候生成的为 Sunny.vscode-extension-sample。（demo 给取了，不然我也不想起名为 sample）
 
 ### 本地打包
 
@@ -723,11 +723,11 @@ vsce package
 
 因为 Visual Studio Code 使用 [Azure DevOps](https://azure.microsoft.com/services/devops/)作为其 Marketplace 服务。所以需要登录一下[Azure](https://dev.azure.com/ 'Azure')。登录后，如果之前没用过的话会要求创建一个组织，默认为邮箱前缀，这里如下点击
 
-![](https://img.kuizuo.cn/token1_JNXknLPQyJ.png)
+![](assert/464e068b9c9ebbb7edcc41911b4f19de_MD5.png)
 
 **2、新建一个 token**
 
-![image-20220831152146541](https://img.kuizuo.cn/image-20220831152146541.png)
+![image-20220831152146541](assert/30e2dd70a126a88805ddcfdba2c510c1_MD5.png)
 
 根据图片选择，注意其中 `Organization` 选择 `All aaccessible organizations`，`Scopes` 选择：`Full access`，否则登录会失败。生成后会得到一个 token，保存它，当你关闭时便不再显示。
 
@@ -741,7 +741,7 @@ vsce login <publisher name>
 
 这里的 `publisher name` 根据 package.json 中的 `publisher`，会要求你输入 `Personal Access Token`，把刚刚创建的 `token` 的值粘贴过来即可
 
-提示 `The Personal Access Token verification succeeded for the publisher 'kuizuo'.` 就说明验证成功
+提示 `The Personal Access Token verification succeeded for the publisher 'Sunny'.` 就说明验证成功
 
 **4、发布应用**
 
@@ -751,15 +751,15 @@ vsce publish
 
 :::warning 这里要保证 package.json 的 name 在插件市场中唯一，否则会提示 The Extension Id already exist in the Marketplace. Please use the different Id。 :::
 
-运行完毕后，最终提示`Published kuizuo.vscode-extension-sample v1.0.0.` 就说明发布完毕，发布和 npm 包一样，都无需审核，但要求包名唯一。
+运行完毕后，最终提示`Published Sunny.vscode-extension-sample v1.0.0.` 就说明发布完毕，发布和 npm 包一样，都无需审核，但要求包名唯一。
 
-可以在 [Manage Extensions | Visual Studio Marketplace](https://marketplace.visualstudio.com/manage/publishers/kuizuo 'Manage Extensions | Visual Studio Marketplace') 中管理已发布的插件
+可以在 [Manage Extensions | Visual Studio Marketplace](https://marketplace.visualstudio.com/manage/publishers/ydaydayup 'Manage Extensions | Visual Studio Marketplace') 中管理已发布的插件
 
-![](https://img.kuizuo.cn/image_HssaMdar8f.png)
+![](assert/5d6207d24ee1162a741a63a48363191f_MD5.png)
 
-这时在 vscode 扩展商店中搜索 `vscode-extension-sample`就能找到该插件[VSCode-extension](https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample 'VSCode-extension')，也可以通过`publisher:"kuizuo"`来找到我的所有 vscode 插件。
+这时在 vscode 扩展商店中搜索 `vscode-extension-sample`就能找到该插件[VSCode-extension](https://marketplace.visualstudio.com/items?itemName=Sunny.vscode-extension-sample 'VSCode-extension')，也可以通过`publisher:"Sunny"`来找到我的所有 vscode 插件。
 
-![vscode-extension](https://img.kuizuo.cn/image-20220711195038039.png)
+![vscode-extension](assert/860986cd279b10ac7a5cf01d7d2e6790_MD5.png)
 
 ## 总结
 

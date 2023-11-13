@@ -2,7 +2,7 @@
 slug: strapi-user-register-and-login
 title: Strapi 实现用户注册与登录
 date: 2022-09-03
-authors: kuizuo
+authors: Sunny
 tags: [strapi, nuxt, next]
 keywords: [strapi, nuxt, next]
 description: Strapi 实现用户注册与登录
@@ -22,7 +22,7 @@ description: Strapi 实现用户注册与登录
 
 打开 **设置 => 用户及权限插件 => 角色列表**
 
-![image-20220825131929320](https://img.kuizuo.cn/image-20220825131929320.png)
+![image-20220825131929320](assert/54dc393076dfa82df519428ad26485cf_MD5.png)
 
 默认有两个角色 Authenticated 与 Pubilc，都不可删除，其中还有一个 Admin 是我自己创建的角色，用于分配管理员的权限。
 
@@ -30,19 +30,19 @@ Authenticated 对应的也就是登录后的角色，即携带 **Authorization**
 
 另一个 Pubilc 则是未授权用户，默认权限如下
 
-![image-20220825132235027](https://img.kuizuo.cn/image-20220825132235027.png)
+![image-20220825132235027](assert/6d1a97df5d8d8e4ad1351cb56ab54666_MD5.png)
 
 ### 权限分配
 
 双击角色可以到权限分配页面，比方说我想给 Authenticated 角色分配 Restaurant 表中查询数据，就可以按照如下选项中勾选，并且勾选其中一个权限（增删改查）可以在右侧看到对应的请求 api 接口（路由）
 
-![image-20220825132716257](https://img.kuizuo.cn/image-20220825132716257.png)
+![image-20220825132716257](assert/27217cf903426eac9aa4085a70c8a37a_MD5.png)
 
 ### 默认角色
 
 可以在 **设置 => 用户及权限插件 => 高级设置** 中分配默认角色，此外这里还可以配置注册，重置密码等操作。对于这些功能而言，传统开发就需要编写相当多的代码了，而 Strapi 的 [角色和权限](https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html) 插件能省去开发这一部分功能的时间。
 
-![image-20220825132948740](https://img.kuizuo.cn/image-20220825132948740.png)
+![image-20220825132948740](assert/2a764b38bfa41d990bce360d2b3bdcd5_MD5.png)
 
 ### 管理员权限
 
@@ -129,11 +129,11 @@ axios.post('http://localhost:1337/api/auth/local/register', {
 
 通过相应的 hooks 就可以实现登录注册以及数据增删改查的功能，演示例子可看 [Usage](https://strapi.nuxtjs.org/usage)
 
-这里有一份我创建的预设模板 [kuizuo/vitesse-nuxt3-strapi](https://github.com/kuizuo/vitesse-nuxt3-strapi)，一开始的示例也是基于这个模板来搭建的。不过目前 Strapi 对 TypeScript 支持不是那么友好，尤其在 window 下会出现无法运行的情况，详看这个 [pr](https://github.com/strapi/strapi/pull/14088)。所以目前 backend 使用 js 创建，然后增加 ts 相关支持的，所以有些 ts 支持可能不是那么友好。
+这里有一份我创建的预设模板 [ydaydayup/vitesse-nuxt3-strapi](https://github.com/ydaydayup/vitesse-nuxt3-strapi)，一开始的示例也是基于这个模板来搭建的。不过目前 Strapi 对 TypeScript 支持不是那么友好，尤其在 window 下会出现无法运行的情况，详看这个 [pr](https://github.com/strapi/strapi/pull/14088)。所以目前 backend 使用 js 创建，然后增加 ts 相关支持的，所以有些 ts 支持可能不是那么友好。
 
 :::note
 
-原本我考虑的是使用 starter 方式来创建nuxt3 strapi项目，但是就在我创建完 starter 与 template 准备使用 `yarn create strapi-starter strapi-nuxt3 https://github.com/kuizuo/strapi-starter-nuxt3` 下载模板时，不出意外又出意外的报错了，由于这个报错也不好排查就暂时放弃了。
+原本我考虑的是使用 starter 方式来创建nuxt3 strapi项目，但是就在我创建完 starter 与 template 准备使用 `yarn create strapi-starter strapi-nuxt3 https://github.com/ydaydayup/strapi-starter-nuxt3` 下载模板时，不出意外又出意外的报错了，由于这个报错也不好排查就暂时放弃了。
 
 总之又是一趟白折腾的经过。
 

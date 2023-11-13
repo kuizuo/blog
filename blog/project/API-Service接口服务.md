@@ -2,7 +2,7 @@
 slug: use-nuxt3-build-api-server
 title: api-service 接口服务
 date: 2022-07-20
-authors: kuizuo
+authors: Sunny
 tags: [nuxt, vite, vue, ssr]
 keywords: [nuxt, vite, vue, ssr]
 description: 基于 Nuxt3 的 API 接口服务网站，易于封装，调用，部署。
@@ -12,11 +12,11 @@ sticky: 2
 
 挺早之前就想写个 api 接口服务，封装下自己收集的一些 api 接口，以便调用，正好最近在接触 SSR 框架，所以就使用 [Nuxt3](https://v3.nuxtjs.org/) 来编写该项目。
 
-在线地址: [API-Service](https://api.kuizuo.cn)
+在线地址: [API-Service](https://api.Sunny.cn)
 
-开源地址: [kuizuo/api-service](https://github.com/kuizuo/api-service)
+开源地址: [ydaydayup/api-service](https://github.com/ydaydayup/api-service)
 
-![API-Service](https://img.kuizuo.cn/KZ%20API.png)
+![API-Service](assert/fad1aef172eaac69cb51e1ac4d808a6c_MD5.png)
 
 <!-- truncate -->
 
@@ -32,11 +32,11 @@ npx nuxi init nuxt3-app
 
 安装完毕后，根据提示安装依赖与启动项目
 
-![image-20220714005704602](https://img.kuizuo.cn/image-20220714005704602.png)
+![image-20220714005704602](assert/99c2db5b3f2d03aadacf3cc2fdd404d0_MD5.png)
 
 初始的 nuxt3 项目及其简单，甚至没有 page、components、assets 等目录。
 
-![image-20220714003726413](https://img.kuizuo.cn/image-20220714003726413.png)
+![image-20220714003726413](assert/b6256ad4f11e9c8d40194dbde73a25f0_MD5.png)
 
 关于 nuxt3 本文不做过多介绍，本文只对部分进行介绍。nuxt 已经发布快 1 年了，相信外面很多相关介绍文章。
 
@@ -134,7 +134,7 @@ const { data } = await useFetch('/api/hello', { server: false })
 
 这个项目所使用的模板是 [Vitesse for Nuxt 3](https://github.com/antfu/vitesse-nuxt3)
 
-![vitesse-nuxt3](https://img.kuizuo.cn/vitesse-nuxt3.png)
+![vitesse-nuxt3](assert/9d0ae8b0dae6fd6b7987788d8e1477c2_MD5.png)
 
 该模板中集成了一些 vue 生态的相关模块(vueuse, pinia, unocss)，开发者可以不必自行封装这些模块。
 
@@ -352,7 +352,7 @@ export default defineEventHandler(async event => {
 
 是的，nuxt 的服务层并不像[nest](https://nestjs.com/)有 Middleware(中间件),Guards(守卫),Interceptors(拦截器)，而这里所要拦截的部分也就是 nest 中的 Interceptors。
 
-![img](https://docs.nestjs.com/assets/Interceptors_1.png)
+![img](assert/22bad041d4d5c4aef0c72f68808a6f76_MD5.png)
 
 不过 nuxt 只提供了中间件，这够实现接口缓存的功能了，不过需要一些“技巧”，关于这个技巧我写过的一篇文章 [JS 函数 hook](/blog/js-function-hook) 比较详细的介绍该技巧，这里简单说下。
 

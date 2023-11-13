@@ -2,14 +2,14 @@
 slug: js-code-deobfuscator
 title: JS代码之还原
 date: 2021-12-25
-authors: kuizuo
+authors: Sunny
 tags: [javascript, ast, reverse, project]
 keywords: [javascript, ast, reverse, project]
 ---
 
-基于 Babel 对 JS 代码进行混淆与还原操作的网站 [JS 代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
+基于 Babel 对 JS 代码进行混淆与还原操作的网站 [JS 代码混淆与还原 (Sunny.cn)](http://deobfuscator.Sunny.cn/)
 
-![js-de-obfuscator](https://img.kuizuo.cn/20220131193110.png)
+![js-de-obfuscator](assert/afd93bf3c174f370ff427591af071684_MD5.png)
 
 <!-- truncate -->
 
@@ -35,7 +35,7 @@ AST 仅仅只是静态分析，但可以将还原出来的代码替换原来的�
 
 接下来我将要演示一个混淆代码是如何还原的，这个例子是我第一次接触混淆的例子，也可以说是我玩的最溜的一次还原了，反正折腾了也有 4,5 来次。
 
-贴上代码 git 地址 [js-de-obfuscator/example/deobfuscator/cx](https://github.com/kuizuo/js-de-obfuscator/blob/main/example/deobfuscator/cx/code.js)
+贴上代码 git 地址 [js-de-obfuscator/example/deobfuscator/cx](https://github.com/ydaydayup/js-de-obfuscator/blob/main/example/deobfuscator/cx/code.js)
 
 > 注：该 js 文件是通过工具[JavaScript Obfuscator Tool](https://www.obfuscator.io/)进行混淆处理的。
 
@@ -45,7 +45,7 @@ AST 仅仅只是静态分析，但可以将还原出来的代码替换原来的�
 
 通过 AST 查看 node 节点，可以发现`value`正是我们想要的数据，但这里确显示的是`extra.raw`，实际上只需要遍历到相应的节点，然后 extra 属性给删除即可，同样的 Unicode 编码也是按上述方式显示。
 
-![image-20211224202108279](https://img.kuizuo.cn/image-20211224202108279.png)
+![image-20211224202108279](assert/586b6ad33b6d434be8802bad1255bfd1_MD5.png)
 
 具体遍历的代码如下
 
@@ -756,7 +756,7 @@ for (
 
 等等，总之你想咋优化都完全可以优化，但还原完的代码就不一定能看懂了。与解密字符串那个相比，如果搞不定字符串解密，那这些都是徒劳。
 
-具体的实例可通过 [源码例子](https://github.com/kuizuo/js-de-obfuscator/tree/main/example/deobfuscator) 中查看对 AST 的操作。
+具体的实例可通过 [源码例子](https://github.com/ydaydayup/js-de-obfuscator/tree/main/example/deobfuscator) 中查看对 AST 的操作。
 
 ## 运行还原后的代码
 
@@ -764,6 +764,6 @@ for (
 
 ## JS 混淆与还原的网站
 
-针对上述还原操作其实还不够明显，于是就编写了一个在线对 JS 代码混淆与还原的网站（主要针对还原）– [JS 代码混淆与还原 (kuizuo.cn)](https://deobfuscator.kuizuo.cn/)
+针对上述还原操作其实还不够明显，于是就编写了一个在线对 JS 代码混淆与还原的网站（主要针对还原）– [JS 代码混淆与还原 (Sunny.cn)](https://deobfuscator.Sunny.cn/)
 
 其实也就是对上述的还原代码进行封装成工具使用。

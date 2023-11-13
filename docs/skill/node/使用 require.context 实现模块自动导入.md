@@ -3,7 +3,7 @@ id: use-require.context-to-auto-import-modules
 slug: /use-require.context-to-auto-import-modules
 title: 使用 require.context 实现模块自动导入
 date: 2021-09-12
-authors: kuizuo
+authors: Sunny
 tags: [node, webpack]
 keywords: [node, webpack]
 ---
@@ -14,11 +14,11 @@ keywords: [node, webpack]
 
 在写资源导航的时候，我在将资源分类为一个文件的时候，发现如果我每定义一个分类，那我就需要创建一个文件，然后又要通过`import form`导入，就很烦躁。
 
-![image-20210912080353288](https://img.kuizuo.cn/image-20210912080353288.png)
+![image-20210912080353288](assert/d4882aa0e3362a865a1150f4e85f1ec9_MD5.png)
 
 突然想到貌似 vue-element-admin 中的路由好像也是这样的，而 store 貌似定义完就无需再次导入，于是就开始研究代码，果不其然，发现了`require.context`
 
-![image-20210912080429237](https://img.kuizuo.cn/image-20210912080429237.png)
+![image-20210912080429237](assert/f389561c0772d78ab523f6a7a2615dbd_MD5.png)
 
 [依赖管理 | webpack 中文文档 (docschina.org)](https://webpack.docschina.org/guides/dependency-management/)
 
@@ -40,7 +40,7 @@ const modulesFiles = require.context('./modules', true, /\.js$/)
 
 输出一下看看 modulesFiles 到底是什么(console.dir 输出)
 
-![image-20210912081146031](https://img.kuizuo.cn/image-20210912081146031.png)
+![image-20210912081146031](assert/2c65f3c6cd2c4b221e4fd11102593f44_MD5.png)
 
 返回一个函数，但该函数包含三个属性 resolve()、keys()、id
 
@@ -64,7 +64,7 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
 
 这边先输出一下 modules，看下结果是什么
 
-![image-20210912081553729](https://img.kuizuo.cn/image-20210912081553729.png)
+![image-20210912081553729](assert/66dece16c1c6a1cb96452d8c86b7e47a_MD5.png)
 
 没错，正对应着 modules 下的所有文件，以及所导出的对象
 

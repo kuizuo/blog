@@ -2,12 +2,12 @@
 slug: deno-is-not-only-a-javascript-runtime
 title: Deno 不只是个 Javascript 运行时
 date: 2023-01-20
-authors: kuizuo
+authors: Sunny
 tags: [deno, node, javascript, typescript]
 keywords: [deno, node, javascript, typescript]
 ---
 
-![](https://img.kuizuo.cn/202307110217498.png)
+![](assert/638f2e5498c7af5999c4501ca8af4d16_MD5.png)
 
 Deno 是一个安全的 JavaScript 和 TypeScript 运行时，作者是 Ryan Dahl（也是 Node.js 的原作者）。Deno 的诞生之初是为了[解决 2009 年首次设计 Node.js 时的一些疏忽](https://link.juejin.cn?target=https://www.youtube.com/watch?v=M3BM9TB-8yA)。我认为这种改造动机很有道理，因为**我相信每个程序员都希望有机会能重写他们已有 10 年历史的代码。**
 
@@ -133,18 +133,18 @@ console.log(totalCost(45, 27, 1.15));
 这里我准备了一段代码，并部署到我的站点上，你可以通过如下命令得到该代码的执行结果（如果你有安装 deno 的话），放心这段代码并无危害，就是一段简单的 console.log 输出。
 
 ```powershell
-deno run https://deno.kuizuo.cn/main.ts
+deno run https://deno.Sunny.cn/main.ts
 ```
 
 在第一次使用时下载并缓存代码，你可以通过
 
 ```powershell
-deno info http://deno.kuizuo.cn/main.ts
+deno info http://deno.Sunny.cn/main.ts
 ```
 
 来查看文件信息，如下
 
-![](https://img.kuizuo.cn/image_deb0_lGYRA.png)
+![](assert/7708fe5acb9d840b607c221263a970f1_MD5.png)
 
 deno info 还可以查看 deno 的相关配置，默认缓存都设置在 C 盘，你也可以设置**DENO_DIR** 环境变量来更改 deno 目录，可以到 [Set Up Your Environment](https://deno.land/manual@v1.29.3/getting_started/setup_your_environment#environment-variables 'Set Up Your Environment') 查看 deno 相关环境变量。
 
@@ -213,7 +213,7 @@ deno 刚发布的时候，甚至还不支持 NPM 软件包，这无非是要告�
 
 deno 像 vercel/netfily 一样提供了一个代码托管服务，可以将你的 deno 应用部署上去。对，目前来看还无法部署前端应用，因为要指明一个入门文件（main.ts）。
 
-你可以通过 [https://kuizuo.deno.dev/](https://kuizuo.deno.dev/ 'https://kuizuo.deno.dev/') 来访问我使用 deno Deploy 所创建的一个在线项目。将会输出一个`Hello World!` 的页面。
+你可以通过 [https://ydaydayup.deno.dev/](https://ydaydayup.deno.dev/ 'https://ydaydayup.deno.dev/') 来访问我使用 deno Deploy 所创建的一个在线项目。将会输出一个`Hello World!` 的页面。
 
 提供一个免费的线上环境体验，对开发者而言尤为重要，尤其是在将自己的项目成果分享给他人展示时，成就感油然而生。
 

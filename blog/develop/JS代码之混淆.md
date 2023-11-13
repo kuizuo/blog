@@ -2,7 +2,7 @@
 slug: js-code-obfuscator
 title: JS代码之混淆
 date: 2021-12-21
-authors: kuizuo
+authors: Sunny
 tags: [javascript, ast, reverse, project]
 keywords: [javascript, ast, reverse, project]
 ---
@@ -15,9 +15,9 @@ keywords: [javascript, ast, reverse, project]
 >
 > 书籍 《反爬虫 AST 原理与还原混淆实战》
 >
-> 相关混淆代码 [kuizuo/js-de-obfuscator](https://github.com/kuizuo/js-de-obfuscator)
+> 相关混淆代码 [ydaydayup/js-de-obfuscator](https://github.com/ydaydayup/js-de-obfuscator)
 >
-> 自写在线混淆与还原网站 [JS 代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
+> 自写在线混淆与还原网站 [JS 代码混淆与还原 (Sunny.cn)](http://deobfuscator.Sunny.cn/)
 
 ## 什么是 AST
 
@@ -177,7 +177,7 @@ babel 的编译过程主要有三个阶段
 
 同时 Babel 手册(中文版) [babel-handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md)强烈建议反复阅读，官方的例子远比我所描述来的详细。
 
-![image-20211212151620278](https://img.kuizuo.cn/image-20211212151620278.png)
+![image-20211212151620278](assert/4e4f4beb16d7e90820909a88fee94b25_MD5.png)
 
 ### 例子
 
@@ -209,7 +209,7 @@ function printTips() {
 
 鼠标点击这个 tips 查看 tips 变量在树节点中的节点。
 
-![image-20211212170832228](https://img.kuizuo.cn/image-20211212170832228.png)
+![image-20211212170832228](assert/5579a4e378e7519c9e3227ac08556571_MD5.png)
 
 这边可以看到有两个蓝色标记的节点，分别是`VariableDeclaration`和`VariabelDeclarator`，翻译过来便是变量声明与变量说明符，很显然整个`let tips = [ ]` 是`VariableDeclaration`，而`tips`则是`VariabelDeclarator`。
 
@@ -472,7 +472,7 @@ types 的主要用途还是构造节点，或者说写一个 Builders（构建�
 
 不过先别急着敲代码，把`let a = 100`代码进行 ast 解析，看看每个代码的节点对应的 type 都是什么，这样才有助于生成该代码。
 
-![image-20211216131627955](https://img.kuizuo.cn/image-20211216131627955.png)
+![image-20211216131627955](assert/9808e1a08218030e37c9ae9adf1df61a_MD5.png)
 
 body 内的第一个节点便是我们整条的代码，输入`t.variableDeclaration()`，鼠标悬停在 variableDeclaration 上，或者按 Ctrl 跳转只.d.ts 类型声明文件 查看该方法所需几个参数
 
@@ -649,7 +649,7 @@ let code = generator(arr_c).code
 
 一共有两种类型 `Node` 与 `NodePath`，记住有`Path`则是`path`，如`path`就属于`NodePath`，而`path.node` 属于`Node`。
 
-![image-20211213021420326](https://img.kuizuo.cn/image-20211213021420326.png)
+![image-20211213021420326](assert/62e3b5ea33566d813f3408994c02b12d_MD5.png)
 
 #### 将节点转为代码
 
@@ -683,7 +683,7 @@ traverse(ast, {
 `replaceWith` 一对一替换当前节点，且严格替换。
 
 ```javascript
-path.replaceWith(t.valueToNode('kuizuo'))
+path.replaceWith(t.valueToNode('Sunny'))
 ```
 
 `replaceWithMultiple` 则是一对多，将多个节点替换到一个节点上。
@@ -691,7 +691,7 @@ path.replaceWith(t.valueToNode('kuizuo'))
 ```javascript
 traverse(ast, {
   ReturnStatement(path) {
-    path.replaceWithMultiple([t.expressionStatement(t.callExpression(t.memberExpression(t.identifier('console'), t.identifier('log')), [t.stringLiteral('kuizuo')])), t.returnStatement()])
+    path.replaceWithMultiple([t.expressionStatement(t.callExpression(t.memberExpression(t.identifier('console'), t.identifier('log')), [t.stringLiteral('Sunny')])), t.returnStatement()])
     path.stop()
   },
 })
@@ -822,13 +822,13 @@ body
 
 在 ast 树结构中框中所表示
 
-![image-20211216200502122](https://img.kuizuo.cn/image-20211216200502122.png)
+![image-20211216200502122](assert/ba6013b53e66158362a0663bda43bf66_MD5.png)
 
 也并不是说所有节点都有同级节点，也并不是所有的 container 都是一个数组，例如下面这个例子
 
 ```javascript
 let obj = {
-  name: 'kuizuo',
+  name: 'Sunny',
 }
 ```
 
@@ -875,7 +875,7 @@ Node {
 
 对应 AST 树结构中所框选
 
-![image-20211216201242257](https://img.kuizuo.cn/image-20211216201242257.png)
+![image-20211216201242257](assert/9109c80ce7c2ebcb026ee3e07000f8ae_MD5.png)
 
 也就是说该节点并没有同级节点
 
@@ -896,7 +896,7 @@ Node {
 ```javascript
 function test() {
   let obj = {
-    name: 'kuizuo',
+    name: 'Sunny',
   }
   return obj
 }
@@ -916,7 +916,7 @@ traverse(ast, {
 
 // function test() {
 //   let obj = {
-//     name: 'kuizuo'
+//     name: 'Sunny'
 //   };
 //   return obj;
 // }
@@ -934,7 +934,7 @@ traverse(ast, {
 
 // function test() {
 //   let obj = {
-//     name: 'kuizuo'
+//     name: 'Sunny'
 //   };
 //   return obj;
 // }
@@ -1056,7 +1056,7 @@ function _0xabcdef2() {
 
 ## 混淆实战
 
-关于混淆实战的代码都已贴到 Github[kuizuo/AST-obfuscator](https://github.com/kuizuo/AST-obfuscator)，在`src/obfuscated`中便可看到完整的混淆程序。其中也包括一些实战还原的例子，大部分的写法都采用了 ES6 的类来写，方便编写理解。
+关于混淆实战的代码都已贴到 Github[ydaydayup/AST-obfuscator](https://github.com/ydaydayup/AST-obfuscator)，在`src/obfuscated`中便可看到完整的混淆程序。其中也包括一些实战还原的例子，大部分的写法都采用了 ES6 的类来写，方便编写理解。
 
 大部分混淆的例子在这本书《反爬虫 AST 原理与还原混淆实战》中都有，例如常量混淆，数组混淆与乱序，标识符混淆等等就不细说了，上传的代码中有，不过书中有一些 es6 的代码是没提及到的。
 
@@ -1067,13 +1067,13 @@ function _0xabcdef2() {
 演示代码
 
 ```javascript
-let a = 'kuizuo'
+let a = 'Sunny'
 ;`${a}nb${12}3${'456'}`
 ```
 
 分析 AST 树结构
 
-![image-20211217161958075](https://img.kuizuo.cn/image-20211217161958075.png)
+![image-20211217161958075](assert/8beaf398d019b4f24bbe83834e313c2f_MD5.png)
 
 不难观察出，parser 将其成两部分`expressions`与`quasis`。而所要转为的最终代码应该是`'' + a + 'nb' + 12 + '3' + '456'+ ''`，并且`quasis`成员个数始终比`expressions`多一位，所以只需要将`expressions`插入置`quasis`成员内，然后通过 binaryExpression 进行拼接即可。大致的思路有了，那么就开始用代码来进行拼接。
 
@@ -1128,7 +1128,7 @@ class Test {
   }
 }
 
-let test = new Test('kuizuo')
+let test = new Test('Sunny')
 console.log(test.run())
 ```
 
@@ -1190,7 +1190,7 @@ traverse(ast, {
 })
 ```
 
-最终运行混淆程序，执行混淆后的代码，成功输出`kuizuo20`
+最终运行混淆程序，执行混淆后的代码，成功输出`Sunny20`
 
 ---
 
@@ -1212,7 +1212,7 @@ traverse(ast, {
 
 ### 有混淆就有还原
 
-既然混淆是通过 AST 来进行混淆的，那么还原也同样可以，不过还原就不可能还原出原始开发者所编写的，就如同一些打包工具打包后的代码，比如将 name 压缩成 n，age 压缩成 a，那么就无法推断出 n 为 name，a 为 age，而混淆也是同理，像代码`let OOOOOO = atob('a3VpenVv')`，能还原的也只能是`let OOOOOO = ‘kuizuo’`或者是将标识符重新命名`let _0x123456 = ‘kuizuo’`，相对好看些。大部分的还原工作都只是将代码变得好读一些，比如`atob('a3VpenVv')`就可以变为`‘kuizuo’`，这便是基本的还原之一，关于还原还会另出一篇文章来记录，就不在这多废笔舌了。
+既然混淆是通过 AST 来进行混淆的，那么还原也同样可以，不过还原就不可能还原出原始开发者所编写的，就如同一些打包工具打包后的代码，比如将 name 压缩成 n，age 压缩成 a，那么就无法推断出 n 为 name，a 为 age，而混淆也是同理，像代码`let OOOOOO = atob('a3VpenVv')`，能还原的也只能是`let OOOOOO = ‘Sunny’`或者是将标识符重新命名`let _0x123456 = ‘Sunny’`，相对好看些。大部分的还原工作都只是将代码变得好读一些，比如`atob('a3VpenVv')`就可以变为`‘Sunny’`，这便是基本的还原之一，关于还原还会另出一篇文章来记录，就不在这多废笔舌了。
 
 整个混淆的过程来看，无非就是多了门技能，对 js 有了更进一步的了解，略懂 js 编译过程中的语法分析，此外也感叹 Babel 提供如此强大的 api。同时也能尝试使用最新的 ECMAScript 语法特性，无需考虑兼容问题，babel 统统都能处理。就如同 babel 官网所说的：
 

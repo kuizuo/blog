@@ -2,14 +2,14 @@
 slug: electron-vue3-development-environment
 title: 搭建Electron+Vue3开发环境
 date: 2022-03-17
-authors: kuizuo
+authors: Sunny
 tags: [electron, vue, vite]
 keywords: [electron, vue, vite]
 description: 搭建 Electron Vue3 的开发环境，用于编写跨平台应用
-image: https://img.kuizuo.cn/image-20220316204205165.png
+image: https://img.Sunny.cn/image-20220316204205165.png
 ---
 
-![image-20220316204205165](https://img.kuizuo.cn/image-20220316204205165.png)
+![image-20220316204205165](assert/bc62998cf05de42972e8b84adf133d7b_MD5.png)
 
 之前用 electron-vue 写过一个半成品的桌面端应用，但是是基于 Vue2 的，最近又想重写点桌面端应用，想要上 Vue3+TypeScript，于是便有了这篇文章总结下具体的搭建过程。
 

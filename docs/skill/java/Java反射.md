@@ -2,7 +2,7 @@
 slug: java-reflect
 title: java反射
 date: 2022-01-16
-authors: kuizuo
+authors: Sunny
 tags: [java]
 keywords: [java]
 ---
@@ -99,7 +99,7 @@ Person p = Person.class.newInstance();
 
 ```java
 Constructor<Person> constructor = Person.class.getConstructor(String.class);
-Person p = constructor.newInstance("kuizuo");
+Person p = constructor.newInstance("Sunny");
 ```
 
 如果构造函数是私有方法，则通过`getDeclaredConstructor`获取 Constructor
@@ -109,7 +109,7 @@ Person p = constructor.newInstance("kuizuo");
 ```java
 Constructor<Person> constructor = Person.class.getDeclaredConstructor(String.class);
 constructor.setAccessible(true);
-Person p = constructor.newInstance("kuizuo");
+Person p = constructor.newInstance("Sunny");
 ```
 
 **getParamerTypes** 获取参数类型数组(Class [])
@@ -129,14 +129,14 @@ String name =(String) nameField.get(p);
 
 ```java
 Field nameField = Person.class.getField("name");
-nameField.set(p,"kuizuo12");
+nameField.set(p,"Sunny12");
 ```
 
 设置静态属性值 set 第一个参数给 null 即可
 
 ```java
 Field nameField = Person.class.getField("name");
-nameField.set(null,"kuizuo12");
+nameField.set(null,"Sunny12");
 ```
 
 - **getDeclaredField **只可获取所有属性

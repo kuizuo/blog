@@ -507,7 +507,7 @@ export const resourceData: ResourceCategory[] = [
       {
         name: 'Bootstrap',
         desc: 'Bootstrap 是全球最受欢迎的前端开源工具库，它支持 Sass 变量和 mixin、响应式栅格系统、自带大量组件和众多强大的 JavaScript 插件。基于 Bootstrap 提供的强大功能，能够让你快速设计并定制你的网站',
-        logo: 'https://img.kuizuo.cn/20210907055816.png',
+        logo: 'https://img.Sunny.cn/20210907055816.png',
         href: 'https://v5.bootcss.com/',
         tags: ['Css', '框架'],
       },

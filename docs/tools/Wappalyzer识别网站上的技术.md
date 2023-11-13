@@ -3,7 +3,7 @@ id: wappalyzer-recognize-technology
 slug: /wappalyzer-recognize-technology
 title: Wappalyzer识别网站上的技术
 date: 2021-07-20
-authors: kuizuo
+authors: Sunny
 tags: [chrome, 插件]
 keywords: [chrome, 插件]
 ---
@@ -26,14 +26,14 @@ keywords: [chrome, 插件]
 
 Wappalyzer 官网
 
-![image-20210729074332788](https://img.kuizuo.cn/image-20210729074332788.png)
+![image-20210729074332788](assert/0288076f8a0bce238ee593f55df94bc8_MD5.png)
 
 Sunny的个人博客
 
-![image-20210802131116542](https://img.kuizuo.cn/image-20210802131116542.png)
+![image-20210802131116542](assert/df0d282d7621e7fe996589a1cea64761_MD5.png)
 
 b 站
 
-![image-20210729074249566](https://img.kuizuo.cn/image-20210729074249566.png)
+![image-20210729074249566](assert/859741e6e8cc500d18b0f84d45f02acc_MD5.png)
 
 本人测试过多个网站，分析结果与实际也如图所示，按理来说不会分析错，最多也就是没分析出来，不过效果可以说非常明显了，有时候看到一个心仪的网站，帮助我们去分析了解对应的技术栈，这再好不过了。

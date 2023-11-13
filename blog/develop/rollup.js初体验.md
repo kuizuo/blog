@@ -2,17 +2,17 @@
 slug: rollup-js-experience
 title: rollup.js 初体验
 date: 2022-10-18
-authors: kuizuo
+authors: Sunny
 tags: [rollup, webpack, utils]
 keywords: [rollup, webpack, utils]
 ---
 
 # rollup.js 初体验
 
-![rollup.js](https://img.kuizuo.cn/rollupjs.png)
+![rollup.js](assert/968e06ac269dfcb90737d5f13f39bf2b_MD5.png)
 
 
-近期准备写一个工具包 [@kuizuo/utils](https://github.com/kuizuo/utils "@kuizuo/utils")，由于要将其发布到npm上，必然就要兼容不同模块（例如 CommonJS 和 ESModule），通过打包器可以很轻松的将代码分别编译成这不同模块格式。
+近期准备写一个工具包 [@ydaydayup/utils](https://github.com/ydaydayup/utils "@ydaydayup/utils")，由于要将其发布到npm上，必然就要兼容不同模块（例如 CommonJS 和 ESModule），通过打包器可以很轻松的将代码分别编译成这不同模块格式。
 
 恰好 [rollup 3](https://github.com/rollup/rollup/releases/tag/v3.0.0 "rollup 3") 正式发布，也算是来体验一下。
 

@@ -3,7 +3,7 @@ id: tailwind-css-usage
 slug: /tailwind-css-usage
 title: 记Tailwind CSS使用
 date: 2022-11-11
-authors: kuizuo
+authors: Sunny
 tags: [css, tailind]
 keywords: [css, tailind]
 ---

@@ -2,7 +2,7 @@
 slug: axios-http-class-library
 title: 基于Axios封装HTTP类库
 date: 2021-08-26
-authors: kuizuo
+authors: Sunny
 tags: [node, http, axios]
 keywords: [node, http, axios]
 description: 基于 Axios 封装 HTTP 类库，并发布到 npm 仓库中
@@ -12,7 +12,7 @@ description: 基于 Axios 封装 HTTP 类库，并发布到 npm 仓库中
 
 一个基于 Axios 封装 HTTP 类库
 
-源代码 [kz-http](https://github.com/kuizuo/kz-http)
+源代码 [kz-http](https://github.com/ydaydayup/kz-http)
 
 ## 使用方法
 
@@ -162,7 +162,7 @@ http.instance.interceptors.request.use(
   "scripts": {
     "build": "tsc"
   },
-  "author": "kuizuo",
+  "author": "Sunny",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
@@ -173,7 +173,7 @@ http.instance.interceptors.request.use(
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kuizuo/kz-http.git"
+    "url": "git+https://github.com/ydaydayup/kz-http.git"
   },
   "keywords": ["node", "axios", "http"]
 }
@@ -198,7 +198,7 @@ http.instance.interceptors.request.use(
 - 如果包有重名，那么就无法发布，就必须要要改名
 
 - 邮箱必须要验证（会接受一条下图邮箱），不然就会发布失败
-  ![image-20210826212258752](https://img.kuizuo.cn/image-20210826212258752.png)
+  ![image-20210826212258752](assert/cf981e054ba9aa08f9fc81b311879948_MD5.png)
 
 - **请勿随意删包，否则同名的包将需要 24 小时后才能发布（亲测）**
 

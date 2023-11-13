@@ -3,7 +3,7 @@ id: frida-so-hook
 slug: /frida-so-hook
 title: Frida so层中的hook
 date: 2021-02-10
-authors: kuizuo
+authors: Sunny
 tags: [frida, app, hook]
 keywords: [frida, app, hook]
 ---
@@ -116,7 +116,7 @@ Interceptor.attach(funcAddr, {
 
 IDA -> Options -> General -> Number of opcode bytes (non-graph) 改为 4
 
-![image-20220206042920297](https://img.kuizuo.cn/20220206042927.png)
+![image-20220206042920297](assert/35fb553aecfc285d9cdbb810804318b3_MD5.png)
 
 arm 指令为 4 个字节，如果函数中有些指令是两个字节，那么函数地址计算需要 + 1
 

@@ -2,7 +2,7 @@
 slug: http-config-client-ssl-certificate
 title: HTTP请求配置客户端SSL证书
 date: 2022-02-17
-authors: kuizuo
+authors: Sunny
 tags:
   - http
   - ssl
@@ -27,7 +27,7 @@ APP 例子：隐约
 
 贴上下载地址及密码
 
-证书: https://img.kuizuo.cn/cert.p12
+证书: https://img.Sunny.cn/cert.p12
 
 密码: `xinghekeji888.x`
 

@@ -3,7 +3,7 @@ id: install-lsposed
 slug: /install-lsposed
 title: 安装LSPosed
 date: 2021-12-09
-authors: kuizuo
+authors: Sunny
 tags: [android, 刷机]
 keywords: [android, 刷机]
 ---
@@ -47,8 +47,8 @@ Riru 模块地址：[Releases · RikkaApps/Riru (github.com)](https://github.com
 
 ### 安装 Lsposed
 
-同样的，安装 Riru 后在 Magisk 模块仓库中搜索 LSPosed（一般在在线首页中就有），然后点击安装后重启便可。![image-20211209162111421](https://img.kuizuo.cn/image-20211209162111421.png)
+同样的，安装 Riru 后在 Magisk 模块仓库中搜索 LSPosed（一般在在线首页中就有），然后点击安装后重启便可。![image-20211209162111421](assert/db821f1b66d0398fe3b86e30d1ca32bf_MD5.png)
 
 这时候桌面便会有 LSPosed 应用，这时候就可以愉快去下载 Xposed 模块了。
 
-![image-20211210015027929](https://img.kuizuo.cn/image-20211210015027929.png)
+![image-20211210015027929](assert/eb7958cba212b18980bbd813e9a28b58_MD5.png)

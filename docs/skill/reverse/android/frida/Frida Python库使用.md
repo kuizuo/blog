@@ -3,7 +3,7 @@ id: frida-python-usage
 slug: /frida-python-usage
 title: Frida Python库使用
 date: 2021-02-10
-authors: kuizuo
+authors: Sunny
 tags: [frida, app, hook]
 keywords: [frida, app, hook]
 ---
@@ -197,4 +197,4 @@ if __name__ == '__main__':
 
 ```
 
-http 发送 get 请求 如 [http://127.0.0.1:8080/getEnc?username=kuizuo&password=a123456](http://127.0.0.1:8080/getEnc?username=kuizuo&password=a123456)，即可得到 enc 调用后的结果，post 请求同理
+http 发送 get 请求 如 [http://127.0.0.1:8080/getEnc?username=Sunny&password=a123456](http://127.0.0.1:8080/getEnc?username=Sunny&password=a123456)，即可得到 enc 调用后的结果，post 请求同理

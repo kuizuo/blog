@@ -3,7 +3,7 @@ id: frida-note
 slug: /frida-note
 title: Frida笔记
 date: 2021-02-10
-authors: kuizuo
+authors: Sunny
 tags: [frida, app, hook]
 keywords: [frida, app, hook]
 ---
@@ -139,7 +139,7 @@ fridaserver 与 frida 版本需要匹配，和 frida-tools 一样，访问 https
 文件名的格式为：`frida-server-(version)-(platform)-(cpu).xz`，需要下载的安卓的也就是`frida-server-15.1.14-android-arm64.xz`， **解压后**将文件 push 到手机内`/data/local/tmp/`下，并重命名 fsarm64
 
 ```sh
-adb push C:\Users\kuizuo\Desktop\frida-server-15.1.14-android-arm64 /data/local/tmp/fsarm64
+adb push C:\Users\Sunny\Desktop\frida-server-15.1.14-android-arm64 /data/local/tmp/fsarm64
 
 adb shell
 su
@@ -214,7 +214,7 @@ Java.perform(function () {
 
 let J_String = Java.use('java.lang.String')
 let HashMap = Java.use('java.util.HashMap')
-let Utils = Java.use('com.kuizuo.app.Utils')
+let Utils = Java.use('com.Sunny.app.Utils')
 ```
 
 ### 静态方法与实例方法
@@ -410,7 +410,7 @@ Java.enumerateLoadedClasses() // 异步
 使用到 Java 的反射
 
 ```javascript
-const Utils = Java.use('com.kuizuo.app.Utils')
+const Utils = Java.use('com.Sunny.app.Utils')
 const methods = Utils.class.getDeclaredMethods() // 方法
 const constructors = Utils.class.getDeclaredConstructors() // 构造函数
 const fields = Utils.class.getDeclaredFields() // 字段
@@ -518,9 +518,9 @@ let objarr = Java.array('Ljava.lang.Object;', ['字符串1', integer.$new(10), b
 var arrayList = Java.use('java.util.ArrayList').$new()
 var integer = Java.use('java.lang.Integer')
 var boolean = Java.use('java.lang.Boolean')
-var Person = Java.use('com.kuizuo.app.Person')
-var person = Person.$new('kuizuo', 20)
-arrayList.add('kuizuo')
+var Person = Java.use('com.Sunny.app.Person')
+var person = Person.$new('Sunny', 20)
+arrayList.add('Sunny')
 arrayList.add(integer.$new(10))
 arrayList.add(boolean.$new(true))
 arrayList.add(person)
@@ -685,7 +685,7 @@ Java.openClassFile("/data/local/tmp/xxx.dex").load();
 同 fridaserver，下载 frida-inject 移动到手机上，
 
 ```
-adb push C:\Users\kuizuo\Desktop\frida-inject-15.1.14-android-arm64 /data/local/tmp/fiarm64
+adb push C:\Users\Sunny\Desktop\frida-inject-15.1.14-android-arm64 /data/local/tmp/fiarm64
 
 adb shell
 su

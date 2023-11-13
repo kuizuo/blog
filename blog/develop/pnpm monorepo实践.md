@@ -2,7 +2,7 @@
 slug: pnpm-monorepo-practice
 title: pnpm monorepo实践
 date: 2022-08-29
-authors: kuizuo
+authors: Sunny
 tags: [pnpm, monorepo]
 keywords: [pnpm, monorepo]
 description: 使用 pnpm monorepo 实践
@@ -30,7 +30,7 @@ description: 使用 pnpm monorepo 实践
 
 ## 上手实践
 
-你可以 clone [https://github.com/kuizuo/monorepo-demo](https://github.com/kuizuo/monorepo-demo) 来查看本文示例代码仓库
+你可以 clone [https://github.com/ydaydayup/monorepo-demo](https://github.com/ydaydayup/monorepo-demo) 来查看本文示例代码仓库
 
 这里使用 pnpm 的 [workspace](https://pnpm.io/zh/workspaces) 来创建 monorepo 代码仓库，此外目前主流的还有 yarn workspace + [lerna](https://lerna.js.org/)，[nx](https://nx.dev/)，[turborepo](https://turborepo.org/)等等。
 

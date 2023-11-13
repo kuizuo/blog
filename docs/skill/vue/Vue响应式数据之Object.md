@@ -3,7 +3,7 @@ id: vue-reactive-data-object
 slug: /vue-reactive-data-object
 title: Vue响应式数据之Object
 date: 2022-05-10
-authors: kuizuo
+authors: Sunny
 tags: [vue, javascript]
 keywords: [vue, javascript]
 ---
@@ -16,7 +16,7 @@ keywords: [vue, javascript]
 
 ```javascript
 const data = {
-  username: 'kuizuo',
+  username: 'Sunny',
   password: 'a123456',
 }
 

@@ -2,7 +2,7 @@
 slug: use-jsonpath-to-parse-json-data
 title: 使用JSONPath解析json数据
 date: 2021-09-20
-authors: kuizuo
+authors: Sunny
 tags: [javascript, json, node]
 keywords: [javascript, json, node]
 description: jsonpath 能够帮助我们快速的从json数据中提取想要的数据  
@@ -160,7 +160,7 @@ let names = cities.map((c) => c.name)
 
 ### 结构
 
-![image-20210919194116296](https://img.kuizuo.cn/image-20210919194116296.png)
+![image-20210919194116296](assert/1e68eedc0c12c5bcfedfab72a02e17c0_MD5.png)
 
 ### 数据
 
@@ -451,7 +451,7 @@ console.log(groupList)
 
 于是了解到 jsonpath 后，我第一个时间就开始分析这样的数据，果不其然，得到了我想要的结果 ⬇️
 
-![image-20210919200826079](https://img.kuizuo.cn/image-20210919200826079.png)
+![image-20210919200826079](assert/b7d1f1bb2ab7c40c382e824f00c6753e_MD5.png)
 
 语法：`$..children[?(@.role=="group")]`
 

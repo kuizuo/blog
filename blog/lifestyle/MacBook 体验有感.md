@@ -2,14 +2,14 @@
 slug: /macbook-experience
 title: MacBook 体验有感
 date: 2023-05-05
-authors: kuizuo
+authors: Sunny
 tags: [macOS, MacBook, 记录, 使用体验]
 keywords: [macOS, MacBook, 记录, 使用体验]
 description: 作者是一位从来没用过苹果产品的程序员，但在使用了一周的 MacBook Pro 14 寸后，便爱不释手。
-image: https://img.kuizuo.cn/My%20Mac.png
+image: https://img.Sunny.cn/My%20Mac.png
 ---
 
-![](https://img.kuizuo.cn/My%20Mac.png)
+![](assert/08e6ac39e640afebc312e482c2ac3e45_MD5.png)
 
 首先我不是 iphone 用户，甚至是果黑（苹果的小黑子，合理来说是苹果手机的小黑子），所以我一向从内心就很摈弃苹果的产品。因此我从来没体验过 MacOS 系统，用了近 4 年 window，不过由于我的那台 window 本 （21 年小新 pro14） 给我的体验非常差，虽然说续航勉勉强强足够支撑我一个下午的开发，但 intel 的 i5 cpu 我就没打算将其作为主力机开发（根本做不了），更多是使用向日葵远程桌面软件来远程连接到我的台式电脑，远程操控来进行开发。然而由于屏幕分辨率不同以及网络延迟，这样的体验长期下去必然会崩溃。因此**更换自己的移动办公设备已经成了我当下的刚需。**
 
@@ -29,21 +29,21 @@ image: https://img.kuizuo.cn/My%20Mac.png
 
 至于说选择 m2 pro 还是 m2 max，这条[链接](https://www.apple.com.cn/macbook-pro-14-and-16/)与下图能告诉你答案。
 
-![Untitled](https://img.kuizuo.cn/202305050428893.png)
+![Untitled](assert/2d578162c24e8754a25141112fe4f7d3_MD5.png)
 
 其次就是选配方面，在之前我是打算购买 32g + 1t 的。但在如今一堆 electron 应用（一个就要吃至少 100m 的内存），加上我本身的会有多开几个 vscode 以及多个浏览器标签， 16g 内存在 window 下对于开发从事者而言已经不够使用了，在 mac 上 从我的事实也证明 16g 内存 在两个正在运行中的 node 与 的 10 来个浏览器标签，加上一些常用软件（微信、QQ、飞书、）是有些不够用了，以下对应的活动监视图（window 中的任务管理器）
 
-![Untitled](https://img.kuizuo.cn/202305050429190.png)
+![Untitled](assert/b138e48228317e8d4bc2814baee1e5ca_MD5.png)
 
 虽说有 swap，表面上的 16g 物理内存实际上运行内存可能会更多，但最主要还是看内存压力。不过即使是这样，系统也没有出现过任何的卡顿，这要是换 windows，恐怕已经蓝屏了。等哪天内存压力变红时或者出现卡顿现象，再来汇报相关进程。（新买的机子，不舍得压力测试折腾她）
 
 而 m2 pro 的 512g 相比 1t 读写速度减少一半（看下图你便懂了，单通道的速度和两个 512g 组双通道相比），事实上在之前的丐版都存在这种问题，可以说苹果是巴不得你加购硬盘容量，不然硬盘速度缩半。
 
-![Untitled](https://img.kuizuo.cn/202305050428895.png)
+![Untitled](assert/ae51f4b3da4e746045cca29e8207fe99_MD5.png)
 
 而 1t 及以上容量自然是无该问题，何况不加配的 mac 能叫 mac 吗。我其实是很想加配的，但无奈无现货，并且官网定制这个配置（m2 pro 32g + 1t）的还需要等待 2 个星期，据店员说“这只是预计，实际可能会更久“，不过这里不排除店员这么说诱导我在购买丐版现货。
 
-![Untitled](https://img.kuizuo.cn/202305050428896.jpeg)
+![Untitled](assert/1ab1248aa601b61c2f964db799a8ae19_MD5.jpg)
 
 不过最终能让我购买的很大原因是在五一期间我实在不想用那破 window 本，因此第二天再次联系店员决定直接付款拿丐版现货。因为考虑两年后大概率也会更换电子设备（距离我上次更换电子设备也过去两年），所以综合考虑当前的配置在这两年应该是足以使用（这句话也许说的有点早）。
 
@@ -75,7 +75,7 @@ image: https://img.kuizuo.cn/My%20Mac.png
 
 由于我使用时间较短，因此软件方面我不好做出评价与推荐，这里我只附上一张我已安装应用截图
 
-![Untitled](https://img.kuizuo.cn/202305050428897.png)
+![Untitled](assert/6f573c699130dc5998eec5d6f5295182_MD5.png)
 
 ### 熟悉触控板与应用全屏，提升效率
 
@@ -87,7 +87,7 @@ image: https://img.kuizuo.cn/My%20Mac.png
 
 现在可以毫不犹豫的说，我会选择 macOS，下一台笔电也会选择 macOS 系统。但并不是说什么场景，macOS 都是最优选，就比如说游戏需求，我想没人会买台 mac 来作为自己的游戏机。mac 上几乎玩不到什么 3A 大作，甚至在 m2 芯片上，你可能都无法下载 wegame 来玩上一把英雄联盟。
 
-![Untitled](https://img.kuizuo.cn/202305050428898.png)
+![Untitled](assert/2dd31f891c3eaad89f073421bdb2e0f2_MD5.png)
 
 如果你有桌面游戏的需求，建议拉黑 mac。此外还有一些 window 的专业软件，你在 mac 上可能找不到与之对应或平替的软件，尤其是在大学课程中，老师几乎不可能给学生发个 dmg 文件，如果你在大学期间买 mac，又要兼顾学校的课程软件需求，又不得不安装 window 虚拟机，与其如此折腾不如一开始就选用相对便宜的 win 本，还能减少一些经济压力。不过我觉得大学老师上课所说的一些软件都没必要安装，反而占用一些不必要的空间，（vc++、eclipse 等等），如果你们老师提到了 Vscode 那当我没说。
 
@@ -97,9 +97,9 @@ image: https://img.kuizuo.cn/My%20Mac.png
 
 目前手头的三台电脑设备对应的 CPU（性能从高到低）M2 Pro > AMD 5900x > i5-11300H
 
-![Untitled](https://img.kuizuo.cn/202305050428899.png)
+![Untitled](assert/86505ee7455c1be1f7292661c61877b3_MD5.png)
 
-![Untitled](https://img.kuizuo.cn/202305050428900.png)
+![Untitled](assert/1dd2bbfba811989f2cc7bfc378960608_MD5.png)
 
 这里我没找到比较好的前端 benchmark 项目，但就从我个人直观的体验与在这三台机器启动同一个前端项目启动与打包来看，在冷启动上，m2 pro 耗费 1.7s, 5900x 耗费 2.8s，i5-11300H 我都不想拉项目，去年的暑假靠这台 win 本进行开发，别提体验有多差，每次都需要干巴巴的干等项目完全启动就需要等个 2、3 分钟（不夸张），有时候可能因为某些特殊原因需要重启服务，好的，又浪费个 2、3 分钟。影响你效率的可能不只是环境，还有你的机器。
 

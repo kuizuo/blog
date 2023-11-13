@@ -3,12 +3,12 @@ id: jetbrains-product-activation-method
 slug: /jetbrains-product-activation-method
 title: Jetbrains系列产品激活方法
 date: 2020-09-03
-authors: kuizuo
+authors: Sunny
 tags: [Jetbrains, 工具]
 keywords: [Jetbrains, 工具]
 ---
 
-![jetbrains](https://img.kuizuo.cn/jetbrains.jpg)
+![jetbrains](assert/e4cbcfc5291d571241da72f4263e1ee3_MD5.jpg)
 
 <!-- truncate -->
 
@@ -40,7 +40,7 @@ keywords: [Jetbrains, 工具]
 
    尽管这个补丁是 2020 年 4 月 10 日的，但有可能软件更新后会用不了，所以要破解请不要更新或安装最新版（本文 9 月 8 号已测试没问题），毕竟人家软件商又不傻，能让你白嫖免费用最新的，如图下载其他版本。
 
-![image-20200903064643648](https://img.kuizuo.cn/image-20200903064643648.png)
+![image-20200903064643648](assert/93f1f7da2cfe34b774744d26aded7c33_MD5.png)
 
 2. **清除 hosts 文件内有关 jetbrains**
 
@@ -54,23 +54,23 @@ keywords: [Jetbrains, 工具]
 
 1. 首先运行软件（这里以 IDEA2019.3 为例），如果是第一次的话会进行一些正常配置然后弹出一个如下注册框，勾选 Evaluate for free, 点击 Evaluate:
 
-![wps1](https://img.kuizuo.cn/wps1.jpg)
+![wps1](assert/e95552de68016933fef210fab0ffd58e_MD5.jpg)
 
 ​ 正常进入到工具编程开始界面，进入第二步
 
 2. 用鼠标拖动下载完的激活工具`jetbrains-agent-latest.zip`文件到 到编程界面,或者一开始创建项目页面
 
-   ![image-20200903070702901](https://img.kuizuo.cn/image-20200903070702901.png)
+   ![image-20200903070702901](assert/a17511bd87c15002f5037dd3af2a94aa_MD5.png)
 
    提示选择 Restart 重启软件，这里就不放图了。
 
 3. 重新打开 idea，激活方式默认`Activation code`，啥也别改 直接点击为 IDEA 安装即可
 
-![image-20200903070849707](https://img.kuizuo.cn/image-20200903070849707.png)
+![image-20200903070849707](assert/1dbe2ace61cb0f28aef9ac2f149ffca4_MD5.png)
 
 ​ 补充一下，如果你是用我提供给你的补丁的话，可能会遇到如下图
 
-![image-20200908111018549](https://img.kuizuo.cn/image-20200908111018549.png)
+![image-20200908111018549](assert/22a7bd9e83ed931654e2866bc7481e42_MD5.png)
 
 ​ 有个安装参数，你把下面的文本复制粘贴到输入框即可
 
@@ -82,11 +82,11 @@ LFq51qqupnaiTNn39w6zATiOTxZI2JYuRJEBlzmUDv4zeeNlXhMgJZVb0q5QkLr+CIUrSuNB7ucifrGX
 
 4. 稍等片刻，这时候点击 Help->About 查看到期时间 2089 年
 
-![image-20200903071235404](https://img.kuizuo.cn/image-20200903071235404.png)
+![image-20200903071235404](assert/45f491235c43d7ee127d0d25def316ae_MD5.png)
 
 没错现在 IDEA 已经成功激活破解了，这时候再点 Help->Register 查看注册情况
 
-![image-20200903071428877](https://img.kuizuo.cn/image-20200903071428877.png)
+![image-20200903071428877](assert/545d36dd93230fa22389d76b137f2bc1_MD5.png)
 
 就此 IDEA2019.3 已成功激活破解。就是这么简单。
 
@@ -96,11 +96,11 @@ LFq51qqupnaiTNn39w6zATiOTxZI2JYuRJEBlzmUDv4zeeNlXhMgJZVb0q5QkLr+CIUrSuNB7ucifrGX
 
 首先在 Help->Edit Custom VM Options 中，你可以看到`-javaagent:C:\Users\Public\.jetbrains\jetbrains-agent-v3.2.0.de72.619`这个字样
 
-![image-20200903071942873](https://img.kuizuo.cn/image-20200903071942873.png)
+![image-20200903071942873](assert/cb3778103836a4c7699a2d77b86a22d2_MD5.png)
 
 也就是这个，决定了你能否运行 IDEA 的关键，现在我找到对应的目录下，把这两个文件先移走，然后重新运行 IDEA，你就会发现运行不了，同样的你若删除了这一行也是运行不了的。反正闲着没事就别管这些地方，甚至你都不用修改软件对应`bin`下的以`.exe.vmoptions`后缀文件里的内容。
 
-![image-20200903072112685](https://img.kuizuo.cn/image-20200903072112685.png)
+![image-20200903072112685](assert/49b0a0521556d2763eb2544e3cce1ac4_MD5.png)
 
 为什么要说这个呢，因为你到时候如果是要用其他的补丁，可能要你更改的就是上面那文件的对应路径或者 bin 下对应的两个文件，你到时候根据对应的使用方式修改就行，并不难。
 
@@ -108,7 +108,7 @@ LFq51qqupnaiTNn39w6zATiOTxZI2JYuRJEBlzmUDv4zeeNlXhMgJZVb0q5QkLr+CIUrSuNB7ucifrGX
 
 你在执行完第三步的时候，重启后，发现还在`License Activation`激活界面，先不管，在点击试用，然后点开 Help->About 发现显示到期时间不是 2089 年，再点 Help->Register 查看注册情况，发现在`Activation code`中并没有内容，然后尝试把激活工具里的`Activation code.txt`里的激活码复制到上面，然后就出现如下图的情况
 
-![image-20200903073459886](https://img.kuizuo.cn/image-20200903073459886.png)
+![image-20200903073459886](assert/0e7daa4a1047e0fe448cd782489b46cc_MD5.png)
 
 ~~这里我就用 Go 来做演示了，卸载重装够折腾的了~~，<font color='#ff0000'>Key is invalid.</font>啥玩意?
 

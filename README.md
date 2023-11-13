@@ -8,7 +8,7 @@ Sunny的个人博客
 
 <p align="center">
 <br>
-<a href="https://kuizuo.cn">🖥 Online Preview</a>
+<a href="https://ydaydayup.cn">🖥 Online Preview</a>
 <br><br> 
 <a href="https://vercel.com/new/clone?repository-url=https://github.com/ydaydayup/myblog/tree/main&project-name=blog&repo-name=blog" rel="nofollow"><img src="https://vercel.com/button"></a>
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/ydaydayup/myblog" rel="nofollow"><img src="https://www.netlify.com/img/deploy/button.svg"></a>
@@ -34,7 +34,7 @@ Sunny的个人博客
 - 🌈 **资源导航** - 收集并分享有用、有意思的资源
 - 📦 **项目展示** - 展示你的项目，可用作于作品集
 
-我的修改：[Docusaurus 主题魔改](https://kuizuo.cn/docs/docusaurus-guides)
+我的修改：[Docusaurus 主题魔改](https://ydaydayup.cn/docs/docusaurus-guides)
 
 ## 📊 Catalogue
 

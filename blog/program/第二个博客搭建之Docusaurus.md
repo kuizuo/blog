@@ -2,7 +2,7 @@
 slug: second-blog-is-docusaurus
 title: 第二个博客搭建之Docusaurus
 date: 2021-08-20
-authors: kuizuo
+authors: Sunny
 tags: [blog, docusaurus, project]
 keywords: [blog, docusaurus, project]
 description: 使用 docusaurus 搭建个人博客，并对其主题进行魔改
@@ -10,7 +10,7 @@ image: /img/project/blog.png
 sticky: 5
 ---
 
-博客地址: [Sunny的小站](https://kuizuo.cn/)
+博客地址: [Sunny的小站](https://ydaydayup.cn/)
 
 时隔近半年没好好整理文章，博客也写的不像个人样。:joy:
 
@@ -22,7 +22,7 @@ sticky: 5
 
 ## 安装
 
-如果你想搭建一个类似的博客，可以 [fork 本项目](https://github.com/ydaydayup/myblog/fork)，修改个人信息，并将文章迁移过来。这里推荐使用 [Vercel 部署个人博客](https://kuizuo.cn/vercel-deploy-blog)，以下是本地安装示例。
+如果你想搭建一个类似的博客，可以 [fork 本项目](https://github.com/ydaydayup/myblog/fork)，修改个人信息，并将文章迁移过来。这里推荐使用 [Vercel 部署个人博客](https://ydaydayup.cn/vercel-deploy-blog)，以下是本地安装示例。
 
 ```bash
 git clone https://github.com/ydaydayup/myblog
@@ -31,13 +31,13 @@ yarn
 yarn start
 ```
 
-关于主题魔改可以看 [Docusaurus 主题魔改](https://kuizuo.cn/docs/docusaurus-guides)
+关于主题魔改可以看 [Docusaurus 主题魔改](https://ydaydayup.cn/docs/docusaurus-guides)
 
 ## 一些页面
 
 ### [博客页](/blog/)
 
-![image-20230221120937768](https://img.kuizuo.cn/image-20230221120937768.png)
+![image-20230221120937768](assert/c3551b2acef19d1f8a7506ea28f8e9fb_MD5.png)
 
 - 支持 3 种博文信息展示
 - 博客个人信息卡片
@@ -45,23 +45,23 @@ yarn start
 
 ### [归档页](/blog/archive)
 
-![image-20220804052418993](https://img.kuizuo.cn/image-20220804052418993.png)
+![image-20220804052418993](assert/8aeeed8928315ed13cdf22bdd3a6fd05_MD5.png)
 
 ### [资源导航](/resource)
 
-![image-20220804052016538](https://img.kuizuo.cn/image-20220804052016538.png)
+![image-20220804052016538](assert/c7996ca7ac0bbf0996b9f736ccbb962c_MD5.png)
 
 - 在此分享所收藏的一些好用、实用网站。
 
 ### 评论
 
-![image-20220804052746803](https://img.kuizuo.cn/image-20220804052746803.png)
+![image-20220804052746803](assert/08622f211262213e461115f8292623bb_MD5.png)
 
 - 接入 [giscus](https://giscus.app) 作为评论系统，支持 GitHub 登录。
 
 ### [项目](/project)
 
-![image-20220804052117492](https://img.kuizuo.cn/image-20220804052117492.png)
+![image-20220804052117492](assert/e9780ec73400e6f8f36ab7260e9c4036_MD5.png)
 
 - 存放你的项目，或是当做一个作品集用于展示。
 

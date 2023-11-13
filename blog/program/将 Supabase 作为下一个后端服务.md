@@ -2,15 +2,15 @@
 slug: use-supabase-as-backend-service
 title: 将 Supabase 作为下一个后端服务
 date: 2023-02-18
-authors: kuizuo
+authors: Sunny
 tags: [supabase, nuxt, project]
 keywords: [supabase, nuxt, project]
 description: 本文介绍了如何使用 Supabase 作为后端服务，使开发人员可以更快地构建和部署应用程序，无需配置数据库或编写复杂的身份验证代码。将使用 Nuxt.js 和 Supabase，以实现一个图床网站为例，来演示如何在前端中使用 Supabase API 和 Storage 服务。
-image: https://img.kuizuo.cn/213727234-cda046d6-28c6-491a-b284-b86c5cede25d.png
+image: https://img.Sunny.cn/213727234-cda046d6-28c6-491a-b284-b86c5cede25d.png
 toc_max_heading_level: 3
 ---
 
-![213727234-cda046d6-28c6-491a-b284-b86c5cede25d](https://img.kuizuo.cn/213727234-cda046d6-28c6-491a-b284-b86c5cede25d.png)
+![213727234-cda046d6-28c6-491a-b284-b86c5cede25d](assert/5e077dd02049db19175d9644c34621a4_MD5.png)
 
 对于想快速实现一个产品而言，如果使用传统开发，又要兼顾前端开发，同时又要花费时间构建后端服务。然而有这么一个平台（Baas Backend as a service）后端即服务，能够让开发人员可以专注于前端开发，而无需花费大量时间和精力来构建和维护后端基础设施。
 
@@ -36,11 +36,11 @@ BaaS 通常只专注于应用的后端服务，而 CMS 则是专注与内容管�
 
 进入 [supabase 登录界面](https://app.supabase.com/sign-in) 选择 Continue With Github
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_2yiQ9NHv21.png)
+![](assert/0786dcb15529fa69c847388242ca39ef_MD5.png)
 
 输入 Github 账号密码进入[主页面](https://app.supabase.com/projects '主页面')，新建一个项目
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_0eoOyP8DM2.png)
+![](assert/26a0458e6528419c8e7b3799fb0ed0b3_MD5.png)
 
 为该项目起名，设置数据库密码，以及分配地区。
 
@@ -52,11 +52,11 @@ BaaS 通常只专注于应用的后端服务，而 CMS 则是专注与内容管�
 
 :::
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_N5CQnx8cnU.png)
+![](assert/c6c25511d01c3d968e1647558f630b49_MD5.png)
 
 等待片刻，你将拥有一个免费的后端服务！
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_Z33n9aUOC7.png)
+![](assert/7fad4e6952c0fb7c0fdb92c2f0092aea_MD5.png)
 
 supabase 会提供一个二级域名供开发者访问，也就是这里 Project Configuration 的 URL，对应的这个二级域名 azlbliyjwcxxxxx 也就是你这个项目的唯一标识 Reference ID（下文称 项目 id）。你可以到 [https://app.supabase.com/project/你的项目 id/settings/api](https://app.supabase.com/project/azlbliyjwcemojkwazto/settings/api 'https://app.supabase.com/project/你的项目id/settings/api') 中查看相关配置。
 
@@ -66,43 +66,43 @@ supabase 会提供一个二级域名供开发者访问，也就是这里 Project
 
 首先，创建一个 todos 表，并新增字段（列）task 为 varchar 类型，Save 保存。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_Do9LHoUsYo.png)
+![](assert/981c6d2434fc783d0ab7d86a946f759e_MD5.png)
 
 Insert row 添加一行记录，id 为 1，task 为 code。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_R9PEyH-spd.png)
+![](assert/8b4595cb4aa45b334eb7338d5524f237_MD5.png)
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_MLm6_i1Pb-.png)
+![](assert/cf8fa20e96ff239749ad530c94ccc50e_MD5.png)
 
 现在有了数据后，正常来说我们应该做什么？请求一下数据看看？不不不，应该是设置数据的权限。
 
 打开到下图界面，我们要为 todos 数据新增一个 policy 策略。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_MEKk1-qQFl.png)
+![](assert/ae8e58412c4571ca7b5b7a0d0ecc09e3_MD5.png)
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_W-C-pGNh1o.png)
+![](assert/3a2eb455ccc10906b0ced6f7997037c2_MD5.png)
 
 supabase 针对不同的场景提供了相应的策略方案模板，你也可以根据你的需求进行设置，这里作为演示不考虑太复杂，选择第一个允许任何人都可以请求到 todos 数据。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_Oa_424N4gz.png)
+![](assert/4ab93a60f01e8767bf6db5a2be99dea5_MD5.png)
 
 接着下一步即可
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_wV_MqXQXcK.png)
+![](assert/857b8faadef8d058d00446487fb1f4b5_MD5.png)
 
 此时就新增了一个所有用户都可查询的 todo 的策略，同样的你还可以添加只有授权用户才能够创建更新删除 todo，更新与删除只能操作属于自己的 todo 资源。
 
 这时候设置好了数据的权限后，就可以尝试去请求了，打开下图页面，将 URL 与 apikey 复制下来。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_GDEeyFCI2E.png)
+![](assert/779721c1c15edc11722e0befe742d780_MD5.png)
 
 选择你一个 http 请求工具，这里我选用 [hoppscotch](https://hoppscotch.io/ 'hoppscotch')，将信息填写上去，请求将会得到一开始所创建的 todo 数据。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_aSbRfmlwb9.png)
+![](assert/3a674ebf3e75d132e45dc960d930beec_MD5.png)
 
 除了 restful api 风格，还支持 graphql 风格，可查阅文档 [Using the API](https://supabase.com/docs/guides/database/api#using-the-api 'Using the API')
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_R0HtkYmznS.png)
+![](assert/eb3a19b303615dd7c01598f80dd0894c_MD5.png)
 
 ### 使用类库
 
@@ -140,7 +140,7 @@ const { data, error } = await supabase.from('todos').select()
 
 [官方的演示例子](https://supabase.com/docs/reference/javascript/select) 非常清晰，这里就不在演示新增更新等示例。
 
-![image-20230218182910913](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image-20230218182910913.png)
+![image-20230218182910913](assert/91499dd5a126f1ab66564c393aa5a76b_MD5.png)
 
 ## [Supabase 主要功能](https://supabase.com/docs)
 
@@ -150,11 +150,11 @@ supabase 基于 PostgreSQL 数据库，因此当你创建完项目后，就自�
 
 可以在如下页面中查看到有关数据库连接的信息，当然你看不到密码。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_6uCHh3qrlE.png)
+![](assert/4a2f1dd42ab46af89a10cd301a71a1f8_MD5.png)
 
 测试连接，结果如下，并无问题
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_8-JOTiLI0G.png)
+![](assert/a0dffbaca1a6538ce1536d88ca31da9a_MD5.png)
 
 ### Authentication 身份验证
 
@@ -172,21 +172,21 @@ supabase 令我感兴趣的是 [Row Level Security](https://supabase.com/docs/le
 
 对于想要提供第三方登录，supabse 集成多数平台（除了国内），只需要提供 Clinet ID, Client Secret, Redirect URL 便可完成第三方登录。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_OvBRJ_elZR.png)
+![](assert/7688133b093f99c2c9c802ceb3b8fe7e_MD5.png)
 
 这里演示下如何使用 Github，首先到打开[New OAuth Application (github.com)](https://github.com/settings/applications/new 'New OAuth Application (github.com)') 创建一个 Oauth Apps，其中 Authorization callback URL 由 supabase 提供，如下图。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_QVspy-oxQK.png)
+![](assert/a276f9c52f0965839d4465b8c9078b14_MD5.png)
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_jyaUMSDed2.png)
+![](assert/079a5a8b2c63ab2bed85af007556d4df_MD5.png)
 
 当你创建完后，会提供 Client ID，与 Client secret，将这两个值填写到 supabase 中，并启用。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_QpRRxpR5o5.png)
+![](assert/2025fcc0b6c28f11c5789163bbe610a6_MD5.png)
 
 此时打开如下页面，将 Site URL 替换成开发环境，或是线上环境，在 Github 登录后将会跳转到这个地址上
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_zmfXC85ayC.png)
+![](assert/4611ee9736923b91e743fe85929be0de_MD5.png)
 
 此时 supabase 支持 github 登录就已经配置完毕，当你在前端触发登录按钮后，借助[supabase 的 js 库](https://supabase.com/docs/reference/javascript/auth-signinwithoauth 'supabase 的js库')，如
 
@@ -204,11 +204,11 @@ const { data, error } = await supabase.auth.signInWithOAuth({
 
 打开如下界面，这里选择公开存储桶，比如说用于图床。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_2Is4Bfwf8f.png)
+![](assert/11f1dd67ec8869760930cb6397075481_MD5.png)
 
 点击右上角的 upload files，选择你要上传的图片。你可以为此生成一个访问 URL
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_vkuzeZZVJ_.png)
+![](assert/48fc08a010113298bf41a7e1c566b43c_MD5.png)
 
 你可以访问 [1.png](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/publilc/1.png) 来查看这张图片。如果是公开的话 一般都是类似https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/new-bucket/1.png
 
@@ -234,9 +234,9 @@ const { data, error } = await supabase.auth.signInWithOAuth({
 
 原本我是打算写个 Todo List 的（恼，怎么又是 Todo List），但是看到 [官方示例](https://supabase.com/docs/guides/resources/examples#official-examples '官方示例')（一堆 Todo List）后我瞬间就没了兴致 🥀。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_1polvJf0q0.png)
+![](assert/23745f488948bb5d7efb90577ab1d49b_MD5.png)
 
-思来想去，不妨就简单做个图床吧。项目地址：[https://image.kuizuo.cn](https://image.kuizuo.cn) 有兴趣可自行阅读[源码](https://github.com/kuizuo/image-hosting)。（**写的相对匆忙，仅作为演示，随时有可能删除，请勿将此站作为永久图床！**）
+思来想去，不妨就简单做个图床吧。项目地址：[https://image.Sunny.cn](https://image.Sunny.cn) 有兴趣可自行阅读[源码](https://github.com/ydaydayup/image-hosting)。（**写的相对匆忙，仅作为演示，随时有可能删除，请勿将此站作为永久图床！**）
 
 ## 一些你可能比较好奇的问题
 
@@ -244,7 +244,7 @@ const { data, error } = await supabase.auth.signInWithOAuth({
 
 可以到 https://app.supabase.com/project/项目id/settings/billing/usage 中查看相关资源使用情况，这里我就将截图放出来了。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_Bllhp6XlFz.png)
+![](assert/8288a33a25c9576a797761efafa0f7bb_MD5.png)
 
 说实话，对于个人独立开发者的项目都绰绰有余了。
 
@@ -252,7 +252,7 @@ const { data, error } = await supabase.auth.signInWithOAuth({
 
 在 [资费标准](https://supabase.com/pricing '资费标准') 中可以看到，免费版**最多 2 个项目**，不过在上述的资源，其实已经非常香了，毕竟只需要一个 GIthub 账号就能免费使用，还要啥自行车。
 
-![](https://azlbliyjwcemojkwazto.supabase.co/storage/v1/object/public/public/image_MNtdzsdJ2t.png)
+![](assert/59b84ef734c6300886cb4e61a63d5160_MD5.png)
 
 ### 网速
 

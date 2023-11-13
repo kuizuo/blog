@@ -3,7 +3,7 @@ id: github-other
 slug: github-other
 title: .github 其他文件
 date: 2021-10-01
-authors: kuizuo
+authors: Sunny
 tags: [github]
 keywords: [github]
 ---
@@ -23,7 +23,7 @@ keywords: [github]
 ```
 # https://help.github.com/articles/about-codeowners/
 
-* @kuizuo
+* @Sunny
 ```
 
 ### FUNDING.yml

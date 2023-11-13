@@ -3,7 +3,7 @@ id: go-environment-install
 slug: /go-environment-install
 title: Go环境安装
 date: 2021-09-01
-authors: kuizuo
+authors: Sunny
 tags: [go]
 keywords: [go]
 ---
@@ -74,11 +74,11 @@ export GOPRIVATE=git.mycompany.com,github.com/my/private
 
 - `command` + `shift` + `p` 输入 Go:Show All Commands 选择 Go:Install/Update Tools，选择所有工具，并确定安装。
 
-![image-20210901044224765](https://img.kuizuo.cn/image-20210901044224765.png)
+![image-20210901044224765](assert/cfb58c851402d1da7484512d40edba18_MD5.png)
 
 控制台输出安装结果
 
-![image-20210901044323709](https://img.kuizuo.cn/image-20210901044323709.png)
+![image-20210901044323709](assert/b590c2fa77a983a96b27dda152b30153_MD5.png)
 
 或者打开命令提示符（以管理员身份打开）输入
 

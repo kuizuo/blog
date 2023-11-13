@@ -3,7 +3,7 @@ id: go-call-js
 slug: /go-call-js
 title: Go调用js代码
 date: 2022-05-22
-authors: kuizuo
+authors: Sunny
 tags: [go, javascript]
 keywords: [go, javascript]
 ---
@@ -42,7 +42,7 @@ func main() {
   }
 `)
 
-  ret, _ := vm.Call("hello", nil, "kuizuo")
+  ret, _ := vm.Call("hello", nil, "Sunny")
   fmt.Println(ret)
 }
 

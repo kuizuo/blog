@@ -2,7 +2,7 @@
 slug: sse-server-send-event
 title: SSE 服务器发送事件
 date: 2022-03-16
-authors: kuizuo
+authors: Sunny
 tags: [http]
 keywords: [http]
 ---
@@ -11,13 +11,13 @@ keywords: [http]
 
 先放一张 gif 图展示下效果
 
-![sse](https://img.kuizuo.cn/sse.gif)
+![sse](assert/43a88c3b6ac1aaaf4835f2acca0b9b4a_MD5.gif)
 
 实现上面这个效果之前，先补充点前置知识
 
 众所周知，在 HTTP 协议中，服务器无法向浏览器推送信息，可以使用 WebSocket 来实现两者双向通信。而在这里所要介绍的是 SSE（Server-Sent Events），在浏览器向服务器请求后，服务器每隔一段时间向客户端发送流数据（是单向的），来实现接收服务器的数据，例如在线视频播放，和像上面所演示的效果。
 
-![img](https://www.ruanyifeng.com/blogimg/asset/2017/bg2017052702.jpg)
+![img](assert/4aa7ffee89963ea51d2828d258155235_MD5.jpg)
 
 关于 SSE 标准文档 [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
 
@@ -124,7 +124,7 @@ http
 
 并且由于是调用浏览器 API，在开发者工具的网络面板上还能看到对应的 EventStream，像下面这样
 
-![image-20220316134321431](https://img.kuizuo.cn/image-20220316134321431.png)
+![image-20220316134321431](assert/a8749958063950d3333ed5ed2e794d17_MD5.png)
 
 ## 参考链接
 

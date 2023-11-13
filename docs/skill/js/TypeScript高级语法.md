@@ -3,7 +3,7 @@ id: typescript-advanced-grammar
 slug: /typescript-advanced-grammar
 title: TypeScript高级语法
 date: 2022-06-25
-authors: kuizuo
+authors: Sunny
 tags: [typescript]
 keywords: [typescript]
 ---
@@ -27,7 +27,7 @@ const str = 'foo'
 typeof str === 'string' // true
 
 const user = {
-  name: 'kuizuo',
+  name: 'Sunny',
   age: 12,
   address: {
     province: '福建',
@@ -353,7 +353,7 @@ interface User {
 }
 
 const user: User = {
-  name: 'kuizuo',
+  name: 'Sunny',
   age: 20,
 }
 ```

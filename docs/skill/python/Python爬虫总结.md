@@ -3,7 +3,7 @@ id: python-spider-summary
 slug: /python-spider-summary
 title: Python爬虫总结
 date: 2022-03-03
-authors: kuizuo
+authors: Sunny
 tags: [python, node, http]
 keywords: [python, node, http]
 ---
@@ -74,7 +74,7 @@ a,b = [1,2]
 print(a,b)
 
 user = {
-    "username": "kuizuo",
+    "username": "Sunny",
     "password": "a123456"
 }
 username, password = user.values()
@@ -83,7 +83,7 @@ print(username, password)
 print(user.keys())
 # dict_keys(['username', 'password'])
 print(user.values())
-# dict_values(['kuizuo', 'a123456'])
+# dict_values(['Sunny', 'a123456'])
 ```
 
 解构赋值没什么好说的，和 js 类似，只不过对字典的解构赋值的话，要取值则要调用 values()，取 key 的话默认不填，但是也可以调用 keys()
@@ -91,9 +91,9 @@ print(user.values())
 ## 模板字符串
 
 ```python
-user = 'kuizuo'
+user = 'Sunny'
 print(f'username: {user} age: {20+1}')
-# username: kuizuo age: 21
+# username: Sunny age: 21
 ```
 
 同样{}中可以编写表达式，与 js 的模板字符串类似
@@ -107,9 +107,9 @@ print(f'username: {user} age: {20+1}')
 而 js 中的模板字符串则是使用反引号`和${}，像下面这样
 
 ```javascript
-user = 'kuizuo'
+user = 'Sunny'
 console.log(`username: ${user} age: ${20+1}`)
-# username: kuizuo age: 21
+# username: Sunny age: 21
 ```
 
 ## 字典
@@ -117,14 +117,14 @@ console.log(`username: ${user} age: ${20+1}`)
 python 的字典与 js 的对象有些许相像，个人总体感觉没有 js 的对象灵活，演示如下
 
 ```python
-user = { 'username':'kuizuo','password':'a123456' }
+user = { 'username':'Sunny','password':'a123456' }
 print(user['username'])
 ```
 
 想要获取字典中的值，就需要写成`user['username']`，如果习惯了 js 的写法（比如我），就会习惯的写成`user.username`，这在 python 中将会报错，`AttributeError: 'dict' object has no attribute 'username'`，并且字典的 key 还需要使用引号进行包裹，如果是 js 的话，代码如下
 
 ```javascript
-user = { username: 'kuizuo', password:'a123456'
+user = { username: 'Sunny', password:'a123456'
 console.log(user.username)
 ```
 
@@ -352,13 +352,13 @@ post 请求主要有两种格式一个是查询字符串 `a=1&b=2`，另一个�
 ```python
 import httpx
 data = {
-    "username": "kuizuo",
+    "username": "Sunny",
     "password": "a123456"
 }
 
 httpx.post(
     url='http://example.com', data=data)
-# 请求体 username=kuizuo&password=a123456
+# 请求体 username=Sunny&password=a123456
 ```
 
 json
@@ -366,13 +366,13 @@ json
 ```python
 import httpx
 data = {
-    "username": "kuizuo",
+    "username": "Sunny",
     "password": "a123456"
 }
 
 httpx.post(
     url='http://example.com', json=data)
-# 请求体 {"username": "kuizuo", "password": "a123456"}
+# 请求体 {"username": "Sunny", "password": "a123456"}
 ```
 
 请求库将会自动将根据你所传入的字典，转成对应的格式，同时会携带对应`Content-Type`协议头`Content-Type: application/x-www-form-urlencoded` 与 `Content-Type: application/json`。所以就不需要使用

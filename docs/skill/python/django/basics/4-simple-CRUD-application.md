@@ -21,7 +21,7 @@ nav_order: 4
 
 本例中我们只讲述核心逻辑，不浪费时间在前端样式上。文末有GitHub源码地址，里面同时包含了函数视图和基于类的视图, 具体演示效果如下所示：
 
-![Django CRUD](2-installation-use.assets/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X2dpZi9idWFGTEZLaWNSb0RUQzlhMzBnRHNJamhyaDZVZW81UUFtdlQ0dWxKU2liczBxenFyV0I4dWhDZUlsdTJWTHdDQjRzRHVLY0VHOUF6Q0RHNmhWcVFpYU1LZy82NDA)![点击并拖拽以移动](data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==)
+![Django CRUD](2-installation-use.assets/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X2dpZi9idWFGTEZLaWNSb0RUQzlhMzBnRHNJamhyaDZVZW81UUFtdlQ0dWxKU2liczBxenFyV0I4dWhDZUlsdTJWTHdDQjRzRHVLY0VHOUF6Q0RHNmhWcVFpYU1LZy82NDA)![点击并拖拽以移动](assert/6a738e39d8c5f1fde0fd8c4d18eb18fd_MD5.gif)
 
 ## 第一步：创建tasks应用，加入INSTALLED_APPS
 

@@ -2,7 +2,7 @@
 id: docusaurus-plugin
 slug: /docusaurus-plugin
 title: 插件
-authors: kuizuo
+authors: Sunny
 ---
 
 在 `docusaurus.config.js` 下的 plugins，可以看到所有插件以及插件配置。
@@ -42,7 +42,7 @@ plugins: [
 
 [百度统计](https://tongji.baidu.com/web/welcome/login)
 
-这样你就能看到你的站点访客主要都在看哪些页面，以及行为记录，如下图所示。![image-20221204153015256](https://img.kuizuo.cn/image-20221204153015256.png)
+这样你就能看到你的站点访客主要都在看哪些页面，以及行为记录，如下图所示。![image-20221204153015256](assert/84d258b5f65d7305a76719a98b410dfb_MD5.png)
 
 ## plugin-baidu-push
 
@@ -75,7 +75,7 @@ plugins: [
 
 创建支持离线模式和应用安装的 PWA 文档站点，就像下图这样。
 
-![image-20221204153401244](https://img.kuizuo.cn/image-20221204153401244.png)
+![image-20221204153401244](assert/4a2bb67e22b3bfac19445c80d7cc9844_MD5.png)
 
 ## [plugin-image-zoom](https://github.com/flexanalytics/plugin-image-zoom)
 

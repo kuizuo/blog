@@ -3,7 +3,7 @@ id: brush-magisk
 slug: /brush-magisk
 title: 刷入Magisk
 date: 2021-12-09
-authors: kuizuo
+authors: Sunny
 tags: [android, magisk, 刷机]
 keywords: [android, magisk, 刷机]
 ---
@@ -22,7 +22,7 @@ keywords: [android, magisk, 刷机]
 
 那么我就要在 Version 中找到对应的版本下载
 
-![image-20211209142333912](https://img.kuizuo.cn/image-20211209142333912.png)
+![image-20211209142333912](assert/bfd962ec1fde43d88bc55390d78a9f5b_MD5.png)
 
 解压缩后，找到后缀为.zip 的文件再解压缩，找到 boot.img 文件，将其单独复制出来。
 
@@ -32,7 +32,7 @@ keywords: [android, magisk, 刷机]
 
 [Releases · topjohnwu/Magisk (github.com)](https://github.com/topjohnwu/Magisk/releases)
 
-![image-20211209150313229](https://img.kuizuo.cn/image-20211209150313229.png)
+![image-20211209150313229](assert/9a2c3fad17c5a5fcf324050825752aa6_MD5.png)
 
 ### 3.将复制文件置手机
 
@@ -42,11 +42,11 @@ keywords: [android, magisk, 刷机]
 
 在手机上安装 Magisk Manager 后并打开，点击安装 Magisk，**选择安装方法**—**选择并修补一个文件**，找到刚才传到手机中的 boot.img 并选中。
 
-![image-20211209152217621](https://img.kuizuo.cn/image-20211209152217621.png)
+![image-20211209152217621](assert/8cd05db696c59ff63a2851b01df71b49_MD5.png)
 
 这时会出现下方图二的修补过程，修补完成后**不要重启**。
 
-![image-20211209152501019](https://img.kuizuo.cn/image-20211209152501019.png)
+![image-20211209152501019](assert/9f0dd1b293061f7fb66c24ab36fe1bca_MD5.png)
 
 修补后会文件夹下生成一个**magisk_patched-23000_woltm.img**文件（每次生成的文件名都不一样）
 
@@ -68,4 +68,4 @@ fastboot reboot
 
 手机重启后，便成功刷入 Magisk，并拥有 Root 权限。
 
-![image-20211209153202961](https://img.kuizuo.cn/image-20211209153202961.png)
+![image-20211209153202961](assert/0eb03f326dd9ce6366a51a41555c1071_MD5.png)

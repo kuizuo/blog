@@ -2,7 +2,7 @@
 slug: docusaurus-gitalk-plugin
 title: Docusaurus配置Gitalk评论插件
 date: 2022-01-22
-authors: kuizuo
+authors: Sunny
 tags: [blog, docusaurus, gitalk]
 keywords: [blog, docusaurus, gitalk]
 ---
@@ -23,13 +23,13 @@ keywords: [blog, docusaurus, gitalk]
 
 默认开启，可在 Settings -> Features -> Issues 中设置
 
-![image-20220122141447919](https://img.kuizuo.cn/20220122141447.png)
+![image-20220122141447919](assert/b21b407fcda8f67c6e7506c468ba6568_MD5.png)
 
 ### 3、注册一个 Github applications
 
 点击[此处](https://github.com/settings/developers)创建或在 github 右上角路径 settings -> Developer settings -> OAuth Apps
 
-![image-20220121225059192](https://img.kuizuo.cn/20220121225106.png)
+![image-20220121225059192](assert/517bbcd3900f361b7f57a38814b5cb09_MD5.png)
 
 - Homepage URL：就是博客的网址（如果是 github.io 的 page）
 - Authorization callback URL: 就是 github 权限验证的回调地址，一般默认就是域名
@@ -38,7 +38,7 @@ keywords: [blog, docusaurus, gitalk]
 
 创建成功后，就可以获取到 Client ID 和 Client Secret 了，保存下来。
 
-![image-20220122130221871](https://img.kuizuo.cn/20220122130222.png)
+![image-20220122130221871](assert/a2db338613f60831cc6a919b86e94858_MD5.png)
 
 ### 5、安装
 
@@ -117,8 +117,8 @@ const options = {
   clientID: 'GitHub Application Client ID',
   clientSecret: 'GitHub Application Client Secret',
   repo: 'blog',
-  owner: 'kuizuo',
-  admin: ['kuizuo'],
+  owner: 'Sunny',
+  admin: ['Sunny'],
   id: title,
   title: title,
   labels: labels,
@@ -140,7 +140,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 
 目前暂时没找到有效办法一键加载所有博客的 issues，只要用登录 github 的管理员账号去访问每一篇博客。
 
-其中在[第 3 步](#3注册一个-github-applications)的 Authorization callback URL 地址一定要填写成现在博客线上环境 https://kuizuo.cn ，否则也无法正常使用
+其中在[第 3 步](#3注册一个-github-applications)的 Authorization callback URL 地址一定要填写成现在博客线上环境 https://ydaydayup.cn ，否则也无法正常使用
 
 ### Validation failed
 
@@ -180,22 +180,22 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
     "number": 24,
     "title": "Docusaurus配置Gitalk评论插件",
     "user": {
-      "login": "kuizuo",
+      "login": "Sunny",
       "id": 61005888,
       "node_id": "MDQ6VXNlcjYxMDA1ODg4",
       "avatar_url": "https://avatars.githubusercontent.com/u/61005888?v=4",
       "gravatar_id": "",
-      "url": "https://api.github.com/users/kuizuo",
-      "html_url": "https://github.com/kuizuo",
-      "followers_url": "https://api.github.com/users/kuizuo/followers",
-      "following_url": "https://api.github.com/users/kuizuo/following{/other_user}",
-      "gists_url": "https://api.github.com/users/kuizuo/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/kuizuo/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/kuizuo/subscriptions",
-      "organizations_url": "https://api.github.com/users/kuizuo/orgs",
-      "repos_url": "https://api.github.com/users/kuizuo/repos",
-      "events_url": "https://api.github.com/users/kuizuo/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/kuizuo/received_events",
+      "url": "https://api.github.com/users/ydaydayup",
+      "html_url": "https://github.com/ydaydayup",
+      "followers_url": "https://api.github.com/users/ydaydayup/followers",
+      "following_url": "https://api.github.com/users/ydaydayup/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ydaydayup/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ydaydayup/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ydaydayup/subscriptions",
+      "organizations_url": "https://api.github.com/users/ydaydayup/orgs",
+      "repos_url": "https://api.github.com/users/ydaydayup/repos",
+      "events_url": "https://api.github.com/users/ydaydayup/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ydaydayup/received_events",
       "type": "User",
       "site_admin": false
     },
@@ -239,7 +239,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
     "closed_at": null,
     "author_association": "OWNER",
     "active_lock_reason": null,
-    "body": "https://kuizuo.cn/develop/Docusaurus配置Gitalk评论插件\n前言",
+    "body": "https://ydaydayup.cn/develop/Docusaurus配置Gitalk评论插件\n前言",
     "reactions": {
       "url": "https://api.github.com/repos/ydaydayup/myblog/issues/24/reactions",
       "total_count": 0,
@@ -266,8 +266,8 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 
 #### 评论页
 
-![image-20220122164034147](https://img.kuizuo.cn/20220122164034.png)
+![image-20220122164034147](assert/c42fbfd225768a5979c821df4b221db3_MD5.png)
 
 #### issues 页面
 
-![image-20220122163957435](https://img.kuizuo.cn/20220122163957.png)
+![image-20220122163957435](assert/f6e047df244a020afeb54f62c26b2770_MD5.png)

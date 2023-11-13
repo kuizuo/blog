@@ -2,13 +2,13 @@
 slug: use-fresh-build-web-applicatioin
 title: 🍋 使用 Fresh 框架构建Web 应用
 date: 2023-02-15
-authors: kuizuo
+authors: Sunny
 tags: [deno, fresh, web, project]
 keywords: [deno, fresh, web, project]
 description: 使用 Fresh 框架构建Web 应用，用于将链接转换为卡片样式的预览效果图。
 ---
 
-![](https://img.kuizuo.cn/link-maker.png)
+![](assert/36d70799656c6ab5f3001d917d8869fd_MD5.png)
 
 这篇文章将使用 deno 的 web 框架 Fresh，一个简单的 Web 应用 [Link Maker](https://link-maker.deno.dev/ 'Link Maker')，一个用于将链接转换成卡片样式的预览效果。
 
@@ -40,7 +40,7 @@ deno task start
 
 根据你的喜好进行配置，如下
 
-![](https://img.kuizuo.cn/image_jSRfPu966v.png)
+![](assert/9db319f7a52eabfeb9da7cd12b893a2b_MD5.png)
 
 此时会创建如下文件
 
@@ -101,7 +101,7 @@ SSR 通常是将数据通过服务端的前端框架渲染成 HTML，直接将 H
 
 如果你仔细查看控制面板的网络请求输出，可以看到服务器端组件是可以请求的。（这里用的后面实战的截图作为展示）
 
-![](https://img.kuizuo.cn/image_v73eXB47yI.png)
+![](assert/6787b7a38ffb5edec0db6a661ee15582_MD5.png)
 
 不过既然服务端组件也有很多限制，就比如说服务端状态下，是无法使用 Web 相关 Api 的，数据传输（通过 props）是有前提的，要 JSON 可序列化，也就是说只能传递基本类型、基本对象、数组，像 Date，自定义类，函数等复制对象是无法传递的。
 
@@ -109,14 +109,14 @@ SSR 通常是将数据通过服务端的前端框架渲染成 HTML，直接将 H
 
 项目还是相对比较简单的，将链接转化为一个卡片样式的预览效果（包含链接的标题，图片，描述）。
 
-核心代码在 [`routes\api\link.ts`](https://github.com/kuizuo/link-maker/blob/main/routes/api/link.ts) 下，将会生成 `/api/link` 接口，例如访问 [https://link-maker.deno.dev/api/link?q=https://kuizuo.cn](https://link-maker.deno.dev/api/link?q=https://kuizuo.cn 'https://link-maker.deno.dev/api/link?q=https://kuizuo.cn') 你就可以得到如下 json 数据
+核心代码在 [`routes\api\link.ts`](https://github.com/ydaydayup/link-maker/blob/main/routes/api/link.ts) 下，将会生成 `/api/link` 接口，例如访问 [https://link-maker.deno.dev/api/link?q=https://ydaydayup.cn](https://link-maker.deno.dev/api/link?q=https://ydaydayup.cn 'https://link-maker.deno.dev/api/link?q=https://ydaydayup.cn') 你就可以得到如下 json 数据
 
 ```json
 {
   "title": "Sunny的小站",
   "description": "Blog",
-  "image": "https://kuizuo.cn/img/logo.png",
-  "url": "https://kuizuo.cn"
+  "image": "https://ydaydayup.cn/img/logo.png",
+  "url": "https://ydaydayup.cn"
 }
 ```
 
@@ -154,7 +154,7 @@ const q = url.searchParams.get('q');
 
 当时我尝试用 ctx.query 和 req.query 来获取 q 参数，然而 ctx 与 req 并没有 query 属性，在翻阅文档与源码，才得知 fresh 并没有将 query 参数解析到 req 或 ctx 下。
 
-至于说为何要用 query 而不是用 param，主要是因为 url 的缘故，比如说 `/api/link/https://kuizuo.cn` 这个链接，这时 param 是解析不出 `https://kuizuo.cn` 完整 url 的，除非url编码，但这对使用者来说就不是很好，于是就舍弃了 param 参数的方案。
+至于说为何要用 query 而不是用 param，主要是因为 url 的缘故，比如说 `/api/link/https://ydaydayup.cn` 这个链接，这时 param 是解析不出 `https://ydaydayup.cn` 完整 url 的，除非url编码，但这对使用者来说就不是很好，于是就舍弃了 param 参数的方案。
 
 ### 有些 npm 包在 fresh 无法正常使用
 
@@ -187,7 +187,7 @@ import {IS_BROWSER} from '$fresh/runtime.ts';
 
 [deno Deploy](https://dash.deno.com/ 'deno Deploy') 可以非常轻松的部署 fresh 应用，使用 Github 账号登录后，[New Project](https://dash.deno.com/new 'New Project')，从 github 仓库中拉取项目点击 Link 即可部署完毕。
 
-![](https://img.kuizuo.cn/image_CYOAgv6IGe.png)
+![](assert/c46e33c41b5da79bd224989ace4bb3e6_MD5.png)
 
 这里的项目名为 link-maker，那么就会生成 专属访问链接 [https://link-maker.deno.dev](https://link-maker.deno.dev/ 'https://link-maker.deno.dev')（也许要梯子才能访问）
 

@@ -3,7 +3,7 @@ id: pyautogui
 slug: /pyautogui
 title: pyautogui自动化操作脚本
 date: 2022-02-18
-authors: kuizuo
+authors: Sunny
 tags: [python, script, auto]
 keywords: [python, script, auto]
 ---
@@ -14,15 +14,15 @@ keywords: [python, script, auto]
 
 之前针对加密视频播放编写了一个自动答题的脚本（使用易语言 大漠插件所编写的）
 
-![image-20220207045652164](https://img.kuizuo.cn/20220207045652.png)
+![image-20220207045652164](assert/1fd23d5fd19ae3dce6391e0483af0ac6_MD5.png)
 
 还有商户自动话术回复的（也是易语言+大漠插件）
 
-![image-20220207050011838](https://img.kuizuo.cn/20220207050011.png)
+![image-20220207050011838](assert/3c64f8c7663488f29aa2825d46825887_MD5.png)
 
 还有使用 autojs 所编写的一个针对安卓端钉钉的自动签到
 
-![image-20220207045811771](https://img.kuizuo.cn/20220207045811.png)
+![image-20220207045811771](assert/6e68562e5cc9c5139d440b06711c4da8_MD5.png)
 
 还有一个某宝领喵币类的，这里就不放截图了
 
@@ -42,7 +42,7 @@ pyautogui 无就是一个 python 版的针对 windows 的 API 的封装操作，
 
 如果要写一个自动化脚本，首先范围是一定要确认好，这样能避免不必要的区域搜索以及效率的提升，在这里例子的范围就是整个微信窗口，通过一些窗口检测工具（这里使用精易编程助手），可以得到窗口标题与窗口类名，用于定位窗口（**窗口句柄**）。
 
-![image-20220218065420228](https://img.kuizuo.cn/20220218065420.png)
+![image-20220218065420228](assert/24191a9f9a44096d17ff463d76d8657c_MD5.png)
 
 可以通过如下代码获取窗口句柄
 
@@ -149,7 +149,7 @@ if __name__ == '__main__':
 
 ## 演示效果
 
-![wxauto](https://img.kuizuo.cn/wxauto.gif)
+![wxauto](assert/939264305400df249ee2b228e8f444fc_MD5.gif)
 
 ## 体验感受
 

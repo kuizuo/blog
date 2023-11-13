@@ -3,7 +3,7 @@ id: brower-copy-console-panel-output
 slug: /brower-copy-console-panel-output
 title: 浏览器复制Console面板输出
 date: 2021-12-07
-authors: kuizuo
+authors: Sunny
 tags: [javascript, browser, console]
 keywords: [javascript, browser, console]
 ---
@@ -17,11 +17,11 @@ keywords: [javascript, browser, console]
 let data = Array.from({ length: 100 }, (v, i) => ({ index: i, value: Math.random() }))
 ```
 
-![image-20211207122529224](https://img.kuizuo.cn/image-20211207122529224.png)
+![image-20211207122529224](assert/9c224185de5db420cd6f70fcccaf1413_MD5.png)
 
 如果直接鼠标选中复制，是得不到想要的结果的。而我之前的做法都是使用 JSON.stringify() 将其转为 json 文本格式，然后复制到剪贴板
 
-![image-20211207124755461](https://img.kuizuo.cn/image-20211207124755461.png)
+![image-20211207124755461](assert/a5f62b937e6ba2c07a82421cfd6992a0_MD5.png)
 
 很明显 这种方法缺陷很大，首先复制出的结果是一个 JSON 格式数据，其次万一数据很长，复制也很费力，也需要按 Ctrl + C 与 Ctrl + V。无意间刷到个浏览器 API，有个用于复制 js 数据方法----`copy`，使用也特别简单
 

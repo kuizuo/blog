@@ -2,7 +2,7 @@
 id: docusaurus-guides
 slug: /docusaurus-guides
 title: Docusaurus 主题魔改
-authors: kuizuo
+authors: Sunny
 keywords: ['guides', 'docusaurus', 'docusaurus-guides']
 ---
 

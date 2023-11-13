@@ -2,7 +2,7 @@
 slug: first-blog-is-vuepress
 title: 第一个博客搭建之Vuepress
 date: 2020-08-30
-authors: kuizuo
+authors: Sunny
 tags: [blog, vuepress, project]
 keywords: [blog, vuepress, project]
 ---
@@ -37,7 +37,7 @@ keywords: [blog, vuepress, project]
 
 要展示给别人看，就必须得搞前端 UI 界面，同时为了快速开发，我又百度了相关的前端 UI 框架，其中决定用 layui，界面风格布局可以接受，于是乎在搜索用过 layui 框架搭建的个人博客，成功找到一篇博主[燕十三一个人的江湖](https://www.yanshisan.cn/)分享的模板源码，然后开始大改，最终花了几个小时修改了大致页面
 
-![image-20200901012343086](https://img.kuizuo.cn/image-20200901012343086.png)
+![image-20200901012343086](assert/a01152c8e7ab4afed09a46f9c729cb58_MD5.png)
 
 然后问题来了，前端大致界面设计好了，我最关心的文章要怎么写。。。而这份源码是没有给后端这些的（此时的我刚入前端，后端毛也不会），就一个纯前端页面，连文章模板都没有，可能是真的没什么可整理的，于是就放弃了自己手动搭建，主要还是那时候太菜了。
 
@@ -49,7 +49,7 @@ keywords: [blog, vuepress, project]
 
 > 一款简洁而优雅的 vuepress 博客 & 文档 主题。官方文档[立即前往](https://vuepress-theme-reco.recoluan.com/)
 
-![image-20200515152702435](https://img.kuizuo.cn/152702-539475.png)
+![image-20200515152702435](assert/2920c10863615d5034b0f0f2b0b88b98_MD5.png)
 
 ### **安装**
 
@@ -75,7 +75,7 @@ npm run build
 
 执行完`npm run dev`运行后，点击控制台的对应地址 你就能看到
 
-![image-20200901191643031](https://img.kuizuo.cn/image-20200901191643031.png)
+![image-20200901191643031](assert/06d197c5ca593f97d49a5ae823c5f631_MD5.png)
 
 当然，可能标题和一些会不一样，因为我更改了两处地方一处是`blog`下的`README.md`文件，文件结构如下
 
@@ -203,7 +203,7 @@ isShowComments: false
 
 `---` 所包裹的内容就文章简述像下面这样
 
-![image-20200901034715126](https://img.kuizuo.cn/image-20200901034715126.png)
+![image-20200901034715126](assert/ee3dc5ee6c8ce05ba6d0c2fe84071634_MD5.png)
 
 要更改标题，日期外，你还需要更改的是分类 categories 和标签 tags，举个例子，现在我想写一篇文章，标题是 ES6 语法，那么我可以这么写
 
@@ -249,7 +249,7 @@ npm run bulid
 
 首先执行上一行代码，然后在目录下会生成`public`文件夹，这个文件夹就是你所有的网站静态文件，这时候你需要你的服务器开启一个 web 服务，我这里用的是腾讯云 CentOS 与宝塔面板（至于这两个怎么搞，外面教程太多了），这里我就用 Nginx。然后如下图添加站点
 
-![image-20200918194540550](https://img.kuizuo.cn/image-20200918194540550.png)
+![image-20200918194540550](assert/c190ca93fdaacc39054eb6af90fe8912_MD5.png)
 
 因个人情况填写域名，FTP，数据库等等，然后通过 ftp 工具直接传文件至站点对应的目录下，然后访问服务器对应的 ip 地址或者个人域名解析就行了。
 
@@ -261,7 +261,7 @@ npm run bulid
 
 首先就是 markdown 图片相对路径的坑，在写文章的话，如果涉及的本地图片引入，那么默认不操作的，也就是需要配置一下，默认在当前同级文件下，在创建一个文件名相同的文件夹来存放图片，我这里就以 Typora 为例，如图
 
-![image-20200901180754412](https://img.kuizuo.cn/image-20200901180754412.png)
+![image-20200901180754412](assert/686444b2dc11cd52923b16f53b31f1aa_MD5.png)
 
 其次，Typora 的路径是不带`./`，在 vuepress 会被编译成绝对路径。需要在前面添加上`./`，不过主题内已自带插件`markdown-it`，这个问题无需担心。
 
@@ -295,7 +295,7 @@ npm i markdown-it-disable-url-encode
 
 如果你在该主题使用其他 UI 组件库，如 element，ant design，那么你很有可能会编译失败，官方解释
 
-![image-20201223042921876](https://img.kuizuo.cn/image-20201223042921876.png)
+![image-20201223042921876](assert/72aee169d8ac09f650134854870e75e1_MD5.png)
 
 解决办法很简单，先删除 node_modules，然后**再安装 ui 组件库**依赖后，再安装其他依赖就行了。
 

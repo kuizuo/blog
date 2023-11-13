@@ -2,14 +2,14 @@
 slug: vercel-deploy-blog
 title: Vercel部署个人博客
 date: 2022-05-11
-authors: kuizuo
+authors: Sunny
 tags: [vercel, blog]
 keywords: [vercel, blog]
 description: 使用 Vercel 部署个人博客过程记录，简单方便、访问快、免费部署。
-image: https://img.kuizuo.cn/image-20220511170700075.png
+image: https://img.Sunny.cn/image-20220511170700075.png
 ---
 
-![image-20220511170700075](https://img.kuizuo.cn/image-20220511170700075.png)
+![image-20220511170700075](assert/9b8daddc02bed1c022a4cf733393cf67_MD5.png)
 
 :::tip 观前提醒
 
@@ -43,21 +43,21 @@ image: https://img.kuizuo.cn/image-20220511170700075.png
 
 进入 [Dashboard](https://vercel.com/dashboard)
 
-![image-20220511170233559](https://img.kuizuo.cn/image-20220511170233559.png)
+![image-20220511170233559](assert/338dc5ac0975254f8d6292df1bea3998_MD5.png)
 
 点击 [New Project](https://vercel.com/new)
 
-![image-20220511165902993](https://img.kuizuo.cn/image-20220511165902993.png)
+![image-20220511165902993](assert/e0283be4d63a7483b5e04fd43fcad6f1_MD5.png)
 
 这里可以从已有的 git repository 中导入，也可以选择一个模板。
 
 这里登录我的 Github 账号选择仓库，然后点击 blog 仓库旁的 Import 即可。当然，你也可以直接拉取我的仓库，仓库地址：[ydaydayup/myblog](https://github.com/ydaydayup/myblog)
 
-![image-20220511165513526](https://img.kuizuo.cn/image-20220511165513526.png)
+![image-20220511165513526](assert/ba0a6ec8ff3bfb00864659c4f2c2e9de_MD5.png)
 
 点击 Deploy，然后静等网站安装依赖以及部署，稍后将会出现下方页面。
 
-![image-20220511170700075](https://img.kuizuo.cn/image-20220511170700075.png)
+![image-20220511170700075](assert/9b8daddc02bed1c022a4cf733393cf67_MD5.png)
 
 此时网站已经成功搭建完毕了，点击图片即可跳转到 vercel 所提供的二级域名访问。
 
@@ -69,19 +69,19 @@ image: https://img.kuizuo.cn/image-20220511170700075.png
 
 首先进入 blog 的控制台，在 Settings -> Domains 添加域名。
 
-![image-20220511171144240](https://img.kuizuo.cn/image-20220511171144240.png)
+![image-20220511171144240](assert/7908e850311e2c06ca21e11455056ed9_MD5.png)
 
 接着提示域名需要 DNS 解析到 vercel 提供的记录值
 
-![image-20220511171359148](https://img.kuizuo.cn/image-20220511171359148.png)
+![image-20220511171359148](assert/328f418dbe1b5630d1357d1063431ecf_MD5.png)
 
 登录所在的域名服务商，根据 Vercel 提供的记录值 cname.vercel-dns.com，添加两条记录
 
-![image-20220511172741663](https://img.kuizuo.cn/image-20220511172741663.png)
+![image-20220511172741663](assert/8f9f2ba5d49d04b9fcd0bae61d7175ee_MD5.png)
 
 此时回到 Vercel，可以看到记录值成功生效。
 
-![image-20220511172027570](https://img.kuizuo.cn/image-20220511172027570.png)
+![image-20220511172027570](assert/aec819b259f8a560ee80df5e64c118a8_MD5.png)
 
 此时访问自己的域名，同样也能访问到页面，同时还有可观的访问速度。
 
@@ -89,7 +89,7 @@ image: https://img.kuizuo.cn/image-20220511170700075.png
 
 默认状态下，Vercel 将会颁发并自动更新 SSL 证书。（着实方便，不用自己手动去申请证书，配置证书）
 
-![image-20220511172240999](https://img.kuizuo.cn/image-20220511172240999.png)
+![image-20220511172240999](assert/4a6ddf033b6d6f18972d88899ae901b2_MD5.png)
 
 ## 持续集成（CI）/持续部署（CD）
 
@@ -97,7 +97,7 @@ image: https://img.kuizuo.cn/image-20220511170700075.png
 
 当主分支有代码被推送，Vercel 将会重新拉取代码，并重新构建进行单元测试与部署（构建速度可观）
 
-![image-20220511173442694](https://img.kuizuo.cn/image-20220511173442694.png)
+![image-20220511173442694](assert/0f04177b57bdc4f94c0bd48030b3fcbf_MD5.png)
 
 ## Serverless
 
@@ -134,7 +134,7 @@ vercel --prod
 ```
 Vercel CLI 24.2.1
 ? Set up and deploy “F:\Project\React\online-tools”? [Y/n] y
-? Which scope do you want to deploy to? kuizuo
+? Which scope do you want to deploy to? Sunny
 ? Link to existing project? [y/N] n
 ? What’s your project’s name? online-tools
 ? In which directory is your code located? ./
@@ -143,11 +143,11 @@ Auto-detected Project Settings (Create React App):
 - Output Directory: build
 - Development Command: react-scripts start
 ? Want to override the settings? [y/N] n
-🔗  Linked to kuizuo12/online-tools (created .vercel and added it to .gitignore)
-🔍  Inspect: https://vercel.com/kuizuo12/online-tools/6t8Vt8rG3waGVHTKU7ZzJuGc6Hoq [2s]
+🔗  Linked to Sunny12/online-tools (created .vercel and added it to .gitignore)
+🔍  Inspect: https://vercel.com/ydaydayup12/online-tools/6t8Vt8rG3waGVHTKU7ZzJuGc6Hoq [2s]
 ✅  Production: https://online-tools-phi.vercel.app [copied to clipboard] [2m]
 📝  Deployed to production. Run `vercel --prod` to overwrite later (https://vercel.link/2F).
-💡  To change the domain or build command, go to https://vercel.com/kuizuo12/online-tools/settings
+💡  To change the domain or build command, go to https://vercel.com/ydaydayup12/online-tools/settings
 ```
 
 执行完毕后，将会在根目录创建.vercel 文件夹，其中 project.json 中存放 orgId 和 projectId，下面将会用到。此时在[dashboard](https://vercel.com/dashboard)中也能看到该项目被部署了。

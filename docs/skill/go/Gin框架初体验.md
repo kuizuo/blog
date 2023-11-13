@@ -3,7 +3,7 @@ id: try-gin-framework
 slug: /try-gin-framework
 title: Gin框架初体验
 date: 2021-09-01
-authors: kuizuo
+authors: Sunny
 tags: [go, gin]
 keywords: [go, gin]
 ---
@@ -46,7 +46,7 @@ func main() {
 
 通过`go run "f:\GO\GinTest\main.go"`即可运行 go 服务。
 
-![image-20210831045351327](https://img.kuizuo.cn/image-20210831045351327.png)
+![image-20210831045351327](assert/c613550a7868bf298948a3c191f55acc_MD5.png)
 
 通过浏览器访问`http:127.0.0.1:8080`便可输出`你好,gin`
 
@@ -64,7 +64,7 @@ go get github.com/pilu/fresh
 
 接着输入 fresh 即可
 
-![image-20210831061629685](https://img.kuizuo.cn/image-20210831061629685.png)
+![image-20210831061629685](assert/773294dbc4854ef2e9cd3a34de2cece0_MD5.png)
 
 同时还会在当前目录下创建 tmp 文件夹，有个编译好的可执行文件。
 
@@ -172,7 +172,7 @@ r.GET("/query", func(c *gin.Context) {
 })
 ```
 
-浏览器请求 `http://127.0.0.1:8080/query?username=kuizuo` 便可输出 `kuizuo1`
+浏览器请求 `http://127.0.0.1:8080/query?username=Sunny` 便可输出 `Sunny1`
 
 ### 获取 Post 数据
 
@@ -478,7 +478,7 @@ curl -X POST http://localhost:8080/upload \
 
 ## 最终项目结构
 
-![image-20210901033059576](https://img.kuizuo.cn/image-20210901033059576.png)
+![image-20210901033059576](assert/3b73f8f488160dd6942a36f1037609d6_MD5.png)
 
 ## 整体感受
 

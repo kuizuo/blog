@@ -2,18 +2,18 @@
 slug: springboot-project-structure
 title: SpringBoot项目结构
 date: 2022-01-08
-authors: kuizuo
+authors: Sunny
 tags: [java, springboot, develop]
 keywords: [java, springboot, develop]
 ---
 
 <!-- truncate -->
 
-演示代码地址：[kuizuo/spring-boot-demo (github.com)](https://github.com/kuizuo/spring-boot-demo)
+演示代码地址：[ydaydayup/spring-boot-demo (github.com)](https://github.com/ydaydayup/spring-boot-demo)
 
 ## 目录结构展示图
 
-![](https://img.kuizuo.cn/20220108011921.png)
+![](assert/b0de96002583be61edb61de9ce95049d_MD5.png)
 
 ### controller
 
@@ -40,7 +40,7 @@ public class UserController {
 
 这里数据库连接方式以 JPA（一个 ORM 框架）为例，可以安装一个 IDEA 插件 JPA Buddy 新建文件时可以直接创建 Entity(实体)或 Repository(仓库)
 
-![image-20220506115207717](https://img.kuizuo.cn/image-20220506115207717.png)
+![image-20220506115207717](assert/9cc0c8815aaf9864f8e533d2c7613762_MD5.png)
 
 #### entity 类
 
@@ -83,7 +83,7 @@ public interface UserRepository extends JpaRepository<User, Long> , JpaSpecifica
 }
 ```
 
-一般情况下该接口无需定义额外方法，如有需要还可以定义属于自己的查询语句，比如上面的 findByUsername，这时候就注入后的 userRepository 对象就可以使用`userRepository.findByUsername("kuizuo");` ，将会返回数据库中该用户名的数据。
+一般情况下该接口无需定义额外方法，如有需要还可以定义属于自己的查询语句，比如上面的 findByUsername，这时候就注入后的 userRepository 对象就可以使用`userRepository.findByUsername("Sunny");` ，将会返回数据库中该用户名的数据。
 
 #### UserService 类
 
@@ -102,9 +102,9 @@ public class UserService {
 **@Autowired 可能不建议使用字段注入**，可以在类添加@RequiredArgsConstructor 注解，表明 userRepository 不为空，总之目的就是将 userRepository 注入，供服务可用。
 
 ```java title="service/UserService.java"
-import com.kuizuo.demo.domain.User;
-import com.kuizuo.demo.repository.UserRepository;
-import com.kuizuo.demo.service.UserService;
+import com.Sunny.demo.domain.User;
+import com.Sunny.demo.repository.UserRepository;
+import com.Sunny.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

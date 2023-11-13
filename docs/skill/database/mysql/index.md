@@ -253,7 +253,7 @@ VALUES ('管理员'),('代理'),('用户')
 UPDATE 表名 SET `字段1`='值1' WHERE 条件1
 
 -- 修改用户名与命名
-UPDATE `user` SET `username`='kuizuo',`password`='a12345678` WHERE id = 1
+UPDATE `user` SET `username`='Sunny',`password`='a12345678` WHERE id = 1
 ```
 
 #### 3.2.3、删除（delete）
@@ -372,7 +372,7 @@ SELECT now() --查询当前时间
 
 一共有 7 中 JOIN 查询
 
-![img](https://img.kuizuo.cn/20201009150524563.png)
+![img](assert/8ca56bb1c86e0fe14baf44f445d9b605_MD5.png)
 
 实际上用的最多的也就是以下三种，区别如下
 
@@ -514,8 +514,8 @@ SELECT RAND() --返回0~1之间的随机数
 ```sql
 SELECT CHAR_LENGTH('这是一串文本') --返回字符串长度
 SELECT CONCAT('JavaScript','是世界上最好用的语言') --拼接字符串
-SELECT LOWER('Kuizuo') --到小写
-SELECT UPPER('Kuizuo') --到大写
+SELECT LOWER('Sunny') --到小写
+SELECT UPPER('Sunny') --到大写
 ```
 
 时间日期
@@ -713,32 +713,32 @@ Btree：INNODB 的默认数据结构
 
 ```sql
 -- 创建用户 CREATE USER 用户名 IDENTIFIED BY ‘密码’
-CREATE USER kuizuo IDENTIFIED BY '123456'
+CREATE USER Sunny IDENTIFIED BY '123456'
 
 -- 修改密码 (修改当前用户)
 SET PASSWORD = PASSWORD('a123456')
 
 -- 修改密码 (修改指定用户)
-SET PASSWORD FOR kuizuo= PASSWORD('a123456')
+SET PASSWORD FOR Sunny= PASSWORD('a123456')
 
 -- 重命名
-RENAME USER kuizuo TO zeyu
+RENAME USER Sunny TO zeyu
 
 -- 用户授权
 -- CRANT ALL PRIVILEGES ON 库.表 TO 用户
 -- ALL PRIVILEGES 除了给别人授权(GRANT),其他权限都有
-CRANT ALL PRIVILEGES ON *.* TO kuizuo
+CRANT ALL PRIVILEGES ON *.* TO Sunny
 
 -- 查看权限
-SHOW GRANTS FOR kuizuo
+SHOW GRANTS FOR Sunny
 SHOW GRANTS FOR root@localhost
 -- root 的权限 GRANT PROXY ON ''@'' TO 'root'@'localhost' WITH GRANT OPTION
 
 -- 撤销权限 REVOKE 权限 ON 库.表 FROM 用户
-REVOKE ALL PRIVILEGES ON *.* FROM kuizuo
+REVOKE ALL PRIVILEGES ON *.* FROM Sunny
 
 -- 删除用户
-DROP USER kuizuo
+DROP USER Sunny
 
 ```
 
@@ -815,7 +815,7 @@ DROP USER kuizuo
 
 在 Navicat 中，右键数据库，可逆向数据库到模型，模型的结果图如下
 
-![image-20210102213536190](https://img.kuizuo.cn/image-20210102213536190.png)
+![image-20210102213536190](assert/6747ce5c9ee2a44ef2eae4682d3e74a9_MD5.png)
 
 通过数据库模型，可以方便的分析该数据库中的关系，同时也可添加相应的数据等。
 

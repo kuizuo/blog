@@ -2,7 +2,7 @@
 id: docusaurus-style
 slug: /docusaurus-style
 title: 样式与页面
-authors: kuizuo
+authors: Sunny
 ---
 
 ## [样式和布局](https://docusaurus.io/zh-CN/docs/styling-layout#styling-your-site-with-infima)

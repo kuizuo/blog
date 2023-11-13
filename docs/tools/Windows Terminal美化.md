@@ -3,12 +3,12 @@ id: windows-terminal-beautify
 slug: /windows-terminal-beautify
 title: Windows Terminal美化
 date: 2021-05-04
-authors: kuizuo
+authors: Sunny
 tags: [Terminal, 美化]
 keywords: [Terminal, 美化]
 ---
 
-![image-20210527065050479](https://img.kuizuo.cn/image-20210527065050479.png)
+![image-20210527065050479](assert/9d784d923bac7ee4b5e3d57f6bc4032c_MD5.png)
 
 <!-- truncate -->
 
@@ -24,7 +24,7 @@ win + R 输入 `wt` 即可启动 Terminal
 
 不过默认设置背景全黑 同时 打开配置文件
 
-![image-20210527070628394](https://img.kuizuo.cn/image-20210527070628394.png)
+![image-20210527070628394](assert/5050e6a2545ce8b3fcec4171a4f89e26_MD5.png)
 
 其中在 profiles.list 下则是对应不同的终端，默认有 Windows PowerShell，Command Prompt，AzureCloud Shell，
 
@@ -82,7 +82,7 @@ Install-Module Get-ChildItemColor -Scope CurrentUser
 Get-PoshThemes
 ```
 
-![image-20210527071827101](https://img.kuizuo.cn/image-20210527071827101.png)
+![image-20210527071827101](assert/3661bffc7983d5c645aeb00d2827e40a_MD5.png)
 
 貌似上面的主题混入了某个不显眼的字样
 
@@ -110,7 +110,7 @@ $env:PYTHONIOENCODING="utf-8"
 Import-Module posh-git
 Import-Module oh-my-posh
 
-$DefaultUser = 'kuizuo'
+$DefaultUser = 'Sunny'
 # Set theme
 Set-PoshPrompt jandedobbeleer
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
@@ -122,7 +122,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 首先，官方的主题所在的路径 为 `C:\Users\用户名\Documents\WindowsPowerShell\Modules\oh-my-posh\3.144.0\themes`
 
-在`themes`目录下新建文件`xxxx.omp.json` 比如 `kuizuo.omp.json`
+在`themes`目录下新建文件`xxxx.omp.json` 比如 `Sunny.omp.json`
 
 我是基于主题 jandedobbeleer 所更改的，所以有些相似，这边就放一下我的主题文件配置，具体的参数 需要查看对应的官方文档，这里就不过多叙述了。
 
@@ -283,7 +283,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 然后将设置主题的命令 改为 主题名 比如
 
 ```shell
- Set-PoshPrompt kuizuo
+ Set-PoshPrompt Sunny
 ```
 
 之后你的 PowerShell 就和我这个一样了。

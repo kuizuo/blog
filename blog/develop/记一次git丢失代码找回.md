@@ -2,7 +2,7 @@
 slug: lost-code-find-by-git
 title: 记一次git丢失代码找回
 date: 2021-08-15
-authors: kuizuo
+authors: Sunny
 tags: [git, code]
 keywords: [git, code]
 description: 记录 git 操作失误导致代码丢失与找回的过程
@@ -14,7 +14,7 @@ description: 记录 git 操作失误导致代码丢失与找回的过程
 
 今晚，我和往常一样对着电脑撸着代码，这时候我灵光一现，想到了一个好的功能，于是乎我就开始增加代码文件，更改之前已有的问题，当我实现完这个功能的时候，觉得可有可无，我想通过 Git 直接回退到我没有这个新功能的版本，把新增的文件和更改的文件全都给还原回去，然而在编写新功能的时候我忘记 Commit 了！！！（正常操作应该是新建一个分支，在新分支编写新功能），于是乎我点了如图操作（这里仅作为事件发生展示，并不为实际丢失个数）
 
-![image-20210815141808996](https://img.kuizuo.cn/image-20210815141808996.png)
+![image-20210815141808996](assert/946b351da656d4071ee7d954bf52537b_MD5.png)
 
 没错，清空所有更改过的代码。导致这些文件直接丢失（并不在回收站），包括写新功能前的代码和写新功能后的代码全都丢失了 😭！！！
 
@@ -30,11 +30,11 @@ description: 记录 git 操作失误导致代码丢失与找回的过程
 git fsck --lost-found
 ```
 
-![image-20210815150520759](https://img.kuizuo.cn/image-20210815150520759.png)
+![image-20210815150520759](assert/fe71ed2c319bd0128330b82210549b15_MD5.png)
 
 进入`.git\lost-found\other`
 
-![image-20210815153556495](https://img.kuizuo.cn/image-20210815153556495.png)
+![image-20210815153556495](assert/aced9c9858ee2a45acac0ccb553ab1de_MD5.png)
 
 然后通过文本编辑器打开即可，如果是代码的话重命名对应的后缀，如果是图片这些就得对应删除前所对应的文件链接。名字是找不回来了，只能手动重命名。
 

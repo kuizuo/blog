@@ -3,7 +3,7 @@ id: github-actions-example
 slug: github-actions-example
 title: github actions示例
 date: 2021-10-01
-authors: kuizuo
+authors: Sunny
 tags: [github, action]
 keywords: [github, action]
 ---
@@ -31,7 +31,7 @@ jobs:
     - name: Print a greeting
       env:
         MY_VAR: Hi there! My name is
-        NAME: Kuizuo
+        NAME: Sunny
       run: |
         echo $MY_VAR $NAME.
 
@@ -292,5 +292,5 @@ https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.
 示例：
 
 ```
-https://github.com/kuizuo/github-action-example/actions/workflows/ci.yml/badge.svg
+https://github.com/ydaydayup/github-action-example/actions/workflows/ci.yml/badge.svg
 ```
