@@ -27,7 +27,7 @@ authors: kuizuo
 
 国外的好理解，有 Vercel 能够自动拉取仓库代码，并自行构建部署，可国内呢？
 
-这里我是借助了 [Github Action](https://github.com/marketplace) 来帮助我构建，构建记录可以在 [Actions · kuizuo/blog](https://github.com/kuizuo/blog/actions) 中查看。以下是我的配置文件
+这里我是借助了 [Github Action](https://github.com/marketplace) 来帮助我构建，构建记录可以在 [Actions · ydaydayup/myblog](https://github.com/ydaydayup/myblog/actions) 中查看。以下是我的配置文件
 
 ```yaml title='.github/workflows/ci.yml'
 name: ci

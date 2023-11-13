@@ -17,7 +17,7 @@ keywords: [blog, docusaurus, gitalk]
 
 ### 1、创建评论仓库
 
-首先需要 github 账号，创建一个仓库用于存放评论，由于我的博客是同步上传到[github](https://github.com/kuizuo/blog)上，所以就无需新建仓库
+首先需要 github 账号，创建一个仓库用于存放评论，由于我的博客是同步上传到[github](https://github.com/ydaydayup/myblog)上，所以就无需新建仓库
 
 ### 2、开启 issues 功能
 
@@ -132,9 +132,9 @@ const options = {
 
 ### Error: Not Found
 
-options 有个选项 repo，填写的是仓库名称，不是链接，像上面我所填写的就是`blog`，而不是填写https://github.com/kuizuo/blog
+options 有个选项 repo，填写的是仓库名称，不是链接，像上面我所填写的就是`blog`，而不是填写https://github.com/ydaydayup/myblog
 
-### 未找到相关的 [Issues](https://github.com/kuizuo/blog/issues) 进行评论，请联系 @xxxxx 初始化创建
+### 未找到相关的 [Issues](https://github.com/ydaydayup/myblog/issues) 进行评论，请联系 @xxxxx 初始化创建
 
 这里的 xxxxx 就是选项 admin 的内容，首次载入文章的话需要用管理员账号登录初始化一下（也就是新建一个 issues），否则其他人访问也将会提示该信息。
 
@@ -156,7 +156,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 <BrowserOnly fallback={<div></div>}>{() => <GitalkComponent options={options} />}</BrowserOnly>
 ```
 
-[查看完整源码点我](https://github.com/kuizuo/blog/blob/main/src/theme/BlogPostPage/index.jsx)
+[查看完整源码点我](https://github.com/ydaydayup/myblog/blob/main/src/theme/BlogPostPage/index.jsx)
 
 ## Github Api
 
@@ -164,17 +164,17 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 
 通过 github api 还可以获取 issues 列表
 
-访问 https://api.github.com/repos/kuizuo/blog/issues，返回结果如下
+访问 https://api.github.com/repos/ydaydayup/myblog/issues，返回结果如下
 
 ```json
 [
   {
-    "url": "https://api.github.com/repos/kuizuo/blog/issues/24",
-    "repository_url": "https://api.github.com/repos/kuizuo/blog",
-    "labels_url": "https://api.github.com/repos/kuizuo/blog/issues/24/labels{/name}",
-    "comments_url": "https://api.github.com/repos/kuizuo/blog/issues/24/comments",
-    "events_url": "https://api.github.com/repos/kuizuo/blog/issues/24/events",
-    "html_url": "https://github.com/kuizuo/blog/issues/24",
+    "url": "https://api.github.com/repos/ydaydayup/myblog/issues/24",
+    "repository_url": "https://api.github.com/repos/ydaydayup/myblog",
+    "labels_url": "https://api.github.com/repos/ydaydayup/myblog/issues/24/labels{/name}",
+    "comments_url": "https://api.github.com/repos/ydaydayup/myblog/issues/24/comments",
+    "events_url": "https://api.github.com/repos/ydaydayup/myblog/issues/24/events",
+    "html_url": "https://github.com/ydaydayup/myblog/issues/24",
     "id": 1111300101,
     "node_id": "I_kwDOF7NJDM5CPRgF",
     "number": 24,
@@ -203,7 +203,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
       {
         "id": 3754161267,
         "node_id": "LA_kwDOF7NJDM7fw_Rz",
-        "url": "https://api.github.com/repos/kuizuo/blog/labels/Gitalk",
+        "url": "https://api.github.com/repos/ydaydayup/myblog/labels/Gitalk",
         "name": "Gitalk",
         "color": "ededed",
         "default": false,
@@ -212,7 +212,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
       {
         "id": 3754411279,
         "node_id": "LA_kwDOF7NJDM7fx8UP",
-        "url": "https://api.github.com/repos/kuizuo/blog/labels/blog",
+        "url": "https://api.github.com/repos/ydaydayup/myblog/labels/blog",
         "name": "blog",
         "color": "ededed",
         "default": false,
@@ -221,7 +221,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
       {
         "id": 3754517867,
         "node_id": "LA_kwDOF7NJDM7fyWVr",
-        "url": "https://api.github.com/repos/kuizuo/blog/labels/Docusaurus%E9%85%8D%E7%BD%AEGitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6",
+        "url": "https://api.github.com/repos/ydaydayup/myblog/labels/Docusaurus%E9%85%8D%E7%BD%AEGitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6",
         "name": "Docusaurus配置Gitalk评论插件",
         "color": "ededed",
         "default": false,
@@ -241,7 +241,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
     "active_lock_reason": null,
     "body": "https://kuizuo.cn/develop/Docusaurus配置Gitalk评论插件\n前言",
     "reactions": {
-      "url": "https://api.github.com/repos/kuizuo/blog/issues/24/reactions",
+      "url": "https://api.github.com/repos/ydaydayup/myblog/issues/24/reactions",
       "total_count": 0,
       "+1": 0,
       "-1": 0,
@@ -252,7 +252,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
       "rocket": 0,
       "eyes": 0
     },
-    "timeline_url": "https://api.github.com/repos/kuizuo/blog/issues/24/timeline",
+    "timeline_url": "https://api.github.com/repos/ydaydayup/myblog/issues/24/timeline",
     "performed_via_github_app": null
   }
 ]

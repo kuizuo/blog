@@ -10,7 +10,7 @@ keywords: ['guides', 'docusaurus', 'docusaurus-guides']
 
 同时 [Docusaurus 2.0](https://docusaurus.io/zh-CN/blog/2022/08/01/announcing-docusaurus-2.0) 也正式发布了，顺带升级依赖与重构项目使其易懂易用。
 
-也欢迎你使用本主题，如果你有任何问题，欢迎在 [GitHub Discussions](https://github.com/kuizuo/blog/discussions) 提出。
+也欢迎你使用本主题，如果你有任何问题，欢迎在 [GitHub Discussions](https://github.com/ydaydayup/myblog/discussions) 提出。
 
 import DocCardList from '@theme/DocCardList'; import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
 

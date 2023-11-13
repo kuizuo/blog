@@ -215,9 +215,9 @@ gitlab-ctl start
 
 ```js
 // 原仓库git
-https://github.com/kuizuo/blog
+https://github.com/ydaydayup/myblog
 // 在https://后加上username@
-https://kuizuo@github.com/kuizuo/blog
+https://kuizuo@github.com/ydaydayup/myblog
 ```
 
 密码为上面的 Token（如果忘记的话，可以在 Github 的 Token 页中 Regenerate token），如下图所示

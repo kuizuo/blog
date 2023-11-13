@@ -22,10 +22,10 @@ sticky: 5
 
 ## 安装
 
-如果你想搭建一个类似的博客，可以 [fork 本项目](https://github.com/kuizuo/blog/fork)，修改个人信息，并将文章迁移过来。这里推荐使用 [Vercel 部署个人博客](https://kuizuo.cn/vercel-deploy-blog)，以下是本地安装示例。
+如果你想搭建一个类似的博客，可以 [fork 本项目](https://github.com/ydaydayup/myblog/fork)，修改个人信息，并将文章迁移过来。这里推荐使用 [Vercel 部署个人博客](https://kuizuo.cn/vercel-deploy-blog)，以下是本地安装示例。
 
 ```bash
-git clone https://github.com/kuizuo/blog
+git clone https://github.com/ydaydayup/myblog
 cd blog
 yarn
 yarn start
@@ -67,7 +67,7 @@ yarn start
 
 ## 部署
 
-按传统的方式，你编写好一篇文章后，需要重新打包成静态文件（.html），然后将静态文件上传到服务器（需要自己准备）上，然后通过 nginx 配置域名访问。如今有了自动化部署，你只需要将代码 push 到 Github 上，然后通过 CI/CD 自动化部署到服务器上。可以参考 [ci.yml](https://github.com/kuizuo/blog/blob/main/.github/workflows/ci.yml) 配置文件。
+按传统的方式，你编写好一篇文章后，需要重新打包成静态文件（.html），然后将静态文件上传到服务器（需要自己准备）上，然后通过 nginx 配置域名访问。如今有了自动化部署，你只需要将代码 push 到 Github 上，然后通过 CI/CD 自动化部署到服务器上。可以参考 [ci.yml](https://github.com/ydaydayup/myblog/blob/main/.github/workflows/ci.yml) 配置文件。
 
 这里推荐使用 [Vercel 部署个人博客](/blog/vercel-deploy-blog)，部署十分简单，你甚至不需要服务器，只需要有个 Github 账号，将你的博客项目添加为一个仓库中即可（也许需要科学上网）。
 

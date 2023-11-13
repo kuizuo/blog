@@ -51,7 +51,7 @@ image: https://img.kuizuo.cn/image-20220511170700075.png
 
 这里可以从已有的 git repository 中导入，也可以选择一个模板。
 
-这里登录我的 Github 账号选择仓库，然后点击 blog 仓库旁的 Import 即可。当然，你也可以直接拉取我的仓库，仓库地址：[kuizuo/blog](https://github.com/kuizuo/blog)
+这里登录我的 Github 账号选择仓库，然后点击 blog 仓库旁的 Import 即可。当然，你也可以直接拉取我的仓库，仓库地址：[ydaydayup/myblog](https://github.com/ydaydayup/myblog)
 
 ![image-20220511165513526](https://img.kuizuo.cn/image-20220511165513526.png)
 
