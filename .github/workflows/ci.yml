@@ -1,9 +1,9 @@
-#name: ci
-#
-#on:
-#  push:
-#    branches:
-#      - main
+name: ci
+
+on:
+  push:
+    branches:
+      - main
 #
 #jobs:
 #  build-and-deploy:
