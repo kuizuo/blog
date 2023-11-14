@@ -1,5 +1,5 @@
 {
-  "index_name": "Sunny",
+  "index_name": "SunnyBlog",
   "start_urls": ["https://www.daydayup.cloud/"],
   "sitemap_urls": ["https://www.daydayup.cloud/"],
   "selectors": {

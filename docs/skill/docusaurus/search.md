@@ -24,11 +24,12 @@ authors: Sunny
 然后将得到 algolia 的 appId，apiKey，indexName 填写到 `docusaurus.config.js` 中即可。
 
 ```javascript title='docusaurus.config.js'
-algolia: {
-  appId: 'GV6YN1ODMO',
-  apiKey: '50303937b0e4630bec4a20a14e3b7872',
-  indexName: 'Sunny',
-}
+algolia: {  
+  appId: 'GV6YN1ODMO',  
+  apiKey: '50303937b0e4630bec4a20a14e3b7872',  
+  indexName: 'SunnyBlog',  
+  contextualSearch: true,  
+},
 ```
 
 爬取完毕后还会定时发送到你邮箱
@@ -43,20 +44,22 @@ algolia: {
 
 首先去申请 [Algolia](https://www.algolia.com/) 账号，然后在左侧 indices 创建索引，在 API Keys 中获取 Application ID 和 API Key（注意，有两个 API KEY）
 
-![image-20210821230135749](assert/0be6e570a634918b76237161c803d560_MD5.png)
+[Open: Pasted image 20231114202025.png](assert/4a1fe92191a250e8b7a238bf73374ad1_MD5.png)
+![](assert/4a1fe92191a250e8b7a238bf73374ad1_MD5.png)
 
-![image-20210821230232837](assert/ba169247d7561e50eb41ab91c3106e31_MD5.png)
+[Open: Pasted image 20231114202150.png](assert/1e7a21710a039add3c60e4a9a9171f8d_MD5.png)
+![](assert/1e7a21710a039add3c60e4a9a9171f8d_MD5.png)
 
-填入到 `docusaurus.config.js` 中的 API KEY 是 **Search-Only API Key**
-
+填入到 `docusaurus.config.js` 中的 
+API KEY 是 **Search-Only API Key**
+**appId 是Application ID**
 ```js
-themeConfig: {
-    algolia: {
-      apiKey: "xxxxxxxxxxx",
-      appId: "xxxxxxxxxxx",
-      indexName: "Sunny",
-    },
-}
+algolia: {  
+  appId: 'GV6YN1ODMO',  
+  apiKey: '50303937b0e4630bec4a20a14e3b7872',  
+  indexName: 'SunnyBlog',  
+  contextualSearch: true,  
+},
 ```
 
 系统我选用的是 Linux，在 Docker 的环境下运行爬虫代码。不过要先 [安装 jq](https://github.com/stedolan/jq/wiki/Installation#zero-install) 我这里选择的是 0install 进行安装（安装可能稍慢），具体可以查看文档，然后在控制台查看安装结果

@@ -215,9 +215,10 @@ const config = {
       maxHeadingLevel: 4,
     },
     algolia: {
-      appId: 'GV6YN1ODMO',
-      apiKey: '50303937b0e4630bec4a20a14e3b7872',
-      indexName: 'Sunny',
+      appId: 'CP7031IGM2',
+      apiKey: '2faf032dffcb1c0693f445fe157ddc9a',
+      indexName: 'SunnyBlog',
+      contextualSearch: true,
     },
     zoom: {
       selector: '.markdown :not(em) > img',
