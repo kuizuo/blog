@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Check Working Directory
-        run: pwd
+#      - name: Check Working Directory
+#        run: pwd
 
       - name: Get the content of docsearch.json as config
         id: algolia_config
