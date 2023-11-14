@@ -1,8 +1,11 @@
 ---
 id: docusaurus-search
 slug: /docusaurus-search
-title: 搜索
+title: 利用 Algolia 为静态博客搭建实现内容搜索
 authors: Sunny
+keywords:
+  - Algolia
+  - docusaurus
 ---
 
 > [搜索 | Docusaurus](https://docusaurus.io/zh-CN/docs/search) 
