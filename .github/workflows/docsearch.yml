@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: debug
+        id: debug
+        run: echo "name=config::(cat ./.github/workflows/docsearch.json | jq -r tostring)"
 
       - name: Get the content of docsearch.json as config
         id: algolia_config
