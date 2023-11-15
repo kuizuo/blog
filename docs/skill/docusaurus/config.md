@@ -17,13 +17,13 @@ const config = {
   titleDelimiter: '-',
   url: 'https://ydaydayup.cn',
   baseUrl: '/',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon-logo.png',
   organizationName: 'Sunny',
   projectName: 'blog',
   tagline: '记录所学知识，领略编程之美',
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
   themeConfig: {
-    image: 'img/logo.png',
+    image: 'img/favicon-logo.png',
     metadata: [
       {
         name: 'keywords',

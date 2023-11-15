@@ -8,9 +8,9 @@
   --ifm-color-primary-lightest: #d5f1fd;
   --ifm-code-font-size: 95%;
   --ifm-font-family-base: 'Inter', ui-sans-serif, system-ui, -apple-system,
-    'Segoe UI', 'Helvetica Neue', 'Noto Sans', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', consolas,
-    sfmono-regular, menlo, monaco, 'Liberation Mono', monospace;
+  'Segoe UI', 'Helvetica Neue', 'Noto Sans', sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', consolas,
+  sfmono-regular, menlo, monaco, 'Liberation Mono', monospace;
 
   --ifm-heading-font-family: var(--ifm-font-family-base);
 
@@ -74,8 +74,8 @@ html[data-theme='dark'] {
 
 body {
   font-family: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei',
-    'Segoe UI', Roboto, Helvetica, 'noto sans sc', 'hiragino sans gb',
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Not Color Emoji';
+  'Segoe UI', Roboto, Helvetica, 'noto sans sc', 'hiragino sans gb',
+  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Not Color Emoji';
 }
 
 html,
@@ -189,6 +189,11 @@ html[data-theme='dark'] .theme-code-block {
   font-weight: 400;
 }
 
+.navbar__logo {
+  border-radius: 40%;
+  overflow: hidden;
+}
+
 .pagination-nav__link {
   border: 2px solid var(--ifm-link-color);
 
@@ -243,11 +248,11 @@ code {
 
 div[class^='announcementBar_'] {
   background: repeating-linear-gradient(
-    -35deg,
-    var(--ifm-color-primary-lighter),
-    var(--ifm-color-primary-lighter) 20px,
-    var(--ifm-color-primary-lightest) 10px,
-    var(--ifm-color-primary-lightest) 40px
+                  -35deg,
+                  var(--ifm-color-primary-lighter),
+                  var(--ifm-color-primary-lighter) 20px,
+                  var(--ifm-color-primary-lightest) 10px,
+                  var(--ifm-color-primary-lightest) 40px
   );
   font-weight: 700;
 }

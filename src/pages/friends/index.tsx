@@ -19,8 +19,8 @@ function SiteInfo() {
         {`{
   // 本站信息
   title: 'Sunny的小站',
-  description: '道阻且长，行则将至',
-  avatar: 'https://ydaydayup.cn/img/logo.png'
+  description: '但行好事,莫问前程',
+  avatar: 'https://ydaydayup.cn/img/favicon-logo.png'
 }`}
       </CodeBlock>
     </div>

@@ -8,13 +8,13 @@ const config = {
   title: 'Sunny的小站',
   url: 'https://ydaydayup.cn',
   baseUrl: '/',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon-logo.png',
   organizationName: 'Sunny',
   projectName: 'blog',
   tagline: '道阻且长，行则将至',
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
   themeConfig: {
-    image: 'img/logo.png',
+    image:'img/favicon-logo.png',
     // announcementBar: {
     //   id: 'announcementBar-3',
     //   content: announcementBarContent,
@@ -41,8 +41,8 @@ const config = {
     navbar: {
       logo: {
         alt: 'Sunny',
-        src: 'img/logo.webp',
-        srcDark: 'img/logo.webp',
+        src: 'img/favicon-logo.png',
+        srcDark: 'img/favicon-logo.png',
       },
       hideOnScroll: true,
       items: [
@@ -329,7 +329,7 @@ const config = {
           {
             tagName: 'link',
             rel: 'icon',
-            href: '/img/logo.png',
+            href: '/img/favicon-logo.png',
           },
           {
             tagName: 'link',
