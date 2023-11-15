@@ -11,7 +11,6 @@ jobs:
       - uses: actions/checkout@v2
 #      - name: Check Working Directory
 #        run: pwd
-
       - name: Get the content of docsearch.json as config
         id: algolia_config
         run: echo "name=config::$(cat .github/workflows/docsearch.json | jq -r tostring)" >> $GITHUB_OUTPUT
