@@ -41,6 +41,8 @@ algolia: {
 
 ### 方案2
 
+#### 本机执行 Docker 爬取本地内容推送到 **Algolia**
+
 [Run your own | DocSearch (algolia.com)](https://docsearch.algolia.com/docs/run-your-own)
 
 因为方案1是真的难申请，极大概率会失败，无奈只能采用方案2。
@@ -75,8 +77,8 @@ jq-1.6
 接着在任意目录中创建 `.env` 文件，填入对应的 APPID 和 API KEY（这里是`Admin API Key`，当时我还一直以为是 Search API Key 坑了我半天 😭）
 
 ```js
-APPLICATION_ID = YOUR_APP_ID;
-API_KEY = YOUR_API_KEY;
+ALGOLIA_APP_ID=ALGOLIA_APP_ID  
+ALGOLIA_APP_ID=3e17aad34ae5633a8f1c35f4e4278380
 ```
 
 然后创建 `docsearch.json` 文件到项目目录下，其内容可以参考如下（将高亮部分替换成你的网站）
