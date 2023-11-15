@@ -19,7 +19,7 @@ jobs:
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          CONFIG: ${{ steps.algolia_config.outputs.config }}
+          CONFIG: ${{ steps.algolia_config.outputs.name }}
         run: |
           docker run \
             --env APPLICATION_ID=${ALGOLIA_APP_ID} \
