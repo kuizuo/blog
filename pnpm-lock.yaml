@@ -110,8 +110,8 @@ devDependencies:
     specifier: ^34.0.0
     version: 34.0.0(stylelint@15.11.0)
   stylelint-config-standard-scss:
-    specifier: ^5.0.0
-    version: 5.0.0(postcss@8.4.29)(stylelint@15.11.0)
+    specifier: ^11.0.0
+    version: 11.1.0(postcss@8.4.29)(stylelint@15.11.0)
   typescript:
     specifier: ~5.2.2
     version: 5.2.2
@@ -8914,11 +8914,11 @@ packages:
       postcss: 8.4.29
     dev: true
 
-  /postcss-scss@4.0.7(postcss@8.4.29):
-    resolution: {integrity: sha512-xPv2GseoyXPa58Nro7M73ZntttusuCmZdeOojUFR5PZDz2BR62vfYx1w9TyOnp1+nYFowgOMipsCBhxzVkAEPw==}
+  /postcss-scss@4.0.9(postcss@8.4.29):
+    resolution: {integrity: sha512-AjKOeiwAitL/MXxQW2DliT28EKukvvbEWx3LBmJIRN8KfBGZbRTxNYW0kSqi1COiTZ57nZ9NW06S6ux//N1c9A==}
     engines: {node: '>=12.0'}
     peerDependencies:
-      postcss: ^8.4.19
+      postcss: ^8.4.29
     dependencies:
       postcss: 8.4.29
     dev: true
@@ -10403,17 +10403,20 @@ packages:
       stylelint: 15.11.0(typescript@5.2.2)
     dev: true
 
-  /stylelint-config-recommended-scss@7.0.0(postcss@8.4.29)(stylelint@15.11.0):
-    resolution: {integrity: sha512-rGz1J4rMAyJkvoJW4hZasuQBB7y9KIrShb20l9DVEKKZSEi1HAy0vuNlR8HyCKy/jveb/BdaQFcoiYnmx4HoiA==}
+  /stylelint-config-recommended-scss@13.1.0(postcss@8.4.29)(stylelint@15.11.0):
+    resolution: {integrity: sha512-8L5nDfd+YH6AOoBGKmhH8pLWF1dpfY816JtGMePcBqqSsLU+Ysawx44fQSlMOJ2xTfI9yTGpup5JU77c17w1Ww==}
     peerDependencies:
-      stylelint: ^14.4.0
+      postcss: ^8.3.3
+      stylelint: ^15.10.0
+    peerDependenciesMeta:
+      postcss:
+        optional: true
     dependencies:
-      postcss-scss: 4.0.7(postcss@8.4.29)
+      postcss: 8.4.29
+      postcss-scss: 4.0.9(postcss@8.4.29)
       stylelint: 15.11.0(typescript@5.2.2)
-      stylelint-config-recommended: 8.0.0(stylelint@15.11.0)
-      stylelint-scss: 4.7.0(stylelint@15.11.0)
-    transitivePeerDependencies:
-      - postcss
+      stylelint-config-recommended: 13.0.0(stylelint@15.11.0)
+      stylelint-scss: 5.3.1(stylelint@15.11.0)
     dev: true
 
   /stylelint-config-recommended@13.0.0(stylelint@15.11.0):
@@ -10425,33 +10428,19 @@ packages:
       stylelint: 15.11.0(typescript@5.2.2)
     dev: true
 
-  /stylelint-config-recommended@8.0.0(stylelint@15.11.0):
-    resolution: {integrity: sha512-IK6dWvE000+xBv9jbnHOnBq01gt6HGVB2ZTsot+QsMpe82doDQ9hvplxfv4YnpEuUwVGGd9y6nbaAnhrjcxhZQ==}
+  /stylelint-config-standard-scss@11.1.0(postcss@8.4.29)(stylelint@15.11.0):
+    resolution: {integrity: sha512-5gnBgeNTgRVdchMwiFQPuBOtj9QefYtfXiddrOMJA2pI22zxt6ddI2s+e5Oh7/6QYl7QLJujGnaUR5YyGq72ow==}
     peerDependencies:
-      stylelint: ^14.8.0
+      postcss: ^8.3.3
+      stylelint: ^15.10.0
+    peerDependenciesMeta:
+      postcss:
+        optional: true
     dependencies:
+      postcss: 8.4.29
       stylelint: 15.11.0(typescript@5.2.2)
-    dev: true
-
-  /stylelint-config-standard-scss@5.0.0(postcss@8.4.29)(stylelint@15.11.0):
-    resolution: {integrity: sha512-zoXLibojHZYPFjtkc4STZtAJ2yGTq3Bb4MYO0oiyO6f/vNxDKRcSDZYoqN260Gv2eD5niQIr1/kr5SXlFj9kcQ==}
-    peerDependencies:
-      stylelint: ^14.9.0
-    dependencies:
-      stylelint: 15.11.0(typescript@5.2.2)
-      stylelint-config-recommended-scss: 7.0.0(postcss@8.4.29)(stylelint@15.11.0)
-      stylelint-config-standard: 26.0.0(stylelint@15.11.0)
-    transitivePeerDependencies:
-      - postcss
-    dev: true
-
-  /stylelint-config-standard@26.0.0(stylelint@15.11.0):
-    resolution: {integrity: sha512-hUuB7LaaqM8abvkOO84wh5oYSkpXgTzHu2Zza6e7mY+aOmpNTjoFBRxSLlzY0uAOMWEFx0OMKzr+reG1BUtcqQ==}
-    peerDependencies:
-      stylelint: ^14.9.0
-    dependencies:
-      stylelint: 15.11.0(typescript@5.2.2)
-      stylelint-config-recommended: 8.0.0(stylelint@15.11.0)
+      stylelint-config-recommended-scss: 13.1.0(postcss@8.4.29)(stylelint@15.11.0)
+      stylelint-config-standard: 34.0.0(stylelint@15.11.0)
     dev: true
 
   /stylelint-config-standard@34.0.0(stylelint@15.11.0):
@@ -10464,11 +10453,12 @@ packages:
       stylelint-config-recommended: 13.0.0(stylelint@15.11.0)
     dev: true
 
-  /stylelint-scss@4.7.0(stylelint@15.11.0):
-    resolution: {integrity: sha512-TSUgIeS0H3jqDZnby1UO1Qv3poi1N8wUYIJY6D1tuUq2MN3lwp/rITVo0wD+1SWTmRm0tNmGO0b7nKInnqF6Hg==}
+  /stylelint-scss@5.3.1(stylelint@15.11.0):
+    resolution: {integrity: sha512-5I9ZDIm77BZrjOccma5WyW2nJEKjXDd4Ca8Kk+oBapSO4pewSlno3n+OyimcyVJJujQZkBN2D+xuMkIamSc6hA==}
     peerDependencies:
       stylelint: ^14.5.1 || ^15.0.0
     dependencies:
+      known-css-properties: 0.29.0
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.0.13
