@@ -22,10 +22,6 @@
     transition-property: all;
     transition-duration: 0.3s;
     transition-delay: 0s;
-
-    &:hover {
-      background-color: #ecfeff;
-    }
   }
 
   .dropdown {
@@ -44,10 +40,6 @@
     right: 0;
     top: 120%;
   }
-}
-
-html[data-theme='dark'] .social__links a:hover {
-  background-color: #515967;
 }
 
 .social__links > *,

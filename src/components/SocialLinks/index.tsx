@@ -9,13 +9,15 @@ import styles from './styles.module.scss'
 function SocialLink({
   href,
   icon,
+  title,
   ...prop
 }: {
   href: string
+  title: string
   icon: string | JSX.Element
 }) {
   return (
-    <a href={href} target="_blank" {...prop}>
+    <a href={href} target="_blank" {...prop} title={title}>
       {typeof icon === 'string' ? <Icon icon={icon} /> : icon}
     </a>
   )
@@ -38,17 +40,18 @@ export default function SocialLinks({ ...prop }) {
 
   return (
     <div className={styles.social__links} {...prop}>
-      <SocialLink href={socials.github} icon="ri:github-line" />
-      <SocialLink href={socials.juejin} icon={<JuejinIcon />} />
-      <SocialLink href={socials.twitter} icon="ri:twitter-line" />
-      <SocialLink href={socials.qq} icon="ri:qq-line" />
-      <SocialLink href={socials.zhihu} icon="ri:zhihu-line" />
-      <SocialLink href={socials.email} icon="ri:mail-line" />
+      <SocialLink href={socials.github} title="gitub" icon="ri:github-line" />
+      <SocialLink href={socials.juejin} title="掘金" icon={<JuejinIcon />} />
+      <SocialLink href={socials.twitter} title="X" icon="ri:twitter-x-line" />
+      <SocialLink href={socials.qq} title="QQ" icon="ri:qq-line" />
+      <SocialLink href={socials.zhihu} title="知乎" icon="ri:zhihu-line" />
+      <SocialLink href={socials.email} title="Email" icon="ri:mail-line" />
       <SocialLink
         href={socials.cloudmusic}
+        title="Music"
         icon="ri:netease-cloud-music-line"
       />
-      <SocialLink href="/rss.xml" icon="ri:rss-line" />
+      <SocialLink href="/rss.xml" title="Rss"  icon="ri:rss-line" />
     </div>
   )
 }
