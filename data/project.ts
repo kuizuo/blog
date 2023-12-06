@@ -9,8 +9,17 @@ export const projects: Project[] = [
     type: 'web',
   },
   {
+    title: 'JS代码反混淆',
+    description: '基于 Babel 对 JavaScript 混淆代码还原的工具',
+    preview: '/img/project/js-deobfuscator.png',
+    website: 'https://js-deobfuscator.vercel.app',
+    source: 'https://github.com/kuizuo/js-deobfuscator',
+    tags: ['opensource', 'favorite'],
+    type: 'web',
+  },
+  {
     title: 'nest-vben-admin',
-    description: '基于 NestJs + Vben Admin 编写的一款前后端分离的权限管理系统',
+    description: ' NestJs + Vben Admin 编写的一款前后端分离的权限管理系统',
     preview: '/img/project/nest-vben-admin.png',
     website: 'https://admin.kuizuo.cn',
     source: 'https://github.com/kuizuo/nest-vben-admin',
@@ -19,31 +28,22 @@ export const projects: Project[] = [
   },
   {
     title: 'api-server',
-    description: '🔗 基于 Nuxt 搭建的API接口服务网站',
+    description: '🔗 基于 Nuxt 搭建的 API 接口服务网站',
     preview: '/img/project/kz-api.png',
     website: 'https://api.kuizuo.cn',
     source: 'https://github.com/kuizuo/api-service',
     tags: ['opensource', 'favorite', 'product'],
     type: 'web',
   },
-  {
-    title: 'Nuxt-Naive-Admin',
-    description: '🎁 一站式管理系统，融合 Nuxt、Naive UI 和 Supabase',
-    preview: '/img/project/nuxt-naive-admin.png',
-    website: 'https://nuxt-naive-admin.vercel.app',
-    source: 'https://github.com/kuizuo/nuxt-naive-admin',
-    tags: ['opensource', 'favorite'],
-    type: 'web',
-  },
+  // toy
   {
     title: 'Chaoxing-sign',
-    description:
-      '🌟 超星学习通在线签到，摆脱客户端繁琐的签到流程，让签到不再是你的烦恼。',
+    description: '🌟 超星学习通在线签到，摆脱客户端繁琐的签到流程，让签到不再是你的烦恼。',
     preview: '/img/project/chaoxing-sign.png',
     website: 'https://cx.kuizuo.cn',
     source: 'https://github.com/kuizuo/chaoxing-sign',
-    tags: ['opensource', 'favorite', 'product'],
-    type: 'web',
+    tags: ['opensource', 'favorite'],
+    type: 'toy',
   },
   {
     title: 'Hoppx',
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     website: 'https://hoppx.vercel.app',
     source: 'https://github.com/kuizuo/hoppx',
     tags: ['opensource'],
-    type: 'web',
+    type: 'toy',
   },
   {
     title: 'Link Maker',
@@ -61,71 +61,54 @@ export const projects: Project[] = [
     website: 'https://link-maker.deno.dev',
     source: 'https://github.com/kuizuo/link-maker',
     tags: ['opensource'],
-    type: 'web',
+    type: 'toy',
   },
   {
-    title: 'Image Hosting',
-    description: '🖼️ 使用 Supabase 搭建一个简易图床',
-    preview: '/img/project/image-hosting.png',
-    website: 'https://image.kuizuo.cn',
-    source: 'https://github.com/kuizuo/image-hosting',
+    title: 'Nuxt-Naive-Admin',
+    description: '🎁 一站式管理系统，融合 Nuxt、Naive UI 和 Supabase',
+    preview: '/img/project/nuxt-naive-admin.png',
+    website: 'https://nuxt-naive-admin.vercel.app',
+    source: 'https://github.com/kuizuo/nuxt-naive-admin',
     tags: ['opensource'],
-    type: 'web',
+    type: 'toy',
+  },
+  // {
+  //   title: 'Image Hosting',
+  //   description: '🖼️ 使用 Supabase 搭建一个简易图床',
+  //   preview: '/img/project/image-hosting.png',
+  //   website: 'https://image.kuizuo.cn',
+  //   source: 'https://github.com/kuizuo/image-hosting',
+  //   tags: ['opensource'],
+  //   type: 'web',
+  // },
+  // {
+  //   title: 'Vitesse Nuxt3 Strapi',
+  //   description: '一个 Vitesse Nuxt3 Strapi 的模板，灵感来源 Vitesse',
+  //   preview: '/img/project/vitesse-nuxt3-strapi.png',
+  //   website: 'https://vitesse-nuxt3-strapi.vercel.app',
+  //   source: 'https://github.com/kuizuo/vitesse-nuxt3-strapi',
+  //   tags: ['opensource'],
+  //   type: 'web',
+  // },
+  // personal
+  {
+    title: 'vscode-extension',
+    description: 'vscode 插件的样品',
+    preview: '/img/project/vscode-extension.png',
+    website: 'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
+    source: 'https://github.com/kuizuo/vscode-extension',
+    tags: ['opensource'],
+    type: 'personal',
   },
   {
     title: '前端示例代码库',
-    description:
-      '📦 整理前端样式和功能的实现代码，可以用来寻找灵感或直接使用示例中的代码',
+    description: '📦 整理前端样式和功能的实现代码，可以用来寻找灵感或直接使用示例中的代码',
     preview: '/img/project/example-website.png',
     website: 'https://example.kuizuo.cn',
     source: 'https://github.com/kuizuo/example',
     tags: ['opensource', 'design'],
-    type: 'web',
+    type: 'personal',
   },
-  {
-    title: 'Vitesse Nuxt3 Strapi',
-    description: '一个 Vitesse Nuxt3 Strapi 的模板，灵感来源 Vitesse',
-    preview: '/img/project/vitesse-nuxt3-strapi.png',
-    website: 'https://vitesse-nuxt3-strapi.vercel.app',
-    source: 'https://github.com/kuizuo/vitesse-nuxt3-strapi',
-    tags: ['opensource'],
-    type: 'web',
-  },
-  {
-    title: 'JS代码混淆与还原',
-    description: '基于Babel的AST操作对JavaScript代码混淆与还原的网站',
-    preview: '/img/project/js-de-obfuscator.png',
-    website: 'https://deobfuscator.vercel.app',
-    source: 'https://github.com/kuizuo/js-de-obfuscator',
-    tags: ['opensource'],
-    type: 'web',
-  },
-  {
-    title: 'VScode-extension',
-    description: 'vscode 插件的样品',
-    preview: '/img/project/vscode-extension.png',
-    website:
-      'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
-    source: 'https://github.com/kuizuo/vscode-extension',
-    tags: ['opensource'],
-    type: 'web',
-  },
-  // {
-  //   title: 'link-admin',
-  //   description: '基于 nest-vben-admin 编写的一次性充值链接销售系统',
-  //   preview: '/img/project/link-admin.png',
-  //   website: 'http://link.kuizuo.cn',
-  //   tags: ['product', 'large'],
-  //   type: 'other',
-  // },
-  // {
-  //   title: 'ocr-admin',
-  //   description: '基于 ddddocr 与 nest-vben-admin 搭建的图像识别后台系统',
-  //   preview: '/img/project/ocr-admin.png',
-  //   website: 'http://ocr.kuizuo.cn',
-  //   tags: ['product', 'large'],
-  //   type: 'other',
-  // },
   {
     title: '@kuizuo/http',
     description: '基于 Axios 封装的 HTTP 类库',
@@ -133,33 +116,58 @@ export const projects: Project[] = [
     tags: ['opensource', 'personal'],
     type: 'personal',
   },
-  {
-    title: '@kuizuo/utils',
-    description: '整理 JavaScript / TypeScript 的相关工具函数',
-    website: 'https://www.npmjs.com/package/@kuizuo/utils',
-    tags: ['opensource', 'personal'],
-    type: 'personal',
-  },
-  {
-    title: '@kuizuo/eslint-config',
-    description: '来自 antfu 的 ESLint 配置文件',
-    website: 'https://github.com/kuizuo/eslint-config',
-    tags: ['opensource', 'personal'],
-    type: 'personal',
-  },
+  // {
+  //   title: '@kuizuo/utils',
+  //   description: '整理 JavaScript / TypeScript 的相关工具函数',
+  //   website: 'https://www.npmjs.com/package/@kuizuo/utils',
+  //   tags: ['opensource', 'personal'],
+  //   type: 'personal',
+  // },
+  // {
+  //   title: '@kuizuo/eslint-config',
+  //   description: '来自 antfu 的 ESLint 配置文件',
+  //   website: 'https://github.com/kuizuo/eslint-config',
+  //   tags: ['opensource', 'personal'],
+  //   type: 'personal',
+  // },
+  // commerce
+  // {
+  //   title: 'link-admin',
+  //   description: '基于 nest-vben-admin 编写的一次性充值链接销售系统',
+  //   preview: '/img/project/link-admin.png',
+  //   website: 'http://link.kuizuo.cn',
+  //   tags: ['product', 'large'],
+  //   type: 'commerce',
+  // },
+  // {
+  //   title: 'youni',
+  //   description: '基于 nest-vben-admin 编写的一次性充值链接销售系统',
+  //   preview: '/img/project/link-admin.png',
+  //   website: 'http://link.kuizuo.cn',
+  //   tags: ['product', 'large'],
+  //   type: 'commerce',
+  // },
+  // other
   {
     title: 'browser-rpc',
     description: 'WebSocket 远程调用浏览器函数',
     website: 'https://github.com/kuizuo/rpc-browser',
     tags: ['opensource'],
-    type: 'personal',
+    type: 'other',
+  },
+  {
+    title: 'ocr-server',
+    description: '使用 nestjs 通过 grpc 与 python ddddocr 库搭建的验证码图像识别服务',
+    website: 'https://github.com/kuizuo/ocr-server',
+    tags: ['opensource'],
+    type: 'other',
   },
   {
     title: 'rust-wasm-md5',
     description: '🦀 Rust + WebAssembly 实现的 MD5 加密',
     website: 'https://github.com/kuizuo/rust-wasm-md5',
     tags: ['opensource'],
-    type: 'personal',
+    type: 'other',
   },
 ]
 
@@ -169,20 +177,23 @@ export type Tag = {
   color: string
 }
 
-export type TagType =
-  | 'favorite'
-  | 'opensource'
-  | 'product'
-  | 'design'
-  | 'large'
-  | 'personal'
+export type TagType = 'favorite' | 'opensource' | 'product' | 'design' | 'large' | 'personal'
 
-export type ProjectType = 'personal' | 'web' | 'app' | 'toy' | 'other'
+export type ProjectType = 'web' | 'app' | 'commerce' | 'personal' | 'toy' | 'other'
+
+export const projectTypeMap = {
+  web: '网站',
+  app: '应用',
+  commerce: '商业项目',
+  personal: '个人',
+  toy: '玩具',
+  other: '其他',
+}
 
 export type Project = {
   title: string
   description: string
-  preview?: any
+  preview?: string
   website: string
   source?: string | null
   tags: TagType[]
@@ -224,9 +235,12 @@ export const Tags: Record<TagType, Tag> = {
 
 export const TagList = Object.keys(Tags) as TagType[]
 
-export const groupByProjects = projects.reduce((group, project) => {
-  const { type } = project
-  group[type] = group[type] ?? []
-  group[type].push(project)
-  return group
-}, {} as Record<ProjectType, Project[]>)
+export const groupByProjects = projects.reduce(
+  (group, project) => {
+    const { type } = project
+    group[type] = group[type] ?? []
+    group[type].push(project)
+    return group
+  },
+  {} as Record<ProjectType, Project[]>,
+)

@@ -3,7 +3,8 @@ const { themes } = require('prism-react-renderer');
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
 
-const announcementBarContent = ''
+const announcementBarContent = `<a href="https://github.com/kuizuo/js-deobfuscator" target="_blank">JS 混淆代码还原, 感兴趣可以看看</a>`
+
 
 export default async function createConfigAsync() {
   /** @type {import('@docusaurus/types').Config} */
@@ -17,10 +18,10 @@ export default async function createConfigAsync() {
     tagline: '道阻且长，行则将至',
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     themeConfig: {
-      // announcementBar: {
-      //   id: 'announcementBar-3',
-      //   content: announcementBarContent,
-      // },
+      announcementBar: {
+        id: 'announcementBar-3',
+        content: announcementBarContent,
+      },
       metadata: [
         {
           name: 'keywords',
