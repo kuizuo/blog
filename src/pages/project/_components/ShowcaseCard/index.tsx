@@ -1,9 +1,8 @@
-import React, { memo, useEffect, useRef } from 'react'
+import React, { memo } from 'react'
 import clsx from 'clsx'
 import Image from '@theme/IdealImage'
 import Link from '@docusaurus/Link'
 import Translate from '@docusaurus/Translate'
-import { motion } from 'framer-motion'
 import styles from './styles.module.css'
 import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon'
 import Tooltip from '../ShowcaseTooltip'
@@ -55,12 +54,9 @@ function ShowcaseCardTag({ tags }: { tags: TagType[] }) {
 
 const ShowcaseCard = memo(({ project }: { project: Project }) => {
   return (
-    <motion.li
+    <div
       key={project.title}
-      className={clsx('card shadow--md', styles.showcaseCard)}
-      whileHover={{ scale: 1.025 }}
-      whileTap={{ scale: 0.975 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+      className={clsx('card', styles.showcaseCard)}
     >
       {project.preview && (
         <div className={clsx('card__image', styles.showcaseCardImage)}>
@@ -98,7 +94,7 @@ const ShowcaseCard = memo(({ project }: { project: Project }) => {
       <ul className={clsx('card__footer', styles.cardFooter)}>
         <ShowcaseCardTag tags={project.tags} />
       </ul>
-    </motion.li>
+    </div>
   )
 })
 

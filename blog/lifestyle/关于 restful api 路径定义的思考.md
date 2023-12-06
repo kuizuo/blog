@@ -82,7 +82,7 @@ export class UserController {
 
 换做是我，肯定不会希望将用户的代码与文章的代码混杂在一起。解决办法也是有的，可以额外创建一个新的 UserController 文件，专门用于获取用户下的资源（这里指 article），这样可以 即与原有针对 user 资源进行解耦，有可以有比较清晰接口分类。
 
-:::waring
+:::warning
 
 不过针对这种情况我可能的解决办法是下会额外 **起一个别名**，例如 author，将 `/users/:id/articles`转为 `/authors/:id/articles`，不过在这里指向的是用户 id，而不是新建一个 author 实体（资源）。
 

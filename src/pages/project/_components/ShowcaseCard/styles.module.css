@@ -1,7 +1,7 @@
 .showcaseCard {
   position: relative;
-  box-shadow: 0 10px 30px -5px rgb(0 0 0 / 30%);
-  transition: box-shadow 0.5s, opacity 0.5s;
+  box-shadow: var(--blog-item-shadow);
+  transition: opacity 0.5s;
   will-change: transform;
   overflow: hidden;
   touch-action: none;

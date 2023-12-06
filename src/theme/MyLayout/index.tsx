@@ -7,12 +7,13 @@ import styles from './styles.module.scss'
 
 export default function MyLayout({
   children,
+  maxWidth,
   ...layoutProps
-}: Props): JSX.Element {
+}: Props & { maxWidth: number }): JSX.Element {
   return (
     <Layout {...layoutProps}>
-      <div className={styles.containerWrapper}>
-        <div className={clsx(styles.myContainer, 'margin-vert--lg')}>
+      <div className={styles.containerWrapper} >
+        <div className={clsx(styles.myContainer, 'margin-vert--lg')} style={{ maxWidth: `${maxWidth}px` }}>
           <main>{children}</main>
         </div>
       </div>

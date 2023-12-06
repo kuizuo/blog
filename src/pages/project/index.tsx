@@ -1,15 +1,15 @@
 import React from 'react'
 import _ from 'loadsh'
-import Layout from '@theme/Layout'
 import clsx from 'clsx'
-import Translate, { translate } from '@docusaurus/Translate'
-
+import { translate } from '@docusaurus/Translate'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import ShowcaseCard from './_components/ShowcaseCard'
-import { projects, groupByProjects } from '@site/data/project'
+import { projects, groupByProjects, projectTypeMap } from '@site/data/project'
 
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment'
 
 import styles from './styles.module.css'
+import MyLayout from '@site/src/theme/MyLayout'
 
 const TITLE = translate({
   id: 'theme.project.title',
@@ -17,11 +17,10 @@ const TITLE = translate({
 })
 const DESCRIPTION = translate({
   id: 'theme.project.description',
-  message:
-    '学而无用，不如学而用之。这里是我在技术领域中努力实践和应用的最佳证明。',
+  message: '学而无用，不如学而用之。这里是我在技术领域中努力实践和应用的最佳证明。',
 })
 
-const GITHUB_URL = 'https://github.com/kuizuo'
+// const GITHUB_URL = 'https://github.com/kuizuo'
 
 type ProjectState = {
   scrollTopPosition: number
@@ -39,30 +38,27 @@ export function prepareUserState(): ProjectState | undefined {
   return undefined
 }
 
-const SearchNameQueryKey = 'name'
-
-function readSearchName(search: string) {
-  return new URLSearchParams(search).get(SearchNameQueryKey)
-}
-
 function ShowcaseHeader() {
   return (
-    <section className="margin-top--lg margin-bottom--lg text--center">
-      <h1>{TITLE}</h1>
+    <section className="text--center">
+      <h2>{TITLE}</h2>
       <p>{DESCRIPTION}</p>
-      <a
+      {/* <a
         className="button button--primary"
         href={GITHUB_URL}
         target="_blank"
         rel="noreferrer"
       >
         <Translate id="showcase.header.button">前往 Github 克隆项目</Translate>
-      </a>
+      </a> */}
     </section>
   )
 }
 
 function ShowcaseCards() {
+  const { i18n } = useDocusaurusContext()
+  const lang = i18n.currentLocale
+
   if (projects.length === 0) {
     return (
       <section className="margin-top--lg margin-bottom--xl">
@@ -77,20 +73,13 @@ function ShowcaseCards() {
     <section className="margin-top--lg margin-bottom--xl">
       <>
         <div className="container margin-top--lg">
-          <div
-            className={clsx('margin-bottom--md', styles.showcaseFavoriteHeader)}
-          ></div>
+          <div className={clsx('margin-bottom--md', styles.showcaseFavoriteHeader)}></div>
 
           {Object.entries(groupByProjects).map(([key, value]) => {
             return (
               <div key={key}>
-                <div
-                  className={clsx(
-                    'margin-bottom--md',
-                    styles.showcaseFavoriteHeader,
-                  )}
-                >
-                  <h2>{_.upperFirst(key)}</h2>
+                <div className={clsx('margin-bottom--md', styles.showcaseFavoriteHeader)}>
+                  <h3>{_.upperFirst(lang === 'en' ? key: projectTypeMap[key])}</h3>
                 </div>
                 <ul className={styles.showcaseList}>
                   {value.map(project => (
@@ -108,12 +97,12 @@ function ShowcaseCards() {
 
 function Showcase(): JSX.Element {
   return (
-    <Layout title={TITLE} description={DESCRIPTION}>
-      <main className="margin-vert--md">
+    <MyLayout title={TITLE} description={DESCRIPTION} maxWidth={1280}>
+      <main className="margin-vert--lg">
         <ShowcaseHeader />
         <ShowcaseCards />
       </main>
-    </Layout>
+    </MyLayout>
   )
 }
 

@@ -109,13 +109,6 @@ export const projects: Project[] = [
     tags: ['opensource', 'design'],
     type: 'personal',
   },
-  {
-    title: '@kuizuo/http',
-    description: '基于 Axios 封装的 HTTP 类库',
-    website: 'https://www.npmjs.com/package/@kuizuo/http',
-    tags: ['opensource', 'personal'],
-    type: 'personal',
-  },
   // {
   //   title: '@kuizuo/utils',
   //   description: '整理 JavaScript / TypeScript 的相关工具函数',
@@ -148,6 +141,13 @@ export const projects: Project[] = [
   //   type: 'commerce',
   // },
   // other
+  {
+    title: '@kuizuo/http',
+    description: '基于 Axios 封装的 HTTP 类库',
+    website: 'https://www.npmjs.com/package/@kuizuo/http',
+    tags: ['opensource', 'personal'],
+    type: 'other',
+  },
   {
     title: 'browser-rpc',
     description: 'WebSocket 远程调用浏览器函数',
