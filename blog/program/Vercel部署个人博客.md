@@ -2,11 +2,11 @@
 slug: vercel-deploy-blog
 title: Vercel部署个人博客
 date: 2022-05-11
-authors: Sunny
+authors: Ray
 tags: [vercel, blog]
 keywords: [vercel, blog]
 description: 使用 Vercel 部署个人博客过程记录，简单方便、访问快、免费部署。
-image: https://img.Sunny.cn/image-20220511170700075.png
+image: https://img.Ray.cn/image-20220511170700075.png
 ---
 
 ![image-20220511170700075](assert/9b8daddc02bed1c022a4cf733393cf67_MD5.png)
@@ -134,7 +134,7 @@ vercel --prod
 ```
 Vercel CLI 24.2.1
 ? Set up and deploy “F:\Project\React\online-tools”? [Y/n] y
-? Which scope do you want to deploy to? Sunny
+? Which scope do you want to deploy to? Ray
 ? Link to existing project? [y/N] n
 ? What’s your project’s name? online-tools
 ? In which directory is your code located? ./
@@ -143,7 +143,7 @@ Auto-detected Project Settings (Create React App):
 - Output Directory: build
 - Development Command: react-scripts start
 ? Want to override the settings? [y/N] n
-🔗  Linked to Sunny12/online-tools (created .vercel and added it to .gitignore)
+🔗  Linked to Ray12/online-tools (created .vercel and added it to .gitignore)
 🔍  Inspect: https://vercel.com/ydaydayup12/online-tools/6t8Vt8rG3waGVHTKU7ZzJuGc6Hoq [2s]
 ✅  Production: https://online-tools-phi.vercel.app [copied to clipboard] [2m]
 📝  Deployed to production. Run `vercel --prod` to overwrite later (https://vercel.link/2F).

@@ -2,7 +2,7 @@
 slug: springboot-project-structure
 title: SpringBoot项目结构
 date: 2022-01-08
-authors: Sunny
+authors: Ray
 tags: [java, springboot, develop]
 keywords: [java, springboot, develop]
 ---
@@ -83,7 +83,7 @@ public interface UserRepository extends JpaRepository<User, Long> , JpaSpecifica
 }
 ```
 
-一般情况下该接口无需定义额外方法，如有需要还可以定义属于自己的查询语句，比如上面的 findByUsername，这时候就注入后的 userRepository 对象就可以使用`userRepository.findByUsername("Sunny");` ，将会返回数据库中该用户名的数据。
+一般情况下该接口无需定义额外方法，如有需要还可以定义属于自己的查询语句，比如上面的 findByUsername，这时候就注入后的 userRepository 对象就可以使用`userRepository.findByUsername("Ray");` ，将会返回数据库中该用户名的数据。
 
 #### UserService 类
 
@@ -102,9 +102,9 @@ public class UserService {
 **@Autowired 可能不建议使用字段注入**，可以在类添加@RequiredArgsConstructor 注解，表明 userRepository 不为空，总之目的就是将 userRepository 注入，供服务可用。
 
 ```java title="service/UserService.java"
-import com.Sunny.demo.domain.User;
-import com.Sunny.demo.repository.UserRepository;
-import com.Sunny.demo.service.UserService;
+import com.Ray.demo.domain.User;
+import com.Ray.demo.repository.UserRepository;
+import com.Ray.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

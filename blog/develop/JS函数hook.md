@@ -2,7 +2,7 @@
 slug: js-function-hook
 title: JS函数hook
 date: 2021-11-22
-authors: Sunny
+authors: Ray
 tags: [javascript, hook]
 keywords: [javascript, hook]
 ---

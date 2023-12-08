@@ -2,12 +2,12 @@
 slug: js-code-deobfuscator
 title: JS代码之还原
 date: 2021-12-25
-authors: Sunny
+authors: Ray
 tags: [javascript, ast, reverse, project]
 keywords: [javascript, ast, reverse, project]
 ---
 
-基于 Babel 对 JS 代码进行混淆与还原操作的网站 [JS 代码混淆与还原 (Sunny.cn)](http://deobfuscator.Sunny.cn/)
+基于 Babel 对 JS 代码进行混淆与还原操作的网站 [JS 代码混淆与还原 (Ray.cn)](http://deobfuscator.Ray.cn/)
 
 ![js-de-obfuscator](assert/afd93bf3c174f370ff427591af071684_MD5.png)
 
@@ -764,6 +764,6 @@ for (
 
 ## JS 混淆与还原的网站
 
-针对上述还原操作其实还不够明显，于是就编写了一个在线对 JS 代码混淆与还原的网站（主要针对还原）– [JS 代码混淆与还原 (Sunny.cn)](https://deobfuscator.Sunny.cn/)
+针对上述还原操作其实还不够明显，于是就编写了一个在线对 JS 代码混淆与还原的网站（主要针对还原）– [JS 代码混淆与还原 (Ray.cn)](https://deobfuscator.Ray.cn/)
 
 其实也就是对上述的还原代码进行封装成工具使用。

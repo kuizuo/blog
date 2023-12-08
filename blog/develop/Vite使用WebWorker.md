@@ -2,7 +2,7 @@
 slug: vite-webworker
 title: Vite使用WebWorker
 date: 2022-07-26
-authors: Sunny
+authors: Ray
 tags: [vite, webworker]
 keywords: [vite, webworker]
 ---

@@ -2,11 +2,11 @@
 slug: use-supabase-as-backend-service
 title: 将 Supabase 作为下一个后端服务
 date: 2023-02-18
-authors: Sunny
+authors: Ray
 tags: [supabase, nuxt, project]
 keywords: [supabase, nuxt, project]
 description: 本文介绍了如何使用 Supabase 作为后端服务，使开发人员可以更快地构建和部署应用程序，无需配置数据库或编写复杂的身份验证代码。将使用 Nuxt.js 和 Supabase，以实现一个图床网站为例，来演示如何在前端中使用 Supabase API 和 Storage 服务。
-image: https://img.Sunny.cn/213727234-cda046d6-28c6-491a-b284-b86c5cede25d.png
+image: https://img.Ray.cn/213727234-cda046d6-28c6-491a-b284-b86c5cede25d.png
 toc_max_heading_level: 3
 ---
 
@@ -236,7 +236,7 @@ const { data, error } = await supabase.auth.signInWithOAuth({
 
 ![](assert/23745f488948bb5d7efb90577ab1d49b_MD5.png)
 
-思来想去，不妨就简单做个图床吧。项目地址：[https://image.Sunny.cn](https://image.Sunny.cn) 有兴趣可自行阅读[源码](https://github.com/ydaydayup/image-hosting)。（**写的相对匆忙，仅作为演示，随时有可能删除，请勿将此站作为永久图床！**）
+思来想去，不妨就简单做个图床吧。项目地址：[https://image.Ray.cn](https://image.Ray.cn) 有兴趣可自行阅读[源码](https://github.com/ydaydayup/image-hosting)。（**写的相对匆忙，仅作为演示，随时有可能删除，请勿将此站作为永久图床！**）
 
 ## 一些你可能比较好奇的问题
 

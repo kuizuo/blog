@@ -2,7 +2,7 @@
 slug: use-github-action-to-auto-deploy
 title: 使用Github Action自动化部署
 date: 2022-05-11
-authors: Sunny
+authors: Ray
 tags: [github, git]
 keywords: [github, git]
 ---

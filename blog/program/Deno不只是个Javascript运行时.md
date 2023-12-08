@@ -2,7 +2,7 @@
 slug: deno-is-not-only-a-javascript-runtime
 title: Deno 不只是个 Javascript 运行时
 date: 2023-01-20
-authors: Sunny
+authors: Ray
 tags: [deno, node, javascript, typescript]
 keywords: [deno, node, javascript, typescript]
 ---
@@ -133,13 +133,13 @@ console.log(totalCost(45, 27, 1.15));
 这里我准备了一段代码，并部署到我的站点上，你可以通过如下命令得到该代码的执行结果（如果你有安装 deno 的话），放心这段代码并无危害，就是一段简单的 console.log 输出。
 
 ```powershell
-deno run https://deno.Sunny.cn/main.ts
+deno run https://deno.Ray.cn/main.ts
 ```
 
 在第一次使用时下载并缓存代码，你可以通过
 
 ```powershell
-deno info http://deno.Sunny.cn/main.ts
+deno info http://deno.Ray.cn/main.ts
 ```
 
 来查看文件信息，如下

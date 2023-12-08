@@ -3,7 +3,7 @@ id: github-apps-example
 slug: github-apps-example
 title: github apps示例
 date: 2021-10-01
-authors: Sunny
+authors: Ray
 tags: [github, app]
 keywords: [github, app]
 ---

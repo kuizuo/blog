@@ -2,7 +2,7 @@
 slug: github-pr-experience
 title: 记一次Github提交PR过程
 date: 2022-01-25
-authors: Sunny
+authors: Ray
 tags: [记录, github]
 keywords: [记录, github]
 ---
@@ -57,7 +57,7 @@ keywords: [记录, github]
 
 意思：感谢您签署我们的贡献者许可协议。我们现在可以接受您的代码为这个(和任何)元开放源码项目。谢谢!
 
-然后审核人为我的错误 commit 标题进行了修改~~docs: Add Sunny's Personal Website to showcase page~~ docs: add Sunny's Personal Website to showcase，**第一个单词 Add 不应该首字母大写**，不符合规范。
+然后审核人为我的错误 commit 标题进行了修改~~docs: Add Ray's Personal Website to showcase page~~ docs: add Ray's Personal Website to showcase，**第一个单词 Add 不应该首字母大写**，不符合规范。
 
 然后为我提交的代码做了一些小调整 minor tweaks，也就是上面所提到的 sortBy 空格，然后为我提供的展示图裁剪成标准尺寸。
 
@@ -75,7 +75,7 @@ keywords: [记录, github]
 
 首先，我这个回复不是指定为他回复，而是相当于全体评论，贼不礼貌，然后这个蹩脚的英文翻译，我真像把 Let‘s go 改成 Let's work together，就算改了，感觉这个回复也太不礼貌了，这就已经不是英文表达能力，而是中文的表达能力了。
 
-总之最后的结果是好的，我提交的 PR 已经成功合并到了 main 分支上，并且在下一个发布的版本中，案例展示中将会有我的博客显示在上面，现在访问[preview 网站](https://deploy-preview-6458--docusaurus-2.netlify.app/showcase/?name=Sunny)，搜索 Sunny 也能看到（B 格瞬间就上来了）
+总之最后的结果是好的，我提交的 PR 已经成功合并到了 main 分支上，并且在下一个发布的版本中，案例展示中将会有我的博客显示在上面，现在访问[preview 网站](https://deploy-preview-6458--docusaurus-2.netlify.app/showcase/?name=Ray)，搜索 Ray 也能看到（B 格瞬间就上来了）
 
 ![image-20220124223506489](assert/7b57cf0e001b08d52eab01e72238e64f_MD5.png)
 

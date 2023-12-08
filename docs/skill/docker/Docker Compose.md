@@ -3,7 +3,7 @@ id: docker-compose
 slug: /docker-compose
 title: Docker Compose
 date: 2021-05-26
-authors: Sunny
+authors: Ray
 tags: [docker]
 keywords: [docker]
 ---

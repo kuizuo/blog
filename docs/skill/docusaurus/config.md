@@ -2,7 +2,7 @@
 id: docusaurus-config
 slug: /docusaurus-config
 title: 配置文件
-authors: Sunny
+authors: Ray
 ---
 
 ## docusaurus.config.js
@@ -13,12 +13,12 @@ authors: Sunny
 
 ```javascript title='docusaurus.config.js'
 const config = {
-  title: 'Sunny的小站',
+  title: 'Ray的小站',
   titleDelimiter: '-',
   url: 'https://ydaydayup.cn',
   baseUrl: '/',
   favicon: 'img/favicon-logo.png',
-  organizationName: 'Sunny',
+  organizationName: 'Ray',
   projectName: 'blog',
   tagline: '记录所学知识，领略编程之美',
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -27,7 +27,7 @@ const config = {
     metadata: [
       {
         name: 'keywords',
-        content: 'Sunny, Sunny, blog, javascript, typescript, node, react, vue, web, 前端, 后端',
+        content: 'Ray, Ray, blog, javascript, typescript, node, react, vue, web, 前端, 后端',
       },
     ],
     // ...
@@ -51,7 +51,7 @@ module.exports = config
 
 ### 基本信息
 
-站点名和作者名只需要搜索 **Sunny** 便能找到关键位置
+站点名和作者名只需要搜索 **Ray** 便能找到关键位置
 
 ### 关于我
 

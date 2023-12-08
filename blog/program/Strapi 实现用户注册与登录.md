@@ -2,7 +2,7 @@
 slug: strapi-user-register-and-login
 title: Strapi 实现用户注册与登录
 date: 2022-09-03
-authors: Sunny
+authors: Ray
 tags: [strapi, nuxt, next]
 keywords: [strapi, nuxt, next]
 description: Strapi 实现用户注册与登录

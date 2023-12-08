@@ -3,7 +3,7 @@ id: vue-reactive-data-object
 slug: /vue-reactive-data-object
 title: Vue响应式数据之Object
 date: 2022-05-10
-authors: Sunny
+authors: Ray
 tags: [vue, javascript]
 keywords: [vue, javascript]
 ---
@@ -16,7 +16,7 @@ keywords: [vue, javascript]
 
 ```javascript
 const data = {
-  username: 'Sunny',
+  username: 'Ray',
   password: 'a123456',
 }
 
@@ -46,7 +46,7 @@ function observe(data) {
 observe(data)
 
 data.username
-data.username = 'Sunny'
+data.username = 'Ray'
 ```
 
 从上面的代码中就可以发现，只要取值与赋值就会进入 get 和 set 函数内，在这里面便可以实现一些功能，例如 Vue 中收集依赖，在想监听浏览器中 cookies 的取值与赋值，就可以使用如下代码

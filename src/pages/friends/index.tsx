@@ -18,7 +18,7 @@ function SiteInfo() {
       <CodeBlock language="jsx">
         {`{
   // 本站信息
-  title: 'Sunny的小站',
+  title: 'Ray的小站',
   description: '但行好事,莫问前程',
   avatar: 'https://ydaydayup.cn/img/favicon-logo.png'
 }`}

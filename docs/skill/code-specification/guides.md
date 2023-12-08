@@ -2,7 +2,7 @@
 id: code-specification-guides
 slug: /code-specification
 title: 代码规范
-authors: Sunny
+authors: Ray
 keywords: ['code-specification']
 ---
 

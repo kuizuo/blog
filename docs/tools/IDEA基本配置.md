@@ -3,7 +3,7 @@ id: idea-config
 slug: /idea-config
 title: IDEA基本配置
 date: 2022-01-06
-authors: Sunny
+authors: Ray
 tags: [Jetbrains, idea, java, 工具]
 keywords: [Jetbrains, idea, java, 工具]
 ---
@@ -14,7 +14,7 @@ keywords: [Jetbrains, idea, java, 工具]
 
 ps: 我本地电脑基本把大部分 JetBrains 产品给安装了一遍，而在去年 1 月 13 号淘宝上买的一个账号用于激活，到现在整整一年时间都没怎么使用 JetBrains 产品 😂
 
-这里有一份我的[配置文件](https://pan.Sunny.cn/s/Bpf0)，在最后也会说明配置的导入与导出。
+这里有一份我的[配置文件](https://pan.Ray.cn/s/Bpf0)，在最后也会说明配置的导入与导出。
 
 <!-- truncate -->
 

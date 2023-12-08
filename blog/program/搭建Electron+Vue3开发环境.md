@@ -2,11 +2,11 @@
 slug: electron-vue3-development-environment
 title: 搭建Electron+Vue3开发环境
 date: 2022-03-17
-authors: Sunny
+authors: Ray
 tags: [electron, vue, vite]
 keywords: [electron, vue, vite]
 description: 搭建 Electron Vue3 的开发环境，用于编写跨平台应用
-image: https://img.Sunny.cn/image-20220316204205165.png
+image: https://img.Ray.cn/image-20220316204205165.png
 ---
 
 ![image-20220316204205165](assert/bc62998cf05de42972e8b84adf133d7b_MD5.png)

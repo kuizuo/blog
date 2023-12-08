@@ -2,7 +2,7 @@
 slug: vue-chrome-extension
 title: 使用Vue开发Chrome插件
 date: 2021-09-18
-authors: Sunny
+authors: Ray
 tags: [chrome, plugin, vue, develop]
 keywords: [chrome, plugin, vue, develop]
 description: 使用 Vue2 开发一个 Chrome 插件

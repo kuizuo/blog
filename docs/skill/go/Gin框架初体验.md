@@ -3,7 +3,7 @@ id: try-gin-framework
 slug: /try-gin-framework
 title: Gin框架初体验
 date: 2021-09-01
-authors: Sunny
+authors: Ray
 tags: [go, gin]
 keywords: [go, gin]
 ---
@@ -172,7 +172,7 @@ r.GET("/query", func(c *gin.Context) {
 })
 ```
 
-浏览器请求 `http://127.0.0.1:8080/query?username=Sunny` 便可输出 `Sunny1`
+浏览器请求 `http://127.0.0.1:8080/query?username=Ray` 便可输出 `Ray1`
 
 ### 获取 Post 数据
 

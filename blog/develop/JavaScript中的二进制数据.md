@@ -2,7 +2,7 @@
 slug: js-binary-data
 title: JavaScript中的二进制数据
 date: 2022-01-24
-authors: Sunny
+authors: Ray
 tags: [javascript]
 keywords: [javascript]
 ---

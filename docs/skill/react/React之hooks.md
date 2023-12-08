@@ -3,7 +3,7 @@ id: react-hooks
 slug: /react-hooks
 title: React之hooks
 date: 2022-09-07
-authors: Sunny
+authors: Ray
 tags: [react, hook]
 keywords: [react, hook]
 ---
@@ -51,7 +51,7 @@ export default function App(props) {
   }
 
   const [user, setUser] = React.useState<User>({
-    name: 'Sunny',
+    name: 'Ray',
     age: 20,
   })
 
@@ -63,11 +63,11 @@ export default function App(props) {
         onClick={() => {
           setUser((obj) => ({
             ...obj,
-            name: 'Sunny',
+            name: 'Ray',
           }))
         }}
       >
-        set name as Sunny
+        set name as Ray
       </button>
     </div>
   )
@@ -146,7 +146,7 @@ export default function App() {
 
   React.useEffect(() => {
     async function fetchData() {
-      const data = await (await fetch('https://api.Sunny.cn/api/one')).text()
+      const data = await (await fetch('https://api.Ray.cn/api/one')).text()
       console.log(data)
       setData(data)
     }

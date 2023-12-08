@@ -2,7 +2,7 @@
 slug: docusaurus-gitalk-plugin
 title: Docusaurus配置Gitalk评论插件
 date: 2022-01-22
-authors: Sunny
+authors: Ray
 tags: [blog, docusaurus, gitalk]
 keywords: [blog, docusaurus, gitalk]
 ---
@@ -117,8 +117,8 @@ const options = {
   clientID: 'GitHub Application Client ID',
   clientSecret: 'GitHub Application Client Secret',
   repo: 'blog',
-  owner: 'Sunny',
-  admin: ['Sunny'],
+  owner: 'Ray',
+  admin: ['Ray'],
   id: title,
   title: title,
   labels: labels,
@@ -180,7 +180,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
     "number": 24,
     "title": "Docusaurus配置Gitalk评论插件",
     "user": {
-      "login": "Sunny",
+      "login": "Ray",
       "id": 61005888,
       "node_id": "MDQ6VXNlcjYxMDA1ODg4",
       "avatar_url": "https://avatars.githubusercontent.com/u/61005888?v=4",

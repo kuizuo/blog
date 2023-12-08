@@ -2,7 +2,7 @@
 id: npmrc
 slug: /npmrc
 title: npmrc
-authors: Sunny
+authors: Ray
 keywords: ['code-specification', 'npmrc']
 ---
 

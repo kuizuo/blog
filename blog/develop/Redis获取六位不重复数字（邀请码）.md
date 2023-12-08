@@ -2,7 +2,7 @@
 slug: redis-get-six-digit-number-invitation-code
 title: Redis获取六位不重复数字（邀请码）
 date: 2021-08-11
-authors: Sunny
+authors: Ray
 tags: [redis]
 keywords: [redis]
 ---

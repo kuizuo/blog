@@ -2,7 +2,7 @@
 id: docusaurus-plugin
 slug: /docusaurus-plugin
 title: 插件
-authors: Sunny
+authors: Ray
 ---
 
 在 `docusaurus.config.js` 下的 plugins，可以看到所有插件以及插件配置。
@@ -27,8 +27,8 @@ plugins: [
           defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
         feedOptions: {
           type: 'all',
-          title: 'Sunny',
-          copyright: `Copyright © ${new Date().getFullYear()} Sunny Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
+          title: 'Ray',
+          copyright: `Copyright © ${new Date().getFullYear()} Ray Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
         },
       }
     ],

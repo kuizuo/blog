@@ -2,7 +2,7 @@
 slug: remove-ts-code-type
 title: 去除typescript代码类型
 date: 2022-03-24
-authors: Sunny
+authors: Ray
 tags: [javascript, typescript]
 keywords: [javascript, typescript]
 ---

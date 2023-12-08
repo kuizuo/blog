@@ -2,7 +2,7 @@
 slug: protocol-template
 title: Protocol 协议复现模板
 date: 2022-10-30
-authors: Sunny
+authors: Ray
 tags: [project, protocol, template, nuxt]
 keywords: [project, protocol, template, nuxt]
 description: 一个用于快速复现请求协议的 Web 开发模板。基于 Nuxt 开发，并集成了NaiveUI，Unocss，等相关工具库封装。
@@ -10,7 +10,7 @@ image: /img/project/protocol.png
 ---
 
 <p align="center">
-  <img src="https://api.Sunny.cn/api/icon/carbon:api.svg" width="80" height="80" />
+  <img src="https://api.Ray.cn/api/icon/carbon:api.svg" width="80" height="80" />
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@ image: /img/project/protocol.png
   <a href="https://github.com/ydaydayup/protocol">
     <img src="https://img.shields.io/github/stars/ydaydayup/protocol?style=social" alt="GitHub stars" />
   </a>
-  <a href="https://protocol.Sunny.cn">🖥 在线预览</a>
+  <a href="https://protocol.Ray.cn">🖥 在线预览</a>
   <a href="https://stackblitz.com/github/ydaydayup/protocol">
     <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" />
   </a>
@@ -261,7 +261,7 @@ export default defineAppConfig({
   title: 'Protocol',
   description: '一个用于快速复现请求协议的Web开发模板。',
   author: {
-    name: 'Sunny',
+    name: 'Ray',
     link: 'https://github.com/ydaydayup',
     qq: 'https://im.qq.com/',
     wx: 'https://wx.qq.com/',
@@ -311,7 +311,7 @@ export class Blog {
   public user: User
 
   constructor(user: User) {
-    this.http = new AHttp({ baseURL: 'https://blog.Sunny.cn' })
+    this.http = new AHttp({ baseURL: 'https://blog.Ray.cn' })
     this.user = User
   }
 
@@ -333,7 +333,7 @@ export class Blog {
 定义完这些后，我只需要实例化一个对象 account，调用 login 方法即可登录，后续的获取博文列表与评论操作我只需要拿这个 account 来操作即可。
 
 ```javascript
-const account = new Blog({ username: 'Sunny', password: '123456' })
+const account = new Blog({ username: 'Ray', password: '123456' })
 await account.login()
 
 const blogList = await account.getBlogList()
@@ -368,7 +368,7 @@ export default defineEventHandler(async event => {
 })
 ```
 
-这一部分的代码建立在 Serverless Function 上，每一个接口都是以函数的方式对外暴露出去。这些代码会根据文件位置生成对应的路由，比如说上面的文件为 `server/api/user/[username].ts`，就映射为 `/api/user/:username`，前端请求 `/api/user/ydaydayup` 通过`event.context.params.username` 便可以拿到 username 的值为 Sunny。
+这一部分的代码建立在 Serverless Function 上，每一个接口都是以函数的方式对外暴露出去。这些代码会根据文件位置生成对应的路由，比如说上面的文件为 `server/api/user/[username].ts`，就映射为 `/api/user/:username`，前端请求 `/api/user/ydaydayup` 通过`event.context.params.username` 便可以拿到 username 的值为 Ray。
 
 至此后端部分就暂以告告落。
 
@@ -432,7 +432,7 @@ export const useUserStore = definePiniaStore('user', () => {
 
 ```html title='components\Demo.vue'
 <script setup lang="ts">
-  let username = $ref('Sunny')
+  let username = $ref('Ray')
   let loading = $ref(false)
 
   const userStore = useUserStore()

@@ -3,7 +3,7 @@ id: docker-deploy-node-project
 slug: /docker-deploy-node-project
 title: Docker部署Node项目
 date: 2022-05-25
-authors: Sunny
+authors: Ray
 tags: [docker, node]
 keywords: [docker, node]
 ---

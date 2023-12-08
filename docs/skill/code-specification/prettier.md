@@ -2,7 +2,7 @@
 id: prettier
 slug: /prettier
 title: prettier
-authors: Sunny
+authors: Ray
 keywords: ['code-specification', 'prettier']
 ---
 

@@ -2,7 +2,7 @@
 slug: gitea-drone-practice
 title: Gitea 与 Drone 实践
 date: 2022-09-28
-authors: Sunny
+authors: Ray
 tags: [git, gitea, drone]
 keywords: [git, gitea, drone]
 description: 使用 Gitea 搭建一个轻量级 git 私有仓库，并配置 Drone CI 来实现自动构建与部署。
@@ -74,7 +74,7 @@ services:
 :::
 ### 迁移仓库
 
-从其他第三方 git 仓库迁移到 gitea，可以访问[https://git.Sunny.cn/repo/migrate](https://git.Sunny.cn/repo/migrate 'https://git.Sunny.cn/repo/migrate') 来迁移仓库
+从其他第三方 git 仓库迁移到 gitea，可以访问[https://git.Ray.cn/repo/migrate](https://git.Ray.cn/repo/migrate 'https://git.Ray.cn/repo/migrate') 来迁移仓库
 
 ![](assert/43f81079e5cce3bb7eb2fb33c4a21abd_MD5.png)
 

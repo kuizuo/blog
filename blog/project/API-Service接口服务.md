@@ -2,7 +2,7 @@
 slug: use-nuxt3-build-api-server
 title: api-service 接口服务
 date: 2022-07-20
-authors: Sunny
+authors: Ray
 tags: [nuxt, vite, vue, ssr]
 keywords: [nuxt, vite, vue, ssr]
 description: 基于 Nuxt3 的 API 接口服务网站，易于封装，调用，部署。
@@ -12,7 +12,7 @@ sticky: 2
 
 挺早之前就想写个 api 接口服务，封装下自己收集的一些 api 接口，以便调用，正好最近在接触 SSR 框架，所以就使用 [Nuxt3](https://v3.nuxtjs.org/) 来编写该项目。
 
-在线地址: [API-Service](https://api.Sunny.cn)
+在线地址: [API-Service](https://api.Ray.cn)
 
 开源地址: [ydaydayup/api-service](https://github.com/ydaydayup/api-service)
 

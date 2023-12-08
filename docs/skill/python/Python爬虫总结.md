@@ -3,7 +3,7 @@ id: python-spider-summary
 slug: /python-spider-summary
 title: Python爬虫总结
 date: 2022-03-03
-authors: Sunny
+authors: Ray
 tags: [python, node, http]
 keywords: [python, node, http]
 ---
@@ -23,7 +23,7 @@ gbk 编码中文是占 2 个字节，utf8 编码中文占 3 个字节
 ```python
 from urllib.parse import urlencode, parse_qs, quote, unquote
 
-quote("Sunny", encoding="gbk")
+quote("Ray", encoding="gbk")
 # %C0%A2%E2%F4
 ```
 
@@ -39,7 +39,7 @@ quote("?", safe=";/?:@&=+$,", encoding="utf8")
 
 ```python
 unquote("%C0%A2%E2%F4", encoding="gbk")
-# Sunny
+# Ray
 ```
 
 如果编码格式错误，比如 gbk 编码用 utf8 解码将会变成不可见字符 ����，而用 utf8 编码用 gbk 解码，存在一个字节差，会输出成其他字符串，比如 `你好` 就会变成 `浣犲ソ`，代码 `unquote(quote("你好",encoding='utf8'), encoding="gbk")`
@@ -50,7 +50,7 @@ unquote("%C0%A2%E2%F4", encoding="gbk")
 
 ```python
 urlencode({
-    "username": 'Sunny',
+    "username": 'Ray',
     "password": 'a123456'
 })
 # username=%E6%84%A7%E6%80%8D&password=a123456
@@ -74,7 +74,7 @@ a,b = [1,2]
 print(a,b)
 
 user = {
-    "username": "Sunny",
+    "username": "Ray",
     "password": "a123456"
 }
 username, password = user.values()
@@ -83,7 +83,7 @@ print(username, password)
 print(user.keys())
 # dict_keys(['username', 'password'])
 print(user.values())
-# dict_values(['Sunny', 'a123456'])
+# dict_values(['Ray', 'a123456'])
 ```
 
 解构赋值没什么好说的，和 js 类似，只不过对字典的解构赋值的话，要取值则要调用 values()，取 key 的话默认不填，但是也可以调用 keys()
@@ -91,9 +91,9 @@ print(user.values())
 ## 模板字符串
 
 ```python
-user = 'Sunny'
+user = 'Ray'
 print(f'username: {user} age: {20+1}')
-# username: Sunny age: 21
+# username: Ray age: 21
 ```
 
 同样{}中可以编写表达式，与 js 的模板字符串类似
@@ -101,15 +101,15 @@ print(f'username: {user} age: {20+1}')
 如果是 python3.6 之前的话,则是用使用 string.format 方法（不常用，也不好用）
 
 ```python
-"username: {} age: {}".format("Sunny", 18)
+"username: {} age: {}".format("Ray", 18)
 ```
 
 而 js 中的模板字符串则是使用反引号`和${}，像下面这样
 
 ```javascript
-user = 'Sunny'
+user = 'Ray'
 console.log(`username: ${user} age: ${20+1}`)
-# username: Sunny age: 21
+# username: Ray age: 21
 ```
 
 ## 字典
@@ -117,14 +117,14 @@ console.log(`username: ${user} age: ${20+1}`)
 python 的字典与 js 的对象有些许相像，个人总体感觉没有 js 的对象灵活，演示如下
 
 ```python
-user = { 'username':'Sunny','password':'a123456' }
+user = { 'username':'Ray','password':'a123456' }
 print(user['username'])
 ```
 
 想要获取字典中的值，就需要写成`user['username']`，如果习惯了 js 的写法（比如我），就会习惯的写成`user.username`，这在 python 中将会报错，`AttributeError: 'dict' object has no attribute 'username'`，并且字典的 key 还需要使用引号进行包裹，如果是 js 的话，代码如下
 
 ```javascript
-user = { username: 'Sunny', password:'a123456'
+user = { username: 'Ray', password:'a123456'
 console.log(user.username)
 ```
 
@@ -352,13 +352,13 @@ post 请求主要有两种格式一个是查询字符串 `a=1&b=2`，另一个�
 ```python
 import httpx
 data = {
-    "username": "Sunny",
+    "username": "Ray",
     "password": "a123456"
 }
 
 httpx.post(
     url='http://example.com', data=data)
-# 请求体 username=Sunny&password=a123456
+# 请求体 username=Ray&password=a123456
 ```
 
 json
@@ -366,13 +366,13 @@ json
 ```python
 import httpx
 data = {
-    "username": "Sunny",
+    "username": "Ray",
     "password": "a123456"
 }
 
 httpx.post(
     url='http://example.com', json=data)
-# 请求体 {"username": "Sunny", "password": "a123456"}
+# 请求体 {"username": "Ray", "password": "a123456"}
 ```
 
 请求库将会自动将根据你所传入的字典，转成对应的格式，同时会携带对应`Content-Type`协议头`Content-Type: application/x-www-form-urlencoded` 与 `Content-Type: application/json`。所以就不需要使用

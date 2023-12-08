@@ -2,7 +2,7 @@
 id: docusaurus-search
 slug: /docusaurus-search
 title: 利用 Algolia 为静态博客搭建实现内容搜索
-authors: Sunny
+authors: Ray
 keywords:
   - Algolia
   - docusaurus
@@ -30,7 +30,7 @@ keywords:
 algolia: {  
   appId: 'GV6YN1ODMO',  
   apiKey: '50303937b0e4630bec4a20a14e3b7872',  
-  indexName: 'SunnyBlog',  
+  indexName: 'RayBlog',  
   contextualSearch: true,  
 },
 ```
@@ -62,7 +62,7 @@ API KEY 是 **Search-Only API Key**
 algolia: {  
   appId: 'GV6YN1ODMO',  
   apiKey: '50303937b0e4630bec4a20a14e3b7872',  
-  indexName: 'SunnyBlog',  
+  indexName: 'RayBlog',  
   contextualSearch: true,  
 },
 ```
@@ -70,7 +70,7 @@ algolia: {
 系统我选用的是 Linux，在 Docker 的环境下运行爬虫代码。不过要先 [安装 jq](https://github.com/stedolan/jq/wiki/Installation#zero-install) 我这里选择的是 0install 进行安装（安装可能稍慢），具体可以查看文档，然后在控制台查看安装结果
 
 ```
-[root@kzserver Sunny.cn]# jq --version
+[root@kzserver Ray.cn]# jq --version
 jq-1.6
 ```
 

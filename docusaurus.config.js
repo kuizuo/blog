@@ -5,11 +5,11 @@ const announcementBarContent = ''
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Sunny的小站',
+  title: 'Ray的小站',
   url: 'https://ydaydayup.cn',
   baseUrl: '/',
   favicon: 'img/favicon-logo.png',
-  organizationName: 'Sunny',
+  organizationName: 'Ray',
   projectName: 'blog',
   tagline: '道阻且长，行则将至',
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -22,7 +22,7 @@ const config = {
     metadata: [
       {
         name: 'keywords',
-        content: 'Sunny, Sunny',
+        content: 'Ray, Ray',
       },
       {
         name: 'keywords',
@@ -40,7 +40,7 @@ const config = {
     },
     navbar: {
       logo: {
-        alt: 'Sunny',
+        alt: 'Ray',
         src: 'img/favicon-logo.png',
         srcDark: 'img/favicon-logo.png',
       },
@@ -138,7 +138,7 @@ const config = {
             },
             {
               label: '前端示例',
-              to: 'https://example.Sunny.cn',
+              to: 'https://example.Ray.cn',
             },
           ],
         },
@@ -191,7 +191,7 @@ const config = {
           ],
         },
       ],
-      copyright: `<p><a href="http://beian.miit.gov.cn/" >${beian}</a></p><p>Copyright © 2020 - PRESENT Sunny Built with Docusaurus.</p>`,
+      copyright: `<p><a href="http://beian.miit.gov.cn/" >${beian}</a></p><p>Copyright © 2020 - PRESENT Ray Built with Docusaurus.</p>`,
     },
     prism: {
       theme: require('prism-react-renderer/themes/vsLight'),
@@ -247,7 +247,7 @@ const config = {
       qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
       zhihu: 'https://www.zhihu.com/people/ydaydayup',
       cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
-      mail: 'mailto:hi@Sunny.cn',
+      mail: 'mailto:hi@Ray.cn',
     },
   },
   headTags: [
@@ -255,7 +255,7 @@ const config = {
       tagName: 'meta',
       attributes: {
         name: 'description',
-        content: 'Sunny Blog',
+        content: 'Ray Blog',
       },
     },
   ],
@@ -296,7 +296,7 @@ const config = {
         editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
           `https://github.com/ydaydayup/myblog/edit/main/${blogDirPath}/${blogPath}`,
         editLocalizedFiles: false,
-        blogDescription: 'Sunny的个人博客',
+        blogDescription: 'Ray的个人博客',
         blogSidebarCount: 10,
         blogSidebarTitle: 'Blogs',
         postsPerPage: 10,
@@ -305,8 +305,8 @@ const config = {
           defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
         feedOptions: {
           type: 'all',
-          title: 'Sunny',
-          copyright: `Copyright © ${new Date().getFullYear()} Sunny Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
+          title: 'Ray',
+          copyright: `Copyright © ${new Date().getFullYear()} Ray Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
         },
       },
     ],

@@ -2,7 +2,7 @@
 slug: js-code-obfuscator
 title: JS代码之混淆
 date: 2021-12-21
-authors: Sunny
+authors: Ray
 tags: [javascript, ast, reverse, project]
 keywords: [javascript, ast, reverse, project]
 ---
@@ -17,7 +17,7 @@ keywords: [javascript, ast, reverse, project]
 >
 > 相关混淆代码 [ydaydayup/js-de-obfuscator](https://github.com/ydaydayup/js-de-obfuscator)
 >
-> 自写在线混淆与还原网站 [JS 代码混淆与还原 (Sunny.cn)](http://deobfuscator.Sunny.cn/)
+> 自写在线混淆与还原网站 [JS 代码混淆与还原 (Ray.cn)](http://deobfuscator.Ray.cn/)
 
 ## 什么是 AST
 
@@ -683,7 +683,7 @@ traverse(ast, {
 `replaceWith` 一对一替换当前节点，且严格替换。
 
 ```javascript
-path.replaceWith(t.valueToNode('Sunny'))
+path.replaceWith(t.valueToNode('Ray'))
 ```
 
 `replaceWithMultiple` 则是一对多，将多个节点替换到一个节点上。
@@ -691,7 +691,7 @@ path.replaceWith(t.valueToNode('Sunny'))
 ```javascript
 traverse(ast, {
   ReturnStatement(path) {
-    path.replaceWithMultiple([t.expressionStatement(t.callExpression(t.memberExpression(t.identifier('console'), t.identifier('log')), [t.stringLiteral('Sunny')])), t.returnStatement()])
+    path.replaceWithMultiple([t.expressionStatement(t.callExpression(t.memberExpression(t.identifier('console'), t.identifier('log')), [t.stringLiteral('Ray')])), t.returnStatement()])
     path.stop()
   },
 })
@@ -828,7 +828,7 @@ body
 
 ```javascript
 let obj = {
-  name: 'Sunny',
+  name: 'Ray',
 }
 ```
 
@@ -896,7 +896,7 @@ Node {
 ```javascript
 function test() {
   let obj = {
-    name: 'Sunny',
+    name: 'Ray',
   }
   return obj
 }
@@ -916,7 +916,7 @@ traverse(ast, {
 
 // function test() {
 //   let obj = {
-//     name: 'Sunny'
+//     name: 'Ray'
 //   };
 //   return obj;
 // }
@@ -934,7 +934,7 @@ traverse(ast, {
 
 // function test() {
 //   let obj = {
-//     name: 'Sunny'
+//     name: 'Ray'
 //   };
 //   return obj;
 // }
@@ -1067,7 +1067,7 @@ function _0xabcdef2() {
 演示代码
 
 ```javascript
-let a = 'Sunny'
+let a = 'Ray'
 ;`${a}nb${12}3${'456'}`
 ```
 
@@ -1128,7 +1128,7 @@ class Test {
   }
 }
 
-let test = new Test('Sunny')
+let test = new Test('Ray')
 console.log(test.run())
 ```
 
@@ -1190,7 +1190,7 @@ traverse(ast, {
 })
 ```
 
-最终运行混淆程序，执行混淆后的代码，成功输出`Sunny20`
+最终运行混淆程序，执行混淆后的代码，成功输出`Ray20`
 
 ---
 
@@ -1212,7 +1212,7 @@ traverse(ast, {
 
 ### 有混淆就有还原
 
-既然混淆是通过 AST 来进行混淆的，那么还原也同样可以，不过还原就不可能还原出原始开发者所编写的，就如同一些打包工具打包后的代码，比如将 name 压缩成 n，age 压缩成 a，那么就无法推断出 n 为 name，a 为 age，而混淆也是同理，像代码`let OOOOOO = atob('a3VpenVv')`，能还原的也只能是`let OOOOOO = ‘Sunny’`或者是将标识符重新命名`let _0x123456 = ‘Sunny’`，相对好看些。大部分的还原工作都只是将代码变得好读一些，比如`atob('a3VpenVv')`就可以变为`‘Sunny’`，这便是基本的还原之一，关于还原还会另出一篇文章来记录，就不在这多废笔舌了。
+既然混淆是通过 AST 来进行混淆的，那么还原也同样可以，不过还原就不可能还原出原始开发者所编写的，就如同一些打包工具打包后的代码，比如将 name 压缩成 n，age 压缩成 a，那么就无法推断出 n 为 name，a 为 age，而混淆也是同理，像代码`let OOOOOO = atob('a3VpenVv')`，能还原的也只能是`let OOOOOO = ‘Ray’`或者是将标识符重新命名`let _0x123456 = ‘Ray’`，相对好看些。大部分的还原工作都只是将代码变得好读一些，比如`atob('a3VpenVv')`就可以变为`‘Ray’`，这便是基本的还原之一，关于还原还会另出一篇文章来记录，就不在这多废笔舌了。
 
 整个混淆的过程来看，无非就是多了门技能，对 js 有了更进一步的了解，略懂 js 编译过程中的语法分析，此外也感叹 Babel 提供如此强大的 api。同时也能尝试使用最新的 ECMAScript 语法特性，无需考虑兼容问题，babel 统统都能处理。就如同 babel 官网所说的：
 

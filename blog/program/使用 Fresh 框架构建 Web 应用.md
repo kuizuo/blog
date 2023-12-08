@@ -2,7 +2,7 @@
 slug: use-fresh-build-web-applicatioin
 title: 🍋 使用 Fresh 框架构建Web 应用
 date: 2023-02-15
-authors: Sunny
+authors: Ray
 tags: [deno, fresh, web, project]
 keywords: [deno, fresh, web, project]
 description: 使用 Fresh 框架构建Web 应用，用于将链接转换为卡片样式的预览效果图。
@@ -113,7 +113,7 @@ SSR 通常是将数据通过服务端的前端框架渲染成 HTML，直接将 H
 
 ```json
 {
-  "title": "Sunny的小站",
+  "title": "Ray的小站",
   "description": "Blog",
   "image": "https://ydaydayup.cn/img/favicon-logo.png",
   "url": "https://ydaydayup.cn"

@@ -2,7 +2,7 @@
 slug: vercel-deploy-serverless
 title: Vercel部署Serverless
 date: 2022-05-12
-authors: Sunny
+authors: Ray
 tags: [vercel, serverless]
 keywords: [vercel, serverless]
 description: 使用 Vercel 部署 serverless 过程记录

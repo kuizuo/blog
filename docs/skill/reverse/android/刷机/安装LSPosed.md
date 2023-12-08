@@ -3,7 +3,7 @@ id: install-lsposed
 slug: /install-lsposed
 title: 安装LSPosed
 date: 2021-12-09
-authors: Sunny
+authors: Ray
 tags: [android, 刷机]
 keywords: [android, 刷机]
 ---

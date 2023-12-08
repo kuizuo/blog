@@ -3,7 +3,7 @@ id: windows-terminal-beautify
 slug: /windows-terminal-beautify
 title: Windows Terminal美化
 date: 2021-05-04
-authors: Sunny
+authors: Ray
 tags: [Terminal, 美化]
 keywords: [Terminal, 美化]
 ---
@@ -110,7 +110,7 @@ $env:PYTHONIOENCODING="utf-8"
 Import-Module posh-git
 Import-Module oh-my-posh
 
-$DefaultUser = 'Sunny'
+$DefaultUser = 'Ray'
 # Set theme
 Set-PoshPrompt jandedobbeleer
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
@@ -122,7 +122,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 首先，官方的主题所在的路径 为 `C:\Users\用户名\Documents\WindowsPowerShell\Modules\oh-my-posh\3.144.0\themes`
 
-在`themes`目录下新建文件`xxxx.omp.json` 比如 `Sunny.omp.json`
+在`themes`目录下新建文件`xxxx.omp.json` 比如 `Ray.omp.json`
 
 我是基于主题 jandedobbeleer 所更改的，所以有些相似，这边就放一下我的主题文件配置，具体的参数 需要查看对应的官方文档，这里就不过多叙述了。
 
@@ -283,7 +283,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 然后将设置主题的命令 改为 主题名 比如
 
 ```shell
- Set-PoshPrompt Sunny
+ Set-PoshPrompt Ray
 ```
 
 之后你的 PowerShell 就和我这个一样了。

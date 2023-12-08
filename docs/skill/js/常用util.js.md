@@ -3,7 +3,7 @@ id: commonly-used-util.js
 slug: /commonly-used-util.js
 title: 常用util.js
 date: 2020-10-21
-authors: Sunny
+authors: Ray
 tags: [js, util]
 keywords: [js, util]
 ---

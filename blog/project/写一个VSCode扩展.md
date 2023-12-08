@@ -2,7 +2,7 @@
 slug: vscode-extension
 title: 写一个 VSCode 扩展
 date: 2022-07-11
-authors: Sunny
+authors: Ray
 tags: [vscode, plugin, extension, develop]
 keywords: [vscode, plugin, extension, develop]
 description: 编写个人定制化的 VSCode 扩展，并将其发布到应用商店中。
@@ -13,7 +13,7 @@ image: /img/project/vscode-extension.png
 
 在购买这本书时就想写一个 vscode 插件（扩展），奈何当时事务繁忙加之不知做何功能，就迟迟未能动手。如今有时间了，就顺带体验下 vscode 扩展开发，并记录整个开发过程。
 
-扩展地址：[VSCode-extension](https://marketplace.visualstudio.com/items?itemName=Sunny.vscode-extension-sample 'VSCode-extension')
+扩展地址：[VSCode-extension](https://marketplace.visualstudio.com/items?itemName=Ray.vscode-extension-sample 'VSCode-extension')
 
 开源地址：[ydaydayup/vscode-extension (github.com)](https://github.com/ydaydayup/vscode-extension)
 
@@ -79,7 +79,7 @@ More info: https://github.com/yeoman/insight & http://yeoman.io
 
 ### 运行 vscode 插件
 
-既然创建好了工程，那必然是要运行的。由于我这里选择的 ts ＋ webpack 进行开发（视情况勾选 webpack），所以是需要打包，同时脚手架已经生成好了对应.vscode 的设置。只需要按下 F5 即可开始调试，这时会打开一个新的 vscode 窗口，`Ctrl+Shift+P`打开命令行，输入`Hello World`，右下角弹出提示框`Hello World from Sunny-plugin!`
+既然创建好了工程，那必然是要运行的。由于我这里选择的 ts ＋ webpack 进行开发（视情况勾选 webpack），所以是需要打包，同时脚手架已经生成好了对应.vscode 的设置。只需要按下 F5 即可开始调试，这时会打开一个新的 vscode 窗口，`Ctrl+Shift+P`打开命令行，输入`Hello World`，右下角弹出提示框`Hello World from Ray-plugin!`
 
 :::danger
 
@@ -100,9 +100,9 @@ import * as vscode from 'vscode'
 
 export function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
-    'Sunny-plugin.helloWorld',
+    'Ray-plugin.helloWorld',
     () => {
-      vscode.window.showInformationMessage('Hello World from Sunny-plugin!')
+      vscode.window.showInformationMessage('Hello World from Ray-plugin!')
     },
   )
 
@@ -112,17 +112,17 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() {}
 ```
 
-`vscode.commands.registerCommand`用于注册命令，`Sunny-plugin.helloWorld` 为命令 ID，在后续`package.json`中要与之匹配。第二个参数为一个回调函数，当触发该命令时，弹出提示框。
+`vscode.commands.registerCommand`用于注册命令，`Ray-plugin.helloWorld` 为命令 ID，在后续`package.json`中要与之匹配。第二个参数为一个回调函数，当触发该命令时，弹出提示框。
 
 在 package.json 中关注 activationEvents 与 contributes
 
 ```json title="package.json"
 {
-  "activationEvents": ["onCommand:Sunny-plugin.helloWorld"],
+  "activationEvents": ["onCommand:Ray-plugin.helloWorld"],
   "contributes": {
     "commands": [
       {
-        "command": "Sunny-plugin.helloWorld",
+        "command": "Ray-plugin.helloWorld",
         "title": "Hello World"
       }
     ]
@@ -130,14 +130,14 @@ export function deactivate() {}
 }
 ```
 
-activationEvents 激活事件，`onCommand:Sunny-plugin.helloWorld`中`Sunny-plugin`是插件 ID 要与 extension.ts 中的注册命令匹配，`helloWorld`则是命令标识，而 onCommand 则是监听的类型，此外还有`onView`、`onUri`、`onLanguage`等等。
+activationEvents 激活事件，`onCommand:Ray-plugin.helloWorld`中`Ray-plugin`是插件 ID 要与 extension.ts 中的注册命令匹配，`helloWorld`则是命令标识，而 onCommand 则是监听的类型，此外还有`onView`、`onUri`、`onLanguage`等等。
 
-contributes 则是配置那些地方来显示命令，像官方的例子中，就是在 Ctrl + Shift + P 命令行中输入 Hello World 来调用`Sunny-plugin.helloWorld` 命令。此外还可以设置按键与菜单
+contributes 则是配置那些地方来显示命令，像官方的例子中，就是在 Ctrl + Shift + P 命令行中输入 Hello World 来调用`Ray-plugin.helloWorld` 命令。此外还可以设置按键与菜单
 
 ```json title="package.json"
 "keybindings": [
       {
-        "command": "Sunny-plugin.helloWorld",
+        "command": "Ray-plugin.helloWorld",
         "key": "ctrl+f10",
         "mac": "cmd+f10",
         "when": "editorTextFocus"
@@ -147,7 +147,7 @@ contributes 则是配置那些地方来显示命令，像官方的例子中，�
       "editor/context": [
         {
           "when": "editorFocus",
-          "command": "Sunny-plugin.helloWorld",
+          "command": "Ray-plugin.helloWorld",
           "group": "navigation"
         }
       ]
@@ -178,7 +178,7 @@ import { exec } from 'child_process'
 
 export function activate(context: vscode.ExtensionContext) {
   vscode.window
-    .showInformationMessage('是否要打开Sunny的小站？', '是', '否', '不再提示')
+    .showInformationMessage('是否要打开Ray的小站？', '是', '否', '不再提示')
     .then(result => {
       if (result === '是') {
         exec(`start 'https://ydaydayup.cn'`)
@@ -205,14 +205,14 @@ const commandLine =
 exec(commandLine)
 ```
 
-当然了，当用户选择不再提示的时候，下次再打开 vscode 就别提示了，不然大概率就是卸载插件了。这里就需要设置全局参数了，在 package.json 中 contributes 设置 configuration，具体如下，注意`SunnyPlugin.showTip` 为全局参数之一
+当然了，当用户选择不再提示的时候，下次再打开 vscode 就别提示了，不然大概率就是卸载插件了。这里就需要设置全局参数了，在 package.json 中 contributes 设置 configuration，具体如下，注意`RayPlugin.showTip` 为全局参数之一
 
 ```json title="package.json"
 "contributes": {
   "configuration": {
-    "title": "Sunny-plugin",
+    "title": "Ray-plugin",
     "properties": {
-      "SunnyPlugin.showTip": {
+      "RayPlugin.showTip": {
         "type": "boolean",
         "default": true,
         "description": "是否在每次启动时显示欢迎提示！"
@@ -222,7 +222,7 @@ exec(commandLine)
 }
 ```
 
-该参数可以在设置 → 扩展中找到`Sunny-plugin`插件来手动选择，也可以是通过 api 来修改
+该参数可以在设置 → 扩展中找到`Ray-plugin`插件来手动选择，也可以是通过 api 来修改
 
 ![](assert/1c96b246f43bc58fa3a8b77bff668143_MD5.png)
 
@@ -230,11 +230,11 @@ exec(commandLine)
 
 ```typescript title="extension.ts"
 export async function activate(context: vscode.ExtensionContext) {
-  const key = 'SunnyPlugin.showTip'
+  const key = 'RayPlugin.showTip'
   const showTip = vscode.workspace.getConfiguration().get(key)
   if (showTip) {
     const result = await vscode.window.showInformationMessage(
-      '是否要打开Sunny的小站？',
+      '是否要打开Ray的小站？',
       '是',
       '否',
       '不再提示',
@@ -273,7 +273,7 @@ import * as fs from 'fs'
 
 export async function activate(context: vscode.ExtensionContext) {
   let disposable = vscode.commands.registerCommand(
-    'Sunny-plugin.newFile',
+    'Ray-plugin.newFile',
     (uri: vscode.Uri) => {
       vscode.window.showQuickPick(['js', 'ts'], {}).then(async item => {
         if (!uri?.fsPath) {
@@ -307,7 +307,7 @@ export function deactivate() {}
 ```json title="package.json"
 "keybindings": [
   {
-    "command": "Sunny-plugin.newFile",
+    "command": "Ray-plugin.newFile",
     "key": "shift+alt+n",
   }
 ],
@@ -389,7 +389,7 @@ export function deactivate() {}
   "activitybar": [
     {
       "id": "demo",
-      "title": "Sunny",
+      "title": "Ray",
       "icon": "public/lollipop.svg"
     }
   ]
@@ -413,7 +413,7 @@ export function deactivate() {}
 ```json title="package.json"
 "commands": [
     {
-      "command": "Sunny-plugin.helloWorld",
+      "command": "Ray-plugin.helloWorld",
       "title": "Hello World",
       "icon": {
         "light": "public/lollipop.svg",
@@ -425,7 +425,7 @@ export function deactivate() {}
     "editor/title": [
       {
         "when": "resourceLangId == javascript",
-        "command": "Sunny-plugin.helloWorld",
+        "command": "Ray-plugin.helloWorld",
         "group": "navigation"
       }
     ],
@@ -525,7 +525,7 @@ export function activate(context: vscode.ExtensionContext) {
 要做代码替换的话就需要注册文本编辑命令`vscode.commands.registerTextEditorCommand` ，内容如下
 
 ```typescript title="extension.ts"
-const commandId = 'Sunny-plugin.log'
+const commandId = 'Ray-plugin.log'
 const commandHandler = (
   editor: vscode.TextEditor,
   edit: vscode.TextEditorEdit,
@@ -588,7 +588,7 @@ context.subscriptions.push(
     const label = item.label
     if (this.position && typeof label === 'string') {
       item.command = {
-        command: 'Sunny-plugin.log',
+        command: 'Ray-plugin.log',
         title: 'refactor',
         arguments: [this.position.translate(0, label.length + 1)], // 这里可以传递参数给该命令
       }
@@ -633,7 +633,7 @@ position 有两个属性`line`和`character`，对应的也就是行号和列号
 ```typescript title="extension.ts"
 context.subscriptions.push(
   vscode.commands.registerTextEditorCommand(
-    'Sunny-plugin.insertLog',
+    'Ray-plugin.insertLog',
     (editor: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
       // 获取选中代码 在其下方插入 console.log(xxx)
       const { selection, selections } = editor
@@ -663,7 +663,7 @@ context.subscriptions.push(
 
 ### 悬停提示
 
-这里也一笔带过，具体可看 hover.ts 中的代码。只要在 json 文件中，将鼠标悬停在`Sunny`这个词中即可触发，试试看看。
+这里也一笔带过，具体可看 hover.ts 中的代码。只要在 json 文件中，将鼠标悬停在`Ray`这个词中即可触发，试试看看。
 
 ![](assert/64d14b00e6bd140a885af120e95ff263_MD5.png)
 
@@ -689,7 +689,7 @@ context.subscriptions.push(
 
 大部分常用的 vscode 插件实现就此完毕，实际上有很多 api 还没尝试过，篇幅有限，就不一一列举了，后续若有开发实际作用插件再研究。具体可自行安装尝试一番，既然要让别人安装，这里就需要介绍发布了。
 
-这里在打包前重构下命令 ID，从 Sunny-plugin → vscode-extension，同时把 package.json 的 name 改成了 vscode-extension-sample，因为发布的时候这个 id 必须唯一，不能与已有重名，到时候生成的为 Sunny.vscode-extension-sample。（demo 给取了，不然我也不想起名为 sample）
+这里在打包前重构下命令 ID，从 Ray-plugin → vscode-extension，同时把 package.json 的 name 改成了 vscode-extension-sample，因为发布的时候这个 id 必须唯一，不能与已有重名，到时候生成的为 Ray.vscode-extension-sample。（demo 给取了，不然我也不想起名为 sample）
 
 ### 本地打包
 
@@ -741,7 +741,7 @@ vsce login <publisher name>
 
 这里的 `publisher name` 根据 package.json 中的 `publisher`，会要求你输入 `Personal Access Token`，把刚刚创建的 `token` 的值粘贴过来即可
 
-提示 `The Personal Access Token verification succeeded for the publisher 'Sunny'.` 就说明验证成功
+提示 `The Personal Access Token verification succeeded for the publisher 'Ray'.` 就说明验证成功
 
 **4、发布应用**
 
@@ -751,13 +751,13 @@ vsce publish
 
 :::warning 这里要保证 package.json 的 name 在插件市场中唯一，否则会提示 The Extension Id already exist in the Marketplace. Please use the different Id。 :::
 
-运行完毕后，最终提示`Published Sunny.vscode-extension-sample v1.0.0.` 就说明发布完毕，发布和 npm 包一样，都无需审核，但要求包名唯一。
+运行完毕后，最终提示`Published Ray.vscode-extension-sample v1.0.0.` 就说明发布完毕，发布和 npm 包一样，都无需审核，但要求包名唯一。
 
 可以在 [Manage Extensions | Visual Studio Marketplace](https://marketplace.visualstudio.com/manage/publishers/ydaydayup 'Manage Extensions | Visual Studio Marketplace') 中管理已发布的插件
 
 ![](assert/5d6207d24ee1162a741a63a48363191f_MD5.png)
 
-这时在 vscode 扩展商店中搜索 `vscode-extension-sample`就能找到该插件[VSCode-extension](https://marketplace.visualstudio.com/items?itemName=Sunny.vscode-extension-sample 'VSCode-extension')，也可以通过`publisher:"Sunny"`来找到我的所有 vscode 插件。
+这时在 vscode 扩展商店中搜索 `vscode-extension-sample`就能找到该插件[VSCode-extension](https://marketplace.visualstudio.com/items?itemName=Ray.vscode-extension-sample 'VSCode-extension')，也可以通过`publisher:"Ray"`来找到我的所有 vscode 插件。
 
 ![vscode-extension](assert/860986cd279b10ac7a5cf01d7d2e6790_MD5.png)
 

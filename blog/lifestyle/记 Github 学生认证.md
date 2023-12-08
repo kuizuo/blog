@@ -2,7 +2,7 @@
 slug: github-student-certification
 title: 记 Github 学生认证
 date: 2022-09-06
-authors: Sunny
+authors: Ray
 tags: [记录, github]
 keywords: [记录, github]
 description: 记录 Github 学生认证艰辛过程与经验分享。

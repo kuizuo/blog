@@ -29,7 +29,7 @@ SELECT `column` FROM `table` WHERE `field` LIKE '%keyword%';
 
 ## 3、添加前缀
 
-上面写到 %keyword% 用不到索引，但如果给字段添加一个前缀文本，比如我这里添加为 KZTK\_(Sunny题库)，然后拼接为 KZTK\_%keyword%
+上面写到 %keyword% 用不到索引，但如果给字段添加一个前缀文本，比如我这里添加为 KZTK\_(Ray题库)，然后拼接为 KZTK\_%keyword%
 
 ## 4、给字段添加前缀
 

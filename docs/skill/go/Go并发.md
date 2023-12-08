@@ -3,7 +3,7 @@ id: go-concurrent
 slug: /go-concurrent
 title: Go并发
 date: 2022-05-22
-authors: Sunny
+authors: Ray
 tags: [go]
 keywords: [go]
 ---

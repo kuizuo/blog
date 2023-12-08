@@ -2,7 +2,7 @@
 id: docusaurus-deploy
 slug: /docusaurus-deploy
 title: 部署
-authors: Sunny
+authors: Ray
 ---
 
 我之前使用 [Vercel](https://vercel.com) 一把梭，无需任何配置，我只需要专注输出内容即可，这是我当时使用 Vercel 部署的文章 [Vercel 部署个人博客](/blog/vercel-deploy-blog)
@@ -17,7 +17,7 @@ authors: Sunny
 
 这样我国内访问就是访问国内的 CDN，访问国外访问就是 Vercel 的 CDN，这样针对不同的地区的网络都能有一个不错的访问速度，可以到 [Ping.cn:网站测速-ping 检测](https://www.ping.cn/) 中测试测试你的站点访问速度如何。
 
-以下是我的网站测速结果，也可通过访问 [Sunny.cn 在全国各地区网络速度测试情况-Ping.cn](https://www.ping.cn/http/ydaydayup.cn) 在线查看
+以下是我的网站测速结果，也可通过访问 [Ray.cn 在全国各地区网络速度测试情况-Ping.cn](https://www.ping.cn/http/ydaydayup.cn) 在线查看
 
 ![image-20221204161146327](assert/29a27736e589440605dc38b67ea633b3_MD5.png)
 

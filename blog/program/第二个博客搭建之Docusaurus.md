@@ -2,7 +2,7 @@
 slug: second-blog-is-docusaurus
 title: 第二个博客搭建之Docusaurus
 date: 2021-08-20
-authors: Sunny
+authors: Ray
 tags: [blog, docusaurus, project]
 keywords: [blog, docusaurus, project]
 description: 使用 docusaurus 搭建个人博客，并对其主题进行魔改
@@ -10,7 +10,7 @@ image: /img/project/blog.png
 sticky: 5
 ---
 
-博客地址: [Sunny的小站](https://ydaydayup.cn/)
+博客地址: [Ray的小站](https://ydaydayup.cn/)
 
 时隔近半年没好好整理文章，博客也写的不像个人样。:joy:
 

@@ -3,7 +3,7 @@ id: querystring-and-json-convert
 slug: /querystring-and-json-convert
 title: 查询字符串与JSON互转
 date: 2022-03-15
-authors: Sunny
+authors: Ray
 tags: [http, javascript]
 keywords: [http, javascript]
 ---
@@ -23,14 +23,14 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
 Content-Type: application/x-www-form-urlencoded
 
-username=Sunny&password=a12345678
+username=Ray&password=a12345678
 ```
 
 但是我要模拟这样的请求就要写成如下方式
 
 ```javascript
 let url = 'https://xxx.xxx.com/xxx/login'
-let username = 'Sunny'
+let username = 'Ray'
 let password = 'a12345678'
 
 let data = 'username=' + username + '&password=' + password
@@ -42,12 +42,12 @@ axios.post(url, data).then(function (res) {
 })
 ```
 
-像这种 `username=Sunny&password=a12345678`就称之为查询字符串。显而易见，如果涉及到的参数一多修改显得十分不可靠（**极易改错**）。
+像这种 `username=Ray&password=a12345678`就称之为查询字符串。显而易见，如果涉及到的参数一多修改显得十分不可靠（**极易改错**）。
 
 所以一般的做法都是将 data 用 js 对象或者用 json 格式表示，像下面这样
 
 ```javascript
-let username = 'Sunny'
+let username = 'Ray'
 let password = 'a12345678'
 let data = {
   username: username,
@@ -63,19 +63,19 @@ let data = {
 const qs = require('querystring')
 
 let obj = {
-  username: 'Sunny',
+  username: 'Ray',
   password: 'a12345678',
 }
 let data = qs.stringify(obj)
-// username=Sunny&password=a12345678
+// username=Ray&password=a12345678
 ```
 
 ```javascript
 const qs = require('querystring')
 
-let data = 'username=Sunny&password=a12345678'
+let data = 'username=Ray&password=a12345678'
 let json = qs.parse(data)
-// { username: 'Sunny', password: 'a12345678' }
+// { username: 'Ray', password: 'a12345678' }
 ```
 
 ### 使用正则与 array.reduce
@@ -107,11 +107,11 @@ function json2Qs(obj) {
 最终两者的执行效果
 
 ```javascript
-let obj = qs2Json('username=Sunny&password=a12345678')
-// {username: "Sunny", password: "a12345678"}
+let obj = qs2Json('username=Ray&password=a12345678')
+// {username: "Ray", password: "a12345678"}
 
-let param = json2Qs({ username: 'Sunny', password: 'a12345678' })
-// username=Sunny&password=a12345678
+let param = json2Qs({ username: 'Ray', password: 'a12345678' })
+// username=Ray&password=a12345678
 ```
 
 ### URLSearchParams

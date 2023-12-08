@@ -2,7 +2,7 @@
 slug: gitlab-code-management-environment
 title: 搭建GitLab代码管理仓库
 date: 2022-04-15
-authors: Sunny
+authors: Ray
 tags: [git, gitlab]
 keywords: [git, gitlab]
 description: 搭建 GitLab 代码管理仓库，用于管理代码
@@ -12,7 +12,7 @@ description: 搭建 GitLab 代码管理仓库，用于管理代码
 
 我只要有代码的项目，都会放到 Github 上，无论公开还是私有项目。一是相当于在云端备份了一份代码，二是可以很方便的分享给别人。但对于私有项目而言存放在别人那总归不好，而且 Github 时常会出现无法访问的情况（即使搭了梯子）。所以就打算搭建一个私有的仓库，基于[GitLab](https://gitlab.com/)。
 
-可以访问 [Sunny · GitLab](https://gitlab.Sunny.cn/ydaydayup) 来查看搭建效果。
+可以访问 [Ray · GitLab](https://gitlab.Ray.cn/ydaydayup) 来查看搭建效果。
 
 <!-- truncate -->
 
@@ -115,10 +115,10 @@ gitlab 内部集成了 letsencrypt，因此，这里只需要启用 letsencrypt�
 
 打开/opt/gitlab/etc/gitlab.rb.template，修改以下内容
 
-1. 在 32 行左右，将 external_url 前面的#删掉，并在单引号中填写 gitlab 服务器的 https 地址，例如[https://gitlab.Sunny.cn](https://gitlab.Sunny.cn)
+1. 在 32 行左右，将 external_url 前面的#删掉，并在单引号中填写 gitlab 服务器的 https 地址，例如[https://gitlab.Ray.cn](https://gitlab.Ray.cn)
 
    ```
-    external_url 'https://gitlab.Sunny.cn'
+    external_url 'https://gitlab.Ray.cn'
    ```
 
 2. gitlab 默认占用 nginx80 端口，所以需要更改下
@@ -131,7 +131,7 @@ gitlab 内部集成了 letsencrypt，因此，这里只需要启用 letsencrypt�
 
    ```
    letsencrypt['enable'] = true #删除前面的#号，并将值修改为true
-   letsencrypt['contact_emails'] = ['Sunny12@gmail.com'] #删除前面的#号,修改为自己的邮箱
+   letsencrypt['contact_emails'] = ['Ray12@gmail.com'] #删除前面的#号,修改为自己的邮箱
    letsencrypt['auto_renew'] = true #删除前面的#号  自动更新
    ```
 

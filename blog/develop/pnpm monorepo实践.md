@@ -2,7 +2,7 @@
 slug: pnpm-monorepo-practice
 title: pnpm monorepo实践
 date: 2022-08-29
-authors: Sunny
+authors: Ray
 tags: [pnpm, monorepo]
 keywords: [pnpm, monorepo]
 description: 使用 pnpm monorepo 实践

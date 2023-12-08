@@ -2,7 +2,7 @@
 id: husky
 slug: /husky
 title: husky
-authors: Sunny
+authors: Ray
 keywords: ['code-style', 'husky']
 ---
 

@@ -2,7 +2,7 @@
 slug: remote-call-browser-function
 title: RPC远程调用浏览器函数
 date: 2021-10-09
-authors: Sunny
+authors: Ray
 tags: [javascript, rpc, browser]
 keywords: [javascript, rpc, browser]
 ---
@@ -283,7 +283,7 @@ ws.on('connection', socket => {
 最终演示效果如下视频（浏览器代码是提前注入进去的）
 
 <video width="800px" height="450px" controls="controls" >
-<source id="mp4" src="https://img.Sunny.cn/rpc.mp4" type="video/mp4" />
+<source id="mp4" src="https://img.Ray.cn/rpc.mp4" type="video/mp4" />
 </video >
 
 其实还是一些是要完善的，这里的 Websocket 只是实现了连接，还有心跳包异常断开，浏览器异常关闭导致 websocket 断开无法调用函数等等，以及浏览器的代码还需要手动注入很不优化，后续如果使用 Chrome 插件开发一个实现注入 js 代码的功能也许会好一些。（正准备编写 Chrome 插件）

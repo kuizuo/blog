@@ -3,7 +3,7 @@ id: docker-container-log-clean
 slug: /docker-container-log-clean
 title: Docker容器日志过大清理
 date: 2021-10-16
-authors: Sunny
+authors: Ray
 tags: [docker]
 keywords: [docker]
 ---

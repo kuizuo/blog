@@ -2,11 +2,11 @@
 slug: typescript-full-stack-technology-trpc
 title: Typescript 全栈最值得学习的技术栈 TRPC
 date: 2023-03-07
-authors: Sunny
+authors: Ray
 tags: [trpc, next, prisma, zod, auth.js]
 keywords: [trpc, next, prisma, zod, auth.js]
 description: 本文介绍了 tRPC 技术以及它与传统 RESTful API 的区别。同时 tRPC 可以帮助人们更快地开发全栈 TypeScript 应用程序，同时无需传统的 API 层，并保证应用程序在快速迭代时的稳定性。
-image: https://img.Sunny.cn/trpc-banner.png
+image: https://img.Ray.cn/trpc-banner.png
 toc_max_heading_level: 3
 ---
 
@@ -24,7 +24,7 @@ toc_max_heading_level: 3
 
 不是介绍 tRPC 吗，怎么突然出现这么多技术栈。好吧，主要这些技术栈都与 typescript 相关，并且在 trpc 的示例应用中都或多或少使用到，因此也是有必要了解一下。
 
-在线体验地址：[TRPC demo](https://trpc.Sunny.cn/)
+在线体验地址：[TRPC demo](https://trpc.Ray.cn/)
 
 <!-- truncate -->
 
@@ -206,16 +206,16 @@ const appRouter = router({
 })
 ```
 
-调用 `trpc.greeting.useQuery({ name: 'Sunny' })` 发送的请求的 query 参数则变为
+调用 `trpc.greeting.useQuery({ name: 'Ray' })` 发送的请求的 query 参数则变为
 
 ![](assert/68478c8fd609bc7929c4cb16ab4de4df_MD5.png)
 
 不仅于此，你如果同时调用了多次 greeting 函数，如
 
 ```typescript title='pages/index.tsx'
-const result1 = trpc.greeting.useQuery({ name: 'Sunny1' })
-const result2 = trpc.greeting.useQuery({ name: 'Sunny2' })
-const result3 = trpc.greeting.useQuery({ name: 'Sunny3' })
+const result1 = trpc.greeting.useQuery({ name: 'Ray1' })
+const result2 = trpc.greeting.useQuery({ name: 'Ray2' })
+const result3 = trpc.greeting.useQuery({ name: 'Ray3' })
 ```
 
 tRPC 会将这三次函数调用合并成一次 http 请求，并且得到的响应本文也是以多条数据的形式返回
@@ -257,10 +257,10 @@ export default function IndexPage() {
   const mutation = trpc.createUser.useMutation()
 
   // ERROR!
-  // mutation.mutate({ name: 'Sunny' });
+  // mutation.mutate({ name: 'Ray' });
 
   const handleCreate = () => {
-    mutation.mutate({ name: 'Sunny' })
+    mutation.mutate({ name: 'Ray' })
   }
 
   return (
@@ -511,12 +511,12 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        username: { label: 'Username', type: 'text', placeholder: 'Sunny' },
+        username: { label: 'Username', type: 'text', placeholder: 'Ray' },
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        const user = { id: '1', name: 'Sunny', email: 'hi@Sunny.cn' }
+        const user = { id: '1', name: 'Ray', email: 'hi@Ray.cn' }
 
         if (user) {
           return user
@@ -565,7 +565,7 @@ DATABASE_URL=postgresql://myuser:mypassword@localhost:5432/mydb
 
 ## 示例
 
-这里我提供了一个简单的示例，你可以 [点我](https://trpc.Sunny.cn) 访问体验一下（项目部署在 Vercel，而数据库服务在腾讯云，登录服务又依赖 Github，所以项目会稍微有那么慢）。整个项目结构大致如下
+这里我提供了一个简单的示例，你可以 [点我](https://trpc.Ray.cn) 访问体验一下（项目部署在 Vercel，而数据库服务在腾讯云，登录服务又依赖 Github，所以项目会稍微有那么慢）。整个项目结构大致如下
 
 ![](assert/193a332519845f350a7071685ed06e31_MD5.png)
 

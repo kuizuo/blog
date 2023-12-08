@@ -3,7 +3,7 @@ id: npm-mirror-config
 slug: /npm-mirror-config
 title: npm镜像配置
 date: 2022-03-17
-authors: Sunny
+authors: Ray
 tags: [node, npm, electron]
 keywords: [node, npm, electron]
 ---

@@ -253,7 +253,7 @@ VALUES ('管理员'),('代理'),('用户')
 UPDATE 表名 SET `字段1`='值1' WHERE 条件1
 
 -- 修改用户名与命名
-UPDATE `user` SET `username`='Sunny',`password`='a12345678` WHERE id = 1
+UPDATE `user` SET `username`='Ray',`password`='a12345678` WHERE id = 1
 ```
 
 #### 3.2.3、删除（delete）
@@ -514,8 +514,8 @@ SELECT RAND() --返回0~1之间的随机数
 ```sql
 SELECT CHAR_LENGTH('这是一串文本') --返回字符串长度
 SELECT CONCAT('JavaScript','是世界上最好用的语言') --拼接字符串
-SELECT LOWER('Sunny') --到小写
-SELECT UPPER('Sunny') --到大写
+SELECT LOWER('Ray') --到小写
+SELECT UPPER('Ray') --到大写
 ```
 
 时间日期
@@ -713,32 +713,32 @@ Btree：INNODB 的默认数据结构
 
 ```sql
 -- 创建用户 CREATE USER 用户名 IDENTIFIED BY ‘密码’
-CREATE USER Sunny IDENTIFIED BY '123456'
+CREATE USER Ray IDENTIFIED BY '123456'
 
 -- 修改密码 (修改当前用户)
 SET PASSWORD = PASSWORD('a123456')
 
 -- 修改密码 (修改指定用户)
-SET PASSWORD FOR Sunny= PASSWORD('a123456')
+SET PASSWORD FOR Ray= PASSWORD('a123456')
 
 -- 重命名
-RENAME USER Sunny TO zeyu
+RENAME USER Ray TO zeyu
 
 -- 用户授权
 -- CRANT ALL PRIVILEGES ON 库.表 TO 用户
 -- ALL PRIVILEGES 除了给别人授权(GRANT),其他权限都有
-CRANT ALL PRIVILEGES ON *.* TO Sunny
+CRANT ALL PRIVILEGES ON *.* TO Ray
 
 -- 查看权限
-SHOW GRANTS FOR Sunny
+SHOW GRANTS FOR Ray
 SHOW GRANTS FOR root@localhost
 -- root 的权限 GRANT PROXY ON ''@'' TO 'root'@'localhost' WITH GRANT OPTION
 
 -- 撤销权限 REVOKE 权限 ON 库.表 FROM 用户
-REVOKE ALL PRIVILEGES ON *.* FROM Sunny
+REVOKE ALL PRIVILEGES ON *.* FROM Ray
 
 -- 删除用户
-DROP USER Sunny
+DROP USER Ray
 
 ```
 

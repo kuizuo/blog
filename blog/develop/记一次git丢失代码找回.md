@@ -2,7 +2,7 @@
 slug: lost-code-find-by-git
 title: 记一次git丢失代码找回
 date: 2021-08-15
-authors: Sunny
+authors: Ray
 tags: [git, code]
 keywords: [git, code]
 description: 记录 git 操作失误导致代码丢失与找回的过程

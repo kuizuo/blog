@@ -3,7 +3,7 @@ id: docker
 slug: /docker
 title: Docker笔记
 date: 2021-05-26
-authors: Sunny
+authors: Ray
 tags: [docker]
 keywords: [docker]
 ---
@@ -299,7 +299,7 @@ docker build -t 自定镜像名 .
 
 ```dockerfile
 FROM cetnos
-MAINTAINER Sunny<911993023@qq.com>
+MAINTAINER Ray<911993023@qq.com>
 
 ENV MYPATH /usr/local
 WORKDIR $MYPATH
@@ -335,15 +335,15 @@ docker commit -m="描述信息" -a="作者" 容器id 自定镜像名:[TAG]
 
 1、登录[Docker Hub](https://hub.docker.com/) 注册一个账号
 
-2、docker login -u Sunny
+2、docker login -u Ray
 
 3、输入密码
 
 ```
-[root@localhost ~]# docker login -u Sunny
+[root@localhost ~]# docker login -u Ray
 Password:
 Error response from daemon: Get https://registry-1.docker.io/v2/: unauthorized: incorrect username or password
-[root@localhost ~]# docker login -u Sunny
+[root@localhost ~]# docker login -u Ray
 Password:
 WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
 Configure a credential helper to remove this warning. See

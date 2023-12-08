@@ -2,7 +2,7 @@
 slug: brief-talk-http
 title: 浅谈HTTP
 date: 2020-09-29
-authors: Sunny
+authors: Ray
 tags: [http]
 keywords: [http]
 description: 记录 git 操作失误导致代码丢失与找回的过程

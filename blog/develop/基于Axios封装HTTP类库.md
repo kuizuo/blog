@@ -2,7 +2,7 @@
 slug: axios-http-class-library
 title: 基于Axios封装HTTP类库
 date: 2021-08-26
-authors: Sunny
+authors: Ray
 tags: [node, http, axios]
 keywords: [node, http, axios]
 description: 基于 Axios 封装 HTTP 类库，并发布到 npm 仓库中
@@ -162,7 +162,7 @@ http.instance.interceptors.request.use(
   "scripts": {
     "build": "tsc"
   },
-  "author": "Sunny",
+  "author": "Ray",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",

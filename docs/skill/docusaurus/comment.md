@@ -2,7 +2,7 @@
 id: docusaurus-comment
 slug: /docusaurus-comment
 title: 评论服务
-authors: Sunny
+authors: Ray
 ---
 
 这里推荐两种评论服务

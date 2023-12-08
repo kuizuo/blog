@@ -2,7 +2,7 @@
 slug: next.js-build-and-deploy
 title: Next.js项目搭建与部署
 date: 2022-07-13
-authors: Sunny
+authors: Ray
 tags: [next, react, ssr, vercel]
 keywords: [next, react, ssr, vercel]
 draft: false
@@ -64,7 +64,7 @@ export default User
 
 此时访问 http://localhost:3000/user/1 便可得到 `User ID: 1`
 
-在 router 对象下没有 param 属性，都是存放在 query 参数中，例如访问 user/1?username=Sunny，此时的 query 值为 `{username: 'Sunny', id: '2'}`
+在 router 对象下没有 param 属性，都是存放在 query 参数中，例如访问 user/1?username=Ray，此时的 query 值为 `{username: 'Ray', id: '2'}`
 
 :::tip
 

@@ -2,11 +2,11 @@
 slug: /nest-swagger-response-data
 title: nest.js 添加 swagger 响应数据文档
 date: 2023-07-18
-authors: Sunny
+authors: Ray
 tags: [nest, swagger]
 keywords: [nest, swagger]
 description: nest.js 添加 swagger 响应数据文档
-image: https://img.Sunny.cn/202307180126751.png
+image: https://img.Ray.cn/202307180126751.png
 ---
 
 <!-- truncate -->

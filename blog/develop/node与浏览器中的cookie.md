@@ -2,7 +2,7 @@
 slug: cookie-of-node-and-browser
 title: node与浏览器中的cookie
 date: 2020-12-10
-authors: Sunny
+authors: Ray
 tags: [node, axios, cookie]
 keywords: [node, axios, cookie]
 ---
@@ -120,7 +120,7 @@ export function logout() {
 
 ```js
 instance.interceptors.request.use((config) => {
-  config.headers['cookie'] = 'cookie=this_is_cookies;username=Sunny;'
+  config.headers['cookie'] = 'cookie=this_is_cookies;username=Ray;'
   console.log('config.headers', config.headers)
   return config
 })
@@ -288,7 +288,7 @@ function test() {
     t: 'true',
   };
   let headers = {};
-  let cookies = 'username=Sunny;uid=123;';
+  let cookies = 'username=Ray;uid=123;';
   let res = await request({
     url: url,
     data,
@@ -309,7 +309,7 @@ GET /fanyalogin HTTP/1.1
 Accept: application/json, text/plain, */*
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
 Referer: https://passport2.chaoxing.com/fanyalogin
-Cookie: username=Sunny;uid=123;
+Cookie: username=Ray;uid=123;
 Host: passport2.chaoxing.com
 Connection: keep-alive
 Content-Length: 100

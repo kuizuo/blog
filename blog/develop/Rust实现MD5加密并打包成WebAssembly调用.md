@@ -2,12 +2,12 @@
 slug: rust-wasm-md5
 title: Rust实现MD5加密并打包成WebAssembly调用
 date: 2023-01-04
-authors: Sunny
+authors: Ray
 tags: [rust, wasm]
 keywords: [rust, wasm]
 ---
 
-<img src="https://img.Sunny.cn/wasm-ferris.png" width="230" height="150" />
+<img src="https://img.Ray.cn/wasm-ferris.png" width="230" height="150" />
 
 我初识 WebAssembly 是当初想要分析某个网站的加密算法，最终定位到了一个 `.wasm` 文件，没错，这个就是 WebAssembly 的构建产物，能够直接运行在浏览器中。在我当时看来这门技术很先进，不过如今看来绝大多数的 web 应用貌似都没使用上，迄今为止我也只在这个网站中看到使用 WebAssembly 的（也许有很多，只是没实质分析过）。
 
@@ -172,7 +172,7 @@ pub fn md5(input: &str)-> String {
 
 这里我所借用 [rwasm/vite-plugin-rsw](https://github.com/rwasm/vite-plugin-rsw) 插件，在 vite 中配合 wasm-pack 进行开发的一个实例。代码部分就不做解读了，有兴趣可自行到翻阅源码：[ydaydayup/rust-wasm-md5](https://github.com/ydaydayup/rust-wasm-md5)
 
-在线地址：[http://rust-wasm-md5.Sunny.cn](http://rust-wasm-md5.Sunny.cn/) （不保证地址长期可用）
+在线地址：[http://rust-wasm-md5.Ray.cn](http://rust-wasm-md5.Ray.cn/) （不保证地址长期可用）
 
 ![](assert/e428b1b756290d64cf9602beb5eef415_MD5.png)
 

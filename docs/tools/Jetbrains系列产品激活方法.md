@@ -3,7 +3,7 @@ id: jetbrains-product-activation-method
 slug: /jetbrains-product-activation-method
 title: Jetbrains系列产品激活方法
 date: 2020-09-03
-authors: Sunny
+authors: Ray
 tags: [Jetbrains, 工具]
 keywords: [Jetbrains, 工具]
 ---
