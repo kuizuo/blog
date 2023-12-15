@@ -2,8 +2,9 @@ const { themes } = require('prism-react-renderer');
 
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
+const beian1 = '闽公网安备35021102000847号'
 
-const announcementBarContent = `<a href="https://github.com/kuizuo/js-deobfuscator" target="_blank">JS 混淆代码还原, 感兴趣可以看看</a>`
+const announcementBarContent = ``
 
 
 export default async function createConfigAsync() {
@@ -18,10 +19,10 @@ export default async function createConfigAsync() {
     tagline: '道阻且长，行则将至',
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     themeConfig: {
-      announcementBar: {
-        id: 'announcementBar-3',
-        content: announcementBarContent,
-      },
+      // announcementBar: {
+      //   id: 'announcementBar-3',
+      //   content: announcementBarContent,
+      // },
       metadata: [
         {
           name: 'keywords',
@@ -123,7 +124,11 @@ export default async function createConfigAsync() {
             ],
           },
         ],
-        copyright: `<p><a href="http://beian.miit.gov.cn/" >${beian}</a></p><p>Copyright © 2020 - PRESENT 愧怍 Built with Docusaurus.</p>`,
+        copyright: `
+        <p style="margin-bottom: 0;"><a href="http://beian.miit.gov.cn/">${beian}</a></p>
+        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" /><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${beian1.match(/\d+/)?.[0]}" >${beian1}</a></p>
+        <p>Copyright © 2020 - PRESENT 愧怍 Built with Docusaurus.</p>
+        `,
       },
       algolia: {
         appId: 'GV6YN1ODMO',
