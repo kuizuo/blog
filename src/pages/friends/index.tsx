@@ -15,13 +15,12 @@ const ADD_FRIEND_URL = 'https://github.com/kuizuo/blog/edit/main/data/friend.ts'
 function SiteInfo() {
   return (
     <div className={styles.siteInfo}>
-      <CodeBlock language="jsx">
-        {`{
-  // 本站信息
-  title: '愧怍的小站',
-  description: '道阻且长，行则将至',
+      <CodeBlock language="yaml" title="本站信息">
+        {`
+  title: '愧怍的小站'
+  description: '道阻且长，行则将至'
   avatar: 'https://kuizuo.cn/img/logo.png'
-}`}
+  `}
       </CodeBlock>
     </div>
   )
@@ -32,12 +31,7 @@ function FriendHeader() {
     <section className="margin-top--lg margin-bottom--lg text--center">
       <h1>{TITLE}</h1>
       <p>{DESCRIPTION}</p>
-      <a
-        className="button button--primary"
-        href={ADD_FRIEND_URL}
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a className="button button--primary" href={ADD_FRIEND_URL} target="_blank" rel="noreferrer">
         🔗 申请友链
       </a>
     </section>

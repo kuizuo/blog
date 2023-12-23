@@ -22,10 +22,13 @@
 
 .siteInfo {
   text-align: left;
-  padding: 10px;
   width: 400px;
   font-size: 0.9rem;
   border-radius: var(--ifm-pre-border-radius);
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
   --ifm-leading: 0;
+}
+
+.siteInfo code {
+  --ifm-pre-padding: 0;
 }
