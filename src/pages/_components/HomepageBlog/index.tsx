@@ -48,11 +48,11 @@ export function BlogItem({ post }: { post: BlogPost }) {
 
 export default function BlogRecent(): JSX.Element {
   const globalData = useGlobalData()
-  const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.[
-    'default'
-  ] as any
+  const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.['default'] as {
+    blogs: BlogPost[]
+  }
 
-  const blogData = blogPluginData?.blogs as BlogPost[]
+  const blogData = blogPluginData?.blogs
   const posts = chunk(blogData.slice(0, 6), 2)
 
   const ref = React.useRef<HTMLDivElement>(null)
@@ -67,9 +67,7 @@ export default function BlogRecent(): JSX.Element {
   }
 
   return (
-    <section
-      className={clsx('container padding-vert--sm', styles.blogContainer)}
-    >
+    <section className={clsx('container padding-vert--sm', styles.blogContainer)}>
       <SectionTitle icon="ri:quill-pen-line" href={'/blog'}>
         <Translate id="homepage.blog.title">近期博客</Translate>
       </SectionTitle>

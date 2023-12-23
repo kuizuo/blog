@@ -5,20 +5,11 @@ import type { Props } from '@theme/Tag'
 
 import styles from './styles.module.css'
 
-export default function Tag({
-  permalink,
-  label,
-  count,
-  className,
-}: Props & { className: any }): JSX.Element {
+export default function Tag({ permalink, label, count }: Props): JSX.Element {
   return (
     <Link
       href={permalink}
-      className={clsx(
-        className,
-        styles.tag,
-        count ? styles.tagWithCount : styles.tagRegular,
-      )}
+      className={clsx(styles.tag, count ? styles.tagWithCount : styles.tagRegular)}
     >
       {label}
       {count && <span>{count}</span>}

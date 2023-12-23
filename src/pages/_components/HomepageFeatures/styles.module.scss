@@ -36,7 +36,7 @@ html[data-theme='dark'] .feature:hover {
   box-shadow: 0 0 10px 10px rgb(71 71 71 / 20%);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width <= 768px) {
   .features {
     grid-template-columns: repeat(1, 1fr);
     gap: 0.75rem;

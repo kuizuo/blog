@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
-type ViewType = 'list' | 'grid'
+export type ViewType = 'list' | 'grid'
 
 export function useViewType() {
   const [viewType, setViewType] = useState<ViewType>('list')

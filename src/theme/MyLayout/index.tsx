@@ -9,11 +9,14 @@ export default function MyLayout({
   children,
   maxWidth,
   ...layoutProps
-}: Props & { maxWidth: number }): JSX.Element {
+}: Props & { maxWidth?: number }): JSX.Element {
   return (
     <Layout {...layoutProps}>
-      <div className={styles.containerWrapper} >
-        <div className={clsx(styles.myContainer, 'margin-vert--lg')} style={{ maxWidth: `${maxWidth}px` }}>
+      <div className={styles.containerWrapper}>
+        <div
+          className={clsx(styles.myContainer, 'margin-vert--lg')}
+          style={maxWidth ? { maxWidth: `${maxWidth}px` } : {}}
+        >
           <main>{children}</main>
         </div>
       </div>

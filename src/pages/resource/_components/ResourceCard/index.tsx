@@ -15,7 +15,7 @@ const ResourceCard = memo(({ resource }: { resource: Resource }) => (
       src={
         typeof resource.logo === 'string'
           ? resource.logo
-          : (resource.logo as any)?.src?.src
+          : (resource.logo as { src: { src: string } })?.src?.src
       }
       alt={resource.name}
       className={clsx(styles.resourceCardImage)}

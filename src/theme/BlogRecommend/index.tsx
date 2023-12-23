@@ -11,18 +11,15 @@ import styles from './styles.module.scss'
 
 export default function BlogRecommend(): JSX.Element {
   const globalData = useGlobalData()
-  const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.[
-    'default'
-  ] as any
+  const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.['default'] as {
+    blogs: BlogPost[]
+  }
 
-  const blogData = blogPluginData?.blogs as BlogPost[]
+  const blogData = blogPluginData?.blogs
   const recommendedPosts = blogData
     .filter(b => (b.metadata.frontMatter.sticky as number) > 0)
     .map(b => b.metadata)
-    .sort(
-      (a, b) =>
-        (a.frontMatter.sticky as number) - (b.frontMatter.sticky as number),
-    )
+    .sort((a, b) => (a.frontMatter.sticky as number) - (b.frontMatter.sticky as number))
     .slice(0, 8)
 
   if (recommendedPosts.length === 0) {
@@ -48,11 +45,7 @@ export default function BlogRecommend(): JSX.Element {
                 >
                   {post.frontMatter.image && (
                     <div className={styles.card__image}>
-                      <Image
-                        src={post.frontMatter.image!}
-                        alt={post.title}
-                        img={''}
-                      />
+                      <Image src={post.frontMatter.image!} alt={post.title} img={''} />
                     </div>
                   )}
                   <div className={'card__body'}>

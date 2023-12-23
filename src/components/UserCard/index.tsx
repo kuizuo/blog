@@ -30,11 +30,15 @@ export default function UserCard({ isNavbar = false }: { isNavbar?: boolean }) {
 
   const logoLink = useBaseUrl(logo.src || '/')
 
-  const blogPluginData = usePluginData('docusaurus-plugin-content-blog') as any
-  const docData = (usePluginData('docusaurus-plugin-content-docs') as any)
-    ?.versions[0].docs
-  const blogData = blogPluginData?.blogs as BlogPost[]
-  const tagData = blogPluginData?.tags as BlogTags
+  const blogPluginData = usePluginData('docusaurus-plugin-content-blog') as {
+    blogs: BlogPost[]
+    tags: BlogTags
+  }
+  const docData = (
+    usePluginData('docusaurus-plugin-content-docs') as { versions: { docs: BlogPost[] } }
+  )?.versions[0].docs
+  const blogData = blogPluginData?.blogs
+  const tagData = blogPluginData?.tags
 
   const count: Count = {
     blog: blogData.length,
@@ -67,11 +71,7 @@ export default function UserCard({ isNavbar = false }: { isNavbar?: boolean }) {
           <Icon icon="carbon:notebook" width="20" height="20" />
           {count.doc}
         </Link>
-        <Link
-          className={styles.numItem}
-          href="/project"
-          data-tips="project count"
-        >
+        <Link className={styles.numItem} href="/project" data-tips="project count">
           <Icon icon="ph:projector-screen" width="20" height="20" />
           {count.project}
         </Link>

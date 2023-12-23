@@ -18,7 +18,7 @@ const friends: Resource[] = Friends.map(f => {
     ...f,
     name: f.title,
     desc: f.description,
-    logo: f.avatar,
+    logo: f.avatar!,
     href: f.website,
   }
 })
