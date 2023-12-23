@@ -7,7 +7,7 @@ authors: kuizuo
 
 ## [样式和布局](https://docusaurus.io/zh-CN/docs/styling-layout#styling-your-site-with-infima)
 
-Docusaurus 网站是一个 React 单页应用。 你可以像一般的 React 应用一样给网站提供样式，想 tailwindCSS 与 组件库都是支持的。不过引入这些会带来一定的体积，因此我常用的是全局样式与 CSS 模块。
+Docusaurus 网站是一个 React 单页应用。 你可以像一般的 React 应用一样给网站提供样式，像 [tailwindcss](https://tailwindcss.com/) 与组件库都是支持的。不过引入这些会带来一定的代码体积，因此在这套主题中我所使用的都是全局样式与 css 模块。
 
 ## 修改主题色
 

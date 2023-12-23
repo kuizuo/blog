@@ -68,7 +68,11 @@ services:
 
 假设要修改其中的配置的话，gitea 的后台管理面板是无法直接修改的。需要到 `/data/gitea/conf/app.ini` 中修改，具体修改的配置 参阅 [自定义 Gitea 配置 - Docs](https://docs.gitea.io/zh-cn/customizing-gitea/ '自定义 Gitea 配置 - Docs')
 
-:::warning 注意必须完全重启 Gitea 以使配置生效。 :::
+:::warning
+
+注意必须完全重启 Gitea 以使配置生效。
+
+:::
 
 ### 迁移仓库
 

@@ -98,7 +98,11 @@ android intent launch_activity <activityName>
 
 ### 插件
 
-:::danger 注: 在 Window 下插件路径需要使用两个//或使用\，不然会报 Missing `__init__.py`错误 :::
+:::danger
+
+注: 在 Window 下插件路径需要使用两个//或使用\，不然会报 Missing `__init__.py`错误
+
+:::
 
 #### 加载插件
 

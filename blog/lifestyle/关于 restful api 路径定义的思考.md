@@ -140,6 +140,13 @@ GET /articles/1/author
 
 要么两条请求获取相应数据，要么为调用方“定制”一个接口，如`GET /getArticleInfo`，这样只需一条请求便可得到想要的数据。但这个就破坏了 restful API 接口风格，并且在复杂的业务中，比如说还要获取博文的评论等等，后端就要额外提供一个接口，可以说是非常繁琐了。相比之下 [GraphQL](https://graphql.org/) 就更为灵活了。
 
+
+## 最佳实践
+
+就在我写完这篇文章的几周后,无意间刷到了这篇文章[examples-of-great-urls/](https://blog.jim-nielsen.com/2023/examples-of-great-urls/)
+
+借用这个文章以及我自身实现,说说我个人认为的最佳实践.
+
 ## 写到最后
 
 在我写这篇文章之前，我尝试抓包看过很多网站的请求 url，见识到各式各样的 url 路径，基本上很难找到遵循 restful api 风格的网站，绝大多数的操作除了获取外用 GET，其余全用 POST 。对于复杂的业务，restful api 风格实在过于难以胜任。

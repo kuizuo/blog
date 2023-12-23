@@ -9,13 +9,13 @@ keywords: [javascript, ast, reverse, project]
 
 基于 Babel 对 JS 代码进行混淆与还原操作的网站 [JS 代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
 
-![js-de-obfuscator](https://img.kuizuo.cn/20220131193110.png)
+![js-de-obfuscator](https://github.com/kuizuo/js-deobfuscator/blob/main/images/1.png)
 
 <!-- truncate -->
 
 ## 还原前言
 
-AST 仅仅只是静态分析，但可以将还原出来的代码替换原来的代码，以便更好的动态分析找出相关点。在还原时，并不是所有的代码都能还原成一眼就识破代码执行逻辑的，ast 也并非万能，如果你拥有强大的 js 逆向能力，有时候动态调试甚至比 AST 静态分析来的事半功倍。
+AST 能做为逆向分析的利器，可以将还原出来的代码替换原来的代码，以便更好的动态分析找出相关点。在还原时，并不是所有的代码都能还原成一眼就识破代码执行逻辑的，ast 也并非万能，如果你拥有强大的 js 逆向能力，有时候动态调试甚至比 AST 静态分析来的事半功倍。
 
 ### 还原不出最原始的代码
 

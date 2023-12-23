@@ -9,15 +9,7 @@ keywords: [javascript, ast, reverse, project]
 
 <!-- truncate -->
 
-> AST 在线解析 [AST explorer](https://astexplorer.net/)
->
-> js 在线混淆工具 [JavaScript Obfuscator Tool](https://www.obfuscator.io/)
->
-> 书籍 《反爬虫 AST 原理与还原混淆实战》
->
-> 相关混淆代码 [kuizuo/js-de-obfuscator](https://github.com/kuizuo/js-de-obfuscator)
->
-> 自写在线混淆与还原网站 [JS 代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
+[JS deobfuscator](http://js-deobfuscator.kuizuo.cn/)
 
 ## 什么是 AST
 

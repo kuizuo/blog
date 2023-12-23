@@ -99,12 +99,9 @@ More info: https://github.com/yeoman/insight & http://yeoman.io
 import * as vscode from 'vscode'
 
 export function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand(
-    'kuizuo-plugin.helloWorld',
-    () => {
-      vscode.window.showInformationMessage('Hello World from kuizuo-plugin!')
-    },
-  )
+  let disposable = vscode.commands.registerCommand('kuizuo-plugin.helloWorld', () => {
+    vscode.window.showInformationMessage('Hello World from kuizuo-plugin!')
+  })
 
   context.subscriptions.push(disposable)
 }
@@ -198,10 +195,7 @@ export function activate(context: vscode.ExtensionContext) {
 ```typescript
 import * as os from 'os'
 
-const commandLine =
-  os.platform() === 'win32'
-    ? `start https://kuizuo.cn`
-    : `open https://kuizuo.cn`
+const commandLine = os.platform() === 'win32' ? `start https://kuizuo.cn` : `open https://kuizuo.cn`
 exec(commandLine)
 ```
 
@@ -241,9 +235,7 @@ export async function activate(context: vscode.ExtensionContext) {
     )
     if (result === '是') {
       const commandLine =
-        os.platform() === 'win32'
-          ? `start https://kuizuo.cn`
-          : `open https://kuizuo.cn`
+        os.platform() === 'win32' ? `start https://kuizuo.cn` : `open https://kuizuo.cn`
       exec(commandLine)
     } else if (result === '不再提示') {
       //最后一个参数，为true时表示写入全局配置，为false或不传时则只写入工作区配置
@@ -272,29 +264,26 @@ import * as vscode from 'vscode'
 import * as fs from 'fs'
 
 export async function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand(
-    'kuizuo-plugin.newFile',
-    (uri: vscode.Uri) => {
-      vscode.window.showQuickPick(['js', 'ts'], {}).then(async item => {
-        if (!uri?.fsPath) {
-          return
-        }
+  let disposable = vscode.commands.registerCommand('kuizuo-plugin.newFile', (uri: vscode.Uri) => {
+    vscode.window.showQuickPick(['js', 'ts'], {}).then(async item => {
+      if (!uri?.fsPath) {
+        return
+      }
 
-        const filename = `${uri.fsPath}/demo.${item}`
-        if (fs.existsSync(filename)) {
-          vscode.window.showErrorMessage(`文件${filename}已存在`)
-          return
-        }
+      const filename = `${uri.fsPath}/demo.${item}`
+      if (fs.existsSync(filename)) {
+        vscode.window.showErrorMessage(`文件${filename}已存在`)
+        return
+      }
 
-        fs.writeFile(filename, '', () => {
-          vscode.window.showInformationMessage(`demo.${item}已创建`)
-          vscode.window.showTextDocument(vscode.Uri.file(filename), {
-            viewColumn: vscode.ViewColumn.Two, // 显示在第二个编辑器窗口
-          })
+      fs.writeFile(filename, '', () => {
+        vscode.window.showInformationMessage(`demo.${item}已创建`)
+        vscode.window.showTextDocument(vscode.Uri.file(filename), {
+          viewColumn: vscode.ViewColumn.Two, // 显示在第二个编辑器窗口
         })
       })
-    },
-  )
+    })
+  })
 
   context.subscriptions.push(disposable)
 }
@@ -469,17 +458,9 @@ class MyCompletionItemProvider implements vscode.CompletionItemProvider {
   constructor() {}
 
   // 提供代码提示的候选项
-  public provideCompletionItems(
-    document: vscode.TextDocument,
-    position: vscode.Position,
-  ) {
-    const snippetCompletion = new vscode.CompletionItem(
-      'log',
-      vscode.CompletionItemKind.Operator,
-    )
-    snippetCompletion.documentation = new vscode.MarkdownString(
-      'quick console.log result',
-    )
+  public provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
+    const snippetCompletion = new vscode.CompletionItem('log', vscode.CompletionItemKind.Operator)
+    snippetCompletion.documentation = new vscode.MarkdownString('quick console.log result')
 
     return [snippetCompletion]
   }
@@ -492,14 +473,7 @@ class MyCompletionItemProvider implements vscode.CompletionItemProvider {
 
 export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.languages.registerCompletionItemProvider(
-    [
-      'html',
-      'javascript',
-      'javascriptreact',
-      'typescript',
-      'typescriptreact',
-      'vue',
-    ],
+    ['html', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'],
     new MyCompletionItemProvider(),
     '.', // 注册代码建议提示，只有当按下“.”时才触发
   )
@@ -574,9 +548,7 @@ const commandHandler = (
 
   return Promise.resolve([])
 }
-context.subscriptions.push(
-  vscode.commands.registerTextEditorCommand(commandId, commandHandler),
-)
+context.subscriptions.push(vscode.commands.registerTextEditorCommand(commandId, commandHandler))
 ```
 
 `registerTextEditorCommand`不同于`registerCommand`，它只针对编辑器的命令，例如可以删除代码中的某个片段，增加代码等等。上面的代码就是为了找到.log 前（包括.log）匹配的代码，进行正则提取，然后调用 edit.delete 删除指定范围，再调用 edit.insert 来插入要替换的代码，以此达到替换的效果。
@@ -651,10 +623,7 @@ context.subscriptions.push(
       const insertVal = `${os.EOL}${'console.log'}('${value}', ${value})`
 
       edit.insert(editor.selection.end, insertVal)
-      editor.selection = new vscode.Selection(
-        editor.selection.end,
-        editor.selection.end,
-      ) // 重置选中区域
+      editor.selection = new vscode.Selection(editor.selection.end, editor.selection.end) // 重置选中区域
       return Promise.resolve([])
     },
   ),
@@ -749,7 +718,11 @@ vsce login <publisher name>
 vsce publish
 ```
 
-:::warning 这里要保证 package.json 的 name 在插件市场中唯一，否则会提示 The Extension Id already exist in the Marketplace. Please use the different Id。 :::
+:::warning
+
+这里要保证 package.json 的 name 在插件市场中唯一，否则会提示 The Extension Id already exist in the Marketplace. Please use the different Id。
+
+:::
 
 运行完毕后，最终提示`Published kuizuo.vscode-extension-sample v1.0.0.` 就说明发布完毕，发布和 npm 包一样，都无需审核，但要求包名唯一。
 
