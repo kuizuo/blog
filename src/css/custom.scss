@@ -45,7 +45,7 @@
   --content-background-color: #f8fafc;
 
   --blog-item-background-color: linear-gradient(180deg, #fcfcfc, #fff);
-  --blog-item-shadow: 0 10px 60px 5px #f1f5f9, 0 0 10px 0 #e4e4e7;
+  --blog-item-shadow: 0 10px 20px #f1f5f9dd, 0 0 10px 0 #e4e4e7dd;
   --blog-item-shade: #f4f4f5;
 
   -webkit-font-smoothing: unset;
@@ -65,7 +65,7 @@ html[data-theme='dark'] {
   --ifm-toc-border-color: #313131;
 
   --content-background-color: #18181b;
-  --blog-item-background-color: linear-gradient(180deg, #171717, #0a0a0a);
+  --blog-item-background-color: linear-gradient(180deg, #171717, #18181b);
   --blog-item-shadow: 0 12px 24px rgb(37 55 72 / 20%), 0 0 8px rgb(37 55 72 / 40%);
   --blog-item-shade: #27272a;
 
@@ -135,31 +135,11 @@ article {
     }
 
     > h2 {
-      font-size: 1.7em;
-      border-bottom: 1px solid var(--ifm-color-primary-light);
-      margin-top: 1rem;
-
-      &::before {
-        margin-right: 0.3em;
-        width: 0.3em;
-        display: inline-block;
-        background: var(--ifm-color-primary-light);
-        color: transparent;
-        content: '.';
-      }
+      font-size: 1.8em;
     }
 
     > h3 {
       font-size: 1.5em;
-
-      &::before {
-        margin-right: 0.3em;
-        width: 0.2em;
-        display: inline-block;
-        background: var(--ifm-color-primary-light);
-        color: transparent;
-        content: '.';
-      }
     }
 
     > h4 {
