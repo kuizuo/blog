@@ -85,6 +85,7 @@
   font-family: var(--ifm-font-family-base);
 
   text-decoration: none;
+  white-space: nowrap;
   transition: padding 0.3s;
 }
 
@@ -118,8 +119,7 @@
   position: relative;
   color: var(--hty-secondary-text-color);
 
-  font-family: 'Source Code Pro', Consolas, Monaco, SFMono-Regular,
-    'Ubuntu Mono', Menlo, monospace;
+  font-family: 'Source Code Pro', Consolas, Monaco, SFMono-Regular, 'Ubuntu Mono', Menlo, monospace;
 }
 
 .archiveItem a > span:hover {

@@ -141,7 +141,7 @@ export default async function createConfigAsync() {
         category: 'General',
         categoryId: 'DIC_kwDOF7NJDM4CPK95',
         theme: 'light',
-        darkTheme: 'dark',
+        darkTheme: 'dark_dimmed',
       },
       socials: {
         github: 'https://github.com/kuizuo',
