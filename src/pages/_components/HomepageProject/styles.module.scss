@@ -102,7 +102,7 @@ html[data-theme='dark'] .rightBox {
 }
 
 /* Media Queries */
-@media (min-width <= 640px) {
+@media (width >= 640px) {
   .slider {
     height: 250px;
   }
@@ -117,13 +117,13 @@ html[data-theme='dark'] .rightBox {
   }
 }
 
-@media (min-width <= 768px) {
+@media (width >= 768px) {
   .gradientBox {
     width: 100px;
   }
 }
 
-@media (min-width <= 1024px) {
+@media (width >= 1024px) {
   .slider {
     height: 280px;
   }

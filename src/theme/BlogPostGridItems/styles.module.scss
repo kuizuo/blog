@@ -77,15 +77,13 @@
   }
 }
 
-/* post list view adjustment */
-@media only screen and (width <= 768px) {
+@media (width <= 768px) {
   .postGridItem {
     min-width: 100%;
   }
 }
 
-/* post list view adjustment */
-@media only screen and (width <= 576px) {
+@media (width <= 576px) {
   .blogGrid {
     grid-template-columns: minmax(0, max-content);
   }
