@@ -27,13 +27,13 @@ http://registry.npmjs.org
 
 ## 单次使用镜像
 
-```sh
+```bash
 npm install [name] --registry=https://registry.npmmirror.com
 ```
 
 ## 永久配置镜像
 
-```sh
+```bash
 npm config set registry https://registry.npmmirror.com
 ```
 
@@ -68,15 +68,14 @@ nrm use taobao
 
 ## 清除 npm 缓存
 
-```sh
+```bash
 npm cache clean --force
 ```
 
 ## 配置 electron 镜像
 
-```sh
+```bash
 npm config set ELECTRON_MIRROR https://npmmirror.com/mirrors/electron/
 
 npm config set ELECTRON_BUILDER_BINARIES_MIRROR https://npmmirror.com/mirrors/electron-builder-binaries/
 ```
-

@@ -5,9 +5,7 @@ import { ThemeConfig } from '@docusaurus/preset-classic'
 import BrowserOnly from '@docusaurus/BrowserOnly'
 import Giscus, { GiscusProps, Theme } from '@giscus/react'
 
-interface CustomThemeConfig extends ThemeConfig {
-  giscus: GiscusProps & { darkTheme: Theme }
-}
+export type GiscusConfig = GiscusProps & { darkTheme: Theme }
 
 const defaultConfig: Partial<GiscusProps> & { darkTheme: string } = {
   id: 'comments',
@@ -17,11 +15,11 @@ const defaultConfig: Partial<GiscusProps> & { darkTheme: string } = {
   inputPosition: 'top',
   lang: 'zh-CN',
   theme: 'light',
-  darkTheme: 'dark',
+  darkTheme: 'dark_dimmed',
 }
 
 export default function Comment(): JSX.Element {
-  const themeConfig = useThemeConfig() as CustomThemeConfig
+  const themeConfig = useThemeConfig() as ThemeConfig & { giscus: GiscusConfig }
   const { i18n } = useDocusaurusContext()
 
   // merge default config

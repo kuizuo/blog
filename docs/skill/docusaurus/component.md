@@ -33,7 +33,7 @@ website
 
 要输出所有 `@docusaurus/theme-classic` 组件的总览，可以运行：
 
-```sh
+```bash
 yarn run swizzle @docusaurus/theme-classic -- --list
 ```
 
@@ -45,7 +45,7 @@ yarn run swizzle @docusaurus/theme-classic -- --list
 
 例如弹出组件，可以执行以下[命令](https://docusaurus.io/zh-CN/docs/cli#docusaurus-swizzle)：
 
-```sh
+```bash
 yarn run swizzle @docusaurus/theme-classic BlogArchivePage -- --eject --typescript
 ```
 

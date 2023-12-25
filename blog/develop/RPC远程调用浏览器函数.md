@@ -38,7 +38,7 @@ e.RSA.encrypt(s)
 
 #### 安装 ws 模块
 
-```sh
+```bash
 npm install ws -S
 npm install @types/ws -D
 ```

@@ -8,7 +8,7 @@ build
 coverage
 jest.config.js
 jest.transform.js
-docusaurus.config.js
+docusaurus.config.ts
 sidebars.js
 *.md
 lib

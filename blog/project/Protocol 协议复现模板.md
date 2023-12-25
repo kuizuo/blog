@@ -146,7 +146,7 @@ await useStorage().getItem('test:foo')
 
 不指定则使用内存，当然了想要持久化配置，[nitro](https://nitro.unjs.io/guide/introduction/storage#defining-mountpoints 'nitro') 也提供了相关配置
 
-```javascript title='nitro.config.ts'
+```javascript title='nitro.config.ts' icon="logos:nuxt-icon"
 // nitro.config.ts
 import { defineNitroConfig } from 'nitropack'
 export default defineNitroConfig({
@@ -199,11 +199,11 @@ await useStorage().getItem('redis:foo')
 
 如果你想在创建新的 md 页面只需要在 content 中新建一个文件（如 test.md），在页面路由创建同名 vue 文件(test.vue)，将下方的 path 修改相应文件名即可。
 
-```html title='pages/test.vue'
+```vue title='pages/test.vue' icon='logos:vuejs'
 <script setup lang="ts">
-  definePageMeta({
-    layout: 'markdown',
-  })
+definePageMeta({
+  layout: 'markdown',
+})
 </script>
 
 <template>
@@ -226,7 +226,7 @@ await useStorage().getItem('redis:foo')
 
 然后你只需要将 `.output` 整个文件夹放到服务器上，并且安装好 node 环境，输入 `node .output/server/index.mjs` 即可启动项目，默认端口为 3000。当然也可以通过 pm2 的配置文件来启动，配置文件如下
 
-```javascript title='ecosystem.config.js'
+```javascript title='ecosystem.config.js' icon="logos:pm2-icon"
 module.exports = {
   apps: [
     {
@@ -256,7 +256,7 @@ module.exports = {
 
 如何修改某文字内容或某图标，这里就不再赘述了，Ctrl + Shift + F 搜索你想修改的内容并修改即可。大部分能修改的配置都写在了 `app.config.ts` 下。
 
-```javascript title='app.config.ts'
+```javascript title='app.config.ts' icon="logos:nuxt-icon"
 export default defineAppConfig({
   title: 'Protocol',
   description: '一个用于快速复现请求协议的Web开发模板。',
@@ -430,22 +430,22 @@ export const useUserStore = definePiniaStore('user', () => {
 
 在 vue 组件中只需要使用演示如下
 
-```html title='components\Demo.vue'
+```vue title='components\Demo.vue'
 <script setup lang="ts">
-  let username = $ref('kuizuo')
-  let loading = $ref(false)
+let username = $ref('kuizuo')
+let loading = $ref(false)
 
-  const userStore = useUserStore()
-  const user = $computed(() => userStore.user)
+const userStore = useUserStore()
+const user = $computed(() => userStore.user)
 
-  async function getUser() {
-    loading = true
-    try {
-      await userStore.getUser(username)
-    } finally {
-      loading = false
-    }
+async function getUser() {
+  loading = true
+  try {
+    await userStore.getUser(username)
+  } finally {
+    loading = false
   }
+}
 </script>
 ```
 

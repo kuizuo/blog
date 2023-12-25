@@ -64,7 +64,9 @@ const OOOOOO = [
   OOOOOo(++OOOOO0)
 })(OOOOOO, 115918 ^ 115930)
 
-window[atob(OOOOOO[694578 ^ 694578])][atob(OOOOOO[873625 ^ 873624])][atob(OOOOOO[219685 ^ 219687])] = function (OOOOO0) {
+window[atob(OOOOOO[694578 ^ 694578])][atob(OOOOOO[873625 ^ 873624])][
+  atob(OOOOOO[219685 ^ 219687])
+] = function (OOOOO0) {
   function OOOO00(OOOOOO, OOOOO0) {
     return OOOOOO + OOOOO0
   }
@@ -95,7 +97,11 @@ window[atob(OOOOOO[694578 ^ 694578])][atob(OOOOOO[873625 ^ 873624])][atob(OOOOOO
   return OOOOOo
 }
 
-console[atob(OOOOOO[490983 ^ 490998])](new window[atob(OOOOOO[116866 ^ 116866])]()[atob(OOOOOO[386287 ^ 386285])](atob(OOOOOO[530189 ^ 530207])))
+console[atob(OOOOOO[490983 ^ 490998])](
+  new window[atob(OOOOOO[116866 ^ 116866])]()[atob(OOOOOO[386287 ^ 386285])](
+    atob(OOOOOO[530189 ^ 530207]),
+  ),
+)
 ```
 
 将上述代码复制到浏览器控制台内执行，将会输出当天的年月日。
@@ -122,13 +128,13 @@ AST 本质上是静态分析，静态分析是在不需要执行代码的前提�
 
 首先需要 Node 环境，这就不介绍了，其次工具 Babel 编译器可通过 npm 安装
 
-```sh
+```bash
 npm i @babel/core -S-D
 ```
 
 安装代码提示
 
-```sh
+```bash
 npm i @types/node @types/babel__traverse @types/babel__generator -D
 ```
 
@@ -303,8 +309,7 @@ tip
 
 traverse 一共有两个参数，第一个就是 ast，第二个是 visitor，而 visitor 本质是一个对象如下(分别有 JavaScript 和 TypeScript 版本，区别就是在于这样定义的 visitor 是否有代码提示)
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value="js" label="JS" default>
@@ -381,10 +386,10 @@ traverse(ast, {
 traverse(ast, {
   FunctionDeclaration: {
     enter: [
-      (path) => {
+      path => {
         console.log('1')
       },
-      (path) => {
+      path => {
         console.log('2')
       },
     ],
@@ -469,7 +474,10 @@ types 的主要用途还是构造节点，或者说写一个 Builders（构建�
 body 内的第一个节点便是我们整条的代码，输入`t.variableDeclaration()`，鼠标悬停在 variableDeclaration 上，或者按 Ctrl 跳转只.d.ts 类型声明文件 查看该方法所需几个参数
 
 ```ts
-declare function variableDeclaration(kind: 'var' | 'let' | 'const', declarations: Array<VariableDeclarator>): VariableDeclaration
+declare function variableDeclaration(
+  kind: 'var' | 'let' | 'const',
+  declarations: Array<VariableDeclarator>,
+): VariableDeclaration
 ```
 
 可以看到第一个参数就是关键字，而第二个则一个数组，其中节点为`VariableDeclarator`，关于`variableDeclaration`与 `VariableDeclarator` 在前面已经提及过一次了，就不在赘述了。由于我们这里只是声明一个变量 a，所有数组成员只给一个便可，如果要生成 b，c 这些变量，就传入对应的`VariableDeclarator`即可
@@ -544,7 +552,9 @@ declare function numericLiteral(value: number): NumericLiteral;
 最后整个代码如下，将 t.variableDeclaration 结果赋值为一个变量`var_a`，这里的 var_a 便是一个 ast 对象，通过 generator(var_a).code 就可以获取到该 ast 的代码，也就是 `let a = 100;`，默认还会帮你添加分号
 
 ```javascript
-let var_a = t.variableDeclaration('let', [t.variableDeclarator(t.identifier('a'), t.numericLiteral(100))])
+let var_a = t.variableDeclaration('let', [
+  t.variableDeclarator(t.identifier('a'), t.numericLiteral(100)),
+])
 
 let code = generator(var_a).code
 // let a = 100;
@@ -563,7 +573,11 @@ types 操作
 ```javascript
 let param_x = t.identifier('x')
 let param_y = t.identifier('y')
-let func_b = t.functionDeclaration(t.identifier('b'), [param_x, param_y], t.blockStatement([t.returnStatement(t.binaryExpression('+', param_x, param_y))]))
+let func_b = t.functionDeclaration(
+  t.identifier('b'),
+  [param_x, param_y],
+  t.blockStatement([t.returnStatement(t.binaryExpression('+', param_x, param_y))]),
+)
 
 let code = generator(func_b).code
 ```
@@ -597,7 +611,13 @@ console.log(arr_c)
 如果使用`numericLiteral`来生成这些字面量的话那要写的话代码可能就要像下面这样
 
 ```javascript
-let arr_c = t.arrayExpression([t.numericLiteral(1), t.numericLiteral(2), t.numericLiteral(3), t.numericLiteral(4), t.numericLiteral(5)])
+let arr_c = t.arrayExpression([
+  t.numericLiteral(1),
+  t.numericLiteral(2),
+  t.numericLiteral(3),
+  t.numericLiteral(4),
+  t.numericLiteral(5),
+])
 ```
 
 而`valueToNode`能很方便地生成各种基本类型，甚至是一些对象类型（RegExp，Object 等）。不过像函数这种就不行。
@@ -683,7 +703,14 @@ path.replaceWith(t.valueToNode('kuizuo'))
 ```javascript
 traverse(ast, {
   ReturnStatement(path) {
-    path.replaceWithMultiple([t.expressionStatement(t.callExpression(t.memberExpression(t.identifier('console'), t.identifier('log')), [t.stringLiteral('kuizuo')])), t.returnStatement()])
+    path.replaceWithMultiple([
+      t.expressionStatement(
+        t.callExpression(t.memberExpression(t.identifier('console'), t.identifier('log')), [
+          t.stringLiteral('kuizuo'),
+        ]),
+      ),
+      t.returnStatement(),
+    ])
     path.stop()
   },
 })
@@ -758,7 +785,7 @@ traverse(ast, {
 ```javascript
 traverse(ast, {
   BinaryExpression(path) {
-    let parent = path.findParent((p) => p.isFunctionDeclaration())
+    let parent = path.findParent(p => p.isFunctionDeclaration())
     console.log(parent.toString())
   },
 })
@@ -1130,7 +1157,9 @@ console.log(test.run())
 
 ```javascript
 traverse(ast, {
-  'Program|FunctionExpression|FunctionDeclaration|ClassDeclaration|ClassProperty|ClassMethod'(path) {
+  'Program|FunctionExpression|FunctionDeclaration|ClassDeclaration|ClassProperty|ClassMethod'(
+    path,
+  ) {
     renameOwnBinding(path)
   },
 })

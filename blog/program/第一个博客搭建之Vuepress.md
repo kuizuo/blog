@@ -47,7 +47,7 @@ keywords: [blog, vuepress, project]
 
 ### **安装**
 
-```sh
+```bash
 #全局安装vuepress-reco
 npm install @vuepress-reco/theme-cli -g
 
@@ -237,7 +237,7 @@ categories:
 
 关于部署到服务器上，如果只是为了让别人能看到你搭建的博客，而不是要购买域名和服务器这些，直接参考文章[使用 vuepress 构建个人博客](https://lookroot.cn/views/article/vuepress.html#reco%E4%B8%BB%E9%A2%98)即可，如果有服务器和域名我这里简单说下怎么个部署法。
 
-```shell
+```bash
 npm run bulid
 ```
 
@@ -267,7 +267,7 @@ npm run bulid
 
 1. 安装 markdown-it-disable-url-encode
 
-```sh
+```bash
 npm i markdown-it-disable-url-encode
 ```
 

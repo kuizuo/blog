@@ -44,7 +44,7 @@ export function Counter() {
 
 安装
 
-```sh
+```bash
 npm i -D unplugin-auto-import
 ```
 
@@ -133,7 +133,7 @@ AutoImport({
 
 安装
 
-```sh
+```bash
 npm install unplugin-vue-components -D
 ```
 
@@ -209,7 +209,7 @@ export default defineConfig({
 
 安装
 
-```sh
+```bash
 npm i unplugin-vue-define-options
 ```
 
@@ -287,7 +287,7 @@ const a = 1
 
 安装
 
-```sh
+```bash
 npm i mockjs vite-plugin-mock
 ```
 
@@ -317,7 +317,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
 
 安装
 
-```sh
+```bash
 npm install -D vite-plugin-pages
 npm install vue-router
 ```
@@ -371,7 +371,7 @@ const router = createRouter({
 
 安装
 
-```sh
+```bash
 npm install -D vite-plugin-vue-layouts
 ```
 
@@ -400,7 +400,7 @@ meta:
 
 安装
 
-```sh
+```bash
  pnpm add @iconify/iconify
  pnpm add vite-plugin-purge-icons @iconify/json -D
 ```
@@ -449,7 +449,7 @@ createApp(App).mount('#app')
 
 安装
 
-```sh
+```bash
 npm i -D vite-plugin-windicss windicss
 ```
 

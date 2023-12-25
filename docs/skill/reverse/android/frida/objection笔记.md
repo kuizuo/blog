@@ -16,13 +16,13 @@ objection 功能强大，命令众多，而且不用写一行代码，便可实�
 
 ### 安装
 
-```sh
+```bash
 pip install objection
 ```
 
 ### 使用
 
-```sh
+```bash
 objection -g <包名> explore
 objection -N -h <手机ip地址> -p <端口> -g <包名> explore # 指定ip与端口连接
 ```

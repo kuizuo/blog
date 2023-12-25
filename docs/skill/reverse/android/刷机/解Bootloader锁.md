@@ -70,7 +70,7 @@ https://developer.android.com/studio/run/oem-usb.html#InstallingDriver
 
 4、键入以下命令检查 fastboot 连接：
 
-```sh
+```bash
 fastboot devices
 ```
 
@@ -78,13 +78,13 @@ fastboot devices
 
 5、确认 fastboot 连接没问题，即可运行解锁 bootloader 命令：
 
-```sh
+```bash
 fastboot flashing unlock
 ```
 
 你现在应该在手机上看到一个操作界面，要求你确认此操作。使用音量键选择（按一下音量键下即可），使用电源键确认（选择 Unlock the bootloader 并确认）。确认该过程完成，然后键入此命令：
 
-```sh
+```bash
 fastboot reboot
 ```
 

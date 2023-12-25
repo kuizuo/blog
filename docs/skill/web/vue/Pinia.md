@@ -14,7 +14,7 @@ keywords: [vue, pinia]
 
 ## 安装
 
-```sh
+```bash
 npm install pinia
 ```
 
@@ -134,7 +134,7 @@ export const useUserStore = defineStore({
 
 安装
 
-```sh
+```bash
 npm i pinia-plugin-persistedstate
 ```
 

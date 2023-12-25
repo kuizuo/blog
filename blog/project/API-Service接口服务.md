@@ -307,10 +307,7 @@ export default defineEventHandler(async event => {
 不过由于没有使用到用户鉴权等功能（在这个项目中也没打算上），所以限流的操作只有从 IP 的手段下手。这里我选用的是[node-rate-limiter-flexible](https://github.com/animir/node-rate-limiter-flexible)这个库，下面是实现代码
 
 ```typescript title="server/middleware/limit.ts"
-import {
-  RLWrapperBlackAndWhite,
-  RateLimiterMemory,
-} from 'rate-limiter-flexible'
+import { RLWrapperBlackAndWhite, RateLimiterMemory } from 'rate-limiter-flexible'
 
 const rateLimiter = new RLWrapperBlackAndWhite({
   limiter: new RateLimiterMemory({
@@ -321,8 +318,7 @@ const rateLimiter = new RLWrapperBlackAndWhite({
 
 function getIP(req) {
   return (
-    (req.headers['x-forwarded-for'] as string) ||
-    (req.socket?.remoteAddress as string)
+    (req.headers['x-forwarded-for'] as string) || (req.socket?.remoteAddress as string)
   ).replace('::ffff:', '')
 }
 
@@ -492,13 +488,13 @@ if (data) {
 
 本地打包
 
-```sh
+```bash
 npm run build
 ```
 
 等待打包完毕，将打包后生成的.output 文件夹放到服务器上（依赖都无需安装，.output 文件里有 node_modules），执行
 
-```sh
+```bash
 node .output/server/index.mjs
 ```
 

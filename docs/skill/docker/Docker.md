@@ -16,7 +16,7 @@ keywords: [docker]
 
 ## 安装
 
-```sh
+```bash
 # 删除旧的版本
 yum remove docker \
                   docker-client \
@@ -73,7 +73,7 @@ sudo rm -rf /var/lib/containerd
 
 ![](https://img.kuizuo.cn/v2-820aee2a33654099d87cdd2b7a1ce741_r.jpg)
 
-```shell
+```bash
 docker info # 显示docker 系统信息
 docker stats # 显示docker 所占用的资源
 docker --help # 查看帮助
@@ -81,7 +81,7 @@ docker --help # 查看帮助
 
 ### 镜像命令
 
-```sh
+```bash
 #查看本地主机上的镜像
 docker images
 
@@ -114,7 +114,7 @@ docker rmi -f $(docker images -aq) # 删除全部镜像
 
 #### 启动容器
 
-```shell
+```bash
 docker run [参数] image
 # 参数说明
 --name="名字" 指定容器名字
@@ -127,7 +127,7 @@ docker run [参数] image
 
 #### 查看容器
 
-```shell
+```bash
 docker ps 命令
 
 -a    #所有+历史运行过的容器
@@ -138,7 +138,7 @@ docker ps 命令
 
 #### 退出容器
 
-```shell
+```bash
 exit  #直接停止并退出
 Ctrl + P + Q #不停止退出
 ```
@@ -147,14 +147,14 @@ Ctrl + P + Q #不停止退出
 
 注意 没有`i`
 
-```shell
+```bash
 docker rm 容器id   #删除指定的容器
 docker rm -f $(docker ps -aq) # 删除所有的容器
 ```
 
 #### 启动和停止容器的操作
 
-```shell
+```bash
 docker start 容器id
 docker restart 容器id
 docker stop 容器id
@@ -163,7 +163,7 @@ docker kill 容器id
 
 #### 进入当前正在运行的容器
 
-```shell
+```bash
 docker exec -it 容器id /bin/bash  #进入后开启新的终端 可在里面操作(常用)
 docker attach 容器id # 不会启动新的进程 单单只是进入容器的终端
 ```
@@ -178,12 +178,11 @@ docker ps
 
 ```
 
-常见的坑 docker 容器使用后台运行 就必须要有一个前台应用,否则将会自动停止
-nginx 容器启动后 发现自己没有提供服务 就会立刻停止 **就是没有程序了**
+常见的坑 docker 容器使用后台运行 就必须要有一个前台应用,否则将会自动停止 nginx 容器启动后 发现自己没有提供服务 就会立刻停止 **就是没有程序了**
 
 #### 查看容器内的进程信息
 
-```shell
+```bash
 docker top 容器id
 ```
 
@@ -195,13 +194,13 @@ docker inspect 容器id
 
 #### 从容器内拷贝文件到宿主机上
 
-```sh
+```bash
 docker cp 容器id:容器内路径 宿主机路径
 ```
 
 ### 自定义网络
 
-```sh
+```bash
 docker network ls  #查看所有的docker 网络
 
 docker network create --driver bridge mynet
@@ -217,7 +216,7 @@ docker network connect   # 连通网络
 
 #### 使用数据卷
 
-```sh
+```bash
 docker run -it -v 主机目录:容器目录
 ```
 
@@ -225,12 +224,11 @@ docker run -it -v 主机目录:容器目录
 
 注意 路径前有`/` 为绝对路径
 
-
 #### 匿名挂载
 
 只指定容器内的名字
 
-```sh
+```bash
 docker run -d -P --name nginx -v /ect/nginx nginx
 
 通过 docker volume ls 即可查看
@@ -239,7 +237,7 @@ docker run -d -P --name nginx -v /ect/nginx nginx
 
 #### 具名挂载
 
-```sh
+```bash
 docker run -d -P --name nginx -v mynginx:/ect/nginx nginx
 
 # mynginx 为卷名
@@ -253,7 +251,7 @@ local  mynginx
 
 区别
 
-```sh
+```bash
 -v 容器内路径  #匿名挂载
 -v 卷名:容器内路径 #具名
 -v /宿主机路径:容器内路径 #指定路径
@@ -271,7 +269,7 @@ rw 可读写 readwirte  默认rw
 
 安装Mysql
 
-```sh
+```bash
 docker run -d -p 3307:3306 --privileged=true -v /data/mysql/log:/var/log/mysql -v /data/mysql/data:/var/lib/mysql -v /opt/docker/mysql/conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql:5.7
 ```
 
@@ -281,8 +279,6 @@ docker run -d -p 3307:3306 --privileged=true -v /data/mysql/log:/var/log/mysql -
 docker run -d -p 6379:6379 --privileged=true -v /app/redis/redis.conf:/etc/redis/redis.conf -v /app/redis/data:/data -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql:5.7 redos-server /etc/redis/redis.conf
 ```
 
-
-
 ## DockerFile
 
 ![](https://img.kuizuo.cn/OIP.p3NmHHlewBvLwukFPGudFgHaFV.jpg)
@@ -291,7 +287,7 @@ docker run -d -p 6379:6379 --privileged=true -v /app/redis/redis.conf:/etc/redis
 
 构建镜像命令
 
-```sh
+```bash
 docker build -t 自定镜像名 .
 ```
 

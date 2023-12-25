@@ -5,7 +5,7 @@ title: 搜索
 authors: kuizuo
 ---
 
-> [搜索 | Docusaurus](https://docusaurus.io/zh-CN/docs/search) 
+> [搜索 | Docusaurus](https://docusaurus.io/zh-CN/docs/search)
 
 ## [algolia](https://www.algolia.com/)
 
@@ -21,9 +21,9 @@ authors: kuizuo
 
 ![image-20220627232545640](https://img.kuizuo.cn/image-20220627232545640.png)
 
-然后将得到 algolia 的 appId，apiKey，indexName 填写到 `docusaurus.config.js` 中即可。
+然后将得到 algolia 的 appId，apiKey，indexName 填写到 `docusaurus.config.ts` 中即可。
 
-```javascript title='docusaurus.config.js'
+```javascript title='docusaurus.config.ts'
 algolia: {
   appId: 'GV6YN1ODMO',
   apiKey: '50303937b0e4630bec4a20a14e3b7872',
@@ -47,7 +47,7 @@ algolia: {
 
 ![image-20210821230232837](https://img.kuizuo.cn/image-20210821230232837.png)
 
-填入到 `docusaurus.config.js` 中的 API KEY 是 **Search-Only API Key**
+填入到 `docusaurus.config.ts` 中的 API KEY 是 **Search-Only API Key**
 
 ```js
 themeConfig: {
@@ -69,8 +69,8 @@ jq-1.6
 接着在任意目录中创建 `.env` 文件，填入对应的 APPID 和 API KEY（这里是`Admin API Key`，当时我还一直以为是 Search API Key 坑了我半天 😭）
 
 ```js
-APPLICATION_ID = YOUR_APP_ID;
-API_KEY = YOUR_API_KEY;
+APPLICATION_ID = YOUR_APP_ID
+API_KEY = YOUR_API_KEY
 ```
 
 然后创建 `docsearch.json` 文件到项目目录下，其内容可以参考如下（将高亮部分替换成你的网站）
@@ -96,21 +96,8 @@ API_KEY = YOUR_API_KEY;
     "text": "article p, article li, article td:last-child"
   },
   "custom_settings": {
-    "attributesForFaceting": [
-      "type",
-      "lang",
-      "language",
-      "version",
-      "docusaurus_tag"
-    ],
-    "attributesToRetrieve": [
-      "hierarchy",
-      "content",
-      "anchor",
-      "url",
-      "url_without_anchor",
-      "type"
-    ],
+    "attributesForFaceting": ["type", "lang", "language", "version", "docusaurus_tag"],
+    "attributesToRetrieve": ["hierarchy", "content", "anchor", "url", "url_without_anchor", "type"],
     "attributesToHighlight": ["hierarchy", "content"],
     "attributesToSnippet": ["content:10"],
     "camelCaseAttributes": ["hierarchy", "content"],
@@ -126,20 +113,8 @@ API_KEY = YOUR_API_KEY;
     ],
     "distinct": true,
     "attributeForDistinct": "url",
-    "customRanking": [
-      "desc(weight.pageRank)",
-      "desc(weight.level)",
-      "asc(weight.position)"
-    ],
-    "ranking": [
-      "words",
-      "filters",
-      "typo",
-      "attribute",
-      "proximity",
-      "exact",
-      "custom"
-    ],
+    "customRanking": ["desc(weight.pageRank)", "desc(weight.level)", "asc(weight.position)"],
+    "ranking": ["words", "filters", "typo", "attribute", "proximity", "exact", "custom"],
     "highlightPreTag": "<span class='algolia-docsearch-suggestion--highlight'>",
     "highlightPostTag": "</span>",
     "minWordSizefor1Typo": 3,
@@ -161,7 +136,7 @@ API_KEY = YOUR_API_KEY;
 
 运行 docker 命令
 
-```sh
+```bash
 docker run -it --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)" algolia/docsearch-scraper
 ```
 
@@ -173,11 +148,10 @@ docker run -it --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)
 
 因为要确保项目成功部署后才触发，如果采用 vercel 部署可以按照如下触发条件。
 
-```yaml title='.github/workflows/docsearch.yml' 
+```yaml title='.github/workflows/docsearch.yml'
 name: docsearch
 
-on:
-  deployment
+on: deployment
 
 jobs:
   algolia:

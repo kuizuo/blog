@@ -83,10 +83,7 @@ console.log(JSON.stringify(modules[0].enumerateExports()[0]))
 注: **函数名以汇编中出现的为准**
 
 ```javascript
-const funcAddr = Module.findExportByName(
-  'libencryptlib.so',
-  '_ZN7MD5_CTX11MakePassMD5EPhjS0_',
-)
+const funcAddr = Module.findExportByName('libencryptlib.so', '_ZN7MD5_CTX11MakePassMD5EPhjS0_')
 // 返回的是函数地址  第二个参数根据汇编中为准
 console.log(funcAddr)
 
@@ -226,16 +223,14 @@ function stringToHex(str) {
 }
 
 function hexToBytes(hex) {
-  for (let bytes = [], c = 0; c < hex.length; c += 2)
-    bytes.push(parseInt(hex.substr(c, 2), 16))
+  for (let bytes = [], c = 0; c < hex.length; c += 2) bytes.push(parseInt(hex.substr(c, 2), 16))
   return bytes
 }
 
 function hexToString(hexStr) {
   let hex = hexStr.toString()
   let str = ''
-  for (let i = 0; i < hex.length; i += 2)
-    str += String.fromCharCode(parseInt(hex.substr(i, 2), 16))
+  for (let i = 0; i < hex.length; i += 2) str += String.fromCharCode(parseInt(hex.substr(i, 2), 16))
   return str
 }
 ```
@@ -394,9 +389,7 @@ let fputs = new NativeFunction(fputsAddr, 'int', ['pointer', 'pointer'])
 let fclose = new NativeFunction(fcloseAddr, 'int', ['pointer'])
 
 // 需要申请内存地址 (由于需要传入指针)
-let fileName = Memory.allocUtf8String(
-  '/data/data/com.xiaojianbang.app/xiaojianbang.txt',
-)
+let fileName = Memory.allocUtf8String('/data/data/com.xiaojianbang.app/xiaojianbang.txt')
 let openMode = Memory.allocUtf8String('w')
 let data = Memory.allocUtf8String('QQ24358757\n')
 
@@ -498,22 +491,13 @@ let symbols = Process.getModuleByName('libart.so').enumerateSymbols()
 let newStringUtf = null
 for (let i = 0; i < symbols.length; i++) {
   let symbol = symbols[i]
-  if (
-    symbol.name.indexOf('CheckJNI') == -1 &&
-    symbol.name.indexOf('NewStringUTF') != -1
-  ) {
+  if (symbol.name.indexOf('CheckJNI') == -1 && symbol.name.indexOf('NewStringUTF') != -1) {
     console.log(symbol.name, symbol.address)
     newStringUtf = symbol.address
   }
 }
-let newStringUtf_func = new NativeFunction(newStringUtf, 'pointer', [
-  'pointer',
-  'pointer',
-])
-let jstring = newStringUtf_func(
-  Java.vm.tryGetEnv().handle,
-  Memory.allocUtf8String('xiaojianbang'),
-)
+let newStringUtf_func = new NativeFunction(newStringUtf, 'pointer', ['pointer', 'pointer'])
+let jstring = newStringUtf_func(Java.vm.tryGetEnv().handle, Memory.allocUtf8String('xiaojianbang'))
 console.log(jstring)
 
 let envAddr = Java.vm.tryGetEnv().handle.readPointer()
@@ -531,9 +515,7 @@ console.log(cstr.readCString())
 
 ```javascript
 console.log(
-  Thread.backtrace(this.context, Backtracer.FUZZY)
-    .map(DebugSymbol.fromAddress)
-    .join('\n') + '\n',
+  Thread.backtrace(this.context, Backtracer.FUZZY).map(DebugSymbol.fromAddress).join('\n') + '\n',
 )
 ```
 
@@ -545,7 +527,7 @@ IDA -> Edit -> Plugins -> traceNatives，将会对当前 so 文件中所有函�
 
 使用
 
-```sh
+```bash
 frida-trace -UF -O C:\Users\zeyu\Desktop\libmfw_1644263290.txt
 ```
 
@@ -659,12 +641,7 @@ function hook_dlsym() {
     onLeave: function (retval) {
       let module = Process.findModuleByAddress(retval)
       if (module == null) return
-      console.log(
-        this.args1.readCString(),
-        module.name,
-        retval,
-        retval.sub(module.base),
-      )
+      console.log(this.args1.readCString(), module.name, retval, retval.sub(module.base))
     },
   })
 }
@@ -730,10 +707,7 @@ function hook_func() {
 }
 
 let dlopen = Module.findExportByName('libdl.so', 'dlopen') // 低版本安卓系统
-let android_dlopen_ext = Module.findExportByName(
-  'libdl.so',
-  'android_dlopen_ext',
-) // 高版本安卓系统
+let android_dlopen_ext = Module.findExportByName('libdl.so', 'android_dlopen_ext') // 高版本安卓系统
 //console.log(JSON.stringify(Process.getModuleByAddress(dlopen)));
 hook_dlopen(dlopen, 'libxiaojianbang.so', hook_func)
 hook_dlopen(android_dlopen_ext, 'libxiaojianbang.so', hook_func)
@@ -753,10 +727,7 @@ function main() {
     })
   }
   var dlopen = Module.findExportByName('libdl.so', 'dlopen')
-  var android_dlopen_ext = Module.findExportByName(
-    'libdl.so',
-    'android_dlopen_ext',
-  )
+  var android_dlopen_ext = Module.findExportByName('libdl.so', 'android_dlopen_ext')
   hook_dlopen(dlopen, 'libxiaojianbang.so', inlineHook)
   hook_dlopen(android_dlopen_ext, 'libxiaojianbang.so', inlineHook)
 
@@ -862,9 +833,8 @@ hook_pthread_create()
 ```javascript
 function showStacks() {
   console.log(
-    Thread.backtrace(this.context, Backtracer.ACCURATE)
-      .map(DebugSymbol.fromAddress)
-      .join('\n') + '\n',
+    Thread.backtrace(this.context, Backtracer.ACCURATE).map(DebugSymbol.fromAddress).join('\n') +
+      '\n',
   )
 }
 
@@ -926,9 +896,7 @@ function hook_native_addr(funcPtr, params = [], result = {}) {
     onEnter: function (args) {
       this.logs = []
       this.args = []
-      this.logs.push(
-        'call ' + module.name + '!' + ptr(funcPtr).sub(module.base),
-      )
+      this.logs.push('call ' + module.name + '!' + ptr(funcPtr).sub(module.base))
       for (let i = 0; i < params.length; i++) {
         let param = params[i]
         this.args.push(args[i])
@@ -982,13 +950,13 @@ github 地址：https://github.com/chame1eon/jnitrace
 
 ### 安装（进入到 frida 环境）
 
-```sh
+```bash
 pip install jnitrace
 ```
 
 ### 使用
 
-```sh
+```bash
 jnitrace -m attach -l <模块.so> <包名>
 ```
 
@@ -1011,17 +979,14 @@ jnitrace -m attach -l <模块.so> <包名>
 ```javascript
 function dump_so(so_name) {
   Java.perform(function () {
-    let currentApplication = Java.use(
-      'android.app.ActivityThread',
-    ).currentApplication()
+    let currentApplication = Java.use('android.app.ActivityThread').currentApplication()
     let dir = currentApplication.getApplicationContext().getFilesDir().getPath()
     let libso = Process.getModuleByName(so_name)
     console.log('[name]:', libso.name)
     console.log('[base]:', libso.base)
     console.log('[size]:', ptr(libso.size))
     console.log('[path]:', libso.path)
-    let file_path =
-      dir + '/' + libso.name + '_' + libso.base + '_' + ptr(libso.size) + '.so'
+    let file_path = dir + '/' + libso.name + '_' + libso.base + '_' + ptr(libso.size) + '.so'
     let file_handle = new File(file_path, 'wb')
     if (file_handle && file_handle != null) {
       Memory.protect(ptr(libso.base), libso.size, 'rwx')

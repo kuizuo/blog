@@ -12,9 +12,9 @@ stylelint 主要针对 css 样式进行格式化(包括css预处理器)，同时
 
 配置文件示例：
 
-```json title='.stylelintrc.json'
+```json title='.stylelintrc.json' icon='logos:stylelint'
 {
-  "extends": ["stylelint-config-recommended","stylelint-config-standard"],
+  "extends": ["stylelint-config-recommended", "stylelint-config-standard"],
   "rules": {
     "indentation": 4
   }

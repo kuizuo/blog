@@ -227,13 +227,13 @@ AI 写代码，用过都说好。
 
 像导入本地模块`fs`，却没有代码提示，想要有本地模块代码提示，最快捷的方法就是通过下面一行代码
 
-```shell
+```bash
 npm install @types/node
 ```
 
 但是如果你像上面那样，目录下没有`package.json`文件是肯定安装不上去的，这时候是需要初始化项目结构也就是执行下面的代码
 
-```shell
+```bash
 npm init
 或
 npm init -y
@@ -245,7 +245,7 @@ npm init -y
 
 现在，我的代码里有`jquery`代码，但是本地已有`jquery.js`文件，又不想安装`jquery`的模块，但是又要`jquery`的代码提示，这时候你就可以输入下面代码，就能看到对应的代码。
 
-```shell
+```bash
 npm install @types/jquery
 ```
 
@@ -265,7 +265,7 @@ npm install @types/jquery
 
 不妨试试
 
-```shell
+```bash
 npm install @types/express
 ```
 

@@ -18,7 +18,7 @@ description: 基于 Axios 封装 HTTP 类库，并发布到 npm 仓库中
 
 npm 安装
 
-```sh
+```bash
 npm i kz-http -S
 ```
 
@@ -29,7 +29,7 @@ import Http from 'kz-http'
 
 let http = new Http()
 
-http.get('https://www.example.com').then((res) => {
+http.get('https://www.example.com').then(res => {
   console.log(res)
 })
 ```
@@ -127,11 +127,11 @@ let http = new Http()
 
 // axios实例instance是公开的
 http.instance.interceptors.request.use(
-  (config) => {
+  config => {
     // 执行每条请求都要处理的操作
     return config
   },
-  (error) => {},
+  error => {},
 )
 ```
 
@@ -185,20 +185,19 @@ http.instance.interceptors.request.use(
 
 - 如果 npm 镜像必须是官方的，否则无法登录，镜像还原
 
-  ```sh
+  ```bash
   npm config set registry https://registry.npmjs.org/
   ```
 
   查看镜像配置地址
 
-  ```sh
+  ```bash
   npm get registry
   ```
 
 - 如果包有重名，那么就无法发布，就必须要要改名
 
-- 邮箱必须要验证（会接受一条下图邮箱），不然就会发布失败
-  ![image-20210826212258752](https://img.kuizuo.cn/image-20210826212258752.png)
+- 邮箱必须要验证（会接受一条下图邮箱），不然就会发布失败 ![image-20210826212258752](https://img.kuizuo.cn/image-20210826212258752.png)
 
 - **请勿随意删包，否则同名的包将需要 24 小时后才能发布（亲测）**
 

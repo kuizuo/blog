@@ -25,7 +25,7 @@ keywords: [mongodb, database]
 
 [`mongo (docker.com)`](https://hub.docker.com/_/mongo)
 
-```shell
+```bash
 docker pull mongo:latest
 
 mkdir /home/mongo/ # 创建本地数据库文件夹
@@ -96,7 +96,7 @@ oplogSize=2048
 
 ## 基本命令
 
-```shell
+```bash
 # 创建数据库
 use 数据库名
 

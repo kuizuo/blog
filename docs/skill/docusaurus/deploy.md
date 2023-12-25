@@ -29,7 +29,7 @@ authors: kuizuo
 
 这里我是借助了 [Github Action](https://github.com/marketplace) 来帮助我构建，构建记录可以在 [Actions · kuizuo/blog](https://github.com/kuizuo/blog/actions) 中查看。以下是我的配置文件
 
-```yaml title='.github/workflows/ci.yml'
+```yaml title='.github/workflows/ci.yml' icon='logos:github-actions'
 name: ci
 
 on:

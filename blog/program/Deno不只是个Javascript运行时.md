@@ -25,7 +25,7 @@ deno 刚出的时候就听闻了，传言 deno 是下一代 node.js。不过如�
 
 这里我选用 vscode 进行开发，安装[deno 官方插件](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno 'deno官方插件')。此时创建一个项目工程文件夹，打开 vscode，并创建 `.vscode/settings.json` 内容如下
 
-```json title='.vscode/settings.json'
+```json title='.vscode/settings.json' icon='logos:visual-studio-code'
 {
   "deno.enable": true,
   "deno.lint": true,
@@ -94,9 +94,7 @@ deno 则是自带代码格式化（`deno fmt`）、代码风格（`deno lint`）
 
 与 node 不同，使用 node 通常需要从 npm 官方包来下载并导，有 npm 这样的包管理器来统一管理这些包（package），我们通常称这种为中心化，而 deno 与 go 的做法很像，你可以将你的封装好的代码定义成一个包，并将其放在任何网络可访问的地方，比如 github，或是私有地址，然后通过网络读取文件的方式来导入，这种称为去中心化。
 
-:::tip
-
-node 也不一定要用 npm 来下载模块，也可以本地模块或者私有模块。
+:::tip node 也不一定要用 npm 来下载模块，也可以本地模块或者私有模块。
 
 :::
 
@@ -104,9 +102,7 @@ node 也不一定要用 npm 来下载模块，也可以本地模块或者私有�
 
 以下是 deno 官方远程导入的代码示例：
 
-**Command: deno run ./remote.ts**
-
-```typescript title='remote.ts'
+```typescript title='remote.ts' icon="logos:typescript-icon"
 import { add, multiply } from 'https://x.nest.land/ramda@0.27.0/source/index.js'
 
 function totalCost(outbound: number, inbound: number, tax: number): number {
@@ -132,13 +128,13 @@ console.log(totalCost(45, 27, 1.15))
 
 这里我准备了一段代码，并部署到我的站点上，你可以通过如下命令得到该代码的执行结果（如果你有安装 deno 的话），放心这段代码并无危害，就是一段简单的 console.log 输出。
 
-```powershell
+```bash
 deno run https://deno.kuizuo.cn/main.ts
 ```
 
 在第一次使用时下载并缓存代码，你可以通过
 
-```powershell
+```bash
 deno info http://deno.kuizuo.cn/main.ts
 ```
 
@@ -156,7 +152,7 @@ deno info 还可以查看 deno 的相关配置，默认缓存都设置在 C 盘�
 
 而 deno 也是采用这种这种方式，`no npm install`，`no package.json`，`no node_modules/` ，[使用 npm 包](https://deno.land/manual@v1.29.3/node/npm_specifiers#using-npm-packages-with-npm-specifiers '使用npm包')可以像下面这样，当你使用 deno run 时便会下载好依赖置全局缓存中。
 
-```typescript title="app.ts" {2}
+```typescript title="app.ts" {2} icon='logos:typescript-icon'
 // @deno-types="npm:@types/express@^4.17"
 import express from 'npm:express@^4.17'
 const app = express()
@@ -236,8 +232,6 @@ deno 相关的亮点我也差不多介绍完了，也许你对 deno 已经有一
 关于 deno 就暂且落下笔墨，不妨思考一个问题，node 火吗。
 
 作为 node 开发者，我肯定会说 node 火，不过更多是对 javascript 来说火。
-
-:::info 2022 State of JS [2022 State of JS](https://2022.stateofjs.com '2022 State of JS') 数据报告统计，看看 JavaScript 在 2022 年是如何发展的吧。:::
 
 如今 typescript 大势所趋，说 javascript 就等同于说 typescript，而 javascript 和 node 绑定已成事实，而前端也与 javascript 所绑定，如今的前端工程师要是不会 node，都不好意思说自己是个前端工程师。就现阶段看，没了 nodejs，前端技术得倒退十年（不夸张）。
 

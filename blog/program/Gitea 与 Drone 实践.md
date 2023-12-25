@@ -26,7 +26,7 @@ description: 使用 Gitea 搭建一个轻量级 git 私有仓库，并配置 Dro
 
 这里我选用 Docker 进行安装，安装文档可在[官方文档](https://docs.gitea.io/zh-cn/ '官方文档')中查看其他安装方式
 
-```yaml title='docker-compose.yml'
+```yaml title='docker-compose.yml' icon='logos:docker-icon'
 version: '3'
 
 networks:
@@ -138,7 +138,7 @@ docker logs runner
 
 这里就选用 [antfu/vitesse](https://github.com/antfu/vitesse 'antfu/vitesse') 作为演示。这里省略 clone 仓库的步骤。进入到自己的 gitea 仓库，然后添加 `.drone.yml` 文件，内容如下：
 
-```yaml
+```yaml title='.drone.yml' icon='logos:drone-icon'
 kind: pipeline
 type: docker
 name: ci
@@ -176,7 +176,7 @@ upload 则使用[appleboy/drone-scp](https://plugins.drone.io/plugins/scp 'apple
 
 由于每次构建可能需要删除原有的已部署的资源文件，那么可以使用 [appleboy/drone-ssh](https://plugins.drone.io/plugins/ssh) 插件来执行终端命令来删除，例如
 
-```yaml
+```yaml title='.drone.yml' icon='logos:drone-icon'
 kind: pipeline
 name: default
 
@@ -219,10 +219,6 @@ steps:
 ![image-20220928152725853](https://img.kuizuo.cn/image-20220928152725853.png)
 
 这时候只需要配置下 nginx，就能将页面展示到公网上，这里就不在这里赘述。当完成上述配置完毕后，每次只需要 pull request，drone 就会自动拉取 gitea 的代码，并开始执行`.drone.yml`中的任务。
-
-### 部署 nest 项目
-
-TODO。。。
 
 ## 参考文章
 

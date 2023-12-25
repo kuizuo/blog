@@ -6,6 +6,18 @@ import JuejinIcon from '@site/static/svg/juejin.svg'
 
 import styles from './styles.module.scss'
 
+export type Social = {
+  github?: string
+  twitter?: string
+  juejin?: string
+  csdn?: string
+  qq?: string
+  wx?: string
+  cloudmusic?: string
+  zhihu?: string
+  email?: string
+}
+
 function SocialLink({
   href,
   icon,
@@ -24,29 +36,21 @@ function SocialLink({
 }
 
 export default function SocialLinks({ ...prop }) {
-  const themeConfig = useThemeConfig() as ThemeConfig
+  const themeConfig = useThemeConfig() as ThemeConfig & { socials: Social }
 
-  const socials = themeConfig.socials as {
-    github: string
-    twitter: string
-    juejin: string
-    csdn: string
-    qq: string
-    wx: string
-    cloudmusic: string
-    zhihu: string
-    email: string
-  }
+  const socials = themeConfig.socials
 
   return (
     <div className={styles.social__links} {...prop}>
-      <SocialLink href={socials.github} title="gitub" icon="ri:github-line" />
-      <SocialLink href={socials.juejin} title="掘金" icon={<JuejinIcon />} />
-      <SocialLink href={socials.twitter} title="X" icon="ri:twitter-x-line" />
-      <SocialLink href={socials.qq} title="QQ" icon="ri:qq-line" />
-      <SocialLink href={socials.zhihu} title="知乎" icon="ri:zhihu-line" />
-      <SocialLink href={socials.email} title="Email" icon="ri:mail-line" />
-      <SocialLink href={socials.cloudmusic} title="Music" icon="ri:netease-cloud-music-line" />
+      {socials.github && <SocialLink href={socials.github} title="gitub" icon="ri:github-line" />}
+      {socials.juejin && <SocialLink href={socials.juejin} title="掘金" icon={<JuejinIcon />} />}
+      {socials.twitter && <SocialLink href={socials.twitter} title="X" icon="ri:twitter-x-line" />}
+      {socials.qq && <SocialLink href={socials.qq} title="QQ" icon="ri:qq-line" />}
+      {socials.zhihu && <SocialLink href={socials.zhihu} title="知乎" icon="ri:zhihu-line" />}
+      {socials.email && <SocialLink href={socials.email} title="Email" icon="ri:mail-line" />}
+      {socials.cloudmusic && (
+        <SocialLink href={socials.cloudmusic} title="Music" icon="ri:netease-cloud-music-line" />
+      )}
       <SocialLink href="/blog/rss.xml" title="Rss" icon="ri:rss-line" />
     </div>
   )

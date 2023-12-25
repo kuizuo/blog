@@ -5,14 +5,14 @@ title: 配置文件
 authors: kuizuo
 ---
 
-## docusaurus.config.js
+## docusaurus.config.ts
 
-`docusaurus.config.js` 位于你的网站的根目录，包含了你的站点的配置信息。
+`docusaurus.config.ts` 位于你的网站的根目录，包含了你的站点的配置信息。
 
 在这里可以修改 logo，站点名(title)，作者名，顶部的公告(announcementBar)，导航栏(navbar)，底部导航(footer)等等。
 
-```javascript title='docusaurus.config.js'
-const config = {
+```typescript title='docusaurus.config.ts' icon='logos:docusaurus'
+const config: Config = {
   title: '愧怍的小站',
   titleDelimiter: '-',
   url: 'https://kuizuo.cn',
@@ -21,7 +21,6 @@ const config = {
   organizationName: 'kuizuo',
   projectName: 'blog',
   tagline: '记录所学知识，领略编程之美',
-  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
   themeConfig: {
     image: 'img/logo.png',
     metadata: [
@@ -33,13 +32,12 @@ const config = {
     // ...
 }
 
-module.exports = config
-
+export default config
 ```
 
 同时绝大部分的配置信息都可以放在这里，例如搜索(algolia)，评论(giscus)，社交链接(socials)等等。这些配置都可以通过docusaurus内置的hook(useThemeConfig、useDocusaurusContext)来获取。
 
-完整的配置信息说明 [docusaurus.config.js | Docusaurus](https://docusaurus.io/zh-CN/docs/api/docusaurus-config)
+完整的配置信息说明 [docusaurus.config.ts | Docusaurus](https://docusaurus.io/zh-CN/docs/api/docusaurus-config)
 
 ## sidebars.js
 
@@ -63,17 +61,17 @@ module.exports = config
 
 ### 社交链接
 
-只需要在 `docusaurus.config.js` 中修改 socials 属性，替换成你的即可。
+只需要在 `docusaurus.config.ts` 中修改 socials 属性，替换成你的即可。
 
-```javascript title='docusaurus.config.js'
+```typescript title='docusaurus.config.ts' icon='logos:docusaurus'
 socials: {
-    github: 'https://github.com/kuizuo',
-    twitter: 'https://twitter.com/kuizuo',
-    juejin: 'https://juejin.cn/user/1565318510545901',
-    csdn: 'https://blog.csdn.net/kuizuo12',
-    qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
-    cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
-},
+  github: 'https://github.com/kuizuo',
+  twitter: 'https://twitter.com/kuizuo',
+  juejin: 'https://juejin.cn/user/1565318510545901',
+  csdn: 'https://blog.csdn.net/kuizuo12',
+  qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
+  cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
+}
 ```
 
 如果你还有其他社交链接，可以在这里添加对应的链接，然后在 `src/components/Hero.index.tsx` 中的 SocialLinks 组件中来配置新增或者删除社交链接图标。

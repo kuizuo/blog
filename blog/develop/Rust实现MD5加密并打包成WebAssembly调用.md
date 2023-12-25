@@ -21,7 +21,7 @@ keywords: [rust, wasm]
 
 下载 wasm-pack，用于将 rust 代码打包成 .wasm 文件
 
-```typescript
+```bash
 cargo install wasm-pack
 ```
 
@@ -29,13 +29,13 @@ cargo install wasm-pack
 
 ### 构建 rust lib
 
-```sh
- cargo new --lib hello-wasm
+```bash
+cargo new --lib hello-wasm
 ```
 
 将会创建 rust 库工程，并创建 `src/lib.rs`。修改为以下内容（先不必在意代码）
 
-```rust title='src/lib.rs'
+```rust title='src/lib.rs' icon='simple-icons:rust'
 extern crate wasm_bindgen;
 
 use wasm_bindgen::prelude::*;
@@ -54,7 +54,7 @@ pub fn greet(name: &str) {
 
 接着在 Cargo.toml 文件中添加 wasm-bindgen 依赖，`wasm-bindgen` 来提供 JavaScript 和 Rust 类型之间的桥梁，允许 JavaScript 使用字符串调用 Rust API，或调用 Rust 函数来捕获 JavaScript 异常。
 
-```toml title='Cargo.toml'
+```toml title='Cargo.toml' icon='logos:toml'
 [package]
 name = "hello-wasm"
 version = "0.1.0"
@@ -75,7 +75,7 @@ wasm-pack build
 
 WebAssembly 构建产物将会输出在 pkg 目录下，如下
 
-```sh
+```
 ├─pkg
 |  ├─.gitignore
 |  ├─hello_wasm.d.ts
@@ -89,7 +89,7 @@ WebAssembly 构建产物将会输出在 pkg 目录下，如下
 
 如果想当 npm 包发布的话，可以添加 —scope 参数，将会在 pkg 下生成 package.json 文件用于发布或当做一个 npm 包来使用，这样也可以在前端工程中直接当做一个模块来导入使用。
 
-```rust
+```bash
 wasm-pack build --scope mynpmusername
 ```
 
@@ -103,7 +103,7 @@ wasm-pack build --scope mynpmusername
 
 由于上面我们已经将其打包成了一个 npm 包，只需要将配置好 package.json 的依赖即可，本地的话可通过下方格式，将 pkg 目录更改为 hello-wasm，并放置在根目录下。
 
-```rust
+```json title='package.json' icon='logos:nodejs-icon'
   "dependencies": {
     "hello-wasm": "file:./hello-wasm"
   },
@@ -147,7 +147,7 @@ fn main() {
 
 然后将这一部分的代码替换到一开始的示例中。
 
-```rust title='lib.rs'
+```rust title='lib.rs' icon='simple-icons:rust'
 extern crate wasm_bindgen;
 extern crate md5;
 

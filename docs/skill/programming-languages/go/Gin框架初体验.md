@@ -16,7 +16,7 @@ keywords: [go, gin]
 
 打开命令行窗口，输入
 
-```sh
+```bash
 go get -u github.com/gin-gonic/gin
 ```
 
@@ -58,7 +58,7 @@ func main() {
 
 这边使用的是 fresh，还有其他的热加载工具，例如 Air，bee，gin 等等
 
-```sh
+```bash
 go get github.com/pilu/fresh
 ```
 
@@ -470,7 +470,7 @@ r.POST("/upload", func(c *gin.Context) {
 
 使用 curl，即可上传文件
 
-```sh
+```bash
 curl -X POST http://localhost:8080/upload \
   -F "file=@/Users/appleboy/test.zip" \
   -H "Content-Type: multipart/form-data"

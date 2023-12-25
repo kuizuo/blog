@@ -10,9 +10,9 @@ keywords: [git]
 
 <!-- truncate -->
 
-核心命令 
+核心命令
 
-```
+```bash
 git remote set-url --add origin 远程仓库地址
 ```
 

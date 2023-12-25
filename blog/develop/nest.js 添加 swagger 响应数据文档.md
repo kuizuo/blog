@@ -19,7 +19,7 @@ image: https://img.kuizuo.cn/202307180126751.png
 
 此时要为这个控制器添加响应数据文档的话，只需要先声明 数据的类型，然后通过@ApiResponse 装饰器添加到该控制器上即可，举例说明
 
-```typescript title="todo.entity.ts"
+```typescript title="todo.entity.ts" icon='logos:nestjs'
 @Entity('todo')
 export class TodoEntity {
   @Column()
@@ -32,7 +32,7 @@ export class TodoEntity {
 }
 ```
 
-```typescript title="todo.controller.ts"
+```typescript title="todo.controller.ts" icon='logos:nestjs'
   @Get()
   @ApiOperation({ summary: '获取Todo详情' })
   @ApiResponse({ type: [TodoEntity] })
@@ -55,7 +55,7 @@ export class TodoEntity {
 
 如果你想要自定义返回的数据，而不是用 entity 对象的话，可以按照如下定义
 
-```typescript title="todo.model.ts"
+```typescript title="todo.model.ts" icon='logos:nestjs'
 export class Todo {
   @ApiProperty({ description: 'todo' })
   value: string
@@ -106,14 +106,11 @@ export class ResOp<T = any> {
 
 接着在定义一个拦截器，将 data 数据用 ResOp 包装，如下拦截器代码如下
 
-```typescript title="transform.interceptor.ts"
+```typescript title="transform.interceptor.ts" icon='logos:nestjs'
 export class TransformInterceptor implements NestInterceptor {
   constructor(private readonly reflector: Reflector) {}
 
-  intercept(
-    context: ExecutionContext,
-    next: CallHandler<any>,
-  ): Observable<any> {
+  intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> {
     return next.handle().pipe(
       map(data => {
         const response = context.switchToHttp().getResponse<FastifyReply>()
@@ -137,7 +134,7 @@ export class TransformInterceptor implements NestInterceptor {
 
 这里需要先自定义一个装饰器，命名为 `ApiResult`，完整代码如下
 
-```typescript title="api-result.decorator.ts"
+```typescript title="api-result.decorator.ts" icon='logos:nestjs'
 import { Type, applyDecorators, HttpStatus } from '@nestjs/common'
 import { ApiExtraModels, ApiResponse, getSchemaPath } from '@nestjs/swagger'
 

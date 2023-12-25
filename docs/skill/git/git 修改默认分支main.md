@@ -20,13 +20,13 @@ GitHub 官方表示，从 2020 年 10 月 1 日起，在该平台上创建的所
 
 - 修改默认分支为 `main` 分支
 
-```
+```bash
 git config --global init.defaultBranch main
 ```
 
 - 修改当前项目的分支为 `main`
 
-```
+```bash
 git branch -M main
 ```
 
@@ -43,4 +43,3 @@ Git 版本为 **v2.28** 或更高 查看版本 `git --version`
 ```
 git config core.ignorecase false
 ```
-

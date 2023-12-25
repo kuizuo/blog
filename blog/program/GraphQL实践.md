@@ -93,7 +93,7 @@ REST API 构建在请求方法（method）和端点（endpoint）之间的连接
 
 从上面查询案例中其实就可以发现，我只需要在 person 中写上想要获取的字段，GraphQL 便会返回带有该字段的数据。避免了返回结果中不必要的数据字段。
 
-```javascript
+```graphql
 {
 	person{
 		# 写上想获取的字段
@@ -155,7 +155,7 @@ npm i @nestjs/graphql @nestjs/apollo graphql apollo-server-express
 
 **修改 app.module.ts**
 
-```typescript title='app.module.ts'
+```typescript title='app.module.ts' icon='logos:nestjs'
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
@@ -175,7 +175,7 @@ export class AppModule {}
 
 设置了`autoSchemaFile: true` ，nest.js 将会自动搜索整个项目所有以 `.resolver.ts` 为后缀的文件，将其解析为 `schema.gql` 比如说创建`app.resolver.ts`
 
-```typescript title='app.resolver.ts'
+```typescript title='app.resolver.ts' icon='logos:nestjs'
 import { Resolver, Query } from '@nestjs/graphql'
 
 @Resolver()
@@ -238,7 +238,7 @@ UPDATE src/app.module.ts (643 bytes)
 
 ![](https://img.kuizuo.cn/image_XemqTcfz_D.png)
 
-```typescript title='blog.resolver.ts'
+```typescript title='blog.resolver.ts' icon='logos:nestjs'
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql'
 import { BlogService } from './blog.service'
 import { Blog } from './entities/blog.entity'
@@ -288,11 +288,11 @@ export class BlogResolver {
 
 安装依赖
 
-```typescript
+```bash
 pnpm install @nestjs/typeorm typeorm sqlite3
 ```
 
-```typescript title='app.module.ts'
+```typescript title='app.module.ts' icon='logos:nestjs'
 import { Module } from '@nestjs/common'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
@@ -326,7 +326,7 @@ export class AppModule {}
 
 将 `blog.entity.ts` 改成实体类，代码为
 
-```typescript title='blog.entity.ts'
+```typescript title='blog.entity.ts' icon='logos:nestjs'
 import { ObjectType, Field } from '@nestjs/graphql'
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm'
 
@@ -367,17 +367,15 @@ export class Blog {
 
 > Thus, you won't have to struggle with @Field decorators scattered throughout the code.
 
-因此，您不必为分散在代码中的@Field 装饰符而烦恼。
+因此，您不必为分散在代码中的 `@Field` 装饰符而烦恼。
 
 :::
 
-:::warning `@nestjs/graphql` 会将 typescript 的 number 类型视为 Float，所以需要转成 Int 类型，即 `@Field(() => Int)`
+`@nestjs/graphql` 会将 typescript 的 number 类型视为 Float，所以需要转成 Int 类型，即 `@Field(() => Int)`
 
-:::
+在 BlogService 编写 CRUD 数据库业务代码，并在 dto 编写参数效验代码，这里简单暂时部分代码。
 
-为 BlogService 编写 CRUD 数据库业务代码，并在 dto 编写参数效验代码，这里简单暂时部分代码。
-
-```typescript title='blog.service.ts'
+```typescript title='blog.service.ts' icon='logos:nestjs'
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
@@ -416,7 +414,7 @@ export class BlogService {
 }
 ```
 
-```typescript title='create-blog.input.ts'
+```typescript title='create-blog.input.ts' icon='logos:nestjs'
 import { InputType, Field } from '@nestjs/graphql'
 
 @InputType()
@@ -463,7 +461,7 @@ Strapi 官方提供 [GraphQL 插件](https://market.strapi.io/plugins/@strapi-pl
 
 strapi 安装
 
-```javascript
+```bash
 npm install @strapi/plugin-graphql
 ```
 
@@ -497,13 +495,13 @@ npm install @strapi/plugin-graphql
 
 由于 [Nuxt Strapi](https://strapi.nuxtjs.org/ 'Nuxt Strapi') 提供 [useStrapiGraphQL](https://strapi.nuxtjs.org/usage#usestrapigraphql 'useStrapiGraphQL') 可以非常方便是在客户端调用 GraphQL 服务。
 
-```html
+```vue
 <script setup lang="ts">
-  const route = useRoute()
-  const graphql = useStrapiGraphQL()
+const route = useRoute()
+const graphql = useStrapiGraphQL()
 
-  // Option 1: use inline query
-  const restaurant = await graphql(`
+// Option 1: use inline query
+const restaurant = await graphql(`
   query {
     restaurant(id: ${route.params.id}) {
       data {
@@ -516,8 +514,8 @@ npm install @strapi/plugin-graphql
   }
 `)
 
-  // Option 2: use imported query
-  const restaurant = await graphql(query, { id: route.params.id })
+// Option 2: use imported query
+const restaurant = await graphql(query, { id: route.params.id })
 </script>
 ```
 

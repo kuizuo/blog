@@ -18,7 +18,7 @@ keywords: [docker]
 
 ## linux 查找最大占用空间的文件
 
-```sh
+```bash
 # 进入根目录
 cd /
 # 查看根目录下每个文件夹的大小
@@ -29,7 +29,7 @@ du -sh *
 
 或使用下列命令（会稍微需要一些时间，建议先使用上面命令来缩小目录范围）
 
-```sh
+```bash
 # Linux中查找当前目录下占用空间最大的前10个文件或文件夹
 du -am | sort -nr | head -n 10
 ```
@@ -57,7 +57,7 @@ du -d1 -h /var/lib/docker/containers | sort -h
 
 结果如下
 
-```sh
+```bash
 [root@localhost /]# du -d1 -h /var/lib/docker/containers | sort -h
 93G     /var/lib/docker/containers
 93G     /var/lib/docker/containers/f603a98f79874bca0e075ec1fcb0ec6866555832a4678631e7dffa7f34297281
@@ -75,7 +75,7 @@ du -d1 -h /var/lib/docker/containers | sort -h
 
 #### 日志清理脚本 clean_docker_log.sh
 
-```sh
+```bash
 #!/bin/sh
 echo "======== start clean docker containers logs ========"
 
@@ -112,7 +112,7 @@ nginx:
 
 新建/etc/docker/daemon.json，若有就不用新建了。添加 log-dirver 和 log-opts 参数，样例如下：
 
-```sh
+```bash
 # vim /etc/docker/daemon.json
 
 {
@@ -122,10 +122,9 @@ nginx:
 
 ```
 
-max-size=500m，意味着一个容器日志大小上限是 500M，
-max-file=3，意味着一个容器有三个日志，分别是 id+.json、id+1.json、id+2.json。
+max-size=500m，意味着一个容器日志大小上限是 500M，max-file=3，意味着一个容器有三个日志，分别是 id+.json、id+1.json、id+2.json。
 
-```sh
+```bash
 # 重启docker守护进程
 
 systemctl daemon-reload

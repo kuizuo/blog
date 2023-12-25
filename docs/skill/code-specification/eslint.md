@@ -22,7 +22,7 @@ ESLint 是一种用于识别和报告 ECMAScript/JavaScript 代码中发现的�
 
 - 开启代码保存时自动执行 ESLint 修复功能(全局设置)
 
-```
+```json title='.vscode/settings.json' icon='logos:visual-studio-code'
   "editor.codeActionsOnSave": {
     "source.fixAll": false,
     "source.fixAll.eslint": true,
@@ -32,7 +32,7 @@ ESLint 是一种用于识别和报告 ECMAScript/JavaScript 代码中发现的�
 
 - 工作区示例如下
 
-```json title='.vscode/settings.json'
+```json title='.vscode/settings.json' icon='logos:eslint'
 {
   "prettier.enable": false,
   "editor.formatOnSave": false,

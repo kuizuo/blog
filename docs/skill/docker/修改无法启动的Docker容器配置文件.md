@@ -22,8 +22,7 @@ keywords: [docker, elasticsearch]
 
 添加了下列两个参数
 
--Xms16g
--Xmx16g
+-Xms16g -Xmx16g
 
 然后重启容器，就发现容器怎么也启动不了，然后咋一看，配置文件搞错了，设置内存的应该是`jvm.options`这个配置文件
 
@@ -33,7 +32,7 @@ keywords: [docker, elasticsearch]
 
 我当时的想法是这样的，容器一启动肯定不会立马挂掉，至少会有个几秒，我能不能通过一系列的命令进入容器然后立马修改文件，想法是挺好，可当 vim 编辑文件的，我又改怎么通过进入编辑，保存退出编辑。于是就果断放弃，翻看自己之前写过的 Docker 笔记 ，发现。有一个命令`docker cp 容器id:容器内路径 宿主机路径`从容器内拷贝文件到宿主机上，于是找到 elasticsearch 的配置文件路径`/usr/share/elasticsearch/config`，我的容器名字
 
-```sh
+```bash
 docker cp elasticsearch:/usr/share/elasticsearch/config/elasticsearch.yml .
 vi elasticsearch.yml
 # 编辑文件
@@ -51,7 +50,7 @@ docker start elasticsearch
 
 如果已经新建过容器的话，找到**jvm.options**这个文件
 
-```sh
+```bash
 [root@localhost /]# find /var/lib/docker/ -name jvm.options
 /var/lib/docker/overlay2/1f06b1e87d0fd473cc910d8689add0638f1ac36676d92f92dc03b17e65bf7dae/diff/usr/share/elasticsearch/config/jvm.options
 /var/lib/docker/overlay2/d20c175dffdc80467dbce39d4a5bc6dc9f7ff239564a8ee1ac8c4bcfdd9a461e/merged/usr/share/elasticsearch/config/jvm.options

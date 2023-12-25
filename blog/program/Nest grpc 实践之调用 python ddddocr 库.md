@@ -31,7 +31,7 @@ image: https://img.kuizuo.cn/202307290823586.png
 
 首先，在 nest 中 grpc 是以微服务的方式启动的，从代码上也就 3 行便可实现。
 
-```jsx
+```typescript title='main.ts' icon='logos:nestjs'
 const app = await NestFactory.create(AppModule)
 
 app.connectMicroservice <
@@ -91,9 +91,7 @@ await app.startAllMicroservices()
 
 protobuf 对于数据传输的优点有很多，如 **支持流式传输，不过这就不是本文所述的内容了。总之你只要知道 grpc 性能高的原因就是因为 protobuf。**
 
-首先来看 `hero.proto` 这个文件的内容
-
-```protobuf
+```protobuf title='hero.proto' icon='vscode-icons:file-type-protobuf'
 syntax = "proto3";
 
 package hero;
@@ -135,7 +133,7 @@ message Hero {
 
 ### protobuf 定义
 
-```protobuf
+```protobuf title='ocr.proto' icon='vscode-icons:file-type-protobuf'
 syntax = "proto3";
 
 package ocr;
@@ -162,7 +160,7 @@ message CharacterReply {
 
 由于 nest 作为客户端，事实上示例部分的很多代码都无关了，就比如 main.ts 中用于启动 gRPC 服务的代码，都可以注释掉，因为在这里我们并不打算将 nest 作为服务端。
 
-```typescript
+```typescript title='main.ts' icon='logos:nestjs'
 // app.connectMicroservice<MicroserviceOptions>(grpcClientOptions);
 // await app.startAllMicroservices();
 ```
@@ -185,7 +183,7 @@ client: ClientGrpc
 
 有了这个 client 就能够获取 ocrService 了，完整 ocr.controller.ts 代码如下
 
-```typescript
+```typescript title='ocr.controller.ts' icon='logos:nestjs'
 import { Body, Controller, OnModuleInit, Post } from '@nestjs/common'
 import { Client, ClientGrpc } from '@nestjs/microservices'
 import { Observable } from 'rxjs'
@@ -250,7 +248,7 @@ python3 -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. ocr.proto
 
 不过要搞清流程，还要是在意这些文件便可。其中在 `ocr_pb2_grpc.py` 文件中，你会找到 OCRServicer 类的接口定义。
 
-```python
+```python title='ocr_pb2_grpc.py' icon='logos:python'
 class OCRServicer(object):
     """Missing associated documentation comment in .proto file."""
 
@@ -267,7 +265,7 @@ class OCRServicer(object):
 
 最终完整的 [server.py](http://server.py) 内容如下
 
-```python
+```python title='server.py' icon='logos:python'
 from concurrent import futures
 import time
 

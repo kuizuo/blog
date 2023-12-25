@@ -21,7 +21,7 @@ Waline：需要搭建后端服务与数据库服务，提供评论与浏览量�
 2. **[giscus](https://github.com/apps/giscus) app 已安装**否则访客将无法评论和回应。
 3. **Discussions** 功能已[在你的仓库中启用](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository)。
 
-本博客已经内置好评论组件 [src/component/Comment](https://github.com/kuizuo/blog/blob/main/src/components/Comment/index.tsx)，所以只需要在 `docusaurus.config.js` 中设置 giscus 的配置即可。
+本博客已经内置好评论组件 [src/component/Comment](https://github.com/kuizuo/blog/blob/main/src/components/Comment/index.tsx)，所以只需要在 `docusaurus.config.ts` 中设置 giscus 的配置即可。
 
 ### 配置 giscus
 
@@ -46,9 +46,9 @@ Waline：需要搭建后端服务与数据库服务，提供评论与浏览量�
 ></script>
 ```
 
-由于我在 `src/component/Comment` 组件中做了配置合并，并且支持主题变化、国际化。因此，你只需要复制 `data-repo`, `data-repo-id`, `data-category` 和 `data-category-id` 填写到 `docusaurus.config.js` 中即可，以下是我的配置文件。
+由于我在 `src/component/Comment` 组件中做了配置合并，并且支持主题变化、国际化。因此，你只需要复制 `data-repo`, `data-repo-id`, `data-category` 和 `data-category-id` 填写到 `docusaurus.config.ts` 中即可，以下是我的配置文件。
 
-```javascript title='docusaurus.config.js'
+```javascript title='docusaurus.config.ts' icon='logos:docusaurus'
 giscus: {
   repo: 'kuizuo/blog',
   repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=',

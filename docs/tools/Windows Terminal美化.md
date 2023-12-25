@@ -60,13 +60,13 @@ win + R 输入 `wt` 即可启动 Terminal
 
 设置组权限，不然安装不了所需的模块
 
-```shell
+```bash
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 下载`oh-my-posh` 和`posh-git` 这边估计也要翻墙，不然大概率下载不了。
 
-```shell
+```bash
 Install-Module oh-my-posh -Scope CurrentUser
 Install-Module posh-git -Scope CurrentUser
 Install-Module Get-ChildItemColor -Scope CurrentUser
@@ -78,7 +78,7 @@ Install-Module Get-ChildItemColor -Scope CurrentUser
 
 下载完毕输入下方命令 打开预览主题
 
-```shell
+```bash
 Get-PoshThemes
 ```
 
@@ -88,7 +88,7 @@ Get-PoshThemes
 
 临时切换某个主题
 
-```shell
+```bash
 Set-PoshPrompt jandedobbeleer
 ```
 
@@ -104,7 +104,7 @@ notepad $PROFILE
 
 添加下方代码并保存，重启 Terminal 即可生效
 
-```shell
+```bash
 Import-Module Get-ChildItemColor
 $env:PYTHONIOENCODING="utf-8"
 Import-Module posh-git
@@ -282,7 +282,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 然后将设置主题的命令 改为 主题名 比如
 
-```shell
+```bash
  Set-PoshPrompt kuizuo
 ```
 

@@ -88,7 +88,7 @@ tRPC 可以作为 REST/GraphQL 的替代品，如果前端与后端共享代码�
 
 这里以 Next.js 的目录结构而定。创建 `server/trpc.ts`，如下代码。分别导出 router, middleware, procedure
 
-```typescript title='server/trpc.ts'
+```typescript title='server/trpc.ts' icon='logos:nextjs-icon'
 import { initTRPC } from '@trpc/server'
 
 const t = initTRPC.create()
@@ -100,7 +100,7 @@ export const publicProcedure = t.procedure
 
 创建项目(根)路由文件 `pages/api/trpc/[trpc].ts`
 
-```typescript title='server/trpc.ts'
+```typescript title='server/trpc.ts' icon='logos:nextjs-icon'
 import * as trpc from '@trpc/server'
 import { publicProcedure, router } from './trpc'
 
@@ -117,7 +117,7 @@ export type AppRouter = typeof appRouter
 
 创建 `utils/trpc.ts` 文件，代码如下
 
-```typescript title='utils/trpc.ts'
+```typescript title='utils/trpc.ts' icon='logos:nextjs-icon'
 import { httpBatchLink } from '@trpc/client'
 import { createTRPCNext } from '@trpc/next'
 import type { AppRouter } from '../pages/api/trpc/[trpc]'
@@ -153,7 +153,7 @@ export const trpc = createTRPCNext<AppRouter>({
 
 在 `_app.tsx` 包装一下
 
-```typescript title='_app.tsx'
+```typescript title='_app.tsx' icon='logos:nextjs-icon'
 import type { AppType } from 'next/app'
 import { trpc } from '../utils/trpc'
 
@@ -236,7 +236,7 @@ tRPC 同样也支持 post 请求，例如
 
 服务端代码
 
-```typescript title='server/trpc.ts'
+```typescript title='server/trpc.ts' icon='logos:nextjs-icon'
 const appRouter = router({
   createUser: publicProcedure.input(z.object({ name: z.string() })).mutation(req => {
     const user: User = {
@@ -250,7 +250,7 @@ const appRouter = router({
 
 客户端代码
 
-```typescript title='pages/index.tsx'
+```typescript title='pages/index.tsx' icon='logos:nextjs-icon'
 export default function IndexPage() {
   const mutation = trpc.createUser.useMutation()
 
@@ -313,7 +313,7 @@ tRPC 针对 react 项目的查询主要依赖于 [@tanstack/react-query](https:/
 
 ![](https://img.kuizuo.cn/image_8BUcBPK8In.png)
 
-```shell
+```bash
 pnpm create t3-app@latest
 ```
 
@@ -325,13 +325,13 @@ pnpm create t3-app@latest
 
 此时安装完先别急着 pnpm run dev 启动项目，首先执行
 
-```shell
+```bash
 npx prisma db push
 ```
 
 运行结果如下
 
-```shell
+```bash
 Environment variables loaded from .env
 Prisma schema loaded from prisma schema.prisma
 Datasource "db": SQLite database "db.sqlite" at "file:./db.sqlite"
@@ -416,7 +416,7 @@ create-t3-app 默认使用的 sqlite 数据库，优点就是你无需安装任�
 
 将会创建 `Account` `Example` `Session` `User` `Verification Token` 表，这里需要教你一个命令
 
-```shell
+```bash
 npx prisma studio
 ```
 
@@ -486,14 +486,14 @@ prisma 不是本文重点，篇幅略少，但是作为 Typeorm 的长期使用�
 
 server/auth.ts 中 导入
 
-```typescript title='server/auth.ts'
+```typescript title='server/auth.ts' icon='logos:nextjs-icon'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GithubProvider from 'next-auth/providers/github'
 ```
 
 并在 options 中设置好 providers，如下
 
-```typescript title='server/auth.ts'
+```typescript title='server/auth.ts' icon='logos:nextjs-icon'
 export const authOptions: NextAuthOptions = {
   callbacks: {
     session({ session, user }) {
@@ -547,7 +547,7 @@ export const authOptions: NextAuthOptions = {
 
 不过要注意，Vercel 并不提供文件读写操作，即无法实现数据存储，因此你如果需要提供数据读取的操作，那么普通需要一个远程的数据库服务，将 DATABASE_URL 环境变量替换成线上地址。如
 
-```
+```title='env'
 DATABASE_URL=postgresql://myuser:mypassword@localhost:5432/mydb
 ```
 

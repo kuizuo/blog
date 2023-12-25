@@ -50,7 +50,7 @@ description: 搭建 GitLab 代码管理仓库，用于管理代码
 
 进入控制台（进入要稍等一段时间）
 
-```sh
+```bash
 sudo gitlab-rails console
 ```
 
@@ -70,7 +70,7 @@ irb(main):001:0>
 
 输入如下代码
 
-```sh
+```bash
 u=User.find(1)
 u.password='a12345678'
 u.password_confirmation = 'a12345678'
@@ -79,7 +79,7 @@ u.save!
 
 输出结果
 
-```sh
+```bash
 irb(main):001:0> u=User.find(1)
 => #<User id:1 @root>
 irb(main):002:0> u.password='a12345678'
@@ -93,7 +93,7 @@ irb(main):005:0>
 
 最后输入`exit`退出控制台，然后输入下方代码重启 gitlab，密码就设置完毕了
 
-```sh
+```bash
 gitlab-ctl restart
 ```
 
@@ -153,7 +153,7 @@ gitlab 就会通过 letsencrypt 自动签发免费的 HTTPS 证书，等证书�
 
 如果上面的操作的话，可能会导致 gitlab 的 nginx 无法启动（原因应该是修改了 gitlab 自带的 nginx 服务，或者与自带的冲突）。修改`/opt/gitlab/sv/nginx/run`
 
-```sh
+```bash
 exec chpst -P /opt/gitlab/embedded/sbin/nginx -p /var/opt/gitlab/nginx
 # 改为
 exec chpst -P /opt/gitlab/embedded/sbin/gitlab-web -p /var/opt/gitlab/nginx
@@ -161,7 +161,7 @@ exec chpst -P /opt/gitlab/embedded/sbin/gitlab-web -p /var/opt/gitlab/nginx
 
 重启 gitlab
 
-```sh
+```bash
 gitlab-ctl start
 ```
 

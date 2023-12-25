@@ -14,7 +14,7 @@ keywords: [frida, app, hook]
 
 #### 安装 virtualenvwrapper
 
-```sh
+```bash
 pip install virtualenvwrapper-win -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
@@ -26,7 +26,7 @@ pip install virtualenvwrapper-win -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 `mkvirtualenv --python=python版本路径 环境名`
 
-```sh
+```bash
 mkvirtualenv --python=E:\Python37\python.exe py37
 mkvirtualenv --python=E:\Python38\python.exe frida
 ```
@@ -35,7 +35,7 @@ mkvirtualenv --python=E:\Python38\python.exe frida
 
 #### 进入虚拟环境
 
-```sh
+```bash
 workon  #列出所有虚拟环境
 
 workon 环境名  #进入对应名字下的虚拟环境
@@ -43,13 +43,13 @@ workon 环境名  #进入对应名字下的虚拟环境
 
 #### 退出虚拟环境
 
-```sh
+```bash
 deactivate
 ```
 
 ### 删除虚拟环境（必须先退出虚拟环境内部才能删除当前虚拟环境）
 
-```sh
+```bash
 rmvirtualenv 虚拟环境名称
 ```
 
@@ -57,7 +57,7 @@ rmvirtualenv 虚拟环境名称
 
 #### 查看虚拟环境中安装的包：
 
-```sh
+```bash
 pip freeze
 
 pip list
@@ -65,13 +65,13 @@ pip list
 
 #### 收集当前环境中安装的包及其版本：
 
-```sh
+```bash
 pip freeze > requirements.txt
 ```
 
 #### 在部署项目的服务器中安装项目使用的模块：
 
-```sh
+```bash
 pip install -r requirements.txt
 ```
 
@@ -83,13 +83,13 @@ github 下载地址: [frida/frida](https://github.com/frida/frida)
 
 ### 安装
 
-```sh
+```bash
 pip install frida-tools  # 会自动帮你下载Frida 最新版
 ```
 
 #### 安装指定版本
 
-```sh
+```bash
 pip install frida==版本号
 ```
 
@@ -99,13 +99,13 @@ pip install frida==版本号
 
 访问 https://github.com/frida/frida/releases/tag/ + frida 版本号，找到 python3-frida-tools-版本号，即 frida-tools 版本号
 
-```sh
+```bash
 pip install frida-tools==【frida-tools版本号】 # 无【】
 ```
 
 #### 查看版本号，验证是否安装成功
 
-```sh
+```bash
 frida --v
 ```
 
@@ -138,7 +138,7 @@ fridaserver 与 frida 版本需要匹配，和 frida-tools 一样，访问 https
 
 文件名的格式为：`frida-server-(version)-(platform)-(cpu).xz`，需要下载的安卓的也就是`frida-server-15.1.14-android-arm64.xz`， **解压后**将文件 push 到手机内`/data/local/tmp/`下，并重命名 fsarm64
 
-```sh
+```bash
 adb push C:\Users\kuizuo\Desktop\frida-server-15.1.14-android-arm64 /data/local/tmp/fsarm64
 
 adb shell
@@ -151,7 +151,7 @@ chmod 777 fsarm64
 
 #### 使用
 
-```sh
+```bash
 # CMD 手机端
 adb shell
 su
@@ -438,7 +438,9 @@ for (const class$ of classes) {
 ```javascript
 function showStack() {
   Java.perform(function () {
-    console.log(Java.use('android.util.Log').getStackTraceString(Java.use('java.lang.Throwable').$new()))
+    console.log(
+      Java.use('android.util.Log').getStackTraceString(Java.use('java.lang.Throwable').$new()),
+    )
   })
 }
 ```
@@ -482,7 +484,10 @@ RequestUtil.paraMap.overload('java.util.Map').implementation = function (a) {
 ```javascript
 let current_application = Java.use('android.app.ActivityThread').currentApplication()
 let context = current_application.getApplicationContext()
-let path = Java.use('android.content.ContextWrapper').$new(context).getExternalFilesDir('Download').toString()
+let path = Java.use('android.content.ContextWrapper')
+  .$new(context)
+  .getExternalFilesDir('Download')
+  .toString()
 console.log(path) // 获取app的私有空间 /storage/emulated/0/Android/data/包名/files/Download
 let file = new File(path + '/test.txt', 'w')
 file.write('内容')
@@ -618,7 +623,7 @@ jar 包: android\SDK\build-tools\sdk 版本\lib\dx.jar
 
 #### 使用
 
-```sh
+```bash
 dx --dex --output=C:\Users\zeyu\Desktop\com\output.dex C:\Users\zeyu\Desktop\com\*
 ```
 
@@ -640,13 +645,13 @@ smali 将 smali 编译成 dex
 
 反编译 dex
 
-```sh
+```bash
 java -jar baksmali-2.5.2.jar d classes.dex # 将会生成out的文件夹
 ```
 
 回编译 dex
 
-```sh
+```bash
 java -jar smali-2.5.2.jar a out # 将会生成out.dex文件
 ```
 
@@ -697,7 +702,7 @@ chmod 777 fiarm64
 
 前提，hook 的 js 脚本也移动到 fiarm64 相同路径或指定路径。
 
-```sh
+```bash
 ./fiarm64 -n 包名 -s 脚本.js
 ./fiarm64 -p pid -s 脚本.js # ps -A 可查看pid
 ```
@@ -716,12 +721,12 @@ abd、aapt、jarsigner、apksigner、apktool（这些都需要添加到环境变
 
 使用到 objection patchapk 命令，选项如下
 
-| 选项                    | 例子          | 功能                                                     |
-| ----------------------- | ------------- | -------------------------------------------------------- |
-| -s xxx.apk              | -s xxx.apk    | 指定 apk 文件                                            |
-| -a so 版本              | -a arm64-v8a  | 指定安卓 so 版本                                         |
-| -V frida-gadget 版本号  | -V 15.1.14    | 指定 frida-gadget 版本号，默认最新                       |
-| -d, –enable-debug       | -d            | 是否允许调试                                             |
+| 选项 | 例子 | 功能 |
+| --- | --- | --- |
+| -s xxx.apk | -s xxx.apk | 指定 apk 文件 |
+| -a so 版本 | -a arm64-v8a | 指定安卓 so 版本 |
+| -V frida-gadget 版本号 | -V 15.1.14 | 指定 frida-gadget 版本号，默认最新 |
+| -d, –enable-debug | -d | 是否允许调试 |
 | -c, –gadget-config TEXT | -c config.txt | 加载[配置](https://frida.re/docs/gadget/#script)方式打包 |
 
 frida-gadget 可能会下载失败，去 github 下载[frida-gadget-15.1.14-android-arm64.so.xz](https://github.com/frida/frida/releases/download/15.1.14/frida-gadget-15.1.14-android-arm64.so.xz)，解压后将 gadget 文件更名`libfrida-gadget.so`为存放到`C:\Users\zeyu\.objection\android\arm64-v8a`

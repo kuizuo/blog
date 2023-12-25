@@ -23,7 +23,7 @@ image: /img/blog/vue-chrome-extension.png
 
 [Vue Web-Extension - A Web-Extension preset for VueJS (vue-web-extension.netlify.app)](https://vue-web-extension.netlify.app/)
 
-```sh
+```bash
 npm install -g @vue/cli
 npm install -g @vue/cli-init
 vue create --preset kocal/vue-web-extension my-extension
@@ -39,7 +39,7 @@ npm run server
 
 ### 项目结构
 
-```
+```tree
 ├─src
 |  ├─App.vue
 |  ├─background.js

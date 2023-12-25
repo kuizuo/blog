@@ -43,7 +43,7 @@ image: /img/project/vscode-extension.png
 
 vscode 提供插件开发的脚手架 [vscode-generator-code](https://github.com/Microsoft/vscode-generator-code 'vscode-generator-code') 来生成项目结构，选择要生成的类型
 
-```shell
+```bash
 ? ==========================================================================
 We're constantly looking for ways to make yo better!
 May we anonymously report usage statistics to improve the tool over time?

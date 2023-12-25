@@ -42,7 +42,7 @@ docker run -d --name elasticsearch --net esnet -p 9200:9200 -p 9300:9300 -e "dis
 
 参数详解
 
-```text
+```
 docker run 创建并启动容器
 -d 后台运行
 --name elasticsearch 指定容器唯一的名称，方便管理
@@ -61,7 +61,7 @@ docker run -d --name kibana --net esnet -p 5601:5601 kibana:tag
 
 #### ik 分词器
 
-```sh
+```bash
 cd /usr/share/elasticsearch/plugins/
 elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.2.0/elasticsearch-analysis-ik-7.2.0.zip
 exit
@@ -70,7 +70,7 @@ docker restart elasticsearch
 
 或
 
-```sh
+```bash
 docker exec -it 容器id /bin/bash
 cd /usr/share/elasticsearch/plugins/
 mkdir ik
@@ -228,7 +228,7 @@ xpack.security.transport.ssl.enabled: true
 
 #### 安装
 
-```sh
+```bash
 npm install elasticdump -g
 elasticdump
 ```
@@ -253,7 +253,7 @@ elasticdump --input SOURCE --output DESTINATION [OPTIONS]
 
 例:
 
-```sh
+```bash
 # 将es数据导入另一台es数据
 elasticdump --input=http://production.es.com:9200/my_index --output=http://staging.es.com:9200/my_index --all=true --limit=2000
 

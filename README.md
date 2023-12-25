@@ -56,8 +56,8 @@
 │   └── theme                      # 自定义主题组件
 ├── static                         # 静态资源文件
 │   └── img                        # 静态图片
-├── docusaurus.config.js           # 站点的配置信息
-├── sidebars.js                    # 文档的侧边栏
+├── docusaurus.config.ts           # 站点的配置信息
+├── sidebars.ts                    # 文档的侧边栏
 ├── package.json
 ├── tsconfig.json
 └── pnpm-lock.yaml
@@ -65,7 +65,7 @@
 
 ## 📥 Start
 
-```sh
+```bash
 git clone https://github.com/kuizuo/blog.git
 cd blog
 pnpm install
@@ -74,7 +74,7 @@ pnpm start
 
 Build
 
-```sh
+```bash
 pnpm build
 ```
 

@@ -14,20 +14,14 @@ import { Icon } from '@iconify/react'
 
 import MyLayout from '../MyLayout'
 
-export default function BlogTagsListPage({
-  tags,
-  sidebar,
-}: Props): JSX.Element {
+export default function BlogTagsListPage({ tags, sidebar }: Props): JSX.Element {
   const title = translateTagsPageTitle()
 
   const [type, setType] = useState<'list' | 'grid'>('list')
 
   return (
     <HtmlClassNameProvider
-      className={clsx(
-        ThemeClassNames.wrapper.blogPages,
-        ThemeClassNames.page.blogTagsListPage,
-      )}
+      className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}
     >
       <PageMetadata title={title} />
       <SearchMetadata tag="blog_tags_list" />

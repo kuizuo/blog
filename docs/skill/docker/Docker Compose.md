@@ -22,7 +22,7 @@ dockerfile 能让程序在任何地方运行 比如 web 服务 redis mysql nginx
 
 1、下载
 
-```shell
+```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 # 上为官方的地址 可能有些慢 下为daocloud
@@ -32,7 +32,7 @@ sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.1/doc
 
 2、授权文件权限
 
-```shell
+```bash
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 

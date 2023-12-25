@@ -36,7 +36,7 @@ keywords: [工具]
 
 用于你在对应的文件夹下输入 cmd 命令，免去 cd 等繁杂操作。个人建议设置一下，将下面的代码复制，然后创建一个`1.reg`文件（文件名无所谓，后缀名是 reg 就行，**注意保存为 ANSI**，不然带中文会乱码）,点击运行，会有提示，放心，绝对安全。接着右键空白处，就可也看到打开 CMD 的字样，点击就能打开 cmd 窗口。
 
-```shell
+```bash
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here]
@@ -111,7 +111,7 @@ zhuyi 下面有的路径是在`Code.exe`后面有一个`\`这里是转义`“`�
 
 按同样的存为`1.reg`文件，双击执行即可
 
-```shell
+```bash
 Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\*\shell\VSCode]

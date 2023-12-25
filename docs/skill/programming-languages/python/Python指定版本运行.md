@@ -28,7 +28,7 @@ keywords: [python]
 
 #### 运行 python2
 
-```sh
+```bash
 py -2 demo.py
 ```
 
@@ -36,7 +36,7 @@ py -2 demo.py
 
 #### 运行 python3
 
-```sh
+```bash
 py -3 demo.py
 ```
 
@@ -55,12 +55,12 @@ py -3 demo.py
 
 #### python2 下安装
 
-```sh
+```bash
 py -2 -m pip install XXXX
 ```
 
 #### python3 下安装
 
-```sh
+```bash
 py -3 -m pip install XXXX
 ```

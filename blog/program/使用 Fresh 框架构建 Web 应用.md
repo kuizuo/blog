@@ -30,7 +30,7 @@ description: 使用 Fresh 框架构建Web 应用，用于将链接转换为卡�
 
 deno 提供了非常友好的创建 fresh 项目的命令，运行:
 
-```shell
+```bash
 deno run -A -r https://fresh.deno.dev my-project
 cd my-project
 deno task start

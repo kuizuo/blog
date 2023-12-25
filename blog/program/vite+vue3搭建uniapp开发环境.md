@@ -32,7 +32,7 @@ description: 使用 vite vue3 搭建 uniapp 开发环境
 
 :::
 
-```sh
+```bash
 # 创建以 javascript 开发的工程
 npx degit dcloudio/uni-preset-vue#vite my-vue3-project
 
@@ -146,7 +146,7 @@ HBuilder 给我代码编写体验并不友好，所以将 uniapp 的项目转 vs
 
 vite 要支持 sass 只需要安装 sass 的依赖即可
 
-```sh
+```bash
 npm install sass
 ```
 
@@ -156,7 +156,7 @@ npm install sass
 
 ### 组件语法提示
 
-```sh
+```bash
 npm i @dcloudio/uni-helper-json @types/uni-app @types/html5plus -D
 ```
 

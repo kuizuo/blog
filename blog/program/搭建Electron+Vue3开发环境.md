@@ -19,17 +19,17 @@ image: https://img.kuizuo.cn/image-20220316204205165.png
 
 Vue CLI 有一个插件`vue-cli-plugin-electron-builder`，可以非常方便的搭建 electron 环境。
 
-```sh
+```bash
 npm i @vue/cli -g
 ```
 
-```sh
+```bash
 vue create my-app
 ```
 
 根据自己项目的需求选择对应的依赖（例如 Babel，TS，Vuex 等等）
 
-```sh
+```bash
 Vue CLI v5.0.3
 ? Please pick a preset: Manually select features
 ? Check the features needed for your project: Babel, TS, Vuex, CSS Pre-processors, Linter
@@ -53,7 +53,7 @@ Vue CLI v5.0.3
 
 [Vue CLI Plugin Electron Builder (nklayman.github.io)](https://nklayman.github.io/vue-cli-plugin-electron-builder/)
 
-```sh
+```bash
 cd my-app
 vue add electron-builder
 ```
@@ -62,7 +62,7 @@ vue add electron-builder
 
 ### 启动项目
 
-```sh
+```bash
 npm run electron:serve
 ```
 
@@ -102,7 +102,7 @@ TypeError: loaderContext.getOptions is not a function
 
 当然也可以使用脚手架，可选择 React 与 Vue，实际上也就是创建上面的前两个模板
 
-```sh
+```bash
 npm create electron-vite
 ```
 

@@ -26,7 +26,7 @@ description: 记录 git 操作失误导致代码丢失与找回的过程
 
 故，此次目的是找回 add 过而未 commit 的文件，首先打开 git bash 输入
 
-```sh
+```bash
 git fsck --lost-found
 ```
 

@@ -2,6 +2,8 @@ import path from 'node:path'
 import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
 import { themes } from 'prism-react-renderer'
+import { Social } from './src/components/SocialLinks'
+import { GiscusConfig } from './src/components/Comment'
 
 const beian = '闽ICP备2020017848号-2'
 const beian1 = '闽公网安备35021102000847号'
@@ -133,28 +135,20 @@ const config: Config = {
       apiKey: '50303937b0e4630bec4a20a14e3b7872',
       indexName: 'kuizuo',
     },
-    giscus: {
-      repo: 'kuizuo/blog',
-      repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=',
-      category: 'General',
-      categoryId: 'DIC_kwDOF7NJDM4CPK95',
-      theme: 'light',
-      darkTheme: 'dark_dimmed',
-    },
-    socials: {
-      github: 'https://github.com/kuizuo',
-      twitter: 'https://twitter.com/kuizuo',
-      juejin: 'https://juejin.cn/user/1565318510545901',
-      csdn: 'https://blog.csdn.net/kuizuo12',
-      qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
-      zhihu: 'https://www.zhihu.com/people/kuizuo',
-      cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
-      email: 'mailto:hi@kuizuo.cn',
-    },
     prism: {
       theme: themes.oneLight,
       darkTheme: themes.oneDark,
-      additionalLanguages: ['bash', 'json', 'java', 'php', 'rust', 'toml'],
+      additionalLanguages: [
+        'bash',
+        'json',
+        'java',
+        'python',
+        'php',
+        'graphql',
+        'rust',
+        'toml',
+        'protobuf',
+      ],
       defaultLanguage: 'javascript',
       magicComments: [
         {
@@ -168,13 +162,29 @@ const config: Config = {
         },
       ],
     },
+    giscus: {
+      repo: 'kuizuo/blog',
+      repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=',
+      category: 'General',
+      categoryId: 'DIC_kwDOF7NJDM4CPK95',
+      theme: 'light',
+      darkTheme: 'dark_dimmed',
+    } satisfies Partial<GiscusConfig>,
+    socials: {
+      github: 'https://github.com/kuizuo',
+      twitter: 'https://twitter.com/kuizuo',
+      juejin: 'https://juejin.cn/user/1565318510545901',
+      csdn: 'https://blog.csdn.net/kuizuo12',
+      qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
+      zhihu: 'https://www.zhihu.com/people/kuizuo',
+      cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
+      email: 'mailto:hi@kuizuo.cn',
+    } satisfies Social,
     tableOfContents: {
       minHeadingLevel: 2,
       maxHeadingLevel: 4,
     },
-    liveCodeBlock: {
-      playgroundPosition: 'top',
-    },
+    liveCodeBlock: { playgroundPosition: 'top' },
     zoom: {
       selector: '.markdown :not(em) > img',
       background: {
