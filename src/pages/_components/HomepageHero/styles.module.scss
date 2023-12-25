@@ -222,7 +222,7 @@ html[data-theme='dark'] {
   }
 }
 
-@media (max-width <= 1000px) {
+@media (width <= 1000px) {
   .hero {
     grid-template-columns: 1fr;
     grid-template-rows: max-content minmax(0, max-content);
