@@ -40,25 +40,25 @@ var instance = axios.create({
 })
 // 设置请求拦截器
 instance.interceptors.request.use(
-  (config) => {
+  config => {
     // 在config可以添加自定义协议头 例如token
     config.headers['x-token'] = 'xxxxxxxx'
 
     return config
   },
-  (error) => {
+  error => {
     Promise.error(error)
   },
 )
 
 instance.interceptors.response.use(
-  (response) => {
+  response => {
     const res = response.data
     // 根据对应的业务代码 对返回数据进行处理
 
     return res
   },
-  (error) => {
+  error => {
     const { response } = error
     // 状态码为4或5开头则会报错
     // 根据根据对应的错误,反馈给前端显示
@@ -119,13 +119,13 @@ export function logout() {
 运行环境在浏览器中，axios 是无法设置与获取 cookie，获取不到 set-cookies 这个协议头的（即使服务器设置了也没用），先看代码与输出
 
 ```js
-instance.interceptors.request.use((config) => {
+instance.interceptors.request.use(config => {
   config.headers['cookie'] = 'cookie=this_is_cookies;username=kuizuo;'
   console.log('config.headers', config.headers)
   return config
 })
 
-instance.interceptors.response.use((response) => {
+instance.interceptors.response.use(response => {
   console.log('response.headers', response.headers)
   return res
 })
@@ -145,9 +145,8 @@ instance.interceptors.response.use((response) => {
 
 那我就是想要设置 Cookies，来跳过登录等等咋办，我的建议是别用浏览器来伪装 http 请求。跨域是浏览器内不可少的一部分，并且要允许跨域过于麻烦。有关跨域，我推一篇文章[10 种跨域解决方案（附终极大招）](https://juejin.cn/post/6844904126246027278)
 
-#### 完整封装代码
-
-::: details 查看代码
+<details open>
+   <summary>完整封装代码</summary>
 
 ```js
 import axios from 'axios'
@@ -162,21 +161,21 @@ const service = axios.create({
 })
 
 service.interceptors.request.use(
-  (config) => {
+  config => {
     if (store.getters.token) {
       config.headers['x-token'] = getToken()
     }
 
     return config
   },
-  (error) => {
+  error => {
     Message.error(error)
     return Promise.reject(error)
   },
 )
 
 service.interceptors.response.use(
-  (response) => {
+  response => {
     const res = response.data
     if (res.code !== 200) {
       Message.error(res.msg || 'Error')
@@ -186,7 +185,7 @@ service.interceptors.response.use(
       return res
     }
   },
-  (error) => {
+  error => {
     if (error.response) {
       let res = error.response
       switch (res.status) {
@@ -225,11 +224,11 @@ service.interceptors.response.use(
 export default service
 ```
 
-:::
+</details>
 
 ### Nodejs
 
-作为 nodejs 的主流 http 框架怎么能只用在浏览器上，nodejs 自然而然可以，不过 nodejs 需要配置的可就多了，在 nodejs 环境中，自然没有浏览器的同源策略，像上面设置不了的 Cookie，现在随便设置，先看看我是怎么封装的：
+作为 nodejs 的主流 http 框架怎么能只用在浏览器上，nodejs 自然可以，不过 nodejs 需要配置的可就多了，在 nodejs 环境中，自然没有浏览器的同源策略，像上面设置不了的 Cookie，现在随便设置，先看看我是怎么封装的：
 
 ```js
 import axios from 'axios'
@@ -239,12 +238,13 @@ import * as https from 'https'
 export async function request(opt) {
   let { url, method = 'get', headers = {}, cookies, data = null } = opt
 
-  headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
+  headers['User-Agent'] =
+    'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
   headers['Referer'] = url
 
   if (typeof cookies === 'object') {
     headers['Cookie'] = Object.keys(cookies)
-      .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(cookies[k]))
+      .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(cookies[k]))
       .join('; ')
   } else if (typeof cookies === 'string') {
     headers['Cookie'] = cookies
@@ -353,7 +353,7 @@ Error: unable to verify the first certificate
 ```js
 let newCookie = res.header['set-cookie']
   ? res.header['set-cookie']
-      .map((a) => {
+      .map(a => {
         return a.split(';')[0]
       })
       .join('; ')

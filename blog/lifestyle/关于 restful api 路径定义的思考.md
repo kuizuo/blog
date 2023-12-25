@@ -31,14 +31,14 @@ keywords: [杂谈, restful]
 - 更新文章 `PUT /articles/:id`
 - 删除文章 `DELETE /articles/:id`
 
-当然，我相信肯定也有`GET /article—list` `POST /add-article`  这样的答案，不过这些不在 restful api 风格的范畴，就不考虑了。
+当然，我相信肯定也有`GET /article—list` `POST /add-article` 这样的答案，不过这些不在 restful api 风格的范畴，就不考虑了。
 
 而这时 查看我的文章 或许就需要稍加思考，或许你会有以下几种方式
 
 - `GET /my-articles` 从资源角度来看肯定不好，因为此时在 url 不能很直观地体现请求资源，同时在控制器文件(controller) 就与 article 分离了，并且还占用了 / 下路径。
 - `GET /articles/mine` 则又不那么遵循 restful api 风格，挺违和的。
 
-那么这时不妨遵循 **资源从属关系**，在这里 文章所属的对象就用户，因此查看他人的文章可以这么设计`GET /users/:userId/articles`  获取特定用户（userId）的文章列表。
+那么这时不妨遵循 **资源从属关系**，在这里 文章所属的对象就用户，因此查看他人的文章可以这么设计`GET /users/:userId/articles` 获取特定用户（userId）的文章列表。
 
 而 查看我的文章 同样也可用此 URL，只需将 userId 更改为自己的便可。从 api 的 URL 来看是很舒服了，但是从代码开发的角度上问题又有了问题了。。。
 
@@ -109,13 +109,13 @@ restful 更多是针对实际存储的资源，核心是名词，对于增删改
 
 对于一些非增删改查的操作，还是使用 RPC 式的 API 更为实在，即 **`POST /命名空间/资源类型/动作`**，至少不用再为某个操作决定 PATCH/PUT 还是 POST/DELETE。
 
-## 针对同一实体，区分不用用户
+## 针对同一实体，区分不同用户
 
 问题还没结束，不妨碍继续使用上述文章的例子，针对 文章 这一实体，又要怎么定义（区分）用户与作者或管理员路径呢？
 
 管理员所看到的数据肯定远比用户来的多，如果使用同一个接口（如 `/articles`），那么业务代码必然会十分复杂。
 
-使用不同的端点(end point) 是个解决方法，例如管理员在请求前添加 manage 或 admin，如 `/manage/articles` 或 `/articles/manage`  这样只需要多一步判断请求用户是否拥有管理的权限。
+使用不同的端点(end point) 是个解决方法，例如管理员在请求前添加 manage 或 admin，如 `/manage/articles` 或 `/articles/manage` 这样只需要多一步判断请求用户是否拥有管理的权限。
 
 但对我个人而言，我一般都会以在一个命名空间下（这里指 `/articles`）编写，像前面的 `/manage/articles` 我是直接 pass 的。
 
@@ -139,7 +139,6 @@ GET /articles/1/author
 ```
 
 要么两条请求获取相应数据，要么为调用方“定制”一个接口，如`GET /getArticleInfo`，这样只需一条请求便可得到想要的数据。但这个就破坏了 restful API 接口风格，并且在复杂的业务中，比如说还要获取博文的评论等等，后端就要额外提供一个接口，可以说是非常繁琐了。相比之下 [GraphQL](https://graphql.org/) 就更为灵活了。
-
 
 ## 最佳实践
 
