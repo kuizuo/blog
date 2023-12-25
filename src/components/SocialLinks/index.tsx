@@ -46,12 +46,8 @@ export default function SocialLinks({ ...prop }) {
       <SocialLink href={socials.qq} title="QQ" icon="ri:qq-line" />
       <SocialLink href={socials.zhihu} title="知乎" icon="ri:zhihu-line" />
       <SocialLink href={socials.email} title="Email" icon="ri:mail-line" />
-      <SocialLink
-        href={socials.cloudmusic}
-        title="Music"
-        icon="ri:netease-cloud-music-line"
-      />
-      <SocialLink href="/rss.xml" title="Rss"  icon="ri:rss-line" />
+      <SocialLink href={socials.cloudmusic} title="Music" icon="ri:netease-cloud-music-line" />
+      <SocialLink href="/blog/rss.xml" title="Rss" icon="ri:rss-line" />
     </div>
   )
 }
