@@ -63,7 +63,7 @@ export default function UserCard({ isNavbar = false }: { isNavbar?: boolean }) {
           <Icon icon="carbon:blog" width="20" height="20" />
           {count.blog}
         </Link>
-        <Link className={styles.numItem} href="/tags">
+        <Link className={styles.numItem} href="/blog/tags">
           <Icon icon="ri:price-tag-3-line" width="20" height="20" />
           {count.tag}
         </Link>

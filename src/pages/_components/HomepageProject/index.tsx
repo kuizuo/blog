@@ -43,10 +43,7 @@ const Slider = ({ items }: { items: Project[] }) => {
     baseX.set(6)
   })
 
-  const x = useTransform(
-    baseX,
-    v => `${wrap(10, -3 * showProjects.length, v)}%`,
-  )
+  const x = useTransform(baseX, v => `${wrap(10, -3 * showProjects.length, v)}%`)
 
   useAnimationFrame((time, delta) => {
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000)
@@ -77,10 +74,7 @@ const Slider = ({ items }: { items: Project[] }) => {
   }
 
   return (
-    <div
-      className={styles.slider}
-      style={{ width: `${showProjects.length * 100}%` }}
-    >
+    <div className={styles.slider} style={{ width: `${showProjects.length * 100}%` }}>
       <motion.div
         className={styles['slide-track']}
         style={{ x }}
@@ -91,12 +85,7 @@ const Slider = ({ items }: { items: Project[] }) => {
           return (
             <div className={styles.slide} key={item.title}>
               <a href={item.website} target="_blank">
-                <img
-                  src={item.preview}
-                  alt={item.title}
-                  className={styles.image}
-                  loading="lazy"
-                />
+                <img src={item.preview} alt={item.title} className={styles.image} loading="lazy" />
                 <div className={styles.slideBody}>
                   <h2 className={styles.title}>{item.title}</h2>
                   <p className={styles.website}>{removeHttps(item.website)}</p>
@@ -112,9 +101,7 @@ const Slider = ({ items }: { items: Project[] }) => {
 
 const HomepageProject = () => {
   return (
-    <section
-      className={clsx('container padding-vert--sm', styles.projectContainer)}
-    >
+    <section className={clsx('container padding-vert--sm', styles.projectContainer)}>
       <SectionTitle icon={'ri:projector-line'} href={'/project'}>
         <Translate id="homepage.project.title">项目展示</Translate>
       </SectionTitle>
