@@ -1,5 +1,6 @@
-/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
-const sidebars = {
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs'
+
+const sidebars: SidebarsConfig = {
   skill: [
     'skill/introduction',
     {
@@ -7,7 +8,7 @@ const sidebars = {
       type: 'category',
       link: {
         type: 'doc',
-        id: 'skill/docusaurus/docusaurus-guides'
+        id: 'skill/docusaurus/docusaurus-guides',
       },
       items: [
         'skill/docusaurus/docusaurus-config',
@@ -24,7 +25,7 @@ const sidebars = {
       type: 'category',
       link: {
         type: 'doc',
-        id: 'skill/code-specification/code-specification-guides'
+        id: 'skill/code-specification/code-specification-guides',
       },
       items: [
         'skill/code-specification/eslint',
@@ -145,10 +146,10 @@ const sidebars = {
             'skill/programming-languages/go/go-send-http-request',
             'skill/programming-languages/go/go-call-js',
             'skill/programming-languages/go/go-concurrent',
-            'skill/programming-languages/go/try-gin-framework'
+            'skill/programming-languages/go/try-gin-framework',
           ],
         },
-      ]
+      ],
     },
     {
       label: 'Git',
@@ -166,13 +167,13 @@ const sidebars = {
       type: 'category',
       link: {
         type: 'doc',
-        id: 'skill/algorithm/algorithm-introduction'
+        id: 'skill/algorithm/algorithm-introduction',
       },
       items: [
         'skill/algorithm/two-sum',
         'skill/algorithm/three-sum',
         'skill/algorithm/sliding-window',
-        'skill/algorithm/double-pointer'
+        'skill/algorithm/double-pointer',
       ],
     },
     {
@@ -318,7 +319,7 @@ const sidebars = {
     'tools/idea-config',
     'tools/vite-plugin',
     'tools/jetbrains-product-activation-method',
-  ]
+  ],
 }
 
 module.exports = sidebars
