@@ -20,9 +20,7 @@ description: 使用 Fresh 框架构建Web 应用，用于将链接转换为卡�
 
 [fresh](https://fresh.deno.dev/) 自称是下一代 web 开发框架（这句话怎么这么熟悉?），是一个基于 Deno 的 Web 框架。它提供了许多用于构建 Web 应用程序和 API 的工具和功能。Fresh 框架特别强调简单性和灵活性，并着重于提供最佳的性能和开发体验。它支持 TypeScript，并且不需要任何配置或构建步骤。这些特性使得 Fresh 框架成为构建高效和现代 Web 应用程序的理想选择。
 
-:::warning 声明
-
-Fresh 的前端渲染层由 Preact 完成，包括 Islands 架构的实现也是基于 Preact。如果你想在 Fresh 中使用其他主流前端框架，目前来说有点无能为力。
+:::warning Fresh 的前端渲染层由 Preact 完成，包括 Islands 架构的实现也是基于 Preact。如果你想在 Fresh 中使用其他主流前端框架，目前来说有点无能为力。
 
 :::
 

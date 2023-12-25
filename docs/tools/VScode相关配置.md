@@ -12,10 +12,6 @@ keywords: [vscode, 开发工具, 配置]
 
 ![vscode上号](https://img.kuizuo.cn/vscode%E4%B8%8A%E5%8F%B7.jpg)
 
-看一大堆 vscode 相关推荐，不如直接把别人的 vscode 配置直接导入到本地上运行测试。以下是我的 Vscode 全部配置文件，需要的可自行下载导入（替换本地 vscode 相对应的配置文件即可）。
-
-> 下载地址 https://pan.kuizuo.cn/s/RgiP 密码 kuizuo
-
 <!-- truncate -->
 
 ## 前言
@@ -93,9 +89,7 @@ AI 写代码，用过都说好。
 
 ![image-20210817221312429](https://img.kuizuo.cn/image-20210817221312429.png)
 
-:::warning
-
-是点击左上角灰色的 Send Request，如果有安装 Code Runner 的用户，容易直接点成右上角的播放键
+:::tip 是点击左上角灰色的 Send Request，如果有安装 Code Runner 的用户，容易直接点成右上角的播放键.
 
 :::
 

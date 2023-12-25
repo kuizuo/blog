@@ -135,8 +135,6 @@ volumes:
 docker-compose up -d
 ```
 
-:::danger
-
 web 后端项目中涉及到，数据库的连接地址（Host）要以 docker-compose.yml 中的 service 名一致。例如上面所定义的 environment 中
 
 MYSQL_HOST=mysql
@@ -146,5 +144,3 @@ REDIS_HOST=redis
 而不能为 localhost，因为**docker 容器内的 localhost 与宿主机的 localhost 并不是同一个地址**。
 
 或者是在配置中将 localhost 修改为 docker 网络的 ip，一般为 172.17.0.1，具体根据 docker 实际网络而定。
-
-:::

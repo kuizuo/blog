@@ -9,9 +9,7 @@ keywords: [chrome, plugin, develop]
 
 <!-- truncate -->
 
-:::danger
-
-Chrome v3 已发布，而本文基于 v2 编写，故本文内容不再具有时效性。
+:::warning Chrome v3 已发布，而本文基于 v2 编写，故本文内容不再具有时效性。
 
 :::
 
@@ -58,7 +56,7 @@ Chrome v3 已发布，而本文基于 v2 编写，故本文内容不再具有时
 
 ```html
 <!-- background.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>背景页</title>
@@ -178,12 +176,9 @@ function sendMessageToContentScript(message, callback) {
   })
 }
 
-sendMessageToContentScript(
-  { cmd: 'test', value: '你好，我是popup！' },
-  function (response) {
-    console.log('来自content的回复：' + response)
-  },
-)
+sendMessageToContentScript({ cmd: 'test', value: '你好，我是popup！' }, function (response) {
+  console.log('来自content的回复：' + response)
+})
 ```
 
 `content.js`通过监听事件接收：
@@ -383,10 +378,8 @@ function addViewMouseListener() {
     //计算出现在的位置是多少
     if (view.cache.mouse_x == -1) return
     if (view.cache.mouse_y - view.cache.y > view.kz_title.height()) return
-    let new_position_left =
-        event.originalEvent.clientX - view.cache.mouse_x + view.cache.x,
-      new_position_top =
-        event.originalEvent.clientY - view.cache.mouse_y + view.cache.y
+    let new_position_left = event.originalEvent.clientX - view.cache.mouse_x + view.cache.x,
+      new_position_top = event.originalEvent.clientY - view.cache.mouse_y + view.cache.y
     //加上边界限制
     if (new_position_top < 0) {
       //当上边的偏移量小于0的时候，就是上边的临界点，就让新的位置为0
@@ -426,13 +419,7 @@ function log(msg, color) {
     'border-color': 'rgba(121, 187, 255, 0.2)',
     'background-color': 'rgba(121, 187, 255, 0.2)',
   })
-  let log = $(
-    '<p><span style="color: ' +
-      (color || '#409EFF') +
-      '">' +
-      msg +
-      '</span></p>',
-  )
+  let log = $('<p><span style="color: ' + (color || '#409EFF') + '">' + msg + '</span></p>')
 
   if ($('.log').length > 15) {
     for (let i = 0; $('.log').length - 15; i++) {

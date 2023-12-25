@@ -371,9 +371,7 @@ export class Blog {
 
 :::
 
-:::warning
-
-`@nestjs/graphql` 会将 typescript 的 number 类型视为 Float，所以需要转成 Int 类型，即 `@Field(() => Int)`
+:::warning `@nestjs/graphql` 会将 typescript 的 number 类型视为 Float，所以需要转成 Int 类型，即 `@Field(() => Int)`
 
 :::
 

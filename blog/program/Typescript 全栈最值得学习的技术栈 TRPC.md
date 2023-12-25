@@ -238,15 +238,13 @@ tRPC 同样也支持 post 请求，例如
 
 ```typescript title='server/trpc.ts'
 const appRouter = router({
-  createUser: publicProcedure
-    .input(z.object({ name: z.string() }))
-    .mutation(req => {
-      const user: User = {
-        name: req.input.name,
-      }
+  createUser: publicProcedure.input(z.object({ name: z.string() })).mutation(req => {
+    const user: User = {
+      name: req.input.name,
+    }
 
-      return user
-    }),
+    return user
+  }),
 })
 ```
 

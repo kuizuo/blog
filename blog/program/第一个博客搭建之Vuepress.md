@@ -9,13 +9,7 @@ keywords: [blog, vuepress, project]
 
 感谢 [vuepress-theme-reco](https://vuepress-theme-reco.recoluan.com/)主题与一篇博客使用文章[使用 vuepress 构建个人博客](https://lookroot.cn/views/article/vuepress.html#reco%E4%B8%BB%E9%A2%98)
 
-在写这篇文章前，本人非前端专业人士，只是一时兴起想开始搭建一个博客，在该博客上记录与分享一下自己所学的一切内容。（然后现在都在往前端这方向走了:joy:）
-
-:::info 新博客 🥳
-
-[第二个博客搭建之 Docusaurus](/blog/second-blog-is-docusaurus)
-
-:::
+在写这篇文章前，本人非前端专业人士，只是一时兴起想开始搭建一个博客，在该博客上记录与分享一下自己所学的一切内容。（然后现在都在往前端这方向走了）
 
 <!-- truncate -->
 

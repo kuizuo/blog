@@ -30,7 +30,7 @@ deno 刚出的时候就听闻了，传言 deno 是下一代 node.js。不过如�
   "deno.enable": true,
   "deno.lint": true,
   "editor.formatOnSave": true,
-  "[typescript]": {"editor.defaultFormatter": "denoland.vscode-deno"}
+  "[typescript]": { "editor.defaultFormatter": "denoland.vscode-deno" }
 }
 ```
 
@@ -68,27 +68,27 @@ deno 则是自带代码格式化（`deno fmt`）、代码风格（`deno lint`）
 
 这里有份 [官方小抄](https://deno.land/manual@v1.29.4/references/cheatsheet#nodejs---deno-cheatsheet '官方小抄') 可以知道通过`deno xxx`等命令能够做到 node 原本需要通过第三方库才能实现的功能。
 
-| Node.js | Deno |
-| --- | --- |
-| `node file.js` | `deno run file.js` |
-| `ts-node file.ts` | `deno run file.ts` |
-| `npm i -g` | `deno install` |
-| `npm i` / `npm install` | _n/a_ |
-| `npm run` | `deno task` |
-| `eslint` | `deno lint` |
-| `prettier` | `deno fmt` |
-| `rollup` / `webpack` / etc | `deno bundle` |
-| `package.json` | `deno.json` / `deno.jsonc` / `import_map.json` |
-| `tsc` | `deno check` |
-| `typedoc` | `deno doc` |
-| `jest` / `ava` / `mocha` / `tap` / etc | `deno test` |
-| `nodemon` | `deno run/lint/test --watch` |
-| `nexe` / `pkg` | `deno compile` |
-| `npm explain` | `deno info` |
-| `nvm` / `n` / `fnm` | `deno upgrade` |
-| `tsserver` | `deno lsp` |
-| `nyc` / `c8` / `istanbul` | `deno coverage` |
-| `benchmarks` | `deno bench` |
+| Node.js                                | Deno                                           |
+| -------------------------------------- | ---------------------------------------------- |
+| `node file.js`                         | `deno run file.js`                             |
+| `ts-node file.ts`                      | `deno run file.ts`                             |
+| `npm i -g`                             | `deno install`                                 |
+| `npm i` / `npm install`                | _n/a_                                          |
+| `npm run`                              | `deno task`                                    |
+| `eslint`                               | `deno lint`                                    |
+| `prettier`                             | `deno fmt`                                     |
+| `rollup` / `webpack` / etc             | `deno bundle`                                  |
+| `package.json`                         | `deno.json` / `deno.jsonc` / `import_map.json` |
+| `tsc`                                  | `deno check`                                   |
+| `typedoc`                              | `deno doc`                                     |
+| `jest` / `ava` / `mocha` / `tap` / etc | `deno test`                                    |
+| `nodemon`                              | `deno run/lint/test --watch`                   |
+| `nexe` / `pkg`                         | `deno compile`                                 |
+| `npm explain`                          | `deno info`                                    |
+| `nvm` / `n` / `fnm`                    | `deno upgrade`                                 |
+| `tsserver`                             | `deno lsp`                                     |
+| `nyc` / `c8` / `istanbul`              | `deno coverage`                                |
+| `benchmarks`                           | `deno bench`                                   |
 
 ### [远程导入](https://deno.land/manual@v1.29.3/basics/modules#remote-import '远程导入')
 
@@ -107,14 +107,14 @@ node 也不一定要用 npm 来下载模块，也可以本地模块或者私有�
 **Command: deno run ./remote.ts**
 
 ```typescript title='remote.ts'
-import {add, multiply} from 'https://x.nest.land/ramda@0.27.0/source/index.js';
+import { add, multiply } from 'https://x.nest.land/ramda@0.27.0/source/index.js'
 
 function totalCost(outbound: number, inbound: number, tax: number): number {
-  return multiply(add(outbound, inbound), tax);
+  return multiply(add(outbound, inbound), tax)
 }
 
-console.log(totalCost(19, 31, 1.2));
-console.log(totalCost(45, 27, 1.15));
+console.log(totalCost(19, 31, 1.2))
+console.log(totalCost(45, 27, 1.15))
 
 /**
  * Output
@@ -158,15 +158,15 @@ deno info 还可以查看 deno 的相关配置，默认缓存都设置在 C 盘�
 
 ```typescript title="app.ts" {2}
 // @deno-types="npm:@types/express@^4.17"
-import express from 'npm:express@^4.17';
-const app = express();
+import express from 'npm:express@^4.17'
+const app = express()
 
 app.get('/', (req, res) => {
-  res.send('Hello World');
-});
+  res.send('Hello World')
+})
 
-app.listen(3000);
-console.log('listening on http://localhost:3000/');
+app.listen(3000)
+console.log('listening on http://localhost:3000/')
 ```
 
 deno 刚发布的时候，甚至还不支持 NPM 软件包，这无非是要告诉用户 deno 社区没有轮子，要求用户自己去造一个。不过 deno 团队还是做出了比较正确的选择，支持 npm 软件包，并且还非常友好。
@@ -237,9 +237,7 @@ deno 相关的亮点我也差不多介绍完了，也许你对 deno 已经有一
 
 作为 node 开发者，我肯定会说 node 火，不过更多是对 javascript 来说火。
 
-:::info 2022 State of JS
-2022 也结束了，不妨查看 [2022 State of JS](https://2022.stateofjs.com '2022 State of JS') 数据报告统计，看看 JavaScript 在 2022 年是如何发展的吧。
-:::
+:::info 2022 State of JS [2022 State of JS](https://2022.stateofjs.com '2022 State of JS') 数据报告统计，看看 JavaScript 在 2022 年是如何发展的吧。:::
 
 如今 typescript 大势所趋，说 javascript 就等同于说 typescript，而 javascript 和 node 绑定已成事实，而前端也与 javascript 所绑定，如今的前端工程师要是不会 node，都不好意思说自己是个前端工程师。就现阶段看，没了 nodejs，前端技术得倒退十年（不夸张）。
 

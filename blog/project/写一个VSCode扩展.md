@@ -81,7 +81,7 @@ More info: https://github.com/yeoman/insight & http://yeoman.io
 
 既然创建好了工程，那必然是要运行的。由于我这里选择的 ts ＋ webpack 进行开发（视情况勾选 webpack），所以是需要打包，同时脚手架已经生成好了对应.vscode 的设置。只需要按下 F5 即可开始调试，这时会打开一个新的 vscode 窗口，`Ctrl+Shift+P`打开命令行，输入`Hello World`，右下角弹出提示框`Hello World from kuizuo-plugin!`
 
-:::danger
+:::warning
 
 注意: 由于是 webpack 开发，在调用堆栈中可以看到有两个进程，一个是 webpack，另一个是新开的插件窗口的，同时在该调试窗口也能查看调试输出信息。
 
@@ -676,9 +676,7 @@ npm i vsce -g
 vsce package
 ```
 
-:::danger
-
-如果使用 pnpm 的话，有可能会打包失败，提示：npm ERR! missing: xxxxxx
+:::warning 如果使用 pnpm 的话，有可能会打包失败，提示：npm ERR! missing: xxxxxx
 
 :::
 

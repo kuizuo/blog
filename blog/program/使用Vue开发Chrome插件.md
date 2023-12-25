@@ -216,7 +216,7 @@ module.exports = {
 
 ![image-20210917142340863](https://img.kuizuo.cn/image-20210917142340863.png)
 
-:::danger
+:::warning
 
 如果使用`babel-plugin-component`按需引入，组件的样式将无法载入，同时自定义组件如果编写了 style 标签，那么也同样无法载入，报错：Cannot read properties of undefined (reading 'appendChild')
 
@@ -416,7 +416,9 @@ window.onload = function () {
 
   function getInfo() {
     let username = $('#v_upinfo > div.up-info_right > div.name > a.username').text()
-    let follow = $(`#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`).text()
+    let follow = $(
+      `#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`,
+    ).text()
     let title = $(`#viewbox_report > h1 > span`).text()
     let view = $('#viewbox_report > div > span.view').attr('title')
 
@@ -444,7 +446,9 @@ window.onload = function () {
 
   function getInfo() {
     let username = $('#v_upinfo > div.up-info_right > div.name > a.username').text().trim()
-    let follow = $(`#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`).text()
+    let follow = $(
+      `#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`,
+    ).text()
     let title = $(`#viewbox_report > h1 > span`).text()
     let view = $('#viewbox_report > div > span.view').attr('title')
 
@@ -478,7 +482,9 @@ window.onload = function () {
 
 ```js
 // 评论文本框
-$('#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea').val('要回复的内容')
+$('#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea').val(
+  '要回复的内容',
+)
 // 评论按钮
 $('#comment > div > div.comment > div > div.comment-send > div.textarea-container > button').click()
 ```
@@ -493,8 +499,12 @@ window.onload = function () {
     chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       let { cmd, message } = request
       if (cmd === 'addComment') {
-        $('#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea').val(message)
-        $('#comment > div > div.comment > div > div.comment-send > div.textarea-container > button').click()
+        $(
+          '#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea',
+        ).val(message)
+        $(
+          '#comment > div > div.comment > div > div.comment-send > div.textarea-container > button',
+        ).click()
       }
 
       sendResponse('我收到了你的消息！')
@@ -512,7 +522,14 @@ window.onload = function () {
       <el-header height="24">B站小工具</el-header>
       <el-main>
         <el-row :gutter="5">
-          <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="message" class="mb-5"> </el-input>
+          <el-input
+            type="textarea"
+            :rows="2"
+            placeholder="请输入内容"
+            v-model="message"
+            class="mb-5"
+          >
+          </el-input>
 
           <div>
             <el-button @click="addComment">评论</el-button>
@@ -534,7 +551,7 @@ window.onload = function () {
       }
     },
     created() {
-      chrome.storage.sync.get('list', (obj) => {
+      chrome.storage.sync.get('list', obj => {
         this.list = obj['list']
       })
     },
@@ -567,7 +584,7 @@ window.onload = function () {
 
 实现类似点赞功能也是同理的。
 
-## 相关模板 
+## 相关模板
 
 [vitesse-webext](https://github.com/antfu/vitesse-webext)
 

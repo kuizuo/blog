@@ -12,9 +12,7 @@ description: 使用 vite vue3 搭建 uniapp 开发环境
 
 最近想搞个移动端或小程序的 Vue3 项目，所以选择跨端开发平台就显得十分重要。在业内主要有两个跨端开发平台，Taro 与 uniapp，但 uniapp 貌似对 vue3 的支持不是特别友好。所以让我在 Taro 和 uniapp 之间抉择了一段时间，最终还是尝试选择相对熟悉的 uniapp 来进行开发。
 
-:::warning 前排提醒
-
-目前 uniapp 对 Vue3 的支持还处于 alpha 版，即开发阶段，大概率是会遇到很多问题的。
+:::warning 前排提醒：目前 uniapp 对 Vue3 的支持还处于 alpha 版，即开发阶段，大概率是会遇到很多问题的。
 
 :::
 

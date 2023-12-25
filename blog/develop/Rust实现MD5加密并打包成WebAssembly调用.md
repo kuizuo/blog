@@ -85,7 +85,7 @@ WebAssembly 构建产物将会输出在 pkg 目录下，如下
 |  └─hello_wasm_bg.wasm.d.ts
 ```
 
-:::note
+:::info
 
 如果想当 npm 包发布的话，可以添加 —scope 参数，将会在 pkg 下生成 package.json 文件用于发布或当做一个 npm 包来使用，这样也可以在前端工程中直接当做一个模块来导入使用。
 

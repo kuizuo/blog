@@ -134,9 +134,7 @@ console.log(user.username)
 
 不过 js 不确定是否有该属性的话，可以使用`?.`，比方`user?.age`，这样返回的`null`，而不是`undefiend`。
 
-:::note 易错小结
-
-获取字典属性使用 `字典['属性值']` 获取，key 需用引号包裹
+:::note 易错小结：获取字典属性使用 `字典['属性值']` 获取，key 需用引号包裹
 
 :::
 
@@ -193,9 +191,7 @@ class Demo():
 
 [Python 为什么要保留显式的 self ？ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/84546388)
 
-:::note 易错小结
-
-类共有属性与实例属性区别
+:::note 易错小结：类共有属性与实例属性区别
 
 :::
 
@@ -377,15 +373,11 @@ httpx.post(
 
 请求库将会自动将根据你所传入的字典，转成对应的格式，同时会携带对应`Content-Type`协议头`Content-Type: application/x-www-form-urlencoded` 与 `Content-Type: application/json`。所以就不需要使用
 
-:::danger
-
-要注意一点的时，如果 data 不是字典，而是字符串 `a=1&b=2` ，那么请求时不会携带`Content-Type`，如果网站有对`Content-Type`的判断的话，那么这次的请求很有可能报错。
+:::warning 要注意一点的时，如果 data 不是字典，而是字符串 `a=1&b=2` ，那么请求时不会携带`Content-Type`，如果网站有对`Content-Type`的判断的话，那么这次的请求很有可能报错。
 
 :::
 
-:::note 易错小结
-
-请求库默认使用 utf8 编码，如果想要发送 gbk 编码的话，就需要使用 urlencode，然后设置对应的协议头。（相对还是比较麻烦的，暂时没找到比较有效的方法）
+:::note 易错小结：请求库默认使用 utf8 编码，如果想要发送 gbk 编码的话，就需要使用 urlencode，然后设置对应的协议头。（相对还是比较麻烦的，暂时没找到比较有效的方法）
 
 :::
 
@@ -403,9 +395,7 @@ client.follow_redirects = True
 
 不过在正常协议复现的情况下，是不建议允许重定向的，因为有可能重定向的那个请求有必要关键参数可能会在后续中使用到，而重定向就会直接跳过。
 
-:::note 易错小结
-
-requests 是 allow_redirects，httpx 是 follow_redirects
+:::note 易错小结：requests 是 allow_redirects，httpx 是 follow_redirects
 
 :::
 
