@@ -3,6 +3,7 @@
   overflow-y: auto;
   position: sticky;
   top: calc(var(--ifm-navbar-height) + 1rem);
+  color: var(--ifm-font-color-secondary);
 }
 
 @media (max-width: 996px) {

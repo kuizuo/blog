@@ -146,14 +146,14 @@ article {
       font-size: 1.2em;
     }
 
-    strong {
-      color: #fff;
-    }
-
     .markdown-body a:hover::before {
       width: 100%;
     }
   }
+}
+
+:where(html[data-theme='dark']) article .markdown strong {
+  color: #fff;
 }
 
 .navbar {

@@ -1,13 +1,7 @@
 import React, { type ReactNode } from 'react'
 import clsx from 'clsx'
-import {
-  HtmlClassNameProvider,
-  ThemeClassNames,
-} from '@docusaurus/theme-common'
-import {
-  BlogPostProvider,
-  useBlogPost,
-} from '@docusaurus/theme-common/internal'
+import { HtmlClassNameProvider, ThemeClassNames } from '@docusaurus/theme-common'
+import { BlogPostProvider, useBlogPost } from '@docusaurus/theme-common/internal'
 import BlogLayout from '@theme/BlogLayout'
 import BlogPostItem from '@theme/BlogPostItem'
 import BlogPostPaginator from '@theme/BlogPostPaginator'
@@ -65,10 +59,7 @@ export default function BlogPostPage(props: Props): JSX.Element {
   return (
     <BlogPostProvider content={props.content} isBlogPostPage>
       <HtmlClassNameProvider
-        className={clsx(
-          ThemeClassNames.wrapper.blogPages,
-          ThemeClassNames.page.blogPostPage,
-        )}
+        className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogPostPage)}
       >
         <BlogPostPageMetadata />
         <BlogPostPageContent sidebar={props.sidebar}>
