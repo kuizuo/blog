@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import clsx from 'clsx'
 import Link from '@docusaurus/Link'
 import { Icon } from '@iconify/react'
@@ -10,13 +10,18 @@ import styles from './styles.module.scss'
 
 export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
   const { isBlogPostPage } = useBlogPost()
+  const [isHovered, setIsHovered] = useState(false)
 
   const handleBack = () => {
     window.history.back()
   }
 
   return (
-    <aside className="col col--2">
+    <aside
+      className="col col--2"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <nav
         className={clsx(styles.sidebar, 'thin-scrollbar')}
         aria-label={translate({
@@ -24,6 +29,7 @@ export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
           message: 'Blog recent posts navigation',
           description: 'The ARIA label for recent posts in the blog sidebar',
         })}
+        style={{ opacity: isHovered ? 1 : 0 }}
       >
         {isBlogPostPage && (
           <div className={styles.backButton} onClick={handleBack}>

@@ -3,6 +3,9 @@
   overflow-y: auto;
   position: sticky;
   top: calc(var(--ifm-navbar-height) + 2rem);
+
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.5s;
 }
 
 .sidebarItemTitle {
@@ -50,6 +53,16 @@
   }
 }
 
+:root {
+  --back-btn-bg-color: #fafaf9;
+  --back-btn-bg-color-hover: #f1f5f9;
+}
+
+html[data-theme='dark'] {
+  --back-btn-bg-color: #18181b;
+  --back-btn-bg-color-hover: #334155;
+}
+
 .backButton {
   width: 32px;
   height: 32px;
@@ -64,18 +77,10 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
-  background-color: #fafaf9;
+  background-color: var(--back-btn-bg-color);
 
   &:hover {
     color: var(--ifm-link-color);
-    background-color: #f1f5f9;
-  }
-}
-
-html[data-theme='dark'] .backButton {
-  background-color: #1e293b;
-
-  &:hover {
-    background-color: #334155;
+    background-color: var(--back-btn-bg-color-hover);
   }
 }
