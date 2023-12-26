@@ -26,49 +26,50 @@ const item = {
   },
 }
 
-export default function BlogPostGridItems({
-  items,
-}: BlogPostItemsProps): JSX.Element {
+export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.Element {
   return (
-    <motion.div
-      className={styles.blogGrid}
-      variants={container}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.div className={styles.blogGrid} variants={container} initial="hidden" animate="visible">
       {items.map(({ content: BlogPostContent }, i) => {
         const { metadata: blogMetaData, frontMatter } = BlogPostContent
         const { title } = frontMatter
         const { permalink, date, tags } = blogMetaData
         const dateObj = new Date(date)
-        const dateString = `${dateObj.getFullYear()}-${(
-          '0' +
-          (dateObj.getMonth() + 1)
-        ).slice(-2)}-${('0' + dateObj.getDate()).slice(-2)}`
+        const dateString = `${dateObj.getFullYear()}-${('0' + (dateObj.getMonth() + 1)).slice(
+          -2,
+        )}-${('0' + dateObj.getDate()).slice(-2)}`
 
         return (
-          <motion.div
-            className={styles.postGridItem}
-            key={blogMetaData.permalink}
-            variants={item}
-          >
+          <motion.div className={styles.postGridItem} key={blogMetaData.permalink} variants={item}>
             <Link to={permalink} className={styles.itemTitle}>
               {title}
             </Link>
             <div className={styles.itemTags}>
-              {tags.length > 0 &&
-                tags
-                  .slice(0, 2)
-                  .map(({ label, permalink: tagPermalink }, index) => (
-                    <Tag
-                      label={label}
-                      permalink={tagPermalink}
-                      key={tagPermalink}
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore
-                      className={styles.tag}
-                    />
-                  ))}
+              {tags.length > 0 && (
+                <>
+                  <svg width="1em" height="1em" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      d="M10 15h4V9h-4v6Zm0 2v3a1 1 0 0 1-2 0v-3H5a1 1 0 0 1 0-2h3V9H5a1 1 0 1 1 0-2h3V4a1 1 0 1 1 2 0v3h4V4a1 1 0 0 1 2 0v3h3a1 1 0 0 1 0 2h-3v6h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3h-4Z"
+                    ></path>
+                  </svg>
+                  {tags.slice(0, 2).map(({ label, permalink: tagPermalink }, index) => {
+                    return (
+                      <>
+                        {index !== 0 && '/'}
+                        <Tag
+                          label={label}
+                          permalink={tagPermalink}
+                          key={tagPermalink}
+                          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                          // @ts-ignore
+                          className={styles.tag}
+                        />
+                      </>
+                    )
+                  })}
+                </>
+              )}
             </div>
             <div className={styles.itemDate}>{dateString}</div>
           </motion.div>

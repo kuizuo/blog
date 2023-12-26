@@ -10,8 +10,6 @@ image: https://img.kuizuo.cn/trpc-banner.png
 toc_max_heading_level: 3
 ---
 
-![trpc-banner](https://img.kuizuo.cn/trpc-banner.png)
-
 如果你想成为一个 **Typescript 全栈工程师**，那么你可能需要关注一下 [tRPC](https://trpc.io/) 框架。
 
 本文总共会接触到以下主要技术栈。

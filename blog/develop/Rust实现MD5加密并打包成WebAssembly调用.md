@@ -5,9 +5,8 @@ date: 2023-01-04
 authors: kuizuo
 tags: [rust, wasm]
 keywords: [rust, wasm]
+image: https://img.kuizuo.cn/202312270251453.png
 ---
-
-<img src="https://img.kuizuo.cn/wasm-ferris.png" width="230" height="150" />
 
 我初识 WebAssembly 是当初想要分析某个网站的加密算法，最终定位到了一个 `.wasm` 文件，没错，这个就是 WebAssembly 的构建产物，能够直接运行在浏览器中。在我当时看来这门技术很先进，不过如今看来绝大多数的 web 应用貌似都没使用上，迄今为止我也只在这个网站中看到使用 WebAssembly 的（也许有很多，只是没实质分析过）。
 

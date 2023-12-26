@@ -265,13 +265,7 @@ pnpm run dev
 permission 的值如
 
 ```json
-[
-  "sys:user:add",
-  "sys:user:delete",
-  "sys:user:update",
-  "sys:user:list",
-  "sys:user:info"
-]
+["sys:user:add", "sys:user:delete", "sys:user:update", "sys:user:list", "sys:user:info"]
 ```
 
 然后在 auth.guard.ts 守卫中获取 permission，然后每次请求需要鉴权的接口时，将权限标识转为接口 url，判断是否包含该 url，不包含则无访问权限。

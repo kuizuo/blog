@@ -6,10 +6,8 @@ authors: kuizuo
 tags: [macOS, MacBook, 记录, 使用体验]
 keywords: [macOS, MacBook, 记录, 使用体验]
 description: 作者是一位从来没用过苹果产品的程序员，但在使用了一周的 MacBook Pro 14 寸后，便爱不释手。
-image: https://img.kuizuo.cn/My%20Mac.png
+image: https://img.kuizuo.cn/202312270236590.png
 ---
-
-![](https://img.kuizuo.cn/My%20Mac.png)
 
 首先我不是 iphone 用户，甚至是果黑（苹果的小黑子，合理来说是苹果手机的小黑子），所以我一向从内心就很摈弃苹果的产品。因此我从来没体验过 MacOS 系统，用了近 4 年 window，不过由于我的那台 window 本 （21 年小新 pro14） 给我的体验非常差，虽然说续航勉勉强强足够支撑我一个下午的开发，但 intel 的 i5 cpu 我就没打算将其作为主力机开发（根本做不了），更多是使用向日葵远程桌面软件来远程连接到我的台式电脑，远程操控来进行开发。然而由于屏幕分辨率不同以及网络延迟，这样的体验长期下去必然会崩溃。因此**更换自己的移动办公设备已经成了我当下的刚需。**
 

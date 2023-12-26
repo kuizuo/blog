@@ -6,6 +6,7 @@ authors: kuizuo
 tags: [strapi, nuxt, next]
 keywords: [strapi, nuxt, next]
 description: Strapi 实现用户注册与登录
+image: https://img.kuizuo.cn/202312270300876.png
 ---
 
 在官方博客 [Registration and Login (Authentication) with Vue.js and Strapi](https://strapi.io/blog/registration-and-login-authentication-with-vue-js-and-strapi-1) 中演示如何实现注册与登录。实际重点部分是 Strapi 的[角色和权限插件](https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html)，可以说这个插件让开发者不用再为项目考虑的用户登录注册与鉴权相关。
@@ -60,8 +61,7 @@ Authenticated 对应的也就是登录后的角色，即携带 **Authorization**
 
 分别可在 [Login](https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html#login) 与 [Register](https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html#registration) 中查看官方演示例子，例如
 
-import Tabs from '@theme/Tabs'; 
-import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ```mdx-code-block
 <Tabs>
@@ -69,23 +69,24 @@ import TabItem from '@theme/TabItem';
 ```
 
 ```js {4}
-import axios from 'axios';
+import axios from 'axios'
 
 // Request API.
-axios.post('http://localhost:1337/api/auth/local', {
+axios
+  .post('http://localhost:1337/api/auth/local', {
     identifier: 'user@strapi.io',
     password: 'strapiPassword',
   })
-  .then((response) => {
+  .then(response => {
     // Handle success.
-    console.log('Well done!');
-    console.log('User profile', response.data.user);
-    console.log('User token', response.data.jwt);
+    console.log('Well done!')
+    console.log('User profile', response.data.user)
+    console.log('User token', response.data.jwt)
   })
-  .catch((error) => {
+  .catch(error => {
     // Handle error.
-    console.log('An error occurred:', error.response);
-  });
+    console.log('An error occurred:', error.response)
+  })
 ```
 
 ```mdx-code-block
@@ -94,24 +95,25 @@ axios.post('http://localhost:1337/api/auth/local', {
 ```
 
 ```js {4}
-import axios from 'axios';
+import axios from 'axios'
 
 // Request API.
-axios.post('http://localhost:1337/api/auth/local/register', {
+axios
+  .post('http://localhost:1337/api/auth/local/register', {
     username: 'Strapi user',
     email: 'user@strapi.io',
     password: 'strapiPassword',
   })
-  .then((response) => {
+  .then(response => {
     // Handle success.
-    console.log('Well done!');
-    console.log('User profile', response.data.user);
-    console.log('User token', response.data.jwt);
+    console.log('Well done!')
+    console.log('User profile', response.data.user)
+    console.log('User token', response.data.jwt)
   })
-  .catch((error) => {
+  .catch(error => {
     // Handle error.
-    console.log('An error occurred:', error.response);
-  });
+    console.log('An error occurred:', error.response)
+  })
 ```
 
 ```mdx-code-block
@@ -138,7 +140,6 @@ axios.post('http://localhost:1337/api/auth/local/register', {
 总之又是一趟白折腾的经过。
 
 :::
-
 
 ## Next
 

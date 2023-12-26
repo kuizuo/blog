@@ -10,8 +10,6 @@ image: https://img.kuizuo.cn/213727234-cda046d6-28c6-491a-b284-b86c5cede25d.png
 toc_max_heading_level: 3
 ---
 
-![213727234-cda046d6-28c6-491a-b284-b86c5cede25d](https://img.kuizuo.cn/213727234-cda046d6-28c6-491a-b284-b86c5cede25d.png)
-
 对于想快速实现一个产品而言，如果使用传统开发，又要兼顾前端开发，同时又要花费时间构建后端服务。然而有这么一个平台（Baas Backend as a service）后端即服务，能够让开发人员可以专注于前端开发，而无需花费大量时间和精力来构建和维护后端基础设施。
 
 对于只会前端的人来说，这是一个非常好的选择。后端即服务的平台使得开发人员能够快速构建应用程序，更快地将其推向市场。当然了，你可以将你的后端应用接入 Baas，这样你就无需配置数据库，编写复杂的身份效验。
@@ -126,10 +124,7 @@ import { createClient } from '@supabase/supabase-js'
 import { createClient } from '@supabase/supabase-js'
 import { Database } from 'lib/database.types'
 
-const supabase = createClient<Database>(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_ANON_KEY,
-)
+const supabase = createClient<Database>(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY)
 ```
 
 此时有了 supabse 对象后，就能够请求数据了，像上述通过 http 的方式获取 todos 数据，在这里对应的代码为

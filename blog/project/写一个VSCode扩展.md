@@ -17,8 +17,6 @@ image: /img/project/vscode-extension.png
 
 开源地址：[kuizuo/vscode-extension (github.com)](https://github.com/kuizuo/vscode-extension)
 
-![vscode-extension](https://img.kuizuo.cn/image-20220711195038039.png)
-
 <!-- truncate -->
 
 ## Vscode 相关

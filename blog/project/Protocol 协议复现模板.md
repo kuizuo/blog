@@ -9,29 +9,6 @@ description: 一个用于快速复现请求协议的 Web 开发模板。基于 N
 image: /img/project/protocol.png
 ---
 
-<p align="center">
-  <img src="https://api.kuizuo.cn/api/icon/carbon:api.svg" width="80" height="80" />
-</p>
-
-<p align="center">
-  <i> Artwork from <a href="https://v3.nuxtjs.org/">Nuxt3</a></i>
-</p>
-
-<h1 align="center">Protocol</h1>
-<p align="center">🧪 一个用于快速复现请求协议的 Web 开发模板。</p>
-
-<p align="center">
-  <a href="https://github.com/kuizuo/protocol">
-    <img src="https://img.shields.io/github/stars/kuizuo/protocol?style=social" alt="GitHub stars" />
-  </a>
-  <a href="https://protocol.kuizuo.cn">🖥 在线预览</a>
-  <a href="https://stackblitz.com/github/kuizuo/protocol">
-    <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" />
-  </a>
-</p>
-
-<br />
-
 <!-- truncate -->
 
 ## 为什么我要写这样的一个模板(网站)
@@ -506,5 +483,3 @@ async function getUser() {
 目前这种方案已有初步雏形，由于一些特殊的因素，我并未将已经写过的站点作为案例放在这上面作为演示，而将 Github api 作为演示，后续大概率会弄个案例展示供参考学习。
 
 后续我还是会不断去完善与维护该项目，并基于该项目去重构我的一些项目。
-
-**本模板仅仅是 web 模板，任何开发者用该模板做什么样的站点都与本人无关。仅作为个人技术专研，仅供学习参考。**

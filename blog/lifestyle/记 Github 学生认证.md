@@ -6,11 +6,9 @@ authors: kuizuo
 tags: [记录, github]
 keywords: [记录, github]
 description: 记录 Github 学生认证艰辛过程与经验分享。
-image: /img/blog/github-success.png
+image: https://img.kuizuo.cn/202312270150041.png
 sticky: 1
 ---
-
-![](https://img.kuizuo.cn/github_copilot_ready.jpg)
 
 我个人是非常讨厌这些认证提交手续的，例如疫情健康报告，请假申请表等等，当然也包括这次 Github 学生认证。
 

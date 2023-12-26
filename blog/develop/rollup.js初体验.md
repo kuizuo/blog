@@ -5,11 +5,10 @@ date: 2022-10-18
 authors: kuizuo
 tags: [rollup, webpack, utils]
 keywords: [rollup, webpack, utils]
+image: https://img.kuizuo.cn/202312270253535.pnghttps://img.kuizuo.cn/202312270253535.png
 ---
 
 # rollup.js 初体验
-
-![rollup.js](https://img.kuizuo.cn/rollupjs.png)
 
 近期准备写一个工具包 [@kuizuo/utils](https://github.com/kuizuo/utils '@kuizuo/utils')，由于要将其发布到npm上，必然就要兼容不同模块（例如 CommonJS 和 ESModule），通过打包器可以很轻松的将代码分别编译成这不同模块格式。
 

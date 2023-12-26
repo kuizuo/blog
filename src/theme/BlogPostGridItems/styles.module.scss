@@ -58,14 +58,19 @@
     grid-area: tags;
     /* overflow-x: auto; */
 
-    display: flex;
-    gap: 4px;
-    padding: 0.2em 0;
+    display: inline-flex;
+    align-items: center;
     white-space: nowrap;
-    font-size: 0.8rem;
+    font-size: 0.9em;
 
     a {
-      padding: 1px 4px;
+      padding: 1px 2px;
+      border: 0 !important;
+      color: inherit;
+
+      &:hover {
+        color: var(--ifm-color-primary);
+      }
     }
   }
 

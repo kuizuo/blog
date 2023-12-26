@@ -9,15 +9,9 @@ description: 使用 Vue2 开发一个 Chrome 插件
 image: /img/blog/vue-chrome-extension.png
 ---
 
-![mini](https://img.kuizuo.cn/mini.jpg)
-
-<!-- truncate -->
-
-## 前言
-
 我当时学习开发 Chrome 插件的时候，还不会 Vue，更别说 Webpack 了，所以使用的都是原生的 html 开发，效率就不提了，而这次就准备使用 vue-cli 来进行编写一个某 B 站获取视频信息,评论的功能（原本是打算做自动回复的），顺便巩固下 chrome 开发（快一年没碰脚本类相关技术了），顺便写套模板供自己后续编写 Chrome 插件做铺垫。
 
-相关代码开源[github 地址](https://github.com/kuizuo/vue-chrome-extension)
+<!-- truncate -->
 
 ## 环境搭建
 
