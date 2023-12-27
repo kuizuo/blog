@@ -9,7 +9,7 @@
   align-items: center;
   margin-bottom: var(--ifm-spacing-m);
   gap: 4px;
-  color: #9ca3af;
+  color: var(--ifm-secondary-text-color);
 
   font-size: 0.8rem;
   font-weight: 400;
@@ -20,7 +20,7 @@
   gap: 4px;
 
   a {
-    color: #9ca3af;
+    color: var(--ifm-secondary-text-color);
   }
 
   a:hover {

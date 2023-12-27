@@ -5,10 +5,7 @@ import BlogPostItemHeaderAuthor from '@theme/BlogPostItem/Header/Author'
 import type { Props } from '@theme/BlogPostItem/Header/Authors'
 import styles from './styles.module.css'
 
-// Component responsible for the authors layout
-export default function BlogPostItemHeaderAuthors({
-  className,
-}: Props): JSX.Element | null {
+export default function BlogPostItemHeaderAuthors({ className }: Props): JSX.Element | null {
   const {
     metadata: { authors },
     assets,
@@ -21,7 +18,7 @@ export default function BlogPostItemHeaderAuthors({
   return (
     <div
       className={clsx(
-        'margin-top--md margin-bottom--sm',
+        'margin-top--sm margin-bottom--sm',
         imageOnly ? styles.imageOnlyAuthorRow : 'row',
         className,
       )}

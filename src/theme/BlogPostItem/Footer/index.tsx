@@ -12,16 +12,8 @@ import styles from './styles.module.scss'
 
 export default function BlogPostItemFooter(): JSX.Element | null {
   const { metadata, isBlogPostPage } = useBlogPost()
-  const {
-    tags,
-    title,
-    editUrl,
-    hasTruncateMarker,
-    date,
-    formattedDate,
-    readingTime,
-    authors,
-  } = metadata
+  const { tags, title, editUrl, hasTruncateMarker, date, formattedDate, readingTime, authors } =
+    metadata
 
   // A post is truncated if it's in the "list view" and it has a truncate marker
   const truncatedPost = !isBlogPostPage && hasTruncateMarker
@@ -37,7 +29,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
         <div className={styles.blogPostInfo}>
           {/* {authorsExists && (
             <>
-              <Icon icon="ri:user-fill" color="#9ca3af" />
+              <Icon icon="ri:user-line"  />
               {authors.map(a => (
                 <span key={a.url} className="blog__author">
                   <a href={a.url} className={styles.blogPostAuthor}>
@@ -49,36 +41,26 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           )} */}
           {date && (
             <>
-              <Icon icon="ri:calendar-fill" color="#9ca3af" />
-              <time
-                dateTime={date}
-                className={styles.blogPostDate}
-                itemProp="datePublished"
-              >
+              <Icon icon="ri:calendar-line" />
+              <time dateTime={date} className={styles.blogPostDate} itemProp="datePublished">
                 {formattedDate}
               </time>
             </>
           )}
           {tagsExists && (
             <>
-              <Icon icon="ri:price-tag-3-fill" color="#9ca3af" />
+              <Icon icon="ri:price-tag-3-line" />
               <span className={styles.blogPostInfoTags}>
                 {tags.map(({ label, permalink: tagPermalink }) => (
-                  <Tag
-                    label={label}
-                    permalink={tagPermalink}
-                    key={tagPermalink}
-                  />
+                  <Tag label={label} permalink={tagPermalink} key={tagPermalink} />
                 ))}
               </span>
             </>
           )}
           {readingTime && (
             <>
-              <Icon icon="ri:time-fill" color="#9ca3af" />
-              <span
-                className={clsx(styles.blogPostReadTime, 'blog__readingTime')}
-              >
+              <Icon icon="ri:time-line" />
+              <span className={clsx(styles.blogPostReadTime, 'blog__readingTime')}>
                 <ReadingTime readingTime={readingTime} />
               </span>
             </>
@@ -99,17 +81,8 @@ export default function BlogPostItemFooter(): JSX.Element | null {
 
   return (
     <footer
-      className={clsx(
-        'row docusaurus-mt-lg',
-        isBlogPostPage && styles.blogPostFooterDetailsFull,
-      )}
+      className={clsx('row docusaurus-mt-lg', isBlogPostPage && styles.blogPostFooterDetailsFull)}
     >
-      {tagsExists && (
-        <div className={clsx('col', { 'col--9': truncatedPost })}>
-          <TagsListInline tags={tags} />
-        </div>
-      )}
-
       {/* {isBlogPostPage && editUrl && (
         <div className="col margin-top--sm">
           <EditThisPage editUrl={editUrl} />

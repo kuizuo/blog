@@ -278,3 +278,26 @@ div[class^='announcementBar_'] {
 .gsc-comments textarea {
   background: var(--content-background-color);
 }
+
+.tag {
+  &:hover {
+    color: currentColor !important;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--ifm-color-primary);
+    visibility: hidden;
+    transition: all 0.3s linear;
+  }
+
+  &:hover::after {
+    visibility: visible;
+    width: 100%;
+  }
+}
