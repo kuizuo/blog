@@ -8,6 +8,7 @@ html[data-theme='dark'] {
 
 .article {
   position: relative;
+  padding: 1em 1.25em 0.75em;
   /* border: 1px solid var(--border-color); */
 }
 
