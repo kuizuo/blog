@@ -25,7 +25,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
 
   if (!renderFooter) {
     return (
-      <>
+      <div style={{ position: 'relative', zIndex: 2 }}>
         <div className={styles.blogPostInfo}>
           {/* {authorsExists && (
             <>
@@ -67,7 +67,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           )}
           {truncatedPost && (
             <div
-              className={clsx(styles.readMore, {
+              className={clsx('readMore', {
                 'col--3': tagsExists,
               })}
             >
@@ -75,7 +75,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
             </div>
           )}
         </div>
-      </>
+      </div>
     )
   }
 

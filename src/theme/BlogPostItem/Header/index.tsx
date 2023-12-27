@@ -7,7 +7,7 @@ import { useBlogPost } from '@docusaurus/theme-common/internal'
 export default function BlogPostItemHeader(): JSX.Element {
   const { isBlogPostPage } = useBlogPost()
   return (
-    <header>
+    <header style={{ position: 'relative', zIndex: 2 }}>
       <BlogPostItemHeaderTitle />
       {isBlogPostPage && (
         <>

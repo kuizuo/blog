@@ -5,10 +5,7 @@ import { useBlogPost } from '@docusaurus/theme-common/internal'
 import MDXContent from '@theme/MDXContent'
 import type { Props } from '@theme/BlogPostItem/Content'
 
-export default function BlogPostItemContent({
-  children,
-  className,
-}: Props): JSX.Element {
+export default function BlogPostItemContent({ children, className }: Props): JSX.Element {
   const { isBlogPostPage } = useBlogPost()
   return (
     <div
@@ -16,6 +13,7 @@ export default function BlogPostItemContent({
       id={isBlogPostPage ? blogPostContainerID : undefined}
       className={clsx('markdown', className)}
       itemProp="articleBody"
+      style={{ position: 'relative', zIndex: 2 }}
     >
       <MDXContent>{children}</MDXContent>
     </div>

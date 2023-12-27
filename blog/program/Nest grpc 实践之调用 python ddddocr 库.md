@@ -6,7 +6,6 @@ authors: kuizuo
 tags: [nest, grpc, python, ddddocr]
 keywords: [nest, grpc, python, ddddocr]
 description: 本文将使用 nest 通过 grpc 的方式来调用 python 的 ddddocr 库来识别验证码。
-image: https://img.kuizuo.cn/202307290823586.png
 ---
 
 我曾经写过一个项目 [ddddocr_server](https://github.com/kuizuo/ddddocr_server)，使用 fastapi 提供 http 接口，以此来调用 [ddddocr](https://github.com/sml2h3/ddddocr) 库。

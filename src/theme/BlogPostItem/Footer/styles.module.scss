@@ -56,18 +56,3 @@
 html[data-theme='dark'] .divider {
   background-color: #2f3336;
 }
-
-.readMore {
-  display: flex;
-  flex: 1 1 auto;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 2px;
-
-  color: var(--ifm-link-color);
-  font-weight: 500;
-
-  a:hover {
-    text-decoration: none;
-  }
-}

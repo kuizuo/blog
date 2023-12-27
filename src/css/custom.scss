@@ -262,6 +262,25 @@ div[class^='announcementBar_'] {
   border-left: 3px solid #ff000080;
 }
 
+.readMore {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2px;
+
+  opacity: 0;
+
+  transition: 0.2s;
+
+  color: var(--ifm-link-color);
+  font-weight: 500;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
 .blog-card {
   border-radius: var(--ifm-pagination-nav-border-radius);
   margin-top: 0;
@@ -269,6 +288,10 @@ div[class^='announcementBar_'] {
   background: var(--blog-item-background-color);
   box-shadow: var(--blog-item-shadow);
   padding: 1em 1.25em 0.75em;
+
+  &:hover .readMore {
+    opacity: 1;
+  }
 }
 
 .container-wrapper {
