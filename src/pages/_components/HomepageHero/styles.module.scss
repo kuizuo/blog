@@ -50,8 +50,8 @@
   background-size: var(--lighting-size) var(--lighting-size);
   background-repeat: no-repeat;
 
-  background-position-x: calc(var(--x) - var(--position-x) - calc(var(--lighting-size) / 2));
-  background-position-y: calc(var(--y) - var(--position-y) - calc(var(--lighting-size) / 2));
+  background-position-x: calc(var(--x) - var(--mouse-x) - calc(var(--lighting-size) / 2));
+  background-position-y: calc(var(--y) - var(--mouse-y) - calc(var(--lighting-size) / 2));
 
   background-color: var(--lighting-color);
 

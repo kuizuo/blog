@@ -1,5 +1,5 @@
 import React from 'react'
-import { Variants, motion } from 'framer-motion'
+import { Variants, motion, useMotionValue } from 'framer-motion'
 import Link from '@docusaurus/Link'
 import type { Props as BlogPostItemsProps } from '@theme/BlogPostItems'
 import Tag from '@theme/Tag'
@@ -39,7 +39,15 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
         )}-${('0' + dateObj.getDate()).slice(-2)}`
 
         return (
-          <motion.div className={styles.postGridItem} key={blogMetaData.permalink} variants={item}>
+          <motion.div
+            className={styles.postGridItem}
+            key={blogMetaData.permalink}
+            variants={item}
+            onMouseMove={e => {
+              e.currentTarget.style.setProperty('--mouse-x', `${e.clientX}px`)
+              e.currentTarget.style.setProperty('--mouse-y', `${e.clientY}px`)
+            }}
+          >
             <Link to={permalink} className={styles.itemTitle}>
               {title}
             </Link>
@@ -70,6 +78,27 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
               )}
             </div>
             <div className={styles.itemDate}>{dateString}</div>
+            <motion.div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                background: 'rgba(0, 0, 0, 0.5)', // Adjust the opacity as needed
+              }}
+            />
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                clipPath: 'circle(100px at var(--mouse-x) var(--mouse-y))',
+                // Ensure that the variables are set as CSS variables
+              }}
+            />
           </motion.div>
         )
       })}

@@ -148,8 +148,8 @@ function Name() {
         className={styles.name}
         onMouseMove={e => {
           const bounding = e.currentTarget.getBoundingClientRect()
-          e.currentTarget.style.setProperty('--position-x', `${bounding.x}px`)
-          e.currentTarget.style.setProperty('--position-y', `${bounding.y}px`)
+          e.currentTarget.style.setProperty('--mouse-x', `${bounding.x}px`)
+          e.currentTarget.style.setProperty('--mouse-y', `${bounding.y}px`)
         }}
       >
         <Translate id="homepage.hero.name">愧怍</Translate>
