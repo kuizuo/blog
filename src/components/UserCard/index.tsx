@@ -30,19 +30,18 @@ export default function UserCard({ isNavbar = false }: { isNavbar?: boolean }) {
 
   const logoLink = useBaseUrl(logo.src || '/')
 
-  const blogPluginData = usePluginData('docusaurus-plugin-content-blog') as {
-    blogs: BlogPost[]
-    tags: BlogTags
+  const blogData = usePluginData('docusaurus-plugin-content-blog') as {
+    posts: BlogPost[]
+    postNum: number
+    tagNum: number
   }
   const docData = (
     usePluginData('docusaurus-plugin-content-docs') as { versions: { docs: BlogPost[] } }
   )?.versions[0].docs
-  const blogData = blogPluginData?.blogs
-  const tagData = blogPluginData?.tags
 
   const count: Count = {
-    blog: blogData.length,
-    tag: Object.keys(tagData).length ?? 0,
+    blog: blogData.postNum,
+    tag: blogData.tagNum ?? 0,
     doc: docData?.length ?? 0,
     project: projects?.length ?? 0,
   }

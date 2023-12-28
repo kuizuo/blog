@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { BlogPost } from '@docusaurus/plugin-content-blog'
-import useGlobalData from '@docusaurus/useGlobalData'
+import { usePluginData } from '@docusaurus/useGlobalData'
 import Translate from '@docusaurus/Translate'
 import Link from '@docusaurus/Link'
 import Image from '@theme/IdealImage'
@@ -47,13 +47,13 @@ export function BlogItem({ post }: { post: BlogPost }) {
 }
 
 export default function BlogRecent(): JSX.Element {
-  const globalData = useGlobalData()
-  const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.['default'] as {
-    blogs: BlogPost[]
+  const blogData = usePluginData('docusaurus-plugin-content-blog') as {
+    posts: BlogPost[]
+    postNum: number
+    tagNum: number
   }
 
-  const blogData = blogPluginData?.blogs
-  const posts = chunk(blogData.slice(0, 6), 2)
+  const posts = chunk(blogData.posts.slice(0, 6), 2)
 
   const ref = React.useRef<HTMLDivElement>(null)
 
@@ -62,7 +62,7 @@ export default function BlogRecent(): JSX.Element {
     clamp: false,
   })
 
-  if (blogData.length === 0) {
+  if (blogData.postNum === 0) {
     return <>作者还没有写过博客哦</>
   }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { BlogPost } from '@docusaurus/plugin-content-blog'
-import useGlobalData from '@docusaurus/useGlobalData'
+import { usePluginData } from '@docusaurus/useGlobalData'
 import Translate from '@docusaurus/Translate'
 import Link from '@docusaurus/Link'
 import Image from '@theme/IdealImage'
@@ -10,13 +10,12 @@ import Image from '@theme/IdealImage'
 import styles from './styles.module.scss'
 
 export default function BlogRecommend(): JSX.Element {
-  const globalData = useGlobalData()
-  const blogPluginData = globalData?.['docusaurus-plugin-content-blog']?.['default'] as {
-    blogs: BlogPost[]
+  const blogData = usePluginData('docusaurus-plugin-content-blog') as {
+    posts: BlogPost[]
+    postNum: number
+    tagNum: number
   }
-
-  const blogData = blogPluginData?.blogs
-  const recommendedPosts = blogData
+  const recommendedPosts = blogData.posts
     .filter(b => (b.metadata.frontMatter.sticky as number) > 0)
     .map(b => b.metadata)
     .sort((a, b) => (a.frontMatter.sticky as number) - (b.frontMatter.sticky as number))

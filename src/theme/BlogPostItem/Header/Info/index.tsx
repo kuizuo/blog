@@ -61,15 +61,10 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
           <div className={styles.tagList}>
             {tags.slice(0, 2).map(({ label, permalink: tagPermalink }, index) => {
               return (
-                <>
+                <div key={tagPermalink}>
                   {index !== 0 && '/'}
-                  <Tag
-                    label={label}
-                    permalink={tagPermalink}
-                    key={tagPermalink}
-                    className={'tag'}
-                  />
-                </>
+                  <Tag label={label} permalink={tagPermalink} className={'tag'} />
+                </div>
               )
             })}
           </div>

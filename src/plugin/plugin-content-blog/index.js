@@ -16,8 +16,9 @@ async function blogPluginEnhanced(context, options) {
       const { setGlobalData } = actions;
 
       setGlobalData({
-        blogs: blogPosts,
-        tags: blogTags,
+        posts: blogPosts.slice(0, 10), // Only store 10 posts
+        postNum: blogPosts.length,
+        tagNum: Object.keys(blogTags).length,
       });
     },
   };
