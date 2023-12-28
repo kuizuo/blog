@@ -7,12 +7,9 @@
   --ifm-color-primary-lighter: #b0e6ff;
   --ifm-color-primary-lightest: #d5f1fd;
   --ifm-code-font-size: 95%;
-  --ifm-font-family-base: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
-    'Helvetica Neue', 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji', consolas, sfmono-regular, menlo, monaco,
-    'Liberation Mono', monospace;
+  --ifm-font-family-base: misans, ui-sans-serif, system-ui, -apple-system;
 
-  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-heading-font-family: ui-sans-serif, system-ui, -apple-system;
 
   --ifm-navbar-shadow: 0 4px 28px rgb(0 0 0 / 10%);
   --text-color: #2b333e;
@@ -76,19 +73,11 @@ html[data-theme='dark'] {
 
 body {
   font-family:
+    misans,
     system-ui,
     -apple-system,
     'PingFang SC',
-    'Microsoft YaHei',
-    'Segoe UI',
-    Roboto,
-    Helvetica,
-    'noto sans sc',
-    'hiragino sans gb',
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Not Color Emoji';
+    'Microsoft YaHei';
 }
 
 html,

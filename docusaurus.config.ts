@@ -40,15 +40,7 @@ const config: Config = {
         hideable: true,
       },
     },
-    headTags: [
-      {
-        tagName: 'meta',
-        attributes: {
-          name: 'description',
-          content: '愧怍的个人博客',
-        },
-      },
-    ],
+
     navbar: {
       logo: {
         alt: '愧怍',
@@ -256,7 +248,16 @@ const config: Config = {
       },
     ],
   ],
-  stylesheets: [],
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'description',
+        content: '愧怍的个人博客',
+      },
+    },
+  ],
+  stylesheets: ['https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css'],
   i18n: {
     defaultLocale: 'zh-CN',
     locales: ['en', 'zh-CN'],

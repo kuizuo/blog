@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { usePluginData } from '@docusaurus/useGlobalData'
-import type { BlogTags, BlogPost } from '@docusaurus/plugin-content-blog'
+import type { BlogPost } from '@docusaurus/plugin-content-blog'
 import Link from '@docusaurus/Link'
 import { Icon } from '@iconify/react'
 import SocialLinks from '@site/src/components/SocialLinks'
