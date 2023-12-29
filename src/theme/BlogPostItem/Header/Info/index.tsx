@@ -50,7 +50,7 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
   const tagsExists = tags.length > 0
 
   return (
-    <div className={clsx(styles.container, 'margin-vert--sm', className)}>
+    <div className={clsx(styles.container, 'margin-bottom--md', className)}>
       <div className={styles.date}>
         <Icon icon="ri:calendar-line" />
         <Date date={date} formattedDate={formattedDate} />

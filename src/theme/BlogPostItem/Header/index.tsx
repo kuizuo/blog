@@ -12,7 +12,7 @@ export default function BlogPostItemHeader(): JSX.Element {
       {isBlogPostPage && (
         <>
           <BlogPostItemHeaderInfo />
-          <BlogPostItemHeaderAuthors />
+          {/* <BlogPostItemHeaderAuthors /> */}
         </>
       )}
     </header>

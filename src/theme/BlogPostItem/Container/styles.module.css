@@ -22,6 +22,8 @@ html[data-theme='dark'] {
 }
 
 .coverMask {
+  border-radius: var(--ifm-pagination-nav-border-radius);
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
