@@ -172,8 +172,7 @@
 
 .gradient {
   position: absolute;
-  top: 50%;
-  left: 0;
+  inset: 0;
   height: 100%;
   border-radius: 16px;
   animation: surround -0.64s linear 4s infinite;
