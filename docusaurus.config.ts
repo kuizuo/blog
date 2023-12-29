@@ -260,7 +260,10 @@ const config: Config = {
       },
     },
   ],
-  stylesheets: ['https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css'],
+  stylesheets: [
+    'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css',
+    'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css',
+  ],
   i18n: {
     defaultLocale: 'zh-CN',
     locales: ['en', 'zh-CN'],
