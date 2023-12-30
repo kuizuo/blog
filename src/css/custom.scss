@@ -139,6 +139,20 @@ article {
     .markdown-body a:hover::before {
       width: 100%;
     }
+
+    .a-icon {
+      display: none;
+    }
+
+    p > span {
+      > .a-icon {
+        display: block;
+      }
+
+      > a {
+        line-height: 1.5rem;
+      }
+    }
   }
 }
 
