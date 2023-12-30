@@ -21,9 +21,6 @@
   border-radius: 6px;
   transition: all 0.3s;
 
-  --x: 0;
-  --y: 0;
-
   &:hover {
     box-sizing: border-box;
     box-shadow: var(--blog-item-shadow);

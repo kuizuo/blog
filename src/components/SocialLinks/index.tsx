@@ -2,7 +2,6 @@ import React from 'react'
 import { useThemeConfig } from '@docusaurus/theme-common'
 import { ThemeConfig } from '@docusaurus/preset-classic'
 import { Icon } from '@iconify/react'
-import JuejinIcon from '@site/static/svg/juejin.svg'
 
 import styles from './styles.module.scss'
 
@@ -18,16 +17,15 @@ export type Social = {
   email?: string
 }
 
-function SocialLink({
-  href,
-  icon,
-  title,
-  ...prop
-}: {
+interface Props {
   href: string
   title: string
+  color?: string
   icon: string | JSX.Element
-}) {
+  [key: string]: unknown
+}
+
+function SocialLink({ href, icon, title, color, ...prop }: Props) {
   return (
     <a href={href} target="_blank" {...prop} title={title}>
       {typeof icon === 'string' ? <Icon icon={icon} /> : icon}
@@ -40,18 +38,78 @@ export default function SocialLinks({ ...prop }) {
 
   const socials = themeConfig.socials
 
+  const map = {
+    github: {
+      href: socials.github,
+      title: 'GitHub',
+      icon: 'ri:github-line',
+      color: '#010409',
+    },
+    juejin: {
+      href: socials.juejin,
+      title: '掘金',
+      icon: 'simple-icons:juejin',
+      color: '#1E81FF',
+    },
+    twitter: {
+      href: socials.twitter,
+      title: 'Twitter',
+      icon: 'ri:twitter-line',
+      color: '#1da1f2',
+    },
+    qq: {
+      href: socials.qq,
+      title: 'QQ',
+      icon: 'ri:qq-line',
+      color: '#1296db',
+    },
+    wx: {
+      href: socials.wx,
+      title: '微信',
+      icon: 'ri:wechat-2-line',
+      color: '#07c160',
+    },
+    zhihu: {
+      href: socials.zhihu,
+      title: '知乎',
+      icon: 'ri:zhihu-line',
+      color: '#1772F6',
+    },
+    email: {
+      href: socials.email,
+      title: '邮箱',
+      icon: 'ri:mail-line',
+      color: '#D44638',
+    },
+    cloudmusic: {
+      href: socials.cloudmusic,
+      title: '网易云',
+      icon: 'ri:netease-cloud-music-line',
+      color: '#C20C0C',
+    },
+    rss: {
+      href: '/blog/rss.xml',
+      title: 'RSS',
+      icon: 'ri:rss-line',
+      color: '#FFA501',
+    },
+  }
+
   return (
-    <div className={styles.social__links} {...prop}>
-      {socials.github && <SocialLink href={socials.github} title="gitub" icon="ri:github-line" />}
-      {socials.juejin && <SocialLink href={socials.juejin} title="掘金" icon={<JuejinIcon />} />}
-      {socials.twitter && <SocialLink href={socials.twitter} title="X" icon="ri:twitter-x-line" />}
-      {socials.qq && <SocialLink href={socials.qq} title="QQ" icon="ri:qq-line" />}
-      {socials.zhihu && <SocialLink href={socials.zhihu} title="知乎" icon="ri:zhihu-line" />}
-      {socials.email && <SocialLink href={socials.email} title="Email" icon="ri:mail-line" />}
-      {socials.cloudmusic && (
-        <SocialLink href={socials.cloudmusic} title="Music" icon="ri:netease-cloud-music-line" />
-      )}
-      <SocialLink href="/blog/rss.xml" title="Rss" icon="ri:rss-line" />
+    <div className={styles.socialLinks} {...prop}>
+      {Object.entries(map).map(([key, { href, icon, title, color }]) => {
+        if (!href) return <></>
+
+        return (
+          <SocialLink
+            key={key}
+            href={href}
+            title={title}
+            icon={icon}
+            style={{ '--color': color }}
+          ></SocialLink>
+        )
+      })}
     </div>
   )
 }

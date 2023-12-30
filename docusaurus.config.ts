@@ -171,8 +171,9 @@ const config: Config = {
       juejin: 'https://juejin.cn/user/1565318510545901',
       csdn: 'https://blog.csdn.net/kuizuo12',
       qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
-      zhihu: 'https://www.zhihu.com/people/kuizuo',
-      cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
+      wx: 'https://img.kuizuo.cn/wechat.png',
+      // zhihu: 'https://www.zhihu.com/people/kuizuo',
+      // cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
       email: 'mailto:hi@kuizuo.cn',
     } satisfies Social,
     tableOfContents: {
