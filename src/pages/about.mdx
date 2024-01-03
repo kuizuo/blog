@@ -7,6 +7,7 @@ hide_table_of_contents: true
 
 import { Icon } from '@iconify/react'
 import Comment from '@site/src/components/Comment'
+import social from '@site/data/social'
 
 # 👋 你好! 我是愧怍
 
@@ -83,23 +84,27 @@ import Comment from '@site/src/components/Comment'
 ### 联系方式
 
 <p style={{ display: 'flex', 'align-items': 'center', gap: '0.5rem' }}>
-  <Icon icon="ri:github-line" width="20" heigth="20" />{' '}
-  <a href="https://github.com/kuizuo">kuizuo</a>
+  <Icon icon="ri:github-line" width="20" heigth="20" />
+  <a href={social.github.href}>kuizuo</a>
 </p>
 
 <p style={{ display: 'flex', 'align-items': 'center', gap: '0.5rem' }}>
-  <Icon icon="ri:mail-open-line" width="20" heigth="20" />{' '}
-  <a href="mailto:hi@kuizuo.cn">hi@kuizuo.cn</a>
+  <Icon icon="ri:mail-open-line" width="20" heigth="20" />
+  <a href={social.email.href}>hi@kuizuo.cn</a>
 </p>
 
 <p style={{ display: 'flex', 'align-items': 'center', gap: '0.5rem' }}>
-  <Icon icon="ri:qq-line" width="20" heigth="20" />{' '}
-  <a href="http://wpa.qq.com/msgrd?v=3&uin=911993023&site=qq&menu=yes">QQ</a>
+  <Icon icon="ri:qq-line" width="20" heigth="20" />
+  <a href={social.qq.href}>QQ</a>
 </p>
 
 <p style={{ display: 'flex', 'align-items': 'center', gap: '0.5rem' }}>
-  <Icon icon="ri:twitter-x-line" width="20" heigth="20" />{' '}
-  <a href="https://twitter.com/kuizuo">kuizuo</a>
+  <Icon icon="ri:wechat-2-line" width="20" heigth="20" />
+  <a href={social.wx.href}>wx</a>
+</p>
+
+<p style={{ display: 'flex', 'align-items': 'center', gap: '0.5rem' }}>
+  <Icon icon="ri:twitter-x-line" width="20" heigth="20" /> <a href={social.twitter.href}>kuizuo</a>
 </p>
 
 ---
