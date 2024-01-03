@@ -15,45 +15,46 @@ const chunk = (arr, size) =>
     arr.slice(i * size, i * size + size),
   )
 
+const BLOG_POSTS_COUNT = 6
+const BLOG_POSTS_PER_ROW = 2
+
 export function BlogItem({ post }: { post: BlogPost }) {
   const {
     metadata: { permalink, frontMatter, title, description },
   } = post
 
   return (
-    <>
-      <motion.li
-        className={clsx('card', 'margin-bottom--md')}
-        key={permalink}
-        initial={{ y: 100, opacity: 0.001 }}
-        whileInView={{ y: 0, opacity: 1, transition: { duration: 0.5 } }}
-        whileHover={{ y: -10, transition: { duration: 0.3 } }}
-        viewport={{ once: true }}
-      >
-        {frontMatter.image && (
-          <Link href={permalink} className={styles.image}>
-            <Image src={frontMatter.image!} alt={title} img={''} />
-          </Link>
-        )}
-        <div className={'card__body'}>
-          <h4>
-            <Link href={permalink}>{title}</Link>
-          </h4>
-          <p>{description}</p>
-        </div>
-      </motion.li>
-    </>
+    <motion.li
+      className={clsx('card', 'margin-bottom--md')}
+      key={permalink}
+      initial={{ y: 100, opacity: 0.001 }}
+      whileInView={{ y: 0, opacity: 1, transition: { duration: 0.5 } }}
+      whileHover={{ y: -10, transition: { duration: 0.3 } }}
+      viewport={{ once: true }}
+    >
+      {frontMatter.image && (
+        <Link href={permalink} className={styles.image}>
+          <Image src={frontMatter.image!} alt={title} img={''} />
+        </Link>
+      )}
+      <div className={'card__body'}>
+        <h4>
+          <Link href={permalink}>{title}</Link>
+        </h4>
+        <p>{description}</p>
+      </div>
+    </motion.li>
   )
 }
 
-export default function BlogRecent(): JSX.Element {
+export default function BlogSection(): JSX.Element {
   const blogData = usePluginData('docusaurus-plugin-content-blog') as {
     posts: BlogPost[]
     postNum: number
     tagNum: number
   }
 
-  const posts = chunk(blogData.posts.slice(0, 6), 2)
+  const posts = chunk(blogData.posts.slice(0, BLOG_POSTS_COUNT), BLOG_POSTS_PER_ROW)
 
   const ref = React.useRef<HTMLDivElement>(null)
 

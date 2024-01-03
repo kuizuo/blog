@@ -77,7 +77,6 @@ npm run build
 ---
 home: true
 heroText: 愧怍的个人空间
-tagline: 我是愧怍,沉迷于代码无法自拔
 ...
 ```
 

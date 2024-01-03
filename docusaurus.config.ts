@@ -15,7 +15,11 @@ const config: Config = {
   favicon: 'img/favicon.ico',
   organizationName: 'kuizuo',
   projectName: 'blog',
-  tagline: '道阻且长，行则将至',
+  customFields: {
+    bio: '道阻且长，行则将至',
+    description:
+      '是一个由愧怍创建的个人博客，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
+  },
   themeConfig: {
     // announcementBar: {
     //   id: 'announcementBar-3',
@@ -165,17 +169,6 @@ const config: Config = {
       theme: 'light',
       darkTheme: 'dark_dimmed',
     } satisfies Partial<GiscusConfig>,
-    socials: {
-      github: 'https://github.com/kuizuo',
-      twitter: 'https://twitter.com/kuizuo',
-      juejin: 'https://juejin.cn/user/1565318510545901',
-      csdn: 'https://blog.csdn.net/kuizuo12',
-      qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
-      wx: 'https://img.kuizuo.cn/wechat.png',
-      // zhihu: 'https://www.zhihu.com/people/kuizuo',
-      // cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
-      email: 'mailto:hi@kuizuo.cn',
-    } satisfies Social,
     tableOfContents: {
       minHeadingLevel: 2,
       maxHeadingLevel: 4,

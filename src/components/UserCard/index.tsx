@@ -22,8 +22,10 @@ type Count = {
 
 export default function UserCard({ isNavbar = false }: { isNavbar?: boolean }) {
   const {
-    siteConfig: { tagline },
+    siteConfig: { customFields },
   } = useDocusaurusContext()
+  const { bio } = customFields as { bio: string }
+
   const {
     navbar: { title, logo = { src: '' } },
   } = useThemeConfig()
@@ -56,7 +58,7 @@ export default function UserCard({ isNavbar = false }: { isNavbar?: boolean }) {
           {title}
         </Link>
       </div>
-      <div className={styles.description}>{tagline}</div>
+      <div className={styles.bio}>{bio}</div>
       <div className={styles.num}>
         <Link className={styles.numItem} href="/archive">
           <Icon icon="carbon:blog" width="20" height="20" />

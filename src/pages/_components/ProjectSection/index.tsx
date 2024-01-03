@@ -15,7 +15,7 @@ import {
 } from 'framer-motion'
 import SectionTitle from '../SectionTitle'
 
-const removeHttps = (url: string) => {
+const removeHttp = (url: string) => {
   return url.replace(/(^\w+:|^)\/\//, '')
 }
 
@@ -88,7 +88,7 @@ const Slider = ({ items }: { items: Project[] }) => {
                 <img src={item.preview} alt={item.title} className={styles.image} loading="lazy" />
                 <div className={styles.slideBody}>
                   <h2 className={styles.title}>{item.title}</h2>
-                  <p className={styles.website}>{removeHttps(item.website)}</p>
+                  <p className={styles.website}>{removeHttp(item.website)}</p>
                 </div>
               </a>
             </div>
@@ -99,7 +99,7 @@ const Slider = ({ items }: { items: Project[] }) => {
   )
 }
 
-const HomepageProject = () => {
+export default function ProjectSection() {
   return (
     <section className={clsx('container padding-vert--sm', styles.projectContainer)}>
       <SectionTitle icon={'ri:projector-line'} href={'/project'}>
@@ -115,5 +115,3 @@ const HomepageProject = () => {
     </section>
   )
 }
-
-export default HomepageProject

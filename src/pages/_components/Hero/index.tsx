@@ -7,8 +7,9 @@ import HeroMain from './img/hero_main.svg'
 
 import styles from './styles.module.scss'
 import SocialLinks from '@site/src/components/SocialLinks'
+import skills from '@site/data/skills'
 
-import { Icon, IconProps } from '@iconify/react'
+import { Icon } from '@iconify/react'
 
 const variants: Variants = {
   visible: i => ({
@@ -25,7 +26,7 @@ const variants: Variants = {
   hidden: { opacity: 0, y: 30 },
 }
 
-function Logos() {
+function Skills() {
   const { scrollYProgress } = useScroll()
 
   // 往下滚动 元素向上移动
@@ -38,61 +39,9 @@ function Logos() {
     clamp: false,
   })
 
-  const logos: IconProps[] = [
-    {
-      icon: 'logos:vue',
-      style: { left: '1%', top: '1%' },
-    },
-    {
-      icon: 'logos:nuxt-icon',
-      style: { left: '4%', top: '5%' },
-    },
-
-    {
-      icon: 'logos:react',
-      style: { right: '2%', top: '11%' },
-    },
-    {
-      icon: 'logos:nextjs-icon',
-      style: { right: '8%', top: '14%' },
-    },
-
-    {
-      icon: 'logos:javascript',
-      style: { top: '5%', left: '52%' },
-    },
-    {
-      icon: 'logos:typescript-icon',
-      style: { top: '9%', left: '58%' },
-    },
-
-    {
-      icon: 'logos:nodejs-icon-alt',
-      style: { top: '15%', left: '30%' },
-    },
-    {
-      icon: 'logos:nestjs',
-      style: { top: '20%', left: '38%' },
-    },
-
-    {
-      icon: 'logos:tailwindcss-icon',
-      style: { top: '30%', left: '70%' },
-    },
-
-    {
-      icon: 'logos:visual-studio-code',
-      style: { bottom: '25%', right: '5%' },
-    },
-    {
-      icon: 'logos:docusaurus',
-      style: { bottom: '1%', left: '1%' },
-    },
-  ]
-
   return (
     <>
-      {logos.map((l, index) => {
+      {skills.map((skill, index) => {
         const yValue = index % 2 === 0 ? y1 : y2
 
         return (
@@ -105,12 +54,12 @@ function Logos() {
               delay: 0.5,
             }}
             style={{
-              ...l.style,
+              ...skill.style,
               y: yValue,
             }}
             key={index}
           >
-            <Icon icon={l.icon}></Icon>
+            <Icon icon={skill.icon}></Icon>
           </motion.div>
         )
       })}
@@ -118,16 +67,8 @@ function Logos() {
   )
 }
 
-function Background() {
-  return (
-    <>
-      <motion.div className={styles.background}>
-        <Logos />
-        <HeroMain />
-        <div className={styles.circle} />
-      </motion.div>
-    </>
-  )
+function Circle() {
+  return <div className={styles.circle} />
 }
 
 function Name() {
@@ -188,7 +129,11 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
-      <Background />
+      <motion.div className={styles.background}>
+        <Skills />
+        <HeroMain />
+        <Circle />
+      </motion.div>
     </motion.div>
   )
 }

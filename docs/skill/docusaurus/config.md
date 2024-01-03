@@ -14,13 +14,11 @@ authors: kuizuo
 ```typescript title='docusaurus.config.ts' icon='logos:docusaurus'
 const config: Config = {
   title: '愧怍的小站',
-  titleDelimiter: '-',
   url: 'https://kuizuo.cn',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'kuizuo',
   projectName: 'blog',
-  tagline: '记录所学知识，领略编程之美',
   themeConfig: {
     image: 'img/logo.png',
     metadata: [

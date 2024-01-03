@@ -1,21 +1,27 @@
 import React from 'react'
 import Layout from '@theme/Layout'
-import HomepageHero from './_components/HomepageHero'
-import HomepageBlog from './_components/HomepageBlog'
-import HomepageFeatures from './_components/HomepageFeatures'
-import HomepageProject from './_components/HomepageProject'
+import Hero from './_components/Hero'
+import BlogSection from './_components/BlogSection'
+import FeaturesSection from './_components/FeaturesSection'
+import HomepageProject from './_components/ProjectSection'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
-function Home() {
+export default function Home(): JSX.Element {
+  const {
+    siteConfig: { customFields, tagline },
+  } = useDocusaurusContext()
+  const { description } = customFields as { description: string }
+
   return (
-    <Layout description="Description will go into a meta tag in <head />">
-      <HomepageHero></HomepageHero>
-      <main className="container-wrapper">
-        <HomepageBlog />
-        <HomepageProject />
-        <HomepageFeatures />
+    <Layout title={tagline} description={description}>
+      <main>
+        <Hero />
+        <div className="container-wrapper">
+          <BlogSection />
+          <HomepageProject />
+          <FeaturesSection />
+        </div>
       </main>
     </Layout>
   )
 }
-
-export default Home
