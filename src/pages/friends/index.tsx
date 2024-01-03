@@ -3,7 +3,7 @@ import Layout from '@theme/Layout'
 import CodeBlock from '@theme/CodeBlock'
 
 import FriendCard from './_components/FriendCard'
-import { Friends } from '@site/data/friend'
+import { Friends } from '@site/data/friends'
 
 import styles from './styles.module.css'
 import { motion } from 'framer-motion'

@@ -9,7 +9,7 @@ import { useThemeConfig } from '@docusaurus/theme-common'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
-import { projects } from '@site/data/project'
+import { projects } from '@site/data/projects'
 
 import styles from './styles.module.scss'
 

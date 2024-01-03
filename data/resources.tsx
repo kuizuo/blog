@@ -1,4 +1,4 @@
-import { Friends } from './friend'
+import { Friends } from './friends'
 
 export interface Resource {
   name: string

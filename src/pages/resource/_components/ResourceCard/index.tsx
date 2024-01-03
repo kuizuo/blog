@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import Link from '@docusaurus/Link'
 
 import styles from './styles.module.css'
-import { type Resource } from '@site/data/resource'
+import { type Resource } from '@site/data/resources'
 import Tooltip from '../../../project/_components/ShowcaseTooltip'
 
 const ResourceCard = memo(({ resource }: { resource: Resource }) => (
