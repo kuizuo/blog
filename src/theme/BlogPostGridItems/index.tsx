@@ -78,27 +78,6 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
               )}
             </div>
             <div className={styles.itemDate}>{dateString}</div>
-            <motion.div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                background: 'rgba(0, 0, 0, 0.5)', // Adjust the opacity as needed
-              }}
-            />
-            <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                clipPath: 'circle(100px at var(--mouse-x) var(--mouse-y))',
-                // Ensure that the variables are set as CSS variables
-              }}
-            />
           </motion.div>
         )
       })}
