@@ -32,12 +32,12 @@ function useReadingTimePlural() {
 
 export function ReadingTime({ readingTime }: { readingTime: number }) {
   const readingTimePlural = useReadingTimePlural()
-  return <>{readingTimePlural(readingTime)}</>
+  return <span className="truncate">{readingTimePlural(readingTime)}</span>
 }
 
 function Date({ date, formattedDate }: { date: string; formattedDate: string }) {
   return (
-    <time dateTime={date} itemProp="datePublished">
+    <time dateTime={date} itemProp="datePublished" className="truncate">
       {formattedDate}
     </time>
   )
@@ -58,8 +58,8 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
       {tagsExists && (
         <div className={styles.tagInfo}>
           <Icon icon="ri:price-tag-3-line" />
-          <div className={styles.tagList}>
-            {tags.slice(0, 2).map(({ label, permalink: tagPermalink }, index) => {
+          <div className={clsx('truncate', styles.tagList)}>
+            {tags.slice(0, 3).map(({ label, permalink: tagPermalink }, index) => {
               return (
                 <div key={tagPermalink}>
                   {index !== 0 && '/'}
