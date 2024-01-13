@@ -13,7 +13,7 @@ export default function BlogPostItemContent({ children, className }: Props): JSX
       id={isBlogPostPage ? blogPostContainerID : undefined}
       className={clsx('markdown', className)}
       itemProp="articleBody"
-      style={{ position: 'relative', zIndex: 2 }}
+      style={{ position: 'relative' }}
     >
       <MDXContent>{children}</MDXContent>
     </div>
