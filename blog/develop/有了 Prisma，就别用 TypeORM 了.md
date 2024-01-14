@@ -8,7 +8,7 @@ keywords: [orm, prisma, typeorm]
 image: https://img.kuizuo.cn/2024/0113174834-202401131748137.png
 ---
 
-要说2024 年 Node.js 的 ORM 框架应该选择哪个？毫无疑问选 Prisma。至于为何，请听我细细道来。
+要说 2024 年 Node.js 的 ORM 框架应该选择哪个？毫无疑问选 Prisma。至于为何，请听我细细道来。
 
 <!-- truncate -->
 
@@ -16,9 +16,9 @@ image: https://img.kuizuo.cn/2024/0113174834-202401131748137.png
 
 ## 整体对比
 
-### 更新频率&下载量
+### 更新频率 & 下载量
 
-TypeORM 距离上次更新已经几近半年了（下图来源 24 年 1 月 1 日，没想到年初竟然还复活的），
+TypeORM 距离上次更新已经过去半年之久了（下图截取自 24 年 1 月 1 日，没想到年初竟然还复活了）
 
 ![Untitled](https://img.kuizuo.cn/2024/0113165614-Untitled.png)
 
@@ -32,11 +32,11 @@ TypeORM 距离上次更新已经几近半年了（下图来源 24 年 1 月 1 �
 
 在大势所趋之下相信你内心已经有一份属于自己的答案。
 
-### 文档&生态
+### 文档 & 生态
 
 从文档的细致程度上 Prisma 比 TypeORM 要清晰详尽。在 [Get started](https://www.prisma.io/docs/getting-started) 花个数十分钟了解 Prisma 基本使用，到 [playground.prisma.io](https://playground.prisma.io/) 中在线尝试，到 [learn](https://www.prisma.io/learn) 查看官方所提供的免费教程。
 
-此外 Prisma 不仅仅只支持 js/ts 生态，还支持其他语言。丰富的[生态](https://www.prisma.io/ecosystem)下，加之 Prisma 开发团队的背后是由商业公司维护，无需担心担心夭折同时还能事半功倍。
+此外 Prisma 不仅支持 js/ts 生态，还支持其他语言。丰富的[生态](https://www.prisma.io/ecosystem)下，加之 Prisma 开发团队的背后是由商业公司维护，无需担心需求得不到解决。
 
 ![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%202.png)
 
@@ -46,19 +46,19 @@ TypeORM 距离上次更新已经几近半年了（下图来源 24 年 1 月 1 �
 
 ### findOne(undefined) 所查询到的却是第一条记录
 
-首先 TypeORM 有个天坑，你可以在 这个 [Issue](https://github.com/typeorm/typeorm/issues/2500) 中查看详情或查看 [这篇文章](https://pietrzakadrian.com/blog/how-to-hack-your-nodejs-application-which-uses-typeorm) 是如何破解使用 TypeORM 的 Node.js 应用。
+首先 TypeORM 有个天坑，你可以在 这个 [Issue](https://github.com/typeorm/typeorm/issues/2500) 中查看详情或查看 [这篇文章](https://pietrzakadrian.com/blog/how-to-hack-your-nodejs-application-which-uses-typeorsm) 是如何破解使用 TypeORM 的 Node.js 应用。
 
 当你使用 `userRepository.findOne({ where: { id: null } })` 时，从开发者的预期来看所返回的结果应该为 null 才对，但结果却是大跌眼镜，结果所返回的是 user 表中的第一个数据记录！
 
 你可能会说，这不是 bug 吗？为何官方还不修。事实上确实是 bug，而事实上官方到目前也还没修复该 bug。再结合上文提到的更新频率，哦，那没事了。
 
-目前解决方法则是用 `createQueryBuilder().where({ id }).getOne()` 平替上一条语句或者确保查询参数不为 undefined。但从此而言也可以看的出，TypeORM 在现今或许并不是一个很好的选择。
+目前解决方法则是用 `createQueryBuilder().where({ id }).getOne()` 平替上一条语句或者确保查询参数不为 undefined。从这也可以看的出，TypeORM 在现今或许并不是一个很好的选择。
 
 ### synchronize: true 导致数据丢失
 
 `synchronize` 表示数据库的结构是否和代码保持同步，官方提及到请不要在生产环境中使用，但在开发阶段这也并不是一个很好的做法。举个例子，有这么一个实体
 
-```tsx
+```ts title='user.entity.ts' icon='logos:nestjs'
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -75,7 +75,7 @@ export class User {
 
 因为 TypeORM 针对上述操作的 sql 语句是这样的
 
-```tsx
+```sql
 ALTER TABLE `user` CHANGE `name` `title` varchar(255) NOT NULL
 ALTER TABLE `user` DROP COLUMN `title`
 ALTER TABLE `user` ADD `title` varchar(255) NOT NULL
@@ -91,7 +91,7 @@ ALTER TABLE `user` ADD `title` varchar(255) NOT NULL
 
 相信你一定有在 `xxx.module.ts` 中通过 `TypeOrmModule.forFeature([xxxEntity])` 的经历。就像下面代码这样：
 
-```jsx
+```ts title='xxx.module.ts' icon='logos:nestjs'
 @Module({
   imports: [TypeOrmModule.forFeature([UserEntity])],
   controllers: [UserController],
@@ -103,8 +103,7 @@ export class xxxModule {}
 
 对于初学者而言，很大程度上会忘记 导入这段语句 就会出现这样的报错
 
-```jsx
-
+```bash
 Potential solutions:
  - Is DeptModule a valid NestJS module?
  - If "UserEntityRepository" is a provider, is it part of the current DeptModule?
@@ -118,7 +117,7 @@ Error: Nest can't resolve dependencies of the userService (?). Please make sure 
 
 此外这还不是最繁琐的，你还需要再各个 service 中，通过下面的代码来注入 userRepository
 
-```tsx
+```ts title='user.service.ts' icon='logos:nestjs'
 @InjectRepository(UserEntity)
 private readonly userRepository: Repository<UserEntity>
 ```
@@ -129,22 +128,22 @@ private readonly userRepository: Repository<UserEntity>
 
 然后在 service 上，注入 PrismaService 后，就可以通过 `this.prisma[model]` 来调用模型(实体) ，就像这样
 
-```jsx
-import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'nestjs-prisma';
+```ts title='app.service.ts' icon='logos:nestjs'
+import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'nestjs-prisma'
 
 @Injectable()
 export class AppService {
   constructor(private prisma: PrismaService) {}
 
   users() {
-    return this.prisma.user.findMany();
+    return this.prisma.user.findMany()
   }
 
   user(userId: string) {
     return this.prisma.user.findUnique({
       where: { id: userId },
-    });
+    })
   }
 }
 ```
@@ -153,7 +152,7 @@ export class AppService {
 
 ### 更好的类型安全
 
-Prisma 的贡献者中有 [ts-toolbelt](https://github.com/millsp/ts-toolbelt) 的[作者](https://github.com/millsp)，正因此 Prisma 的类型推导十分强大，能够自动生成几乎所有的类型。
+Prisma 的贡献者中有 [ts-toolbelt](https://github.com/millsp/ts-toolbelt) 的作者，正因此 Prisma 的类型推导十分强大，能够自动生成几乎所有的类型。
 
 而反观 TypeORM 虽说使用 Typescript 所编写，但它的类型推导真是一言难尽。我举几个例子：
 
@@ -181,7 +180,7 @@ Prisma 的贡献者中有 [ts-toolbelt](https://github.com/millsp/ts-toolbelt) �
 
 在 TypeORM 中，假设你要创建一个 User 实体，你需要这么做
 
-```jsx
+```ts
 const newUser = new User()
 newUser.name = 'kuizuo'
 newUser.email = 'hi@kuizuo.cn'
@@ -190,10 +189,10 @@ const user = userRepository.save(newUser)
 
 当然你可以对 User 实体中做点手脚，像下面这样加一个构造函数
 
-```jsx
+```ts title='user.entity.ts' icon='logos:nestjs'
 @Entity({ name: 'user' })
-export class UserEntity  {
-	@PrimaryGeneratedColumn()
+export class UserEntity {
+  @PrimaryGeneratedColumn()
   id: number
 
   @Column({ unique: true })
@@ -202,13 +201,13 @@ export class UserEntity  {
   @Column()
   email: string
 
-	constructor(partial?: Partial<UserEntity>) {
+  constructor(partial?: Partial<UserEntity>) {
     Object.assign(this, partial)
   }
 }
 ```
 
-```jsx
+```ts
 const newUser = new User({
   name: 'kuizuo',
   email: 'hi@kuizuo.cn',
@@ -222,7 +221,7 @@ const user = userRepository.save(newUser)
 
 而在 Prisma 中，绝大多数的操作你都只需要一条代码语句外加一个对象结构，像上述 TypeORM 的操作对应 Prisma 的代码语句如下
 
-```tsx
+```ts
 const user = await prisma.user.create({
   data: {
     name: 'kuizuo',
@@ -235,7 +234,7 @@ const user = await prisma.user.create({
 
 在数据库中操作经常需要判断数据库中是否有某条记录，以此来决定是更改该记录还是创建新的一条记录，而在 Prisma 中，完全可以使用 upsert，就像下面这样
 
-```tsx
+```ts
 const user = await prisma.user.upsert({
   where: { id: 1 },
   update: { email: 'example@prisma.io' },
@@ -247,7 +246,7 @@ const user = await prisma.user.upsert({
 
 在 TypeORM 中，假设你需要使用聚合函数来查询的话，通常会这么写
 
-```tsx
+```ts
 const raw = await this.userRepository
   .createQueryBuilder('user')
   .select('SUM(user.id)', 'sum')
@@ -258,7 +257,7 @@ const sum = raw.sum
 
 如果只是像上面这样，单纯查询 sum，那么 raw 的值是 `{ sum: 1 }` , 但最要命的就是 `select` 配合 `getRawOne` 还要额外查询 user 实体的属性，所得到的结果就像这样
 
-```tsx
+```ts
 const raw = await this.userRepository
   .createQueryBuilder('user')
   .select('SUM(user.id)', 'sum')
@@ -267,7 +266,7 @@ const raw = await this.userRepository
   .getRawOne()
 ```
 
-```tsx
+```ts
 {
 	user_id: 1,
 	user_name: 'kuizuo',
@@ -282,7 +281,7 @@ const raw = await this.userRepository
 
 而在 Prisma 中，提供了 专门用于聚合的方法 [aggregate](https://www.prisma.io/docs/orm/reference/prisma-client-reference#aggregate)，可以特别轻松的实现聚合函数查询。
 
-```tsx
+```ts
 const minMaxAge = await prisma.user.aggregate({
   _count: {
     _all: true,
@@ -296,7 +295,7 @@ const minMaxAge = await prisma.user.aggregate({
 })
 ```
 
-```tsx
+```ts
 {
   _count: { _all: 29 },
   _max: { profileViews: 90 },
@@ -308,20 +307,20 @@ const minMaxAge = await prisma.user.aggregate({
 
 看到这里，你若是长期使用 TypeORM 的用户必定会感同身受如此糟糕的体验。那种开发体验真的是无法用言语来形容的。
 
-### Prisma 生态
+## Prisma 生态
 
 ### 分页
 
 在 Prisma 你要实现分页，只需要在 prismaClient 继承 [prisma-extension-pagination](https://github.com/deptyped/prisma-extension-pagination) 这个库。就可像下面这样，便可在 model 中使用paginate方法来实现分页，如下代码。
 
-```tsx
+```ts
 import { PrismaClient } from '@prisma/client'
 import { pagination } from 'prisma-extension-pagination'
 
 const prisma = new PrismaClient().$extends(pagination())
 ```
 
-```jsx
+```ts
 const [users, meta] = prisma.user
   .paginate()
   .withPages({
@@ -344,17 +343,17 @@ const [users, meta] = prisma.user
 
 支持页数(page)或光标(cursor)。
 
-::: 两种分页的使用场景
+:::tip 两种分页的使用场景
 
-按页查询通常
+按页查询: 用于传统分页，例如翻页
 
-光标查询 则用于流式查看，例如无限下拉滚动
+光标查询: 根据游标进行查询，例如无限滚动
 
 :::
 
 而在 TypeORM 你通常需要自己封装一个 paginate方法，就如下面代码所示（以下写法借用 [nestjs-typeorm-paginate](https://www.npmjs.com/package/nestjs-typeorm-paginate)）
 
-```tsx
+```ts
 async function paginate<T>(
   queryBuilder: SelectQueryBuilder<T>,
   options: IPaginationOptions,
@@ -386,7 +385,7 @@ const { items, meta } = paginate(queryBuilder, { page, limit })
 
 举个例子，可以为 schema.prisma 添加一条 generator，长下面这样
 
-```tsx
+```prisma title='prisma.schema' icon='logos:prisma'
 generator client {
   provider = "prisma-client-js"
   output   = "./client"
@@ -413,7 +412,7 @@ model User {
 
 执行构建命令后，这将会自动生成 zod/index.ts 文件，将包含 UserSchema 信息，其中片段代码如下
 
-```tsx
+```ts title='zod/index.ts' icon='logos:typescript-icon'
 export const UserSchema = z.object({
   id: z.string().uuid(),
   email: z.string(),
