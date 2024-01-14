@@ -5,9 +5,9 @@ title: 部署
 authors: kuizuo
 ---
 
-我之前使用 [Vercel](https://vercel.com) 一把梭，无需任何配置，我只需要专注输出内容即可，这是我当时使用 Vercel 部署的文章 [Vercel 部署个人博客](/blog/vercel-deploy-blog)
+我之前使用 [Vercel](https://vercel.com) 一把梭，无需任何配置。这样我就只需要专注输出内容即可。这是我当时使用 Vercel 部署的文章 [Vercel 部署个人博客](/blog/vercel-deploy-blog)
 
-但如今，`vercel.app` 被 DNS 污染，即被墙了，导致国内无法访问，虽然使用有自己的域名解析到 Vercel 上也可能访问，但被墙了，也就意味着国内 DNS 的解析速度必然有所下降，从而导致站点访问速度有所下降。
+但如今，`vercel.app` 被 DNS 污染，即被墙了，导致国内无法访问，虽然使用有自己的域名解析到 Vercel 上也可能访问，但被墙了，也就意味着国内 DNS 的解析速度必然有所下降，导致站点访问速度有所下降。
 
 加上我想有更好的访客体验，于是我决定采用国内国外不同的解析方式来加快访问。
 
@@ -25,12 +25,12 @@ authors: kuizuo
 
 ## 持续集成
 
-国外的好理解，有 Vercel 能够自动拉取仓库代码，并自行构建部署，可国内呢？
+由于 Vercel 能够自动拉取仓库代码，并自行构建部署，因此通常什么配置都不需要。
 
-这里我是借助了 [Github Action](https://github.com/marketplace) 来帮助我构建，构建记录可以在 [Actions · kuizuo/blog](https://github.com/kuizuo/blog/actions) 中查看。以下是我的配置文件
+由于代码提交到代码仓库(github)，则需要借用 CI 服务来帮助我们完成这些任务，这里我使用了 [Github Action](https://github.com/marketplace) 来帮助我构建，构建记录可以在 [Actions · kuizuo/blog](https://github.com/kuizuo/blog/actions) 中查看。以下是我的配置文件
 
 ```yaml title='.github/workflows/ci.yml' icon='logos:github-actions'
-name: ci
+name: CI
 
 on:
   push:
@@ -39,39 +39,49 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest] # macos-latest, windows-latest
+        node: [18]
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js 16
-        uses: actions/setup-node@v3
+      - name: Set node version to ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: ${{ matrix.node-version }}
 
-      - name: Build Project
-        run: |
-          yarn install
-          yarn run build
+      - run: corepack enable
+
+      - name: Setup
+        run: npm i -g @antfu/ni
+
+      - name: Install
+        run: nci
+
+      - name: Build
+        run: nr build
 
       - name: SSH Deploy
-        uses: easingthemes/ssh-deploy@v2.2.11
+        uses: easingthemes/ssh-deploy@v4.1.10
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: '-avzr --delete'
           SOURCE: 'build'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: 'root'
-          TARGET: '/www/wwwroot/blog'
+          TARGET: '/opt/1panel/apps/openresty/openresty/www/sites/kuizuo.cn/index'
 ```
 
-Github Action 帮我构建好之后，并通过 ssh 连接我的服务器，将构建好的静态文件替换到我的 blog 存放的位置上。
+等待 CI 将最终构建的产物通过 rsync 放到自己的服务器上，便完成了整套部署的流程。
 
-一切都配置好了之后，我只需要将代码推送到 Github 仓库上，Github Action 与 Vercel 分别完成它们所该做的任务，等待片刻，再次访问站点，刚刚提交的代码就成功生效了。
+当一切都配置好了之后，我只需要将代码推送到远程仓库上，Github Action 与 Vercel 分别完成它们所该做的任务。等待片刻，再次访问站点，刚刚提交的代码就成功生效了。
 
 ## 没有域名和服务器该怎么部署？
 
-当然了上述只是我的配置方案，有许多伙伴可能没有自己的域名或者自己的服务器，就想着白嫖，那么这里目前我只能推荐 [Netlify](https://www.netlify.com/)。
+当然了上述只是我的配置方案，有许多伙伴可能没有自己的域名或者自己的服务器，就想着白嫖，那么这里目前我只能推荐 [Netlify](https://www.netlify.com/)，然后通过 netlify 的二级域名如 kuizuo-blog.netlify.app 来进行访问。
 
-我个人还是非常建议去弄一个属于自己的域名，通过 Vercel 的自定义域名就可以访问，并且无需像上述那样搞特别复杂的配置。由于自己的域名解析的不是大陆的服务器（Vercel 的服务器就不是国内大陆的），所以也就无需备案。
+我个人还是非常建议去弄一个属于自己的域名，通过 Vercel 的自定义域名就可以访问。并且由于自己的域名解析的不是大陆的服务器（Vercel 的服务器就不是国内大陆的），因此无需备案这一更繁琐的步骤。
