@@ -2,8 +2,8 @@ import path from 'node:path'
 import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
 import { themes } from 'prism-react-renderer'
-import { Social } from './src/components/SocialLinks'
 import { GiscusConfig } from './src/components/Comment'
+import social from './data/social'
 
 const beian = '闽ICP备2020017848号-2'
 const beian1 = '闽公网安备35021102000847号'
@@ -69,7 +69,7 @@ const config: Config = {
           items: [
             { label: '归档', to: 'blog/archive' },
             { label: '笔记', to: 'docs/skill' },
-            { label: '资源', to: 'resource' },
+            { label: '资源', to: 'resources' },
             { label: '友链', to: 'friends' },
             { label: '工具推荐', to: 'docs/tools' },
           ],
@@ -97,13 +97,10 @@ const config: Config = {
           title: '社交媒体',
           items: [
             { label: '关于我', to: '/about' },
-            { label: 'GitHub', href: 'https://github.com/kuizuo' },
-            { label: 'Twitter', href: 'https://twitter.com/kuizuo' },
-            {
-              label: '掘金',
-              href: 'https://juejin.cn/user/1565318510545901',
-            },
-            { label: 'Discord', href: 'https://discord.gg/M8cVcjDxkz' },
+            { label: 'GitHub', href: social.github.href },
+            { label: 'Twitter', href: social.twitter.href },
+            { label: '掘金', href: social.juejin.href },
+            { label: 'Discord', href: social.discord.href },
           ],
         },
         {

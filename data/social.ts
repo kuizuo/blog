@@ -8,6 +8,7 @@ export type Social = {
   cloudmusic?: string
   zhihu?: string
   email?: string
+  discord?: string
 }
 
 const social: Social = {
@@ -20,6 +21,7 @@ const social: Social = {
   // zhihu: 'https://www.zhihu.com/people/kuizuo',
   // cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
   email: 'mailto:hi@kuizuo.cn',
+  discord: 'https://discord.gg/M8cVcjDxkz',
 }
 
 const SOCIAL = {
@@ -40,6 +42,12 @@ const SOCIAL = {
     title: 'Twitter',
     icon: 'ri:twitter-line',
     color: '#1da1f2',
+  },
+  discord: {
+    href: social.discord,
+    title: 'Discord',
+    icon: 'ri:discord-line',
+    color: '#5A65F6',
   },
   qq: {
     href: social.qq,
