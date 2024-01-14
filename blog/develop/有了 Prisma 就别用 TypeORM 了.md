@@ -1,6 +1,6 @@
 ---
 slug: with-prisma-dont-use-typeorm
-title: 有了 Prisma，就别用 TypeORM 了
+title: 有了 Prisma 就别用 TypeORM 了
 date: 2024-01-13
 authors: kuizuo
 tags: [orm, prisma, typeorm]
@@ -69,7 +69,7 @@ export class User {
 }
 ```
 
-当你将 `name` 更改为 `title` 时，会发现原有的 `name` 下的数据全都丢失了！
+当开启了 `synchronize: true`，并且将 `name` 更改为 `title` 时，一旦运行 nest 服务后就会发现原有 `name` 下的数据全都丢失了！如图所示
 
 ![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%203.png)
 
@@ -89,7 +89,7 @@ ALTER TABLE `user` ADD `title` varchar(255) NOT NULL
 
 在 Nest 项目中，Prisma 的接入成本远比 TypeORM 来的容易许多。
 
-相信你一定有在 `xxx.module.ts` 中通过 `TypeOrmModule.forFeature([xxxEntity])` 的经历。就像下面代码这样：
+相信你一定有在 `xxx.module.ts` 中通过 `TypeOrmModule.forFeature([xxxEntity])` 使其模块能够使用 `xxxRepository` 的经历。就像下面代码这样：
 
 ```ts title='xxx.module.ts' icon='logos:nestjs'
 @Module({
@@ -101,7 +101,7 @@ ALTER TABLE `user` ADD `title` varchar(255) NOT NULL
 export class xxxModule {}
 ```
 
-对于初学者而言，很大程度上会忘记 导入这段语句 就会出现这样的报错
+对于初学者而言，很大程度上会忘记导入 `xxxEntity`，就会出现这样的报错
 
 ```bash
 Potential solutions:
@@ -115,14 +115,14 @@ Potential solutions:
 Error: Nest can't resolve dependencies of the userService (?). Please make sure that the argument "UserEntityRepository" at index [0] is available in the UserModule context.
 ```
 
-此外这还不是最繁琐的，你还需要再各个 service 中，通过下面的代码来注入 userRepository
+此外这还不是最繁琐的，你还需要再各个 service 中，通过下面的代码来注入 userRepository。
 
 ```ts title='user.service.ts' icon='logos:nestjs'
 @InjectRepository(UserEntity)
 private readonly userRepository: Repository<UserEntity>
 ```
 
-实体一多，要注入的 Repository 也就更多，无疑不是对开发者心智负担的加深。
+一旦实体一多，要注入的 Repository 也就更多，无疑不是对开发者心智负担的加深。
 
 再来看看 Prisma 是怎么导入的，你可以使用 [nestjs-prisma](https://nestjs-prisma.dev/docs/basic-usage/) 或者按照官方文档中[创建 PrismaService](https://docs.nestjs.com/recipes/prisma#use-prisma-client-in-your-nestjs-services)。
 
@@ -148,7 +148,7 @@ export class AppService {
 }
 ```
 
-哪怕创建其他新的实体，只需要重新生成 PrismaClient，都无需再导入额外服务。
+哪怕创建其他新的实体，只需要重新生成 PrismaClient，都无需再导入额外服务，this.prisma 便能操作所有与数据库相关的 api。
 
 ### 更好的类型安全
 
@@ -160,13 +160,13 @@ Prisma 的贡献者中有 [ts-toolbelt](https://github.com/millsp/ts-toolbelt) �
 
 ![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%204.png)
 
-你会发现 post 对象的类型提示依旧还是 postEntity，没有任何变化。但从开发者的体验角度而言，**既然我选择查询 id 和 title 两个字段，那么你所返回的 post 类型应该也只有 id 与 title 才更符合预期。**而后续代码中由于允许 post 有 body 属性提示，那么 post.body 为 null 这样不必要的结果。
+你会发现 post 对象的类型提示依旧还是 postEntity，没有任何变化。但从开发者的体验角度而言，**既然我选择查询 id 和 title 两个字段，那么你所返回的 post 类型应该也只有 id 与 title 才更符合预期**而后续代码中由于允许 post 有 body 属性提示，那么 post.body 为 null 这样不必要的结果。
 
 再来看看 Prisma，你就会发现 post 对象的类型提示信息才符合开发者的预期。像这样的细节在 Prisma 有非常多。
 
 ![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%205.png)
 
-这还不是最关键的，当 TypeORM 通过需要使用 `createQueryBuilder` 方法来构造 sql 语句才能够满足开发者所要查询的预期，而当你使用了该方法，你就会发现你所编写的代码与 js 无疑，我贴几张图给大伙看看。
+这还不是最关键的，TypeORM 通常需要使用 `createQueryBuilder` 方法来构造 sql 语句来满足开发者所要查询的预期。而当你使用了该方法，你就会发现你所编写的代码与 js 无疑，我贴几张图给大伙看看。
 
 ![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%206.png)
 
@@ -174,11 +174,11 @@ Prisma 的贡献者中有 [ts-toolbelt](https://github.com/millsp/ts-toolbelt) �
 
 ![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%208.png)
 
-这无疑会诱发一些潜在 bug，我就多次因为要 select 某表中的某个字段，而因为拼写错误导致查询失败。
+这无疑会诱发一些潜在 bug，我就多次因为要 select 某表中的某个字段，却因拼写错误导致查询失败。
 
 ### 创建实体
 
-在 TypeORM 中，假设你要创建一个 User 实体，你需要这么做
+在 TypeORM 中，假设你要新增一条 User 记录，你通常需要这么做
 
 ```ts
 const newUser = new User()
@@ -190,8 +190,8 @@ const user = userRepository.save(newUser)
 当然你可以对 User 实体中做点手脚，像下面这样加一个构造函数
 
 ```ts title='user.entity.ts' icon='logos:nestjs'
-@Entity({ name: 'user' })
-export class UserEntity {
+@Entity()
+export class User {
   @PrimaryGeneratedColumn()
   id: number
 
