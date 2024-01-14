@@ -1,5 +1,4 @@
 import React from 'react'
-import _ from 'loadsh'
 import clsx from 'clsx'
 import { translate } from '@docusaurus/Translate'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
@@ -10,6 +9,7 @@ import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment'
 
 import styles from './styles.module.css'
 import MyLayout from '@site/src/theme/MyLayout'
+import { upperFirst } from '@site/src/utils/jsUtils'
 
 const TITLE = translate({
   id: 'theme.project.title',
@@ -79,7 +79,7 @@ function ShowcaseCards() {
             return (
               <div key={key}>
                 <div className={clsx('margin-bottom--md', styles.showcaseFavoriteHeader)}>
-                  <h3>{_.upperFirst(lang === 'en' ? key : projectTypeMap[key])}</h3>
+                  <h3>{upperFirst(lang === 'en' ? key : projectTypeMap[key])}</h3>
                 </div>
                 <ul className={styles.showcaseList}>
                   {value.map(project => (
