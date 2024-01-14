@@ -11,40 +11,28 @@ interface Props {
   children: React.ReactElement
 }
 
-export default function Tooltip({
-  children,
-  id,
-  anchorEl,
-  text,
-  delay,
-}: Props): JSX.Element {
+export default function Tooltip({ children, id, anchorEl, text, delay }: Props): JSX.Element {
   const [open, setOpen] = useState(false)
-  const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
-    null,
-  )
+  const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(null)
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null)
   const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null)
   const [container, setContainer] = useState<Element | null>(null)
-  const { styles: popperStyles, attributes } = usePopper(
-    referenceElement,
-    popperElement,
-    {
-      modifiers: [
-        {
-          name: 'arrow',
-          options: {
-            element: arrowElement,
-          },
+  const { styles: popperStyles, attributes } = usePopper(referenceElement, popperElement, {
+    modifiers: [
+      {
+        name: 'arrow',
+        options: {
+          element: arrowElement,
         },
-        {
-          name: 'offset',
-          options: {
-            offset: [0, 8],
-          },
+      },
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 8],
         },
-      ],
-    },
-  )
+      },
+    ],
+  })
 
   const timeout = useRef<number | null>(null)
   const tooltipId = `${id}_tooltip`
@@ -77,7 +65,7 @@ export default function Tooltip({
 
       timeout.current = window.setTimeout(() => {
         setOpen(true)
-      }, delay || 400)
+      }, delay || 300)
     }
 
     const handleClose = () => {

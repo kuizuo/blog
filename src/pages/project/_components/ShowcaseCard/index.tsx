@@ -5,7 +5,7 @@ import Link from '@docusaurus/Link'
 import Translate from '@docusaurus/Translate'
 import styles from './styles.module.css'
 import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon'
-import Tooltip from '../ShowcaseTooltip'
+import Tooltip from '@site/src/components/Tooltip'
 import { Tags, TagList, type TagType, type Project, type Tag } from '@site/data/projects'
 import { sortBy } from '@site/src/utils/jsUtils'
 

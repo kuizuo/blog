@@ -1,6 +1,5 @@
 import React from 'react'
-import { useThemeConfig } from '@docusaurus/theme-common'
-import { ThemeConfig } from '@docusaurus/preset-classic'
+import Tooltip from '@site/src/components/Tooltip'
 import { Icon } from '@iconify/react'
 import social from '@site/data/social'
 import styles from './styles.module.scss'
@@ -27,9 +26,11 @@ interface Props {
 
 function SocialLink({ href, icon, title, color, ...prop }: Props) {
   return (
-    <a href={href} target="_blank" {...prop} title={title}>
-      {typeof icon === 'string' ? <Icon icon={icon} /> : icon}
-    </a>
+    <Tooltip key={title} text={title} anchorEl="#__docusaurus" id={`tooltip-${title}`}>
+      <a href={href} target="_blank" {...prop} title={title}>
+        {typeof icon === 'string' ? <Icon icon={icon} /> : icon}
+      </a>
+    </Tooltip>
   )
 }
 

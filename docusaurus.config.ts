@@ -107,7 +107,7 @@ const config: Config = {
           title: '更多',
           items: [
             { label: '友链', position: 'right', to: 'friends' },
-            { label: '导航', position: 'right', to: 'resource' },
+            { label: '导航', position: 'right', to: 'resources' },
             {
               html: `
                 <a href="https://docusaurus.io/zh-CN/" target="_blank" rel="noreferrer noopener">

@@ -11,6 +11,13 @@ export type Social = {
   discord?: string
 }
 
+type SocialValue = {
+  href?: string
+  title: string
+  icon: string
+  color: string
+}
+
 const social: Social = {
   github: 'https://github.com/kuizuo',
   twitter: 'https://twitter.com/kuizuo',
@@ -24,7 +31,7 @@ const social: Social = {
   discord: 'https://discord.gg/M8cVcjDxkz',
 }
 
-const SOCIAL = {
+const socialSet: Record<keyof Social, SocialValue> = {
   github: {
     href: social.github,
     title: 'GitHub',
@@ -87,4 +94,4 @@ const SOCIAL = {
   },
 }
 
-export default SOCIAL
+export default socialSet

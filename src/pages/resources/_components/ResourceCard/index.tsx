@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link'
 
 import styles from './styles.module.css'
 import { type Resource } from '@site/data/resources'
-import Tooltip from '../../../project/_components/ShowcaseTooltip'
+import Tooltip from '@site/src/components/Tooltip'
 
 const ResourceCard = memo(({ resource }: { resource: Resource }) => (
   <li
