@@ -207,6 +207,7 @@ const config: Config = {
     'docusaurus-plugin-sass',
     path.resolve(__dirname, './src/plugin/plugin-baidu-tongji'),
     path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
+    path.resolve(__dirname, './src/plugin/plugin-vercel-analytics'),
     [
       path.resolve(__dirname, './src/plugin/plugin-content-blog'), // 为了实现全局 blog 数据，必须改写 plugin-content-blog 插件
       {
