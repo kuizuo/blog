@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import React from 'react'
 import Layout from '@theme/Layout'
 import Hero from './_components/Hero'
@@ -22,6 +23,7 @@ export default function Home(): JSX.Element {
           <FeaturesSection />
         </div>
       </main>
+      <Analytics />
     </Layout>
   )
 }

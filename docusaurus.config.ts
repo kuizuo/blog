@@ -198,7 +198,7 @@ const config: Config = {
           trackingID: 'G-S4SD5NXWXF',
           anonymizeIP: true,
         },
-        // debug: true,
+        debug: process.env.NODE_ENV === 'development',
       } satisfies Preset.Options,
     ],
   ],
@@ -232,7 +232,7 @@ const config: Config = {
     [
       '@docusaurus/plugin-pwa',
       {
-        debug: true,
+        debug: process.env.NODE_ENV === 'development',
         offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
         pwaHead: [
           { tagName: 'link', rel: 'icon', href: '/img/logo.png' },
