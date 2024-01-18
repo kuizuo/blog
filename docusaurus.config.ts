@@ -1,4 +1,3 @@
-import path from 'node:path'
 import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
 import { themes } from 'prism-react-renderer'
@@ -44,7 +43,6 @@ const config: Config = {
         hideable: true,
       },
     },
-
     navbar: {
       logo: {
         alt: '愧怍',
@@ -198,17 +196,29 @@ const config: Config = {
           trackingID: 'G-S4SD5NXWXF',
           anonymizeIP: true,
         },
-        // debug: true,
+        debug: process.env.NODE_ENV === 'development',
       } satisfies Preset.Options,
     ],
   ],
   plugins: [
     'docusaurus-plugin-image-zoom',
     'docusaurus-plugin-sass',
-    path.resolve(__dirname, './src/plugin/plugin-baidu-tongji'),
-    path.resolve(__dirname, './src/plugin/plugin-baidu-push'),
+    '@docusaurus/plugin-ideal-image',
+    ['docusaurus-plugin-baidu-tongji', { token: 'c9a3849aa75f9c4a4e65f846cd1a5155' }],
     [
-      path.resolve(__dirname, './src/plugin/plugin-content-blog'), // 为了实现全局 blog 数据，必须改写 plugin-content-blog 插件
+      '@docusaurus/plugin-pwa',
+      {
+        debug: process.env.NODE_ENV === 'development',
+        offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
+        pwaHead: [
+          { tagName: 'link', rel: 'icon', href: '/img/logo.png' },
+          { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
+          { tagName: 'meta', name: 'theme-color', content: '#12affa' },
+        ],
+      },
+    ],
+    [
+      './src/plugin/plugin-content-blog', // 为了实现全局 blog 数据，必须改写 plugin-content-blog 插件
       {
         path: 'blog',
         editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
@@ -226,19 +236,6 @@ const config: Config = {
           title: '愧怍',
           copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
         },
-      },
-    ],
-    ['@docusaurus/plugin-ideal-image', { disableInDev: false }],
-    [
-      '@docusaurus/plugin-pwa',
-      {
-        debug: true,
-        offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
-        pwaHead: [
-          { tagName: 'link', rel: 'icon', href: '/img/logo.png' },
-          { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
-          { tagName: 'meta', name: 'theme-color', content: '#12affa' },
-        ],
       },
     ],
   ],

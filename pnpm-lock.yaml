@@ -32,6 +32,9 @@ dependencies:
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
+  docusaurus-plugin-baidu-tongji:
+    specifier: 0.0.0-beta.4
+    version: 0.0.0-beta.4
   docusaurus-plugin-image-zoom:
     specifier: ^1.0.0
     version: 1.0.1(@docusaurus/theme-classic@3.1.0)
@@ -5072,6 +5075,10 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       esutils: 2.0.3
+
+  /docusaurus-plugin-baidu-tongji@0.0.0-beta.4:
+    resolution: {integrity: sha512-LePs8OLhaeHJBeZlZDDgWDbsHKERQAt7F0ELZ77X8tG3xCOkSLmNq+KTsQ+QhpsLp8xtRtyOqGtYiEaQPFMdBw==}
+    dev: false
 
   /docusaurus-plugin-image-zoom@1.0.1(@docusaurus/theme-classic@3.1.0):
     resolution: {integrity: sha512-96IpSKUx2RWy3db9aZ0s673OQo5DWgV9UVWouS+CPOSIVEdCWh6HKmWf6tB9rsoaiIF3oNn9keiyv6neEyKb1Q==}
