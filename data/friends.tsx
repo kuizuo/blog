@@ -44,7 +44,7 @@ export const Friends: Friend[] = [
   {
     title: 'Meoo',
     description: '一杯茶，一根网线，一台电脑',
-    website: 'https://meoo.space',
+    website: 'https://cxorz.com',
     avatar: '/img/friend/meoo.png',
   },
   {
@@ -52,12 +52,6 @@ export const Friends: Friend[] = [
     description: '心怀理想，仰望星空，埋头苦干',
     website: 'https://www.disnox.top/',
     avatar: '/img/friend/disnox.png',
-  },
-  {
-    title: 'Faith&Passion',
-    description: '有些鱼是关不住的，因为他们属于天空',
-    website: 'https://jpy.wiki',
-    avatar: '/img/friend/faith&passion.png',
   },
   {
     title: 'CWorld Blog',

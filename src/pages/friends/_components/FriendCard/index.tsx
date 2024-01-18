@@ -15,7 +15,7 @@ const FriendCard = memo(({ friend }: { friend: Friend }) => (
     <div className="card__body">
       <div className={clsx(styles.friendCardHeader)}>
         <h4 className={styles.friendCardTitle}>
-          <Link href={friend.website} className={styles.friendCardLink}>
+          <Link to={friend.website} className={styles.friendCardLink} rel="">
             {friend.title}
           </Link>
         </h4>
