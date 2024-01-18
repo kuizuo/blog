@@ -89,7 +89,7 @@ ALTER TABLE `user` ADD `title` varchar(255) NOT NULL
 
 在 Nest 项目中，Prisma 的接入成本远比 TypeORM 来的容易许多。
 
-相信你一定有在 `xxx.module.ts` 中通过 `TypeOrmModule.forFeature([xxxEntity])` 使其模块能够使用 `xxxRepository` 的经历。就像下面代码这样：
+相信你一定有在 `xxx.module.ts` 中在 imports 中导入 `TypeOrmModule.forFeature([xxxEntity])` 的经历。就像下面代码这样：
 
 ```ts title='xxx.module.ts' icon='logos:nestjs'
 @Module({
@@ -98,16 +98,16 @@ ALTER TABLE `user` ADD `title` varchar(255) NOT NULL
   providers: [UserService],
   exports: [TypeOrmModule, UserService],
 })
-export class xxxModule {}
+export class UserModule {}
 ```
 
 对于初学者而言，很大程度上会忘记导入 `xxxEntity`，就会出现这样的报错
 
 ```bash
 Potential solutions:
- - Is DeptModule a valid NestJS module?
- - If "UserEntityRepository" is a provider, is it part of the current DeptModule?
- - If "UserEntityRepository" is exported from a separate @Module, is that module imported within DeptModule?
+ - Is UserModule a valid NestJS module?
+ - If "UserEntityRepository" is a provider, is it part of the current UserModule?
+ - If "UserEntityRepository" is exported from a separate @Module, is that module imported within UserModule?
    @Module({
      imports: [ /* the Module containing "UserEntityRepository" */ ]
    })

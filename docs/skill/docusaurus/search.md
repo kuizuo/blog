@@ -144,8 +144,6 @@ docker run -it --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)
 
 ![image-20210821225934002](https://img.kuizuo.cn/image-20210821225934002.png)
 
-#### 使用 github-actions
-
 因为要确保项目成功部署后才触发，如果采用 vercel 部署可以按照如下触发条件。
 
 ```yaml title='.github/workflows/docsearch.yml'
@@ -177,6 +175,12 @@ jobs:
 ```
 
 添加 [secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) 到你的 Github 仓库中，提交代码便可触发爬虫规则。
+
+## [orama](https://docs.oramasearch.com/open-source/plugins/plugin-docusaurus)
+
+配置 algolia 的过程有稍许的复杂，这里你可以在 docusaurus 中集成 [orama](https://docs.oramasearch.com/open-source/plugins/plugin-docusaurus)，这是一个在浏览器、服务器和边缘运行全文、矢量和混合搜索查询服务。最终实现的效果如图所示
+
+![](https://img.kuizuo.cn/2024/0118082834-202401180828818.png)
 
 ## 本地搜索
 
