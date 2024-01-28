@@ -34,10 +34,8 @@ website
 要输出所有 `@docusaurus/theme-classic` 组件的总览，可以运行：
 
 ```bash
-yarn run swizzle @docusaurus/theme-classic -- --list
+npm run swizzle @docusaurus/theme-classic -- --list
 ```
-
-不过我更倾向于直接在 `node_modules/@docusaurus/theme-classic/src/theme` 查看所有组件。
 
 这里以归档页举例，官方的归档页面组件是 `theme/BlogArchivePage`
 
@@ -46,12 +44,12 @@ yarn run swizzle @docusaurus/theme-classic -- --list
 例如弹出组件，可以执行以下[命令](https://docusaurus.io/zh-CN/docs/cli#docusaurus-swizzle)：
 
 ```bash
-yarn run swizzle @docusaurus/theme-classic BlogArchivePage -- --eject --typescript
+npm run swizzle @docusaurus/theme-classic BlogArchivePage -- --eject --typescript
 ```
 
 这样会创建 `src/theme/BlogArchivePage/index.tsx`，也就是归档页面的代码，而要做的就是修改代码，实现自己所需的样式与功能。
 
-不过这样获取到的只是 index.tsx 文件，有可能还存在子组件。所有我一般的做法是在 `node_modules/@docusaurus/theme-classic/src/theme` 中找到组件所在文件夹，然后将整个文件夹复制到 `src/theme` 下。这样能得到就是最原始的 ts 文件，同时所能修改的地方也就越多，更方便的个性化。
+不过这样获取到的只是 index.tsx 文件，有可能还存在子组件。所以我一般的做法是在 `node_modules/@docusaurus/theme-classic/src/theme` 中找到组件所在文件夹，然后将整个文件夹复制到 `src/theme` 下。这样能得到就是最原始的 ts 文件，同时所能修改的地方也就越多，更方便的个性化。
 
 :::warning
 

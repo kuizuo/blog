@@ -2,7 +2,6 @@ export type Social = {
   github?: string
   twitter?: string
   juejin?: string
-  csdn?: string
   qq?: string
   wx?: string
   cloudmusic?: string
@@ -22,7 +21,6 @@ const social: Social = {
   github: 'https://github.com/kuizuo',
   twitter: 'https://twitter.com/kuizuo',
   juejin: 'https://juejin.cn/user/1565318510545901',
-  csdn: 'https://blog.csdn.net/kuizuo12',
   qq: 'https://img.kuizuo.cn/qq.png',
   wx: 'https://img.kuizuo.cn/wechat.png',
   // zhihu: 'https://www.zhihu.com/people/kuizuo',
@@ -31,7 +29,7 @@ const social: Social = {
   discord: 'https://discord.gg/M8cVcjDxkz',
 }
 
-const socialSet: Record<keyof Social, SocialValue> = {
+const socialSet: Record<keyof Social | 'rss', SocialValue> = {
   github: {
     href: social.github,
     title: 'GitHub',

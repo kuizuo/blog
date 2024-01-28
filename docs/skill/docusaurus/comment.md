@@ -31,7 +31,7 @@ Waline：需要搭建后端服务与数据库服务，提供评论与浏览量�
 <script
   src="https://giscus.app/client.js"
   data-repo="kuizuo/blog"
-  data-repo-id="MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI="
+  data-repo-id="MDEwOlJlcG9zaXRvcnkzOTc2Mxxxxx"
   data-category="General"
   data-category-id="DIC_kwDOF7NJDM4CPK95"
   data-mapping="title"
@@ -51,7 +51,7 @@ Waline：需要搭建后端服务与数据库服务，提供评论与浏览量�
 ```javascript title='docusaurus.config.ts' icon='logos:docusaurus'
 giscus: {
   repo: 'kuizuo/blog',
-  repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=',
+  repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2Mxxxxx',
   category: 'General',
   categoryId: 'DIC_kwDOF7NJDM4CPK95',
   theme: 'light',
@@ -59,7 +59,7 @@ giscus: {
 }
 ```
 
-:::info 如果不替换的话，评论的信息都将会在我的 Discussions 下😂
+:::info 切记一定要将上述数据替换成你的，如果不替换的话，评论的信息都将会在我的 Discussions 下。
 
 :::
 

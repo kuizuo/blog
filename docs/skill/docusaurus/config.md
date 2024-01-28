@@ -47,38 +47,47 @@ export default config
 
 ### 基本信息
 
-站点名和作者名只需要搜索 **愧怍** 便能找到关键位置
+站点名和作者名只需要搜索 **愧怍** 或 **kuizuo** 便能找到关键位置，将其更改为你的便可。
 
-### 关于我
+### 关于我 页面
 
 具体可在 `src/pages/about.mdx` 中查看与修改。
 
-其中技术栈的图标使用 [Shields.io](https://shields.io/) 生成，github 的状态信息使用[GitHub Profile Summary Cards](https://github-profile-summary-cards.vercel.app/demo.html)生成
+这里你可能需要展示你的技术栈，这里我推荐使用 [skillicons](https://skillicons.dev/) 来生成技术栈的图标，就如下面这样
 
-所要做的就是将 username 替换成你的 github 名即可。
+[![My Skills](https://skillicons.dev/icons?i=ts,nodejs,vue,nuxt,react,nextjs,tailwind,nestjs,prisma,postgres,redis,supabase,rust,wasm,vscode)](https://skillicons.dev)
+
+而 github 的状态信息使用[GitHub Profile Summary Cards](https://github-profile-summary-cards.vercel.app/demo.html) 或 [github-stats](https://github.com/jstrieb/github-stats) ，这里我选用 github-stats 因为带有动画，但需要图片需要自行构建。
+
+![](https://raw.githubusercontent.com/kuizuo/github-stats/master/generated/overview.svg#gh-light-mode-only)
+
+![](https://raw.githubusercontent.com/kuizuo/github-stats/master/generated/languages.svg#gh-light-mode-only)
+
+### 友链、导航、项目 页面
+
+这三个页面是通过 [plugin-content-pages](https://docusaurus.io/zh-CN/docs/api/plugins/@docusaurus/plugin-content-pages) 实现自定义页面的，如果想了解页面的实现可以看[自定义页面](/docs/docusaurus-style#自定义页面)
+
+这里你主要关注数据部分，数据都存放至根文件夹 `/data` 下，并使用 ts 用作类型提示。这些数据最终会在这些页面中渲染，你只需要根据符合的类型定义所要展示的数据，访问对应页面就能查看到效果。
 
 ### 社交链接
 
-只需要在 `docusaurus.config.ts` 中修改 socials 属性，替换成你的即可。
+只需要在 `data/social.ts` 中修改 social 对象即可。
 
-```typescript title='docusaurus.config.ts' icon='logos:docusaurus'
-socials: {
-  github: 'https://github.com/kuizuo',
-  twitter: 'https://twitter.com/kuizuo',
-  juejin: 'https://juejin.cn/user/1565318510545901',
-  csdn: 'https://blog.csdn.net/kuizuo12',
-  qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
-  cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
+内置了以下主流的可供选择的几个社交账号。
+
+```typescript title='social.ts' icon='logos:typescript-icon'
+export type Social = {
+  github?: string
+  twitter?: string
+  juejin?: string
+  qq?: string
+  wx?: string
+  cloudmusic?: string
+  zhihu?: string
+  email?: string
+  discord?: string
 }
 ```
-
-如果你还有其他社交链接，可以在这里添加对应的链接，然后在 `src/components/Hero.index.tsx` 中的 SocialLinks 组件中来配置新增或者删除社交链接图标。
-
-### 友链、导航、项目
-
-这里你需要关注数据部分，如果想了解页面的实现可以看[自定义页面](/docs/docusaurus-style#自定义页面)
-
-数据部分存放在根目录 `/data` 下，并使用 ts 用作类型提示。这些数据最终会在这些页面中渲染，你只需要根据符合的类型定义所要展示的数据，访问对应页面就能查看到效果。
 
 ## 其他配置
 
