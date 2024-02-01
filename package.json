@@ -42,7 +42,7 @@
     "@vercel/analytics": "^1.1.1",
     "dayjs": "^1.11.10",
     "docusaurus-plugin-baidu-tongji": "0.0.0-beta.4",
-    "docusaurus-plugin-image-zoom": "^1.0.0",
+    "docusaurus-plugin-image-zoom": "^2.0.0",
     "docusaurus-plugin-sass": "^0.2.5",
     "framer-motion": "^10.16.4",
     "ora": "^7.0.0",
