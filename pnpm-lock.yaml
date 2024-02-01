@@ -36,8 +36,8 @@ dependencies:
     specifier: 0.0.0-beta.4
     version: 0.0.0-beta.4
   docusaurus-plugin-image-zoom:
-    specifier: ^1.0.0
-    version: 1.0.1(@docusaurus/theme-classic@3.1.0)
+    specifier: ^2.0.0
+    version: 2.0.0(@docusaurus/theme-classic@3.1.0)
   docusaurus-plugin-sass:
     specifier: ^0.2.5
     version: 0.2.5(@docusaurus/core@3.1.0)(sass@1.66.1)(webpack@5.88.2)
@@ -5080,10 +5080,10 @@ packages:
     resolution: {integrity: sha512-LePs8OLhaeHJBeZlZDDgWDbsHKERQAt7F0ELZ77X8tG3xCOkSLmNq+KTsQ+QhpsLp8xtRtyOqGtYiEaQPFMdBw==}
     dev: false
 
-  /docusaurus-plugin-image-zoom@1.0.1(@docusaurus/theme-classic@3.1.0):
-    resolution: {integrity: sha512-96IpSKUx2RWy3db9aZ0s673OQo5DWgV9UVWouS+CPOSIVEdCWh6HKmWf6tB9rsoaiIF3oNn9keiyv6neEyKb1Q==}
+  /docusaurus-plugin-image-zoom@2.0.0(@docusaurus/theme-classic@3.1.0):
+    resolution: {integrity: sha512-TWHQZeoiged+95CESlZk++lihzl3pqw34n0/fbexx2AocmFhbo9K2scYDgYB8amki4/X6mUCLTPZE1pQvT+00Q==}
     peerDependencies:
-      '@docusaurus/theme-classic': '>=2.2.0'
+      '@docusaurus/theme-classic': '>=3.0.0'
     dependencies:
       '@docusaurus/theme-classic': 3.1.0(@types/react@18.2.21)(eslint@8.53.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
       medium-zoom: 1.0.8
