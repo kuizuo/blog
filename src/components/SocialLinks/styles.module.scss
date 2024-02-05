@@ -3,7 +3,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: min-content;
   gap: 1rem;
   padding: 0.5em 0;
   z-index: 100;
@@ -56,4 +55,10 @@
   width: 24px;
   height: 24px;
   transition: all 0.3s ease-in-out;
+}
+
+@media (width <= 570px) {
+  .socialLinks {
+    gap: 0;
+  }
 }
