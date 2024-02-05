@@ -26,7 +26,7 @@ export default function FeaturesSection(): JSX.Element {
       <SectionTitle icon={'ri:map-pin-user-line'}>
         <Translate id="homepage.feature.title">个人特点</Translate>
       </SectionTitle>
-      <div className={clsx('row', styles.features)}>
+      <div className="row">
         {features.map((props, idx) => (
           <Feature key={idx} {...props} />
         ))}

@@ -3,14 +3,6 @@
   padding: 2rem 1rem;
 }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0.5rem 0;
-}
-
 .feature {
   position: relative;
   background: transparent;
@@ -34,11 +26,4 @@
 
 html[data-theme='dark'] .feature:hover {
   box-shadow: 0 0 10px 10px rgb(71 71 71 / 20%);
-}
-
-@media (width <= 768px) {
-  .features {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
 }

@@ -42,7 +42,7 @@
   --content-background-color: #f8fafc;
 
   --blog-item-background-color: linear-gradient(180deg, #fcfcfc, #fff);
-  --blog-item-shadow: 0 10px 20px #f1f5f9dd, 0 0 10px 0 #e4e4e7dd;
+  --blog-item-shadow: 0 10px 18px #f1f5f9dd, 0 0 10px 0 #e4e4e7dd;
   --blog-item-shade: #f4f4f5;
 
   -webkit-font-smoothing: unset;
@@ -63,7 +63,7 @@ html[data-theme='dark'] {
 
   --content-background-color: #18181b;
   --blog-item-background-color: linear-gradient(180deg, #171717, #18181b);
-  --blog-item-shadow: 0 12px 24px rgb(37 55 72 / 20%), 0 0 8px rgb(37 55 72 / 40%);
+  --blog-item-shadow: 0 10px 18px #25374833, 0 0 8px #25374866;
   --blog-item-shade: #27272a;
 
   color: hsl(214deg 15% 85%);
@@ -189,7 +189,7 @@ article {
   }
 }
 
-@media (width <= 570px) {
+@media (max-width: 570px) {
   h1 {
     font-size: 1.6em;
   }
@@ -206,7 +206,7 @@ article {
 }
 
 /* 导航收缩相应尺寸调大 */
-@media (width <= 1100px) {
+@media (max-width: 1100px) {
   .navbar > .container,
   .navbar > .container-fluid {
     padding: 0;
