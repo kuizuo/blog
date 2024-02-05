@@ -37,19 +37,19 @@ function SocialLink({ href, icon, title, color, ...prop }: Props) {
 export default function SocialLinks({ ...prop }) {
   return (
     <div className={styles.socialLinks} {...prop}>
-      {Object.entries(social).map(([key, { href, icon, title, color }]) => {
-        if (!href) return <></>
-
-        return (
-          <SocialLink
-            key={key}
-            href={href}
-            title={title}
-            icon={icon}
-            style={{ '--color': color }}
-          ></SocialLink>
-        )
-      })}
+      {Object.entries(social)
+        .filter(([_key, { href }]) => href)
+        .map(([key, { href, icon, title, color }]) => {
+          return (
+            <SocialLink
+              key={key}
+              href={href!}
+              title={title}
+              icon={icon}
+              style={{ '--color': color }}
+            ></SocialLink>
+          )
+        })}
     </div>
   )
 }
