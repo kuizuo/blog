@@ -104,13 +104,13 @@
   background-clip: text;
 }
 
-@media (width <= 768px) {
+@media (max-width: 768px) {
   .postGridItem {
     min-width: 100%;
   }
 }
 
-@media (width <= 576px) {
+@media (max-width: 576px) {
   .blogGrid {
     grid-template-columns: minmax(0, max-content);
   }
