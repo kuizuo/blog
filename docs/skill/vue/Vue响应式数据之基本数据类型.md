@@ -88,7 +88,7 @@ const user = {
 user.foo.value = 3
 ```
 
-可以发现，并不会输出 SET foo 3，主要由展开运算符...所导致的。上面的 user 就等价于{ foo: 1, bar: 2 }
+可以发现，并不会输出 SET foo 3，主要由展开运算符...所导致的。上面的 user 就等价于`{ foo: 1, bar: 2 }`
 
 所以 Vue 则封装了 toRef 和 toRefs 方法，将某个对象的 key 包裹为 ref
 

@@ -158,11 +158,11 @@ export default {
 | vmin | 1vmin = 1vh < 1vw ？ 1vh ：1vw                               |
 | ch   | 1ch = 当前元素font-size大小 的 0 的宽度(px) 如果没有继承父级 直到浏览器默认值 |
 
-通常来说桌面浏览器默认字体大小是16px，而1rem对于的也就是16px。要注意的是根元素，即html{font-size:16px;}。对于不同设备（桌面端，移动端）font-size不一定都是16px，所以为了适配使用，就需要按照一定的比例进行换算。
+通常来说桌面浏览器默认字体大小是16px，而1rem对于的也就是16px。要注意的是根元素，即`html{font-size:16px;}`。对于不同设备（桌面端，移动端）font-size不一定都是16px，所以为了适配使用，就需要按照一定的比例进行换算。
 
 而在tailwind css中 **大部分**原子类对于的属性单位都是以rem。其中换算比例为1: 0.25rem，举个例子。m-1对应的是 margin: 0.25rem，m-4对应margin: 1rem，即16px。
 
-其中这里的1与4对应的是{size}，**记住4size对应1rem即可**。
+其中这里的1与4对应的是`{size}`，**记住4size对应1rem即可**。
 
 ### 响应式设计
 
@@ -176,7 +176,7 @@ export default {
 | `xl`           | 1280px   | `@media (min-width: 1280px) { ... }` |
 | `2xl`          | 1536px   | `@media (min-width: 1536px) { ... }` |
 
-通常用法  **{screen}:原子类** ，当页面最小宽度处于该宽度，则会启动对于原子类样式。因为使用的是min-width，通常来说先为移动设备设计布局，接着在 `sm` 屏幕上进行更改，然后是 `md` 屏幕，以此类推。
+通常用法  **`{screen}:原子类`** ，当页面最小宽度处于该宽度，则会启动对于原子类样式。因为使用的是min-width，通常来说先为移动设备设计布局，接着在 `sm` 屏幕上进行更改，然后是 `md` 屏幕，以此类推。
 
 **不要使用 `sm:` 来定位移动设备**
 
@@ -313,7 +313,7 @@ leading-{size}
 
 [自定义颜色 - Tailwind CSS 中文文档](https://www.tailwindcss.cn/docs/customizing-colors)
 
-在tailwind中颜色通常按50，100~900分级。定义颜色{colors}的语法为
+在tailwind中颜色通常按50，100~900分级。定义颜色`{colors}`的语法为
 
 ```
 {color}-{level}

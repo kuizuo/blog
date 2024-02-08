@@ -137,7 +137,7 @@ plugin wallbreaker objectdump <object-handle> [--fullname] # 输出指定对象�
 
 #### [FRIDA-DEXDump](https://github.com/hluwa/FRIDA-DEXDump)
 
-进入 objection，加载插件 plugin load <插件路径> [指定插件名字]
+进入 objection，加载插件 plugin load `<插件路径>` [指定插件名字]
 
 ```
 plugin load F:\\Frida\\objection-plugin\\FRIDA-DEXDump\\frida_dexdump

@@ -216,7 +216,7 @@ type Demo5<T, U> = T extends U ? never : T
 type Demo6 = Demo5<'a' | 'b' | 'c' | 'd', 'c' | 'd'> // 'a' | 'b'
 ```
 
-例如上面定义的 Demo5，其实也就是 TypeScript 内置工具类的[Exclude<UnionType, ExcludedMembers>](https://www.typescriptlang.org/docs/handbook/utility-types.html#excludeuniontype-excludedmembers)的实现，所返回的结果是 `'a' | 'b'`，其内部的实现相当于
+例如上面定义的 Demo5，其实也就是 TypeScript 内置工具类的[`Exclude<UnionType, ExcludedMembers>`](https://www.typescriptlang.org/docs/handbook/utility-types.html#excludeuniontype-excludedmembers)的实现，所返回的结果是 `'a' | 'b'`，其内部的实现相当于
 
 ```typescript
 'a' extends 'c' | 'd' ? never : 'a' // 'a'

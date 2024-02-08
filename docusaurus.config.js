@@ -1,7 +1,10 @@
 const path = require('path')
 const beian = '闽ICP备2020017848号-2'
-
+// import remarkPlugin from 'remark-plugin';
 const announcementBarContent = ''
+const {themes} = require('prism-react-renderer')
+const lightTheme = themes.github
+const darkTheme = themes.dracula
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -13,6 +16,7 @@ const config = {
   projectName: 'blog',
   tagline: '道阻且长，行则将至',
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  themes: ['@docusaurus/theme-live-codeblock'],
   themeConfig: {
     image:'img/favicon-logo.png',
     // announcementBar: {
@@ -22,7 +26,7 @@ const config = {
     metadata: [
       {
         name: 'keywords',
-        content: 'Ray, Ray',
+        content: 'Ray, ray',
       },
       {
         name: 'keywords',
@@ -67,6 +71,16 @@ const config = {
           to: 'docs/skill/',
         },
         {
+          label: '工作随想',
+          position: 'right',
+          to: 'docs/thought_on_work/',
+        },
+        // {
+        //   label: '工作随想2',
+        //   position: 'right',
+        //   to: 'docs/work/',
+        // },
+        {
           label: '资源',
           position: 'right',
           to: 'resource',
@@ -81,33 +95,6 @@ const config = {
           position: 'right',
           to: 'docs/tools/',
         },
-          // 不想要更多，全部展开更好，就是为了个给人看嘛
-        // {
-        //   label: '更多',
-        //   position: 'right',
-        //   items: [
-        //     {
-        //       label: '归档',
-        //       to: 'blog/archive',
-        //     },
-        //     {
-        //       label: '笔记',
-        //       to: 'docs/skill/',
-        //     },
-        //     {
-        //       label: '资源',
-        //       to: 'resource',
-        //     },
-        //     {
-        //       label:  '友链',
-        //       to: 'friends',
-        //     },
-        //     {
-        //       label: '工具推荐',
-        //       to: 'docs/tools/',
-        //     },
-        //   ],
-        // },
         {
           type: 'localeDropdown',
           position: 'right',
@@ -194,8 +181,8 @@ const config = {
       copyright: `<p><a href="http://beian.miit.gov.cn/" >${beian}</a></p><p>Copyright © 2020 - PRESENT Ray Built with Docusaurus.</p>`,
     },
     prism: {
-      theme: require('prism-react-renderer/themes/vsLight'),
-      darkTheme: require('prism-react-renderer/themes/vsDark'),
+      theme: lightTheme,
+      darkTheme: darkTheme,
       additionalLanguages: ['java', 'php', 'rust', 'toml'],
       defaultLanguage: 'javascript',
       magicComments: [
@@ -357,4 +344,4 @@ const config = {
   },
 }
 
-module.exports = config
+export default config

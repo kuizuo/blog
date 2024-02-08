@@ -32,11 +32,12 @@
     "index": "docker run -it --env-file=.env -e \"CONFIG=$(cat docsearch.json | jq -r tostring)\" algolia/docsearch-scraper"
   },
   "dependencies": {
-    "@docusaurus/core": "3.0.0-alpha.0",
-    "@docusaurus/plugin-ideal-image": "3.0.0-alpha.0",
-    "@docusaurus/plugin-pwa": "3.0.0-alpha.0",
-    "@docusaurus/preset-classic": "3.0.0-alpha.0",
-    "@docusaurus/theme-search-algolia": "3.0.0-alpha.0",
+    "@docusaurus/core": "3.1.1",
+    "@docusaurus/plugin-ideal-image": "3.1.1",
+    "@docusaurus/plugin-pwa": "3.1.1",
+    "@docusaurus/preset-classic": "3.1.1",
+    "@docusaurus/theme-live-codeblock": "^3.1.1",
+    "@docusaurus/theme-search-algolia": "3.1.1",
     "@giscus/react": "^2.3.0",
     "@popperjs/core": "^2.11.8",
     "dayjs": "^1.11.9",
@@ -52,12 +53,13 @@
     "sass": "^1.64.1"
   },
   "devDependencies": {
-    "@docusaurus/eslint-plugin": "3.0.0-alpha.0",
-    "@docusaurus/module-type-aliases": "3.0.0-alpha.0",
+    "@docusaurus/eslint-plugin": "3.1.1",
+    "@docusaurus/module-type-aliases": "3.1.1",
     "@iconify/react": "^4.1.1",
     "@tsconfig/docusaurus": "^1.0.7",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
+    "docusaurus-mdx-checker": "^3.0.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",

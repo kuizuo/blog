@@ -954,7 +954,7 @@ pip install jnitrace
 jnitrace -m attach -l <模块.so> <包名>
 ```
 
--m <spawn|attach> 附加方式去运行
+-m `<spawn|attach>` 附加方式去运行
 
 -o path/output.json 将结果输出到文件上
 
