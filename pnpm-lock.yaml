@@ -42,8 +42,8 @@ dependencies:
     specifier: ^0.2.5
     version: 0.2.5(@docusaurus/core@3.1.0)(sass@1.66.1)(webpack@5.88.2)
   framer-motion:
-    specifier: ^10.16.4
-    version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^11.0.0
+    version: 11.0.0(react-dom@18.2.0)(react@18.2.0)
   ora:
     specifier: ^7.0.0
     version: 7.0.1
@@ -5873,8 +5873,8 @@ packages:
     resolution: {integrity: sha512-n2aZ9tNfYDwaHhvFTkhFErqOMIb8uyzSQ+vGJBjZyanAKZVbGUQ1sngfk9FdkBw7G26O7AgNjLcecLffD1c7eg==}
     dev: false
 
-  /framer-motion@10.16.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-p9V9nGomS3m6/CALXqv6nFGMuFOxbWsmaOrdmhyQimMIlLl3LC7h7l86wge/Js/8cRu5ktutS/zlzgR7eBOtFA==}
+  /framer-motion@11.0.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-aRJ7v/upEoorZcgQLE5RvLkYrK2SNGMJ8w+Cwa1pGSFIBxmIJtZT48jcvKduxiFWYskD6pc8bFA6aSmhJLBxzA==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
