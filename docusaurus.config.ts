@@ -217,6 +217,11 @@ const config: Config = {
         ],
       },
     ],
+    ['vercel-analytics', {
+        debug: process.env.NODE_ENV === 'development',
+        mode: 'auto',
+      },
+    ],
     [
       './src/plugin/plugin-content-blog', // 为了实现全局 blog 数据，必须改写 plugin-content-blog 插件
       {
