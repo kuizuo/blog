@@ -8,7 +8,7 @@ const beian = '闽ICP备2020017848号-2'
 const beian1 = '闽公网安备35021102000847号'
 
 const config: Config = {
-  title: '愧怍的小站',
+  title: '愧怍',
   url: 'https://kuizuo.cn',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
@@ -26,8 +26,8 @@ const config: Config = {
     // },
     metadata: [
       {
-        name: 'keywords',
-        content: '愧怍, kuizuo',
+        name: 'author',
+        content: '愧怍',
       },
       {
         name: 'keywords',
@@ -35,7 +35,7 @@ const config: Config = {
       },
       {
         name: 'keywords',
-        content: '编程爱好者, Web开发者, 写过爬虫, 学过逆向, 现在主攻ts全栈',
+        content: '编程爱好者, Web开发者, 写过爬虫, 学过逆向, 主攻ts全栈',
       },
     ],
     docs: {
@@ -118,9 +118,9 @@ const config: Config = {
       ],
       copyright: `
         <p style="margin-bottom: 0;"><a href="http://beian.miit.gov.cn/">${beian}</a></p>
-        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${beian1.match(
-          /\d+/,
-        )?.[0]}" >${beian1}</a></p>
+        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${
+          beian1.match(/\d+/)?.[0]
+        }" >${beian1}</a></p>
         <p>Copyright © 2020 - PRESENT 愧怍 Built with Docusaurus.</p>
         `,
     },
@@ -217,7 +217,9 @@ const config: Config = {
         ],
       },
     ],
-    ['vercel-analytics', {
+    [
+      'vercel-analytics',
+      {
         debug: process.env.NODE_ENV === 'development',
         mode: 'auto',
       },
