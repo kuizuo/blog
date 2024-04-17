@@ -2,8 +2,9 @@ import React from 'react'
 import clsx from 'clsx'
 import { translate } from '@docusaurus/Translate'
 import { usePluralForm } from '@docusaurus/theme-common'
-import { useBlogPost } from '@docusaurus/theme-common/internal'
+import { useBlogPost, useDateTimeFormat } from '@docusaurus/theme-common/internal'
 import type { Props } from '@theme/BlogPostItem/Header/Info'
+import type { BlogPostFrontMatter } from '@docusaurus/plugin-content-blog'
 import TagsListInline from '@theme/TagsListInline'
 
 import styles from './styles.module.css'
@@ -35,7 +36,7 @@ export function ReadingTime({ readingTime }: { readingTime: number }) {
   return <span className="truncate">{readingTimePlural(readingTime)}</span>
 }
 
-function Date({ date, formattedDate }: { date: string; formattedDate: string }) {
+function DateTime({ date, formattedDate }: { date: string; formattedDate: string }) {
   return (
     <time dateTime={date} itemProp="datePublished" className="truncate">
       {formattedDate}
@@ -45,15 +46,24 @@ function Date({ date, formattedDate }: { date: string; formattedDate: string }) 
 
 export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Element {
   const { metadata } = useBlogPost()
-  const { date, tags, formattedDate, readingTime } = metadata
+  const { date, tags, readingTime } = metadata
 
   const tagsExists = tags.length > 0
+
+  const dateTimeFormat = useDateTimeFormat({
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
+
+  const formatDate = (blogDate: string) => dateTimeFormat.format(new Date(blogDate))
 
   return (
     <div className={clsx(styles.container, 'margin-bottom--md', className)}>
       <div className={styles.date}>
         <Icon icon="ri:calendar-line" />
-        <Date date={date} formattedDate={formattedDate} />
+        <DateTime date={date} formattedDate={formatDate(date)} />
       </div>
       {tagsExists && (
         <div className={styles.tagInfo}>
