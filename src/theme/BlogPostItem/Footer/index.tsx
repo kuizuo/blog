@@ -1,6 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
-import { useBlogPost } from '@docusaurus/theme-common/internal'
+import { useBlogPost, useDateTimeFormat } from '@docusaurus/theme-common/internal'
 import EditThisPage from '@theme/EditThisPage'
 import TagsListInline from '@theme/TagsListInline'
 import Tag from '@theme/Tag'
@@ -12,8 +12,16 @@ import styles from './styles.module.scss'
 
 export default function BlogPostItemFooter(): JSX.Element | null {
   const { metadata, isBlogPostPage } = useBlogPost()
-  const { tags, title, editUrl, hasTruncateMarker, date, formattedDate, readingTime, authors } =
-    metadata
+  const { tags, title, editUrl, hasTruncateMarker, date, readingTime, authors } = metadata
+
+  const dateTimeFormat = useDateTimeFormat({
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
+
+  const formatDate = (blogDate: string) => dateTimeFormat.format(new Date(blogDate))
 
   // A post is truncated if it's in the "list view" and it has a truncate marker
   const truncatedPost = !isBlogPostPage && hasTruncateMarker
@@ -43,7 +51,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
             <>
               <Icon icon="ri:calendar-line" />
               <time dateTime={date} className={styles.blogPostDate} itemProp="datePublished">
-                {formattedDate}
+                {formatDate(date)}
               </time>
             </>
           )}
