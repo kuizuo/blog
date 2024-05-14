@@ -245,7 +245,7 @@ const { top } = useSafeAreaInsets();
 
 顺带在贴一张 Provider 嵌套
 
-![https://img.kuizuo.cn/2024/0514092451-202405140924689.png](https://img.kuizuo.cn/2024/0514092451-202405140924689.png)
+![provider](https://img.kuizuo.cn/2024/0514171536-0514092451-202405140924689.png)
 
 这里我就不得不提到我为啥一开始选用 tamagui 了(现已迁移到 gluestack-ui)，说实话我是有点后悔的，在一开始选定 UI 库的时候，我是选择 NativeWind 的，但后面无意刷到了 [T4-stack](https://t4stack.com/) (算是被他坑了)，而它所用的便是 tamagui，并且一套代码跑 expo 与 next.js。于是便采用相同的项目结构以及 UI 库了。但事实上在我编写的过程中，想要一套代码就能实现跨三端(web,android,ios) 效果并不佳了，这在下一章便会说到。
 
@@ -460,7 +460,7 @@ export default function RootLayout() {
 
 先看一张图，很多 app 都有这种类似的效果。
 
-[Untitled](%E5%85%B3%E4%BA%8E%20React%20Native%20%E4%B8%80%E4%BA%9B%E5%BC%80%E5%8F%91%E5%BF%83%E5%BE%97%202673823e2d004a8ca3f6942c68a3e9f8/Untitled.mp4)
+![](https://img.kuizuo.cn/2024/0514171652-Untitled.mp4)
 
 这种效果可以使用监听 ScrollY 配合 [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated) 动画来实现，如果你不想自己实现也可以看看 [@codeherence/react-native-header](https://react-native-header.codeherence.com/docs/showcase)，上图便来自此库。
 
