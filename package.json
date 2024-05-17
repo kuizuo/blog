@@ -32,12 +32,12 @@
     "index": "docker run -it --env-file=.env -e \"CONFIG=$(cat docsearch.json | jq -r tostring)\" algolia/docsearch-scraper"
   },
   "dependencies": {
-    "@docusaurus/core": "3.2.0",
-    "@docusaurus/plugin-ideal-image": "3.2.0",
-    "@docusaurus/plugin-pwa": "3.2.0",
-    "@docusaurus/plugin-vercel-analytics": "^3.2.0",
-    "@docusaurus/preset-classic": "3.2.0",
-    "@docusaurus/theme-search-algolia": "3.2.0",
+    "@docusaurus/core": "3.3.2",
+    "@docusaurus/plugin-ideal-image": "3.3.2",
+    "@docusaurus/plugin-pwa": "3.3.2",
+    "@docusaurus/plugin-vercel-analytics": "^3.3.2",
+    "@docusaurus/preset-classic": "3.3.2",
+    "@docusaurus/theme-search-algolia": "3.3.2",
     "@giscus/react": "^2.4.0",
     "@popperjs/core": "^2.11.8",
     "dayjs": "^1.11.10",
@@ -54,10 +54,10 @@
     "sass": "^1.72.0"
   },
   "devDependencies": {
-    "@docusaurus/eslint-plugin": "3.2.0",
-    "@docusaurus/module-type-aliases": "3.2.0",
-    "@docusaurus/tsconfig": "^3.2.0",
-    "@docusaurus/types": "3.2.0",
+    "@docusaurus/eslint-plugin": "3.3.2",
+    "@docusaurus/module-type-aliases": "3.3.2",
+    "@docusaurus/tsconfig": "^3.3.2",
+    "@docusaurus/types": "3.3.2",
     "@iconify/react": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
