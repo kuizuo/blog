@@ -62,6 +62,18 @@ const config: Config = {
           to: 'project',
         },
         {
+          label: '网站',
+          position: 'right',
+          items: [
+            { label: 'js反混淆', to: 'https://js-deobfuscator.kuizuo.cn' },
+            { label: 'cyberChef', to: 'https://gchq.github.io/CyberChef' },
+            { label: 'api服务', to: 'https://api.kuizuo.cn' },
+            { label: '便民服务', to: 'https://service.kuizuo.cn' },
+            { label: 'OCR识别验证码', to: 'http://ocr.kuizuo.cn' },
+            { label: '站点监控', to: 'https://uptime.kuizuo.cn' },
+          ],
+        },
+        {
           label: '更多',
           position: 'right',
           items: [

@@ -18,6 +18,15 @@ export const projects: Project[] = [
     type: 'web',
   },
   {
+    title: 'Youni（校园社交平台）',
+    description: '基于 React Native + NestJs 实现的一个校园社交平台应用',
+    preview: '/img/project/youni.png',
+    website: 'https://youni.vercel.app',
+    source: 'https://github.com/kuizuo/youni',
+    tags: ['large', 'product'],
+    type: 'web',
+  },
+  {
     title: 'nest-vben-admin',
     description: ' NestJs + Vben Admin 编写的一款前后端分离的权限管理系统',
     preview: '/img/project/nest-vben-admin.png',
@@ -37,12 +46,21 @@ export const projects: Project[] = [
   },
   // toy
   {
-    title: 'Chaoxing-sign',
-    description: '🌟 超星学习通在线签到，摆脱客户端繁琐的签到流程，让签到不再是你的烦恼。',
+    title: 'chaoxing-sign',
+    description: '🌟 超星学习通在线签到，摆脱客户端繁琐的签到流程，让签到不再是你的烦恼',
     preview: '/img/project/chaoxing-sign.png',
     website: 'https://cx.kuizuo.cn',
     source: 'https://github.com/kuizuo/chaoxing-sign',
     tags: ['opensource', 'favorite'],
+    type: 'toy',
+  },
+  {
+    title: '便民服务',
+    description: '🌱 一个便民服务的网站',
+    preview: '/img/project/service.png',
+    website: 'https://service.kuizuo.cn',
+    source: 'https://github.com/kuizuo/service',
+    tags: ['opensource', 'personal'],
     type: 'toy',
   },
   {
@@ -93,7 +111,7 @@ export const projects: Project[] = [
   // personal
   {
     title: 'vscode-extension',
-    description: 'vscode 插件的样品',
+    description: '自写 vscode 插件，提供了光标移动快捷键',
     preview: '/img/project/vscode-extension.png',
     website: 'https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample',
     source: 'https://github.com/kuizuo/vscode-extension',
@@ -158,7 +176,7 @@ export const projects: Project[] = [
   {
     title: 'ocr-server',
     description: '使用 nestjs 通过 grpc 与 python ddddocr 库搭建的验证码图像识别服务',
-    website: 'https://github.com/kuizuo/ocr-server',
+    website: 'https://github.com/kuizuo/ocr',
     tags: ['opensource'],
     type: 'other',
   },
