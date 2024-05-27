@@ -115,8 +115,8 @@ importers:
         specifier: ^34.0.0
         version: 34.0.0(stylelint@15.11.0(typescript@5.3.3))
       stylelint-config-standard-scss:
-        specifier: ^11.1.0
-        version: 11.1.0(postcss@8.4.29)(stylelint@15.11.0(typescript@5.3.3))
+        specifier: ^13.0.0
+        version: 13.1.0(postcss@8.4.29)(stylelint@15.11.0(typescript@5.3.3))
       typescript:
         specifier: ~5.3.3
         version: 5.3.3
@@ -2961,6 +2961,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   global-dirs@3.0.1:
     resolution: {integrity: sha512-NBcGGFbBA9s1VzD41QXDG+3++t9Mn5t1FpLdhESY6oKY4gYTFpX4wO3sqGUa0Srjtbfj3szX0RnemmrVRUdULA==}
@@ -3230,6 +3231,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.3:
     resolution: {integrity: sha512-x00IRNXNy63jwGkJmzPigoySHbaqpNuzKbBOmzK+g2OdZpQ9w+sxCN+VSB3ja7IAge2OP2qpfxTjeNcyjmW1uw==}
@@ -3560,6 +3562,9 @@ packages:
 
   known-css-properties@0.29.0:
     resolution: {integrity: sha512-Ne7wqW7/9Cz54PDt4I3tcV+hAyat8ypyOGzYRJQfdxnnjeWsTxt1cy8pjvvKeI5kfXuyvULyeeAvwvvtAX3ayQ==}
+
+  known-css-properties@0.30.0:
+    resolution: {integrity: sha512-VSWXYUnsPu9+WYKkfmJyLKtIvaRJi1kXUqVmBACORXZQxT5oZDsoZ2vQP+bQFDnWtpI/4eq3MLoRMjI2fnLzTQ==}
 
   latest-version@7.0.0:
     resolution: {integrity: sha512-KvNT4XqAMzdcL6ka6Tl3i2lYeFDgXNCuIX+xNx6ZMVR1dFq+idXd9FLKNMOIx0t9mJ9/HudyX4oZWXZQ0UJHeg==}
@@ -4474,6 +4479,10 @@ packages:
     resolution: {integrity: sha512-EaV1Gl4mUEV4ddhDnv/xtj7sxwrwxdetHdWUGnT4VJQf+4d05v6lHYZr8N573k5Z0BViss7BDhfWtKS3+sfAqQ==}
     engines: {node: '>=4'}
 
+  postcss-selector-parser@6.1.0:
+    resolution: {integrity: sha512-UMz42UD0UY0EApS0ZL9o1XnLhSTtvvvLe5Dc2H2O56fvRZi+KulDyf5ctDhhtYJBGKStV2FL1fy6253cmLgqVQ==}
+    engines: {node: '>=4'}
+
   postcss-sort-media-queries@4.4.1:
     resolution: {integrity: sha512-QDESFzDDGKgpiIh4GYXsSy6sek2yAwQx1JASl5AxBtU1Lq2JfKBljIPNdil989NcSKRQX1ToiaKphImtBuhXWw==}
     engines: {node: '>=10.0.0'}
@@ -4855,6 +4864,7 @@ packages:
 
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
   rollup-plugin-terser@7.0.2:
@@ -5235,11 +5245,12 @@ packages:
     peerDependencies:
       stylelint: '>=15.0.0'
 
-  stylelint-config-recommended-scss@13.1.0:
-    resolution: {integrity: sha512-8L5nDfd+YH6AOoBGKmhH8pLWF1dpfY816JtGMePcBqqSsLU+Ysawx44fQSlMOJ2xTfI9yTGpup5JU77c17w1Ww==}
+  stylelint-config-recommended-scss@14.0.0:
+    resolution: {integrity: sha512-HDvpoOAQ1RpF+sPbDOT2Q2/YrBDEJDnUymmVmZ7mMCeNiFSdhRdyGEimBkz06wsN+HaFwUh249gDR+I9JR7Onw==}
+    engines: {node: '>=18.12.0'}
     peerDependencies:
       postcss: ^8.3.3
-      stylelint: ^15.10.0
+      stylelint: ^16.0.2
     peerDependenciesMeta:
       postcss:
         optional: true
@@ -5250,11 +5261,18 @@ packages:
     peerDependencies:
       stylelint: ^15.10.0
 
-  stylelint-config-standard-scss@11.1.0:
-    resolution: {integrity: sha512-5gnBgeNTgRVdchMwiFQPuBOtj9QefYtfXiddrOMJA2pI22zxt6ddI2s+e5Oh7/6QYl7QLJujGnaUR5YyGq72ow==}
+  stylelint-config-recommended@14.0.0:
+    resolution: {integrity: sha512-jSkx290CglS8StmrLp2TxAppIajzIBZKYm3IxT89Kg6fGlxbPiTiyH9PS5YUuVAFwaJLl1ikiXX0QWjI0jmgZQ==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      stylelint: ^16.0.0
+
+  stylelint-config-standard-scss@13.1.0:
+    resolution: {integrity: sha512-Eo5w7/XvwGHWkeGLtdm2FZLOMYoZl1omP2/jgFCXyl2x5yNz7/8vv4Tj6slHvMSSUNTaGoam/GAZ0ZhukvalfA==}
+    engines: {node: '>=18.12.0'}
     peerDependencies:
       postcss: ^8.3.3
-      stylelint: ^15.10.0
+      stylelint: ^16.3.1
     peerDependenciesMeta:
       postcss:
         optional: true
@@ -5265,10 +5283,17 @@ packages:
     peerDependencies:
       stylelint: ^15.10.0
 
-  stylelint-scss@5.3.1:
-    resolution: {integrity: sha512-5I9ZDIm77BZrjOccma5WyW2nJEKjXDd4Ca8Kk+oBapSO4pewSlno3n+OyimcyVJJujQZkBN2D+xuMkIamSc6hA==}
+  stylelint-config-standard@36.0.0:
+    resolution: {integrity: sha512-3Kjyq4d62bYFp/Aq8PMKDwlgUyPU4nacXsjDLWJdNPRUgpuxALu1KnlAHIj36cdtxViVhXexZij65yM0uNIHug==}
+    engines: {node: '>=18.12.0'}
     peerDependencies:
-      stylelint: ^14.5.1 || ^15.0.0
+      stylelint: ^16.1.0
+
+  stylelint-scss@6.3.0:
+    resolution: {integrity: sha512-8OSpiuf1xC7f8kllJsBOFAOYp/mR/C1FXMVeOFjtJPw+AFvEmC93FaklHt7MlOqU4poxuQ1TkYMyfI0V+1SxjA==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      stylelint: ^16.0.2
 
   stylelint@15.11.0:
     resolution: {integrity: sha512-78O4c6IswZ9TzpcIiQJIN49K3qNoXTM8zEJzhaTE/xRTCZswaovSEVIa/uwbOltZrk16X4jAxjaOhzz/hTm1Kw==}
@@ -5723,6 +5748,7 @@ packages:
 
   workbox-google-analytics@7.0.0:
     resolution: {integrity: sha512-MEYM1JTn/qiC3DbpvP2BVhyIH+dV/5BjHk756u9VbwuAhu0QHyKscTnisQuz21lfRpOwiS9z4XdqeVAKol0bzg==}
+    deprecated: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
 
   workbox-navigation-preload@7.0.0:
     resolution: {integrity: sha512-juWCSrxo/fiMz3RsvDspeSLGmbgC0U9tKqcUPZBCf35s64wlaLXyn2KdHHXVQrb2cqF7I0Hc9siQalainmnXJA==}
@@ -10304,6 +10330,8 @@ snapshots:
 
   known-css-properties@0.29.0: {}
 
+  known-css-properties@0.30.0: {}
+
   latest-version@7.0.0:
     dependencies:
       package-json: 8.1.1
@@ -11464,6 +11492,11 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
+  postcss-selector-parser@6.1.0:
+    dependencies:
+      cssesc: 3.0.0
+      util-deprecate: 1.0.2
+
   postcss-sort-media-queries@4.4.1(postcss@8.4.29):
     dependencies:
       postcss: 8.4.29
@@ -12385,12 +12418,12 @@ snapshots:
     dependencies:
       stylelint: 15.11.0(typescript@5.3.3)
 
-  stylelint-config-recommended-scss@13.1.0(postcss@8.4.29)(stylelint@15.11.0(typescript@5.3.3)):
+  stylelint-config-recommended-scss@14.0.0(postcss@8.4.29)(stylelint@15.11.0(typescript@5.3.3)):
     dependencies:
       postcss-scss: 4.0.9(postcss@8.4.29)
       stylelint: 15.11.0(typescript@5.3.3)
-      stylelint-config-recommended: 13.0.0(stylelint@15.11.0(typescript@5.3.3))
-      stylelint-scss: 5.3.1(stylelint@15.11.0(typescript@5.3.3))
+      stylelint-config-recommended: 14.0.0(stylelint@15.11.0(typescript@5.3.3))
+      stylelint-scss: 6.3.0(stylelint@15.11.0(typescript@5.3.3))
     optionalDependencies:
       postcss: 8.4.29
 
@@ -12398,11 +12431,15 @@ snapshots:
     dependencies:
       stylelint: 15.11.0(typescript@5.3.3)
 
-  stylelint-config-standard-scss@11.1.0(postcss@8.4.29)(stylelint@15.11.0(typescript@5.3.3)):
+  stylelint-config-recommended@14.0.0(stylelint@15.11.0(typescript@5.3.3)):
     dependencies:
       stylelint: 15.11.0(typescript@5.3.3)
-      stylelint-config-recommended-scss: 13.1.0(postcss@8.4.29)(stylelint@15.11.0(typescript@5.3.3))
-      stylelint-config-standard: 34.0.0(stylelint@15.11.0(typescript@5.3.3))
+
+  stylelint-config-standard-scss@13.1.0(postcss@8.4.29)(stylelint@15.11.0(typescript@5.3.3)):
+    dependencies:
+      stylelint: 15.11.0(typescript@5.3.3)
+      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.29)(stylelint@15.11.0(typescript@5.3.3))
+      stylelint-config-standard: 36.0.0(stylelint@15.11.0(typescript@5.3.3))
     optionalDependencies:
       postcss: 8.4.29
 
@@ -12411,12 +12448,17 @@ snapshots:
       stylelint: 15.11.0(typescript@5.3.3)
       stylelint-config-recommended: 13.0.0(stylelint@15.11.0(typescript@5.3.3))
 
-  stylelint-scss@5.3.1(stylelint@15.11.0(typescript@5.3.3)):
+  stylelint-config-standard@36.0.0(stylelint@15.11.0(typescript@5.3.3)):
     dependencies:
-      known-css-properties: 0.29.0
+      stylelint: 15.11.0(typescript@5.3.3)
+      stylelint-config-recommended: 14.0.0(stylelint@15.11.0(typescript@5.3.3))
+
+  stylelint-scss@6.3.0(stylelint@15.11.0(typescript@5.3.3)):
+    dependencies:
+      known-css-properties: 0.30.0
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.1
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.1.0
       postcss-value-parser: 4.2.0
       stylelint: 15.11.0(typescript@5.3.3)
 
