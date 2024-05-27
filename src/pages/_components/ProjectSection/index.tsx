@@ -1,85 +1,29 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React from 'react'
 import clsx from 'clsx'
+import Marquee from 'react-fast-marquee'
 import { Project, projects } from '@site/data/projects'
 import Translate from '@docusaurus/Translate'
 import styles from './styles.module.scss'
-import {
-  motion,
-  useAnimationFrame,
-  useMotionValue,
-  useScroll,
-  useSpring,
-  useTransform,
-  useVelocity,
-  wrap,
-} from 'framer-motion'
 import SectionTitle from '../SectionTitle'
+import { useColorMode } from '@docusaurus/theme-common'
 
 const removeHttp = (url: string) => {
   return url.replace(/(^\w+:|^)\/\//, '')
 }
 
-const defaultVelocity = 0.4
 const showProjects = projects.filter(i => i.preview)
 
 const Slider = ({ items }: { items: Project[] }) => {
-  // 初始速度
-  let baseVelocity = -defaultVelocity
-  // 移动方向
-  const directionFactor = useRef<number>(1)
-
-  const baseX = useMotionValue(0)
-  const { scrollY } = useScroll()
-  const scrollVelocity = useVelocity(scrollY)
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400,
-  })
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 6], {
-    clamp: false,
-  })
-
-  useLayoutEffect(() => {
-    baseX.set(6)
-  })
-
-  const x = useTransform(baseX, v => `${wrap(10, -3 * showProjects.length, v)}%`)
-
-  useAnimationFrame((time, delta) => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000)
-
-    // if (velocityFactor.get() < 0) {
-    //   directionFactor.current = -1
-    // } else if (velocityFactor.get() > 0) {
-    //   directionFactor.current = 1
-    // }
-
-    moveBy += directionFactor.current * moveBy * velocityFactor.get()
-
-    // 重置进度
-    if (baseX.get() <= -3 * showProjects.length) {
-      baseX.set(11)
-    }
-
-    baseX.set(baseX.get() + moveBy)
-  })
-
-  const handleHoverStart = () => {
-    baseX.stop()
-    baseVelocity = 0
-  }
-
-  const handleHoverEnd = () => {
-    baseVelocity = -defaultVelocity
-  }
+  const { isDarkTheme } = useColorMode()
 
   return (
-    <div className={styles.slider} style={{ width: `${showProjects.length * 100}%` }}>
-      <motion.div
-        className={styles['slide-track']}
-        style={{ x }}
-        onHoverStart={handleHoverStart}
-        onHoverEnd={handleHoverEnd}
+    <div className={styles.slider}>
+      <Marquee
+        pauseOnHover
+        gradient
+        gradientColor={!isDarkTheme ? '#f8fafc' : '#18181baa'}
+        gradientWidth={100}
+        className={styles.slideTrack}
       >
         {items.map((item, index) => {
           return (
@@ -94,7 +38,7 @@ const Slider = ({ items }: { items: Project[] }) => {
             </div>
           )
         })}
-      </motion.div>
+      </Marquee>
     </div>
   )
 }
@@ -106,11 +50,7 @@ export default function ProjectSection() {
         <Translate id="homepage.project.title">项目展示</Translate>
       </SectionTitle>
       <div className={styles.content}>
-        <div style={{ overflow: 'hidden' }}>
-          <Slider items={showProjects}></Slider>
-        </div>
-        <div className={clsx(styles.gradientBox, styles.leftBox)} />
-        <div className={clsx(styles.gradientBox, styles.rightBox)} />
+        <Slider items={showProjects}></Slider>
       </div>
     </section>
   )

@@ -4,7 +4,6 @@
     "lib": ["DOM", "ESNext"],
     "baseUrl": ".",
     "resolveJsonModule": true,
-
     "allowUnreachableCode": false,
     "exactOptionalPropertyTypes": false,
     "noFallthroughCasesInSwitch": true,
@@ -25,7 +24,7 @@
     "noUnusedParameters": false,
     "importsNotUsedAsValues": "remove",
 
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Bundler",
 
     "skipLibCheck": false,
     "types": ["jest"]

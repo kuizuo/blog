@@ -50,6 +50,7 @@
     "raw-loader": "^4.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.4",
     "react-popper": "^2.3.0",
     "sass": "^1.72.0"
   },
@@ -72,7 +73,7 @@
     "typescript": "~5.3.3"
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.0"
   },
   "packageManager": "pnpm@9.1.1"
 }

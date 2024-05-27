@@ -64,7 +64,7 @@ export default function BlogSection(): JSX.Element {
   })
 
   if (blogData.postNum === 0) {
-    return <>作者还没有写过博客哦</>
+    return <>作者还没开始写博文哦...</>
   }
 
   return (
