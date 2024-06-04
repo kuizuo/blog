@@ -48,9 +48,7 @@ const ShowcaseCard = memo(({ project }: { project: Project }) => {
       <div className="card__body">
         <div className={cn(styles.showcaseCardHeader)}>
           <h4 className={styles.showcaseCardTitle}>
-            <Link href={project.website} className={styles.showcaseCardLink}>
-              {project.title}
-            </Link>
+            <Link href={project.website}>{project.title}</Link>
           </h4>
           {project.tags.includes('favorite') && <FavoriteIcon svgClass={styles.svgIconFavorite} size="small" />}
           {project.source && (
