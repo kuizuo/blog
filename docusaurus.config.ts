@@ -94,7 +94,6 @@ const config: Config = {
         {
           title: '社交媒体',
           items: [
-            { label: '关于我', to: '/about' },
             { label: 'GitHub', href: social.github.href },
             { label: 'Twitter', href: social.twitter.href },
             { label: 'LinkedIn', href: social.linkedin.href },
