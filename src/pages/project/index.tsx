@@ -73,11 +73,11 @@ function ShowcaseCards() {
     <section className="margin-top--lg margin-bottom--xl">
       <>
         <div className="margin-top--lg container">
-          <div className={cn('margin-bottom--md', styles.showcaseFavoriteHeader)} />
+          <div className={cn('my-4', styles.showcaseFavoriteHeader)} />
           {Object.entries(groupByProjects).map(([key, value]) => {
             return (
               <div key={key}>
-                <div className={cn('margin-bottom--md', styles.showcaseFavoriteHeader)}>
+                <div className={cn('my-4', styles.showcaseFavoriteHeader)}>
                   <h3>{upperFirst(lang === 'en' ? key : projectTypeMap[key])}</h3>
                 </div>
                 <MagicContainer className={styles.showcaseList}>
