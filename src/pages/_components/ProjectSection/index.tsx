@@ -1,11 +1,9 @@
 import Translate from '@docusaurus/Translate'
-import { useColorMode } from '@docusaurus/theme-common'
 import { type Project, projects } from '@site/data/projects'
-import clsx from 'clsx'
+import { cn } from '@site/src/lib/utils'
 import React from 'react'
-import Marquee from 'react-fast-marquee'
 import SectionTitle from '../SectionTitle'
-import styles from './styles.module.css'
+import Marquee from '../../../components/magicui/marquee'
 
 const removeHttp = (url: string) => {
   return url.replace(/(^\w+:|^)\/\//, '')
@@ -14,42 +12,43 @@ const removeHttp = (url: string) => {
 const showProjects = projects.filter(i => i.preview)
 
 const Slider = ({ items }: { items: Project[] }) => {
-  const { isDarkTheme } = useColorMode()
-
   return (
-    <div className={styles.slider}>
-      <Marquee
-        pauseOnHover
-        gradient
-        gradientColor={!isDarkTheme ? '#f8fafc' : '#18181baa'}
-        gradientWidth={100}
-        className={styles.slideTrack}
-      >
-        {items.map((item, index) => {
-          return (
-            <div className={styles.slide} key={item.title}>
-              <a href={item.website} target="_blank" rel="noreferrer">
-                <img src={item.preview} alt={item.title} className={styles.image} loading="lazy" />
-                <div className={styles.slideBody}>
-                  <h2 className={styles.title}>{item.title}</h2>
-                  <p className={styles.website}>{removeHttp(item.website)}</p>
-                </div>
-              </a>
-            </div>
-          )
-        })}
+    <div className="relative flex min-h-[260px] items-center overflow-hidden">
+      <Marquee pauseOnHover gradient className="[--duration:60s]">
+        {items.map(item => (
+          <div className="mx-2 h-full w-96" key={item.title}>
+            <a className="flex flex-col hover:no-underline" href={item.website} target="_blank" rel="noreferrer">
+              <img
+                src={item.preview}
+                alt={item.title}
+                className="h-[240px] w-full rounded-lg object-cover"
+                loading="lazy"
+              />
+              <div className="w-full py-2 text-center">
+                <h2 className="m-0 overflow-hidden text-ellipsis whitespace-nowrap font-normal text-xl">
+                  {item.title}
+                </h2>
+                <p className="m-0 overflow-hidden text-ellipsis whitespace-nowrap text-[var(--ifm-color-primary)]">
+                  {removeHttp(item.website)}
+                </p>
+              </div>
+            </a>
+          </div>
+        ))}
       </Marquee>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white dark:from-zinc-900"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-white dark:from-zinc-900"></div>
     </div>
   )
 }
 
 export default function ProjectSection() {
   return (
-    <section className={clsx('padding-vert--sm container', 'max-w-7xl')}>
+    <section className={cn('padding-vert--sm container', 'max-w-7xl')}>
       <SectionTitle icon={'ri:projector-line'} href={'/project'}>
         <Translate id="homepage.project.title">项目展示</Translate>
       </SectionTitle>
-      <div className={styles.content}>
+      <div>
         <Slider items={showProjects} />
       </div>
     </section>
