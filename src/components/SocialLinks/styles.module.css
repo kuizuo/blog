@@ -1,0 +1,24 @@
+.socialLinks {
+  @apply w-full flex items-center md:flex-wrap md:justify-between md:gap-3 py-2 relative z-[100] justify-center flex-wrap gap-1;
+}
+
+.socialLinks a {
+  @apply inline-flex box-content w-8 h-8 items-center justify-center transition-all duration-300 ease-in-out rounded-full p-1 hover:bg-[var(--color)];
+}
+
+.socialLinks .dropdown {
+  @apply flex items-center;
+}
+
+.socialLinks .dropdown span {
+  @apply ml-1.5 text-sm;
+}
+
+.socialLinks .dropdown__menu {
+  @apply right-0 top-[120%];
+}
+
+.socialLinks svg,
+.socialLinks svg path {
+  @apply w-6 h-6 transition-all duration-300 ease-in-out;
+}

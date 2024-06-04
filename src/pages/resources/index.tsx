@@ -1,11 +1,11 @@
-import React from 'react'
-import clsx from 'clsx'
 import Link from '@docusaurus/Link'
-import { PageMetadata, HtmlClassNameProvider, ThemeClassNames } from '@docusaurus/theme-common'
-import Layout from '@theme/Layout'
-import ResourceCard from './_components/ResourceCard'
-import BackToTopButton from '@theme/BackToTopButton'
+import { HtmlClassNameProvider, PageMetadata, ThemeClassNames } from '@docusaurus/theme-common'
 import { resourceData } from '@site/data/resources'
+import BackToTopButton from '@theme/BackToTopButton'
+import Layout from '@theme/Layout'
+import clsx from 'clsx'
+import React from 'react'
+import ResourceCard from './_components/ResourceCard'
 import styles from './resource.module.css'
 
 function CategorySidebar() {
@@ -42,8 +42,9 @@ function CategoryList() {
         <div key={cate.name}>
           <div className={styles.cateHeader}>
             <h2 id={cate.name} className="anchor">
-              {cate.name}
-              <a className="hash-link" href={`#${cate.name}`} title={cate.name}></a>
+              <a className="hash-link" href={`#${cate.name}`} title={cate.name}>
+                {cate.name}
+              </a>
             </h2>
           </div>
           <section>
@@ -64,12 +65,10 @@ export default function Resources() {
   const description = '整合日常开发常用，推荐的网站导航页'
 
   return (
-    <HtmlClassNameProvider
-      className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}
-    >
+    <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}>
       <PageMetadata title={title} description={description} />
       <Layout>
-        <div className="container margin-top--md">
+        <div className="margin-top--md container">
           <div className="row">
             <aside className={clsx('col col--2')}>
               <CategorySidebar />

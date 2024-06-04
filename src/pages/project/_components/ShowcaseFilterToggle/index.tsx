@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react'
 import { useHistory, useLocation } from '@docusaurus/router'
+import React, { useState, useEffect, useCallback } from 'react'
 
 import { prepareUserState } from '../../index'
 
-import styles from './styles.module.css'
 import clsx from 'clsx'
+import styles from './styles.module.css'
 
 export type Operator = 'OR' | 'AND'
 

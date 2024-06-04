@@ -1,5 +1,5 @@
-import React, { type ReactNode, type ComponentProps } from 'react'
 import clsx from 'clsx'
+import React, { type ReactNode, type ComponentProps } from 'react'
 import styles from './styles.module.css'
 
 export interface SvgIconProps extends ComponentProps<'svg'> {
@@ -12,15 +12,7 @@ export interface SvgIconProps extends ComponentProps<'svg'> {
 }
 
 export default function Svg(props: SvgIconProps): JSX.Element {
-  const {
-    svgClass,
-    colorAttr,
-    children,
-    color = 'inherit',
-    size = 'medium',
-    viewBox = '0 0 24 24',
-    ...rest
-  } = props
+  const { svgClass, colorAttr, children, color = 'inherit', size = 'medium', viewBox = '0 0 24 24', ...rest } = props
 
   return (
     <svg

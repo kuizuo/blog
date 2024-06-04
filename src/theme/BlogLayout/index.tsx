@@ -1,7 +1,7 @@
-import React from 'react'
-import clsx from 'clsx'
-import Layout from '@theme/Layout'
 import BlogSidebar from '@theme/BlogSidebar'
+import Layout from '@theme/Layout'
+import clsx from 'clsx'
+import React from 'react'
 
 import type { Props } from '@theme/BlogLayout'
 
@@ -11,7 +11,7 @@ export default function BlogLayout(props: Props): JSX.Element {
 
   return (
     <Layout {...layoutProps}>
-      <div className="container margin-vert--md">
+      <div className="margin-vert--md container">
         <div className="row">
           <BlogSidebar sidebar={sidebar} />
           <main
@@ -20,7 +20,7 @@ export default function BlogLayout(props: Props): JSX.Element {
               'col--8 col--offset-2': !hasSidebar,
             })}
             itemScope
-            itemType="h ttp://schema.org/Blog"
+            itemType="http://schema.org/Blog"
           >
             {children}
           </main>

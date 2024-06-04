@@ -1,8 +1,8 @@
-import React from 'react'
-import Tooltip from '@site/src/components/Tooltip'
 import { Icon } from '@iconify/react'
 import social from '@site/data/social'
-import styles from './styles.module.scss'
+import Tooltip from '@site/src/components/Tooltip'
+import React from 'react'
+import styles from './styles.module.css'
 
 export type Social = {
   github?: string
@@ -40,15 +40,7 @@ export default function SocialLinks({ ...prop }) {
       {Object.entries(social)
         .filter(([_key, { href }]) => href)
         .map(([key, { href, icon, title, color }]) => {
-          return (
-            <SocialLink
-              key={key}
-              href={href!}
-              title={title}
-              icon={icon}
-              style={{ '--color': color }}
-            ></SocialLink>
-          )
+          return <SocialLink key={key} href={href!} title={title} icon={icon} style={{ '--color': color }} />
         })}
     </div>
   )

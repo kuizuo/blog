@@ -1,13 +1,13 @@
-import React, { memo } from 'react'
-import clsx from 'clsx'
-import Image from '@theme/IdealImage'
 import Link from '@docusaurus/Link'
 import Translate from '@docusaurus/Translate'
-import styles from './styles.module.css'
-import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon'
+import { type Project, type Tag, TagList, type TagType, Tags } from '@site/data/projects'
 import Tooltip from '@site/src/components/Tooltip'
-import { Tags, TagList, type TagType, type Project, type Tag } from '@site/data/projects'
+import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon'
 import { sortBy } from '@site/src/utils/jsUtils'
+import Image from '@theme/IdealImage'
+import clsx from 'clsx'
+import React, { memo } from 'react'
+import styles from './styles.module.css'
 
 const TagComp = React.forwardRef<HTMLLIElement, Tag>(({ label, color, description }, ref) => (
   <li ref={ref} className={styles.tag} title={description}>
@@ -52,9 +52,7 @@ const ShowcaseCard = memo(({ project }: { project: Project }) => {
               {project.title}
             </Link>
           </h4>
-          {project.tags.includes('favorite') && (
-            <FavoriteIcon svgClass={styles.svgIconFavorite} size="small" />
-          )}
+          {project.tags.includes('favorite') && <FavoriteIcon svgClass={styles.svgIconFavorite} size="small" />}
           {project.source && (
             <Link
               href={project.source}

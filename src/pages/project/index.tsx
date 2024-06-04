@@ -1,15 +1,15 @@
-import React from 'react'
-import clsx from 'clsx'
 import { translate } from '@docusaurus/Translate'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import { groupByProjects, projectTypeMap, projects } from '@site/data/projects'
+import clsx from 'clsx'
+import React from 'react'
 import ShowcaseCard from './_components/ShowcaseCard'
-import { projects, groupByProjects, projectTypeMap } from '@site/data/projects'
 
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment'
 
-import styles from './styles.module.css'
 import MyLayout from '@site/src/theme/MyLayout'
 import { upperFirst } from '@site/src/utils/jsUtils'
+import styles from './styles.module.css'
 
 const TITLE = translate({
   id: 'theme.project.title',
@@ -40,7 +40,7 @@ export function prepareUserState(): ProjectState | undefined {
 
 function ShowcaseHeader() {
   return (
-    <section className="text--center">
+    <section className="text-center">
       <h2>{TITLE}</h2>
       <p>{DESCRIPTION}</p>
       {/* <a
@@ -62,7 +62,7 @@ function ShowcaseCards() {
   if (projects.length === 0) {
     return (
       <section className="margin-top--lg margin-bottom--xl">
-        <div className="container padding-vert--md text--center">
+        <div className="padding-vert--md container text-center">
           <h2>No result</h2>
         </div>
       </section>
@@ -72,8 +72,8 @@ function ShowcaseCards() {
   return (
     <section className="margin-top--lg margin-bottom--xl">
       <>
-        <div className="container margin-top--lg">
-          <div className={clsx('margin-bottom--md', styles.showcaseFavoriteHeader)}></div>
+        <div className="margin-top--lg container">
+          <div className={clsx('margin-bottom--md', styles.showcaseFavoriteHeader)} />
 
           {Object.entries(groupByProjects).map(([key, value]) => {
             return (

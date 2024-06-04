@@ -1,8 +1,8 @@
-import React from 'react'
-import { useBaseUrlUtils } from '@docusaurus/useBaseUrl'
 import { useBlogPost } from '@docusaurus/theme-common/internal'
+import { useBaseUrlUtils } from '@docusaurus/useBaseUrl'
 import type { Props } from '@theme/BlogPostItem/Container'
 import clsx from 'clsx'
+import React from 'react'
 
 import styles from './styles.module.css'
 
@@ -21,9 +21,9 @@ export default function BlogPostItemContainer({ children, className }: Props): J
         <>
           <meta itemProp="image" content={withBaseUrl(image, { absolute: true })} />
           <div className={styles.cover}>
-            <div className={styles.coverMask} style={{ backgroundImage: `url("${image}")` }}></div>
+            <div className={styles.coverMask} style={{ backgroundImage: `url("${image}")` }} />
           </div>
-          <div style={{ height: '120px' }}></div>
+          <div style={{ height: '120px' }} />
         </>
       )}
       {children}

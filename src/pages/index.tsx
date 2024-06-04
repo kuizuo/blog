@@ -1,10 +1,10 @@
-import React from 'react'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
-import Hero from './_components/Hero'
+import React from 'react'
 import BlogSection from './_components/BlogSection'
 import FeaturesSection from './_components/FeaturesSection'
+import Hero from './_components/Hero'
 import ProjectSection from './_components/ProjectSection'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
 export default function Home(): JSX.Element {
   const {

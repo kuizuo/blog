@@ -1,6 +1,6 @@
-import React from 'react'
 import Link from '@docusaurus/Link'
 import type { Props } from '@theme/MDXComponents/A'
+import React from 'react'
 
 import { Icon } from '@iconify/react'
 
@@ -24,15 +24,7 @@ export default function MDXA(props: Props): JSX.Element {
   if (icon) {
     return (
       <span style={{ display: 'inline-flex', gap: '0.25rem' }}>
-        {icon && (
-          <Icon
-            className="a-icon"
-            style={{ alignSelf: 'center' }}
-            icon={icon}
-            width={16}
-            height={16}
-          ></Icon>
-        )}
+        {icon && <Icon className="a-icon" style={{ alignSelf: 'center' }} icon={icon} width={16} height={16} />}
         <Link {...props} />
       </span>
     )

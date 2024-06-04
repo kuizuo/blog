@@ -1,20 +1,20 @@
-import React from 'react'
-import clsx from 'clsx'
-import { useThemeConfig, usePrismTheme } from '@docusaurus/theme-common'
+import { usePrismTheme, useThemeConfig } from '@docusaurus/theme-common'
 import {
+  containsLineNumbers,
   parseCodeBlockTitle,
   parseLanguage,
   parseLines,
-  containsLineNumbers,
   useCodeWordWrap,
 } from '@docusaurus/theme-common/internal'
-import { Highlight, type Language } from 'prism-react-renderer'
-import Line from '@theme/CodeBlock/Line'
-import CopyButton from '@theme/CodeBlock/CopyButton'
-import WordWrapButton from '@theme/CodeBlock/WordWrapButton'
+import { Icon } from '@iconify/react'
 import Container from '@theme/CodeBlock/Container'
 import type { Props } from '@theme/CodeBlock/Content/String'
-import { Icon } from '@iconify/react'
+import CopyButton from '@theme/CodeBlock/CopyButton'
+import Line from '@theme/CodeBlock/Line'
+import WordWrapButton from '@theme/CodeBlock/WordWrapButton'
+import clsx from 'clsx'
+import { Highlight, type Language } from 'prism-react-renderer'
+import React from 'react'
 
 import styles from './styles.module.css'
 
@@ -28,7 +28,7 @@ function normalizeLanguage(language: string | undefined): string | undefined {
 function parseIcon(metastring?: string): JSX.Element | null {
   const iconRegex = /icon=(?<quote>["'])(?<icon>.*?)\1/
 
-  const icon = metastring?.match(iconRegex)?.groups!.icon ?? ''
+  const icon = metastring?.match(iconRegex)?.groups?.icon ?? ''
 
   if (!icon) return null
 
@@ -46,9 +46,7 @@ export default function CodeBlockString({
   const {
     prism: { defaultLanguage, magicComments },
   } = useThemeConfig()
-  const language = normalizeLanguage(
-    languageProp ?? parseLanguage(blockClassName) ?? defaultLanguage,
-  )
+  const language = normalizeLanguage(languageProp ?? parseLanguage(blockClassName) ?? defaultLanguage)
 
   const prismTheme = usePrismTheme()
   const wordWrap = useCodeWordWrap()
@@ -86,17 +84,11 @@ export default function CodeBlockString({
         <Highlight theme={prismTheme} code={code} language={(language ?? 'text') as Language}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre
-              tabIndex={0}
               ref={wordWrap.codeBlockRef}
               className={clsx(className, styles.codeBlock, 'thin-scrollbar')}
               style={style}
             >
-              <code
-                className={clsx(
-                  styles.codeBlockLines,
-                  showLineNumbers && styles.codeBlockLinesWithNumbering,
-                )}
-              >
+              <code className={clsx(styles.codeBlockLines, showLineNumbers && styles.codeBlockLinesWithNumbering)}>
                 {tokens.map((line, i) => (
                   <Line
                     key={i}

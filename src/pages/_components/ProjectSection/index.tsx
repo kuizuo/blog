@@ -1,11 +1,11 @@
-import React from 'react'
-import clsx from 'clsx'
-import Marquee from 'react-fast-marquee'
-import { Project, projects } from '@site/data/projects'
 import Translate from '@docusaurus/Translate'
-import styles from './styles.module.scss'
-import SectionTitle from '../SectionTitle'
 import { useColorMode } from '@docusaurus/theme-common'
+import { type Project, projects } from '@site/data/projects'
+import clsx from 'clsx'
+import React from 'react'
+import Marquee from 'react-fast-marquee'
+import SectionTitle from '../SectionTitle'
+import styles from './styles.module.css'
 
 const removeHttp = (url: string) => {
   return url.replace(/(^\w+:|^)\/\//, '')
@@ -28,7 +28,7 @@ const Slider = ({ items }: { items: Project[] }) => {
         {items.map((item, index) => {
           return (
             <div className={styles.slide} key={item.title}>
-              <a href={item.website} target="_blank">
+              <a href={item.website} target="_blank" rel="noreferrer">
                 <img src={item.preview} alt={item.title} className={styles.image} loading="lazy" />
                 <div className={styles.slideBody}>
                   <h2 className={styles.title}>{item.title}</h2>
@@ -45,12 +45,12 @@ const Slider = ({ items }: { items: Project[] }) => {
 
 export default function ProjectSection() {
   return (
-    <section className={clsx('container padding-vert--sm', styles.projectContainer)}>
+    <section className={clsx('padding-vert--sm container', 'max-w-7xl')}>
       <SectionTitle icon={'ri:projector-line'} href={'/project'}>
         <Translate id="homepage.project.title">项目展示</Translate>
       </SectionTitle>
       <div className={styles.content}>
-        <Slider items={showProjects}></Slider>
+        <Slider items={showProjects} />
       </div>
     </section>
   )
