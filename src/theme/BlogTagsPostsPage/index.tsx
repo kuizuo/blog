@@ -1,6 +1,7 @@
 import Link from '@docusaurus/Link'
 import Translate, { translate } from '@docusaurus/Translate'
 import { HtmlClassNameProvider, PageMetadata, ThemeClassNames, usePluralForm } from '@docusaurus/theme-common'
+import { cn } from '@site/src/lib/utils'
 import BackToTopButton from '@theme/BackToTopButton'
 import BlogListPaginator from '@theme/BlogListPaginator'
 import BlogPostItems from '@theme/BlogPostItems'
@@ -8,7 +9,6 @@ import type { Props } from '@theme/BlogTagsPostsPage'
 import Heading from '@theme/Heading'
 import SearchMetadata from '@theme/SearchMetadata'
 import Unlisted from '@theme/Unlisted'
-import clsx from 'clsx'
 import React from 'react'
 
 import MyLayout from '../MyLayout'
@@ -58,7 +58,7 @@ function BlogTagsPostsPageContent({ tag, items, sidebar, listMetadata }: Props):
   return (
     <MyLayout>
       {tag.unlisted && <Unlisted />}
-      <header className={clsx('mb-4')}>
+      <header className={cn('mb-4')}>
         <Heading as="h1">{title}</Heading>
         <Link href={tag.allTagsPath}>
           <Translate id="theme.tags.tagsPageLink" description="The label of the link targeting the tag list page">
@@ -74,9 +74,7 @@ function BlogTagsPostsPageContent({ tag, items, sidebar, listMetadata }: Props):
 }
 export default function BlogTagsPostsPage(props: Props): JSX.Element {
   return (
-    <HtmlClassNameProvider
-      className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagPostListPage)}
-    >
+    <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagPostListPage)}>
       <BlogTagsPostsPageMetadata {...props} />
       <BlogTagsPostsPageContent {...props} />
     </HtmlClassNameProvider>

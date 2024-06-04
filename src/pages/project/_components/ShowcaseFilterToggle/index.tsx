@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 
 import { prepareUserState } from '../../index'
 
-import clsx from 'clsx'
+import { cn } from '@site/src/lib/utils'
 import styles from './styles.module.css'
 
 export type Operator = 'OR' | 'AND'
@@ -51,7 +51,7 @@ export default function ShowcaseFilterToggle(): JSX.Element {
         }}
         checked={operator}
       />
-      <label htmlFor={id} className={clsx(styles.checkboxLabel, 'shadow--md')}>
+      <label htmlFor={id} className={cn(styles.checkboxLabel, 'shadow--md')}>
         <span className={styles.checkboxLabelOr}>OR</span>
         <span className={styles.checkboxLabelAnd}>AND</span>
       </label>

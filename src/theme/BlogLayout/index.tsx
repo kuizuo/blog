@@ -1,6 +1,6 @@
+import { cn } from '@site/src/lib/utils'
 import BlogSidebar from '@theme/BlogSidebar'
 import Layout from '@theme/Layout'
-import clsx from 'clsx'
 import React from 'react'
 
 import type { Props } from '@theme/BlogLayout'
@@ -15,7 +15,7 @@ export default function BlogLayout(props: Props): JSX.Element {
         <div className="row">
           <BlogSidebar sidebar={sidebar} />
           <main
-            className={clsx('col', {
+            className={cn('col', {
               'col--8': hasSidebar,
               'col--8 col--offset-2': !hasSidebar,
             })}

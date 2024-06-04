@@ -1,6 +1,5 @@
+import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/CodeBlock/Line'
-import clsx from 'clsx'
-import React from 'react'
 
 import styles from './styles.module.css'
 
@@ -17,7 +16,7 @@ export default function CodeBlockLine({
 
   const lineProps = getLineProps({
     line,
-    className: clsx(classNames, showLineNumbers && styles.codeLine),
+    className: cn(classNames, showLineNumbers && styles.codeLine),
   })
 
   const lineTokens = line.map((token, key) => <span key={key} {...getTokenProps({ token, key })} />)

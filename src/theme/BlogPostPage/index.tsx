@@ -2,6 +2,7 @@ import type { BlogSidebar } from '@docusaurus/plugin-content-blog'
 import { HtmlClassNameProvider, ThemeClassNames } from '@docusaurus/theme-common'
 import { BlogPostProvider, useBlogPost } from '@docusaurus/theme-common/internal'
 import Comment from '@site/src/components/Comment'
+import { cn } from '@site/src/lib/utils'
 import BackToTopButton from '@theme/BackToTopButton'
 import BlogLayout from '@theme/BlogLayout'
 import BlogPostItem from '@theme/BlogPostItem'
@@ -9,7 +10,6 @@ import type { Props } from '@theme/BlogPostPage'
 import BlogPostPageMetadata from '@theme/BlogPostPage/Metadata'
 import BlogPostPaginator from '@theme/BlogPostPaginator'
 import TOC from '@theme/TOC'
-import clsx from 'clsx'
 import React, { type ReactNode } from 'react'
 
 function BlogPostPageContent({
@@ -54,7 +54,7 @@ export default function BlogPostPage(props: Props): JSX.Element {
   const BlogPostContent = props.content
   return (
     <BlogPostProvider content={props.content} isBlogPostPage>
-      <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogPostPage)}>
+      <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogPostPage)}>
         <BlogPostPageMetadata />
         <BlogPostPageContent sidebar={props.sidebar}>
           <BlogPostContent />

@@ -1,5 +1,5 @@
 import Link, { type Props as LinkProps } from '@docusaurus/Link'
-import clsx from 'clsx'
+import { cn } from '@site/src/lib/utils'
 import React from 'react'
 
 import type { Props } from '@theme/BlogPostItem/Header/Author'
@@ -15,7 +15,7 @@ export default function BlogPostItemHeaderAuthor({ author, className }: Props): 
   const { name, title, url, imageURL, email } = author
   const link = url || (email && `mailto:${email}`) || undefined
   return (
-    <div className={clsx('avatar margin-bottom--sm', className)}>
+    <div className={cn('avatar margin-bottom--sm', className)}>
       {imageURL && (
         <MaybeLink href={link} className="avatar__photo-link">
           <img className="avatar__photo" src={imageURL} alt={name} />

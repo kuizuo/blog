@@ -1,14 +1,12 @@
 import Translate from '@docusaurus/Translate'
-import clsx from 'clsx'
-import React from 'react'
-
 import features, { type FeatureItem } from '@site/data/features'
+import { cn } from '@site/src/lib/utils'
 import SectionTitle from '../SectionTitle'
 
 function Feature({ title, Svg, text }: FeatureItem) {
   return (
     <div
-      className={clsx(
+      className={cn(
         'relative flex w-full flex-col gap-2 rounded-md bg-transparent p-0 transition-all duration-300 ease-linear',
       )}
     >
@@ -25,7 +23,7 @@ function Feature({ title, Svg, text }: FeatureItem) {
 
 export default function FeaturesSection() {
   return (
-    <section className={clsx('padding-vert--sm container max-w-7xl')}>
+    <section className={cn('padding-vert--sm container max-w-7xl')}>
       <SectionTitle icon={'ri:map-pin-user-line'}>
         <Translate id="homepage.feature.title">个人特点</Translate>
       </SectionTitle>

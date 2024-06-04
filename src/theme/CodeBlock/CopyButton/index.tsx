@@ -1,8 +1,8 @@
 import { translate } from '@docusaurus/Translate'
+import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/CodeBlock/CopyButton'
 import IconCopy from '@theme/Icon/Copy'
 import IconSuccess from '@theme/Icon/Success'
-import clsx from 'clsx'
 import copy from 'copy-text-to-clipboard'
 import React, { useCallback, useState, useRef, useEffect } from 'react'
 
@@ -42,7 +42,7 @@ export default function CopyButton({ code, className }: Props): JSX.Element {
         message: 'Copy',
         description: 'The copy button label on code blocks',
       })}
-      className={clsx('clean-btn', className, styles.copyButton, isCopied && styles.copyButtonCopied)}
+      className={cn('clean-btn', className, styles.copyButton, isCopied && styles.copyButtonCopied)}
       onClick={handleCopyCode}
     >
       <span className={styles.copyButtonIcons} aria-hidden="true">

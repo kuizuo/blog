@@ -1,7 +1,7 @@
 import { useNavbarSecondaryMenu } from '@docusaurus/theme-common/internal'
 import UserCard from '@site/src/components/UserCard'
+import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/Navbar/MobileSidebar/Layout'
-import clsx from 'clsx'
 import React from 'react'
 
 export default function NavbarMobileSidebarLayout({ header, primaryMenu, secondaryMenu }: Props): JSX.Element {
@@ -11,7 +11,7 @@ export default function NavbarMobileSidebarLayout({ header, primaryMenu, seconda
       {header}
       <UserCard isNavbar />
       <div
-        className={clsx('navbar-sidebar__items', {
+        className={cn('navbar-sidebar__items', {
           'navbar-sidebar__items--show-secondary': secondaryMenuShown,
         })}
       >

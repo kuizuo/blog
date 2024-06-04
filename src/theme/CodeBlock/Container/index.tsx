@@ -1,6 +1,6 @@
 import { ThemeClassNames, usePrismTheme } from '@docusaurus/theme-common'
 import { getPrismCssVariables } from '@docusaurus/theme-common/internal'
-import clsx from 'clsx'
+import { cn } from '@site/src/lib/utils'
 import React, { type ComponentProps } from 'react'
 import styles from './styles.module.css'
 
@@ -15,7 +15,7 @@ export default function CodeBlockContainer<T extends 'div' | 'pre'>({
       // Polymorphic components are hard to type, without `oneOf` generics
       {...(props as any)}
       style={prismCssVariables}
-      className={clsx(props.className, styles.codeBlockContainer, ThemeClassNames.common.codeBlock)}
+      className={cn(props.className, styles.codeBlockContainer, ThemeClassNames.common.codeBlock)}
     />
   )
 }

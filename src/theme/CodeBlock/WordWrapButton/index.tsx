@@ -1,7 +1,7 @@
 import { translate } from '@docusaurus/Translate'
+import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/CodeBlock/WordWrapButton'
 import IconWordWrap from '@theme/Icon/WordWrap'
-import clsx from 'clsx'
 import React from 'react'
 
 import styles from './styles.module.css'
@@ -17,7 +17,7 @@ export default function WordWrapButton({ className, onClick, isEnabled }: Props)
     <button
       type="button"
       onClick={onClick}
-      className={clsx('clean-btn', className, isEnabled && styles.wordWrapButtonEnabled)}
+      className={cn('clean-btn', className, isEnabled && styles.wordWrapButtonEnabled)}
       aria-label={title}
       title={title}
     >

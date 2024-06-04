@@ -1,6 +1,6 @@
+import { cn } from '@site/src/lib/utils'
 import Container from '@theme/CodeBlock/Container'
 import type { Props } from '@theme/CodeBlock/Content/Element'
-import clsx from 'clsx'
 import React from 'react'
 
 import styles from './styles.module.css'
@@ -10,7 +10,7 @@ import styles from './styles.module.css'
 // actually highlighting.
 export default function CodeBlockJSX({ children, className }: Props): JSX.Element {
   return (
-    <Container as="pre" tabIndex={0} className={clsx(styles.codeBlockStandalone, 'thin-scrollbar', className)}>
+    <Container as="pre" tabIndex={0} className={cn(styles.codeBlockStandalone, 'thin-scrollbar', className)}>
       <code className={styles.codeBlockLines}>{children}</code>
     </Container>
   )

@@ -2,8 +2,8 @@ import Link from '@docusaurus/Link'
 import Translate, { translate } from '@docusaurus/Translate'
 import { HtmlClassNameProvider, PageMetadata, ThemeClassNames } from '@docusaurus/theme-common'
 import { Icon } from '@iconify/react'
+import { cn } from '@site/src/lib/utils'
 import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage'
-import clsx from 'clsx'
 import React from 'react'
 import styles from './styles.module.css'
 
@@ -104,7 +104,7 @@ export default function BlogArchive({ archive }: Props) {
 
   const years = listPostsByYears(archive.blogPosts)
   return (
-    <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}>
+    <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}>
       <PageMetadata title={title} description={description} />
       <MyLayout>
         <h2 className={styles.archiveTitle}>
