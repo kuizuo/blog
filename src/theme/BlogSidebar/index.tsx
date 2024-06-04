@@ -1,8 +1,8 @@
-import React from 'react'
 import { useWindowSize } from '@docusaurus/theme-common'
+import type { Props } from '@theme/BlogSidebar'
 import BlogSidebarDesktop from '@theme/BlogSidebar/Desktop'
 import BlogSidebarMobile from '@theme/BlogSidebar/Mobile'
-import type { Props } from '@theme/BlogSidebar'
+import React from 'react'
 
 export default function BlogSidebar({ sidebar }: Props): JSX.Element | null {
   const windowSize = useWindowSize()

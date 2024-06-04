@@ -1,7 +1,7 @@
 import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
 import { themes } from 'prism-react-renderer'
-import { GiscusConfig } from './src/components/Comment'
+import type { GiscusConfig } from './src/components/Comment'
 import social from './data/social'
 
 const beian = '闽ICP备2020017848号-2'
@@ -142,17 +142,7 @@ const config: Config = {
     prism: {
       theme: themes.oneLight,
       darkTheme: themes.oneDark,
-      additionalLanguages: [
-        'bash',
-        'json',
-        'java',
-        'python',
-        'php',
-        'graphql',
-        'rust',
-        'toml',
-        'protobuf',
-      ],
+      additionalLanguages: ['bash', 'json', 'java', 'python', 'php', 'graphql', 'rust', 'toml', 'protobuf'],
       defaultLanguage: 'javascript',
       magicComments: [
         {
@@ -197,7 +187,7 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: ['./src/css/custom.scss'],
+          customCss: ['./src/css/custom.css'],
         },
         sitemap: {
           priority: 0.5,
@@ -212,7 +202,6 @@ const config: Config = {
   ],
   plugins: [
     'docusaurus-plugin-image-zoom',
-    'docusaurus-plugin-sass',
     '@docusaurus/plugin-ideal-image',
     ['docusaurus-plugin-baidu-tongji', { token: 'c9a3849aa75f9c4a4e65f846cd1a5155' }],
     [
@@ -255,6 +244,17 @@ const config: Config = {
         },
       },
     ],
+    async function myPlugin(context, options) {
+      return {
+        name: 'docusaurus-tailwindcss',
+        configurePostCss(postcssOptions) {
+          // Appends TailwindCSS and AutoPrefixer.
+          postcssOptions.plugins.push(require('tailwindcss'))
+          postcssOptions.plugins.push(require('autoprefixer'))
+          return postcssOptions
+        },
+      }
+    },
   ],
   headTags: [
     {

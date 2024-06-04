@@ -1,18 +1,21 @@
-import React from 'react'
-import clsx from 'clsx'
 import Translate from '@docusaurus/Translate'
+import clsx from 'clsx'
+import React from 'react'
 
-import styles from './styles.module.scss'
 import features, { type FeatureItem } from '@site/data/features'
 import SectionTitle from '../SectionTitle'
 
 function Feature({ title, Svg, text }: FeatureItem) {
   return (
-    <div className={clsx('col', styles.feature)}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+    <div
+      className={clsx(
+        'relative flex w-full flex-col gap-2 rounded-md bg-transparent p-0 transition-all duration-300 ease-linear',
+      )}
+    >
+      <div className="text-center">
+        <Svg className={'h-[150px] w-full'} role="img" />
       </div>
-      <div className="text--left padding-horiz--md">
+      <div className="py-4 text-left">
         <h3>{title}</h3>
         <p>{text}</p>
       </div>
@@ -20,13 +23,13 @@ function Feature({ title, Svg, text }: FeatureItem) {
   )
 }
 
-export default function FeaturesSection(): JSX.Element {
+export default function FeaturesSection() {
   return (
-    <section className={clsx(styles.featureContainer, 'container padding-vert--sm')}>
+    <section className={clsx('padding-vert--sm container max-w-7xl')}>
       <SectionTitle icon={'ri:map-pin-user-line'}>
         <Translate id="homepage.feature.title">个人特点</Translate>
       </SectionTitle>
-      <div className="row">
+      <div className="flex w-full flex-col justify-center gap-4 md:flex-row">
         {features.map((props, idx) => (
           <Feature key={idx} {...props} />
         ))}

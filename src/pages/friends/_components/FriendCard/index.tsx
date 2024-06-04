@@ -1,9 +1,9 @@
-import React, { memo } from 'react'
-import clsx from 'clsx'
 import Link from '@docusaurus/Link'
+import clsx from 'clsx'
+import React, { memo } from 'react'
 
+import type { Friend } from '@site/data/friends'
 import styles from './styles.module.css'
-import { type Friend } from '@site/data/friends'
 
 const FriendCard = memo(({ friend }: { friend: Friend }) => (
   <li className={clsx(styles.friendCard, 'padding-vert--sm padding-horiz--md')}>

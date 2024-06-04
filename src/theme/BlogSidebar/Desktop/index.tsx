@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import clsx from 'clsx'
 import Link from '@docusaurus/Link'
-import { Icon } from '@iconify/react'
 import { translate } from '@docusaurus/Translate'
 import { useBlogPost } from '@docusaurus/theme-common/internal'
+import { Icon } from '@iconify/react'
 import type { Props } from '@theme/BlogSidebar/Desktop'
+import clsx from 'clsx'
+import React, { useState } from 'react'
 
-import styles from './styles.module.scss'
+import styles from './styles.module.css'
 
 export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
   const { isBlogPostPage } = useBlogPost()
@@ -17,11 +17,7 @@ export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
   }
 
   return (
-    <aside
-      className="col col--2"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <aside className="col col--2" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <nav
         className={clsx(styles.sidebar, 'thin-scrollbar')}
         aria-label={translate({
@@ -33,7 +29,7 @@ export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
       >
         {isBlogPostPage && (
           <div className={styles.backButton} onClick={handleBack}>
-            <Icon icon="ri:arrow-go-back-line"></Icon>
+            <Icon icon="ri:arrow-go-back-line" />
           </div>
         )}
 

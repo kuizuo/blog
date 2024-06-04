@@ -1,19 +1,17 @@
-import React from 'react'
+import Link from '@docusaurus/Link'
+import Translate from '@docusaurus/Translate'
+import type { BlogPost } from '@docusaurus/plugin-content-blog'
+import { usePluginData } from '@docusaurus/useGlobalData'
+import Image from '@theme/IdealImage'
 import clsx from 'clsx'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { BlogPost } from '@docusaurus/plugin-content-blog'
-import { usePluginData } from '@docusaurus/useGlobalData'
-import Translate from '@docusaurus/Translate'
-import Link from '@docusaurus/Link'
-import Image from '@theme/IdealImage'
+import React from 'react'
 
-import styles from './styles.module.scss'
 import SectionTitle from '../SectionTitle'
+import styles from './styles.module.css'
 
 const chunk = (arr, size) =>
-  Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
-    arr.slice(i * size, i * size + size),
-  )
+  Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size))
 
 const BLOG_POSTS_COUNT = 6
 const BLOG_POSTS_PER_ROW = 2
@@ -34,7 +32,7 @@ export function BlogItem({ post }: { post: BlogPost }) {
     >
       {frontMatter.image && (
         <Link href={permalink} className={styles.image}>
-          <Image src={frontMatter.image!} alt={title} img={''} />
+          <Image src={frontMatter?.image} alt={title} img={''} />
         </Link>
       )}
       <div className={'card__body'}>
@@ -68,13 +66,13 @@ export default function BlogSection(): JSX.Element {
   }
 
   return (
-    <section className={clsx('container padding-vert--sm', styles.blogContainer)}>
+    <section className={clsx('padding-vert--sm container', 'max-w-7xl')}>
       <SectionTitle icon="ri:quill-pen-line" href={'/blog'}>
         <Translate id="homepage.blog.title">近期博客</Translate>
       </SectionTitle>
       <div ref={ref} className={clsx('row', styles.list)}>
         {posts.map((postGroup, index) => (
-          <div className="col col-6 margin-top--sm" key={index}>
+          <div className="col margin-top--sm col-6" key={index}>
             {postGroup.map((post, i) => (
               <motion.div style={{ y: i / 2 ? y : 0 }} key={i}>
                 <BlogItem key={post.id} post={post} />

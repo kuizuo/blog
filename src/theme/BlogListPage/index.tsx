@@ -7,12 +7,11 @@ import BlogListPaginator from '@theme/BlogListPaginator'
 import BlogPostItems from '@theme/BlogPostItems'
 import SearchMetadata from '@theme/SearchMetadata'
 
-import { ViewType, useViewType } from '@site/src/hooks/useViewType'
+import { type ViewType, useViewType } from '@site/src/hooks/useViewType'
 import Translate from '@docusaurus/Translate'
 import { Icon } from '@iconify/react'
 import BlogPostGridItems from '../BlogPostGridItems'
 
-import styles from './styles.module.scss'
 import MyLayout from '../MyLayout'
 
 function BlogListPageMetadata(props: Props): JSX.Element {
@@ -21,7 +20,7 @@ function BlogListPageMetadata(props: Props): JSX.Element {
 
   return (
     <>
-      <PageMetadata title={`Blog`} description={blogDescription} />
+      <PageMetadata title="Blog" description={blogDescription} />
       <SearchMetadata tag="blog_posts_list" />
     </>
   )
@@ -35,13 +34,14 @@ function ViewTypeSwitch({
   toggleViewType: (viewType: ViewType) => void
 }): JSX.Element {
   return (
-    <div className={styles.blogSwithView}>
+    <div className="my-4 flex items-center justify-center">
       <Icon
         icon="ph:list"
         width="24"
         height="24"
         onClick={() => toggleViewType('list')}
         color={viewType === 'list' ? 'var(--ifm-color-primary)' : '#ccc'}
+        className="cursor-pointer transition duration-500"
       />
       <Icon
         icon="ph:grid-four"
@@ -49,6 +49,7 @@ function ViewTypeSwitch({
         height="24"
         onClick={() => toggleViewType('grid')}
         color={viewType === 'grid' ? 'var(--ifm-color-primary)' : '#ccc'}
+        className="cursor-pointer transition duration-500"
       />
     </div>
   )
@@ -64,16 +65,16 @@ function BlogListPageContent(props: Props) {
 
   return (
     <MyLayout>
-      <h2 className={styles.blogTitle}>
+      <h2 className="h2 mb-4 flex items-center justify-center text-center">
         <Translate id="theme.blog.title.new">博客</Translate>
       </h2>
-      <p className={styles.blogDescription}>代码人生：编织技术与生活的博客之旅</p>
+      <p className="mb-4 text-center">代码人生：编织技术与生活的博客之旅</p>
       <ViewTypeSwitch viewType={viewType} toggleViewType={toggleViewType} />
       <div className="row">
         <div className={'col col--12'}>
           <>
             {isListView && (
-              <div className={styles.blogList}>
+              <div className="mb-4">
                 <BlogPostItems items={items} />
               </div>
             )}
@@ -89,9 +90,7 @@ function BlogListPageContent(props: Props) {
 
 export default function BlogListPage(props: Props): JSX.Element {
   return (
-    <HtmlClassNameProvider
-      className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}
-    >
+    <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}>
       <BlogListPageMetadata {...props} />
       <BlogListPageContent {...props} />
     </HtmlClassNameProvider>

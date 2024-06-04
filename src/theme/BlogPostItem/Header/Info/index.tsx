@@ -1,15 +1,15 @@
-import React from 'react'
-import clsx from 'clsx'
 import { translate } from '@docusaurus/Translate'
+import type { BlogPostFrontMatter } from '@docusaurus/plugin-content-blog'
 import { usePluralForm } from '@docusaurus/theme-common'
 import { useBlogPost, useDateTimeFormat } from '@docusaurus/theme-common/internal'
 import type { Props } from '@theme/BlogPostItem/Header/Info'
-import type { BlogPostFrontMatter } from '@docusaurus/plugin-content-blog'
 import TagsListInline from '@theme/TagsListInline'
+import clsx from 'clsx'
+import React from 'react'
 
-import styles from './styles.module.css'
-import Tag from '@site/src/theme/Tag'
 import { Icon } from '@iconify/react'
+import Tag from '@site/src/theme/Tag'
+import styles from './styles.module.css'
 
 // Very simple pluralization: probably good enough for now
 function useReadingTimePlural() {

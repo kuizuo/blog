@@ -1,5 +1,5 @@
-import React from 'react'
 import { useColorMode } from '@docusaurus/theme-common'
+import React from 'react'
 
 function index({ slug, title, height = '600px' }) {
   const { isDarkTheme } = useColorMode()
@@ -20,7 +20,7 @@ function index({ slug, title, height = '600px' }) {
         title={title}
         allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
         sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-      ></iframe>
+      />
     </div>
   )
 }

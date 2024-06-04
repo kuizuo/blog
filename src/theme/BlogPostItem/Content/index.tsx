@@ -1,9 +1,9 @@
-import React from 'react'
-import clsx from 'clsx'
-import { blogPostContainerID } from '@docusaurus/utils-common'
 import { useBlogPost } from '@docusaurus/theme-common/internal'
-import MDXContent from '@theme/MDXContent'
+import { blogPostContainerID } from '@docusaurus/utils-common'
 import type { Props } from '@theme/BlogPostItem/Content'
+import MDXContent from '@theme/MDXContent'
+import clsx from 'clsx'
+import React from 'react'
 
 export default function BlogPostItemContent({ children, className }: Props): JSX.Element {
   const { isBlogPostPage } = useBlogPost()

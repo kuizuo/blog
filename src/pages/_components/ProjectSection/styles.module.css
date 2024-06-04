@@ -1,0 +1,31 @@
+.content {
+  @apply rounded-[var(--ifm-card-border-radius)];
+}
+
+.slider {
+  @apply relative flex items-center min-h-[260px] overflow-hidden;
+}
+
+.slide {
+  @apply h-full w-96 mx-2;
+}
+
+.slide .image {
+  @apply w-full h-[240px] object-cover rounded-lg;
+}
+
+.slide a {
+  @apply hover:no-underline;
+}
+
+.slideBody {
+  @apply py-2 text-center w-full;
+}
+
+.slideBody .title {
+  @apply font-normal overflow-hidden text-ellipsis whitespace-nowrap text-xl m-0;
+}
+
+.slideBody .website {
+  @apply overflow-hidden text-ellipsis whitespace-nowrap text-[var(--ifm-color-primary)] m-0;
+}

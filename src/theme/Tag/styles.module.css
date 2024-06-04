@@ -6,11 +6,11 @@
   position: relative;
   border: 1px solid var(--docusaurus-tag-list-border);
   transition: border var(--ifm-transition-fast);
+}
 
-  &:hover {
-    --docusaurus-tag-list-border: var(--ifm-link-color);
-    text-decoration: none;
-  }
+.tag:hover {
+  --docusaurus-tag-list-border: var(--ifm-link-color);
+  text-decoration: none;
 }
 
 .tagRegular {

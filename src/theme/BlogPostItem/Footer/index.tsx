@@ -1,14 +1,14 @@
-import React from 'react'
-import clsx from 'clsx'
 import { useBlogPost, useDateTimeFormat } from '@docusaurus/theme-common/internal'
-import EditThisPage from '@theme/EditThisPage'
-import TagsListInline from '@theme/TagsListInline'
-import Tag from '@theme/Tag'
-import ReadMoreLink from '@theme/BlogPostItem/Footer/ReadMoreLink'
 import { Icon } from '@iconify/react'
+import ReadMoreLink from '@theme/BlogPostItem/Footer/ReadMoreLink'
+import EditThisPage from '@theme/EditThisPage'
+import Tag from '@theme/Tag'
+import TagsListInline from '@theme/TagsListInline'
+import clsx from 'clsx'
+import React from 'react'
 import { ReadingTime } from '../Header/Info/index'
 
-import styles from './styles.module.scss'
+import styles from './styles.module.css'
 
 export default function BlogPostItemFooter(): JSX.Element | null {
   const { metadata, isBlogPostPage } = useBlogPost()
@@ -88,9 +88,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
   }
 
   return (
-    <footer
-      className={clsx('row docusaurus-mt-lg', isBlogPostPage && styles.blogPostFooterDetailsFull)}
-    >
+    <footer className={clsx('row docusaurus-mt-lg', isBlogPostPage && styles.blogPostFooterDetailsFull)}>
       {/* {isBlogPostPage && editUrl && (
         <div className="col margin-top--sm">
           <EditThisPage editUrl={editUrl} />

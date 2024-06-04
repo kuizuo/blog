@@ -1,8 +1,8 @@
-import React from 'react'
-import Translate, { translate } from '@docusaurus/Translate'
 import Link from '@docusaurus/Link'
+import Translate, { translate } from '@docusaurus/Translate'
 import { Icon } from '@iconify/react'
 import type { Props } from '@theme/BlogPostItem/Footer/ReadMoreLink'
+import React from 'react'
 
 function ReadMoreLabel() {
   return (
@@ -17,9 +17,7 @@ function ReadMoreLabel() {
   )
 }
 
-export default function BlogPostItemFooterReadMoreLink(
-  props: Props,
-): JSX.Element {
+export default function BlogPostItemFooterReadMoreLink(props: Props): JSX.Element {
   const { blogPostTitle, ...linkProps } = props
   return (
     <Link
@@ -27,8 +25,7 @@ export default function BlogPostItemFooterReadMoreLink(
         {
           message: 'Read more about {title}',
           id: 'theme.blog.post.readMoreLabel',
-          description:
-            'The ARIA label for the link to full blog posts from excerpts',
+          description: 'The ARIA label for the link to full blog posts from excerpts',
         },
         { title: blogPostTitle },
       )}
@@ -36,7 +33,7 @@ export default function BlogPostItemFooterReadMoreLink(
       {...linkProps}
     >
       <ReadMoreLabel />
-      <Icon icon="ri:arrow-right-line"></Icon>
+      <Icon icon="ri:arrow-right-line" />
     </Link>
   )
 }
