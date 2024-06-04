@@ -2,11 +2,11 @@ import { translate } from '@docusaurus/Translate'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import { groupByProjects, projectTypeMap, projects } from '@site/data/projects'
 import { cn } from '@site/src/lib/utils'
-import React from 'react'
 import ShowcaseCard from './_components/ShowcaseCard'
 
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment'
 
+import { MagicContainer } from '@site/src/components/magicui/magic-card'
 import MyLayout from '@site/src/theme/MyLayout'
 import { upperFirst } from '@site/src/utils/jsUtils'
 import styles from './styles.module.css'
@@ -74,21 +74,21 @@ function ShowcaseCards() {
       <>
         <div className="margin-top--lg container">
           <div className={cn('margin-bottom--md', styles.showcaseFavoriteHeader)} />
-
           {Object.entries(groupByProjects).map(([key, value]) => {
             return (
               <div key={key}>
                 <div className={cn('margin-bottom--md', styles.showcaseFavoriteHeader)}>
                   <h3>{upperFirst(lang === 'en' ? key : projectTypeMap[key])}</h3>
                 </div>
-                <ul className={styles.showcaseList}>
+                <MagicContainer className={styles.showcaseList}>
                   {value.map(project => (
                     <ShowcaseCard key={project.title} project={project} />
                   ))}
-                </ul>
+                </MagicContainer>
               </div>
             )
           })}
+          <MagicContainer />
         </div>
       </>
     </section>
