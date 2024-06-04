@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import { usePluginData } from '@docusaurus/useGlobalData'
 import { Icon } from '@iconify/react'
 import SocialLinks from '@site/src/components/SocialLinks'
-import clsx from 'clsx'
+import { cn } from '@site/src/lib/utils'
 import React from 'react'
 
 import { projects } from '@site/data/projects'
@@ -51,7 +51,7 @@ export default function UserCard({ isNavbar = false }: { isNavbar?: boolean }) {
   }
 
   return (
-    <div className={clsx(isNavbar ? styles.userCardNavbar : styles.userCard)}>
+    <div className={cn(isNavbar ? styles.userCardNavbar : styles.userCard)}>
       <Link href="/about">
         <img className={styles.cardImg} src={logoLink} alt="logo" />
       </Link>

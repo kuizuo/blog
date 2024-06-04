@@ -1,9 +1,9 @@
 import Translate from '@docusaurus/Translate'
 import { type Project, projects } from '@site/data/projects'
+import Marquee from '@site/src/components/magicui/marquee'
 import { cn } from '@site/src/lib/utils'
 import React from 'react'
 import SectionTitle from '../SectionTitle'
-import Marquee from '../../../components/magicui/marquee'
 
 const removeHttp = (url: string) => {
   return url.replace(/(^\w+:|^)\/\//, '')

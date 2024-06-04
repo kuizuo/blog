@@ -1,13 +1,12 @@
 import Link from '@docusaurus/Link'
+import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/PaginatorNavLink'
-import clsx from 'clsx'
-import React from 'react'
 
 export default function PaginatorNavLink(props: Props): JSX.Element {
   const { permalink, title, subLabel, isNext } = props
   return (
     <Link
-      className={clsx('pagination-nav__link', isNext ? 'pagination-nav__link--next' : 'pagination-nav__link--prev')}
+      className={cn('pagination-nav__link', isNext ? 'pagination-nav__link--next' : 'pagination-nav__link--prev')}
       to={permalink}
     >
       {subLabel && <div className="pagination-nav__sublabel">{subLabel}</div>}

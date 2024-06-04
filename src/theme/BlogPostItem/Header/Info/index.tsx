@@ -2,9 +2,9 @@ import { translate } from '@docusaurus/Translate'
 import type { BlogPostFrontMatter } from '@docusaurus/plugin-content-blog'
 import { usePluralForm } from '@docusaurus/theme-common'
 import { useBlogPost, useDateTimeFormat } from '@docusaurus/theme-common/internal'
+import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/BlogPostItem/Header/Info'
 import TagsListInline from '@theme/TagsListInline'
-import clsx from 'clsx'
 import React from 'react'
 
 import { Icon } from '@iconify/react'
@@ -60,7 +60,7 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
   const formatDate = (blogDate: string) => dateTimeFormat.format(new Date(blogDate))
 
   return (
-    <div className={clsx(styles.container, 'margin-bottom--md', className)}>
+    <div className={cn(styles.container, 'margin-bottom--md', className)}>
       <div className={styles.date}>
         <Icon icon="ri:calendar-line" />
         <DateTime date={date} formattedDate={formatDate(date)} />
@@ -68,7 +68,7 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
       {tagsExists && (
         <div className={styles.tagInfo}>
           <Icon icon="ri:price-tag-3-line" />
-          <div className={clsx('truncate', styles.tagList)}>
+          <div className={cn('truncate', styles.tagList)}>
             {tags.slice(0, 3).map(({ label, permalink: tagPermalink }, index) => {
               return (
                 <div key={tagPermalink}>

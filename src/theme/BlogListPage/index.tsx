@@ -1,15 +1,15 @@
-import clsx from 'clsx'
-import React from 'react'
 import { HtmlClassNameProvider, PageMetadata, ThemeClassNames } from '@docusaurus/theme-common'
+import { cn } from '@site/src/lib/utils'
 import BackToTopButton from '@theme/BackToTopButton'
 import type { Props } from '@theme/BlogListPage'
 import BlogListPaginator from '@theme/BlogListPaginator'
 import BlogPostItems from '@theme/BlogPostItems'
 import SearchMetadata from '@theme/SearchMetadata'
+import React from 'react'
 
-import { type ViewType, useViewType } from '@site/src/hooks/useViewType'
 import Translate from '@docusaurus/Translate'
 import { Icon } from '@iconify/react'
+import { type ViewType, useViewType } from '@site/src/hooks/useViewType'
 import BlogPostGridItems from '../BlogPostGridItems'
 
 import MyLayout from '../MyLayout'
@@ -90,7 +90,7 @@ function BlogListPageContent(props: Props) {
 
 export default function BlogListPage(props: Props): JSX.Element {
   return (
-    <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}>
+    <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}>
       <BlogListPageMetadata {...props} />
       <BlogListPageContent {...props} />
     </HtmlClassNameProvider>

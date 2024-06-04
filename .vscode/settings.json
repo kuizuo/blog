@@ -1,6 +1,7 @@
 {
   "editor.codeActionsOnSave": {
-    "quickfix.biome": "explicit"
+    "quickfix.biome": "explicit",
+    "source.organizeImports": "explicit"
   },
   "[markdown]": {
     "editor.formatOnSave": false

@@ -1,7 +1,7 @@
 import { translate } from '@docusaurus/Translate'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import { groupByProjects, projectTypeMap, projects } from '@site/data/projects'
-import clsx from 'clsx'
+import { cn } from '@site/src/lib/utils'
 import React from 'react'
 import ShowcaseCard from './_components/ShowcaseCard'
 
@@ -73,12 +73,12 @@ function ShowcaseCards() {
     <section className="margin-top--lg margin-bottom--xl">
       <>
         <div className="margin-top--lg container">
-          <div className={clsx('margin-bottom--md', styles.showcaseFavoriteHeader)} />
+          <div className={cn('margin-bottom--md', styles.showcaseFavoriteHeader)} />
 
           {Object.entries(groupByProjects).map(([key, value]) => {
             return (
               <div key={key}>
-                <div className={clsx('margin-bottom--md', styles.showcaseFavoriteHeader)}>
+                <div className={cn('margin-bottom--md', styles.showcaseFavoriteHeader)}>
                   <h3>{upperFirst(lang === 'en' ? key : projectTypeMap[key])}</h3>
                 </div>
                 <ul className={styles.showcaseList}>

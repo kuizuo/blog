@@ -7,12 +7,12 @@ import {
   useCodeWordWrap,
 } from '@docusaurus/theme-common/internal'
 import { Icon } from '@iconify/react'
+import { cn } from '@site/src/lib/utils'
 import Container from '@theme/CodeBlock/Container'
 import type { Props } from '@theme/CodeBlock/Content/String'
 import CopyButton from '@theme/CodeBlock/CopyButton'
 import Line from '@theme/CodeBlock/Line'
 import WordWrapButton from '@theme/CodeBlock/WordWrapButton'
-import clsx from 'clsx'
 import { Highlight, type Language } from 'prism-react-renderer'
 import React from 'react'
 
@@ -68,7 +68,7 @@ export default function CodeBlockString({
   return (
     <Container
       as="div"
-      className={clsx(
+      className={cn(
         blockClassName,
         language && !blockClassName.includes(`language-${language}`) && `language-${language}`,
       )}
@@ -85,10 +85,10 @@ export default function CodeBlockString({
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre
               ref={wordWrap.codeBlockRef}
-              className={clsx(className, styles.codeBlock, 'thin-scrollbar')}
+              className={cn(className, styles.codeBlock, 'thin-scrollbar')}
               style={style}
             >
-              <code className={clsx(styles.codeBlockLines, showLineNumbers && styles.codeBlockLinesWithNumbering)}>
+              <code className={cn(styles.codeBlockLines, showLineNumbers && styles.codeBlockLinesWithNumbering)}>
                 {tokens.map((line, i) => (
                   <Line
                     key={i}

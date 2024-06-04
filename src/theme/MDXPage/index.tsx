@@ -1,9 +1,9 @@
 import { HtmlClassNameProvider, PageMetadata, ThemeClassNames } from '@docusaurus/theme-common'
+import { cn } from '@site/src/lib/utils'
 import Layout from '@theme/Layout'
 import MDXContent from '@theme/MDXContent'
 import type { Props } from '@theme/MDXPage'
 import TOC from '@theme/TOC'
-import clsx from 'clsx'
 import React from 'react'
 
 import styles from './styles.module.css'
@@ -17,13 +17,13 @@ export default function MDXPage(props: Props): JSX.Element {
 
   return (
     <HtmlClassNameProvider
-      className={clsx(wrapperClassName ?? ThemeClassNames.wrapper.mdxPages, ThemeClassNames.page.mdxPage)}
+      className={cn(wrapperClassName ?? ThemeClassNames.wrapper.mdxPages, ThemeClassNames.page.mdxPage)}
     >
       <PageMetadata title={title} description={description} />
       <Layout>
         <main className="container--fluid margin-vert--lg container">
-          <div className={clsx('row', styles.mdxPageWrapper)}>
-            <div className={clsx('col', 'col--8')}>
+          <div className={cn('row', styles.mdxPageWrapper)}>
+            <div className={cn('col', 'col--8')}>
               <MDXContent>
                 <MDXPageContent />
               </MDXContent>

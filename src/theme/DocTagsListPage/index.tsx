@@ -1,9 +1,9 @@
 import { HtmlClassNameProvider, PageMetadata, ThemeClassNames, translateTagsPageTitle } from '@docusaurus/theme-common'
 import { Icon } from '@iconify/react'
+import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/DocTagsListPage'
 import SearchMetadata from '@theme/SearchMetadata'
 import TagsListByLetter from '@theme/TagsListByLetter'
-import clsx from 'clsx'
 import React, { useState } from 'react'
 
 import MyLayout from '../MyLayout'
@@ -15,7 +15,7 @@ export default function DocTagsListPage({ tags }: Props): JSX.Element {
   const [type, setType] = useState('letter')
 
   return (
-    <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.docsPages, ThemeClassNames.page.docsTagsListPage)}>
+    <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.docsPages, ThemeClassNames.page.docsTagsListPage)}>
       <PageMetadata title={title} />
       <SearchMetadata tag="doc_tags_list" />
       <MyLayout>

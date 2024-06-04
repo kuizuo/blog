@@ -1,9 +1,9 @@
 import Link from '@docusaurus/Link'
 import { HtmlClassNameProvider, PageMetadata, ThemeClassNames } from '@docusaurus/theme-common'
 import { resourceData } from '@site/data/resources'
+import { cn } from '@site/src/lib/utils'
 import BackToTopButton from '@theme/BackToTopButton'
 import Layout from '@theme/Layout'
-import clsx from 'clsx'
 import React from 'react'
 import ResourceCard from './_components/ResourceCard'
 import styles from './resource.module.css'
@@ -15,9 +15,9 @@ function CategorySidebar() {
   }
 
   return (
-    <nav className={clsx(styles.sidebar, 'thin-scrollbar')}>
-      <div className={clsx(styles.sidebarItemTitle, 'margin-bottom--md')}>{sidebar.title}</div>
-      <ul className={clsx(styles.sidebarItemList, 'clean-list')}>
+    <nav className={cn(styles.sidebar, 'thin-scrollbar')}>
+      <div className={cn(styles.sidebarItemTitle, 'margin-bottom--md')}>{sidebar.title}</div>
+      <ul className={cn(styles.sidebarItemList, 'clean-list')}>
         {sidebar.items.map(item => (
           <li key={item.permalink} className={styles.sidebarItem}>
             <Link
@@ -65,12 +65,12 @@ export default function Resources() {
   const description = '整合日常开发常用，推荐的网站导航页'
 
   return (
-    <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}>
+    <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}>
       <PageMetadata title={title} description={description} />
       <Layout>
         <div className="margin-top--md container">
           <div className="row">
-            <aside className={clsx('col col--2')}>
+            <aside className={cn('col col--2')}>
               <CategorySidebar />
             </aside>
             <main className="col col--10">

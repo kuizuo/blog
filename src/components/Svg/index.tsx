@@ -1,5 +1,5 @@
-import clsx from 'clsx'
-import React, { type ReactNode, type ComponentProps } from 'react'
+import { cn } from '@site/src/lib/utils'
+import { type ComponentProps, type ReactNode } from 'react'
 import styles from './styles.module.css'
 
 export interface SvgIconProps extends ComponentProps<'svg'> {
@@ -19,7 +19,7 @@ export default function Svg(props: SvgIconProps): JSX.Element {
       viewBox={viewBox}
       color={colorAttr}
       aria-hidden
-      className={clsx(styles.svgIcon, styles[color], styles[size], svgClass)}
+      className={cn(styles.svgIcon, styles[color], styles[size], svgClass)}
       {...rest}
     >
       {children}

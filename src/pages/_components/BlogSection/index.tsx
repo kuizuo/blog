@@ -2,8 +2,8 @@ import Link from '@docusaurus/Link'
 import Translate from '@docusaurus/Translate'
 import type { BlogPost } from '@docusaurus/plugin-content-blog'
 import { usePluginData } from '@docusaurus/useGlobalData'
+import { cn } from '@site/src/lib/utils'
 import Image from '@theme/IdealImage'
-import clsx from 'clsx'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import React from 'react'
 
@@ -23,7 +23,7 @@ export function BlogItem({ post }: { post: BlogPost }) {
 
   return (
     <motion.li
-      className={clsx('card', 'margin-bottom--md')}
+      className={cn('card', 'margin-bottom--md')}
       key={permalink}
       initial={{ y: 100, opacity: 0.001 }}
       whileInView={{ y: 0, opacity: 1, transition: { duration: 0.5 } }}
@@ -66,11 +66,11 @@ export default function BlogSection(): JSX.Element {
   }
 
   return (
-    <section className={clsx('padding-vert--sm container', 'max-w-7xl')}>
+    <section className={cn('padding-vert--sm container', 'max-w-7xl')}>
       <SectionTitle icon="ri:quill-pen-line" href={'/blog'}>
         <Translate id="homepage.blog.title">近期博客</Translate>
       </SectionTitle>
-      <div ref={ref} className={clsx('row', styles.list)}>
+      <div ref={ref} className={cn('row', styles.list)}>
         {posts.map((postGroup, index) => (
           <div className="col margin-top--sm col-6" key={index}>
             {postGroup.map((post, i) => (

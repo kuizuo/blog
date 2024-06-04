@@ -26,6 +26,5 @@ export default function prismIncludeLanguages(PrismObject: typeof PrismNamespace
 
     require(`prismjs/components/prism-${lang}`)
   })
-
   ;(globalThis as Optional<typeof globalThis, 'Prism'>).Prism = undefined
 }

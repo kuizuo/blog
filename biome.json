@@ -10,7 +10,7 @@
     "attributePosition": "auto",
     "ignore": ["**/lib"]
   },
-  "organizeImports": { "enabled": false },
+  "organizeImports": { "enabled": true },
   "linter": {
     "enabled": true,
     "rules": {

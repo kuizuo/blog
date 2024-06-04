@@ -3,9 +3,9 @@ import Translate from '@docusaurus/Translate'
 import { type Project, type Tag, TagList, type TagType, Tags } from '@site/data/projects'
 import Tooltip from '@site/src/components/Tooltip'
 import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon'
+import { cn } from '@site/src/lib/utils'
 import { sortBy } from '@site/src/utils/jsUtils'
 import Image from '@theme/IdealImage'
-import clsx from 'clsx'
 import React, { memo } from 'react'
 import styles from './styles.module.css'
 
@@ -39,14 +39,14 @@ function ShowcaseCardTag({ tags }: { tags: TagType[] }) {
 
 const ShowcaseCard = memo(({ project }: { project: Project }) => {
   return (
-    <div key={project.title} className={clsx('card', styles.showcaseCard)}>
+    <div key={project.title} className={cn('card', styles.showcaseCard)}>
       {project.preview && (
-        <div className={clsx('card__image', styles.showcaseCardImage)}>
+        <div className={cn('card__image', styles.showcaseCardImage)}>
           <Image src={project.preview} alt={project.title} img={project.preview} />
         </div>
       )}
       <div className="card__body">
-        <div className={clsx(styles.showcaseCardHeader)}>
+        <div className={cn(styles.showcaseCardHeader)}>
           <h4 className={styles.showcaseCardTitle}>
             <Link href={project.website} className={styles.showcaseCardLink}>
               {project.title}
@@ -56,7 +56,7 @@ const ShowcaseCard = memo(({ project }: { project: Project }) => {
           {project.source && (
             <Link
               href={project.source}
-              className={clsx('button button--secondary button--sm', styles.showcaseCardSrcBtn)}
+              className={cn('button button--secondary button--sm', styles.showcaseCardSrcBtn)}
             >
               <Translate id="showcase.card.sourceLink">源码</Translate>
             </Link>
@@ -64,7 +64,7 @@ const ShowcaseCard = memo(({ project }: { project: Project }) => {
         </div>
         <p className={styles.showcaseCardBody}>{project.description}</p>
       </div>
-      <ul className={clsx('card__footer', styles.cardFooter)}>
+      <ul className={cn('card__footer', styles.cardFooter)}>
         <ShowcaseCardTag tags={project.tags} />
       </ul>
     </div>
