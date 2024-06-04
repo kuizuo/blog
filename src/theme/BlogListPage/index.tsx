@@ -5,7 +5,6 @@ import type { Props } from '@theme/BlogListPage'
 import BlogListPaginator from '@theme/BlogListPaginator'
 import BlogPostItems from '@theme/BlogPostItems'
 import SearchMetadata from '@theme/SearchMetadata'
-import React from 'react'
 
 import Translate from '@docusaurus/Translate'
 import { Icon } from '@iconify/react'

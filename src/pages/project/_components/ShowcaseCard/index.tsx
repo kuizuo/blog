@@ -2,6 +2,7 @@ import Link from '@docusaurus/Link'
 import Translate from '@docusaurus/Translate'
 import { type Project, type Tag, TagList, type TagType, Tags } from '@site/data/projects'
 import Tooltip from '@site/src/components/Tooltip'
+import { MagicCard } from '@site/src/components/magicui/magic-card'
 import FavoriteIcon from '@site/src/components/svgIcons/FavoriteIcon'
 import { cn } from '@site/src/lib/utils'
 import { sortBy } from '@site/src/utils/jsUtils'
@@ -39,7 +40,7 @@ function ShowcaseCardTag({ tags }: { tags: TagType[] }) {
 
 const ShowcaseCard = memo(({ project }: { project: Project }) => {
   return (
-    <div key={project.title} className={cn('card', styles.showcaseCard)}>
+    <MagicCard key={project.title} className={cn('card', styles.showcaseCard)}>
       {project.preview && (
         <div className={cn('card__image', styles.showcaseCardImage)}>
           <Image src={project.preview} alt={project.title} img={project.preview} />
@@ -65,7 +66,7 @@ const ShowcaseCard = memo(({ project }: { project: Project }) => {
       <ul className={cn('card__footer', styles.cardFooter)}>
         <ShowcaseCardTag tags={project.tags} />
       </ul>
-    </div>
+    </MagicCard>
   )
 })
 
