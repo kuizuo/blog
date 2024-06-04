@@ -44,7 +44,7 @@
     --ifm-font-weight-bold: 520;
     --ifm-toc-border-color: #f1f5f9;
 
-    --content-background-color: #f8fafc;
+    --content-background: #f4f4f5;
 
     --blog-item-background-color: linear-gradient(180deg, #fcfcfc, #fff);
     --blog-item-shadow: 0 10px 18px #f1f5f9dd, 0 0 10px 0 #e4e4e7dd;
@@ -66,7 +66,7 @@
     --ifm-secondary-text-color: #eee;
     --ifm-toc-border-color: #313131;
 
-    --content-background-color: #18181b;
+    --content-background: #18181b;
     --blog-item-background-color: linear-gradient(180deg, #171717, #18181b);
     --blog-item-shadow: 0 10px 18px #25374833, 0 0 8px #25374866;
     --blog-item-shade: #27272a;
@@ -313,15 +313,19 @@ div[class^='announcementBar_'] {
 }
 
 .blog-card:hover .readMore {
-  opacity: 1;
+  @apply opacity-100;
+}
+
+.blog-card:hover .readMore a {
+  @apply no-underline;
 }
 
 .container-wrapper {
-  background: var(--content-background-color);
+  background: var(--content-background);
 }
 
 .gsc-comments textarea {
-  background: var(--content-background-color);
+  background: var(--content-background);
 }
 
 .tag:hover {

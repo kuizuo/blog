@@ -1,8 +1,7 @@
 import Link from '@docusaurus/Link'
 import type { Props as BlogPostItemsProps } from '@theme/BlogPostItems'
 import Tag from '@theme/Tag'
-import { Variants, motion, useMotionValue } from 'framer-motion'
-import React from 'react'
+import { motion } from 'framer-motion'
 
 import styles from './styles.module.css'
 
@@ -57,18 +56,16 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
                   <svg width="1em" height="1em" viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M10 15h4V9h-4v6Zm0 2v3a1 1 0 0 1-2 0v-3H5a1 1 0 0 1 0-2h3V9H5a1 1 0 1 1 0-2h3V4a1 1 0 1 1 2 0v3h4V4a1 1 0 0 1 2 0v3h3a1 1 0 0 1 0 2h-3v6h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3h-4Z"
                     />
                   </svg>
-                  {tags.slice(0, 2).map(({ label, permalink: tagPermalink }, index) => {
-                    return (
-                      <>
-                        {index !== 0 && '/'}
-                        <Tag label={label} permalink={tagPermalink} key={tagPermalink} className={'tag'} />
-                      </>
-                    )
-                  })}
+                  {tags.slice(0, 2).map(({ label, permalink: tagPermalink }, index) => (
+                    <>
+                      {index !== 0 && '/'}
+                      <Tag label={label} permalink={tagPermalink} key={tagPermalink} className="tag" />
+                    </>
+                  ))}
                 </>
               )}
             </div>

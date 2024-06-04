@@ -3,8 +3,8 @@
 }
 
 .postGridItem {
-  @apply relative min-w-[24rem] grid grid-cols-[max-content_1fr] gap-y-4 gap-x-8 items-center p-4 bg-[var(--blog-item-background-color)] rounded transition-all duration-300;
-
+  @apply relative min-w-[24rem] grid grid-cols-[max-content_1fr] gap-y-4 gap-x-8 items-center p-4 rounded transition-all duration-300;
+  background: var(--blog-item-background-color);
   grid-template-areas: 'title title' 'tags date';
 }
 
@@ -18,7 +18,7 @@
 }
 
 .postGridItem .itemStick {
-  @apply absolute top-[-6px] left-0 inline-block text-[#6ebdff] text-xl before:content-['\e62b'];
+  @apply absolute top-[-6px] left-0 inline-block text-[var(--ifm-color-primary)] text-xl before:content-['\e62b'];
   grid-area: stick;
   justify-self: end;
 }
