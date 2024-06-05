@@ -9,7 +9,7 @@ const beian1 = '闽公网安备35021102000847号'
 
 const config: Config = {
   title: '愧怍',
-  url: 'https://fernandogprieto.com',
+  url: 'https://kuizuo.cn',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'kuizuo',
@@ -97,7 +97,7 @@ const config: Config = {
             { label: '关于我', to: '/about' },
             { label: 'GitHub', href: social.github.href },
             { label: 'Twitter', href: social.twitter.href },
-            { label: 'LinkedIn', href: social.linkedin.href },
+            { label: '掘金', href: social.juejin.href },
             { label: 'Discord', href: social.discord.href },
           ],
         },
