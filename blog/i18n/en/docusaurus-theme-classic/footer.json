@@ -1,0 +1,66 @@
+{
+  "link.title.学习": {
+    "message": "Study",
+    "description": "The title of the footer links column with title=学习 in the footer"
+  },
+  "link.title.社交媒体": {
+    "message": "Social Media",
+    "description": "The title of the footer links column with title=社交媒体 in the footer"
+  },
+  "link.title.更多": {
+    "message": "More",
+    "description": "The title of the footer links column with title=更多 in the footer"
+  },
+  "link.item.label.博客": {
+    "message": "Blogs",
+    "description": "The label of footer link with label=博客 linking to tags"
+  },
+  "link.item.label.标签": {
+    "message": "Tags",
+    "description": "The label of footer link with label=标签 linking to tags"
+  },
+  "link.item.label.归档": {
+    "message": "Archive",
+    "description": "The label of footer link with label=归档 linking to archive"
+  },
+  "link.item.label.技术笔记": {
+    "message": "Notes",
+    "description": "The label of footer link with label=技术笔记 linking to docs/skill"
+  },
+  "link.item.label.实战项目": {
+    "message": "Projects",
+    "description": "The label of footer link with label=实战项目 linking to project"
+  },
+  "link.item.label.前端示例": {
+    "message": "Frontend Examples",
+    "description": "The label of footer link with label=前端示例 linking to https://example.kuizuo.cn"
+  },
+  "link.item.label.关于我": {
+    "message": "About Me",
+    "description": "The label of footer link with label=关于我 linking to /about"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/kuizuo"
+  },
+  "link.item.label.掘金": {
+    "message": "Juejin",
+    "description": "The label of footer link with label=掘金 linking to https://juejin.cn/user/1565318510545901"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/M8cVcjDxkz"
+  },
+  "link.item.label.友链": {
+    "message": "Friends",
+    "description": "The label of footer link with label=友链 linking to friends"
+  },
+  "link.item.label.导航": {
+    "message": "Links",
+    "description": "The label of footer link with label=导航 linking to resource"
+  },
+  "copyright": {
+    "message": "<p><a href=\"http://beian.miit.gov.cn/\" >闽ICP备2020017848号-2</a></p><p>Copyright © 2020 – PRESENT kuizuo Built with Docusaurus.</p>",
+    "description": "The footer copyright"
+  }
+}

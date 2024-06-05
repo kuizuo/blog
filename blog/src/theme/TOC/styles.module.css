@@ -1,0 +1,31 @@
+.tableOfContents {
+  max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+  overflow-y: auto;
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
+  color: var(--ifm-font-color-secondary);
+}
+
+@media (max-width: 996px) {
+  .tableOfContents {
+    display: none;
+  }
+
+  .docItemContainer {
+    padding: 0 0.3rem;
+  }
+}
+
+.hr {
+  margin: 0;
+  border: none;
+  border-top: 1px solid var(--ifm-toc-border-color);
+}
+
+.percent {
+  display: inline-block;
+  margin: var(--ifm-toc-padding-vertical) var(--ifm-toc-padding-horizontal);
+  padding-left: var(--ifm-toc-padding-horizontal);
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+}

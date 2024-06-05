@@ -1,0 +1,42 @@
+{
+  "link.title.学习": {
+    "message": "学习",
+    "description": "The title of the footer links column with title=学习 in the footer"
+  },
+  "link.title.社交媒体": {
+    "message": "社交媒体",
+    "description": "The title of the footer links column with title=社交媒体 in the footer"
+  },
+  "link.title.友情链接": {
+    "message": "友情链接",
+    "description": "The title of the footer links column with title=友情链接 in the footer"
+  },
+  "link.item.label.技术博客": {
+    "message": "技术博客",
+    "description": "The label of footer link with label=技术博客 linking to /#homepage_blogs"
+  },
+  "link.item.label.技术笔记": {
+    "message": "技术笔记",
+    "description": "The label of footer link with label=技术笔记 linking to docs/skill"
+  },
+  "link.item.label.实战项目": {
+    "message": "实战项目",
+    "description": "The label of footer link with label=实战项目 linking to project"
+  },
+  "link.item.label.首页": {
+    "message": "首页",
+    "description": "The label of footer link with label=首页 linking to /"
+  },
+  "link.item.label.关于我": {
+    "message": "关于我",
+    "description": "The label of footer link with label=关于我 linking to /about"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/kuizuo"
+  },
+  "link.item.label.掘金": {
+    "message": "掘金",
+    "description": "The label of footer link with label=掘金 linking to https://juejin.cn/user/1565318510545901"
+  }
+}

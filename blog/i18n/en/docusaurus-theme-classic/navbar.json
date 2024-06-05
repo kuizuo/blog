@@ -1,0 +1,62 @@
+{
+  "title": {
+    "message": "kuizuo",
+    "description": "The title in the navbar"
+  },
+  "item.label.博客": {
+    "message": "Blogs",
+    "description": "Navbar item with label 博客"
+  },
+  "item.label.工具": {
+    "message": "Tools",
+    "description": "Navbar item with label 工具"
+  },
+  "item.label.导航": {
+    "message": "Links",
+    "description": "Navbar item with label 导航"
+  },
+  "item.label.项目": {
+    "message": "Projects",
+    "description": "Navbar item with label 项目"
+  },
+  "item.label.标签": {
+    "message": "Tags",
+    "description": "Navbar item with label 标签"
+  },
+  "item.label.归档": {
+    "message": "Archive",
+    "description": "Navbar item with label 归档"
+  },
+  "item.label.笔记": {
+    "message": "Notes",
+    "description": "Navbar item with label 笔记"
+  },
+  "item.label.工具推荐": {
+    "message": "Recommended Tools",
+    "description": "Navbar item with label 工具推荐"
+  },
+  "item.label.前端示例": {
+    "message": "Frontend Example",
+    "description": "Navbar item with label 前端示例"
+  },
+  "item.label.在线代码": {
+    "message": "Live Code",
+    "description": "Navbar item with label 在线代码"
+  },
+  "item.label.API服务": {
+    "message": "API Service",
+    "description": "Navbar item with label API服务"
+  },
+  "item.label.JS代码还原": {
+    "message": "JS Deobfuscate",
+    "description": "Navbar item with label JS代码还原"
+  },
+  "item.label.CyberChef加密": {
+    "message": "CyberChef Encryption",
+    "description": "Navbar item with label CyberChef加密"
+  },
+  "item.label.网盘": {
+    "message": "Cloudreve",
+    "description": "Navbar item with label 网盘"
+  }
+}

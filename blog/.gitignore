@@ -1,0 +1,26 @@
+# Dependencies
+node_modules
+
+# Production
+/build
+/drafts
+/tmp
+cloudbaserc.json
+
+# Generated files
+.docusaurus
+.cache-loader
+
+# Misc
+.DS_Store
+.env
+
+# Packages
+/packages
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-error.log*
+
+.vercel

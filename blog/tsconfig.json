@@ -1,0 +1,33 @@
+{
+  "extends": "@docusaurus/tsconfig",
+  "compilerOptions": {
+    "lib": ["DOM", "ESNext"],
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "importsNotUsedAsValues": "remove",
+
+    "moduleResolution": "Bundler",
+
+    "skipLibCheck": false,
+    "types": ["jest"]
+  },
+  "exclude": ["src/sw.js"]
+}

@@ -1,0 +1,46 @@
+{
+  "title": {
+    "message": "愧怍",
+    "description": "The title in the navbar"
+  },
+  "item.label.标签": {
+    "message": "标签",
+    "description": "Navbar item with label 标签"
+  },
+  "item.label.归档": {
+    "message": "归档",
+    "description": "Navbar item with label 归档"
+  },
+  "item.label.学习": {
+    "message": "学习",
+    "description": "Navbar item with label 学习"
+  },
+  "item.label.小工具": {
+    "message": "小工具",
+    "description": "Navbar item with label 小工具"
+  },
+  "item.label.实战项目": {
+    "message": "实战项目",
+    "description": "Navbar item with label 实战项目"
+  },
+  "item.label.技术笔记": {
+    "message": "技术笔记",
+    "description": "Navbar item with label 技术笔记"
+  },
+  "item.label.网址导航": {
+    "message": "网址导航",
+    "description": "Navbar item with label 网址导航"
+  },
+  "item.label.JS代码还原": {
+    "message": "JS代码还原",
+    "description": "Navbar item with label JS代码还原"
+  },
+  "item.label.CyberChef加密": {
+    "message": "CyberChef加密",
+    "description": "Navbar item with label CyberChef加密"
+  },
+  "item.label.网盘": {
+    "message": "网盘",
+    "description": "Navbar item with label 网盘"
+  }
+}

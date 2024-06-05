@@ -1,0 +1,70 @@
+.resourceCard {
+  background-color: var(--ifm-card-background-color);
+  border-radius: 8px;
+  border: 1px solid var(--ifm-toc-border-color);
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.resourceCard:hover {
+  box-shadow: 0 10px 20px -10px rgb(0 0 0 / 20%);
+  transform: translateY(-5px);
+}
+
+html[data-theme='dark'] .resourceCard:hover {
+  box-shadow: 0 10px 20px -10px rgb(255 255 255 / 20%);
+  transform: translateY(-5px);
+}
+
+.resourceCardImage {
+  align-self: center;
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  object-fit: contain;
+}
+
+.resourceCardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.resourceCardTitle {
+  margin-bottom: 0;
+  flex: 1 1 auto;
+}
+
+.resourceCardTitle a {
+  text-decoration: none;
+  background: linear-gradient(
+      var(--ifm-color-primary),
+      var(--ifm-color-primary)
+    )
+    0% 100% / 0% 1px no-repeat;
+  transition: background-size ease-out 200ms;
+}
+
+.resourceCardTitle a:not(:focus):hover {
+  background-size: 100% 1px;
+}
+
+.resourceCardBody {
+  padding: 0.2rem 0 0 var(--ifm-card-horizontal-spacing);
+}
+
+.resourceCardDesc {
+  cursor: pointer;
+  font-size: smaller;
+  line-height: 1.66;
+  width: 100%;
+  margin: 0;
+  /* stylelint-disable-next-line value-no-vendor-prefix */
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

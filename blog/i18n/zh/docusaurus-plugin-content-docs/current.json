@@ -1,0 +1,70 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.skill.category.Vue": {
+    "message": "Vue",
+    "description": "The label for category Vue in sidebar skill"
+  },
+  "sidebar.skill.category.逆向": {
+    "message": "逆向",
+    "description": "The label for category 逆向 in sidebar skill"
+  },
+  "sidebar.skill.category.逆向.link.generated-index.title": {
+    "message": "逆向笔记",
+    "description": "The generated-index page title for category 逆向 in sidebar skill"
+  },
+  "sidebar.skill.category.逆向.link.generated-index.description": {
+    "message": "Web逆向与安卓逆向笔记",
+    "description": "The generated-index page description for category 逆向 in sidebar skill"
+  },
+  "sidebar.skill.category.安卓": {
+    "message": "安卓",
+    "description": "The label for category 安卓 in sidebar skill"
+  },
+  "sidebar.skill.category.frida": {
+    "message": "frida",
+    "description": "The label for category frida in sidebar skill"
+  },
+  "sidebar.skill.category.刷机": {
+    "message": "刷机",
+    "description": "The label for category 刷机 in sidebar skill"
+  },
+  "sidebar.skill.category.Web": {
+    "message": "Web",
+    "description": "The label for category Web in sidebar skill"
+  },
+  "sidebar.skill.category.密码学": {
+    "message": "密码学",
+    "description": "The label for category 密码学 in sidebar skill"
+  },
+  "sidebar.skill.category.后端": {
+    "message": "后端",
+    "description": "The label for category 后端 in sidebar skill"
+  },
+  "sidebar.skill.category.数据库": {
+    "message": "数据库",
+    "description": "The label for category 数据库 in sidebar skill"
+  },
+  "sidebar.skill.category.Mysql": {
+    "message": "Mysql",
+    "description": "The label for category Mysql in sidebar skill"
+  },
+  "sidebar.skill.category.MongoDB": {
+    "message": "MongoDB",
+    "description": "The label for category MongoDB in sidebar skill"
+  },
+  "sidebar.skill.category.Redis": {
+    "message": "Redis",
+    "description": "The label for category Redis in sidebar skill"
+  },
+  "sidebar.skill.category.Elasticsearch": {
+    "message": "Elasticsearch",
+    "description": "The label for category Elasticsearch in sidebar skill"
+  },
+  "sidebar.skill.link.React": {
+    "message": "React",
+    "description": "The label for link React in sidebar skill, linking to /docs/category/react"
+  }
+}

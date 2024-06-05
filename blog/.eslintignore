@@ -1,0 +1,14 @@
+__fixtures__
+__mocks__
+dist
+node_modules
+.yarn
+.history
+build
+coverage
+jest.config.js
+jest.transform.js
+docusaurus.config.ts
+sidebars.js
+*.md
+lib

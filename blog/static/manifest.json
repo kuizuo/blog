@@ -1,0 +1,27 @@
+{
+  "name": "愧怍",
+  "short_name": "愧怍",
+  "theme_color": "#12affa",
+  "background_color": "#424242",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./index.html",
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://kuizuo.cn/manifest.json"
+    }
+  ],
+  "icons": [
+    {
+      "src": "img/icons/icon-128.pnag",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
