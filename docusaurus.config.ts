@@ -270,8 +270,8 @@ const config: Config = {
     'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css',
   ],
   i18n: {
-    defaultLocale: 'zh-CN',
-    locales: ['en', 'zh-CN'],
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
     localeConfigs: {
       en: {
         htmlLang: 'en-GB',
