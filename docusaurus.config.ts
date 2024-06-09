@@ -24,6 +24,7 @@ const config: Config = {
     //   id: 'announcementBar-3',
     //   content: ``,
     // },
+    image: 'img/og.png',
     metadata: [
       {
         name: 'author',
