@@ -69,7 +69,11 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
               return (
                 <div key={tagPermalink}>
                   {index !== 0 && '/'}
-                  <Tag label={label} permalink={tagPermalink} className={'tag !border-0 px-0.5 py-0.5 text-text'} />
+                  <Tag
+                    label={label}
+                    permalink={tagPermalink}
+                    className={'tag !border-0 px-0.5 py-0.5 text-text hover:text-link'}
+                  />
                 </div>
               )
             })}

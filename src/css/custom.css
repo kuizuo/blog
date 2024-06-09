@@ -242,10 +242,6 @@ div[class^='announcementBar_'] {
   background: var(--content-background);
 }
 
-.tag:hover {
-  color: currentColor !important;
-}
-
 .tag::after {
   content: '';
   position: absolute;
