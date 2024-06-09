@@ -1,8 +1,8 @@
-import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
+import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
-import type { GiscusConfig } from './src/components/Comment'
 import social from './data/social'
+import type { GiscusConfig } from './src/components/Comment'
 
 const beian = '闽ICP备2020017848号-2'
 const beian1 = '闽公网安备35021102000847号'
@@ -96,7 +96,7 @@ const config: Config = {
           items: [
             { label: '关于我', to: '/about' },
             { label: 'GitHub', href: social.github.href },
-            { label: 'Twitter', href: social.twitter.href },
+            { label: 'Twitter', href: social.x.href },
             { label: '掘金', href: social.juejin.href },
             { label: 'Discord', href: social.discord.href },
           ],
@@ -142,7 +142,17 @@ const config: Config = {
     prism: {
       theme: themes.oneLight,
       darkTheme: themes.oneDark,
-      additionalLanguages: ['bash', 'json', 'java', 'python', 'php', 'graphql', 'rust', 'toml', 'protobuf'],
+      additionalLanguages: [
+        'bash',
+        'json',
+        'java',
+        'python',
+        'php',
+        'graphql',
+        'rust',
+        'toml',
+        'protobuf',
+      ],
       defaultLanguage: 'javascript',
       magicComments: [
         {
@@ -203,12 +213,19 @@ const config: Config = {
   plugins: [
     'docusaurus-plugin-image-zoom',
     '@docusaurus/plugin-ideal-image',
-    ['docusaurus-plugin-baidu-tongji', { token: 'c9a3849aa75f9c4a4e65f846cd1a5155' }],
+    [
+      'docusaurus-plugin-baidu-tongji',
+      { token: 'c9a3849aa75f9c4a4e65f846cd1a5155' },
+    ],
     [
       '@docusaurus/plugin-pwa',
       {
         debug: process.env.NODE_ENV === 'development',
-        offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
+        offlineModeActivationStrategies: [
+          'appInstalled',
+          'standalone',
+          'queryString',
+        ],
         pwaHead: [
           { tagName: 'link', rel: 'icon', href: '/img/logo.png' },
           { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
