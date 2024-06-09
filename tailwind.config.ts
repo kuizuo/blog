@@ -1,12 +1,12 @@
 import svgToDataUri from 'mini-svg-data-uri'
+import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
 
 const {
   default: flattenColorPalette,
 } = require('tailwindcss/lib/util/flattenColorPalette')
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const twConfig: Config = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
@@ -18,9 +18,6 @@ module.exports = {
         secondary: 'var(--ifm-secondary-text-color)',
         link: 'var(--ifm-link-color)',
         primary: 'var(--ifm-color-primary)',
-        primaryLight: 'var(--ifm-color-primary-light)',
-        primaryLighter: 'var(--ifm-color-primary-lighter)',
-        primaryLightest: 'var(--ifm-color-primary-lightest)',
         border: 'var(--ifm-border-color)',
       },
       fontFamily: {
@@ -69,3 +66,5 @@ module.exports = {
     }),
   ],
 }
+
+export default twConfig
