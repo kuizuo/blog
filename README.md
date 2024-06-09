@@ -1,42 +1,43 @@
 <h2 align="center">
 愧怍的个人博客
-</h2><br>
-
-<pre align="center">
- Build with 🦖<a href="https://docusaurus.io/">Docusaurus</a> 
-</pre>
-
+</h2>
 <p align="center">
-<br>
-<a href="https://kuizuo.cn">🖥 Online Preview</a>
-<br><br> 
 <a href="https://vercel.com/new/clone?repository-url=https://github.com/kuizuo/blog/tree/main&project-name=blog&repo-name=blog" rel="nofollow"><img src="https://vercel.com/button"></a>
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/kuizuo/blog" rel="nofollow"><img src="https://www.netlify.com/img/deploy/button.svg"></a>
 <a href="https://stackblitz.com/github/kuizuo/blog" rel="nofollow"><img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg"></a>
 </p>
 
-## 👋 Introduction
+## 👋 介绍
 
 在这里我会分享各类技术栈所遇到问题与解决方案，带你了解最新的技术栈以及实际开发中如何应用，并希望我的开发经历对你有所启发。
 
 如果你想要搭建一个类似的站点，可直接 [Fork](https://github.com/kuizuo/blog/fork) 本仓库使用，或者通过 [StackBlitz](https://stackblitz.com/github/kuizuo/blog) 在线运行本项目，通过 [Vercel](https://vercel.com/new/clone?repository-url=https://github.com/kuizuo/blog/tree/main&project-name=blog&repo-name=blog) 一键部署。
 
-## ✨ Features
+## ✨ 特性
 
-- ✍️ **Markdown** - 写作方便
-- 🎨 **Beautiful** - 整洁，美观
+- 🦖 **Docusaurus** - 基于 Docusaurus，提供强大的文档生成和博客功能
+- ✍️ **Markdown** - 写作方便，Markdown
+- 🎨 **Beautiful** - 整洁，美观，阅读体验优先
 - 🖥️ **PWA** - 支持 PWA，可安装，离线可用
-- 🏞️ **i18n** - 支持国际化
+- 🌐 **i18n** - 支持国际化
 - 💯 **SEO** - 搜索引擎优化，易于收录
 - 📊 **谷歌分析** - 支持 Google Analytics
 - 🔎 **全文搜索** - 支持 [Algolia DocSearch](https://github.com/algolia/docsearch)
+- 🚀 **持续集成** - 支持 CI/CD，自动部署更新内容
+- 🏞️ **首页视图** - 显示最新博客文章、项目展示，个人特点，技术栈等
 - 🗃️ **博文视图** - 不同的博文视图，列表、宫格
 - 🌈 **资源导航** - 收集并分享有用、有意思的资源
 - 📦 **项目展示** - 展示你的项目，可用作于作品集
 
-我的修改：[Docusaurus 主题魔改](https://kuizuo.cn/docs/docusaurus-guides)
+我的主题魔改实现：[Docusaurus 主题魔改](https://kuizuo.cn/docs/docusaurus-guides)
 
-## 📊 Catalogue
+## :wrench: 技术栈
+
+- Docusaurus
+- TailwindCSS
+- Framer motion & magicui 
+
+## 📊 目录结构
 
 ```bash
 ├── blog                           # 博客
@@ -44,11 +45,11 @@
 ├── docs                           # 文档/笔记
 │   └── doc.md
 ├── data
-│   ├── feature.ts                 # 特点
-│   ├── friends.ts                 # 友链
-│   ├── projects.ts                # 项目
-│   ├── skills.ts                  # 技术栈
-│   ├── resources.ts               # 资源
+│   ├── feature.tsx                # 特点
+│   ├── friends.tsx                # 友链
+│   ├── projects.tsx               # 项目
+│   ├── skills.tsx                 # 技术栈
+│   ├── resources.tsx              # 资源
 │   └── social.ts                  # 社交链接
 ├── i18n                           # 国际化
 ├── src
@@ -66,7 +67,7 @@
 └── pnpm-lock.yaml
 ```
 
-## 📥 Start
+## 📥 运行
 
 ```bash
 git clone https://github.com/kuizuo/blog.git
@@ -75,12 +76,16 @@ pnpm install
 pnpm start
 ```
 
-Build
+构建
 
 ```bash
 pnpm build
 ```
 
-## 📝License
+## 📷 截图
+
+<img width="1471" alt="Live Demo" src="https://github.com/kuizuo/blog/blob/main/static/img/og.png?raw=true">
+
+## 📝 许可证
 
 [MIT](./LICENSE)
