@@ -7,7 +7,6 @@ import { usePluginData } from '@docusaurus/useGlobalData'
 import { Icon } from '@iconify/react'
 import SocialLinks from '@site/src/components/SocialLinks'
 import { cn } from '@site/src/lib/utils'
-import React from 'react'
 
 import { projects } from '@site/data/projects'
 
@@ -85,7 +84,7 @@ export default function UserCard({ isNavbar = false }: { isNavbar?: boolean }) {
           padding: '0.5em 0',
           justifyContent: 'center',
           gap: '0.5rem',
-          ...(isNavbar ? { borderBottom: '1px solid #eee' } : null),
+          ...(isNavbar ? { borderBottom: '1px solid var(--ifm-border-color)' } : null),
         }}
       />
     </div>

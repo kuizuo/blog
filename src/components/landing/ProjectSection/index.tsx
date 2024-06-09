@@ -14,12 +14,12 @@ const Slider = ({ items }: { items: Project[] }) => {
     <div className="relative flex min-h-[260px] items-center overflow-hidden">
       <Marquee pauseOnHover gradient className="[--duration:60s]">
         {items.map(item => (
-          <div className="mx-2 h-full w-96" key={item.title}>
+          <div className="mx-2 h-full w-48 md:w-96" key={item.title}>
             <a className="flex flex-col hover:no-underline" href={item.website} target="_blank" rel="noreferrer">
               <img
                 src={item.preview}
                 alt={item.title}
-                className="h-[240px] w-full rounded-lg object-cover"
+                className="h-[120px] md:h-[240px] w-full rounded-lg object-cover"
                 loading="lazy"
               />
               <div className="w-full py-2 text-center">
