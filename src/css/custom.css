@@ -42,9 +42,9 @@
     --ifm-heading-color: hsl(214deg 78% 17%);
     --ifm-heading-font-weight: 500;
     --ifm-font-weight-bold: 520;
-    --ifm-toc-border-color: #f1f5f9;
+    --ifm-border-color: #e5e7eb;
 
-    --content-background: #f8fafc;
+    --content-background: #fdfdfd;
 
     --blog-item-background-color: linear-gradient(180deg, #fcfcfc, #fff);
     --blog-item-shadow: 0 10px 18px #f1f5f9dd, 0 0 10px 0 #e4e4e7dd;
@@ -62,7 +62,7 @@
     --ifm-menu-color: #eceef1;
     --ifm-text-color: var(--ifm-menu-color);
     --ifm-secondary-text-color: #eee;
-    --ifm-toc-border-color: #313131;
+    --ifm-border-color: #313131;
 
     --content-background: #18181b;
     --blog-item-background-color: linear-gradient(180deg, #171717, #18181b);

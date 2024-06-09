@@ -42,10 +42,6 @@
   background-clip: text;
 }
 
-.wave {
-  @apply ml-1;
-}
-
 .background {
   @apply relative w-full h-[90%] grid place-items-center items-start;
   z-index: 5;
