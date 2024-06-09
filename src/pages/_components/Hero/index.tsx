@@ -1,5 +1,4 @@
 import { type Variants, motion } from 'framer-motion'
-import React from 'react'
 
 import Translate from '@docusaurus/Translate'
 
@@ -74,7 +73,7 @@ export default function Hero() {
           <div className="relative w-max overflow-hidden rounded-2xl p-0.5">
             <div className={styles.gradient} />
             <a
-              className="relative z-10 flex items-center rounded-2xl border border-[rgba(0,0,0,0.1)] bg-gray-50 px-6 py-3 text-center font-semibold hover:no-underline"
+              className="relative z-10 flex items-center rounded-2xl border border-[rgba(41,41,41,.1)] border-solid bg-gray-50 px-6 py-3 text-center font-semibold hover:no-underline"
               href={'./about'}
             >
               <Translate id="hompage.hero.introduce">自我介绍</Translate>
