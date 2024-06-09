@@ -8,7 +8,6 @@ import styles from './styles.module.css'
 
 import { type Variants, motion } from 'framer-motion'
 
-import dayjs from 'dayjs'
 import MyLayout from '../MyLayout'
 
 type YearProp = {
@@ -32,6 +31,14 @@ const variants: Variants = {
   }),
 }
 
+const formatDate = dateString => {
+  const date = new Date(dateString)
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+
+  return `${month}-${day}`
+}
+
 function Year({ posts }: YearProp) {
   return (
     <>
@@ -47,7 +54,7 @@ function Year({ posts }: YearProp) {
             viewport={{ once: true, amount: 0.8 }}
           >
             <Link to={post.metadata.permalink}>
-              <time className={styles.archiveTime}>{dayjs(post.metadata.date).format('MM-DD')}</time>
+              <time className={styles.archiveTime}>{formatDate(post.metadata.date)}</time>
               <span>{post.metadata.title}</span>
             </Link>
           </motion.li>
