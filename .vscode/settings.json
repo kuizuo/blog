@@ -3,11 +3,15 @@
     "quickfix.biome": "explicit",
     "source.organizeImports": "explicit"
   },
+  "editor.defaultFormatter": "biomejs.biome",
   "[markdown]": {
     "editor.formatOnSave": false
   },
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ]
+  ],
+  "[tailwindcss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
