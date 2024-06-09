@@ -31,9 +31,9 @@ export default function FeaturesSection() {
           <Feature key={idx} {...props} />
         ))}
       </div>
-      <div className="flex w-full flex-col justify-center gap-4 lg:grid lg:grid-cols-6 lg:grid-rows-2 max-lg:px-4">
-        <Skill className="lg:col-span-2 lg:row-span-2" />
-        <Github className="h-full lg:col-span-3 lg:row-span-2" />
+      <div className="flex w-full flex-col justify-center gap-4 md:grid md:grid-cols-6 md:grid-rows-2 max-md:px-4">
+        <Skill className="md:col-span-2 md:row-span-2" />
+        <Github className="h-full md:col-span-3 md:row-span-2" />
       </div>
     </Section>
   )
