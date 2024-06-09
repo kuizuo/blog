@@ -8,7 +8,6 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import React from 'react'
 
 import SectionTitle from '../SectionTitle'
-import styles from './styles.module.css'
 
 const chunk = (arr, size) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size))
@@ -23,7 +22,7 @@ export function BlogItem({ post }: { post: BlogPost }) {
 
   return (
     <motion.li
-      className={cn('card', 'margin-bottom--md')}
+      className={cn('card', 'margin-bottom--md flex w-full bg-blog shadow-blog')}
       key={permalink}
       initial={{ y: 100, opacity: 0.001 }}
       whileInView={{ y: 0, opacity: 1, transition: { duration: 0.5 } }}
@@ -31,15 +30,17 @@ export function BlogItem({ post }: { post: BlogPost }) {
       viewport={{ once: true }}
     >
       {frontMatter.image && (
-        <Link href={permalink} className={styles.image}>
+        <Link href={permalink} className="max-h-[240px] w-full cursor-pointer overflow-hidden object-cover">
           <Image src={frontMatter?.image} alt={title} img={''} />
         </Link>
       )}
       <div className={'card__body'}>
-        <h4>
-          <Link href={permalink}>{title}</Link>
+        <h4 className="text-base">
+          <Link href={permalink} className="relative hover:no-underline">
+            {title}
+          </Link>
         </h4>
-        <p>{description}</p>
+        <p className="text-sm">{description}</p>
       </div>
     </motion.li>
   )
@@ -70,7 +71,7 @@ export default function BlogSection(): JSX.Element {
       <SectionTitle icon="ri:quill-pen-line" href={'/blog'}>
         <Translate id="homepage.blog.title">近期博客</Translate>
       </SectionTitle>
-      <div ref={ref} className={cn('row', styles.list)}>
+      <div ref={ref} className={cn('row', 'm-0 max-h-[640px] overflow-hidden rounded-card py-2')}>
         {posts.map((postGroup, index) => (
           <div className="col margin-top--sm col-6" key={index}>
             {postGroup.map((post, i) => (

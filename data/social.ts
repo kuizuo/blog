@@ -1,6 +1,6 @@
 export type Social = {
   github?: string
-  twitter?: string
+  x?: string
   juejin?: string
   qq?: string
   wx?: string
@@ -19,8 +19,8 @@ type SocialValue = {
 
 const social: Social = {
   github: 'https://github.com/kuizuo',
-  twitter: 'https://twitter.com/kuizuo',
   juejin: 'https://juejin.cn/user/1565318510545901',
+  x: 'https://twitter.com/kuizuo',
   qq: 'https://img.kuizuo.cn/qq.png',
   wx: 'https://img.kuizuo.cn/wechat.png',
   // zhihu: 'https://www.zhihu.com/people/kuizuo',
@@ -42,11 +42,11 @@ const socialSet: Record<keyof Social | 'rss', SocialValue> = {
     icon: 'simple-icons:juejin',
     color: '#1E81FF',
   },
-  twitter: {
-    href: social.twitter,
-    title: 'Twitter',
-    icon: 'ri:twitter-line',
-    color: '#1da1f2',
+  x: {
+    href: social.x,
+    title: 'X',
+    icon: 'ri:twitter-x-line',
+    color: '#000',
   },
   discord: {
     href: social.discord,

@@ -4,7 +4,6 @@ import { HtmlClassNameProvider, PageMetadata, ThemeClassNames } from '@docusauru
 import { Icon } from '@iconify/react'
 import { cn } from '@site/src/lib/utils'
 import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage'
-import React from 'react'
 import styles from './styles.module.css'
 
 import { type Variants, motion } from 'framer-motion'
@@ -60,7 +59,7 @@ function Year({ posts }: YearProp) {
 
 function YearsSection({ years }: { years: YearProp[] }) {
   return (
-    <div className="margin-top--md margin-left--sm">
+    <div className="margin-top--md">
       {years.map((_props, idx) => (
         <motion.div key={idx} initial="from" animate="to" custom={idx} variants={variants}>
           <div className={styles.archiveYear}>
@@ -111,11 +110,11 @@ export default function BlogArchive({ archive }: Props) {
           <Icon icon="carbon:blog" width={24} height={24} />
           {title}
         </h2>
-        <div className={styles.archiveCount}>
+        <p>
           <Translate id="theme.blog.archive.posts.total" values={{ total: archive.blogPosts.length }}>
-            {'共 {total} 篇文章'}
+            {'当前共有 {total} 篇文章，请持续保持创作！'}
           </Translate>
-        </div>
+        </p>
         {years.length > 0 && <YearsSection years={years} />}
       </MyLayout>
     </HtmlClassNameProvider>

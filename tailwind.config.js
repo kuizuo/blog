@@ -6,6 +6,23 @@ module.exports = {
     extend: {
       colors: {
         background: 'var(--content-background)',
+        card: 'var(--ifm-card-background-color)',
+        text: 'var(--ifm-text-color)',
+        secondary: 'var(--ifm-secondary-text-color)',
+        link: 'var(--ifm-link-color)',
+        primary: 'var(--ifm-color-primary)',
+        primaryLight: 'var(--ifm-color-primary-light)',
+        primaryLighter: 'var(--ifm-color-primary-lighter)',
+        primaryLightest: 'var(--ifm-color-primary-lightest)',
+      },
+      fontFamily: {
+        misans: ['misans'],
+      },
+      borderRadius: {
+        card: 'var(--ifm-card-border-radius)',
+      },
+      boxShadow: {
+        blog: 'var(--blog-item-shadow)',
       },
       animation: {
         marquee: 'marquee var(--duration) linear infinite',
@@ -22,6 +39,9 @@ module.exports = {
         },
       },
     },
+  },
+  corePlugins: {
+    preflight: false,
   },
   plugins: [],
 }

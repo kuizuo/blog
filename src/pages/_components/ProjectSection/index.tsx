@@ -2,7 +2,6 @@ import Translate from '@docusaurus/Translate'
 import { type Project, projects } from '@site/data/projects'
 import Marquee from '@site/src/components/magicui/marquee'
 import { cn } from '@site/src/lib/utils'
-import React from 'react'
 import SectionTitle from '../SectionTitle'
 
 const removeHttp = (url: string) => {
@@ -28,7 +27,7 @@ const Slider = ({ items }: { items: Project[] }) => {
                 <h2 className="m-0 overflow-hidden text-ellipsis whitespace-nowrap font-normal text-xl">
                   {item.title}
                 </h2>
-                <p className="m-0 overflow-hidden text-ellipsis whitespace-nowrap text-[var(--ifm-color-primary)]">
+                <p className="m-0 overflow-hidden text-ellipsis whitespace-nowrap text-primary">
                   {removeHttp(item.website)}
                 </p>
               </div>

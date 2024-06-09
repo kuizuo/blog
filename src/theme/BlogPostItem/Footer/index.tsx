@@ -2,10 +2,7 @@ import { useBlogPost, useDateTimeFormat } from '@docusaurus/theme-common/interna
 import { Icon } from '@iconify/react'
 import { cn } from '@site/src/lib/utils'
 import ReadMoreLink from '@theme/BlogPostItem/Footer/ReadMoreLink'
-import EditThisPage from '@theme/EditThisPage'
 import Tag from '@theme/Tag'
-import TagsListInline from '@theme/TagsListInline'
-import React from 'react'
 import { ReadingTime } from '../Header/Info/index'
 
 import styles from './styles.module.css'
@@ -50,7 +47,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           {date && (
             <>
               <Icon icon="ri:calendar-line" />
-              <time dateTime={date} className={styles.blogPostDate} itemProp="datePublished">
+              <time dateTime={date} itemProp="datePublished">
                 {formatDate(date)}
               </time>
             </>
@@ -75,11 +72,14 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           )}
           {truncatedPost && (
             <div
-              className={cn('readMore', {
-                'col--3': tagsExists,
-              })}
+              className={cn(
+                'flex flex-1 items-center justify-end gap-0.5 font-medium text-[var(--ifm-link-color)] opacity-0 transition-opacity duration-200 group-hover/blog:opacity-100',
+                {
+                  'col--3': tagsExists,
+                },
+              )}
             >
-              <ReadMoreLink blogPostTitle={title} to={metadata.permalink} />
+              <ReadMoreLink blogPostTitle={title} to={metadata.permalink} className="hover:no-underline" />
             </div>
           )}
         </div>

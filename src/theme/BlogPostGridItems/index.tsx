@@ -3,6 +3,7 @@ import type { Props as BlogPostItemsProps } from '@theme/BlogPostItems'
 import Tag from '@theme/Tag'
 import { motion } from 'framer-motion'
 
+import { cn } from '@site/src/lib/utils'
 import styles from './styles.module.css'
 
 const container = {
@@ -39,7 +40,7 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
 
         return (
           <motion.div
-            className={styles.postGridItem}
+            className={cn(styles.postGridItem, 'bg-blog hover:bg-blog-shade')}
             key={blogMetaData.permalink}
             variants={item}
             onMouseMove={e => {

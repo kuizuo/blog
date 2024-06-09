@@ -1,7 +1,6 @@
 import { type TagLetterEntry, listTagsByLetters } from '@docusaurus/theme-common'
 import Tag from '@theme/Tag'
 import type { Props } from '@theme/TagsListByLetter'
-import React from 'react'
 
 import styles from './styles.module.css'
 
@@ -9,7 +8,7 @@ function TagLetterEntryItem({ letterEntry }: { letterEntry: TagLetterEntry }) {
   return (
     <article>
       <h2>{letterEntry.letter}</h2>
-      <ul className="padding--none">
+      <ul className="padding--none mb-4">
         {letterEntry.tags.map(tag => (
           <li key={tag.permalink} className={styles.tag}>
             <Tag {...tag} />

@@ -7,7 +7,7 @@
 }
 
 .userCardNavbar {
-  @apply mt-4 relative block text-center;
+  @apply pt-4 relative block text-center;
 }
 
 .cardImg {
@@ -34,7 +34,7 @@
   @apply transition-transform duration-300 ease-in-out flex shrink-0 gap-1.5 px-2.5 items-center text-[var(--ifm-text-color)] border-l border-gray-600;
 
   &:hover {
-    @apply no-underline text-[var(--ifm-color-primary)] cursor-pointer;
+    @apply no-underline text-primary cursor-pointer;
   }
 
   &:first-child {

@@ -4,7 +4,7 @@ import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/BlogTagsListPage'
 import SearchMetadata from '@theme/SearchMetadata'
 import TagsListByLetter from '@theme/TagsListByLetter'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { TagsListByFlat } from '../TagsListByLetter'
 
 import MyLayout from '../MyLayout'
@@ -27,7 +27,7 @@ export default function BlogTagsListPage({ tags, sidebar }: Props): JSX.Element 
           }}
         >
           <h1>{title}</h1>
-          <span>
+          <span className="flex">
             <Icon
               icon="ph:list"
               width="24"

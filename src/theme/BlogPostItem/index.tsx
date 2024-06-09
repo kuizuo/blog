@@ -5,12 +5,11 @@ import BlogPostItemContainer from '@theme/BlogPostItem/Container'
 import BlogPostItemContent from '@theme/BlogPostItem/Content'
 import BlogPostItemFooter from '@theme/BlogPostItem/Footer'
 import BlogPostItemHeader from '@theme/BlogPostItem/Header'
-import React from 'react'
 
 // apply a bottom margin in list view
 function useContainerClassName() {
   const { isBlogPostPage } = useBlogPost()
-  return !isBlogPostPage ? 'blog-card margin-bottom--lg' : ''
+  return !isBlogPostPage ? 'group/blog rounded-md mt-0 bg-blog mb-8 shadow-blog' : ''
 }
 
 export default function BlogPostItem({ children, className }: Props): JSX.Element {

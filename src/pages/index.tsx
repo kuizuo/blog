@@ -1,6 +1,5 @@
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
-import React from 'react'
 import BlogSection from './_components/BlogSection'
 import FeaturesSection from './_components/FeaturesSection'
 import Hero from './_components/Hero'
@@ -16,7 +15,7 @@ export default function Home(): JSX.Element {
     <Layout title={tagline} description={description}>
       <main>
         <Hero />
-        <div className="container-wrapper">
+        <div className="bg-background">
           <BlogSection />
           <ProjectSection />
           <FeaturesSection />
