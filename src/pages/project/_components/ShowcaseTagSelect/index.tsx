@@ -1,7 +1,7 @@
 import { useHistory, useLocation } from '@docusaurus/router'
 import type { TagType } from '@site/data/projects'
 import { toggleListItem } from '@site/src/utils/jsUtils'
-import React, { type ComponentProps, type ReactNode, type ReactElement, useCallback, useState, useEffect } from 'react'
+import React, { type ComponentProps, type ReactElement, type ReactNode, useCallback, useEffect, useState } from 'react'
 import { prepareUserState } from '../../index'
 
 import styles from './styles.module.css'
@@ -50,7 +50,7 @@ const ShowcaseTagSelect = React.forwardRef<HTMLLabelElement, Props>(({ id, icon,
       <input
         type="checkbox"
         id={id}
-        className="screen-reader-only"
+        className="sr-only"
         onKeyDown={e => {
           if (e.key === 'Enter') {
             toggleTag()

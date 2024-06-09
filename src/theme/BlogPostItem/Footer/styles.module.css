@@ -3,16 +3,8 @@
 }
 
 .blogPostInfo {
-  margin-top: 0.5em;
-  display: flex;
-  align-items: center;
   margin-bottom: var(--ifm-spacing-m);
-  flex-wrap: wrap;
-  gap: 4px;
-  color: var(--ifm-secondary-text-color);
-
-  font-size: 0.8rem;
-  font-weight: 400;
+  @apply flex mt-[0.5em] flex-wrap items-center text-sm gap-1 text-secondary;
 }
 
 .blogPostInfoTags {

@@ -4,21 +4,20 @@
 
 .postGridItem {
   @apply relative min-w-[24rem] grid grid-cols-[max-content_1fr] gap-y-4 gap-x-8 items-center p-4 rounded transition-all duration-300;
-  background: var(--blog-item-background-color);
   grid-template-areas: 'title title' 'tags date';
 }
 
 .postGridItem:hover {
-  @apply box-border shadow-[var(--blog-item-shadow)] bg-[var(--blog-item-shade)];
+  @apply box-border shadow-blog;
 }
 
 .postGridItem .itemTitle {
-  @apply text-inherit text-base no-underline transition duration-500 hover:text-[var(--ifm-color-primary)];
+  @apply text-inherit text-base no-underline transition duration-500 hover:text-primary;
   grid-area: title;
 }
 
 .postGridItem .itemStick {
-  @apply absolute top-[-6px] left-0 inline-block text-[var(--ifm-color-primary)] text-xl before:content-['\e62b'];
+  @apply absolute top-[-6px] left-0 inline-block text-primary text-xl before:content-['\e62b'];
   grid-area: stick;
   justify-self: end;
 }
@@ -29,7 +28,7 @@
 }
 
 .postGridItem .itemTags a {
-  @apply px-[1px] border-0 text-inherit hover:text-[var(--ifm-color-primary)];
+  @apply p-[1px] border-0 text-inherit hover:text-primary;
 }
 
 .postGridItem .itemDate {

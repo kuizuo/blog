@@ -1,9 +1,9 @@
 .socialLinks {
-  @apply w-full flex items-center md:flex-wrap md:justify-between md:gap-3 py-2 relative z-[100] justify-center flex-wrap gap-1;
+  @apply w-full flex items-center md:flex-wrap md:justify-between md:gap-3 py-2 relative z-50 justify-center flex-wrap gap-1;
 }
 
 .socialLinks a {
-  @apply inline-flex box-content w-8 h-8 items-center justify-center transition-all duration-300 ease-in-out rounded-full p-1 hover:bg-[var(--color)];
+  @apply inline-flex box-content size-7 items-center justify-center transition-colors duration-300 rounded-full p-1 hover:text-white hover:bg-[var(--color)];
 }
 
 .socialLinks .dropdown {
@@ -15,10 +15,10 @@
 }
 
 .socialLinks .dropdown__menu {
-  @apply right-0 top-[120%];
+  @apply right-0;
 }
 
 .socialLinks svg,
 .socialLinks svg path {
-  @apply w-6 h-6 transition-all duration-300 ease-in-out;
+  @apply size-6;
 }

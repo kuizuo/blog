@@ -1,5 +1,5 @@
 import { useHistory, useLocation } from '@docusaurus/router'
-import React, { useState, useEffect, useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { prepareUserState } from '../../index'
 
@@ -41,7 +41,7 @@ export default function ShowcaseFilterToggle(): JSX.Element {
       <input
         type="checkbox"
         id={id}
-        className="screen-reader-only"
+        className="sr-only"
         aria-label="Toggle between or and and for the tags you selected"
         onChange={toggleOperator}
         onKeyDown={e => {

@@ -9,7 +9,6 @@ import type { Props } from '@theme/BlogTagsPostsPage'
 import Heading from '@theme/Heading'
 import SearchMetadata from '@theme/SearchMetadata'
 import Unlisted from '@theme/Unlisted'
-import React from 'react'
 
 import MyLayout from '../MyLayout'
 
