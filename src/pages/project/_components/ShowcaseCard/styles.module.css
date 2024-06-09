@@ -4,7 +4,6 @@
   transition: opacity 0.5s;
   will-change: transform;
   overflow: hidden;
-  touch-action: none;
 }
 
 .showcaseCard::before {
