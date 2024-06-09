@@ -6,8 +6,7 @@ import { cn } from '@site/src/lib/utils'
 import Image from '@theme/IdealImage'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import React from 'react'
-
-import SectionTitle from '../SectionTitle'
+import { Section } from '../Section'
 
 const chunk = (arr, size) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size))
@@ -67,13 +66,10 @@ export default function BlogSection(): JSX.Element {
   }
 
   return (
-    <section className={cn('padding-vert--sm container', 'max-w-7xl')}>
-      <SectionTitle icon="ri:quill-pen-line" href={'/blog'}>
-        <Translate id="homepage.blog.title">近期博客</Translate>
-      </SectionTitle>
-      <div ref={ref} className={cn('row', 'm-0 max-h-[640px] overflow-hidden rounded-card py-2')}>
+    <Section title={<Translate id="homepage.blog.title">近期博客</Translate>} icon="ri:quill-pen-line" href={'/blog'}>
+      <div ref={ref} className="grid max-h-[640px] grid-cols-12 gap-4 overflow-hidden rounded-card px-3">
         {posts.map((postGroup, index) => (
-          <div className="col margin-top--sm col-6" key={index}>
+          <div className="col-span-4" key={index}>
             {postGroup.map((post, i) => (
               <motion.div style={{ y: i / 2 ? y : 0 }} key={i}>
                 <BlogItem key={post.id} post={post} />
@@ -82,6 +78,6 @@ export default function BlogSection(): JSX.Element {
           </div>
         ))}
       </div>
-    </section>
+    </Section>
   )
 }

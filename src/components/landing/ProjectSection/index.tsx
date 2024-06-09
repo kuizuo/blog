@@ -1,8 +1,7 @@
 import Translate from '@docusaurus/Translate'
 import { type Project, projects } from '@site/data/projects'
 import Marquee from '@site/src/components/magicui/marquee'
-import { cn } from '@site/src/lib/utils'
-import SectionTitle from '../SectionTitle'
+import { Section } from '../Section'
 
 const removeHttp = (url: string) => {
   return url.replace(/(^\w+:|^)\/\//, '')
@@ -43,13 +42,12 @@ const Slider = ({ items }: { items: Project[] }) => {
 
 export default function ProjectSection() {
   return (
-    <section className={cn('padding-vert--sm container', 'max-w-7xl')}>
-      <SectionTitle icon={'ri:projector-line'} href={'/project'}>
-        <Translate id="homepage.project.title">项目展示</Translate>
-      </SectionTitle>
-      <div>
-        <Slider items={showProjects} />
-      </div>
-    </section>
+    <Section
+      title={<Translate id="homepage.project.title">项目展示</Translate>}
+      icon={'ri:projector-line'}
+      href={'/project'}
+    >
+      <Slider items={showProjects} />
+    </Section>
   )
 }

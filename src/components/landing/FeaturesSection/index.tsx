@@ -1,7 +1,9 @@
 import Translate from '@docusaurus/Translate'
 import features, { type FeatureItem } from '@site/data/features'
 import { cn } from '@site/src/lib/utils'
-import SectionTitle from '../SectionTitle'
+import { Section } from '../Section'
+import Github from './Github'
+import Skill from './Skill'
 
 function Feature({ title, Svg, text }: FeatureItem) {
   return (
@@ -23,15 +25,16 @@ function Feature({ title, Svg, text }: FeatureItem) {
 
 export default function FeaturesSection() {
   return (
-    <section className={cn('padding-vert--sm container max-w-7xl')}>
-      <SectionTitle icon={'ri:map-pin-user-line'}>
-        <Translate id="homepage.feature.title">个人特点</Translate>
-      </SectionTitle>
-      <div className="flex w-full flex-col justify-center gap-4 md:flex-row">
+    <Section title={<Translate id="homepage.feature.title">个人特点</Translate>} icon={'ri:map-pin-user-line'}>
+      <div className="flex w-full flex-col justify-center gap-4 md:flex-row max-lg:px-4">
         {features.map((props, idx) => (
           <Feature key={idx} {...props} />
         ))}
       </div>
-    </section>
+      <div className="flex w-full flex-col justify-center gap-4 lg:grid lg:grid-cols-6 lg:grid-rows-2 max-lg:px-4">
+        <Skill className="lg:col-span-2 lg:row-span-2" />
+        <Github className="h-full lg:col-span-3 lg:row-span-2" />
+      </div>
+    </Section>
   )
 }
