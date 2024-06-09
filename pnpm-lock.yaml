@@ -45,8 +45,8 @@ importers:
         specifier: 0.0.0-beta.4
         version: 0.0.0-beta.4
       docusaurus-plugin-image-zoom:
-        specifier: ^1.0.1
-        version: 1.0.1(@docusaurus/theme-classic@3.4.0(@types/react@18.2.21)(eslint@8.57.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.3.3))
+        specifier: ^2.0.0
+        version: 2.0.0(@docusaurus/theme-classic@3.4.0(@types/react@18.2.21)(eslint@8.57.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.3.3))
       framer-motion:
         specifier: ^10.18.0
         version: 10.18.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -2405,10 +2405,10 @@ packages:
   docusaurus-plugin-baidu-tongji@0.0.0-beta.4:
     resolution: {integrity: sha512-LePs8OLhaeHJBeZlZDDgWDbsHKERQAt7F0ELZ77X8tG3xCOkSLmNq+KTsQ+QhpsLp8xtRtyOqGtYiEaQPFMdBw==}
 
-  docusaurus-plugin-image-zoom@1.0.1:
-    resolution: {integrity: sha512-96IpSKUx2RWy3db9aZ0s673OQo5DWgV9UVWouS+CPOSIVEdCWh6HKmWf6tB9rsoaiIF3oNn9keiyv6neEyKb1Q==}
+  docusaurus-plugin-image-zoom@2.0.0:
+    resolution: {integrity: sha512-TWHQZeoiged+95CESlZk++lihzl3pqw34n0/fbexx2AocmFhbo9K2scYDgYB8amki4/X6mUCLTPZE1pQvT+00Q==}
     peerDependencies:
-      '@docusaurus/theme-classic': '>=2.2.0'
+      '@docusaurus/theme-classic': '>=3.0.0'
 
   dom-converter@0.2.0:
     resolution: {integrity: sha512-gd3ypIPfOMr9h5jIKq8E3sHOTCjeirnl0WK5ZdS1AW0Odt0b1PaWaHdJ4Qk4klv+YB9aJBS7mESXjFoDQPu6DA==}
@@ -5502,6 +5502,7 @@ packages:
 
   workbox-google-analytics@7.0.0:
     resolution: {integrity: sha512-MEYM1JTn/qiC3DbpvP2BVhyIH+dV/5BjHk756u9VbwuAhu0QHyKscTnisQuz21lfRpOwiS9z4XdqeVAKol0bzg==}
+    deprecated: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
 
   workbox-navigation-preload@7.0.0:
     resolution: {integrity: sha512-juWCSrxo/fiMz3RsvDspeSLGmbgC0U9tKqcUPZBCf35s64wlaLXyn2KdHHXVQrb2cqF7I0Hc9siQalainmnXJA==}
@@ -8773,7 +8774,7 @@ snapshots:
 
   docusaurus-plugin-baidu-tongji@0.0.0-beta.4: {}
 
-  docusaurus-plugin-image-zoom@1.0.1(@docusaurus/theme-classic@3.4.0(@types/react@18.2.21)(eslint@8.57.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.3.3)):
+  docusaurus-plugin-image-zoom@2.0.0(@docusaurus/theme-classic@3.4.0(@types/react@18.2.21)(eslint@8.57.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.3.3)):
     dependencies:
       '@docusaurus/theme-classic': 3.4.0(@types/react@18.2.21)(eslint@8.57.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.3.3)
       medium-zoom: 1.0.8
