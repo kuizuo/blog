@@ -271,7 +271,12 @@ const config: Config = {
     locales: ['en', 'es'],
     localeConfigs: {
       en: {
-        htmlLang: 'en-GB',
+        htmlLang: 'en-US',
+        path: 'en',
+      },
+      es: {
+        htmlLang: 'es-MX',
+        path: 'es',
       },
     },
   },
