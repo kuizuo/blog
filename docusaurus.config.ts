@@ -7,16 +7,15 @@ import social from './data/social'
 
 
 const config: Config = {
-  title: '愧怍',
-  url: 'https://kuizuo.cn',
+  title: 'Cloud Journey',
+  url: 'https://fernandogprieto.com',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  organizationName: 'kuizuo',
-  projectName: 'blog',
+  projectName: 'fgp-web',
   customFields: {
-    bio: '道阻且长，行则将至',
+    bio: '',
     description:
-      '是一个由愧怍创建的个人博客，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
+      'IT Specialist specializing in professional development and technological trends. Currently pursuing Cloud Engineering certifications with a focus on cloud-native, open-source, and AI technologies',
   },
   themeConfig: {
     // announcementBar: {
@@ -271,7 +270,12 @@ const config: Config = {
     locales: ['en', 'es'],
     localeConfigs: {
       en: {
-        htmlLang: 'en-GB',
+        htmlLang: 'en-US',
+        path: 'en',
+      },
+      es: {
+        htmlLang: 'es-MX',
+        path: 'es',
       },
     },
   },
