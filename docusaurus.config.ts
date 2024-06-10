@@ -296,6 +296,7 @@ const config: Config = {
       },
     },
   },
+  onBrokenLinks: 'warn',
 }
 
 export default config
