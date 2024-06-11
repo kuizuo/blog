@@ -43,6 +43,7 @@
     --ifm-heading-font-weight: 500;
     --ifm-font-weight-bold: 520;
     --ifm-border-color: #e5e7eb;
+    --ifm-toc-border-color: var(--ifm-border-color);
 
     --content-background: #fdfdfd;
 
@@ -63,6 +64,7 @@
     --ifm-text-color: var(--ifm-menu-color);
     --ifm-secondary-text-color: #eee;
     --ifm-border-color: #313131;
+    --ifm-toc-border-color: var(--ifm-border-color);
 
     --content-background: #18181b;
     --blog-item-background-color: linear-gradient(180deg, #171717, #18181b);

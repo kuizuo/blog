@@ -84,6 +84,8 @@ html[data-theme='dark'] .showcaseCardSrcBtn:hover {
 .cardFooter {
   display: flex;
   flex-wrap: wrap;
+
+  margin: 0;
 }
 
 .tag {
