@@ -21,7 +21,7 @@ avatar: 'https://kuizuo.cn/img/logo.png'
 function SiteInfo() {
   return (
     <div className="w-96 rounded-[var(--ifm-pre-border-radius)] border border-black border-solid border-opacity-10 text-left text-sm leading-none">
-      <CodeBlock language="yaml" title="本站信息">
+      <CodeBlock language="yaml" title="本站信息" className={styles.codeBlock}>
         {SITE_INFO}
       </CodeBlock>
     </div>

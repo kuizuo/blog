@@ -14,3 +14,8 @@
   @apply p-4;
   --ifm-pre-padding: 0 1rem 1rem;
 }
+
+.codeBlock pre {
+  padding: 0;
+  margin: 0;
+}
