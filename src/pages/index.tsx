@@ -1,12 +1,12 @@
-import React from 'react'
-import Layout from '@theme/Layout'
-import Hero from './_components/Hero'
-import BlogSection from './_components/BlogSection'
-import FeaturesSection from './_components/FeaturesSection'
-import ProjectSection from './_components/ProjectSection'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import Layout from '@theme/Layout'
+import BlogSection from '../components/landing/BlogSection'
+import FeaturesSection from '../components/landing/FeaturesSection'
+import Hero from '../components/landing/Hero'
+import ProjectSection from '../components/landing/ProjectSection'
+import Particles from '../components/magicui/particles'
 
-export default function Home(): JSX.Element {
+export default function Home() {
   const {
     siteConfig: { customFields, tagline },
   } = useDocusaurusContext()
@@ -16,10 +16,18 @@ export default function Home(): JSX.Element {
     <Layout title={tagline} description={description}>
       <main>
         <Hero />
-        <div className="container-wrapper">
-          <BlogSection />
-          <ProjectSection />
-          <FeaturesSection />
+        <Particles className="absolute inset-0" quantity={100} ease={80} color={'#ffffff'} refresh />
+
+        <div className="relative">
+          <div className="mx-auto max-w-7xl bg-background lg:px-8">
+            <BlogSection />
+            <ProjectSection />
+            <FeaturesSection />
+          </div>
+          <div
+            className="-z-50 absolute inset-0 bg-grid-slate-50 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.3))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"
+            style={{ backgroundPosition: '10px 10px;' }}
+          />
         </div>
       </main>
     </Layout>

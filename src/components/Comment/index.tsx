@@ -1,9 +1,8 @@
-import React from 'react'
-import { useThemeConfig, useColorMode } from '@docusaurus/theme-common'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import { ThemeConfig } from '@docusaurus/preset-classic'
 import BrowserOnly from '@docusaurus/BrowserOnly'
-import Giscus, { GiscusProps, Theme } from '@giscus/react'
+import type { ThemeConfig } from '@docusaurus/preset-classic'
+import { useColorMode, useThemeConfig } from '@docusaurus/theme-common'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import Giscus, { type GiscusProps, type Theme } from '@giscus/react'
 
 export type GiscusConfig = GiscusProps & { darkTheme: Theme }
 
@@ -32,9 +31,5 @@ export default function Comment(): JSX.Element {
   giscus.theme = useColorMode().colorMode === 'dark' ? giscus.darkTheme : giscus.theme
   giscus.lang = i18n.currentLocale
 
-  return (
-    <BrowserOnly fallback={<div>Loading Comments...</div>}>
-      {() => <Giscus {...giscus} />}
-    </BrowserOnly>
-  )
+  return <BrowserOnly fallback={<div>Loading Comments...</div>}>{() => <Giscus {...giscus} />}</BrowserOnly>
 }

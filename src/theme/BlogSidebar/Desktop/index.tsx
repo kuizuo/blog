@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import clsx from 'clsx'
 import Link from '@docusaurus/Link'
-import { Icon } from '@iconify/react'
 import { translate } from '@docusaurus/Translate'
 import { useBlogPost } from '@docusaurus/theme-common/internal'
+import { Icon } from '@iconify/react'
+import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/BlogSidebar/Desktop'
+import React, { useState } from 'react'
 
-import styles from './styles.module.scss'
+import styles from './styles.module.css'
 
 export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
   const { isBlogPostPage } = useBlogPost()
@@ -17,13 +17,9 @@ export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
   }
 
   return (
-    <aside
-      className="col col--2"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <aside className="col col--2" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <nav
-        className={clsx(styles.sidebar, 'thin-scrollbar')}
+        className={cn(styles.sidebar, 'thin-scrollbar')}
         aria-label={translate({
           id: 'theme.blog.sidebar.navAriaLabel',
           message: 'Blog recent posts navigation',
@@ -33,14 +29,14 @@ export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
       >
         {isBlogPostPage && (
           <div className={styles.backButton} onClick={handleBack}>
-            <Icon icon="ri:arrow-go-back-line"></Icon>
+            <Icon icon="ri:arrow-go-back-line" />
           </div>
         )}
 
-        <Link href="/blog" className={clsx(styles.sidebarItemTitle, 'margin-bottom--sm')}>
+        <Link href="/blog" className={cn(styles.sidebarItemTitle, 'margin-bottom--sm')}>
           {sidebar.title}
         </Link>
-        <ul className={clsx(styles.sidebarItemList, 'clean-list')}>
+        <ul className={cn(styles.sidebarItemList, 'clean-list')}>
           {sidebar.items.map(item => (
             <li key={item.permalink} className={styles.sidebarItem}>
               <Link

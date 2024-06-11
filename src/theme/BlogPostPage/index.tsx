@@ -1,16 +1,16 @@
-import React, { type ReactNode } from 'react'
-import clsx from 'clsx'
+import type { BlogSidebar } from '@docusaurus/plugin-content-blog'
 import { HtmlClassNameProvider, ThemeClassNames } from '@docusaurus/theme-common'
 import { BlogPostProvider, useBlogPost } from '@docusaurus/theme-common/internal'
+import Comment from '@site/src/components/Comment'
+import { cn } from '@site/src/lib/utils'
+import BackToTopButton from '@theme/BackToTopButton'
 import BlogLayout from '@theme/BlogLayout'
 import BlogPostItem from '@theme/BlogPostItem'
-import BlogPostPaginator from '@theme/BlogPostPaginator'
-import BlogPostPageMetadata from '@theme/BlogPostPage/Metadata'
-import BackToTopButton from '@theme/BackToTopButton'
-import TOC from '@theme/TOC'
 import type { Props } from '@theme/BlogPostPage'
-import type { BlogSidebar } from '@docusaurus/plugin-content-blog'
-import Comment from '@site/src/components/Comment'
+import BlogPostPageMetadata from '@theme/BlogPostPage/Metadata'
+import BlogPostPaginator from '@theme/BlogPostPaginator'
+import TOC from '@theme/TOC'
+import React, { type ReactNode } from 'react'
 
 function BlogPostPageContent({
   sidebar,
@@ -33,11 +33,7 @@ function BlogPostPageContent({
       sidebar={sidebar}
       toc={
         !hideTableOfContents && toc.length > 0 ? (
-          <TOC
-            toc={toc}
-            minHeadingLevel={tocMinHeadingLevel}
-            maxHeadingLevel={tocMaxHeadingLevel}
-          />
+          <TOC toc={toc} minHeadingLevel={tocMinHeadingLevel} maxHeadingLevel={tocMaxHeadingLevel} />
         ) : undefined
       }
     >
@@ -58,9 +54,7 @@ export default function BlogPostPage(props: Props): JSX.Element {
   const BlogPostContent = props.content
   return (
     <BlogPostProvider content={props.content} isBlogPostPage>
-      <HtmlClassNameProvider
-        className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogPostPage)}
-      >
+      <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogPostPage)}>
         <BlogPostPageMetadata />
         <BlogPostPageContent sidebar={props.sidebar}>
           <BlogPostContent />

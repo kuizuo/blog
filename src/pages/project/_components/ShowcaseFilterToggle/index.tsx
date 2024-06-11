@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react'
 import { useHistory, useLocation } from '@docusaurus/router'
+import { useCallback, useEffect, useState } from 'react'
 
 import { prepareUserState } from '../../index'
 
+import { cn } from '@site/src/lib/utils'
 import styles from './styles.module.css'
-import clsx from 'clsx'
 
 export type Operator = 'OR' | 'AND'
 
@@ -41,7 +41,7 @@ export default function ShowcaseFilterToggle(): JSX.Element {
       <input
         type="checkbox"
         id={id}
-        className="screen-reader-only"
+        className="sr-only"
         aria-label="Toggle between or and and for the tags you selected"
         onChange={toggleOperator}
         onKeyDown={e => {
@@ -51,7 +51,7 @@ export default function ShowcaseFilterToggle(): JSX.Element {
         }}
         checked={operator}
       />
-      <label htmlFor={id} className={clsx(styles.checkboxLabel, 'shadow--md')}>
+      <label htmlFor={id} className={cn(styles.checkboxLabel, 'shadow--md')}>
         <span className={styles.checkboxLabelOr}>OR</span>
         <span className={styles.checkboxLabelAnd}>AND</span>
       </label>

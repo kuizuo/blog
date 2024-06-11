@@ -47,7 +47,7 @@ export default function Tooltip({ children, id, anchorEl, text, delay }: Props):
     } else {
       setContainer(document.body)
     }
-  }, [container, anchorEl])
+  }, [anchorEl])
 
   useEffect(() => {
     const showEvents = ['mouseenter', 'focus']
@@ -114,11 +114,7 @@ export default function Tooltip({ children, id, anchorEl, text, delay }: Props):
                 {...attributes.popper}
               >
                 {text}
-                <span
-                  ref={setArrowElement}
-                  className={styles.tooltipArrow}
-                  style={popperStyles.arrow}
-                />
+                <span ref={setArrowElement} className={styles.tooltipArrow} style={popperStyles.arrow} />
               </div>
             ),
             container,

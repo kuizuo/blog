@@ -23,9 +23,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "importsNotUsedAsValues": "remove",
-
     "moduleResolution": "Bundler",
-
     "skipLibCheck": false,
     "types": ["jest"]
   },

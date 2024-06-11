@@ -1,15 +1,11 @@
-import React from 'react'
-import clsx from 'clsx'
 import { translate } from '@docusaurus/Translate'
 import { usePluralForm } from '@docusaurus/theme-common'
 import { useBlogPost, useDateTimeFormat } from '@docusaurus/theme-common/internal'
+import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/BlogPostItem/Header/Info'
-import type { BlogPostFrontMatter } from '@docusaurus/plugin-content-blog'
-import TagsListInline from '@theme/TagsListInline'
 
-import styles from './styles.module.css'
-import Tag from '@site/src/theme/Tag'
 import { Icon } from '@iconify/react'
+import Tag from '@site/src/theme/Tag'
 
 // Very simple pluralization: probably good enough for now
 function useReadingTimePlural() {
@@ -60,20 +56,24 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
   const formatDate = (blogDate: string) => dateTimeFormat.format(new Date(blogDate))
 
   return (
-    <div className={clsx(styles.container, 'margin-bottom--md', className)}>
-      <div className={styles.date}>
+    <div className={cn('inline-flex flex-wrap gap-1.5 text-base', 'margin-bottom--md', className)}>
+      <div className="inline-flex items-center gap-1">
         <Icon icon="ri:calendar-line" />
         <DateTime date={date} formattedDate={formatDate(date)} />
       </div>
       {tagsExists && (
-        <div className={styles.tagInfo}>
+        <div className="inline-flex items-center gap-1">
           <Icon icon="ri:price-tag-3-line" />
-          <div className={clsx('truncate', styles.tagList)}>
+          <div className={cn('truncate', 'inline-flex text-center')}>
             {tags.slice(0, 3).map(({ label, permalink: tagPermalink }, index) => {
               return (
                 <div key={tagPermalink}>
                   {index !== 0 && '/'}
-                  <Tag label={label} permalink={tagPermalink} className={'tag'} />
+                  <Tag
+                    label={label}
+                    permalink={tagPermalink}
+                    className={'tag !border-0 px-0.5 py-0.5 text-text hover:text-link'}
+                  />
                 </div>
               )
             })}
@@ -81,7 +81,7 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
         </div>
       )}
       {typeof readingTime !== 'undefined' && (
-        <div className={styles.date}>
+        <div className="inline-flex items-center gap-1">
           <Icon icon="ri:time-line" />
           <ReadingTime readingTime={readingTime} />
         </div>

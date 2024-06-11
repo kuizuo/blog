@@ -17,8 +17,7 @@ const FEATURES: FeatureItem[] = [
     }),
     text: (
       <Translate>
-        作为一名 TypeScript 全栈工程师，秉着能用 TS 绝不用 JS
-        的原则，为项目提供类型安全的保障，提高代码质量和开发效率。
+        作为一名 TypeScript 全栈工程师，秉着能用 TS 绝不用 JS 的原则，为项目提供类型安全的保障，提高代码质量和开发效率。
       </Translate>
     ),
     Svg: WebDeveloperSvg,

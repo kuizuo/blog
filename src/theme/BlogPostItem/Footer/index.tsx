@@ -1,14 +1,11 @@
-import React from 'react'
-import clsx from 'clsx'
 import { useBlogPost, useDateTimeFormat } from '@docusaurus/theme-common/internal'
-import EditThisPage from '@theme/EditThisPage'
-import TagsListInline from '@theme/TagsListInline'
-import Tag from '@theme/Tag'
-import ReadMoreLink from '@theme/BlogPostItem/Footer/ReadMoreLink'
 import { Icon } from '@iconify/react'
+import { cn } from '@site/src/lib/utils'
+import ReadMoreLink from '@theme/BlogPostItem/Footer/ReadMoreLink'
+import Tag from '@theme/Tag'
 import { ReadingTime } from '../Header/Info/index'
 
-import styles from './styles.module.scss'
+import styles from './styles.module.css'
 
 export default function BlogPostItemFooter(): JSX.Element | null {
   const { metadata, isBlogPostPage } = useBlogPost()
@@ -50,7 +47,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           {date && (
             <>
               <Icon icon="ri:calendar-line" />
-              <time dateTime={date} className={styles.blogPostDate} itemProp="datePublished">
+              <time dateTime={date} itemProp="datePublished">
                 {formatDate(date)}
               </time>
             </>
@@ -68,18 +65,21 @@ export default function BlogPostItemFooter(): JSX.Element | null {
           {readingTime && (
             <>
               <Icon icon="ri:time-line" />
-              <span className={clsx(styles.blogPostReadTime, 'blog__readingTime')}>
+              <span className={cn(styles.blogPostReadTime, 'blog__readingTime')}>
                 <ReadingTime readingTime={readingTime} />
               </span>
             </>
           )}
           {truncatedPost && (
             <div
-              className={clsx('readMore', {
-                'col--3': tagsExists,
-              })}
+              className={cn(
+                'flex flex-1 items-center justify-end gap-0.5 font-medium text-[var(--ifm-link-color)] opacity-0 transition-opacity duration-200 group-hover/blog:opacity-100',
+                {
+                  'col--3': tagsExists,
+                },
+              )}
             >
-              <ReadMoreLink blogPostTitle={title} to={metadata.permalink} />
+              <ReadMoreLink blogPostTitle={title} to={metadata.permalink} className="hover:no-underline" />
             </div>
           )}
         </div>
@@ -88,9 +88,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
   }
 
   return (
-    <footer
-      className={clsx('row docusaurus-mt-lg', isBlogPostPage && styles.blogPostFooterDetailsFull)}
-    >
+    <footer className={cn('row docusaurus-mt-lg', isBlogPostPage && styles.blogPostFooterDetailsFull)}>
       {/* {isBlogPostPage && editUrl && (
         <div className="col margin-top--sm">
           <EditThisPage editUrl={editUrl} />
@@ -99,7 +97,7 @@ export default function BlogPostItemFooter(): JSX.Element | null {
 
       {truncatedPost && (
         <div
-          className={clsx('col text--right', {
+          className={cn('col text--right', {
             'col--3': tagsExists,
           })}
         >

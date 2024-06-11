@@ -18,21 +18,8 @@
     "text": "article p, article li, article td:last-child"
   },
   "custom_settings": {
-    "attributesForFaceting": [
-      "type",
-      "lang",
-      "language",
-      "version",
-      "docusaurus_tag"
-    ],
-    "attributesToRetrieve": [
-      "hierarchy",
-      "content",
-      "anchor",
-      "url",
-      "url_without_anchor",
-      "type"
-    ],
+    "attributesForFaceting": ["type", "lang", "language", "version", "docusaurus_tag"],
+    "attributesToRetrieve": ["hierarchy", "content", "anchor", "url", "url_without_anchor", "type"],
     "attributesToHighlight": ["hierarchy", "content"],
     "attributesToSnippet": ["content:10"],
     "camelCaseAttributes": ["hierarchy", "content"],
@@ -48,20 +35,8 @@
     ],
     "distinct": true,
     "attributeForDistinct": "url",
-    "customRanking": [
-      "desc(weight.pageRank)",
-      "desc(weight.level)",
-      "asc(weight.position)"
-    ],
-    "ranking": [
-      "words",
-      "filters",
-      "typo",
-      "attribute",
-      "proximity",
-      "exact",
-      "custom"
-    ],
+    "customRanking": ["desc(weight.pageRank)", "desc(weight.level)", "asc(weight.position)"],
+    "ranking": ["words", "filters", "typo", "attribute", "proximity", "exact", "custom"],
     "highlightPreTag": "<span class='algolia-docsearch-suggestion--highlight'>",
     "highlightPostTag": "</span>",
     "minWordSizefor1Typo": 3,
@@ -73,9 +48,6 @@
     "attributeCriteriaComputedByMinProximity": true,
     "removeWordsIfNoResults": "allOptional",
     "separatorsToIndex": "_",
-    "synonyms": [
-      ["js", "javascript"],
-      ["ts", "typescript"]
-    ]
+    "synonyms": [["js", "javascript"], ["ts", "typescript"]]
   }
 }

@@ -1,12 +1,12 @@
-import React from 'react'
-import Layout from '@theme/Layout'
 import CodeBlock from '@theme/CodeBlock'
+import Layout from '@theme/Layout'
+import React from 'react'
 
-import FriendCard from './_components/FriendCard'
 import { Friends } from '@site/data/friends'
+import FriendCard from './_components/FriendCard'
 
-import styles from './styles.module.css'
 import { motion } from 'framer-motion'
+import styles from './styles.module.css'
 
 const TITLE = '友链'
 const DESCRIPTION = '有很多良友，胜于有很多财富。'
@@ -20,8 +20,8 @@ avatar: 'https://kuizuo.cn/img/logo.png'
 
 function SiteInfo() {
   return (
-    <div className={styles.siteInfo}>
-      <CodeBlock language="yaml" title="本站信息">
+    <div className="w-96 rounded-[var(--ifm-pre-border-radius)] border border-black border-solid border-opacity-10 text-left text-sm leading-none">
+      <CodeBlock language="yaml" title="本站信息" className={styles.codeBlock}>
         {SITE_INFO}
       </CodeBlock>
     </div>
@@ -30,7 +30,7 @@ function SiteInfo() {
 
 function FriendHeader() {
   return (
-    <section className="margin-top--lg margin-bottom--lg text--center">
+    <section className="margin-top--lg margin-bottom--lg text-center">
       <h1>{TITLE}</h1>
       <p>{DESCRIPTION}</p>
       <a className="button button--primary" href={ADD_FRIEND_URL} target="_blank" rel="noreferrer">

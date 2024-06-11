@@ -1,0 +1,86 @@
+.sidebar {
+  max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+  overflow-y: auto;
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 2rem);
+
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.5s;
+}
+
+.sidebarItemTitle {
+  font-size: var(--ifm-h4-font-size);
+  font-weight: var(--ifm-font-weight-bold);
+  font-family: var(--ifm-heading-font-family);
+
+  color: var(--ifm-text-color);
+
+  &:hover {
+    color: var(--ifm-link-color);
+    text-decoration: none;
+  }
+}
+
+.sidebarItemList {
+  font-size: 0.8rem;
+}
+
+.sidebarItem {
+  margin-top: 0.7rem;
+}
+
+.sidebarItemLink {
+  color: var(--ifm-font-color-secondary);
+
+  display: block;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sidebarItemLink:hover {
+  text-decoration: none;
+}
+
+.sidebarItemLinkActive {
+  color: var(--ifm-color-primary) !important;
+}
+
+@media (max-width: 996px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+:root {
+  --back-btn-bg-color: #fafaf9;
+  --back-btn-bg-color-hover: #f1f5f9;
+}
+
+html[data-theme='dark'] {
+  --back-btn-bg-color: #18181b;
+  --back-btn-bg-color-hover: #334155;
+}
+
+.backButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-align: right;
+  float: right;
+
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  background-color: var(--back-btn-bg-color);
+
+  &:hover {
+    color: var(--ifm-link-color);
+    background-color: var(--back-btn-bg-color-hover);
+  }
+}

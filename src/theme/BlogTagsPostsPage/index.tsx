@@ -1,22 +1,15 @@
-import React from 'react'
-import clsx from 'clsx'
-import Translate, { translate } from '@docusaurus/Translate'
-import {
-  PageMetadata,
-  HtmlClassNameProvider,
-  ThemeClassNames,
-  usePluralForm,
-} from '@docusaurus/theme-common'
 import Link from '@docusaurus/Link'
+import Translate, { translate } from '@docusaurus/Translate'
+import { HtmlClassNameProvider, PageMetadata, ThemeClassNames, usePluralForm } from '@docusaurus/theme-common'
+import { cn } from '@site/src/lib/utils'
 import BackToTopButton from '@theme/BackToTopButton'
 import BlogListPaginator from '@theme/BlogListPaginator'
-import SearchMetadata from '@theme/SearchMetadata'
-import type { Props } from '@theme/BlogTagsPostsPage'
 import BlogPostItems from '@theme/BlogPostItems'
-import Unlisted from '@theme/Unlisted'
+import type { Props } from '@theme/BlogTagsPostsPage'
 import Heading from '@theme/Heading'
+import SearchMetadata from '@theme/SearchMetadata'
+import Unlisted from '@theme/Unlisted'
 
-import styles from './styles.module.scss'
 import MyLayout from '../MyLayout'
 
 // Very simple pluralization: probably good enough for now
@@ -59,23 +52,15 @@ function BlogTagsPostsPageMetadata({ tag }: Props): JSX.Element {
   )
 }
 
-function BlogTagsPostsPageContent({
-  tag,
-  items,
-  sidebar,
-  listMetadata,
-}: Props): JSX.Element {
+function BlogTagsPostsPageContent({ tag, items, sidebar, listMetadata }: Props): JSX.Element {
   const title = useBlogTagsPostsPageTitle(tag)
   return (
     <MyLayout>
       {tag.unlisted && <Unlisted />}
-      <header className={clsx(styles.pageHeader)}>
+      <header className={cn('mb-4')}>
         <Heading as="h1">{title}</Heading>
         <Link href={tag.allTagsPath}>
-          <Translate
-            id="theme.tags.tagsPageLink"
-            description="The label of the link targeting the tag list page"
-          >
+          <Translate id="theme.tags.tagsPageLink" description="The label of the link targeting the tag list page">
             View All Tags
           </Translate>
         </Link>
@@ -88,12 +73,7 @@ function BlogTagsPostsPageContent({
 }
 export default function BlogTagsPostsPage(props: Props): JSX.Element {
   return (
-    <HtmlClassNameProvider
-      className={clsx(
-        ThemeClassNames.wrapper.blogPages,
-        ThemeClassNames.page.blogTagPostListPage,
-      )}
-    >
+    <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagPostListPage)}>
       <BlogTagsPostsPageMetadata {...props} />
       <BlogTagsPostsPageContent {...props} />
     </HtmlClassNameProvider>

@@ -1,16 +1,11 @@
-import React, { useState } from 'react'
-import clsx from 'clsx'
-import {
-  PageMetadata,
-  HtmlClassNameProvider,
-  ThemeClassNames,
-  translateTagsPageTitle,
-} from '@docusaurus/theme-common'
-import TagsListByLetter from '@theme/TagsListByLetter'
-import { TagsListByFlat } from '../TagsListByLetter'
+import { HtmlClassNameProvider, PageMetadata, ThemeClassNames, translateTagsPageTitle } from '@docusaurus/theme-common'
+import { Icon } from '@iconify/react'
+import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/BlogTagsListPage'
 import SearchMetadata from '@theme/SearchMetadata'
-import { Icon } from '@iconify/react'
+import TagsListByLetter from '@theme/TagsListByLetter'
+import { useState } from 'react'
+import { TagsListByFlat } from '../TagsListByLetter'
 
 import MyLayout from '../MyLayout'
 
@@ -20,9 +15,7 @@ export default function BlogTagsListPage({ tags, sidebar }: Props): JSX.Element 
   const [type, setType] = useState<'list' | 'grid'>('list')
 
   return (
-    <HtmlClassNameProvider
-      className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}
-    >
+    <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}>
       <PageMetadata title={title} />
       <SearchMetadata tag="blog_tags_list" />
       <MyLayout>
@@ -34,7 +27,7 @@ export default function BlogTagsListPage({ tags, sidebar }: Props): JSX.Element 
           }}
         >
           <h1>{title}</h1>
-          <span>
+          <span className="flex">
             <Icon
               icon="ph:list"
               width="24"

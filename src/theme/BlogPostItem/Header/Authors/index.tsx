@@ -1,8 +1,8 @@
-import React from 'react'
-import clsx from 'clsx'
 import { useBlogPost } from '@docusaurus/theme-common/internal'
+import { cn } from '@site/src/lib/utils'
 import BlogPostItemHeaderAuthor from '@theme/BlogPostItem/Header/Author'
 import type { Props } from '@theme/BlogPostItem/Header/Authors'
+import React from 'react'
 import styles from './styles.module.css'
 
 export default function BlogPostItemHeaderAuthors({ className }: Props): JSX.Element | null {
@@ -16,19 +16,10 @@ export default function BlogPostItemHeaderAuthors({ className }: Props): JSX.Ele
   }
   const imageOnly = authors.every(({ name }) => !name)
   return (
-    <div
-      className={clsx(
-        'margin-top--sm margin-bottom--sm',
-        imageOnly ? styles.imageOnlyAuthorRow : 'row',
-        className,
-      )}
-    >
+    <div className={cn('margin-top--sm margin-bottom--sm', imageOnly ? styles.imageOnlyAuthorRow : 'row', className)}>
       {authors.map((author, idx) => (
         <div
-          className={clsx(
-            !imageOnly && 'col col--6',
-            imageOnly ? styles.imageOnlyAuthorCol : styles.authorCol,
-          )}
+          className={cn(!imageOnly && 'col col--6', imageOnly ? styles.imageOnlyAuthorCol : styles.authorCol)}
           key={idx}
         >
           <BlogPostItemHeaderAuthor

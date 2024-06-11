@@ -6,7 +6,7 @@ export default function prismIncludeLanguages(PrismObject: typeof PrismNamespace
   const {
     themeConfig: { prism },
   } = siteConfig
-  const { additionalLanguages } = prism as { additionalLanguages: string[] }
+  const { additionalLanguages } = (prism as { additionalLanguages: string[] }) ?? []
 
   // support vue
   PrismObject.languages.vue = PrismObject.languages.markup!
@@ -26,6 +26,5 @@ export default function prismIncludeLanguages(PrismObject: typeof PrismNamespace
 
     require(`prismjs/components/prism-${lang}`)
   })
-
-  delete (globalThis as Optional<typeof globalThis, 'Prism'>).Prism
+  ;(globalThis as Optional<typeof globalThis, 'Prism'>).Prism = undefined
 }

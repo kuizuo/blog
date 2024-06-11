@@ -1,27 +1,30 @@
-import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
+import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
-import { GiscusConfig } from './src/components/Comment'
 import social from './data/social'
+import type { GiscusConfig } from './src/components/Comment'
 
-
+const beian = '闽ICP备2020017848号-2'
+const beian1 = '闽公网安备35021102000847号'
 
 const config: Config = {
-  title: 'Cloud Journey',
-  url: 'https://fernandogprieto.com',
+  title: '愧怍',
+  url: 'https://kuizuo.cn',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  projectName: 'fgp-web',
+  organizationName: 'kuizuo',
+  projectName: 'blog',
   customFields: {
-    bio: '',
+    bio: '道阻且长，行则将至',
     description:
-      'IT Specialist specializing in professional development and technological trends. Currently pursuing Cloud Engineering certifications with a focus on cloud-native, open-source, and AI technologies',
+      '是一个由愧怍创建的个人博客，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
   },
   themeConfig: {
     // announcementBar: {
     //   id: 'announcementBar-3',
     //   content: ``,
     // },
+    image: 'img/og.png',
     metadata: [
       {
         name: 'author',
@@ -94,7 +97,7 @@ const config: Config = {
           items: [
             { label: '关于我', to: '/about' },
             { label: 'GitHub', href: social.github.href },
-            { label: 'Twitter', href: social.twitter.href },
+            { label: 'Twitter', href: social.x.href },
             { label: '掘金', href: social.juejin.href },
             { label: 'Discord', href: social.discord.href },
           ],
@@ -125,8 +128,10 @@ const config: Config = {
         },
       ],
       copyright: `
-        <p style="margin-bottom: 0;"> </p>
-        <p style="display: inline-flex; align-items: center;"></p>
+        <p style="margin-bottom: 0;"><a href="http://beian.miit.gov.cn/">${beian}</a></p>
+        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${
+          beian1.match(/\d+/)?.[0]
+        }" >${beian1}</a></p>
         <p>Copyright © 2020 - PRESENT 愧怍 Built with Docusaurus.</p>
         `,
     },
@@ -193,7 +198,7 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: ['./src/css/custom.scss'],
+          customCss: ['./src/css/custom.css'],
         },
         sitemap: {
           priority: 0.5,
@@ -208,14 +213,20 @@ const config: Config = {
   ],
   plugins: [
     'docusaurus-plugin-image-zoom',
-    'docusaurus-plugin-sass',
     '@docusaurus/plugin-ideal-image',
-    ['docusaurus-plugin-baidu-tongji', { token: 'c9a3849aa75f9c4a4e65f846cd1a5155' }],
+    [
+      'docusaurus-plugin-baidu-tongji',
+      { token: 'c9a3849aa75f9c4a4e65f846cd1a5155' },
+    ],
     [
       '@docusaurus/plugin-pwa',
       {
         debug: process.env.NODE_ENV === 'development',
-        offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
+        offlineModeActivationStrategies: [
+          'appInstalled',
+          'standalone',
+          'queryString',
+        ],
         pwaHead: [
           { tagName: 'link', rel: 'icon', href: '/img/logo.png' },
           { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
@@ -247,10 +258,21 @@ const config: Config = {
         feedOptions: {
           type: 'all',
           title: '愧怍',
-          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p></p>`,
+          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
         },
       },
     ],
+    async function myPlugin(context, options) {
+      return {
+        name: 'docusaurus-tailwindcss',
+        configurePostCss(postcssOptions) {
+          // Appends TailwindCSS and AutoPrefixer.
+          postcssOptions.plugins.push(require('tailwindcss'))
+          postcssOptions.plugins.push(require('autoprefixer'))
+          return postcssOptions
+        },
+      }
+    },
   ],
   headTags: [
     {
@@ -266,19 +288,15 @@ const config: Config = {
     'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css',
   ],
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'es'],
+    defaultLocale: 'zh-CN',
+    locales: ['en', 'zh-CN'],
     localeConfigs: {
       en: {
-        htmlLang: 'en-US',
-        path: 'en',
-      },
-      es: {
-        htmlLang: 'es-MX',
-        path: 'es',
+        htmlLang: 'en-GB',
       },
     },
   },
+  onBrokenLinks: 'warn',
 }
 
 export default config

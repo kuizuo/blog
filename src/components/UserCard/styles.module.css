@@ -1,0 +1,51 @@
+.userCard {
+  @apply rounded-[12px] bg-[var(--blog-item-background-color)] shadow-[var(--blog-item-shadow)] m-0 relative block text-center;
+}
+
+.userCard a {
+  @apply no-underline;
+}
+
+.userCardNavbar {
+  @apply pt-4 relative block text-center;
+}
+
+.cardImg {
+  @apply w-24 h-24 max-w-full rounded-full p-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)] transition duration-500;
+
+  &:hover {
+    @apply shadow-[0_0_30px_rgba(0,120,231,0.2)];
+  }
+}
+
+.name {
+  @apply text-[var(--ifm-text-color)] font-[var(--ifm-font-family-name)] font-black cursor-pointer m-auto;
+}
+
+.bio {
+  @apply mt-2 mb-2 text-[var(--ifm-secondary-text-color)] text-sm;
+}
+
+.num {
+  @apply flex justify-center items-center relative text-base font-medium gap-0.5;
+}
+
+.numItem {
+  @apply transition-transform duration-300 ease-in-out flex shrink-0 gap-1.5 px-2.5 items-center text-[var(--ifm-text-color)] border-l border-gray-600;
+
+  &:hover {
+    @apply no-underline text-primary cursor-pointer;
+  }
+
+  &:first-child {
+    @apply border-0;
+  }
+}
+
+.tags {
+  @apply mt-2 flex flex-wrap;
+
+  > a {
+    @apply px-1.5 py-0.5;
+  }
+}

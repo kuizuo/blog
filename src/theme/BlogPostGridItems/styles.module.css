@@ -1,0 +1,72 @@
+.blogGrid {
+  @apply grid grid-cols-2 justify-center gap-3 mb-4;
+}
+
+.postGridItem {
+  @apply relative min-w-[24rem] grid grid-cols-[max-content_1fr] gap-y-4 gap-x-8 items-center p-4 rounded transition-all duration-300;
+  grid-template-areas: 'title title' 'tags date';
+}
+
+.postGridItem:hover {
+  @apply box-border shadow-blog;
+}
+
+.postGridItem .itemTitle {
+  @apply text-inherit text-base no-underline transition duration-500 hover:text-primary;
+  grid-area: title;
+}
+
+.postGridItem .itemStick {
+  @apply absolute top-[-6px] left-0 inline-block text-primary text-xl before:content-['\e62b'];
+  grid-area: stick;
+  justify-self: end;
+}
+
+.postGridItem .itemTags {
+  @apply inline-flex items-center whitespace-nowrap text-sm;
+  grid-area: tags;
+}
+
+.postGridItem .itemTags a {
+  @apply p-[1px] border-0 text-inherit hover:text-primary;
+}
+
+.postGridItem .itemDate {
+  @apply text-xs text-[var(--ifm-color-emphasis-600)];
+  grid-area: date;
+  justify-self: end;
+}
+
+.spotlight {
+  @apply text-transparent bg-clip-text;
+  background-image: radial-gradient(
+    var(--lighting-highlight-color),
+    var(--lighting-color),
+    var(--lighting-color)
+  );
+  background-size: var(--lighting-size) var(--lighting-size);
+  background-repeat: no-repeat;
+  background-color: var(--lighting-color);
+  background-position-x: calc(
+    var(--x) - var(--mouse-x) - calc(var(--lighting-size) / 2)
+  );
+  background-position-y: calc(
+    var(--y) - var(--mouse-y) - calc(var(--lighting-size) / 2)
+  );
+}
+
+@media (max-width: 768px) {
+  .postGridItem {
+    @apply min-w-full;
+  }
+}
+
+@media (max-width: 576px) {
+  .blogGrid {
+    @apply grid-cols-[minmax(0,max-content)];
+  }
+
+  .postGridItem {
+    @apply max-w-full min-w-[28rem];
+  }
+}

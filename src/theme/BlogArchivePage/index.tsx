@@ -1,19 +1,13 @@
-import React from 'react'
 import Link from '@docusaurus/Link'
 import Translate, { translate } from '@docusaurus/Translate'
-import clsx from 'clsx'
-import {
-  PageMetadata,
-  HtmlClassNameProvider,
-  ThemeClassNames,
-} from '@docusaurus/theme-common'
-import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage'
+import { HtmlClassNameProvider, PageMetadata, ThemeClassNames } from '@docusaurus/theme-common'
 import { Icon } from '@iconify/react'
+import { cn } from '@site/src/lib/utils'
+import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage'
 import styles from './styles.module.css'
 
-import { motion, Variants } from 'framer-motion'
+import { type Variants, motion } from 'framer-motion'
 
-import dayjs from 'dayjs'
 import MyLayout from '../MyLayout'
 
 type YearProp = {
@@ -37,6 +31,14 @@ const variants: Variants = {
   }),
 }
 
+const formatDate = dateString => {
+  const date = new Date(dateString)
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+
+  return `${month}-${day}`
+}
+
 function Year({ posts }: YearProp) {
   return (
     <>
@@ -52,9 +54,7 @@ function Year({ posts }: YearProp) {
             viewport={{ once: true, amount: 0.8 }}
           >
             <Link to={post.metadata.permalink}>
-              <time className={styles.archiveTime}>
-                {dayjs(post.metadata.date).format('MM-DD')}
-              </time>
+              <time className={styles.archiveTime}>{formatDate(post.metadata.date)}</time>
               <span>{post.metadata.title}</span>
             </Link>
           </motion.li>
@@ -66,15 +66,9 @@ function Year({ posts }: YearProp) {
 
 function YearsSection({ years }: { years: YearProp[] }) {
   return (
-    <div className="margin-top--md margin-left--sm">
+    <div className="margin-top--md">
       {years.map((_props, idx) => (
-        <motion.div
-          key={idx}
-          initial="from"
-          animate="to"
-          custom={idx}
-          variants={variants}
-        >
+        <motion.div key={idx} initial="from" animate="to" custom={idx} variants={variants}>
           <div className={styles.archiveYear}>
             <h3 className={styles.archiveYearTitle}>{_props.year}</h3>
             <span>
@@ -116,26 +110,18 @@ export default function BlogArchive({ archive }: Props) {
 
   const years = listPostsByYears(archive.blogPosts)
   return (
-    <HtmlClassNameProvider
-      className={clsx(
-        ThemeClassNames.wrapper.blogPages,
-        ThemeClassNames.page.blogTagsListPage,
-      )}
-    >
+    <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}>
       <PageMetadata title={title} description={description} />
       <MyLayout>
         <h2 className={styles.archiveTitle}>
           <Icon icon="carbon:blog" width={24} height={24} />
           {title}
         </h2>
-        <div className={styles.archiveCount}>
-          <Translate
-            id="theme.blog.archive.posts.total"
-            values={{ total: archive.blogPosts.length }}
-          >
-            {`共 {total} 篇文章`}
+        <p>
+          <Translate id="theme.blog.archive.posts.total" values={{ total: archive.blogPosts.length }}>
+            {'当前共有 {total} 篇文章，请持续保持创作！'}
           </Translate>
-        </div>
+        </p>
         {years.length > 0 && <YearsSection years={years} />}
       </MyLayout>
     </HtmlClassNameProvider>

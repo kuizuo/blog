@@ -1,8 +1,4 @@
-import React from 'react'
-import {
-  listTagsByLetters,
-  type TagLetterEntry,
-} from '@docusaurus/theme-common'
+import { type TagLetterEntry, listTagsByLetters } from '@docusaurus/theme-common'
 import Tag from '@theme/Tag'
 import type { Props } from '@theme/TagsListByLetter'
 
@@ -12,7 +8,7 @@ function TagLetterEntryItem({ letterEntry }: { letterEntry: TagLetterEntry }) {
   return (
     <article>
       <h2>{letterEntry.letter}</h2>
-      <ul className="padding--none">
+      <ul className="padding--none mb-4">
         {letterEntry.tags.map(tag => (
           <li key={tag.permalink} className={styles.tag}>
             <Tag {...tag} />
@@ -29,10 +25,7 @@ export default function TagsListByLetter({ tags }: Props): JSX.Element {
   return (
     <section className="margin-vert--lg">
       {letterList.map(letterEntry => (
-        <TagLetterEntryItem
-          key={letterEntry.letter}
-          letterEntry={letterEntry}
-        />
+        <TagLetterEntryItem key={letterEntry.letter} letterEntry={letterEntry} />
       ))}
     </section>
   )

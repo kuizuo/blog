@@ -19,7 +19,7 @@
 .hr {
   margin: 0;
   border: none;
-  border-top: 1px solid var(--ifm-toc-border-color);
+  border-top: 1px solid var(--ifm-border-color);
 }
 
 .percent {
