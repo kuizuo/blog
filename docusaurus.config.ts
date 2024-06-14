@@ -251,7 +251,7 @@ const config: Config = {
         blogDescription: '代码人生：编织技术与生活的博客之旅',
         blogSidebarCount: 10,
         blogSidebarTitle: 'Blogs',
-        postsPerPage: 10,
+        postsPerPage: 12,
         showReadingTime: true,
         readingTime: ({ content, frontMatter, defaultReadingTime }) =>
           defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),

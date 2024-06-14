@@ -1,79 +1,137 @@
-import Link from '@docusaurus/Link'
 import type { Props as BlogPostItemsProps } from '@theme/BlogPostItems'
-import Tag from '@theme/Tag'
-import { motion } from 'framer-motion'
 
+import Link from '@docusaurus/Link'
 import { cn } from '@site/src/lib/utils'
+import Tag from '@site/src/theme/Tag'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react'
+
 import styles from './styles.module.css'
 
-const container = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.2,
-    },
-  },
-}
-
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-}
-
 export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.Element {
-  return (
-    <motion.div className={styles.blogGrid} variants={container} initial="hidden" animate="visible">
-      {items.map(({ content: BlogPostContent }, i) => {
-        const { metadata: blogMetaData, frontMatter } = BlogPostContent
-        const { title } = frontMatter
-        const { permalink, date, tags } = blogMetaData
-        const dateObj = new Date(date)
-        const dateString = `${dateObj.getFullYear()}-${`0${dateObj.getMonth() + 1}`.slice(
-          -2,
-        )}-${`0${dateObj.getDate()}`.slice(-2)}`
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
-        return (
-          <motion.div
-            className={cn(styles.postGridItem, 'bg-blog hover:bg-blog-shade')}
-            key={blogMetaData.permalink}
-            variants={item}
-            onMouseMove={e => {
-              e.currentTarget.style.setProperty('--mouse-x', `${e.clientX}px`)
-              e.currentTarget.style.setProperty('--mouse-y', `${e.clientY}px`)
-            }}
-          >
-            <Link to={permalink} className={styles.itemTitle}>
-              {title}
-            </Link>
-            <div className={styles.itemTags}>
-              {tags.length > 0 && (
-                <>
-                  <svg width="1em" height="1em" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      fillRule="evenodd"
-                      d="M10 15h4V9h-4v6Zm0 2v3a1 1 0 0 1-2 0v-3H5a1 1 0 0 1 0-2h3V9H5a1 1 0 1 1 0-2h3V4a1 1 0 1 1 2 0v3h4V4a1 1 0 0 1 2 0v3h3a1 1 0 0 1 0 2h-3v6h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3h-4Z"
-                    />
-                  </svg>
-                  {tags.slice(0, 2).map(({ label, permalink: tagPermalink }, index) => (
-                    <>
-                      {index !== 0 && '/'}
-                      <Tag label={label} permalink={tagPermalink} key={tagPermalink} className="tag" />
-                    </>
-                  ))}
-                </>
+  const data = items.map(({ content: BlogPostContent }, i) => {
+    const { metadata: blogMetaData, frontMatter } = BlogPostContent
+    const { title } = frontMatter
+    const { permalink, date, tags } = blogMetaData
+    const dateObj = new Date(date)
+    const dateString = `${dateObj.getFullYear()}-${`0${dateObj.getMonth() + 1}`.slice(
+      -2,
+    )}-${`0${dateObj.getDate()}`.slice(-2)}`
+
+    return {
+      title: title!,
+      link: permalink,
+      tags: tags,
+      date: dateString,
+    }
+  })
+
+  return (
+    <div className={cn('grid grid-cols-2 py-10 lg:grid-cols-3')}>
+      {data.map((item, idx) => (
+        <div
+          key={item?.link}
+          className="group relative block h-full w-full p-2"
+          onMouseEnter={() => setHoveredIndex(idx)}
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          <Link href={item?.link}>
+            <AnimatePresence>
+              {hoveredIndex === idx && (
+                <motion.span
+                  className="absolute inset-0 block h-full w-full rounded-lg bg-neutral-100 dark:bg-slate-800/[0.8]"
+                  layoutId="hoverBackground"
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: 1,
+                    transition: { duration: 0.15 },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    transition: { duration: 0.15, delay: 0.2 },
+                  }}
+                />
               )}
-            </div>
-            <div className={styles.itemDate}>{dateString}</div>
-          </motion.div>
-        )
-      })}
-    </motion.div>
+            </AnimatePresence>
+
+            <Card className="bg-blog">
+              <CardTitle className="transition duration-300 hover:text-primary">{item.title}</CardTitle>
+              <CardFooter className="flex justify-between pt-4">
+                <div
+                  className={cn(styles.blogTags, 'inline-flex items-center gap-1 whitespace-nowrap text-sm text-text')}
+                >
+                  {item.tags?.length > 0 && (
+                    <>
+                      <svg width="1em" height="1em" viewBox="0 0 24 24">
+                        <path
+                          fill="currentColor"
+                          fillRule="evenodd"
+                          d="M10 15h4V9h-4v6Zm0 2v3a1 1 0 0 1-2 0v-3H5a1 1 0 0 1 0-2h3V9H5a1 1 0 1 1 0-2h3V4a1 1 0 1 1 2 0v3h4V4a1 1 0 0 1 2 0v3h3a1 1 0 0 1 0 2h-3v6h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3h-4Z"
+                        />
+                      </svg>
+                      {item.tags.slice(0, 2).map(({ label, permalink: tagPermalink, description }, index) => (
+                        <>
+                          {index !== 0 && '/'}
+                          <Tag
+                            label={label}
+                            description={description}
+                            permalink={tagPermalink}
+                            key={tagPermalink}
+                            className="tag"
+                          />
+                        </>
+                      ))}
+                    </>
+                  )}
+                </div>
+                <div className="text-[var(--ifm-color-emphasis-600)] text-xs">{item.date}</div>
+              </CardFooter>
+            </Card>
+          </Link>
+        </div>
+      ))}
+    </div>
   )
+}
+
+export const Card = ({
+  className,
+  children,
+}: {
+  className?: string
+  children: React.ReactNode
+}) => {
+  return (
+    <div
+      className={cn(
+        'relative z-20 h-full w-full overflow-hidden rounded-lg border border-transparent bg-background p-4 dark:border-white/[0.2] group-hover:border-slate-700',
+        className,
+      )}
+    >
+      <div className="relative z-50">
+        <div className="p-2">{children}</div>
+      </div>
+    </div>
+  )
+}
+export const CardTitle = ({
+  className,
+  children,
+}: {
+  className?: string
+  children: React.ReactNode
+}) => {
+  return <h4 className={cn('text-text', className)}>{children}</h4>
+}
+
+export const CardFooter = ({
+  className,
+  children,
+}: {
+  className?: string
+  children: React.ReactNode
+}) => {
+  return <div className={className}>{children}</div>
 }
