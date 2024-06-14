@@ -1,3 +1,19 @@
 .blogTags a {
   @apply p-px border-0 text-inherit hover:text-primary;
 }
+
+.blogSticky:after {
+  opacity: 1;
+  border: 10px solid var(--ifm-color-primary);
+  border-block-end: 10px solid transparent;
+  border-inline-start: 10px solid transparent;
+  border-start-end-radius: 8px;
+  position: absolute;
+  inset-block-start: 1px;
+  inset-inline-end: 1px;
+  transition: all 0.3s cubic-bezier(0.845, 0.045, 0.355, 1);
+  border-block-end: 10px solid transparent;
+  border-inline-start: 10px solid transparent;
+  border-start-end-radius: 6px;
+  content: '';
+}

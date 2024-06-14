@@ -1,8 +1,8 @@
-import type { Props as BlogPostItemsProps } from '@theme/BlogPostItems'
-
 import Link from '@docusaurus/Link'
+import type { BlogPostFrontMatter } from '@docusaurus/plugin-content-blog'
 import { cn } from '@site/src/lib/utils'
 import Tag from '@site/src/theme/Tag'
+import type { Props as BlogPostItemsProps } from '@theme/BlogPostItems'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 
@@ -11,20 +11,21 @@ import styles from './styles.module.css'
 export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.Element {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
-  const data = items.map(({ content: BlogPostContent }, i) => {
-    const { metadata: blogMetaData, frontMatter } = BlogPostContent
-    const { title } = frontMatter
-    const { permalink, date, tags } = blogMetaData
+  const data = items.map(({ content: BlogPostContent }) => {
+    const { metadata, frontMatter } = BlogPostContent
+    const { title, sticky } = frontMatter as BlogPostFrontMatter & { sticky: number }
+    const { permalink, date, tags } = metadata
     const dateObj = new Date(date)
     const dateString = `${dateObj.getFullYear()}-${`0${dateObj.getMonth() + 1}`.slice(
       -2,
     )}-${`0${dateObj.getDate()}`.slice(-2)}`
 
     return {
-      title: title!,
+      title,
       link: permalink,
-      tags: tags,
+      tags,
       date: dateString,
+      sticky,
     }
   })
 
@@ -32,12 +33,12 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
     <div className={cn('grid grid-cols-2 py-10 lg:grid-cols-3')}>
       {data.map((item, idx) => (
         <div
-          key={item?.link}
+          key={item.link}
           className="group relative block h-full w-full p-2"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          <Link href={item?.link}>
+          <Link href={item.link}>
             <AnimatePresence>
               {hoveredIndex === idx && (
                 <motion.span
@@ -56,7 +57,7 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
               )}
             </AnimatePresence>
 
-            <Card className="bg-blog">
+            <Card className={cn('relative bg-blog', item.sticky && styles.blogSticky)}>
               <CardTitle className="transition duration-300 hover:text-primary">{item.title}</CardTitle>
               <CardFooter className="flex justify-between pt-4">
                 <div

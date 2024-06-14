@@ -67,10 +67,7 @@ export default function BlogSection(): JSX.Element {
 
   return (
     <Section title={<Translate id="homepage.blog.title">近期博客</Translate>} icon="ri:quill-pen-line" href={'/blog'}>
-      <div
-        ref={ref}
-        className="flex flex-col gap-4 overflow-hidden rounded-card p-3 md:grid md:max-h-[640px] md:grid-cols-12"
-      >
+      <div ref={ref} className="flex flex-col gap-4 overflow-hidden rounded-card p-3 md:grid md:grid-cols-12">
         {posts.map((postGroup, index) => (
           <div className="col-span-4" key={index}>
             {postGroup.map((post, i) => (
