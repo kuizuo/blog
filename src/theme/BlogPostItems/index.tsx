@@ -2,10 +2,9 @@ import { BlogPostProvider } from '@docusaurus/theme-common/internal'
 import BlogPostItem from '@theme/BlogPostItem'
 import type { Props } from '@theme/BlogPostItems'
 import { type Variants, motion } from 'framer-motion'
-import React from 'react'
 
 const variants: Variants = {
-  from: { opacity: 0.01, y: 100 },
+  from: { opacity: 0.001, y: 100 },
   to: i => ({
     opacity: 1,
     y: 0,
