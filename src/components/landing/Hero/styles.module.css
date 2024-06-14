@@ -61,45 +61,6 @@
   @apply absolute inline-flex justify-center items-center bg-transparent text-transparent backdrop-blur-[2px] shadow-[inset_1px_1px_5px_rgb(255,255,255,0.3),0_0_5px_rgb(0,0,0,0.2)] rounded-lg p-2 w-14 h-14;
 }
 
-@keyframes surround {
-  0% {
-    transform: translateY(-25%) translateX(40%) rotate(0deg);
-  }
-
-  30% {
-    transform: translateY(0) translateX(0) rotate(90deg) scaleX(0.7);
-  }
-
-  50% {
-    transform: translateY(-25%) translateX(-40%) rotate(180deg);
-  }
-
-  70% {
-    transform: translateY(0) translateX(0) rotate(270deg) scaleX(0.7);
-  }
-
-  100% {
-    transform: translateY(-25%) translateX(40%) rotate(1turn);
-  }
-}
-
-.gradient {
-  @apply absolute inset-0 h-full rounded-2xl bg-[conic-gradient(transparent_50deg,var(--ifm-color-primary-light)_80deg,transparent_100deg)] blur-lg;
-  animation: surround -0.64s linear 4s infinite;
-  transform-origin: center;
-  will-change: transform;
-}
-
-html[data-theme='dark'] {
-  .gradient {
-    background: conic-gradient(
-      transparent 50deg,
-      var(--ifm-color-primary-darker) 80deg,
-      transparent 100deg
-    );
-  }
-}
-
 @media (max-width: 1000px) {
   .hero {
     @apply grid-cols-1 grid-rows-[max-content_minmax(0,max-content)] items-start h-auto;

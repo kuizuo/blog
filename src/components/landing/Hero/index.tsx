@@ -5,6 +5,7 @@ import Translate from '@docusaurus/Translate'
 import HeroSvg from './img/hero.svg'
 
 import SocialLinks from '@site/src/components/SocialLinks'
+import { MovingButton } from '../../magicui/moving-border'
 import styles from './styles.module.css'
 
 const variants: Variants = {
@@ -70,15 +71,14 @@ export default function Hero() {
         </motion.div>
 
         <motion.div className="mt-4 flex gap-2" custom={4} initial="hidden" animate="visible" variants={variants}>
-          <div className="relative w-max overflow-hidden rounded-2xl p-0.5">
-            <div className={styles.gradient} />
-            <a
-              className="relative z-10 flex items-center rounded-2xl border border-[rgba(41,41,41,.1)] border-solid bg-background px-6 py-3 text-center font-semibold hover:no-underline"
-              href={'./about'}
-            >
+          <MovingButton
+            borderRadius="1.25rem"
+            className="relative z-10 flex items-center rounded-2xl border border-neutral-200 border-solid bg-background px-5 py-3 text-center font-semibold text-base dark:border-neutral-800"
+          >
+            <a href={'/about'} className="font-semibold">
               <Translate id="hompage.hero.introduce">自我介绍</Translate>
             </a>
-          </div>
+          </MovingButton>
         </motion.div>
       </div>
       <motion.div className={styles.background}>

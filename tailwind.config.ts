@@ -64,7 +64,19 @@ const twConfig: Config = {
         },
       )
     }),
+    addVariablesForColors,
   ],
 }
 
 export default twConfig
+
+function addVariablesForColors({ addBase, theme }: any) {
+  const allColors = flattenColorPalette(theme('colors'))
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
+  )
+
+  addBase({
+    ':root': newVars,
+  })
+}
