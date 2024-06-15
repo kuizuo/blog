@@ -38,7 +38,7 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          <Link href={item.link}>
+          <Link href={item.link} className="hover:no-underline">
             <AnimatePresence>
               {hoveredIndex === idx && (
                 <motion.span

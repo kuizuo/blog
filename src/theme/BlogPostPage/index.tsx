@@ -10,7 +10,7 @@ import type { Props } from '@theme/BlogPostPage'
 import BlogPostPageMetadata from '@theme/BlogPostPage/Metadata'
 import BlogPostPaginator from '@theme/BlogPostPaginator'
 import TOC from '@theme/TOC'
-import React, { type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
 function BlogPostPageContent({
   sidebar,

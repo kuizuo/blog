@@ -25,7 +25,6 @@
 .percent {
   display: inline-block;
   margin: var(--ifm-toc-padding-vertical) var(--ifm-toc-padding-horizontal);
-  padding-left: var(--ifm-toc-padding-horizontal);
   font-size: 0.9rem;
   color: var(--ifm-color-emphasis-600);
 }

@@ -10,7 +10,7 @@ export const useReadPercent = () => {
     postRef.current = document.getElementById('__blog-post-container')
   }, [])
 
-  useMotionValueEvent(scrollYProgress, 'change', latest => {
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     setScrollProgress(latest)
   })
 

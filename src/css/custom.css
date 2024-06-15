@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    --content-background: #fdfdfd;
     --ifm-color-primary: #12affa;
     --ifm-color-primary-dark: #05a1ec;
     --ifm-color-primary-darker: #0598df;
@@ -16,6 +17,7 @@
 
     --ifm-heading-font-family: ui-sans-serif, system-ui, -apple-system;
 
+    --ifm-navbar-background-color: var(--content-background);
     --ifm-navbar-shadow: 0 4px 28px rgb(0 0 0 / 10%);
 
     --ifm-menu-color: #0d203a;
@@ -45,8 +47,6 @@
     --ifm-border-color: #e5e7eb;
     --ifm-toc-border-color: var(--ifm-border-color);
 
-    --content-background: #fdfdfd;
-
     --blog-item-background-color: linear-gradient(180deg, #fcfcfc, #fff);
     --blog-item-shadow: 0 10px 18px #f1f5f9dd, 0 0 10px 0 #e4e4e7dd;
     --blog-item-shade: #f4f4f5;
@@ -57,6 +57,7 @@
   }
 
   html[data-theme='dark'] {
+    --content-background: #18181b;
     --ifm-color-primary: hsl(214deg 100% 60%);
     --ifm-color-primary-light: hsl(214deg 100% 75%);
     --ifm-heading-color: hsl(0deg 0% 100%);
@@ -64,9 +65,10 @@
     --ifm-text-color: var(--ifm-menu-color);
     --ifm-secondary-text-color: #eee;
     --ifm-border-color: #313131;
+
+    --ifm-navbar-background-color: var(--content-background);
     --ifm-toc-border-color: var(--ifm-border-color);
 
-    --content-background: #18181b;
     --blog-item-background-color: linear-gradient(180deg, #171717, #18181b);
     --blog-item-shadow: 0 10px 18px #25374833, 0 0 8px #25374866;
     --blog-item-shade: #27272a;
@@ -174,7 +176,6 @@ article p > span > a {
 
 .navbar {
   box-shadow: none;
-  background-color: transparent;
 }
 
 .navbar-sidebar__items {
