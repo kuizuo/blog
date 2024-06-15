@@ -50,6 +50,7 @@
     "raw-loader": "^4.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-github-calendar": "^4.1.5",
     "react-icon-cloud": "^4.1.4",
     "react-popper": "^2.3.0",
     "tailwind-merge": "^2.3.0",
