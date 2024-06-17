@@ -18,7 +18,7 @@ export default function Github({ className }: GithubProps) {
 
   return (
     <div className={className}>
-      <h2 className="mb-2 flex items-center gap-1 px-4 text-base">
+      <h2 className="mb-2 flex items-center gap-1 justify-center md:justify-start md:px-4 text-base">
         <Icon icon="ri:github-line" />
         <Translate id="homepage.feature.github.title">Github</Translate>
       </h2>
