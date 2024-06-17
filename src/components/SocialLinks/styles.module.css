@@ -1,5 +1,5 @@
 .socialLinks {
-  @apply w-full flex items-center md:flex-wrap md:justify-between md:gap-3 py-2 relative z-50 justify-center flex-wrap gap-1;
+  @apply w-full flex items-center md:flex-wrap md:gap-3 py-2 relative z-50 flex-wrap gap-1;
 }
 
 .socialLinks a {
