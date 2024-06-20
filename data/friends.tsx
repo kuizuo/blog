@@ -93,7 +93,7 @@ export const Friends: Friend[] = [
     title: 'LineXic书屋',
     description: '念念不忘，必有回响',
     website: 'https://linexic.top',
-    avatar: '/img/friend/logo.png',
+    avatar: '/img/friend/linexic.png',
   },
 ]
 
