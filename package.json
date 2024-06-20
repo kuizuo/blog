@@ -62,7 +62,7 @@
     "@docusaurus/tsconfig": "^3.4.0",
     "@docusaurus/types": "3.4.0",
     "@iconify/react": "^4.1.1",
-    "typescript": "~5.3.3"
+    "typescript": "~5.5.0"
   },
   "engines": {
     "node": ">=20.0"
