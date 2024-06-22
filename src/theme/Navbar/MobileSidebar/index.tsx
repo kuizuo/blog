@@ -1,19 +1,16 @@
-import React from 'react';
-import {
-  useLockBodyScroll,
-  useNavbarMobileSidebar,
-} from '@docusaurus/theme-common/internal';
-import NavbarMobileSidebarLayout from '@theme/Navbar/MobileSidebar/Layout';
-import NavbarMobileSidebarHeader from '@theme/Navbar/MobileSidebar/Header';
-import NavbarMobileSidebarPrimaryMenu from '@theme/Navbar/MobileSidebar/PrimaryMenu';
-import NavbarMobileSidebarSecondaryMenu from '@theme/Navbar/MobileSidebar/SecondaryMenu';
+import { useLockBodyScroll, useNavbarMobileSidebar } from '@docusaurus/theme-common/internal'
+import NavbarMobileSidebarHeader from '@theme/Navbar/MobileSidebar/Header'
+import NavbarMobileSidebarLayout from '@theme/Navbar/MobileSidebar/Layout'
+import NavbarMobileSidebarPrimaryMenu from '@theme/Navbar/MobileSidebar/PrimaryMenu'
+import NavbarMobileSidebarSecondaryMenu from '@theme/Navbar/MobileSidebar/SecondaryMenu'
+import React from 'react'
 
 export default function NavbarMobileSidebar(): JSX.Element | null {
-  const mobileSidebar = useNavbarMobileSidebar();
-  useLockBodyScroll(mobileSidebar.shown);
+  const mobileSidebar = useNavbarMobileSidebar()
+  useLockBodyScroll(mobileSidebar.shown)
 
   if (!mobileSidebar.shouldRender) {
-    return null;
+    return null
   }
 
   return (
@@ -22,5 +19,5 @@ export default function NavbarMobileSidebar(): JSX.Element | null {
       primaryMenu={<NavbarMobileSidebarPrimaryMenu />}
       secondaryMenu={<NavbarMobileSidebarSecondaryMenu />}
     />
-  );
+  )
 }

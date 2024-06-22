@@ -262,3 +262,7 @@ div[class^='announcementBar_'] {
   visibility: visible;
   transform: scaleX(1);
 }
+
+.github-stats::-webkit-scrollbar {
+  display: none;
+}

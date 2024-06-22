@@ -18,12 +18,12 @@ export default function Github({ className }: GithubProps) {
 
   return (
     <div className={className}>
-      <h2 className="mb-2 flex items-center gap-1 justify-center md:justify-start md:px-4 text-base">
+      <h2 className="mb-2 flex items-center justify-center gap-1 text-base md:justify-start md:px-4">
         <Icon icon="ri:github-line" />
         <Translate id="homepage.feature.github.title">Github</Translate>
       </h2>
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-background">
-        <div className="mb-4 flex w-full justify-between gap-4 px-4">
+        <div className="github-stats mb-4 flex w-full flex-col justify-between gap-4 overflow-x-auto px-0 sm:flex-row">
           <img src={githubStatsUrl('overview')} alt="GitHub Overview Stats" />
           <img src={githubStatsUrl('languages')} alt="GitHub Languages Stats" />
         </div>

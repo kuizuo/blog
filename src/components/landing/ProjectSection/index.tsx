@@ -19,7 +19,7 @@ const Slider = ({ items }: { items: Project[] }) => {
               <img
                 src={item.preview}
                 alt={item.title}
-                className="h-[120px] md:h-[240px] w-full rounded-lg object-cover"
+                className="h-[120px] w-full rounded-lg object-cover md:h-[240px]"
                 loading="lazy"
               />
               <div className="w-full py-2 text-center">

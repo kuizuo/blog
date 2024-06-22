@@ -7,7 +7,7 @@ import IconCloud from '../../magicui/icon-cloud'
 export default function Skill({ className }: { className?: string }) {
   return (
     <div className={className}>
-      <h2 className="mb-2 flex items-center gap-1 text-base justify-center md:justify-start" >
+      <h2 className="mb-2 flex items-center justify-center gap-1 text-base md:justify-start">
         <Icon icon="carbon:tool-kit" />
         <Translate id="homepage.feature.skill.title">技术栈</Translate>
       </h2>

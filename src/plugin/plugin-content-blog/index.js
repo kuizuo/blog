@@ -10,21 +10,12 @@ async function blogPluginEnhanced(context, options) {
     ...blogPluginInstance,
     async contentLoaded({ content, allContent, actions }) {
       // Sort blog with sticky
-      content.blogPosts.sort(
-        (a, b) =>
-          (b.metadata.frontMatter.sticky || 0) -
-          (a.metadata.frontMatter.sticky || 0),
-      )
+      content.blogPosts.sort((a, b) => (b.metadata.frontMatter.sticky || 0) - (a.metadata.frontMatter.sticky || 0))
 
       // Group posts by postsPerPage
-      const groupedPosts = Array.from(
-        { length: Math.ceil(content.blogPosts.length / postsPerPage) },
-        (_, i) => ({
-          items: content.blogPosts
-            .slice(i * postsPerPage, (i + 1) * postsPerPage)
-            .map((post) => post.id),
-        }),
-      )
+      const groupedPosts = Array.from({ length: Math.ceil(content.blogPosts.length / postsPerPage) }, (_, i) => ({
+        items: content.blogPosts.slice(i * postsPerPage, (i + 1) * postsPerPage).map(post => post.id),
+      }))
 
       // Update paginated blog list
       content.blogListPaginated.forEach((page, i) => {
