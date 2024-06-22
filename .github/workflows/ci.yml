@@ -33,12 +33,15 @@ jobs:
       - name: Build
         run: nr build
 
+      - name: Lint
+        run: nr lint
+
       - name: SSH Deploy
         uses: easingthemes/ssh-deploy@v4.1.10
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-avzr --delete"
-          SOURCE: "build"
+          ARGS: '-avzr --delete'
+          SOURCE: 'build'
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: "root"
-          TARGET: "/opt/1panel/apps/openresty/openresty/www/sites/kuizuo.cn/index"
+          REMOTE_USER: 'root'
+          TARGET: '/opt/1panel/apps/openresty/openresty/www/sites/kuizuo.cn/index'
