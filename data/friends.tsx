@@ -42,6 +42,12 @@ export const Friends: Friend[] = [
     avatar: '/img/friend/simonme.png',
   },
   {
+    title: 'SkyWT',
+    description: '热爱与激情永不止息。',
+    website: 'https://skywt.cn',
+    avatar: '/img/friend/skywt.png',
+  },
+  {
     title: '前端老怪兽',
     description: '一只会敲代码的怪兽',
     website: 'https://zswei.xyz',
