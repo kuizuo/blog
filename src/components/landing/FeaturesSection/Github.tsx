@@ -1,8 +1,9 @@
-import Translate from '@docusaurus/Translate'
-import GitHubCalendar from 'react-github-calendar'
+import Translate from '@docusaurus/Translate';
+import GitHubCalendar from 'react-github-calendar';
 
-import { useColorMode } from '@docusaurus/theme-common'
-import { Icon } from '@iconify/react'
+import { useColorMode } from '@docusaurus/theme-common';
+import { Icon } from '@iconify/react';
+import ThemedImage from '@theme/ThemedImage';
 
 interface GithubProps {
   className?: string
@@ -11,9 +12,9 @@ interface GithubProps {
 export default function Github({ className }: GithubProps) {
   const { isDarkTheme } = useColorMode()
 
-  const githubStatsUrl = (type: 'overview' | 'languages') =>
+  const githubStatsUrl = (type: 'overview' | 'languages', isDark: boolean) =>
     `https://raw.githubusercontent.com/kuizuo/github-stats/master/generated/${type}.svg#gh-${
-      isDarkTheme ? 'dark' : 'light'
+      isDark ? 'dark' : 'light'
     }-mode-only`
 
   return (
@@ -24,8 +25,20 @@ export default function Github({ className }: GithubProps) {
       </h2>
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-background">
         <div className="github-stats mb-4 flex w-full flex-col justify-between gap-4 overflow-x-auto px-0 sm:flex-row">
-          <img src={githubStatsUrl('overview')} alt="GitHub Overview Stats" />
-          <img src={githubStatsUrl('languages')} alt="GitHub Languages Stats" />
+          <ThemedImage
+            alt="GitHub Overview Stats"
+            sources={{
+              light: githubStatsUrl('overview', false),
+              dark: githubStatsUrl('overview', true),
+            }}
+          />
+          <ThemedImage
+            alt="GitHub Languages Stats"
+            sources={{
+              light: githubStatsUrl('languages', false),
+              dark: githubStatsUrl('languages', true),
+            }}
+          />
         </div>
         <GitHubCalendar username="kuizuo" blockSize={11} colorScheme={isDarkTheme ? 'dark' : 'light'} />
       </div>
