@@ -35,37 +35,37 @@
     "@docusaurus/plugin-vercel-analytics": "^3.4.0",
     "@docusaurus/preset-classic": "3.4.0",
     "@docusaurus/theme-search-algolia": "3.4.0",
-    "@giscus/react": "^2.4.0",
+    "@giscus/react": "^3.0.0",
     "@popperjs/core": "^2.11.8",
-    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-slot": "^1.1.0",
     "autoprefixer": "^10.4.19",
     "class-variance-authority": "^0.7.0",
     "docusaurus-plugin-baidu-tongji": "0.0.0-beta.4",
-    "docusaurus-plugin-image-zoom": "^1.0.1",
-    "framer-motion": "^10.18.0",
+    "docusaurus-plugin-image-zoom": "^2.0.0",
+    "framer-motion": "^11.2.12",
     "mini-svg-data-uri": "^1.4.4",
-    "ora": "^7.0.1",
+    "ora": "^8.0.1",
     "postcss": "^8.4.38",
     "prism-react-renderer": "^2.3.1",
     "raw-loader": "^4.0.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-github-calendar": "^4.1.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-github-calendar": "^4.1.6",
     "react-icon-cloud": "^4.1.4",
     "react-popper": "^2.3.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss": "^3.4.3"
+    "tailwindcss": "^3.4.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.7.3",
+    "@biomejs/biome": "1.8.3",
     "@docusaurus/module-type-aliases": "3.4.0",
     "@docusaurus/tsconfig": "^3.4.0",
     "@docusaurus/types": "3.4.0",
-    "@iconify/react": "^4.1.1",
-    "typescript": "~5.3.3"
+    "@iconify/react": "^5.0.1",
+    "typescript": "~5.5.2"
   },
   "engines": {
     "node": ">=20.0"
   },
-  "packageManager": "pnpm@9.0.4"
+  "packageManager": "pnpm@9.4.0"
 }
