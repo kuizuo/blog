@@ -8,7 +8,7 @@ export const Friends: Friend[] = [
   {
     title: 'Mas0n',
     description: '梦想是咸鱼',
-    website: 'https://mas0n.cn',
+    website: 'https://mas0n.org/',
     avatar: '/img/friend/mas0n.png',
   },
   {
@@ -48,16 +48,22 @@ export const Friends: Friend[] = [
     avatar: '/img/friend/skywt.png',
   },
   {
-    title: '前端老怪兽',
-    description: '一只会敲代码的怪兽',
-    website: 'https://zswei.xyz',
-    avatar: '/img/friend/old_monster.png',
+    title: 'Licodeao',
+    description: 'The water flows incessantly, without vying for precedence.',
+    website: 'https://www.licodeao.top',
+    avatar: '/img/friend/licodeao.png',
   },
   {
-    title: 'Meoo',
-    description: '一杯茶，一根网线，一台电脑',
-    website: 'https://cxorz.com',
-    avatar: '/img/friend/meoo.png',
+    title: '云小逸',
+    description: '不积跬步，无以至千里',
+    website: 'https://www.gerenbiji.com',
+    avatar: 'https://www.gerenbiji.com/img/logo.jpg',
+  },
+  {
+    title: 'CWorld Blog',
+    description: '求知若愚，虚怀若谷',
+    website: 'https://cworld.top',
+    avatar: '/img/friend/cworld.png',
   },
   {
     title: '尚宇',
@@ -66,10 +72,10 @@ export const Friends: Friend[] = [
     avatar: '/img/friend/disnox.png',
   },
   {
-    title: 'CWorld Blog',
-    description: '求知若愚，虚怀若谷',
-    website: 'https://blog.cworld.top',
-    avatar: '/img/friend/cworld.png',
+    title: 'Meoo',
+    description: '一杯茶，一根网线，一台电脑',
+    website: 'https://cxorz.com',
+    avatar: '/img/friend/meoo.png',
   },
   {
     title: 'Shake',
@@ -88,12 +94,6 @@ export const Friends: Friend[] = [
     description: '心中无女人，代码自然神',
     website: 'http://www.xiaojunnan.cn',
     avatar: '/img/friend/xiaojunnan.png',
-  },
-  {
-    title: 'Licodeao',
-    description: 'The water flows incessantly, without vying for precedence.',
-    website: 'https://www.licodeao.top',
-    avatar: '/img/friend/licodeao.png',
   },
   {
     title: 'LineXic书屋',
