@@ -132,7 +132,7 @@ const config: Config = {
         <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${
           beian1.match(/\d+/)?.[0]
         }" >${beian1}</a></p>
-        <p>Copyright © 2020 - PRESENT 愧怍 Built with Docusaurus.</p>
+        <p>Copyright © 2020 - ${new Date().getFullYear()} kuizuo. | Built with Docusaurus.</p>
         `,
     },
     algolia: {
@@ -262,7 +262,7 @@ const config: Config = {
         },
       },
     ],
-    async function myPlugin(context, options) {
+    async function tailwindcssPlugin() {
       return {
         name: 'docusaurus-tailwindcss',
         configurePostCss(postcssOptions) {
@@ -270,6 +270,39 @@ const config: Config = {
           postcssOptions.plugins.push(require('tailwindcss'))
           postcssOptions.plugins.push(require('autoprefixer'))
           return postcssOptions
+        },
+      }
+    },
+    async function injectMotto() {
+      return {
+        name: 'docusaurus-motto',
+        injectHtmlTags() {
+          return {
+            headTags: [
+              {
+                tagName: 'script',
+                innerHTML: `
+    (${function () {
+      console.log(
+        `%c Kz Blog %c https://github.com/kuizuo/blog`,
+        'color: #fff; margin: 1em 0; padding: 5px 0; background: #12affa;',
+        'margin: 1em 0; padding: 5px 0; background: #efefef;',
+      )
+
+      const motto = `
+This Webisite Powered By Kz Blog.
+Written by Docusaurus, Coding with Love.
+--------
+Love what you do and do what you love.
+`
+
+      if (document.firstChild?.nodeType !== Node.COMMENT_NODE) {
+        document.prepend(document.createComment(motto))
+      }
+    }.toString()})();`,
+              },
+            ],
+          }
         },
       }
     },
