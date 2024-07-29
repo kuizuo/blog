@@ -1,5 +1,5 @@
 import Translate, { translate } from '@docusaurus/Translate'
-import { Icon } from '@iconify/react/dist/iconify.js'
+import { Icon } from '@iconify/react'
 import OpenSourceSvg from '@site/static/svg/undraw_open_source.svg'
 import SpiderSvg from '@site/static/svg/undraw_spider.svg'
 import WebDeveloperSvg from '@site/static/svg/undraw_web_developer.svg'
