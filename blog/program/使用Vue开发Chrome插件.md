@@ -6,7 +6,7 @@ authors: kuizuo
 tags: [chrome, plugin, vue, develop]
 keywords: [chrome, plugin, vue, develop]
 description: 使用 Vue2 开发一个 Chrome 插件
-image: /img/blog/vue-chrome-extension.png
+image: https://img.kuizuo.cn/2024/0729092449-vue-chrome-extension.png
 ---
 
 我当时学习开发 Chrome 插件的时候，还不会 Vue，更别说 Webpack 了，所以使用的都是原生的 html 开发，效率就不提了，而这次就准备使用 vue-cli 来进行编写一个某 B 站获取视频信息,评论的功能（原本是打算做自动回复的），顺便巩固下 chrome 开发（快一年没碰脚本类相关技术了），顺便写套模板供自己后续编写 Chrome 插件做铺垫。
