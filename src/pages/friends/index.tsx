@@ -60,7 +60,7 @@ export default function FriendLink(): JSX.Element {
   const ref = React.useRef<HTMLDivElement>(null)
 
   return (
-    <Layout title={TITLE} description={DESCRIPTION}>
+    <Layout title={TITLE} description={DESCRIPTION} wrapperClassName="bg-background">
       <motion.main ref={ref} className="margin-vert--md">
         <FriendHeader />
         <FriendCards />
