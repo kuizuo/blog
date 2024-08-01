@@ -30,7 +30,7 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
   })
 
   return (
-    <div className={cn('grid grid-cols-2 py-10 lg:grid-cols-3')}>
+    <div className={cn('grid grid-cols-1 py-10 sm:grid-cols-2 lg:grid-cols-3')}>
       {data.map((item, idx) => (
         <div
           key={item.link}

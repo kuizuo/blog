@@ -19,12 +19,12 @@ type SocialValue = {
 
 const social: Social = {
   github: 'https://github.com/kuizuo',
-  juejin: 'https://juejin.cn/user/1565318510545901',
   x: 'https://twitter.com/kuizuo',
-  qq: 'https://img.kuizuo.cn/qq.png',
+  juejin: 'https://juejin.cn/user/1565318510545901',
   wx: 'https://img.kuizuo.cn/wechat.png',
+  // qq: 'https://img.kuizuo.cn/qq.png',
   // zhihu: 'https://www.zhihu.com/people/kuizuo',
-  // cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
+  cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
   email: 'mailto:hi@kuizuo.cn',
   discord: 'https://discord.gg/M8cVcjDxkz',
 }
@@ -48,18 +48,6 @@ const socialSet: Record<keyof Social | 'rss', SocialValue> = {
     icon: 'ri:twitter-x-line',
     color: '#000',
   },
-  discord: {
-    href: social.discord,
-    title: 'Discord',
-    icon: 'ri:discord-line',
-    color: '#5A65F6',
-  },
-  qq: {
-    href: social.qq,
-    title: 'QQ',
-    icon: 'ri:qq-line',
-    color: '#1296db',
-  },
   wx: {
     href: social.wx,
     title: '微信',
@@ -71,6 +59,18 @@ const socialSet: Record<keyof Social | 'rss', SocialValue> = {
     title: '知乎',
     icon: 'ri:zhihu-line',
     color: '#1772F6',
+  },
+  discord: {
+    href: social.discord,
+    title: 'Discord',
+    icon: 'ri:discord-line',
+    color: '#5A65F6',
+  },
+  qq: {
+    href: social.qq,
+    title: 'QQ',
+    icon: 'ri:qq-line',
+    color: '#1296db',
   },
   email: {
     href: social.email,

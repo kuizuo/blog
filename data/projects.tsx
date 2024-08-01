@@ -200,12 +200,12 @@ export type TagType = 'favorite' | 'opensource' | 'product' | 'design' | 'large'
 export type ProjectType = 'web' | 'app' | 'commerce' | 'personal' | 'toy' | 'other'
 
 export const projectTypeMap = {
-  web: '网站',
-  app: '应用',
+  web: '🖥️ 网站',
+  app: '💫 应用',
   commerce: '商业项目',
-  personal: '个人',
-  toy: '玩具',
-  other: '其他',
+  personal: '👨‍💻 个人',
+  toy: '🔫 玩具',
+  other: '🗃️ 其他',
 }
 
 export type Project = {

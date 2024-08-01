@@ -52,30 +52,23 @@ const config: Config = {
       },
       hideOnScroll: true,
       items: [
-        {
-          label: '博客',
-          position: 'right',
-          to: 'blog',
-        },
-        {
-          label: '项目',
-          position: 'right',
-          to: 'project',
-        },
+        { label: '博客', position: 'right', to: 'blog' },
+        { label: '项目', position: 'right', to: 'project' },
+        { label: '友链', position: 'right', to: 'friends' },
+        { label: '关于', position: 'right', to: 'about' },
         {
           label: '更多',
           position: 'right',
           items: [
             { label: '归档', to: 'blog/archive' },
             { label: '笔记', to: 'docs/skill' },
-            { label: '友链', to: 'friends' },
             { label: '工具推荐', to: 'docs/tools' },
           ],
         },
-        {
-          type: 'localeDropdown',
-          position: 'right',
-        },
+        // {
+        //   type: 'localeDropdown',
+        //   position: 'right',
+        // },
       ],
     },
     footer: {
@@ -96,7 +89,7 @@ const config: Config = {
           items: [
             { label: '关于我', to: '/about' },
             { label: 'GitHub', href: social.github.href },
-            // { label: 'Twitter', href: social.x.href },
+            { label: 'Twitter', href: social.x.href },
             { label: '掘金', href: social.juejin.href },
             { label: 'Discord', href: social.discord.href },
           ],
@@ -141,17 +134,7 @@ const config: Config = {
     prism: {
       theme: themes.oneLight,
       darkTheme: themes.oneDark,
-      additionalLanguages: [
-        'bash',
-        'json',
-        'java',
-        'python',
-        'php',
-        'graphql',
-        'rust',
-        'toml',
-        'protobuf',
-      ],
+      additionalLanguages: ['bash', 'json', 'java', 'python', 'php', 'graphql', 'rust', 'toml', 'protobuf'],
       defaultLanguage: 'javascript',
       magicComments: [
         {
@@ -212,19 +195,12 @@ const config: Config = {
   plugins: [
     'docusaurus-plugin-image-zoom',
     '@docusaurus/plugin-ideal-image',
-    [
-      'docusaurus-plugin-baidu-tongji',
-      { token: 'c9a3849aa75f9c4a4e65f846cd1a5155' },
-    ],
+    ['docusaurus-plugin-baidu-tongji', { token: 'c9a3849aa75f9c4a4e65f846cd1a5155' }],
     [
       '@docusaurus/plugin-pwa',
       {
         debug: process.env.NODE_ENV === 'development',
-        offlineModeActivationStrategies: [
-          'appInstalled',
-          'standalone',
-          'queryString',
-        ],
+        offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
         pwaHead: [
           { tagName: 'link', rel: 'icon', href: '/img/logo.png' },
           { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
@@ -316,6 +292,7 @@ Love what you do and do what you love.
   ],
   stylesheets: [
     'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css',
+    'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Medium.min.css',
     'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css',
   ],
   i18n: {

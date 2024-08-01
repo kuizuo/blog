@@ -49,7 +49,7 @@ const FriendCard = memo(({ friend }: { friend: Friend }) => (
       alt={friend.title}
       className="size-16 min-w-16 rounded-full object-contain"
     />
-    <div className="card__body">
+    <div className="pl-4">
       <div className="mb-1 flex items-center">
         <h4 className="mb-0 flex-1">
           <Link
