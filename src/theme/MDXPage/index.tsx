@@ -22,7 +22,7 @@ export default function MDXPage(props: Props): JSX.Element {
       <Layout>
         <main className="container--fluid margin-vert--lg container">
           <div className={cn('row', styles.mdxPageWrapper)}>
-            <div className={cn('col prose', 'col--8')}>
+            <div className={cn('col prose dark:prose-invert', 'col--8')}>
               <MDXContent>
                 <MDXPageContent />
               </MDXContent>
