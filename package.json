@@ -29,12 +29,12 @@
     "index": "docker run -it --env-file=.env -e \"CONFIG=$(cat docsearch.json | jq -r tostring)\" algolia/docsearch-scraper"
   },
   "dependencies": {
-    "@docusaurus/core": "3.4.0",
-    "@docusaurus/plugin-ideal-image": "3.4.0",
-    "@docusaurus/plugin-pwa": "3.4.0",
-    "@docusaurus/plugin-vercel-analytics": "^3.4.0",
-    "@docusaurus/preset-classic": "3.4.0",
-    "@docusaurus/theme-search-algolia": "3.4.0",
+    "@docusaurus/core": "3.5.2",
+    "@docusaurus/plugin-ideal-image": "3.5.2",
+    "@docusaurus/plugin-pwa": "3.5.2",
+    "@docusaurus/plugin-vercel-analytics": "^3.5.2",
+    "@docusaurus/preset-classic": "3.5.2",
+    "@docusaurus/theme-search-algolia": "3.5.2",
     "@giscus/react": "^3.0.0",
     "@popperjs/core": "^2.11.8",
     "@radix-ui/react-slot": "^1.1.0",
@@ -58,9 +58,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@docusaurus/module-type-aliases": "3.4.0",
-    "@docusaurus/tsconfig": "^3.4.0",
-    "@docusaurus/types": "3.4.0",
+    "@docusaurus/module-type-aliases": "3.5.2",
+    "@docusaurus/tsconfig": "^3.5.2",
+    "@docusaurus/types": "3.5.2",
     "@iconify/react": "^5.0.1",
     "@tailwindcss/typography": "^0.5.13",
     "typescript": "~5.5.2"

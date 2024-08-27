@@ -8,7 +8,6 @@ import BlogPostItems from '@theme/BlogPostItems'
 import type { Props } from '@theme/BlogTagsPostsPage'
 import Heading from '@theme/Heading'
 import SearchMetadata from '@theme/SearchMetadata'
-import Unlisted from '@theme/Unlisted'
 
 import MyLayout from '../MyLayout'
 
@@ -56,7 +55,6 @@ function BlogTagsPostsPageContent({ tag, items, sidebar, listMetadata }: Props):
   const title = useBlogTagsPostsPageTitle(tag)
   return (
     <MyLayout>
-      {tag.unlisted && <Unlisted />}
       <header className={cn('mb-4')}>
         <Heading as="h1">{title}</Heading>
         <Link href={tag.allTagsPath}>

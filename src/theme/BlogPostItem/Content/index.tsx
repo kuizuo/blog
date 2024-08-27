@@ -1,4 +1,4 @@
-import { useBlogPost } from '@docusaurus/theme-common/internal'
+import { useBlogPost } from '@docusaurus/plugin-content-blog/client'
 import { blogPostContainerID } from '@docusaurus/utils-common'
 import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/BlogPostItem/Content'

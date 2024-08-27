@@ -1,4 +1,5 @@
-import { useBlogPost, useDateTimeFormat } from '@docusaurus/theme-common/internal'
+import { useBlogPost } from '@docusaurus/plugin-content-blog/client'
+import { useDateTimeFormat } from '@docusaurus/theme-common/internal'
 import { Icon } from '@iconify/react'
 import { cn } from '@site/src/lib/utils'
 import ReadMoreLink from '@theme/BlogPostItem/Footer/ReadMoreLink'
@@ -56,8 +57,8 @@ export default function BlogPostItemFooter(): JSX.Element | null {
             <>
               <Icon icon="ri:price-tag-3-line" />
               <span className={styles.blogPostInfoTags}>
-                {tags.map(({ label, permalink: tagPermalink }) => (
-                  <Tag label={label} permalink={tagPermalink} key={tagPermalink} />
+                {tags.map(({ label, permalink: tagPermalink, description }) => (
+                  <Tag label={label} permalink={tagPermalink} key={tagPermalink} description={description} />
                 ))}
               </span>
             </>

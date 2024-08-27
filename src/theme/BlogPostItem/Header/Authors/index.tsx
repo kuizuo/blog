@@ -1,8 +1,7 @@
-import { useBlogPost } from '@docusaurus/theme-common/internal'
+import { useBlogPost } from '@docusaurus/plugin-content-blog/client'
 import { cn } from '@site/src/lib/utils'
 import BlogPostItemHeaderAuthor from '@theme/BlogPostItem/Header/Author'
 import type { Props } from '@theme/BlogPostItem/Header/Authors'
-import React from 'react'
 import styles from './styles.module.css'
 
 export default function BlogPostItemHeaderAuthors({ className }: Props): JSX.Element | null {

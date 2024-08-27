@@ -1,6 +1,7 @@
 import { translate } from '@docusaurus/Translate'
+import { useBlogPost } from '@docusaurus/plugin-content-blog/client'
 import { usePluralForm } from '@docusaurus/theme-common'
-import { useBlogPost, useDateTimeFormat } from '@docusaurus/theme-common/internal'
+import { useDateTimeFormat } from '@docusaurus/theme-common/internal'
 import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/BlogPostItem/Header/Info'
 
@@ -65,7 +66,7 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
         <div className="inline-flex items-center gap-1">
           <Icon icon="ri:price-tag-3-line" />
           <div className={cn('truncate', 'inline-flex text-center')}>
-            {tags.slice(0, 3).map(({ label, permalink: tagPermalink }, index) => {
+            {tags.slice(0, 3).map(({ label, description, permalink: tagPermalink }, index) => {
               return (
                 <div key={tagPermalink}>
                   {index !== 0 && '/'}
@@ -73,6 +74,7 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
                     label={label}
                     permalink={tagPermalink}
                     className={'tag !border-0 px-0.5 py-0.5 text-text hover:text-link'}
+                    description={description}
                   />
                 </div>
               )

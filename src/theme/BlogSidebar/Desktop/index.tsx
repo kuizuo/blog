@@ -1,15 +1,29 @@
 import Link from '@docusaurus/Link'
 import { translate } from '@docusaurus/Translate'
-import { useBlogPost } from '@docusaurus/theme-common/internal'
+import { BlogSidebarItemList, useVisibleBlogSidebarItems } from '@docusaurus/plugin-content-blog/client'
 import { Icon } from '@iconify/react'
 import { cn } from '@site/src/lib/utils'
+import type { Props as BlogSidebarContentProps } from '@theme/BlogSidebar/Content'
+import BlogSidebarContent from '@theme/BlogSidebar/Content'
 import type { Props } from '@theme/BlogSidebar/Desktop'
-import React, { useState } from 'react'
-
+import clsx from 'clsx'
+import { useState } from 'react'
 import styles from './styles.module.css'
 
+const ListComponent: BlogSidebarContentProps['ListComponent'] = ({ items }) => {
+  return (
+    <BlogSidebarItemList
+      items={items}
+      ulClassName={clsx(styles.sidebarItemList, 'clean-list')}
+      liClassName={styles.sidebarItem}
+      linkClassName={styles.sidebarItemLink}
+      linkActiveClassName={styles.sidebarItemLinkActive}
+    />
+  )
+}
+
 export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
-  const { isBlogPostPage } = useBlogPost()
+  const items = useVisibleBlogSidebarItems(sidebar.items)
   const [isHovered, setIsHovered] = useState(false)
 
   const handleBack = () => {
@@ -27,29 +41,18 @@ export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
         })}
         style={{ opacity: isHovered ? 1 : 0 }}
       >
-        {isBlogPostPage && (
-          <div className={styles.backButton} onClick={handleBack}>
-            <Icon icon="ri:arrow-go-back-line" />
-          </div>
-        )}
+        <div className={styles.backButton} onClick={handleBack}>
+          <Icon icon="ri:arrow-go-back-line" />
+        </div>
 
         <Link href="/blog" className={cn(styles.sidebarItemTitle, 'margin-bottom--sm')}>
           {sidebar.title}
         </Link>
-        <ul className={cn(styles.sidebarItemList, 'clean-list')}>
-          {sidebar.items.map(item => (
-            <li key={item.permalink} className={styles.sidebarItem}>
-              <Link
-                isNavLink
-                to={item.permalink}
-                className={styles.sidebarItemLink}
-                activeClassName={styles.sidebarItemLinkActive}
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <BlogSidebarContent
+          items={items}
+          ListComponent={ListComponent}
+          yearGroupHeadingClassName={styles.yearGroupHeading}
+        />
       </nav>
     </aside>
   )
