@@ -23,7 +23,7 @@
     "serve": "docusaurus serve",
     "format": "biome format --write ./src",
     "lint": "biome check ./src",
-    "lint:fix": "biome check --apply-unsafe ./src",
+    "lint:fix": "biome check --write --unsafe ./src",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "index": "docker run -it --env-file=.env -e \"CONFIG=$(cat docsearch.json | jq -r tostring)\" algolia/docsearch-scraper"
@@ -68,5 +68,5 @@
   "engines": {
     "node": ">=20.0"
   },
-  "packageManager": "pnpm@9.4.0"
+  "packageManager": "pnpm@9.8.0"
 }

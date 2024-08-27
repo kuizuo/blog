@@ -1,16 +1,13 @@
-import React, {memo} from 'react';
-import {
-  useVisibleBlogSidebarItems,
-  BlogSidebarItemList,
-} from '@docusaurus/plugin-content-blog/client';
-import {NavbarSecondaryMenuFiller} from '@docusaurus/theme-common';
-import BlogSidebarContent from '@theme/BlogSidebar/Content';
-import type {Props} from '@theme/BlogSidebar/Mobile';
-import type {Props as BlogSidebarContentProps} from '@theme/BlogSidebar/Content';
+import { BlogSidebarItemList, useVisibleBlogSidebarItems } from '@docusaurus/plugin-content-blog/client'
+import { NavbarSecondaryMenuFiller } from '@docusaurus/theme-common'
+import BlogSidebarContent from '@theme/BlogSidebar/Content'
+import type { Props as BlogSidebarContentProps } from '@theme/BlogSidebar/Content'
+import type { Props } from '@theme/BlogSidebar/Mobile'
+import React, { memo } from 'react'
 
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
-const ListComponent: BlogSidebarContentProps['ListComponent'] = ({items}) => {
+const ListComponent: BlogSidebarContentProps['ListComponent'] = ({ items }) => {
   return (
     <BlogSidebarItemList
       items={items}
@@ -19,27 +16,22 @@ const ListComponent: BlogSidebarContentProps['ListComponent'] = ({items}) => {
       linkClassName="menu__link"
       linkActiveClassName="menu__link--active"
     />
-  );
-};
+  )
+}
 
-function BlogSidebarMobileSecondaryMenu({sidebar}: Props): JSX.Element {
-  const items = useVisibleBlogSidebarItems(sidebar.items);
+function BlogSidebarMobileSecondaryMenu({ sidebar }: Props): JSX.Element {
+  const items = useVisibleBlogSidebarItems(sidebar.items)
   return (
     <BlogSidebarContent
       items={items}
       ListComponent={ListComponent}
       yearGroupHeadingClassName={styles.yearGroupHeading}
     />
-  );
+  )
 }
 
 function BlogSidebarMobile(props: Props): JSX.Element {
-  return (
-    <NavbarSecondaryMenuFiller
-      component={BlogSidebarMobileSecondaryMenu}
-      props={props}
-    />
-  );
+  return <NavbarSecondaryMenuFiller component={BlogSidebarMobileSecondaryMenu} props={props} />
 }
 
-export default memo(BlogSidebarMobile);
+export default memo(BlogSidebarMobile)
