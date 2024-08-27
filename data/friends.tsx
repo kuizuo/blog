@@ -66,6 +66,12 @@ export const Friends: Friend[] = [
     avatar: '/img/friend/cworld.png',
   },
   {
+    title: 'Fernando Prieto',
+    description: 'News about technology.',
+    website: 'https://fernandogprieto.com',
+    avatar: 'https://fernandogprieto.com/img/logo.png',
+  },
+  {
     title: '尚宇',
     description: '心怀理想，仰望星空，埋头苦干',
     website: 'https://www.disnox.top',
@@ -82,12 +88,6 @@ export const Friends: Friend[] = [
     description: '世界继续热闹，愿你不变模样，勇敢且自由😃',
     website: 'https://www.shaking.site',
     avatar: '/img/friend/shake.png',
-  },
-  {
-    title: 'Alan',
-    description: '此刻想举重若轻，之前必要负重前行',
-    website: 'https://www.alanwang.site',
-    avatar: '/img/friend/alan.png',
   },
   {
     title: '鲸落',
