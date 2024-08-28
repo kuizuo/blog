@@ -67,7 +67,7 @@ export const Friends: Friend[] = [
   },
   {
     title: 'Fernando Prieto',
-    description: 'News about technology.',
+    description: 'Cloud Engineer, Open Source, AI Enthusiast.',
     website: 'https://fernandogprieto.com',
     avatar: 'https://fernandogprieto.com/img/logo.png',
   },
