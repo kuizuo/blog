@@ -143,6 +143,12 @@ article .markdown img {
   margin: 0 auto;
 }
 
+article .markdown video {
+  border-radius: 10px;
+  display: flex;
+  margin: 0 auto;
+}
+
 article .markdown > h2 {
   font-size: 1.6em;
 }
