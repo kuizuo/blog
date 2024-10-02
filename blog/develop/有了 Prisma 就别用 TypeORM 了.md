@@ -6,7 +6,6 @@ authors: kuizuo
 tags: [orm, prisma, typeorm]
 keywords: [orm, prisma, typeorm]
 image: https://img.kuizuo.cn/2024/0113174834-202401131748137.png
-sticky: 2
 ---
 
 要说 2024 年 Node.js 的 ORM 框架应该选择哪个？毫无疑问选 Prisma。至于为何，请听我细细道来。

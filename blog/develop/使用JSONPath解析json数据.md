@@ -7,7 +7,6 @@ tags: [javascript, json, node]
 keywords: [javascript, json, node]
 description: jsonpath 能够帮助我们快速的从json数据中提取想要的数据
 image: https://img.kuizuo.cn/2024/0729092328-jsonpath.png
-sticky: 8
 ---
 
 之前学习爬虫的时候，如果是 HTML 的数据，通过 xpath 或是 css 选择器，就能很快的获取我们想要的数据，如果是 json 有没有类似 xpath 这种，能够直接根据条件定位数据，而不需要自行 json 解析在遍历获取。答案是有的，也就是 JSONPath。
