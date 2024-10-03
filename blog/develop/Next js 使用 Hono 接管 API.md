@@ -9,13 +9,11 @@ description: 这篇文章详细介绍了如何在 Next.js 项目中使用 Hono �
 image: https://img.kuizuo.cn/2024/1002213046-nextjs-with-hono.png
 ---
 
-
-直入正题，Next.js 自带的 API Routes (现已改名为 [**Route Handlers**](https://nextjs.org/docs/app/building-your-application/routing/route-handlers)) 异常难用，例如当你需要编写一个 RESTful API 时，尤为痛苦，就像这样
-
-![image.png](https://img.kuizuo.cn/2024%2F0930171329-image.png)
+直入正题，Next.js 自带的 API Routes (现已改名为 [**Route Handlers**](https://nextjs.org/docs/app/building-your-application/routing/route-handlers)) 异常难用，例如当你需要编写一个 RESTful API 时，尤为痛苦
 
 <!-- truncate -->
 
+![image.png](https://img.kuizuo.cn/2024%2F0930171329-image.png)
 
 这还没完，当你需要数据验证、错误处理、中间件等等功能，又得花费不小的功夫，所以 Next.js 的 API Route 更多是为你的全栈项目编写一些简易的 API 供外部服务，这也可能是为什么 Next.js 宁可设计 [Server Action](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations) 也不愿为 API Route 提供传统后端的能力。
 
@@ -95,12 +93,11 @@ export default app
 
 所返回的响应体是完整的 zodError 内容，并且状态码为 400
 
-:::tip 
+:::tip
 
 数据验证失败的状态码通常为 **[422](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/422)**
 
 :::
-
 
 因为 zod-validator 默认以 json 格式返回整个 result，代码详见 [zod-validator/src/index.ts#L68-L70](https://github.com/honojs/middleware/blob/main/packages/zod-validator/src/index.ts#L68-L70)
 
@@ -381,7 +378,6 @@ app.get('/api/ui', swaggerUI({ url: '/api/doc' }))
 ![image.png](https://img.kuizuo.cn/2024%2F0930171730-imageundefined4.png)
 
 从目前来看，OpenAPI 文档的生成仍面临挑战。我们期待 Hono 未来能推出一个功能，可以根据 app 下的路由自动生成接口文档（相关[Issue](https://github.com/honojs/hono/issues/2970)已存在）。
-
 
 ## 仓库地址
 
