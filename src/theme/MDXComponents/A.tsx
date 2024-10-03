@@ -1,6 +1,5 @@
 import Link from '@docusaurus/Link'
 import type { Props } from '@theme/MDXComponents/A'
-import React from 'react'
 
 import { Icon } from '@iconify/react'
 
@@ -11,7 +10,7 @@ export default function MDXA(props: Props): JSX.Element {
 
   const iconMappings = {
     'github.com': 'simple-icons:github',
-    'twitter.com': 'logos:twitter',
+    'x.com': 'ri:twitter-x-fill',
   }
 
   const foundKey = Object.keys(iconMappings).find(key => {
@@ -25,10 +24,10 @@ export default function MDXA(props: Props): JSX.Element {
     return (
       <span style={{ display: 'inline-flex', gap: '0.25rem' }}>
         {icon && <Icon className="a-icon" style={{ alignSelf: 'center' }} icon={icon} width={16} height={16} />}
-        <Link {...props} />
+        <Link {...props} className={'link'} />
       </span>
     )
   }
 
-  return <Link {...props} />
+  return <Link {...props} className={'link'} />
 }

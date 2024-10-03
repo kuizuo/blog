@@ -179,7 +179,7 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: ['./src/css/custom.css'],
+          customCss: ['./src/css/custom.css', './src/css/tweet-theme.css'],
         },
         sitemap: {
           priority: 0.5,
@@ -224,7 +224,7 @@ const config: Config = {
         editLocalizedFiles: false,
         blogDescription: '代码人生：编织技术与生活的博客之旅',
         blogSidebarCount: 10,
-        blogSidebarTitle: 'Blogs',
+        blogSidebarTitle: '博文',
         postsPerPage: 12,
         showReadingTime: true,
         readingTime: ({ content, frontMatter, defaultReadingTime }) =>

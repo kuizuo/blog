@@ -102,7 +102,7 @@ export default app
 :::
 
 
-因为 zod-validator 默认以 json 格式返回整个 result，代码详见 https://github.com/honojs/middleware/blob/main/packages/zod-validator/src/index.ts#L68-L70
+因为 zod-validator 默认以 json 格式返回整个 result，代码详见 [zod-validator/src/index.ts#L68-L70](https://github.com/honojs/middleware/blob/main/packages/zod-validator/src/index.ts#L68-L70)
 
 这就是坑点之一，返回给客户端的错误信息肯定不会是以这种格式。这里我将其更改为全局错误捕获，做法如下
 

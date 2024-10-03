@@ -117,15 +117,15 @@ html[data-theme='dark'] .theme-code-block {
   --prism-background-color: #1e1e1e !important;
 }
 
-article .markdown a:not(.hash-link) {
+article .markdown a.link {
   text-decoration: none;
   font-weight: inherit;
   border-bottom: 1px solid rgba(125, 125, 125, 0.3);
   transition: border 0.3s ease-in-out;
 }
 
-article .markdown a:not(.hash-link):hover,
-article .markdown a:not(.hash-link):focus {
+article .markdown a.link:hover,
+article .markdown a.link:focus {
   border-bottom: 1px solid var(--ifm-color-primary-light);
 }
 
