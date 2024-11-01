@@ -21,7 +21,7 @@ export default function NavbarLayout({ children }: Props): JSX.Element {
   const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll)
 
   const location = useLocation()
-  const isHomePage = location.pathname === '/'
+  const isHomePage = location.pathname === '/' || location.pathname === '/en/'
 
   return (
     <nav

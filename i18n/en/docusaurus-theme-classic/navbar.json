@@ -19,6 +19,18 @@
     "message": "Projects",
     "description": "Navbar item with label 项目"
   },
+  "item.label.友链": {
+    "message": "Projects",
+    "description": "Navbar item with label 项目"
+  },
+  "item.label.关于": {
+    "message": "About",
+    "description": "Navbar item with label 关于"
+  },
+  "item.label.更多": {
+    "message": "More",
+    "description": "Navbar item with label 更多"
+  },
   "item.label.标签": {
     "message": "Tags",
     "description": "Navbar item with label 标签"
