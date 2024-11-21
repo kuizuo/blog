@@ -37,7 +37,7 @@ jobs:
         run: nr lint
 
       - name: SSH Deploy
-        uses: easingthemes/ssh-deploy@v4.1.10
+        uses: easingthemes/ssh-deploy@v5.1.1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: '-avzr --delete'
