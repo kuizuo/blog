@@ -117,9 +117,6 @@ importers:
       eslint-plugin-tailwindcss:
         specifier: 3.18.0
         version: 3.18.0(tailwindcss@3.4.17)
-      eslint-plugin-turbo:
-        specifier: 2.3.3
-        version: 2.3.3(eslint@9.18.0(jiti@1.21.7))
       typescript:
         specifier: ~5.7.3
         version: 5.7.3
@@ -2711,10 +2708,6 @@ packages:
     resolution: {integrity: sha512-tE7ztYzXHIeyvc7N+hR3oi7FIbf/NIjVP9hmAt3yMXzrQ072/fpjGLx2GxNxGxUl5V73MEqYzioOMoVhGMJ5cA==}
     engines: {node: '>=10'}
 
-  dotenv@16.0.3:
-    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
-    engines: {node: '>=12'}
-
   duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
 
@@ -2815,11 +2808,6 @@ packages:
     engines: {node: '>=18.12.0'}
     peerDependencies:
       tailwindcss: ^3.4.0
-
-  eslint-plugin-turbo@2.3.3:
-    resolution: {integrity: sha512-j8UEA0Z+NNCsjZep9G5u5soDQHcXq/x4amrwulk6eHF1U91H2qAjp5I4jQcvJewmccCJbVp734PkHHTRnosjpg==}
-    peerDependencies:
-      eslint: '>6.6.0'
 
   eslint-scope@5.1.1:
     resolution: {integrity: sha512-2NxwbF/hZ0KpepYN0cNbo+FN6XoK7GaHlQhgx/hIZl6Va0bF45RQOOwhLIy8lQDbuCiadSLCBnH2CFYquit5bw==}
@@ -9820,8 +9808,6 @@ snapshots:
     dependencies:
       is-obj: 2.0.0
 
-  dotenv@16.0.3: {}
-
   duplexer@0.1.2: {}
 
   eastasianwidth@0.2.0: {}
@@ -9938,11 +9924,6 @@ snapshots:
       fast-glob: 3.3.3
       postcss: 8.5.1
       tailwindcss: 3.4.17
-
-  eslint-plugin-turbo@2.3.3(eslint@9.18.0(jiti@1.21.7)):
-    dependencies:
-      dotenv: 16.0.3
-      eslint: 9.18.0(jiti@1.21.7)
 
   eslint-scope@5.1.1:
     dependencies:
