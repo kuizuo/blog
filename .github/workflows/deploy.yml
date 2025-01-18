@@ -1,4 +1,4 @@
-name: CI
+name: Deploy
 
 on:
   push:
@@ -11,30 +11,25 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest] # macos-latest, windows-latest
-        node: [20]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [20.x]
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set node version to ${{ matrix.node-version }}
+      - uses: pnpm/action-setup@v4.0.0
+
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
-      - run: corepack enable
-
-      - name: Setup
-        run: npm i -g @antfu/ni
-
-      - name: Install
-        run: nci
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build
-        run: nr build
-
-      - name: Lint
-        run: nr lint
+        run: pnpm build
 
       - name: SSH Deploy
         uses: easingthemes/ssh-deploy@v4.1.10
