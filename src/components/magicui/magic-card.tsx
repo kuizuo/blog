@@ -29,19 +29,20 @@ function useMousePosition(): MousePosition {
 
 interface MagicContainerProps {
   children?: ReactNode
-  className?: any
+  className?: string
 }
 
 const MagicContainer = ({ children, className }: MagicContainerProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const mousePosition = useMousePosition()
-  const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
-  const containerSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 })
+  const mouse = useRef<{ x: number, y: number }>({ x: 0, y: 0 })
+  const containerSize = useRef<{ w: number, h: number }>({ w: 0, h: 0 })
   const [boxes, setBoxes] = useState<Array<HTMLElement>>([])
 
   useEffect(() => {
     init()
-    containerRef.current && setBoxes(Array.from(containerRef.current.children).map(el => el as HTMLElement))
+    if (containerRef.current)
+      setBoxes(Array.from(containerRef.current.children).map(el => el as HTMLElement))
   }, [])
 
   useEffect(() => {
@@ -74,7 +75,7 @@ const MagicContainer = ({ children, className }: MagicContainerProps) => {
 
       mouse.current.x = x
       mouse.current.y = y
-      boxes.forEach(box => {
+      boxes.forEach((box) => {
         const boxX = -(box.getBoundingClientRect().left - rect.left) + mouse.current.x
         const boxY = -(box.getBoundingClientRect().top - rect.top) + mouse.current.y
         box.style.setProperty('--mouse-x', `${boxX}px`)
@@ -82,7 +83,8 @@ const MagicContainer = ({ children, className }: MagicContainerProps) => {
 
         if (inside) {
           box.style.setProperty('--opacity', `1`)
-        } else {
+        }
+        else {
           box.style.setProperty('--opacity', `0`)
         }
       })

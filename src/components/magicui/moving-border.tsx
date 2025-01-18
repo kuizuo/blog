@@ -72,7 +72,7 @@ export const MovingBorder = ({
   const pathRef = useRef<any>()
   const progress = useMotionValue<number>(0)
 
-  useAnimationFrame(time => {
+  useAnimationFrame((time) => {
     const length = pathRef.current?.getTotalLength()
     if (length) {
       const pxPerMillisecond = length / duration
@@ -90,7 +90,7 @@ export const MovingBorder = ({
       <svg
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        className="absolute h-full w-full"
+        className="absolute size-full"
         width="100%"
         height="100%"
         {...otherProps}

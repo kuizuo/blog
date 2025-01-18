@@ -19,7 +19,7 @@ export default function prismIncludeLanguages(PrismObject: typeof PrismNamespace
   // long as you don't re-assign it
   globalThis.Prism = PrismObject
 
-  additionalLanguages.forEach(lang => {
+  additionalLanguages.forEach((lang) => {
     if (lang === 'php') {
       require('prismjs/components/prism-markup-templating.js')
     }

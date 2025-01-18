@@ -64,8 +64,8 @@ const Particles: React.FC<ParticlesProps> = ({
   const context = useRef<CanvasRenderingContext2D | null>(null)
   const circles = useRef<any[]>([])
   const mousePosition = MousePosition()
-  const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
-  const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 })
+  const mouse = useRef<{ x: number, y: number }>({ x: 0, y: 0 })
+  const canvasSize = useRef<{ w: number, h: number }>({ w: 0, h: 0 })
   const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1
 
   useEffect(() => {
@@ -214,7 +214,8 @@ const Particles: React.FC<ParticlesProps> = ({
         if (circle.alpha > circle.targetAlpha) {
           circle.alpha = circle.targetAlpha
         }
-      } else {
+      }
+      else {
         circle.alpha = circle.targetAlpha * remapClosestEdge
       }
       circle.x += circle.dx + vx
@@ -226,10 +227,10 @@ const Particles: React.FC<ParticlesProps> = ({
 
       // circle gets out of the canvas
       if (
-        circle.x < -circle.size ||
-        circle.x > canvasSize.current.w + circle.size ||
-        circle.y < -circle.size ||
-        circle.y > canvasSize.current.h + circle.size
+        circle.x < -circle.size
+        || circle.x > canvasSize.current.w + circle.size
+        || circle.y < -circle.size
+        || circle.y > canvasSize.current.h + circle.size
       ) {
         // remove the circle from the array
         circles.current.splice(i, 1)
@@ -244,7 +245,7 @@ const Particles: React.FC<ParticlesProps> = ({
 
   return (
     <div className={className} ref={canvasContainerRef} aria-hidden="true">
-      <canvas ref={canvasRef} className="h-full w-full" />
+      <canvas ref={canvasRef} className="size-full" />
     </div>
   )
 }

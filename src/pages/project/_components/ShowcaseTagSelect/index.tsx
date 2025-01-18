@@ -51,17 +51,17 @@ const ShowcaseTagSelect = React.forwardRef<HTMLLabelElement, Props>(({ id, icon,
         type="checkbox"
         id={id}
         className="sr-only"
-        onKeyDown={e => {
+        onKeyDown={(e) => {
           if (e.key === 'Enter') {
             toggleTag()
           }
         }}
-        onFocus={e => {
+        onFocus={(e) => {
           if (e.relatedTarget) {
             e.target.nextElementSibling?.dispatchEvent(new KeyboardEvent('focus'))
           }
         }}
-        onBlur={e => {
+        onBlur={(e) => {
           e.target.nextElementSibling?.dispatchEvent(new KeyboardEvent('blur'))
         }}
         onChange={toggleTag}

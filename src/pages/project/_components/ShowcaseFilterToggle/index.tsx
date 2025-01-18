@@ -44,7 +44,7 @@ export default function ShowcaseFilterToggle(): JSX.Element {
         className="sr-only"
         aria-label="Toggle between or and and for the tags you selected"
         onChange={toggleOperator}
-        onKeyDown={e => {
+        onKeyDown={(e) => {
           if (e.key === 'Enter') {
             toggleOperator()
           }

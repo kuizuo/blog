@@ -35,7 +35,7 @@ function Name() {
       initial="hidden"
       animate="visible"
       variants={variants}
-      onMouseMove={e => {
+      onMouseMove={(e) => {
         e.currentTarget.style.setProperty('--x', `${e.clientX}px`)
         e.currentTarget.style.setProperty('--y', `${e.clientY}px`)
       }}
@@ -43,7 +43,7 @@ function Name() {
       <Translate id="homepage.hero.greet">你好! 我是</Translate>
       <span
         className={styles.name}
-        onMouseMove={e => {
+        onMouseMove={(e) => {
           const bounding = e.currentTarget.getBoundingClientRect()
           e.currentTarget.style.setProperty('--mouse-x', `${bounding.x}px`)
           e.currentTarget.style.setProperty('--mouse-y', `${bounding.y}px`)
@@ -73,9 +73,9 @@ export default function Hero() {
         <motion.div className="mt-4 flex gap-2" custom={4} initial="hidden" animate="visible" variants={variants}>
           <MovingButton
             borderRadius="1.25rem"
-            className="relative z-10 flex items-center rounded-2xl border border-neutral-200 border-solid bg-background px-5 py-3 text-center font-semibold text-base dark:border-neutral-800"
+            className="relative z-10 flex items-center rounded-2xl border border-solid border-neutral-200 bg-background px-5 py-3 text-center text-base font-semibold dark:border-neutral-800"
           >
-            <a href={'/about'} className="font-semibold">
+            <a href="/about" className="font-semibold">
               <Translate id="hompage.hero.introduce">自我介绍</Translate>
             </a>
           </MovingButton>

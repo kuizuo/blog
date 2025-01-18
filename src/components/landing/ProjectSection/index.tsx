@@ -23,10 +23,10 @@ const Slider = ({ items }: { items: Project[] }) => {
                 loading="lazy"
               />
               <div className="w-full py-2 text-center">
-                <h2 className="m-0 overflow-hidden text-ellipsis whitespace-nowrap font-normal text-xl">
+                <h2 className="m-0 truncate text-xl font-normal">
                   {item.title}
                 </h2>
-                <p className="m-0 overflow-hidden text-ellipsis whitespace-nowrap text-primary">
+                <p className="m-0 truncate text-primary">
                   {removeHttp(item.website)}
                 </p>
               </div>
@@ -44,8 +44,8 @@ export default function ProjectSection() {
   return (
     <Section
       title={<Translate id="homepage.project.title">项目展示</Translate>}
-      icon={'ri:projector-line'}
-      href={'/project'}
+      icon="ri:projector-line"
+      href="/project"
     >
       <Slider items={showProjects} />
     </Section>

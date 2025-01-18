@@ -17,9 +17,9 @@ export default function BlogPostItemContainer({ children, className }: Props): J
       {image && (
         <>
           <meta itemProp="image" content={withBaseUrl(image, { absolute: true })} />
-          <div className={'absolute inset-0 z-1 h-[224px]'}>
+          <div className="z-1 absolute inset-0 h-[224px]">
             <div
-              className="size-full rounded-[var(--ifm-pagination-nav-border-radius)] bg-center bg-cover bg-no-repeat"
+              className="size-full rounded-[var(--ifm-pagination-nav-border-radius)] bg-cover bg-center bg-no-repeat"
               style={{
                 WebkitMaskImage: 'linear-gradient(180deg, #fff -17.19%, #00000000 92.43%)',
                 maskImage: 'linear-gradient(180deg, #fff -17.19%, #00000000 92.43%)',

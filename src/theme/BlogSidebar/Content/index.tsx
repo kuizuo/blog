@@ -36,7 +36,8 @@ function BlogSidebarContent({ items, yearGroupHeadingClassName, ListComponent }:
         ))}
       </>
     )
-  } else {
+  }
+  else {
     return <ListComponent items={items} />
   }
 }
