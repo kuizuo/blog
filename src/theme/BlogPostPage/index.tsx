@@ -32,9 +32,11 @@ function BlogPostPageContent({
     <BlogLayout
       sidebar={sidebar}
       toc={
-        !hideTableOfContents && toc.length > 0 ? (
-          <TOC toc={toc} minHeadingLevel={tocMinHeadingLevel} maxHeadingLevel={tocMaxHeadingLevel} />
-        ) : undefined
+        !hideTableOfContents && toc.length > 0
+          ? (
+              <TOC toc={toc} minHeadingLevel={tocMinHeadingLevel} maxHeadingLevel={tocMaxHeadingLevel} />
+            )
+          : undefined
       }
     >
       <BlogPostItem>{children}</BlogPostItem>

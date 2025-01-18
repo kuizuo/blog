@@ -31,7 +31,7 @@ const variants: Variants = {
   }),
 }
 
-const formatDate = dateString => {
+const formatDate = (dateString) => {
   const date = new Date(dateString)
   const month = String(date.getMonth() + 1).padStart(2, '0')
   const day = String(date.getDate()).padStart(2, '0')
@@ -72,7 +72,10 @@ function YearsSection({ years }: { years: YearProp[] }) {
           <div className={styles.archiveYear}>
             <h3 className={styles.archiveYearTitle}>{_props.year}</h3>
             <span>
-              <i>{(years[idx] as YearProp).posts.length} </i>
+              <i>
+                {(years[idx] as YearProp).posts.length}
+                {' '}
+              </i>
               <Translate id="theme.blog.archive.posts.unit">篇</Translate>
             </span>
           </div>

@@ -11,13 +11,15 @@ export default function BlogPostItemHeaderTitle({ className }: Props): JSX.Eleme
   const TitleHeading = isBlogPostPage ? 'h1' : 'h2'
   return (
     <TitleHeading className={cn(styles.title, className)} itemProp="headline">
-      {isBlogPostPage ? (
-        title
-      ) : (
-        <Link itemProp="url" to={permalink} className={styles.titleLink}>
-          {title}
-        </Link>
-      )}
+      {isBlogPostPage
+        ? (
+            title
+          )
+        : (
+            <Link itemProp="url" to={permalink} className={styles.titleLink}>
+              {title}
+            </Link>
+          )}
     </TitleHeading>
   )
 }

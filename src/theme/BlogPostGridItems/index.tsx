@@ -34,7 +34,7 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
       {data.map((item, idx) => (
         <div
           key={item.link}
-          className="group relative block h-full w-full p-2"
+          className="group relative block size-full p-2"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -42,7 +42,7 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
             <AnimatePresence>
               {hoveredIndex === idx && (
                 <motion.span
-                  className="absolute inset-0 block h-full w-full rounded-lg bg-neutral-100 dark:bg-slate-800/[0.8]"
+                  className="absolute inset-0 block size-full rounded-lg bg-neutral-100 dark:bg-slate-800/[0.8]"
                   layoutId="hoverBackground"
                   initial={{ opacity: 0 }}
                   animate={{
@@ -87,7 +87,7 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
                     </>
                   )}
                 </div>
-                <div className="text-[var(--ifm-color-emphasis-600)] text-xs">{item.date}</div>
+                <div className="text-xs text-[var(--ifm-color-emphasis-600)]">{item.date}</div>
               </CardFooter>
             </Card>
           </Link>

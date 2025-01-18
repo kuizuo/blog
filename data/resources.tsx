@@ -13,7 +13,7 @@ export interface ResourceCategory {
   resources: Resource[]
 }
 
-const friends: Resource[] = Friends.map(f => {
+const friends: Resource[] = Friends.map((f) => {
   return {
     ...f,
     name: f.title,

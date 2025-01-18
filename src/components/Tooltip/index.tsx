@@ -41,10 +41,12 @@ export default function Tooltip({ children, id, anchorEl, text, delay }: Props):
     if (anchorEl) {
       if (typeof anchorEl === 'string') {
         setContainer(document.querySelector(anchorEl))
-      } else {
+      }
+      else {
         setContainer(anchorEl)
       }
-    } else {
+    }
+    else {
       setContainer(document.body)
     }
   }, [anchorEl])
@@ -74,22 +76,22 @@ export default function Tooltip({ children, id, anchorEl, text, delay }: Props):
     }
 
     if (referenceElement) {
-      showEvents.forEach(event => {
+      showEvents.forEach((event) => {
         referenceElement.addEventListener(event, handleOpen)
       })
 
-      hideEvents.forEach(event => {
+      hideEvents.forEach((event) => {
         referenceElement.addEventListener(event, handleClose)
       })
     }
 
     return () => {
       if (referenceElement) {
-        showEvents.forEach(event => {
+        showEvents.forEach((event) => {
           referenceElement.removeEventListener(event, handleOpen)
         })
 
-        hideEvents.forEach(event => {
+        hideEvents.forEach((event) => {
           referenceElement.removeEventListener(event, handleClose)
         })
       }
@@ -99,7 +101,7 @@ export default function Tooltip({ children, id, anchorEl, text, delay }: Props):
   return (
     <>
       {React.cloneElement(children, {
-        ref: setReferenceElement,
+        'ref': setReferenceElement,
         'aria-describedby': open ? tooltipId : undefined,
       })}
       {container

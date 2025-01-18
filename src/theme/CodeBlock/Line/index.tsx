@@ -23,14 +23,16 @@ export default function CodeBlockLine({
 
   return (
     <span {...lineProps}>
-      {showLineNumbers ? (
-        <>
-          <span className={styles.codeLineNumber} />
-          <span className={styles.codeLineContent}>{lineTokens}</span>
-        </>
-      ) : (
-        lineTokens
-      )}
+      {showLineNumbers
+        ? (
+            <>
+              <span className={styles.codeLineNumber} />
+              <span className={styles.codeLineContent}>{lineTokens}</span>
+            </>
+          )
+        : (
+            lineTokens
+          )}
       <br />
     </span>
   )

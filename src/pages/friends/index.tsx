@@ -20,7 +20,7 @@ const friends = Friends
 
 function SiteInfo() {
   return (
-    <div className="w-96 rounded-[var(--ifm-pre-border-radius)] border border-black border-solid border-opacity-10 text-left text-sm leading-none">
+    <div className="w-96 rounded-[var(--ifm-pre-border-radius)] border border-solid border-black border-opacity-10 text-left text-sm leading-none">
       <CodeBlock language="yaml" title="本站信息" className={styles.codeBlock}>
         {SITE_INFO}
       </CodeBlock>
@@ -43,7 +43,8 @@ function FriendHeader() {
 const FriendCard = memo(({ friend }: { friend: Friend }) => (
   <li className="relative flex min-h-24 cursor-pointer flex-row items-center overflow-hidden rounded-card bg-card px-4 py-1 transition-all duration-300 hover:translate-y-[-5px] hover:scale-[1.01] hover:bg-[rgba(229,231,235,0.3)] hover:shadow-[0_3px_10px_0_rgba(164,190,217,0.3)]">
     <img
-      // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       src={typeof friend.avatar === 'string' ? friend.avatar : friend.avatar.src.src}
       alt={friend.title}
       className="size-16 min-w-16 rounded-full object-contain"
@@ -54,7 +55,7 @@ const FriendCard = memo(({ friend }: { friend: Friend }) => (
           <Link
             to={friend.website}
             rel=""
-            className="bg-[0%_100%] bg-[length:0%_1px] bg-gradient-to-b from-ifm-color-primary to-ifm-color-primary bg-no-repeat no-underline transition-[background-size] duration-200 ease-out hover:bg-[length:100%_1px] focus:bg-[length:100%_1px]"
+            className="from-ifm-color-primary to-ifm-color-primary bg-gradient-to-b bg-[length:0%_1px] bg-[0%_100%] bg-no-repeat no-underline transition-[background-size] duration-200 ease-out hover:bg-[length:100%_1px] focus:bg-[length:100%_1px]"
           >
             {friend.title}
           </Link>
@@ -67,7 +68,7 @@ const FriendCard = memo(({ friend }: { friend: Friend }) => (
 
 function FriendCards() {
   return (
-    <section className="mt-8 mb-8">
+    <section className="my-8">
       <div className="mx-auto max-w-6xl px-4 py-2">
         <ul className="grid grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">
           {friends.map(friend => (

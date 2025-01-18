@@ -28,11 +28,11 @@ const twConfig: Config = {
         blog: 'var(--blog-item-shadow)',
       },
       animation: {
-        marquee: 'marquee var(--duration) linear infinite',
+        'marquee': 'marquee var(--duration) linear infinite',
         'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
       },
       keyframes: {
-        marquee: {
+        'marquee': {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(calc(-100% - var(--gap)))' },
         },
@@ -69,7 +69,7 @@ const twConfig: Config = {
 
 export default twConfig
 
-function addVariablesForColors({ addBase, theme }: any) {
+function addVariablesForColors({ addBase, theme }) {
   const allColors = flattenColorPalette(theme('colors'))
   const newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]))
 

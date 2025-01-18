@@ -33,7 +33,7 @@ export function ReadingTime({ readingTime }: { readingTime: number }) {
   return <span className="truncate">{readingTimePlural(readingTime)}</span>
 }
 
-function DateTime({ date, formattedDate }: { date: string; formattedDate: string }) {
+function DateTime({ date, formattedDate }: { date: string, formattedDate: string }) {
   return (
     <time dateTime={date} itemProp="datePublished" className="truncate">
       {formattedDate}
@@ -73,7 +73,7 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
                   <Tag
                     label={label}
                     permalink={tagPermalink}
-                    className={'tag !border-0 px-0.5 py-0.5 text-text hover:text-link'}
+                    className="tag !border-0 p-0.5 text-text hover:text-link"
                     description={description}
                   />
                 </div>

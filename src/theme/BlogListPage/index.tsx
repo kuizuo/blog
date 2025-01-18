@@ -70,7 +70,7 @@ function BlogListPageContent(props: Props) {
       <p className="mb-4 text-center">代码人生：编织技术与生活的博客之旅</p>
       <ViewTypeSwitch viewType={viewType} toggleViewType={toggleViewType} />
       <div className="row">
-        <div className={'col col--12'}>
+        <div className="col col--12">
           <>
             {isListView && (
               <div className="mb-4">

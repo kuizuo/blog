@@ -30,10 +30,10 @@ export function BlogItem({ post }: { post: BlogPost }) {
     >
       {frontMatter.image && (
         <Link href={permalink} className="max-h-[240px] w-full cursor-pointer overflow-hidden object-cover">
-          <Image src={frontMatter?.image} alt={title} img={''} />
+          <Image src={frontMatter?.image} alt={title} img="" />
         </Link>
       )}
-      <div className={'card__body'}>
+      <div className="card__body">
         <h4 className="text-base">
           <Link href={permalink} className="relative hover:no-underline">
             {title}
@@ -66,7 +66,7 @@ export default function BlogSection(): JSX.Element {
   }
 
   return (
-    <Section title={<Translate id="homepage.blog.title">近期博客</Translate>} icon="ri:quill-pen-line" href={'/blog'}>
+    <Section title={<Translate id="homepage.blog.title">近期博客</Translate>} icon="ri:quill-pen-line" href="/blog">
       <div ref={ref} className="flex flex-col gap-4 overflow-hidden rounded-card p-3 md:grid md:grid-cols-12">
         {posts.map((postGroup, index) => (
           <div className="col-span-4" key={index}>

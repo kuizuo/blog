@@ -30,7 +30,10 @@ export default function TOC({ className, ...props }: Props): JSX.Element {
         linkActiveClassName={LINK_ACTIVE_CLASS_NAME}
       />
       <hr className={styles.hr} />
-      <span className={styles.percent}>{`${readPercent}%`} </span>
+      <span className={styles.percent}>
+        {`${readPercent}%`}
+        {' '}
+      </span>
     </motion.div>
   )
 }
