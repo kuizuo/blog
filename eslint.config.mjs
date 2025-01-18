@@ -1,5 +1,5 @@
 import stylistic from '@stylistic/eslint-plugin'
-import reactPlugin from 'eslint-plugin-react'
+import react from 'eslint-plugin-react'
 import tailwind from 'eslint-plugin-tailwindcss'
 import ts from 'typescript-eslint'
 
@@ -13,10 +13,10 @@ export default [
   {
     files: ['**/*.ts', '**/*.tsx'],
     plugins: {
-      react: reactPlugin,
+      react: react,
     },
     rules: {
-      ...reactPlugin.configs['jsx-runtime'].rules,
+      ...react.configs['jsx-runtime'].rules,
 
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-require-imports': 'off',
