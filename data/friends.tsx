@@ -36,12 +36,6 @@ export const Friends: Friend[] = [
     avatar: '/img/friend/innei.png',
   },
   {
-    title: 'AprilNEA',
-    description: 'Talk is cheap, show me the code',
-    website: 'https://sku.moe/',
-    avatar: '/img/friend/aprilNEA.png',
-  },
-  {
     title: 'Simon He',
     description: 'Front-end development, Open source',
     website: 'https://simonme.netlify.app',
