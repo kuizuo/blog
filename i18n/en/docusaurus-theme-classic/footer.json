@@ -23,10 +23,6 @@
     "message": "Archive",
     "description": "The label of footer link with label=归档 linking to archive"
   },
-  "link.item.label.技术笔记": {
-    "message": "Notes",
-    "description": "The label of footer link with label=技术笔记 linking to docs/skill"
-  },
   "link.item.label.实战项目": {
     "message": "Projects",
     "description": "The label of footer link with label=实战项目 linking to project"

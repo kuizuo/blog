@@ -46,7 +46,7 @@ yarn start
 
 ![image-20220804052418993](https://img.kuizuo.cn/20220804052418993.png)
 
-### [资源导航](/resources)
+### 资源导航
 
 ![image-20220804052016538](https://img.kuizuo.cn/20220804052016538.png)
 

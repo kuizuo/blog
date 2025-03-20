@@ -15,10 +15,6 @@
     "message": "技术博客",
     "description": "The label of footer link with label=技术博客 linking to /#homepage_blogs"
   },
-  "link.item.label.技术笔记": {
-    "message": "技术笔记",
-    "description": "The label of footer link with label=技术笔记 linking to docs/skill"
-  },
   "link.item.label.实战项目": {
     "message": "实战项目",
     "description": "The label of footer link with label=实战项目 linking to project"
