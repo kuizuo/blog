@@ -49,7 +49,6 @@
 │   ├── friends.tsx                # 友链
 │   ├── projects.tsx               # 项目
 │   ├── skills.tsx                 # 技术栈
-│   ├── resources.tsx              # 资源
 │   └── social.ts                  # 社交链接
 ├── i18n                           # 国际化
 ├── src
