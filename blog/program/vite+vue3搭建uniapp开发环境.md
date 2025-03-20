@@ -28,7 +28,7 @@ description: 使用 vite vue3 搭建 uniapp 开发环境
 
 在 HBuilderX 正式版中是无法直接创建 Vue3 项目的，而 Alpha 版有 Vue2 和 3 可供选择，但创建的自带的模板大部分的写法还是 vue2 的写法（无 setup 语法糖），所以这时候要么改代码自建，要么使用官方所提供的 [Vue3 模板](https://uniapp.dcloud.io/worktile/CLI.html#%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B)
 
-![image-20220327000608783](https://img.kuizuo.cn/image-20220327000608783.png)
+![image-20220327000608783](https://img.kuizuo.cn/20220327000608783.png)
 
 :::
 
@@ -98,11 +98,11 @@ ready in 1554ms.
 
 算了，就用 HBuilderX 的 cli 先运行到手机或模拟器，然后后打开 app 的时候提示如下错误，点击忽略后发现应用无法正常运行。
 
-![image-20220326224649953](https://img.kuizuo.cn/image-20220326224649953.png)
+![image-20220326224649953](https://img.kuizuo.cn/20220326224649953.png)
 
 查看了下我本地的 HBuilderX 版本是正式版 v3.3.13，而该 Vue3 的模板的 Alpha 版 v3.4.3
 
-![image-20220326225748608](https://img.kuizuo.cn/image-20220326225748608.png)
+![image-20220326225748608](https://img.kuizuo.cn/20220326225748608.png)
 
 好家伙，官方提供的模板都直接使用 Alpha 版，无奈只好点击 [查看详情](https://ask.dcloud.net.cn/article/35627) 后问题解决办法。最终测试后，建议是使用最新版，即 Alpha 版本，于是替换了本地正式版的 HbuilderX，应用便能正常运行了。
 
@@ -116,7 +116,7 @@ ready in 1554ms.
 
 uniapp 官方中提供了一个 uni-ui 的组件库，但有一个 uniapp 相对知名的组件库 uview，并且相对前者来说更易上手实用，但当我尝试用 HBuilderX 导入时，却出现下方提示。
 
-![image-20220327002827115](https://img.kuizuo.cn/image-20220327002827115.png)
+![image-20220327002827115](https://img.kuizuo.cn/20220327002827115.png)
 
 很显然，uview 并不支持 vue3，但在社区中找到了份同时支持 Vue3.0 和 Vue2.0 的[uView](https://ext.dcloud.net.cn/plugin?name=vk-uview-ui)，但测试后最终已失败告终。
 
@@ -124,7 +124,7 @@ uniapp 官方中提供了一个 uni-ui 的组件库，但有一个 uniapp 相对
 
 然后想到 Taro 中还有 nutui，于是我便开始尝试了一下，不出所料，支持 Vue3 组件库，肯定是支持的。演示如下
 
-![image-20220327005629618](https://img.kuizuo.cn/image-20220327005629618.png)
+![image-20220327005629618](https://img.kuizuo.cn/20220327005629618.png)
 
 但很遗憾，这里的支持也只是局限于 h5 开发。官方也有声明只能开发 h5
 

@@ -73,7 +73,7 @@ More info: https://github.com/yeoman/insight & http://yeoman.io
 
 根据指示一步步选择，这里省略勾选过程，最终生成的项目结果如下
 
-![](https://img.kuizuo.cn/image_StiMqQrFCi.png)
+![](https://img.kuizuo.cn/StiMqQrFCi.png)
 
 ### 运行 vscode 插件
 
@@ -83,7 +83,7 @@ More info: https://github.com/yeoman/insight & http://yeoman.io
 
 注意: 由于是 webpack 开发，在调用堆栈中可以看到有两个进程，一个是 webpack，另一个是新开的插件窗口的，同时在该调试窗口也能查看调试输出信息。
 
-![](https://img.kuizuo.cn/image_Yv4X32qLE5.png)
+![](https://img.kuizuo.cn/Yv4X32qLE5.png)
 
 **切记一定要等到第二个调试进程加载完毕**（时间根据电脑性能而定），再打开命令行输入 Hello World 才会有命令，否则会提示 没有匹配命令。
 
@@ -186,7 +186,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 此时重启窗口，就会有如下弹窗显示
 
-![](https://img.kuizuo.cn/image_9oqLzZl-wE.png)
+![](https://img.kuizuo.cn/9oqLzZl-wE.png)
 
 但如果你是 mac 用户的话，你会发现无法打开，其原因是 window 下打开链接的指令是 start，而 mac 则是 open，所以需要区分不同的系统。要区分系统就可以使用 node 中的 os 模块的 platform 方法获取系统，如下（省略部分代码）
 
@@ -216,7 +216,7 @@ exec(commandLine)
 
 该参数可以在设置 → 扩展中找到`kuizuo-plugin`插件来手动选择，也可以是通过 api 来修改
 
-![](https://img.kuizuo.cn/image_teNrxe9D9O.png)
+![](https://img.kuizuo.cn/teNrxe9D9O.png)
 
 然后读取`vscode.workspace.getConfiguration().get(key)`和设置该参数`vscode.workspace.getConfiguration().update(key, value)`
 
@@ -249,7 +249,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 我日常开发中写的最多的文件就是 js/ts 了，有时候就会在目录下创建 demo.js 来简单测试编写 js 代码，那么我就要点击资源管理器，然后右键新建文件，输入 demo.js。于是我想的是将该功能**封装成快捷键**的方式，当然右键也有**新建测试文件**这一选项。
 
-![](https://img.kuizuo.cn/image_3SRybBGaF1.png)
+![](https://img.kuizuo.cn/3SRybBGaF1.png)
 
 功能其实挺鸡肋的，也挺高不了多少效率，这里可以说**为了演示和测试这个功能而实现**。
 
@@ -302,7 +302,7 @@ export function deactivate() {}
 
 然后就当我实现完功能的时候，我在想**自带的新建文件是不是就是个 command？只是没有绑定快捷键？** 于是我到键盘快捷方式中找到答案
 
-![](https://img.kuizuo.cn/image_nQu3Y8DWSw.png)
+![](https://img.kuizuo.cn/nQu3Y8DWSw.png)
 
 图中的`explorer.newFile`就是资源管理器右键新建文件的命令，只是没有键绑定。所以我只需要简单的加上`shift + alt + n`即可实现我一开始想要的快捷键功能，此时再次右键资源管理器新建文件右侧就有对应的快捷键。
 
@@ -353,7 +353,7 @@ export function deactivate() {}
     ]
 ```
 
-![](https://img.kuizuo.cn/image_SnnPUABJN5.png)
+![](https://img.kuizuo.cn/SnnPUABJN5.png)
 
 仔细看右侧来源就可以知道是没问题的，第一个为我之前设置的，而扩展则是通过上面的方法。
 
@@ -421,7 +421,7 @@ export function deactivate() {}
 
 至于底部状态栏，这里借用官方例子[vscode-extension-samples/statusbar-sample at main · microsoft/vscode-extension-samples (github.com)](https://github.com/microsoft/vscode-extension-samples/tree/main/statusbar-sample 'vscode-extension-samples/statusbar-sample at main · microsoft/vscode-extension-samples (github.com)')，最终效果如下
 
-![](https://img.kuizuo.cn/image_yQRsMkT6f5.png)
+![](https://img.kuizuo.cn/yQRsMkT6f5.png)
 
 那个 🍭 就是所添加的图标，不过并不实际功能，这里只是作为展示。
 
@@ -486,7 +486,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 当你尝试运行上述代码时，会发现在任何值后面输入`.`都会有`log`提示。
 
-![](https://img.kuizuo.cn/image_-ZCy88xVyq.png)
+![](https://img.kuizuo.cn/-ZCy88xVyq.png)
 
 但是点击后只是满足了代码补全的功能，而选择 log 选项后所要执行的操作则是在 `resolveCompletionItem` 中实现，这里仅仅只是返回一个 null，即只有简单的补全功能，这里对整个过程进行描述（可以自行下个断点调试查看）：。
 
@@ -632,7 +632,7 @@ context.subscriptions.push(
 
 这里也一笔带过，具体可看 hover.ts 中的代码。只要在 json 文件中，将鼠标悬停在`kuizuo`这个词中即可触发，试试看看。
 
-![](https://img.kuizuo.cn/image_RUIjdDI90l.png)
+![](https://img.kuizuo.cn/RUIjdDI90l.png)
 
 ### WebView
 
@@ -646,7 +646,7 @@ context.subscriptions.push(
 
 不过这里还只是作为一个演示，点击右上角的 logo 图标便可在 vscode 中打开网页。
 
-![](https://img.kuizuo.cn/image_nVO_YmRit4.png)
+![](https://img.kuizuo.cn/nVO_YmRit4.png)
 
 不过要注意一点。新开的 webview 的背景是对应主题颜色的背景，如果网站有黑白模式的话，那么可能会导致颜色不对，故这里设置了 webview 的背景为白色。
 
@@ -692,7 +692,7 @@ vsce package
 
 **2、新建一个 token**
 
-![image-20220831152146541](https://img.kuizuo.cn/image-20220831152146541.png)
+![image-20220831152146541](https://img.kuizuo.cn/20220831152146541.png)
 
 根据图片选择，注意其中 `Organization` 选择 `All aaccessible organizations`，`Scopes` 选择：`Full access`，否则登录会失败。生成后会得到一个 token，保存它，当你关闭时便不再显示。
 
@@ -724,11 +724,11 @@ vsce publish
 
 可以在 [Manage Extensions | Visual Studio Marketplace](https://marketplace.visualstudio.com/manage/publishers/kuizuo 'Manage Extensions | Visual Studio Marketplace') 中管理已发布的插件
 
-![](https://img.kuizuo.cn/image_HssaMdar8f.png)
+![](https://img.kuizuo.cn/HssaMdar8f.png)
 
 这时在 vscode 扩展商店中搜索 `vscode-extension-sample`就能找到该插件[VSCode-extension](https://marketplace.visualstudio.com/items?itemName=kuizuo.vscode-extension-sample 'VSCode-extension')，也可以通过`publisher:"kuizuo"`来找到我的所有 vscode 插件。
 
-![vscode-extension](https://img.kuizuo.cn/image-20220711195038039.png)
+![vscode-extension](https://img.kuizuo.cn/20220711195038039.png)
 
 ## 总结
 

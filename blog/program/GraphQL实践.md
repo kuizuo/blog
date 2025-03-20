@@ -47,7 +47,7 @@ GET /blog/1/author
 
 有没有这样一个功能，将这些接口做一下聚合，然后**将结果的集合返回给前端**呢？在目前比较流行微服务架构体系下，有一个专门的中间层专门来处理这个事情，这个中间层叫 BFF（Backend For Frontend）。可以参阅 [BFF——服务于前端的后端](https://blog.csdn.net/qianduan666a/article/details/107271974 'BFF——服务于前端的后端')
 
-![](https://img.kuizuo.cn/image_Y4u9tNpZwR.png)
+![](https://img.kuizuo.cn/Y4u9tNpZwR.png)
 
 但这些接口一般来说都比较重，里面有很多当前页面并不需要的字段，那还有没有一种请求：**客户端只需要发送一次请求就能获取所需要的字段**
 
@@ -79,15 +79,15 @@ REST API 构建在请求方法（method）和端点（endpoint）之间的连接
 
 查询所有 People 并且只获取 `name`、`gender`、`height` 字段
 
-![](https://img.kuizuo.cn/image_kvWUNtlUbf.png)
+![](https://img.kuizuo.cn/kvWUNtlUbf.png)
 
 查询 personID 为 1 的 Person 并且只获取 `name`，`gender`，`height` 字段
 
-![](https://img.kuizuo.cn/image_Msg9xwWFrl.png)
+![](https://img.kuizuo.cn/Msg9xwWFrl.png)
 
 查询 personID 为 2 的 Person 并且只获取 `name`，`eyeColor`、`skinColor`、`hairColor` 字段
 
-![](https://img.kuizuo.cn/image_hX0l36Acme.png)
+![](https://img.kuizuo.cn/hX0l36Acme.png)
 
 从上面查询案例中其实就可以发现，我只需要在 person 中写上想要获取的字段，GraphQL 便会返回带有该字段的数据。避免了返回结果中不必要的数据字段。
 
@@ -101,7 +101,7 @@ REST API 构建在请求方法（method）和端点（endpoint）之间的连接
 
 如果你不想要 person 数据或者想要其他其他的数据，不用像 Restful API 那样请求多条接口，依旧请求`/graphql`，如
 
-![](https://img.kuizuo.cn/image_Z0b6ya-auG.png)
+![](https://img.kuizuo.cn/Z0b6ya-auG.png)
 
 :::info
 
@@ -191,11 +191,11 @@ export class AppResolver {
 
 尝试输入 GraphQL 的 query 查询（可以按 Ctrl + i 触发代码建议（Trigger Suggest），与 vscode 同理）
 
-![](https://img.kuizuo.cn/image_a3yl4oVtSU.png)
+![](https://img.kuizuo.cn/a3yl4oVtSU.png)
 
 此时点击执行，可以得到右侧结果，即`app.resolver.ts` 中 `hello` 函数所定义的返回体。
 
-![](https://img.kuizuo.cn/image_bK9bvZ3QMm.png)
+![](https://img.kuizuo.cn/bK9bvZ3QMm.png)
 
 ### [Code first](https://docs.nestjs.com/graphql/quick-start#code-first) 与 [Schema first](https://docs.nestjs.com/graphql/quick-start#schema-first)
 
@@ -213,7 +213,7 @@ nest 提供 cli 的方式来快速生成 GraphQL 模块
 nest g resource <name>
 ```
 
-![](https://img.kuizuo.cn/image_L9yYAn78Dw.png)
+![](https://img.kuizuo.cn/L9yYAn78Dw.png)
 
 比如创建一个 blog 模块
 
@@ -234,7 +234,7 @@ UPDATE src/app.module.ts (643 bytes)
 
 便会生成如下文件
 
-![](https://img.kuizuo.cn/image_XemqTcfz_D.png)
+![](https://img.kuizuo.cn/XemqTcfz_D.png)
 
 ```typescript title='blog.resolver.ts' icon='logos:nestjs'
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql'
@@ -276,7 +276,7 @@ export class BlogResolver {
 
 此时 Schema 如下
 
-![](https://img.kuizuo.cn/image_sJCQpllOXK.png)
+![](https://img.kuizuo.cn/sJCQpllOXK.png)
 
 不过`nest cli`创建的`blog.service.ts` 只是示例代码，并没有实际业务的代码。
 
@@ -427,7 +427,7 @@ export class CreateBlogInput {
 
 此时
 
-![](https://img.kuizuo.cn/image_7-twN56Aym.png)
+![](https://img.kuizuo.cn/7-twN56Aym.png)
 
 ### CRUD
 
@@ -435,15 +435,15 @@ export class CreateBlogInput {
 
 #### 新增
 
-![](https://img.kuizuo.cn/image_NPqShDN3Pl.png)
+![](https://img.kuizuo.cn/NPqShDN3Pl.png)
 
 #### 修改
 
-![](https://img.kuizuo.cn/image_c4ycwRs-po.png)
+![](https://img.kuizuo.cn/c4ycwRs-po.png)
 
 #### 删除
 
-![](https://img.kuizuo.cn/image_xpkHhpS1-K.png)
+![](https://img.kuizuo.cn/xpkHhpS1-K.png)
 
 Query 就不在演示。
 
@@ -469,27 +469,27 @@ npm install @strapi/plugin-graphql
 
 #### 查询所有 todo
 
-![](https://img.kuizuo.cn/image_4GFUs8CmQJ.png)
+![](https://img.kuizuo.cn/4GFUs8CmQJ.png)
 
 #### 查询 id 为 2 的 todo
 
-![](https://img.kuizuo.cn/image_NMM4e3L_y8.png)
+![](https://img.kuizuo.cn/NMM4e3L_y8.png)
 
 #### 查询 id 为 2 的 todo 并只返回 value 属性
 
-![](https://img.kuizuo.cn/image_E1eWrzjaEs.png)
+![](https://img.kuizuo.cn/E1eWrzjaEs.png)
 
 #### 新增 todo
 
-![](https://img.kuizuo.cn/image_pclR7Zb6TE.png)
+![](https://img.kuizuo.cn/pclR7Zb6TE.png)
 
 #### 更新 todo
 
-![](https://img.kuizuo.cn/image_g3RJL7RQWR.png)
+![](https://img.kuizuo.cn/g3RJL7RQWR.png)
 
 #### 删除 todo
 
-![](https://img.kuizuo.cn/image_m7s17q2TG0.png)
+![](https://img.kuizuo.cn/m7s17q2TG0.png)
 
 由于 [Nuxt Strapi](https://strapi.nuxtjs.org/ 'Nuxt Strapi') 提供 [useStrapiGraphQL](https://strapi.nuxtjs.org/usage#usestrapigraphql 'useStrapiGraphQL') 可以非常方便是在客户端调用 GraphQL 服务。
 

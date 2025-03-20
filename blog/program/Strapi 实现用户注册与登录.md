@@ -23,7 +23,7 @@ image: https://img.kuizuo.cn/202312270300876.png
 
 打开 **设置 => 用户及权限插件 => 角色列表**
 
-![image-20220825131929320](https://img.kuizuo.cn/image-20220825131929320.png)
+![image-20220825131929320](https://img.kuizuo.cn/20220825131929320.png)
 
 默认有两个角色 Authenticated 与 Pubilc，都不可删除，其中还有一个 Admin 是我自己创建的角色，用于分配管理员的权限。
 
@@ -31,19 +31,19 @@ Authenticated 对应的也就是登录后的角色，即携带 **Authorization**
 
 另一个 Pubilc 则是未授权用户，默认权限如下
 
-![image-20220825132235027](https://img.kuizuo.cn/image-20220825132235027.png)
+![image-20220825132235027](https://img.kuizuo.cn/20220825132235027.png)
 
 ### 权限分配
 
 双击角色可以到权限分配页面，比方说我想给 Authenticated 角色分配 Restaurant 表中查询数据，就可以按照如下选项中勾选，并且勾选其中一个权限（增删改查）可以在右侧看到对应的请求 api 接口（路由）
 
-![image-20220825132716257](https://img.kuizuo.cn/image-20220825132716257.png)
+![image-20220825132716257](https://img.kuizuo.cn/20220825132716257.png)
 
 ### 默认角色
 
 可以在 **设置 => 用户及权限插件 => 高级设置** 中分配默认角色，此外这里还可以配置注册，重置密码等操作。对于这些功能而言，传统开发就需要编写相当多的代码了，而 Strapi 的 [角色和权限](https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html) 插件能省去开发这一部分功能的时间。
 
-![image-20220825132948740](https://img.kuizuo.cn/image-20220825132948740.png)
+![image-20220825132948740](https://img.kuizuo.cn/20220825132948740.png)
 
 ### 管理员权限
 

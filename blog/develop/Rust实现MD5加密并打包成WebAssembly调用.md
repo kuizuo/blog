@@ -173,21 +173,21 @@ pub fn md5(input: &str)-> String {
 
 在线地址：[http://rust-wasm-md5.kuizuo.cn](http://rust-wasm-md5.kuizuo.cn/) （不保证地址长期可用）
 
-![](https://img.kuizuo.cn/image__XHPNCbC-B.png)
+![](https://img.kuizuo.cn/_XHPNCbC-B.png)
 
 ## 思考：为何不使用 js 的 md5 而是 wasm 的 md5
 
 众所周知，你在浏览器中按下 F12 打开 DevTools，并选择源代码面板中就可以看到当前访问的网站的所有代码。
 
-![](https://img.kuizuo.cn/image_6019y_U19n.png)
+![](https://img.kuizuo.cn/6019y_U19n.png)
 
 而对于一些具有熟练度的逆向分析者中，如果不经过任何处理的代码被打包到生产环境中能够快速的定位出某个功能的具体代码位置。
 
 而通过 wasm 就能很有效的将代码隐藏起来，不让逆向分析者查看，就像下面这样
 
-![](https://img.kuizuo.cn/image_BbA3n6wFws.png)
+![](https://img.kuizuo.cn/BbA3n6wFws.png)
 
-![](https://img.kuizuo.cn/image_81tgfDE_P7.png)
+![](https://img.kuizuo.cn/81tgfDE_P7.png)
 
 这里我并没有将 md5 更改成不易猜测的名字，你也可自行下断点尝试一番，定位代码。当你定位到具体代码后，就会得到上图的二进制代码格式，几乎无法解读其意思。
 

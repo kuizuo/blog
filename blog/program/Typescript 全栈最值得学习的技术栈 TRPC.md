@@ -34,7 +34,7 @@ toc_max_heading_level: 3
 
 对于大部分前端应用而言，类型往往常被忽略的，这就导致不知道这个请求的提交参数、响应结果有什么数据字段。举个 axios 发送 post 请求的例子
 
-![image-20230308142331808](https://img.kuizuo.cn/image-20230308142331808.png)
+![image-20230308142331808](https://img.kuizuo.cn/20230308142331808.png)
 
 这是一个 post 请求用于实现登录的，但是这个响应数据 data 没有任何具体提示（这里的提示是 vscode 记录用户最近输入的提示），这时候如果一旦对象属性拼写错误，就会导致某个数据没拿到，从而诱发 bug。同理提交的请求体 body 不做约束，万一这个请求还有验证码 code 参数，但是我没写上，那请求就会失败，这是就需要通过调试输出，甚至需要抓包比对原始数据包，其过程可想而知。
 
@@ -50,7 +50,7 @@ Cannot read properties of undefined (reading 'xxx')
 
 当然 axios 是可以通过泛型的方式拿到 data 的数据类型提示，就如下图所示。
 
-![image-20230308142452678](https://img.kuizuo.cn/image-20230308142452678.png)
+![image-20230308142452678](https://img.kuizuo.cn/20230308142452678.png)
 
 但这样为了更好的类型提示，无形之间又增加了工作量，我需要定义每个接口的 Response 与 Body 类型，就极易造成开发疲惫，不愿维护代码。而本次所要介绍的技术栈 tRPC 就能够帮你省去重复的类型定义的一个 web 全栈框架。
 
@@ -166,7 +166,7 @@ export default trpc.withTRPC(MyApp)
 
 当你导入 trpc 并输入 `trpc.` 时，将会提示出服务端定义好的 `greeting` 函数，如下图所示。
 
-![](https://img.kuizuo.cn/image_YDKc7TixQA.png)
+![](https://img.kuizuo.cn/YDKc7TixQA.png)
 
 此时通过 `const result = trpc.greeting.useQuery()` 便可调用 `greeting` 函数，其中 `result.data` 便可拿到 `'hello tRPC!'` 信息。
 
@@ -176,9 +176,9 @@ export default trpc.withTRPC(MyApp)
 
 不妨此时打开控制台面板，看看请求
 
-![](https://img.kuizuo.cn/image_WfW8ehqUKz.png)
+![](https://img.kuizuo.cn/WfW8ehqUKz.png)
 
-![](https://img.kuizuo.cn/image_qicvoGjshx.png)
+![](https://img.kuizuo.cn/qicvoGjshx.png)
 
 不难看出，调用 greeting 函数本质是向 `/api/trpc/greeting` 发送了 http 请求，并且携带参数 batch 和 input，虽然我们暂时还没有传。默认 input 为 {}。
 
@@ -218,13 +218,13 @@ const result3 = trpc.greeting.useQuery({ name: 'kuizuo3' })
 
 tRPC 会将这三次函数调用合并成一次 http 请求，并且得到的响应本文也是以多条数据的形式返回
 
-![](https://img.kuizuo.cn/image_ufrhaugaIj.png)
+![](https://img.kuizuo.cn/ufrhaugaIj.png)
 
-![](https://img.kuizuo.cn/image_cvlDJjhwPl.png)
+![](https://img.kuizuo.cn/cvlDJjhwPl.png)
 
 分别输出三者 result 也没有任何问题。
 
-![](https://img.kuizuo.cn/image_hbL8So_RzB.png)
+![](https://img.kuizuo.cn/hbL8So_RzB.png)
 
 这是 tRPC 的一个特性：**请求批处理，将同时发出的请求（调用）可以自动组合成一个请求。**
 
@@ -285,9 +285,9 @@ Error: Maximum update depth exceeded. This can happen when a component repeatedl
 
 此时请求变为 post 请求，并且携带的参数也以 body 形式传递。
 
-![](https://img.kuizuo.cn/image_-qEI8jR1uM.png)
+![](https://img.kuizuo.cn/-qEI8jR1uM.png)
 
-![](https://img.kuizuo.cn/image_RTdWJn_55p.png)
+![](https://img.kuizuo.cn/RTdWJn_55p.png)
 
 通过 useQuery 和 useMutation 就能够用 tRPC 实现最基本的 CRUD。此外还有 useInfiniteQuery 可以用作类似无限下拉查询，类似 [SWR 无限加载](https://swr.bootcss.com/examples/infinite-loading)。useQueries 批量查询，使用 [Subscriptions](https://trpc.io/docs/subscriptions) 进行订阅 WebSocket 等等。
 
@@ -309,7 +309,7 @@ tRPC 针对 react 项目的查询主要依赖于 [@tanstack/react-query](https:/
 
 这里选用 [Create T3 App](https://create.t3.gg/ 'Create T3 App') 用于创建应用（也可以选择 [trpc/examples-next-prisma-starter](https://github.com/trpc/examples-next-prisma-starter 'trpc/examples-next-prisma-starter')），Create T3 App 集成了诸多有关 TypeScript full-stack 相关的技术栈，其中就包括了本文所要介绍的几个技术栈。
 
-![](https://img.kuizuo.cn/image_8BUcBPK8In.png)
+![](https://img.kuizuo.cn/8BUcBPK8In.png)
 
 ```bash
 pnpm create t3-app@latest
@@ -317,7 +317,7 @@ pnpm create t3-app@latest
 
 安装过程如下
 
-![](https://img.kuizuo.cn/image_ERGzEt2Tq8.png)
+![](https://img.kuizuo.cn/ERGzEt2Tq8.png)
 
 ### prisma
 
@@ -420,7 +420,7 @@ npx prisma studio
 
 此时访问 localhost:5555 将会得到一个 prisma 面板，即项目的所有 model 。
 
-![](https://img.kuizuo.cn/image_QBXnHdoewh.png)
+![](https://img.kuizuo.cn/QBXnHdoewh.png)
 
 关于 prisma 更多命令请参考 [Prisma CLI Command Reference](https://www.prisma.io/docs/reference/api-reference/command-reference 'Prisma CLI Command Reference')
 
@@ -478,7 +478,7 @@ prisma 不是本文重点，篇幅略少，但是作为 Typeorm 的长期使用�
 
 由于 create-t3-app 默认是 Discord OAuth，因此我这边替换成使用者更多的 Github。（至于如何创建 Github OAuth Apps，在我之前的文章以及外面诸多文章中都有介绍到，这里不在演示了，附上配置图）
 
-![](https://img.kuizuo.cn/image__B1RYeiFze.png)
+![](https://img.kuizuo.cn/_B1RYeiFze.png)
 
 首先在
 
@@ -533,7 +533,7 @@ export const authOptions: NextAuthOptions = {
 
 当上述在设置完毕后，点击 Sign in 按钮便可跳转到 next-auth 所提供的简单登录表单。
 
-![](https://img.kuizuo.cn/image_9eowvvnwU2.png)
+![](https://img.kuizuo.cn/9eowvvnwU2.png)
 
 如果你想自定义修改登录页面，可以参考该视频[Create your own next-auth Login Pages - YouTube](https://www.youtube.com/watch?v=kB6YNYZ63fw 'Create your own next-auth Login Pages - YouTube')
 
@@ -553,7 +553,7 @@ DATABASE_URL=postgresql://myuser:mypassword@localhost:5432/mydb
 
 如果你执意要使用 vercel 部署，当你触发数据库服务时便会报错，以下是相关截图。
 
-![](https://img.kuizuo.cn/image_7_XKmbuK87.png)
+![](https://img.kuizuo.cn/7_XKmbuK87.png)
 
 :::
 
@@ -563,7 +563,7 @@ DATABASE_URL=postgresql://myuser:mypassword@localhost:5432/mydb
 
 这里我提供了一个简单的示例，你可以 [点我](https://trpc.kuizuo.cn) 访问体验一下（项目部署在 Vercel，而数据库服务在腾讯云，登录服务又依赖 Github，所以项目会稍微有那么慢）。整个项目结构大致如下
 
-![](https://img.kuizuo.cn/image_z_YaR-RnSu.png)
+![](https://img.kuizuo.cn/z_YaR-RnSu.png)
 
 你可以在 [Example Apps | tRPC](https://trpc.io/docs/example-apps 'Example Apps | tRPC') 查看 trpc 的示例应用。
 

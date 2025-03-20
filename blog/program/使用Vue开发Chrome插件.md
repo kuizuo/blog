@@ -27,7 +27,7 @@ npm run server
 
 会提供几个选项，如 Eslint，background.js，tab 页，axios，如下图
 
-![image-20210916142751129](https://img.kuizuo.cn/image-20210916142751129.png)
+![image-20210916142751129](https://img.kuizuo.cn/20210916142751129.png)
 
 选择完后，将会自动下载依赖，通过 npm run server 将会在根目录生成 dist 文件夹，将该文件拖至 Chrome 插件管理便可安装，由于使用了 webpack，所以更改代码将会热更新，不用反复的编译导入。
 
@@ -101,7 +101,7 @@ npm run server
 
 要导入 Element-ui 也十分简单，`Vue.use(ElementUI); `Vue2 中怎么导入 element，便怎么导入。演示如下
 
-![image-20210916150154078](https://img.kuizuo.cn/image-20210916150154078.png)
+![image-20210916150154078](https://img.kuizuo.cn/20210916150154078.png)
 
 不过我没有使用 babel-plugin-component 来按需引入，按需引入一个按钮打包后大约 1.6m，而全量引入则是 5.5 左右。至于为什么不用，因为我需要在 content-scripts.js 中引入 element 组件，如果使用 babel-plugin-component 将无法按需导入组件以及样式（应该是只支持 vue 文件按需引入，总之就是折腾了我一个晚上的时间）
 
@@ -165,7 +165,7 @@ module.exports = {
 
 从官方例子导入一个登陆表单，效果如下
 
-![image-20210916152633247](https://img.kuizuo.cn/image-20210916152633247.png)
+![image-20210916152633247](https://img.kuizuo.cn/20210916152633247.png)
 
 ## 项目搭建
 
@@ -173,7 +173,7 @@ module.exports = {
 
 页面搭建就没什么好说的了，因为使用的是 element-ui，所以页面很快就搭建完毕了，效果如图
 
-![image-20210918115438700](https://img.kuizuo.cn/image-20210918115438700.png)
+![image-20210918115438700](https://img.kuizuo.cn/20210918115438700.png)
 
 ### 悬浮窗
 
@@ -208,7 +208,7 @@ module.exports = {
 
 由于是用 Vue，但又要在 js 中生成组件，就使用`document.createElement`来进行创建元素，Vue 组件如下（可拖拽）
 
-![image-20210917142340863](https://img.kuizuo.cn/image-20210917142340863.png)
+![image-20210917142340863](https://img.kuizuo.cn/20210917142340863.png)
 
 :::warning
 
@@ -391,7 +391,7 @@ function insertFloat() {
 
 这个其实只要接触过一丢丢爬虫的肯定都会知道如何实现，通过右键审查元素，像这样
 
-![image-20210918104907148](https://img.kuizuo.cn/image-20210918104907148.png)
+![image-20210918104907148](https://img.kuizuo.cn/20210918104907148.png)
 
 然后使用 dom 操作，选择对应的元素，输出便可
 
@@ -460,7 +460,7 @@ window.onload = function () {
 
 其中`window.kz_vm`是通过`window.kz_vm = new Vue()` 初始化的，方便我们操作 vm 对象，就需要通过 jquery 选择元素在添加属性了。如果你想的话也可以直接在 content-script.js 上编写代码，这样就无需使用 window 对象，但这样导致一些业务逻辑都堆在一个文件里，所以我习惯分成 bilibili.js 然后注入方式为 document_end，然后在操作 dom 元素吗，实现效果如下
 
-![image-20210918110958104](https://img.kuizuo.cn/image-20210918110958104.png)
+![image-20210918110958104](https://img.kuizuo.cn/20210918110958104.png)
 
 如果像显示到 popup 页面只需要通过页面通信就行了，不过前提得先 popup 打开才行，所以一般都是通过 background 来进行中转，一般来说很少 content –> popup（因为操作 popup 的前提都是 popup 要打开），相对更多的是 content –> background 或 popup –> content
 

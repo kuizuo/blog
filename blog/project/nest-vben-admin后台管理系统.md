@@ -17,7 +17,7 @@ image: /img/project/nest-vben-admin.png
 
 <!-- truncate -->
 
-![image-20220505171231754](https://img.kuizuo.cn/image-20220505171231754.png)
+![image-20220505171231754](https://img.kuizuo.cn/20220505171231754.png)
 
 ## 前端
 
@@ -171,13 +171,13 @@ pnpm run dev
 
 在这三张表中关系如下（这里使用外键与数据库模型为例，实际项目并未用到外键，也不推荐使用）
 
-![image-20220508235534026](https://img.kuizuo.cn/image-20220508235534026.png)
+![image-20220508235534026](https://img.kuizuo.cn/20220508235534026.png)
 
 用户-角色 与 角色-权限都采用的多对多的关系，即新创建一个表用于映射两表关系。这些都属于 mysql 基础，不做过多赘述。
 
 在权限管理中，最为重要的便是权限表了，由于这套后台管理系统中还涉及到前端的左侧菜单，所以将这里的 permission 表替换为 menu 表，字段 permission 表示权限值。数据库中的 menu 表如下
 
-![image-20220508234343594](https://img.kuizuo.cn/image-20220508234343594.png)
+![image-20220508234343594](https://img.kuizuo.cn/20220508234343594.png)
 
 对于主要字段介绍：
 

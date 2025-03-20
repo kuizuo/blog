@@ -37,7 +37,7 @@ deno task start
 
 根据你的喜好进行配置，如下
 
-![](https://img.kuizuo.cn/image_jSRfPu966v.png)
+![](https://img.kuizuo.cn/jSRfPu966v.png)
 
 此时会创建如下文件
 
@@ -98,7 +98,7 @@ SSR 通常是将数据通过服务端的前端框架渲染成 HTML，直接将 H
 
 如果你仔细查看控制面板的网络请求输出，可以看到服务器端组件是可以请求的。（这里用的后面实战的截图作为展示）
 
-![](https://img.kuizuo.cn/image_v73eXB47yI.png)
+![](https://img.kuizuo.cn/v73eXB47yI.png)
 
 不过既然服务端组件也有很多限制，就比如说服务端状态下，是无法使用 Web 相关 Api 的，数据传输（通过 props）是有前提的，要 JSON 可序列化，也就是说只能传递基本类型、基本对象、数组，像 Date，自定义类，函数等复制对象是无法传递的。
 
@@ -183,7 +183,7 @@ import { IS_BROWSER } from '$fresh/runtime.ts'
 
 [deno Deploy](https://dash.deno.com/ 'deno Deploy') 可以非常轻松的部署 fresh 应用，使用 Github 账号登录后，[New Project](https://dash.deno.com/new 'New Project')，从 github 仓库中拉取项目点击 Link 即可部署完毕。
 
-![](https://img.kuizuo.cn/image_CYOAgv6IGe.png)
+![](https://img.kuizuo.cn/CYOAgv6IGe.png)
 
 这里的项目名为 link-maker，那么就会生成 专属访问链接 [https://link-maker.deno.dev](https://link-maker.deno.dev/ 'https://link-maker.deno.dev')（也许要梯子才能访问）
 

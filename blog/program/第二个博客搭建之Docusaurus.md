@@ -36,7 +36,7 @@ yarn start
 
 ### [博客页](/blog/)
 
-![image-20230221120937768](https://img.kuizuo.cn/image-20230221120937768.png)
+![image-20230221120937768](https://img.kuizuo.cn/20230221120937768.png)
 
 - 支持 3 种博文信息展示
 - 博客个人信息卡片
@@ -44,23 +44,23 @@ yarn start
 
 ### [归档页](/blog/archive)
 
-![image-20220804052418993](https://img.kuizuo.cn/image-20220804052418993.png)
+![image-20220804052418993](https://img.kuizuo.cn/20220804052418993.png)
 
 ### [资源导航](/resources)
 
-![image-20220804052016538](https://img.kuizuo.cn/image-20220804052016538.png)
+![image-20220804052016538](https://img.kuizuo.cn/20220804052016538.png)
 
 - 在此分享所收藏的一些好用、实用网站。
 
 ### 评论
 
-![image-20220804052746803](https://img.kuizuo.cn/image-20220804052746803.png)
+![image-20220804052746803](https://img.kuizuo.cn/20220804052746803.png)
 
 - 接入 [giscus](https://giscus.app) 作为评论系统，支持 GitHub 登录。
 
 ### [项目](/project)
 
-![image-20220804052117492](https://img.kuizuo.cn/image-20220804052117492.png)
+![image-20220804052117492](https://img.kuizuo.cn/20220804052117492.png)
 
 - 存放你的项目，或是当做一个作品集用于展示。
 

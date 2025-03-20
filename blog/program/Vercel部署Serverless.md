@@ -29,7 +29,7 @@ export default function handler(request, response) {
 
 接口信息可以在 Functions 中查看
 
-![image-20220512155341109](https://img.kuizuo.cn/image-20220512155341109.png)
+![image-20220512155341109](https://img.kuizuo.cn/20220512155341109.png)
 
 ### 使用 typescript
 
