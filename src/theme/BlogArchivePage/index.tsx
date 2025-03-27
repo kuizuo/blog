@@ -9,6 +9,7 @@ import styles from './styles.module.css'
 import { type Variants, motion } from 'framer-motion'
 
 import MyLayout from '../MyLayout'
+import React from 'react'
 
 type YearProp = {
   year: string
@@ -76,7 +77,7 @@ function YearsSection({ years }: { years: YearProp[] }) {
                 {(years[idx] as YearProp).posts.length}
                 {' '}
               </i>
-              <Translate id="theme.blog.archive.posts.unit">篇</Translate>
+              <Translate id="theme.blog.archive.posts.unit">Posts</Translate>
             </span>
           </div>
           <Year {..._props} />
@@ -122,9 +123,10 @@ export default function BlogArchive({ archive }: Props) {
         </h2>
         <p>
           <Translate id="theme.blog.archive.posts.total" values={{ total: archive.blogPosts.length }}>
-            {'当前共有 {total} 篇文章，请持续保持创作！'}
+            {'Atualmente, há {total} artigos publicados. Continue criando!'}
           </Translate>
         </p>
+
         {years.length > 0 && <YearsSection years={years} />}
       </MyLayout>
     </HtmlClassNameProvider>

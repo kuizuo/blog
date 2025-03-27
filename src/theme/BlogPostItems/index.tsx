@@ -2,6 +2,7 @@ import { BlogPostProvider } from '@docusaurus/plugin-content-blog/client'
 import BlogPostItem from '@theme/BlogPostItem'
 import type { Props } from '@theme/BlogPostItems'
 import { type Variants, motion } from 'framer-motion'
+import React from 'react'
 
 const variants: Variants = {
   from: { opacity: 0.001, y: 100 },

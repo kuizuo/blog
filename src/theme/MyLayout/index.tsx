@@ -2,6 +2,7 @@ import { PageMetadata } from '@docusaurus/theme-common'
 import { cn } from '@site/src/lib/utils'
 import type { Props } from '@theme/Layout'
 import Layout from '@theme/Layout'
+import React from 'react'
 
 export default function MyLayout({ children, maxWidth, ...layoutProps }: Props & { maxWidth?: number }): JSX.Element {
   return (

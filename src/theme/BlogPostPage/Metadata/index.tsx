@@ -1,5 +1,6 @@
 import { useBlogPost } from '@docusaurus/plugin-content-blog/client'
 import { PageMetadata } from '@docusaurus/theme-common'
+import React from 'react'
 
 export default function BlogPostPageMetadata(): JSX.Element {
   const { assets, metadata } = useBlogPost()

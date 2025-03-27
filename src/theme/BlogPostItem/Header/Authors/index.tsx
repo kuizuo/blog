@@ -3,6 +3,7 @@ import { cn } from '@site/src/lib/utils'
 import BlogPostItemHeaderAuthor from '@theme/BlogPostItem/Header/Author'
 import type { Props } from '@theme/BlogPostItem/Header/Authors'
 import styles from './styles.module.css'
+import React from 'react'
 
 export default function BlogPostItemHeaderAuthors({ className }: Props): JSX.Element | null {
   const {

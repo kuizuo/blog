@@ -11,6 +11,7 @@ import { cn } from '@site/src/lib/utils'
 import { projects } from '@site/data/projects'
 
 import styles from './styles.module.css'
+import React from 'react'
 
 type Count = {
   blog: number
@@ -68,6 +69,10 @@ export default function UserCard({ isNavbar = false }: { isNavbar?: boolean }) {
         <Link className={styles.numItem} href="/blog/tags">
           <Icon icon="ri:price-tag-3-line" width="20" height="20" />
           {count.tag}
+        </Link>
+        <Link className={styles.numItem} href="/docs/skill">
+          <Icon icon="carbon:notebook" width="20" height="20" />
+          {count.doc}
         </Link>
         <Link className={styles.numItem} href="/project" data-tips="project count">
           <Icon icon="ph:projector-screen" width="20" height="20" />

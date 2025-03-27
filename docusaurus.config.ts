@@ -2,33 +2,25 @@ import type * as Preset from '@docusaurus/preset-classic'
 import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
 import social from './data/social'
-import type { GiscusConfig } from './src/components/Comment'
-
-const beian = '闽ICP备2020017848号-2'
-const beian1 = '闽公网安备35021102000847号'
 
 const config: Config = {
-  title: '愧怍',
-  url: 'https://kuizuo.cn',
+  title: 'Eliziane',
+  url: 'https://el1ziane.vercel.app/',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  organizationName: 'kuizuo',
+  organizationName: 'Eliziane',
   projectName: 'blog',
   customFields: {
-    bio: '道阻且长，行则将至',
+    bio: 'O caminho é longo e difícil, mas quem caminha, chega.',
     description:
-      '是一个由愧怍创建的个人博客，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
+      'Este é um blog pessoal criado por Eliziane, que compartilha conhecimento de desenvolvimento e projetos de programação. O site é construído com Docusaurus, um gerador de sites estáticos baseado em React.',
   },
   themeConfig: {
-    // announcementBar: {
-    //   id: 'announcementBar-3',
-    //   content: ``,
-    // },
     image: 'img/og.png',
     metadata: [
       {
         name: 'author',
-        content: '愧怍',
+        content: 'Eliziane',
       },
       {
         name: 'keywords',
@@ -36,7 +28,7 @@ const config: Config = {
       },
       {
         name: 'keywords',
-        content: '编程爱好者, Web开发者, 写过爬虫, 学过逆向, 主攻ts全栈',
+        content: 'programador, desenvolvedor web, já fiz crawlers, estudei engenharia reversa, foco em ts full-stack',
       },
     ],
     docs: {
@@ -46,66 +38,48 @@ const config: Config = {
     },
     navbar: {
       logo: {
-        alt: '愧怍',
+        alt: 'Eliziane',
         src: 'img/logo.webp',
         srcDark: 'img/logo.webp',
       },
       hideOnScroll: true,
       items: [
-        { label: '博客', position: 'right', to: 'blog' },
-        { label: '项目', position: 'right', to: 'project' },
-        { label: '友链', position: 'right', to: 'friends' },
-        { label: '关于', position: 'right', to: 'about' },
+        { label: 'Blog', position: 'right', to: 'blog' },
+        { label: 'Projetos', position: 'right', to: 'project' },
+        { label: 'Sobre', position: 'right', to: 'about' },
         {
-          label: '更多',
+          label: 'Mais',
           position: 'right',
           items: [
-            { label: '归档', to: 'blog/archive' },
-            { label: '主题魔改', to: 'docs/docusaurus-guides' },
+            { label: 'Arquivos', to: 'blog/archive' },
+            { label: 'Notas', to: 'docs/skill' },
+            { label: 'Ferramentas', to: 'docs/tools' },
           ],
         },
-        // {
-        //   type: 'localeDropdown',
-        //   position: 'right',
-        // },
       ],
     },
     footer: {
       style: 'dark',
       links: [
         {
-          title: '学习',
+          title: 'Estudos',
           items: [
-            { label: '博客', to: 'blog' },
-            { label: '归档', to: 'blog/archive' },
-            { label: '实战项目', to: 'project' },
-            { label: '前端示例', to: 'https://example.kuizuo.cn' },
+            { label: 'Blog', to: 'blog' },
+            { label: 'Arquivos', to: 'blog/archive' },
+            { label: 'Notas técnicas', to: 'docs/skill' },
+            { label: 'Projetos práticos', to: 'project' },
           ],
         },
         {
-          title: '社交媒体',
+          title: 'Mídias sociais',
           items: [
-            { label: '关于我', to: '/about' },
+            { label: 'Sobre mim', to: '/about' },
             { label: 'GitHub', href: social.github.href },
-            { label: 'Twitter', href: social.x.href },
-            { label: '掘金', href: social.juejin.href },
-            { label: 'Discord', href: social.discord.href },
+            { label: 'LinkedIn', href: social.LinkedIn.href },
           ],
         },
         {
-          title: '网站',
           items: [
-            { label: 'js反混淆', to: 'https://js-deobfuscator.kuizuo.cn' },
-            { label: 'cyberChef', to: 'https://gchq.github.io/CyberChef' },
-            { label: 'api服务', to: 'https://api.kuizuo.cn' },
-            { label: '便民服务', to: 'https://service.kuizuo.cn' },
-            { label: '站点监控', to: 'https://uptime.kuizuo.cn' },
-          ],
-        },
-        {
-          title: '更多',
-          items: [
-            { label: '友链', position: 'right', to: 'friends' },
             {
               html: `
                 <a href="https://docusaurus.io" target="_blank" rel="noreferrer noopener">
@@ -117,17 +91,15 @@ const config: Config = {
         },
       ],
       copyright: `
-        <p style="margin-bottom: 0;"><a href="http://beian.miit.gov.cn/">${beian}</a></p>
-        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${
-          beian1.match(/\d+/)?.[0]
-        }" >${beian1}</a></p>
-        <p>Copyright © 2020 - ${new Date().getFullYear()} kuizuo. | Built with Docusaurus.</p>
+        <p style="margin-bottom: 0;"></p>
+        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" height="20"/></p>
+        <p>ᓚᘏᗢ 2025 - ${new Date().getFullYear()} | Built with Docusaurus.</p>
         `,
     },
     algolia: {
       appId: 'GV6YN1ODMO',
       apiKey: '50303937b0e4630bec4a20a14e3b7872',
-      indexName: 'kuizuo',
+      indexName: 'eliziane',
     },
     prism: {
       theme: themes.oneLight,
@@ -153,7 +125,7 @@ const config: Config = {
       categoryId: 'DIC_kwDOF7NJDM4CPK95',
       theme: 'light',
       darkTheme: 'dark_dimmed',
-    } satisfies Partial<GiscusConfig>,
+    },
     tableOfContents: {
       minHeadingLevel: 2,
       maxHeadingLevel: 4,
@@ -193,7 +165,6 @@ const config: Config = {
   plugins: [
     'docusaurus-plugin-image-zoom',
     '@docusaurus/plugin-ideal-image',
-    // ['docusaurus-plugin-baidu-tongji', { token: 'c9a3849aa75f9c4a4e65f846cd1a5155' }],
     [
       '@docusaurus/plugin-pwa',
       {
@@ -214,24 +185,24 @@ const config: Config = {
       },
     ],
     [
-      './src/plugin/plugin-content-blog', // 为了实现全局 blog 数据，必须改写 plugin-content-blog 插件
+      './src/plugin/plugin-content-blog',
       {
         path: 'blog',
         editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
           `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
         editLocalizedFiles: false,
-        blogDescription: '代码人生：编织技术与生活的博客之旅',
+        blogDescription: 'Vida de código: uma jornada de blog entre tecnologia e vida',
         blogSidebarCount: 10,
-        blogSidebarTitle: '博文',
+        blogSidebarTitle: 'Postagens do blog',
         postsPerPage: 12,
         showReadingTime: true,
         readingTime: ({ content, frontMatter, defaultReadingTime }) =>
           defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
         feedOptions: {
           type: 'all',
-          title: '愧怍',
+          title: 'Eliziane',
           description: 'feedId:41215011978385457+userId:41840354283324416',
-          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
+          copyright: `Copyright © ${new Date().getFullYear()} Eliziane Built with Docusaurus.<p></p>`,
         },
       },
     ],
@@ -239,7 +210,6 @@ const config: Config = {
       return {
         name: 'docusaurus-tailwindcss',
         configurePostCss(postcssOptions) {
-          // Appends TailwindCSS and AutoPrefixer.
           postcssOptions.plugins.push(require('tailwindcss'))
           postcssOptions.plugins.push(require('autoprefixer'))
           return postcssOptions
@@ -254,25 +224,24 @@ const config: Config = {
             headTags: [
               {
                 tagName: 'script',
-                innerHTML: `
-    (${function () {
-      console.log(
-        `%c Kz Blog %c https://github.com/kuizuo/blog`,
-        'color: #fff; margin: 1em 0; padding: 5px 0; background: #12affa;',
-        'margin: 1em 0; padding: 5px 0; background: #efefef;',
-      )
+                innerHTML: `(${function () {
+                  console.log(
+                    '%c Kz Blog %c https://github.com/kuizuo/blog',
+                    'color: #fff; margin: 1em 0; padding: 5px 0; background: #12affa;',
+                    'margin: 1em 0; padding: 5px 0; background: #efefef;',
+                  )
 
-      const motto = `
-This Webisite Powered By Kz Blog.
-Written by Docusaurus, Coding with Love.
+                  const motto = `
+Este website é alimentado pelo Kz Blog.
+Escrito com Docusaurus, programando com amor.
 --------
-Love what you do and do what you love.
+Ame o que você faz e faça o que você ama.
 `
 
-      if (document.firstChild?.nodeType !== Node.COMMENT_NODE) {
-        document.prepend(document.createComment(motto))
-      }
-    }.toString()})();`,
+                  if (document.firstChild?.nodeType !== Node.COMMENT_NODE) {
+                    document.prepend(document.createComment(motto))
+                  }
+                }.toString()})();`,
               },
             ],
           }
@@ -285,7 +254,7 @@ Love what you do and do what you love.
       tagName: 'meta',
       attributes: {
         name: 'description',
-        content: '愧怍的个人博客',
+        content: 'Blog pessoal de Eliziane',
       },
     },
   ],
@@ -295,8 +264,8 @@ Love what you do and do what you love.
     'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css',
   ],
   i18n: {
-    defaultLocale: 'zh-CN',
-    locales: ['zh-CN'],
+    defaultLocale: 'pt-BR',
+    locales: ['pt-BR'],
   },
   onBrokenLinks: 'warn',
 }

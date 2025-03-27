@@ -5,6 +5,7 @@ import { prepareUserState } from '../../index'
 
 import { cn } from '@site/src/lib/utils'
 import styles from './styles.module.css'
+import React from 'react'
 
 export type Operator = 'OR' | 'AND'
 

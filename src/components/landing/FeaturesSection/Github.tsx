@@ -4,6 +4,7 @@ import GitHubCalendar from 'react-github-calendar'
 import { useColorMode } from '@docusaurus/theme-common'
 import { Icon } from '@iconify/react'
 import ThemedImage from '@theme/ThemedImage'
+import React from 'react'
 
 interface GithubProps {
   className?: string
@@ -40,7 +41,7 @@ export default function Github({ className }: GithubProps) {
             }}
           />
         </div>
-        <GitHubCalendar username="kuizuo" blockSize={11} colorScheme={isDarkTheme ? 'dark' : 'light'} />
+        <GitHubCalendar username="eliziane" blockSize={11} colorScheme={isDarkTheme ? 'dark' : 'light'} />
       </div>
     </div>
   )

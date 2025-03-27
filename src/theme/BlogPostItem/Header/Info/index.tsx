@@ -7,6 +7,7 @@ import type { Props } from '@theme/BlogPostItem/Header/Info'
 
 import { Icon } from '@iconify/react'
 import Tag from '@site/src/theme/Tag'
+import React from 'react'
 
 // Very simple pluralization: probably good enough for now
 function useReadingTimePlural() {

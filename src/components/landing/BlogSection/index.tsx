@@ -62,11 +62,11 @@ export default function BlogSection(): JSX.Element {
   })
 
   if (blogData.postNum === 0) {
-    return <>作者还没开始写博文哦...</>
+    return <>O autor ainda não começou a escrever...</>
   }
 
   return (
-    <Section title={<Translate id="homepage.blog.title">近期博客</Translate>} icon="ri:quill-pen-line" href="/blog">
+    <Section title={<Translate id="homepage.blog.title">Posts recentes</Translate>} icon="ri:quill-pen-line" href="/blog">
       <div ref={ref} className="flex flex-col gap-4 overflow-hidden rounded-card p-3 md:grid md:grid-cols-12">
         {posts.map((postGroup, index) => (
           <div className="col-span-4" key={index}>

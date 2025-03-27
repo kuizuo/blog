@@ -1,6 +1,7 @@
 import { cn } from '@site/src/lib/utils'
 import { type ComponentProps, type ReactNode } from 'react'
 import styles from './styles.module.css'
+import React from 'react'
 
 export interface SvgIconProps extends ComponentProps<'svg'> {
   viewBox?: string

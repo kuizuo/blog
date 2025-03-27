@@ -1,4 +1,5 @@
 import BrowserOnly from '@docusaurus/BrowserOnly'
+import React from 'react'
 import { Tweet as ReactTweet } from 'react-tweet'
 
 export default function Tweet({ id }: { id: string }) {

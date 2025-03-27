@@ -10,17 +10,17 @@ import { MagicContainer } from '@site/src/components/magicui/magic-card'
 import MyLayout from '@site/src/theme/MyLayout'
 import { upperFirst } from '@site/src/utils/jsUtils'
 import styles from './styles.module.css'
+import React from 'react'
 
 const TITLE = translate({
   id: 'theme.project.title',
-  message: '项目',
+  message: 'Projetos',
 })
 const DESCRIPTION = translate({
   id: 'theme.project.description',
-  message: '学而无用，不如学而用之。这里是我在技术领域中努力实践和应用的最佳证明。',
+  message: 'Código, criatividade e muita tentativa e erro. Seja bem-vindo(a) aos meus projetos!" 🎨💻🫡',
 })
 
-// const GITHUB_URL = 'https://github.com/kuizuo'
 
 type ProjectState = {
   scrollTopPosition: number
@@ -43,14 +43,7 @@ function ShowcaseHeader() {
     <section className="text-center">
       <h2>{TITLE}</h2>
       <p>{DESCRIPTION}</p>
-      {/* <a
-        className="button button--primary"
-        href={GITHUB_URL}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Translate id="showcase.header.button">前往 Github 克隆项目</Translate>
-      </a> */}
+      {}
     </section>
   )
 }
@@ -63,7 +56,7 @@ function ShowcaseCards() {
     return (
       <section className="margin-top--lg margin-bottom--xl">
         <div className="padding-vert--md container text-center">
-          <h2>No result</h2>
+          <h2>Sem projetos</h2>
         </div>
       </section>
     )

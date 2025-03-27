@@ -1,4 +1,5 @@
 import { cn } from '@site/src/lib/utils'
+import React from 'react'
 import { CSSProperties, ReactElement, ReactNode, useEffect, useRef, useState } from 'react'
 
 interface MousePosition {

@@ -51,13 +51,13 @@ const ShowcaseCard = memo(({ project }: { project: Project }) => {
           <h4 className={styles.showcaseCardTitle}>
             <Link href={project.website}>{project.title}</Link>
           </h4>
-          {project.tags.includes('favorite') && <FavoriteIcon svgClass={styles.svgIconFavorite} size="small" />}
+          {project.tags.includes('favorito') && <FavoriteIcon svgClass={styles.svgIconFavorite} size="small" />}
           {project.source && (
             <Link
               href={project.source}
               className={cn('button button--secondary button--sm', styles.showcaseCardSrcBtn)}
             >
-              <Translate id="showcase.card.sourceLink">源码</Translate>
+              <Translate id="showcase.card.sourceLink">Código-fonte</Translate>
             </Link>
           )}
         </div>

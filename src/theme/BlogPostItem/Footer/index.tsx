@@ -7,6 +7,7 @@ import Tag from '@theme/Tag'
 import { ReadingTime } from '../Header/Info/index'
 
 import styles from './styles.module.css'
+import React from 'react'
 
 export default function BlogPostItemFooter(): JSX.Element | null {
   const { metadata, isBlogPostPage } = useBlogPost()

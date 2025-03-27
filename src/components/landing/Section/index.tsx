@@ -23,7 +23,7 @@ export function Section({ title, icon, href, children }: SectionProps) {
             href={href}
             className="group/link inline-flex items-center justify-center text-base opacity-0 transition duration-500 group-hover/section:opacity-100"
           >
-            <Translate id="homepage.lookMore">查看更多</Translate>
+            <Translate id="homepage.lookMore">Ver Mais</Translate>
             <Icon icon="ri:arrow-right-s-line" className="transition group-hover/link:translate-x-1" />
           </Link>
         )}

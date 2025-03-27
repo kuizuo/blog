@@ -1,12 +1,13 @@
 import Translate from '@docusaurus/Translate'
-import features from '@site/data/features'
 import { cn } from '@site/src/lib/utils'
 import { BentoGrid, BentoGridItem } from '../../magicui/bento-grid'
 import { Section } from '../Section'
+import React from 'react'
+import { features } from 'process'
 
 export default function FeaturesSection() {
   return (
-    <Section title={<Translate id="homepage.feature.title">个人特点</Translate>} icon="ri:map-pin-user-line">
+    <Section title={<Translate id="homepage.feature.title">Características pessoais</Translate>} icon="ri:map-pin-user-line">
       <BentoGrid className="mx-auto w-full">
         {features.map((item, i) => (
           <BentoGridItem

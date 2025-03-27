@@ -1,6 +1,7 @@
 'use client'
 
 import { useColorMode } from '@docusaurus/theme-common'
+import React from 'react'
 import { useEffect, useMemo, useState } from 'react'
 import { Cloud, ICloud, SimpleIcon, fetchSimpleIcons, renderSimpleIcon } from 'react-icon-cloud'
 export const cloudProps: Omit<ICloud, 'children'> = {

@@ -5,6 +5,7 @@ import BlogPostItemContainer from '@theme/BlogPostItem/Container'
 import BlogPostItemContent from '@theme/BlogPostItem/Content'
 import BlogPostItemFooter from '@theme/BlogPostItem/Footer'
 import BlogPostItemHeader from '@theme/BlogPostItem/Header'
+import React from 'react'
 
 // apply a bottom margin in list view
 function useContainerClassName() {
