@@ -1,9 +1,19 @@
-kuizuo:
-  name: 愧怍
-  title: 全栈 typescripter / 刚毕业的学生
-  url: https://github.com/kuizuo
-  image_url: https://kuizuo.cn/img/logo.png
-  email: hi@kuizuo.cn
+Eliziane:
+  name: Eliziane
+  title: Engenheira de Software / Estudante
+  url: https://github.com/el1ziane
+  image_url: /img/logo.png
+  email: eliziane.com.br@gmail.com
   socials:
-    x: kuizuo
+    Linkedin: https://www.linkedin.com/in/eliziane-rb/
+    github: Eliziane
+
+kuizuo:
+  name: Kuizuo
+  title: Especialista em AutoHotkey
+  url: https://github.com/kuizuo
+  image_url: /img/kuizuo.jpg
+  email: kuizuo@gmail.com
+  socials:
+    Linkedin: https://www.linkedin.com/in/kuizuo
     github: kuizuo
