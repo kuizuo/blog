@@ -202,7 +202,7 @@ const config: Config = {
           type: 'all',
           title: 'Eliziane',
           description: 'feedId:41215011978385457+userId:41840354283324416',
-          copyright: `Copyright © ${new Date().getFullYear()} Eliziane Built with Docusaurus.<p></p>`,
+          copyright: `ᓚᘏᗢ ${new Date().getFullYear()} Eliziane Built with Docusaurus.<p></p>`,
         },
       },
     ],
