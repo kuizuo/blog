@@ -13,11 +13,11 @@ image: /img/project/nest-vben-admin.png
 
 基于**NestJs + TypeScript + TypeORM + Redis + MySql + Vben Admin**编写的一款前后端分离的权限管理系统
 
-演示地址：[KzAdmin](https://admin.kuizuo.cn) 管理员账号：admin 密码：123456
+演示地址：[KzAdmin](https://admin.kuizuo.me) 管理员账号：admin 密码：123456
 
 <!-- truncate -->
 
-![image-20220505171231754](https://img.kuizuo.cn/20220505171231754.png)
+![image-20220505171231754](https://img.kuizuo.me/20220505171231754.png)
 
 ## 前端
 
@@ -171,13 +171,13 @@ pnpm run dev
 
 在这三张表中关系如下（这里使用外键与数据库模型为例，实际项目并未用到外键，也不推荐使用）
 
-![image-20220508235534026](https://img.kuizuo.cn/20220508235534026.png)
+![image-20220508235534026](https://img.kuizuo.me/20220508235534026.png)
 
 用户-角色 与 角色-权限都采用的多对多的关系，即新创建一个表用于映射两表关系。这些都属于 mysql 基础，不做过多赘述。
 
 在权限管理中，最为重要的便是权限表了，由于这套后台管理系统中还涉及到前端的左侧菜单，所以将这里的 permission 表替换为 menu 表，字段 permission 表示权限值。数据库中的 menu 表如下
 
-![image-20220508234343594](https://img.kuizuo.cn/20220508234343594.png)
+![image-20220508234343594](https://img.kuizuo.me/20220508234343594.png)
 
 对于主要字段介绍：
 
@@ -270,15 +270,15 @@ permission 的值如
 
 然后在 auth.guard.ts 守卫中获取 permission，然后每次请求需要鉴权的接口时，将权限标识转为接口 url，判断是否包含该 url，不包含则无访问权限。
 
-在[菜单管理页](https://admin.kuizuo.cn/#/system/menu)中可操作菜单，具体可自测。
+在[菜单管理页](https://admin.kuizuo.me/#/system/menu)中可操作菜单，具体可自测。
 
 至此，菜单表的数据被拆分为这 3 部分数据，以实现权限管理，动态路由的目的。
 
 #### 其他文档
 
-你可以访问 [https://admin.kuizuo.cn/swagger-ui](https://admin.kuizuo.cn/swagger-ui 'https://admin.kuizuo.cn/swagger-ui') 来查看 nest-vben-admin 的 Swagger 文档
+你可以访问 [https://admin.kuizuo.me/swagger-ui](https://admin.kuizuo.me/swagger-ui 'https://admin.kuizuo.me/swagger-ui') 来查看 nest-vben-admin 的 Swagger 文档
 
-json 格式为 [https://admin.kuizuo.cn/swagger-ui/json](https://admin.kuizuo.cn/swagger-ui/json 'https://admin.kuizuo.cn/swagger-ui/json')，用于导入 ApiFox 中。
+json 格式为 [https://admin.kuizuo.me/swagger-ui/json](https://admin.kuizuo.me/swagger-ui/json 'https://admin.kuizuo.me/swagger-ui/json')，用于导入 ApiFox 中。
 
 ApiFox 在线链接: [https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25](https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25 'https://www.apifox.cn/apidoc/shared-7a07def2-5b82-4c71-bf57-915514f61f25') 访问密码: nest-vben-admin
 

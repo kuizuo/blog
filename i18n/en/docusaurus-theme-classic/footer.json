@@ -29,7 +29,7 @@
   },
   "link.item.label.前端示例": {
     "message": "Frontend Examples",
-    "description": "The label of footer link with label=前端示例 linking to https://example.kuizuo.cn"
+    "description": "The label of footer link with label=前端示例 linking to https://example.kuizuo.me"
   },
   "link.item.label.关于我": {
     "message": "About Me",

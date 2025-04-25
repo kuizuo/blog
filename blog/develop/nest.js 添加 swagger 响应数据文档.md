@@ -6,7 +6,7 @@ authors: kuizuo
 tags: [nest, swagger]
 keywords: [nest, swagger]
 description: nest.js 添加 swagger 响应数据文档
-image: https://img.kuizuo.cn/202307180126751.png
+image: https://img.kuizuo.me/202307180126751.png
 ---
 
 <!-- truncate -->
@@ -15,7 +15,7 @@ image: https://img.kuizuo.cn/202307180126751.png
 
 通常情况下，在 nest.js 的 swagger 页面文档中的响应数据文档默认如下
 
-![](https://img.kuizuo.cn/202307180105813.png)
+![](https://img.kuizuo.me/202307180105813.png)
 
 此时要为这个控制器添加响应数据文档的话，只需要先声明 数据的类型，然后通过@ApiResponse 装饰器添加到该控制器上即可，举例说明
 
@@ -51,7 +51,7 @@ export class TodoEntity {
 
 此时对应的文档数据如下显示
 
-![image-20230718012234692](https://img.kuizuo.cn/202307180122728.png)
+![image-20230718012234692](https://img.kuizuo.me/202307180122728.png)
 
 如果你想要自定义返回的数据，而不是用 entity 对象的话，可以按照如下定义
 
@@ -126,7 +126,7 @@ export class TransformInterceptor implements NestInterceptor {
 
 回到 Swagger 文档中，只需将 `@ApiResponse({ type: TodoEntity })` 改写成 `@ApiResponse({ type: ResOp<TodoEntity> })`，就可以实现下图需求。
 
-![image-20230718012618710](https://img.kuizuo.cn/202307180126751.png)
+![image-20230718012618710](https://img.kuizuo.me/202307180126751.png)
 
 ## 自定义 Api 装饰器
 
@@ -224,12 +224,12 @@ export const ApiResult = <TModel extends Type<any>>({
 
 不过我还对其进行扩展，使其能够返回分页数据格式，具体根据实际数据而定，演示效果如下图：
 
-![image-20230718023729609](https://img.kuizuo.cn/202307180237658.png)
+![image-20230718023729609](https://img.kuizuo.me/202307180237658.png)
 
 ## 导入第三方接口管理工具
 
 通过上述的操作后，此时记下项目的 swagger-ui 地址，例如 [http://127.0.0.1:5001/api-docs](http://127.0.0.1:5001/api-docs), 此时再后面添加`-json`，即 [http://127.0.0.1:5001/api-docs-json ](http://127.0.0.1:5001/api-docs-json) 所得到的数据便可导入到第三方的接口管理工具，就能够很好的第三方的接口协同，接口测试等功能。
 
-![image-20230718022612215](https://img.kuizuo.cn/202307180226265.png)
+![image-20230718022612215](https://img.kuizuo.me/202307180226265.png)
 
-![image-20230718022446188](https://img.kuizuo.cn/202307180224284.png)
+![image-20230718022446188](https://img.kuizuo.me/202307180224284.png)

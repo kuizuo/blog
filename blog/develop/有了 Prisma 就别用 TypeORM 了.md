@@ -5,7 +5,7 @@ date: 2024-01-13
 authors: kuizuo
 tags: [orm, prisma, typeorm]
 keywords: [orm, prisma, typeorm]
-image: https://img.kuizuo.cn/2024/0113174834-202401131748137.png
+image: https://img.kuizuo.me/2024/0113174834-202401131748137.png
 ---
 
 要说 2024 年 Node.js 的 ORM 框架应该选择哪个？毫无疑问选 Prisma。至于为何，请听我细细道来。
@@ -20,11 +20,11 @@ image: https://img.kuizuo.cn/2024/0113174834-202401131748137.png
 
 TypeORM 距离上次更新已经过去半年之久了（下图截取自 24 年 1 月 1 日，没想到年初竟然还复活了）
 
-![Untitled](https://img.kuizuo.cn/2024/0113165614-Untitled.png)
+![Untitled](https://img.kuizuo.me/2024/0113165614-Untitled.png)
 
 从下载量以及 star 数来看，如今 Prisma 已经超过 TypeORM，这很大一部分的功劳归功于像 Next.js、Nuxt.js 这样的全栈框架。
 
-![Untitled](https://img.kuizuo.cn/2024/0113165632-Untitled%201.png)
+![Untitled](https://img.kuizuo.me/2024/0113165632-Untitled%201.png)
 
 上图来源 [https://npmtrends.com/prisma-vs-typeorm](https://npmtrends.com/prisma-vs-typeorm)
 
@@ -38,7 +38,7 @@ TypeORM 距离上次更新已经过去半年之久了（下图截取自 24 年 1
 
 此外 Prisma 不仅支持 js/ts 生态，还支持其他语言。丰富的[生态](https://www.prisma.io/ecosystem)下，加之 Prisma 开发团队的背后是由商业公司维护，无需担心需求得不到解决。
 
-![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%202.png)
+![Untitled](https://img.kuizuo.me/2024/0113165658-Untitled%202.png)
 
 ## 开发体验对比
 
@@ -71,7 +71,7 @@ export class User {
 
 当开启了 `synchronize: true`，并且将 `name` 更改为 `title` 时，一旦运行 nest 服务后就会发现原有 `name` 下的数据全都丢失了！如图所示
 
-![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%203.png)
+![Untitled](https://img.kuizuo.me/2024/0113165658-Untitled%203.png)
 
 因为 TypeORM 针对上述操作的 sql 语句是这样的
 
@@ -158,21 +158,21 @@ Prisma 的贡献者中有 [ts-toolbelt](https://github.com/millsp/ts-toolbelt) �
 
 在 TypeORM 中，你需要 select 选择某个实体的几个字段，你可以这么写
 
-![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%204.png)
+![Untitled](https://img.kuizuo.me/2024/0113165658-Untitled%204.png)
 
 你会发现 post 对象的类型提示依旧还是 postEntity，没有任何变化。但从开发者的体验角度而言，**既然我选择查询 id 和 title 两个字段，那么你所返回的 post 类型应该也只有 id 与 title 才更符合预期**而后续代码中由于允许 post 有 body 属性提示，那么 post.body 为 null 这样不必要的结果。
 
 再来看看 Prisma，你就会发现 post 对象的类型提示信息才符合开发者的预期。像这样的细节在 Prisma 有非常多。
 
-![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%205.png)
+![Untitled](https://img.kuizuo.me/2024/0113165658-Untitled%205.png)
 
 这还不是最关键的，TypeORM 通常需要使用 `createQueryBuilder` 方法来构造 sql 语句来满足开发者所要查询的预期。而当你使用了该方法，你就会发现你所编写的代码与 js 无疑，我贴几张图给大伙看看。
 
-![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%206.png)
+![Untitled](https://img.kuizuo.me/2024/0113165658-Untitled%206.png)
 
-![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%207.png)
+![Untitled](https://img.kuizuo.me/2024/0113165658-Untitled%207.png)
 
-![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%208.png)
+![Untitled](https://img.kuizuo.me/2024/0113165658-Untitled%208.png)
 
 这无疑会诱发一些潜在 bug，我就多次因为要 select 某表中的某个字段，却因拼写错误导致查询失败。
 
@@ -183,7 +183,7 @@ Prisma 的贡献者中有 [ts-toolbelt](https://github.com/millsp/ts-toolbelt) �
 ```ts
 const newUser = new User()
 newUser.name = 'kuizuo'
-newUser.email = 'hi@kuizuo.cn'
+newUser.email = 'hi@kuizuo.me'
 const user = userRepository.save(newUser)
 ```
 
@@ -210,7 +210,7 @@ export class User {
 ```ts
 const newUser = new User({
   name: 'kuizuo',
-  email: 'hi@kuizuo.cn',
+  email: 'hi@kuizuo.me',
 })
 const user = userRepository.save(newUser)
 ```
@@ -225,7 +225,7 @@ const user = userRepository.save(newUser)
 const user = await prisma.user.create({
   data: {
     name: 'kuizuo',
-    email: 'hi@kuizuo.cn',
+    email: 'hi@kuizuo.me',
   },
 })
 ```
@@ -270,7 +270,7 @@ const raw = await this.userRepository
 {
 	user_id: 1,
 	user_name: 'kuizuo',
-	user_email： 'hi@kuizuo.cn',
+	user_email： 'hi@kuizuo.me',
 	sum: '1'
 }
 ```
@@ -424,7 +424,7 @@ export type User = z.infer<typeof UserSchema>
 
 再通过 createZodDto，将 zod 验证器转化为 dto 类，就像下面这样
 
-![Untitled](https://img.kuizuo.cn/2024/0113165658-Untitled%209.png)
+![Untitled](https://img.kuizuo.me/2024/0113165658-Untitled%209.png)
 
 当然你可能并不想在 nestjs 项目中使用 zod，而是希望使用传统的 [class-validator](https://www.npmjs.com/package/class-validator) 来编写 dto。可以使用社区提供的 [prisma-class-generator](https://github.com/kimjbstar/prisma-class-generator) 根据已有 model 生成 dto。
 
@@ -432,7 +432,7 @@ export type User = z.infer<typeof UserSchema>
 
 合理来说，Prisma 并不是一个传统的 ORM，它的工作原理并不是将表映射到编程语言中的模型类，为处理关系数据库提供了一种面向对象的方式。而是在 Prisma Schema 中定义模型。在应用程序代码中，您可以使用 Prisma Client 以类型安全的方式读取和写入数据库中的数据，而无需管理复杂模型实例的开销。
 
-![](https://img.kuizuo.cn/2024/0113171541-202401131715135.png)
+![](https://img.kuizuo.me/2024/0113171541-202401131715135.png)
 
 总而言之，你若想要[更好的类型](https://www.prisma.io/docs/orm/prisma-client/type-safety)，简洁的[实体声明语法](https://www.prisma.io/docs/orm/prisma-schema/data-model/database-mapping#prismas-default-naming-conventions-for-indexes-and-constraints)，况且带有[可视化桌面端应用](https://www.prisma.io/studio)，以及更好的[生态完备](https://www.prisma.io/ecosystem)，那么你就应该选 Prisma。
 

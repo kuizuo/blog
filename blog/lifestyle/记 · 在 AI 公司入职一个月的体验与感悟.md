@@ -6,7 +6,7 @@ authors: kuizuo
 tags: [AI, 工作, 记录]
 keywords: [AI, 工作, 记录]
 description: 这篇文章分享了作者在一家 AI 公司入职一个月的心得和体会，包括工作中的挑战与成长。
-image: https://img.kuizuo.cn/2024/0729092038-ai-people.png
+image: https://img.kuizuo.me/2024/0729092038-ai-people.png
 ---
 
 import Tweet from '@site/src/components/Tweet';
@@ -59,13 +59,13 @@ import Tweet from '@site/src/components/Tweet';
 
 唯一回复的还是我现在入职的这家，而且我还投了两份过去，一份是给 HR 的（没回），一份是给技术 leader 的（leader 回了）。
 
-![Untitled](https://img.kuizuo.cn/2024/0611021351-Untitled.png)
+![Untitled](https://img.kuizuo.me/2024/0611021351-Untitled.png)
 
 ### 面试被鸽
 
 可能是由于当时这个岗位急招的原因，在 boss 直聘上也没多说什么，leader 就约明早 11 点来公司现场初步面试聊天一下。这期间还发生了一个小变故，我到公司了，可联系不上面试官，打了微信电话也无果。待了10来分钟后我就走了，等了约一个小时都没信息，那我大概率是被鸽了，还不提前和我通知一声，然后在boss上留下了这句评价🥲。
 
-![Untitled](https://img.kuizuo.cn/2024/0611021351-1a520a5a-c3b9-4049-bfcf-825113aa7b2c.png)
+![Untitled](https://img.kuizuo.me/2024/0611021351-1a520a5a-c3b9-4049-bfcf-825113aa7b2c.png)
 
 初入职场，初次面试就这种情况，说真的我当时都有点心灰意冷了，我猜想是不是因为有其他合适的人选，于是就不招我了，就连信息也不给我打一个招呼，相当于把我拉黑似得。随后我就到附近的麦当劳花了 10 元的套餐安慰了一下自己，麦！
 
@@ -77,7 +77,7 @@ import Tweet from '@site/src/components/Tweet';
 
 这不正好到了我的强项，之前学某个框架的时候，不知道写什么demo，就写 todo list 来练手😂。恰好这次我就使用 next.js app router + Tailwindcss 的模版并且使用 form 标签的 action 和 use server 来实现新增功能。 能体现出我有在使用 next.js，而且用上了一些新特性，就拿到 offer 了。
 
-![1000047893.jpg](https://img.kuizuo.cn/2024/0611021351-03100cc0-2b0a-4049-82ed-58cc46ac1717.png)
+![1000047893.jpg](https://img.kuizuo.me/2024/0611021351-03100cc0-2b0a-4049-82ed-58cc46ac1717.png)
 
 听完之后是不是莫名的感觉这个 offer 拿的好像有点莫名其妙的感觉😂，不管怎么样结果是好的就行了。
 
@@ -115,7 +115,7 @@ import Tweet from '@site/src/components/Tweet';
 
 我已经找 Leader 报销了个 magic ui pro，大约 420 块，直接找财务刷卡，付款的感觉是真爽，我是真爱了🥰。
 
-![Untitled](https://img.kuizuo.cn/2024/0611021351-Untitled%201.png)
+![Untitled](https://img.kuizuo.me/2024/0611021351-Untitled%201.png)
 
 几天后，公司来了一个阿里做 B 端低代码开发的同事，也是负责前端开发，这不，我可以间接和这个老哥那学习大厂相关经验，我还正愁着没大厂相关的经验😄。
 
@@ -141,11 +141,11 @@ import Tweet from '@site/src/components/Tweet';
 
 部门每个月都会定一个最佳员工奖，我很荣幸获得部门本月的最佳员工，也感谢部门成员的认可，奖励是 300 元奖金或一日自由假。
 
-![Untitled](https://img.kuizuo.cn/2024/0611021351-Untitled%202.png)
+![Untitled](https://img.kuizuo.me/2024/0611021351-Untitled%202.png)
 
 甚至还有一张奖状，就是这奖状怎么有点像给小学生似的。（事后我才了解到这奖状还是用打印机打印的😂）
 
-![Untitled](https://img.kuizuo.cn/2024/0611021351-0da32f2a-c077-42c9-8a57-fff9f259187e.png)
+![Untitled](https://img.kuizuo.me/2024/0611021351-0da32f2a-c077-42c9-8a57-fff9f259187e.png)
 
 目前我已经能感受到最大的福利就是那个 magicui 动效库的模版，当然了，这个是要给公司的官网用上的，我也是蹭公司的福，给自己的站点用上了这个动效库。
 
@@ -200,7 +200,7 @@ RAG 的基本流程就是：
 
 先看 Gif 效果。
 
-![demo](https://img.kuizuo.cn/2024/0612203208-demo.gif)
+![demo](https://img.kuizuo.me/2024/0612203208-demo.gif)
 
 第一次用 Screen Studio，显示的不是很好，还请见谅，主要就是实现一个流式文本效果。
 
@@ -213,7 +213,7 @@ RAG 的基本流程就是：
 
 下图为 5 月的生物作息，基本都保持 0 点前入睡。（不过在我写这篇文章的时候已经两点了🥱）
 
-![Untitled](https://img.kuizuo.cn/2024/0611021351-Untitled%203.png)
+![Untitled](https://img.kuizuo.me/2024/0611021351-Untitled%203.png)
 
 过去几年内我的作息与饮食都非常糟糕，能明显的感觉到状态有所下滑，编写代码的效率和能力也明显不如以前，有些力不从心。今年都快过去一半了，而我仅仅完成了2篇博文的写作，文章的输出效率明显不行😮‍💨。
 

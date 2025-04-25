@@ -17,7 +17,7 @@ image: /img/project/protocol.png
 
 就在前段时间接触了 SSR 框架（Nuxt3）与 Serverless Function，并用其写了一些项目，如 [api-service](https://github.com/kuizuo/api-service 'api-service') 。而[某了个羊刷次数的网站](https://7y8y.vercel.app)的实现，则让我意外发现这貌似就是我理想中的的协议复现最佳实现？于是我立马开启了 VSCode，将我的这一想法用代码的方式来实现出来，在经历了两周几乎不间断的开发，最终达到了我的预期效果！
 
-在 [模拟请求|协议复现方案](https://kuizuo.cn/request-protocol-scheme '模拟请求|协议复现方案') 这篇文章中我对协议复现的一些方案总结，而这篇就是对 SSR 框架方案的一个具体实践。
+在 [模拟请求|协议复现方案](https://kuizuo.me/request-protocol-scheme '模拟请求|协议复现方案') 这篇文章中我对协议复现的一些方案总结，而这篇就是对 SSR 框架方案的一个具体实践。
 
 ## 技术栈
 
@@ -68,7 +68,7 @@ protocol
 
 ### 全栈开发
 
-这里我不想过多介绍 Nuxt3 的基本功能与使用，在我的一个 [基于 Nuxt3 的 API 接口服务网站](https://kuizuo.cn/use-nuxt3-build-api-server#nuxt3-介绍 '基于Nuxt3的API接口服务网站') 的项目中，有简单介绍过 Nuxt3，有兴趣可以去看看。
+这里我不想过多介绍 Nuxt3 的基本功能与使用，在我的一个 [基于 Nuxt3 的 API 接口服务网站](https://kuizuo.me/use-nuxt3-build-api-server#nuxt3-介绍 '基于Nuxt3的API接口服务网站') 的项目中，有简单介绍过 Nuxt3，有兴趣可以去看看。
 
 这里你只需要知道 Nuxt3 具有全栈开发的能力，如果你想，完成可以基于 Nuxt3 这个技术栈来实现 Web 开发的前端后端工作。
 
@@ -76,7 +76,7 @@ protocol
 
 首先，最重要的就是类型提示，对于大多数 api 请求而言，类型往往常被忽略。这就导致不知道这个请求的提交参数、响应结果有什么数据字段。举个例子
 
-![](https://img.kuizuo.cn/75GsdEZuLK.png)
+![](https://img.kuizuo.me/75GsdEZuLK.png)
 
 这是一个 post 请求用于实现登录的，但是这个响应数据 data 没有任何具体提示（这里的提示是 vscode 记录用户常输入的提示），这时候如果一旦拼接错误，就会导致某个数据没拿到，从而诱发 bug。同理提交的请求体 body 不做约束，万一这个请求还有验证码 code 参数，但是我没写上，那请求就会失败，这是就需要通过调试输出，甚至需要抓包比对原始数据包才能得知。
 
@@ -90,17 +90,17 @@ Uncaught TypeError: Cannot read properties of undefined (reading 'data')
 
 对于 js 而言，上述情况自然是解决不了，但这种场景对于 ts 来说在适合不过了。所以 Protocol 自然是集成了 ts，并且有良好的类型提示。下面展示几张开发时的截图就能体会到，当然你前提是得会 ts 或者看的懂 ts。
 
-![](https://img.kuizuo.cn/VbEuizLRfz.png)
+![](https://img.kuizuo.me/VbEuizLRfz.png)
 
 上面的类型提示演示代码仅仅作为体现类型的好处，将类型定义（interface，type 等）和核心逻辑都在同一个文件自然不好，容易造成代码冗余。实际开发中，更多使用命名空间，将类型写到 ts 声明文件.d.ts 中。比如将上面的改写后如下
 
-![](https://img.kuizuo.cn/48-YSpYd1g.png)
+![](https://img.kuizuo.me/48-YSpYd1g.png)
 
-![](https://img.kuizuo.cn/9b9ns2BM67.png)
+![](https://img.kuizuo.me/9b9ns2BM67.png)
 
 就在我写这篇文章做代码演示的时候，又发生了拼写错误，如下图。由于使用 ts 类型与 eslint，所以在开发时的问题我就能立马发现，而不是到了运行时才提示错误。
 
-![](https://img.kuizuo.cn/PfpxCKZomB.png)
+![](https://img.kuizuo.me/PfpxCKZomB.png)
 
 **有了类型提示能非常有效的避免上述问题**。同时 ts 并不像 java 那样的强类型语言，你完全可以选择是否编写 ts 的类型（type 或 interfere），这由你决定，你乐意都可以将 typescript 写成 anyscript，因为确实有些人确实不喜欢写类型。
 
@@ -288,7 +288,7 @@ export class Blog {
   public user: User
 
   constructor(user: User) {
-    this.http = new AHttp({ baseURL: 'https://blog.kuizuo.cn' })
+    this.http = new AHttp({ baseURL: 'https://blog.kuizuo.me' })
     this.user = User
   }
 

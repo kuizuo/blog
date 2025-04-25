@@ -14,7 +14,7 @@ authors: kuizuo
 ```typescript title='docusaurus.config.ts' icon='logos:docusaurus'
 const config: Config = {
   title: '愧怍的小站',
-  url: 'https://kuizuo.cn',
+  url: 'https://kuizuo.me',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'kuizuo',

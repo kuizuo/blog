@@ -5,7 +5,7 @@ date: 2023-01-20
 authors: kuizuo
 tags: [deno, node, javascript, typescript]
 keywords: [deno, node, javascript, typescript]
-image: https://img.kuizuo.cn/202312270248371.png
+image: https://img.kuizuo.me/202312270248371.png
 ---
 
 Deno 是一个安全的 JavaScript 和 TypeScript 运行时，作者是 Ryan Dahl（也是 Node.js 的原作者）。Deno 的诞生之初是为了[解决 2009 年首次设计 Node.js 时的一些疏忽](https://link.juejin.cn?target=https://www.youtube.com/watch?v=M3BM9TB-8yA)。我认为这种改造动机很有道理，因为**我相信每个程序员都希望有机会能重写他们已有 10 年历史的代码。**
@@ -128,18 +128,18 @@ console.log(totalCost(45, 27, 1.15))
 这里我准备了一段代码，并部署到我的站点上，你可以通过如下命令得到该代码的执行结果（如果你有安装 deno 的话），放心这段代码并无危害，就是一段简单的 console.log 输出。
 
 ```bash
-deno run https://deno.kuizuo.cn/main.ts
+deno run https://deno.kuizuo.me/main.ts
 ```
 
 在第一次使用时下载并缓存代码，你可以通过
 
 ```bash
-deno info http://deno.kuizuo.cn/main.ts
+deno info http://deno.kuizuo.me/main.ts
 ```
 
 来查看文件信息，如下
 
-![](https://img.kuizuo.cn/deb0_lGYRA.png)
+![](https://img.kuizuo.me/deb0_lGYRA.png)
 
 deno info 还可以查看 deno 的相关配置，默认缓存都设置在 C 盘，你也可以设置**DENO_DIR** 环境变量来更改 deno 目录，可以到 [Set Up Your Environment](https://deno.land/manual@v1.29.3/getting_started/setup_your_environment#environment-variables 'Set Up Your Environment') 查看 deno 相关环境变量。
 

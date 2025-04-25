@@ -133,13 +133,13 @@ instance.interceptors.response.use(response => {
 
 控制台结果：
 
-![image-20201210060704240](https://img.kuizuo.cn/20201210060704240.png)
+![image-20201210060704240](https://img.kuizuo.me/20201210060704240.png)
 
 首先，就是圈的这个，浏览器是不许允许设置一些不安全的协议头，例如 Cookie，Orgin，Referer 等等，即便你看到控制台 config.headers 确实有刚刚设置 cookie，但我们输出的也只是 headers 对象，在 Network 中找到这个请求，也同样看不到 Cookie 设置的（这就不放图了）。
 
 同样的，通过响应拦截器中输出的 headers 中也没有 set-cookies 这个字样。网络上很多都是说，添加这么一行代码 `withCredentials: true`，确实，但是没说到重点，都没讲述到怎么获取 cookies 的，因为在**浏览器环境中 axios 压根就获取不到 set-cookies 这个协议头**，实际上 axios 就没必要，因为浏览器会自行帮你获取服务器返回的 Cookies，并将其写入在 Storage 里的 Cookies 中，再下次请求的时候根据同源策略携带上对应的 Cookie。
 
-![image-20201210061627824](https://img.kuizuo.cn/20201210061627824.png)
+![image-20201210061627824](https://img.kuizuo.me/20201210061627824.png)
 
 要获取也很简单，vue 中通过`js-cookie`模块即可，而在 electron 中通过`const { session } = require('electron').remote` （electron 可以设置允许跨域，好用）有关更多可以自行查看文档。
 
@@ -384,7 +384,7 @@ return res
 
 在 axios 中也有这么一段配置，翻看了 lib/adapters 下目录我才瞬间醒悟过来，两者环境是不同的。
 
-![image-20201210214055696](https://img.kuizuo.cn/20201210214055696.png)
+![image-20201210214055696](https://img.kuizuo.me/20201210214055696.png)
 
 就我使用而言，在浏览器环境下 axios 处理的特别好，允许设置拦截器处理请求与响应，但在 nodejs 下在处理模拟请求确实不如 Python 的 request 模块，奈何 axios 最大的便携就是能直接在浏览器中，尤大推荐的 http 请求库也是 axios。
 

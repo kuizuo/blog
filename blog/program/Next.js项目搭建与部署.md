@@ -32,7 +32,7 @@ npm run dev
 
 ## 项目结构
 
-![image-20220712030637300](https://img.kuizuo.cn/20220712030637300.png)
+![image-20220712030637300](https://img.kuizuo.me/20220712030637300.png)
 
 | 文件           | 内容                 |
 | -------------- | -------------------- |
@@ -70,7 +70,7 @@ export default User
 
 不过这里有个比较有意思的点，如果你在上方代码中使用 console.log 打印 query 的话，在 vscode 中会打印出空对象`{}`，而在浏览器中会打印一次空对象，一次真实的 query 对象（并且打印两遍）
 
-![image-20220712191356587](https://img.kuizuo.cn/20220712191356587.png)
+![image-20220712191356587](https://img.kuizuo.me/20220712191356587.png)
 
 :::
 
@@ -115,7 +115,7 @@ export default User
 
 经常写 react 的肯定对上面的代码不陌生，前端向后端发送数据请求，接受到数据后赋值给 data，然后渲染出来。因为请求数据是需要耗时的，所以在页面显示完之后，会停顿一会在显示出数据（主要是我这边没写 loadding），并且由于 id 并不是第一时间获取到的（从上面的 id）。
 
-![image-20220712193009186](https://img.kuizuo.cn/20220712193009186.png)
+![image-20220712193009186](https://img.kuizuo.me/20220712193009186.png)
 
 从这里来看，客户端渲染不仅要获取页面组件，还要请求数据，最终再通过 js 渲染出来
 
@@ -154,7 +154,7 @@ export async function getServerSideProps(context: { query: { id: any } }) {
 
 首先就是请求的页面，是直接包含数据，相当于返回你一个页面，而在客户端渲染则是返回一个组件，需要自己去请求数据来展示。
 
-![image-20220712192713634](https://img.kuizuo.cn/20220712192713634.png)
+![image-20220712192713634](https://img.kuizuo.me/20220712192713634.png)
 
 同时查看控制台中的 Fetch/XHR 的是看不到请求的数据，因为这些数据并不是由前端发送的,而是由后端发送的（故不受跨域请求的限制）。
 
@@ -312,7 +312,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
 既然说到部署，那肯定离不开 nextjs 的母公司[Vercel](https://vercel.com)了，关于 Vercel 之前也写过相关文章，关于 Vercel 就不过多介绍。
 
-nextjs 部署到 vercel 实在简单，将项目推送到 github 仓库中，然后在 vercel 中 New Project，接着选择 nextjs 的仓库，点击 Deploy，静等部署即可。关于部署可以看这篇文章 [Vercel 部署个人博客](https://kuizuo.cn/develop/Vercel部署个人博客)
+nextjs 部署到 vercel 实在简单，将项目推送到 github 仓库中，然后在 vercel 中 New Project，接着选择 nextjs 的仓库，点击 Deploy，静等部署即可。关于部署可以看这篇文章 [Vercel 部署个人博客](https://kuizuo.me/develop/Vercel部署个人博客)
 
 现在你可以通过访问 [kz-next-app-demo.vercel.app](https://kz-next-app-demo.vercel.app/) 来访问该项目，并尝试访问`/api/post`，`user/1`来看看。
 

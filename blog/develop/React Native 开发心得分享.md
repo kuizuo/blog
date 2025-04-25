@@ -5,7 +5,7 @@ date: 2024-05-14
 authors: kuizuo
 tags: [react native, 原生, 心得分享]
 keywords: [react native, 原生, 心得分享]
-image: https://img.kuizuo.cn/2024/0514121158-react-native.png
+image: https://img.kuizuo.me/2024/0514121158-react-native.png
 ---
 
 最近研究了一下 React Native(简称RN)，并用它作为毕设项目（一个仿小红书的校园社交应用）。经过一段时间的折腾，对 RN 生态有了一些了解，是时候可以分享一些心得了。
@@ -46,7 +46,7 @@ Expo 是基于 React Native 并整合大量常用的 native module([Expo SDK](ht
 
 此外 Expo 还提供了 [Expo Go App](https://docs.expo.dev/get-started/expo-go/#want-to-understand-how-expo-go-works)，只需要在你的移动端设备中安装它，启动开发服务器并生成 QR 码。在浏览器打开 [snack.expo.dev](https://snack.expo.dev/) ，点击 MyDevice，扫码并在 Expo app 中查看。
 
-![Untitled](https://img.kuizuo.cn/2024/0514104918-Untitled.png)
+![Untitled](https://img.kuizuo.me/2024/0514104918-Untitled.png)
 
 会自动将该程序实时运行在你的移动端设备，意味着你更改代码也将会同步到Expo go 中。极大程度上提升 RN 的开发体验，尤其是在真机测试阶段。
 
@@ -87,7 +87,7 @@ node-linker=hoisted
 
 如果不怎么做的话，会报错，如果只是这样倒还没什么。重点是错误提示并没有堆栈信息！就如下图所示
 
-![Untitled](https://img.kuizuo.cn/2024/0514104918-Untitled%201.png)
+![Untitled](https://img.kuizuo.me/2024/0514104918-Untitled%201.png)
 
 这点对于开发体验而言并不友好。
 
@@ -233,11 +233,11 @@ const { top } = useSafeAreaInsets();
 
 并且他的主题系统使用极其的怪，采用 $number 的形式来定义尺寸(官方称 token)，重点是宽高和边距采用相同的 token 效果还不一样，贴个图。
 
-![Untitled](https://img.kuizuo.cn/2024/0514104918-Untitled%202.png)
+![Untitled](https://img.kuizuo.me/2024/0514104918-Untitled%202.png)
 
 但他的颜色更是一言难尽了，从 color0 到 color11 的效果就如下图
 
-![Untitled](https://img.kuizuo.cn/2024/0514104918-Untitled%203.png)
+![Untitled](https://img.kuizuo.me/2024/0514104918-Untitled%203.png)
 
 可能是因为我用惯了 Tailwindcss 那套颜色系统，所以很不能理解这套颜色系统，并且在我实际编写组件的过程也是异常的奇怪。
 
@@ -245,7 +245,7 @@ const { top } = useSafeAreaInsets();
 
 顺带在贴一张 Provider 嵌套
 
-![provider](https://img.kuizuo.cn/2024/0514171536-0514092451-202405140924689.png)
+![provider](https://img.kuizuo.me/2024/0514171536-0514092451-202405140924689.png)
 
 这里我就不得不提到我为啥一开始选用 tamagui 了(现已迁移到 gluestack-ui)，说实话我是有点后悔的，在一开始选定 UI 库的时候，我是选择 NativeWind 的，但后面无意刷到了 [T4-stack](https://t4stack.com/) (算是被他坑了)，而它所用的便是 tamagui，并且一套代码跑 expo 与 next.js。于是便采用相同的项目结构以及 UI 库了。但事实上在我编写的过程中，想要一套代码就能实现跨三端(web,android,ios) 效果并不佳了，这在下一章便会说到。
 
@@ -328,7 +328,7 @@ packages/app 存放主要的公共业务代码，在 next 和 expo 中则直接�
 
 一个高性能的列表，可替代 RN 的 [FlatList](https://reactnative.dev/docs/flatlist)，其中它还支持如下图布局。
 
-![Untitled](https://img.kuizuo.cn/2024/0514104918-Untitled%204.png)
+![Untitled](https://img.kuizuo.me/2024/0514104918-Untitled%204.png)
 
 [react-native-toast-message](https://github.com/calintamas/react-native-toast-message)
 
@@ -460,7 +460,7 @@ export default function RootLayout() {
 
 先看一张图，很多 app 都有这种类似的效果。
 
-![](https://img.kuizuo.cn/2024/0514171652-Untitled.mp4)
+![](https://img.kuizuo.me/2024/0514171652-Untitled.mp4)
 
 这种效果可以使用监听 ScrollY 配合 [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated) 动画来实现，如果你不想自己实现也可以看看 [@codeherence/react-native-header](https://react-native-header.codeherence.com/docs/showcase)，上图便来自此库。
 

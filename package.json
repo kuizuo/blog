@@ -3,14 +3,14 @@
   "version": "3.0.0",
   "author": {
     "url": "https://github.com/kuizuo",
-    "email": "hi@kuizuo.cn",
+    "email": "hi@kuizuo.me",
     "name": "愧怍"
   },
   "repository": {
     "url": "https://github.com/kuizuo/blog",
     "type": "git"
   },
-  "homepage": "https://kuizuo.cn",
+  "homepage": "https://kuizuo.me",
   "license": "MIT",
   "scripts": {
     "docusaurus": "docusaurus",

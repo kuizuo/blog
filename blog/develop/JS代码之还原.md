@@ -7,7 +7,7 @@ tags: [javascript, ast, reverse, project]
 keywords: [javascript, ast, reverse, project]
 ---
 
-基于 Babel 对 JS 代码进行混淆与还原操作的网站 [JS 代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
+基于 Babel 对 JS 代码进行混淆与还原操作的网站 [JS 代码混淆与还原 (kuizuo.me)](http://deobfuscator.kuizuo.me/)
 
 ![js-de-obfuscator](https://github.com/kuizuo/js-deobfuscator/blob/main/images/1.png)
 
@@ -45,7 +45,7 @@ AST 能做为逆向分析的利器，可以将还原出来的代码替换原来�
 
 通过 AST 查看 node 节点，可以发现`value`正是我们想要的数据，但这里确显示的是`extra.raw`，实际上只需要遍历到相应的节点，然后 extra 属性给删除即可，同样的 Unicode 编码也是按上述方式显示。
 
-![image-20211224202108279](https://img.kuizuo.cn/20211224202108279.png)
+![image-20211224202108279](https://img.kuizuo.me/20211224202108279.png)
 
 具体遍历的代码如下
 
@@ -764,6 +764,6 @@ for (
 
 ## JS 混淆与还原的网站
 
-针对上述还原操作其实还不够明显，于是就编写了一个在线对 JS 代码混淆与还原的网站（主要针对还原）– [JS 代码混淆与还原 (kuizuo.cn)](https://deobfuscator.kuizuo.cn/)
+针对上述还原操作其实还不够明显，于是就编写了一个在线对 JS 代码混淆与还原的网站（主要针对还原）– [JS 代码混淆与还原 (kuizuo.me)](https://deobfuscator.kuizuo.me/)
 
 其实也就是对上述的还原代码进行封装成工具使用。

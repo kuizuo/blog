@@ -1,7 +1,7 @@
 {
   "index_name": "kuizuo",
-  "start_urls": ["https://kuizuo.cn/"],
-  "sitemap_urls": ["https://kuizuo.cn/sitemap.xml"],
+  "start_urls": ["https://kuizuo.me/"],
+  "sitemap_urls": ["https://kuizuo.me/sitemap.xml"],
   "selectors": {
     "lvl0": {
       "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",

@@ -17,9 +17,9 @@ keywords: [javascript, rpc, browser]
 
 通过关键词`password:` 便可找到对应的加密地点，找到加密调用的函数所出现的位置（loginv5.js 8944 行），发现通过调用`e.RSA.encrypt(s)`（其中 s 为明文 `a123456`），便可得到加密后的结果。
 
-![image-20211008042148653](https://img.kuizuo.cn/20211008042148653.png)
+![image-20211008042148653](https://img.kuizuo.me/20211008042148653.png)
 
-![image-20211008041300534](https://img.kuizuo.cn/20211008041300534.png)
+![image-20211008041300534](https://img.kuizuo.me/20211008041300534.png)
 
 ```
 e.RSA.encrypt(s)
@@ -68,7 +68,7 @@ ws.on('connection', socket => {
 
 测试结果如下
 
-![image-20211008043925753](https://img.kuizuo.cn/20211008043925753.png)
+![image-20211008043925753](https://img.kuizuo.me/20211008043925753.png)
 
 上面代码写的很简陋，尤其是数据交互的地方，这里可以使用 json 来改进一下。像这样，至于为啥用 try 是防止 json 数据不对导致解析错误（具体代码就不解读了）
 
@@ -111,11 +111,11 @@ ws.on('connection', socket => {
 
 既然要实现我们的代码，那么就需要将我们的代码注入到原来的代码上，这里我使用的是 Chrome 的开发者工具中的覆盖功能，选择一个本地文件夹，并允许权限。
 
-![image-20211008054918531](https://img.kuizuo.cn/20211008054918531.png)
+![image-20211008054918531](https://img.kuizuo.me/20211008054918531.png)
 
 选择要替换代码的文件，选择保存以备替换（前提得开启覆盖）
 
-![image-20211008055032125](https://img.kuizuo.cn/20211008055032125.png)
+![image-20211008055032125](https://img.kuizuo.me/20211008055032125.png)
 
 接着在覆盖中找到文件，找到加密的代码块，添加如下代码
 
@@ -147,13 +147,13 @@ ws.on('connection', socket => {
 })()
 ```
 
-![image-20211008201809446](https://img.kuizuo.cn/20211008201809446.png)
+![image-20211008201809446](https://img.kuizuo.me/20211008201809446.png)
 
 然后就是最关键的地方了，触发加密函数，并将结果返回。触发加密函数只需要向浏览器发送指定数据`{"type":"getPasswordEnc","value":"a123456"}`，浏览器接受到对应的类型与数据，便调用相应的函数，并将结果`{"type":"callbackPasswordEnc","value":"FM6SK3XiL5X0RF9NZi7qhIsu7Pd46mfKnn6YkWUNSGrJO+XXhiXyoG8huaqQW4BnmYuo0JVVQj28C+BK/r6NTNbLcV4gMSREB2hYU/oIYedCJsZ9sbZQ89p1aI9kVcDeRlXBhjNUxkcS9Rh+vKzyNApwpbPcAuGTCSZhKst8vVo="}`返回即可。
 
 服务端的效果如下图
 
-![image-20211008204247104](https://img.kuizuo.cn/20211008204247104.png)
+![image-20211008204247104](https://img.kuizuo.me/20211008204247104.png)
 
 ## 优化执行流程
 
@@ -283,7 +283,7 @@ ws.on('connection', socket => {
 最终演示效果如下视频（浏览器代码是提前注入进去的）
 
 <video width="800px" height="450px" controls="controls" >
-<source id="mp4" src="https://img.kuizuo.cn/rpc.mp4" type="video/mp4" />
+<source id="mp4" src="https://img.kuizuo.me/rpc.mp4" type="video/mp4" />
 </video >
 
 其实还是一些是要完善的，这里的 Websocket 只是实现了连接，还有心跳包异常断开，浏览器异常关闭导致 websocket 断开无法调用函数等等，以及浏览器的代码还需要手动注入很不优化，后续如果使用 Chrome 插件开发一个实现注入 js 代码的功能也许会好一些。（正准备编写 Chrome 插件）
@@ -337,7 +337,7 @@ app.listen(8000, () => {
 
 发送 GET 请求 URL 为 [http://127.0.0.1:8000/getPasswordEnc?password=a123456](http://127.0.0.1:8000/getPasswordEnc?password=a123456) 实现效果如图
 
-![image-20211009040704534](https://img.kuizuo.cn/20211009040704534.png)
+![image-20211009040704534](https://img.kuizuo.me/20211009040704534.png)
 
 对于用户调用来说相对友好了不少（其实是很好），不用在创建 websocket 客户端，只需要发送 HTTP 请求（GET 或 POST），不过我这边使用的是 Node 自带的 http 模块来搭建的一个 http 服务器，实际使用中将会采用 express 来编写路由提高开发效率和代码可读性，这里只是作为演示。
 

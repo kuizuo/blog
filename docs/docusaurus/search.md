@@ -19,7 +19,7 @@ authors: kuizuo
 
 关于申请 Algolia DocSearch 在文档中有详细介绍，主要是要申请麻烦，需要等待邮箱，并且还需要回复内容给对方进行确认。所以免费托管的 DocSearch 条件是，比较苛刻的，但申请完几乎是一劳永逸，也是我非常推荐的。如果申请成功后就可以在 [Crawler Admin Console](https://crawler.algolia.com/admin/crawlers) 中查看
 
-![image-20220627232545640](https://img.kuizuo.cn/20220627232545640.png)
+![image-20220627232545640](https://img.kuizuo.me/20220627232545640.png)
 
 然后将得到 algolia 的 appId，apiKey，indexName 填写到 `docusaurus.config.ts` 中即可。
 
@@ -33,7 +33,7 @@ algolia: {
 
 爬取完毕后还会定时发送到你邮箱
 
-![image-20230219144035031](https://img.kuizuo.cn/20230219144035031.png)
+![image-20230219144035031](https://img.kuizuo.me/20230219144035031.png)
 
 ### 方案2
 
@@ -43,9 +43,9 @@ algolia: {
 
 首先去申请 [Algolia](https://www.algolia.com/) 账号，然后在左侧 indices 创建索引，在 API Keys 中获取 Application ID 和 API Key（注意，有两个 API KEY）
 
-![image-20210821230135749](https://img.kuizuo.cn/20210821230135749.png)
+![image-20210821230135749](https://img.kuizuo.me/20210821230135749.png)
 
-![image-20210821230232837](https://img.kuizuo.cn/20210821230232837.png)
+![image-20210821230232837](https://img.kuizuo.me/20210821230232837.png)
 
 填入到 `docusaurus.config.ts` 中的 API KEY 是 **Search-Only API Key**
 
@@ -62,7 +62,7 @@ themeConfig: {
 系统我选用的是 Linux，在 Docker 的环境下运行爬虫代码。不过要先 [安装 jq](https://github.com/stedolan/jq/wiki/Installation#zero-install) 我这里选择的是 0install 进行安装（安装可能稍慢），具体可以查看文档，然后在控制台查看安装结果
 
 ```
-[root@kzserver kuizuo.cn]# jq --version
+[root@kzserver kuizuo.me]# jq --version
 jq-1.6
 ```
 
@@ -142,7 +142,7 @@ docker run -it --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)
 
 接着等待容器运行，爬取你的网站即可。最终打开 algolia 控制台提示如下页面则表示成功
 
-![image-20210821225934002](https://img.kuizuo.cn/20210821225934002.png)
+![image-20210821225934002](https://img.kuizuo.me/20210821225934002.png)
 
 因为要确保项目成功部署后才触发，如果采用 vercel 部署可以按照如下触发条件。
 
@@ -180,7 +180,7 @@ jobs:
 
 配置 algolia 的过程有稍许的复杂，这里你可以在 docusaurus 中集成 [orama](https://docs.oramasearch.com/open-source/plugins/plugin-docusaurus)，这是一个在浏览器、服务器和边缘运行全文、矢量和混合搜索查询服务。最终实现的效果如图所示
 
-![](https://img.kuizuo.cn/2024/0118082834-202401180828818.png)
+![](https://img.kuizuo.me/2024/0118082834-202401180828818.png)
 
 ## 本地搜索
 

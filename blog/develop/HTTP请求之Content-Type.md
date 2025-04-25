@@ -14,8 +14,8 @@ keywords: [http]
 先看一条 HTTP 请求
 
 ```http
-POST https://xxx.kuizuo.cn/v2/login HTTP/1.1
-Host: xxx.kuizuo.cn
+POST https://xxx.kuizuo.me/v2/login HTTP/1.1
+Host: xxx.kuizuo.me
 Connection: keep-alive
 Content-Length: 121
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36

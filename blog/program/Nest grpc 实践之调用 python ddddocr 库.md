@@ -18,7 +18,7 @@ description: 本文将使用 nest 通过 grpc 的方式来调用 python 的 dddd
 
 ## 效果图
 
-![Untitled](https://img.kuizuo.cn/202307290823586.png)
+![Untitled](https://img.kuizuo.me/202307290823586.png)
 
 本文源码 [nest-ocr](https://github.com/kuizuo/nest-ocr)
 
@@ -48,35 +48,35 @@ await app.startAllMicroservices()
 
 既然服务有了，那么要如何调用呢？或者说有没有像 http 接口调试工具能够调用 grpc 服务，有很多种 grpc 客户端工具，但这里选择 Postman。
 
-![Untitled](https://img.kuizuo.cn/202307290823587.png)
+![Untitled](https://img.kuizuo.me/202307290823587.png)
 
 ### 创建 API
 
 不过这里先别急着调用，为了后续调试，建议先到工作区的 APIs 中添加一个 API，然后将样例中的 hero.proto 中导入进来
 
-![Untitled](https://img.kuizuo.cn/202307290823588.png)
+![Untitled](https://img.kuizuo.me/202307290823588.png)
 
 导入完毕后将显示如下页面
 
-![Untitled](https://img.kuizuo.cn/202307290823589.png)
+![Untitled](https://img.kuizuo.me/202307290823589.png)
 
 ### 创建 gRPC 客户端
 
 点击工作区旁边的 New 按钮（不是 + 按钮），选择 gRPC
 
-![Untitled](https://img.kuizuo.cn/202307290823590.png)
+![Untitled](https://img.kuizuo.me/202307290823590.png)
 
 在 Enter URL 输入框填写 [localhost:5000](http://localhost:5000) (nest grpc 默认地址)，这里你也可以选择第一个官方的 gRPC 测试服务，用于看看效果。
 
-![Untitled](https://img.kuizuo.cn/202307290823591.png)
+![Untitled](https://img.kuizuo.me/202307290823591.png)
 
 填写完毕后，你会发现在右侧 Select a method 中并没有看到所定义的两个方法：FindOne，FindMang，这时候我们需要将 hero.proto 文件导入进来，如果你完成了 创建 API 那一步骤，你在右侧便能看到那两个方法
 
-![Untitled](https://img.kuizuo.cn/202307290823592.png)
+![Untitled](https://img.kuizuo.me/202307290823592.png)
 
 此时不妨选择一下 FindOne，然后点击下方 Use Example Message，将 id 填为 1，点击 Invoke，得到的效果图如下。
 
-![Untitled](https://img.kuizuo.cn/202307290823593.png)
+![Untitled](https://img.kuizuo.me/202307290823593.png)
 
 到这里我们就已经搞定了如何调用 grpc 服务，接下来就要自己去实现标题的需求。
 
@@ -124,7 +124,7 @@ message Hero {
 
 先将整个流程先捋一遍，如图下图示意。
 
-![Untitled](https://img.kuizuo.cn/202307290823594.png)
+![Untitled](https://img.kuizuo.me/202307290823594.png)
 
 用户想要调用 ddddocr 库，最理想的肯定是让用户直接和 python 打交道，但应用（这里指 Web）通常不会使用 python 进行编写，而其他语言(js)想要跨语言调用，这时 rpc 就再适合不过了。
 
@@ -308,11 +308,11 @@ if __name__ == '__main__':
 
 此时整个代码的核心流程就已经搞通了，你可以到 [nest-ocr](https://github.com/kuizuo/nest-ocr) 查看源码，先看看用 postman grpc 方式调用，这里 image 为 字节数组（图片的二进制数据）
 
-![Untitled](https://img.kuizuo.cn/202307290823596.png)
+![Untitled](https://img.kuizuo.me/202307290823596.png)
 
 用户以 http 方式访问的效果。
 
-![Untitled](https://img.kuizuo.cn/202307290823595.png)
+![Untitled](https://img.kuizuo.me/202307290823595.png)
 
 ## 结语
 
