@@ -73,7 +73,7 @@ importers:
         version: 19.0.0(react@19.0.0)
       react-github-calendar:
         specifier: ^4.5.4
-        version: 4.5.4(react@19.0.0)
+        version: 4.5.7(react@19.0.0)
       react-icon-cloud:
         specifier: ^4.1.7
         version: 4.1.7(react@19.0.0)
@@ -776,6 +776,10 @@ packages:
 
   '@babel/runtime@7.26.0':
     resolution: {integrity: sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/runtime@7.27.1':
+    resolution: {integrity: sha512-1x3D2xEk2fRo3PAhwQwu5UubzgiVWSXTBfWpVd2Mx2AzRqJuDJCsgaDVZ7HB5iGzDW1Hl1sWN2mFyKjmR9uAog==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.25.9':
@@ -5296,8 +5300,8 @@ packages:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
 
-  react-activity-calendar@2.7.7:
-    resolution: {integrity: sha512-qCCADV8f5RWawTwBl+qTjslP5vnFkFuyU8R6uWzu/iZz1B5D4ODyUctG6g6VRWVlBqrPdc7d0H1tg11qz+qsmg==}
+  react-activity-calendar@2.7.12:
+    resolution: {integrity: sha512-OzVconQ5LA/uF2ZN3zDeWZb4UxjOmGr1ymaGCSEAMLSzwjzP7ojdyZs8DyV7jcV+rZ+lmwp6BTpBJqdW8ehXyw==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
 
@@ -5316,8 +5320,8 @@ packages:
     peerDependencies:
       react: ^19.0.0
 
-  react-error-boundary@5.0.0:
-    resolution: {integrity: sha512-tnjAxG+IkpLephNcePNA7v6F/QpWLH8He65+DmedchDwg162JZqx4NmbXj0mlAYVVEd81OW7aFhmbsScYfiAFQ==}
+  react-error-boundary@6.0.0:
+    resolution: {integrity: sha512-gdlJjD7NWr0IfkPlaREN2d9uUZUlksrfOx7SX62VRerwXbMY6ftGCIZua1VG1aXFNOimhISsTq+Owp725b9SiA==}
     peerDependencies:
       react: '>=16.13.1'
 
@@ -5327,8 +5331,8 @@ packages:
   react-fast-compare@3.2.2:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
 
-  react-github-calendar@4.5.4:
-    resolution: {integrity: sha512-ASJzqlB0wOv1v8Sd+L7ksb3u0pb8wzkNqyms0jLey1XS815eDJbxEwxsyTQpshSDx1sEvo4H/MOwGyv+jnBhGQ==}
+  react-github-calendar@4.5.7:
+    resolution: {integrity: sha512-R1VBhSMM6NTeKkpvlHaAnIue1XPHhGHx6RpnyIfT7p1lq9PpNsIgwYGZ5I8FhX+J/F4ps+DAPMr+qdYj7lzQWQ==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
 
@@ -7400,6 +7404,8 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.14.0
 
+  '@babel/runtime@7.27.1': {}
+
   '@babel/template@7.25.9':
     dependencies:
       '@babel/code-frame': 7.26.2
@@ -8835,7 +8841,7 @@ snapshots:
 
   '@slorber/react-helmet-async@1.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.27.1
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 19.0.0
@@ -13363,7 +13369,7 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  react-activity-calendar@2.7.7(react@19.0.0):
+  react-activity-calendar@2.7.12(react@19.0.0):
     dependencies:
       date-fns: 4.1.0
       react: 19.0.0
@@ -13407,20 +13413,20 @@ snapshots:
       react: 19.0.0
       scheduler: 0.25.0
 
-  react-error-boundary@5.0.0(react@19.0.0):
+  react-error-boundary@6.0.0(react@19.0.0):
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.27.1
       react: 19.0.0
 
   react-error-overlay@6.0.11: {}
 
   react-fast-compare@3.2.2: {}
 
-  react-github-calendar@4.5.4(react@19.0.0):
+  react-github-calendar@4.5.7(react@19.0.0):
     dependencies:
       react: 19.0.0
-      react-activity-calendar: 2.7.7(react@19.0.0)
-      react-error-boundary: 5.0.0(react@19.0.0)
+      react-activity-calendar: 2.7.12(react@19.0.0)
+      react-error-boundary: 6.0.0(react@19.0.0)
 
   react-icon-cloud@4.1.7(react@19.0.0):
     dependencies:
@@ -13552,7 +13558,7 @@ snapshots:
 
   regenerator-transform@0.15.2:
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.27.1
 
   regexp.prototype.flags@1.5.0:
     dependencies:
