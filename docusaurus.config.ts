@@ -299,6 +299,10 @@ Love what you do and do what you love.
     locales: ['zh-CN'],
   },
   onBrokenLinks: 'warn',
+  future: {
+    v4: true,
+    experimental_faster: true,
+  },
 }
 
 export default config
