@@ -3,7 +3,7 @@ import Layout from '@theme/Layout'
 import BlogSection from '../components/landing/BlogSection'
 import FeaturesSection from '../components/landing/FeaturesSection'
 import Hero from '../components/landing/Hero'
-import ProjectSection from '../components/landing/ProjectSection'
+// import ProjectSection from '../components/landing/ProjectSection'
 import Particles from '../components/magicui/particles'
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
         <div className="relative">
           <div className="mx-auto max-w-7xl bg-background lg:px-8">
             <BlogSection />
-            <ProjectSection />
+            {/* <ProjectSection /> */}
             <FeaturesSection />
           </div>
           <div
