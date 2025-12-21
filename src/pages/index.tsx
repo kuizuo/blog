@@ -19,15 +19,15 @@ export default function Home() {
         <Particles className="absolute inset-0" quantity={100} ease={80} color="#ffffff" refresh />
 
         <div className="relative">
-          <div className="mx-auto max-w-7xl bg-background lg:px-8">
+          <div className="mx-auto max-w-7xl lg:px-8">
             <BlogSection />
             {/* <ProjectSection /> */}
             <FeaturesSection />
           </div>
-          <div
-            className="absolute inset-0 -z-50 bg-grid-slate-50 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.3))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"
+          {/* <div
+            className="absolute inset-0 -z-50 bg-grid-slate-50 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.2))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"
             style={{ backgroundPosition: '10px 10px;' }}
-          />
+          /> */}
         </div>
       </main>
     </Layout>
