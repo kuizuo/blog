@@ -15,7 +15,7 @@ import LayoutProvider from '@theme/Layout/Provider'
 import ErrorPageContent from '@theme/ErrorPageContent'
 import type { Props } from '@theme/Layout'
 import styles from './styles.module.css'
-import { WinterBoard } from '@site/src/components/winter-board'
+// import { WinterBoard } from '@site/src/components/winter-board'
 
 export default function Layout(props: Props): ReactNode {
   const {
@@ -34,7 +34,6 @@ export default function Layout(props: Props): ReactNode {
 
       <PageMetadata title={title} description={description} />
 
-      <WinterBoard className="pointer-events-none fixed left-0 top-0 -z-50 size-full" />
       <SkipToContent />
 
       <AnnouncementBar />
