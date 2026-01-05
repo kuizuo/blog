@@ -79,7 +79,6 @@ const config: Config = {
             { label: '博客', to: 'blog' },
             { label: '归档', to: 'blog/archive' },
             { label: '实战项目', to: 'project' },
-            { label: '前端示例', to: 'https://example.kuizuo.me' },
           ],
         },
         {
@@ -87,7 +86,7 @@ const config: Config = {
           items: [
             { label: '关于我', to: '/about' },
             { label: 'GitHub', href: social.github.href },
-            { label: 'Twitter', href: social.x.href },
+            { label: 'X', href: social.x.href },
             { label: '掘金', href: social.juejin.href },
             { label: 'Discord', href: social.discord.href },
           ],
@@ -95,11 +94,8 @@ const config: Config = {
         {
           title: '网站',
           items: [
-            { label: 'js反混淆', to: 'https://js-deobfuscator.kuizuo.me' },
+            { label: 'js反混淆', to: 'https://js-deobfuscator.vercel.app' },
             { label: 'cyberChef', to: 'https://gchq.github.io/CyberChef' },
-            { label: 'api服务', to: 'https://api.kuizuo.me' },
-            { label: '便民服务', to: 'https://service.kuizuo.me' },
-            { label: '站点监控', to: 'https://uptime.kuizuo.me' },
           ],
         },
         {
