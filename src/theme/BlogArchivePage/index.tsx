@@ -109,7 +109,6 @@ export default function BlogArchive({ archive }: Props) {
       <PageMetadata title={title} description={description} />
       <MyLayout>
         <h2 className={styles.archiveTitle}>
-          <Icon icon="carbon:blog" width={24} height={24} />
           {title}
         </h2>
         <p>
