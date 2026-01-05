@@ -3,8 +3,8 @@ slug: experience-of-an-ai-company
 title: 记 · 在 AI 公司入职一个月的体验与感悟
 date: 2024-06-10
 authors: kuizuo
-tags: [AI, 工作, 记录]
-keywords: [AI, 工作, 记录]
+tags: [经历, AI, 工作, 记录]
+keywords: [经历, AI, 工作, 记录]
 description: 这篇文章分享了作者在一家 AI 公司入职一个月的心得和体会，包括工作中的挑战与成长。
 image: https://img.kuizuo.me/2024/0729092038-ai-people.png
 ---
