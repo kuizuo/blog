@@ -5,7 +5,6 @@ date: 2022-10-18
 authors: kuizuo
 tags: [rollup, webpack, utils]
 keywords: [rollup, webpack, utils]
-image: https://img.kuizuo.me/202312270253535.pnghttps://img.kuizuo.me/202312270253535.png
 ---
 
 # rollup.js 初体验

@@ -6,7 +6,7 @@ authors: kuizuo
 tags: [deno, fresh, web, project]
 keywords: [deno, fresh, web, project]
 description: 使用 Fresh 框架构建Web 应用，用于将链接转换为卡片样式的预览效果图。
-image: https://img.kuizuo.me/link-maker.png
+image: https://img.kuizuo.me/2026/f894a1164982f375271b3a61d8a6bbb7.png
 ---
 
 这篇文章将使用 deno 的 web 框架 Fresh，一个简单的 Web 应用 [Link Maker](https://link-maker.deno.dev/ 'Link Maker')，一个用于将链接转换成卡片样式的预览效果。

@@ -6,7 +6,7 @@ authors: kuizuo
 tags: [nuxt, vite, vue, ssr]
 keywords: [nuxt, vite, vue, ssr]
 description: 基于 Nuxt3 的 API 接口服务网站，易于封装，调用，部署。
-image: https://img.kuizuo.me/202312270328599.png
+image: https://img.kuizuo.me/2026/8bd3aeb3a9a288ce0b9f39accc928a75.png
 ---
 
 挺早之前就想写个 api 接口服务，封装下自己收集的一些 api 接口，以便调用，正好最近在接触 SSR 框架，所以就使用 [Nuxt3](https://v3.nuxtjs.org/) 来编写该项目。

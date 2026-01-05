@@ -6,7 +6,7 @@ authors: kuizuo
 tags: [supabase, nuxt, project]
 keywords: [supabase, nuxt, project]
 description: 本文介绍了如何使用 Supabase 作为后端服务，使开发人员可以更快地构建和部署应用程序，无需配置数据库或编写复杂的身份验证代码。将使用 Nuxt.js 和 Supabase，以实现一个图床网站为例，来演示如何在前端中使用 Supabase API 和 Storage 服务。
-image: https://img.kuizuo.me/213727234-cda046d6-28c6-491a-b284-b86c5cede25d.png
+image: https://img.kuizuo.me/2026/f53d8121e8dca877f0d23f959d12ef08.png
 toc_max_heading_level: 3
 ---
 

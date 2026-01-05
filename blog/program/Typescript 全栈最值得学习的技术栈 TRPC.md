@@ -6,7 +6,7 @@ authors: kuizuo
 tags: [trpc, next, prisma, zod, auth.js]
 keywords: [trpc, next, prisma, zod, auth.js]
 description: 本文介绍了 tRPC 技术以及它与传统 RESTful API 的区别。同时 tRPC 可以帮助人们更快地开发全栈 TypeScript 应用程序，同时无需传统的 API 层，并保证应用程序在快速迭代时的稳定性。
-image: https://img.kuizuo.me/trpc-banner.png
+image: https://img.kuizuo.me/2026/7fbccab787ed339a884418fb0144119c.png
 toc_max_heading_level: 3
 ---
 

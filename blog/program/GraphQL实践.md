@@ -6,7 +6,6 @@ authors: kuizuo
 tags: [api, graphql, nest, strapi]
 keywords: [api, graphql, nest, strapi]
 description: 有关 GraphQL 介绍及上手实践，并在 Nest.js 和 Strapi 中搭建 GraphQL 服务
-image: https://img.kuizuo.me/320f3e5a66900d68e93de38154989948.png
 ---
 
 > GraphQL 既是一种用于 API 的查询语言也是一个满足你数据查询的运行时。 GraphQL 对你的 API 中的数据提供了一套易于理解的完整描述，使得客户端能够准确地获得它需要的数据，而且没有任何冗余，也让 API 更容易地随着时间推移而演进，还能用于构建强大的开发者工具。
