@@ -44,20 +44,12 @@ function Year({ posts }: YearProp) {
     <>
       <ul className={styles.archiveList}>
         {posts.map((post, i) => (
-          <motion.li
-            key={post.metadata.permalink}
-            className={styles.archiveItem}
-            custom={i}
-            initial="from"
-            animate="to"
-            variants={variants}
-            viewport={{ once: true, amount: 0.8 }}
-          >
+          <li className={styles.archiveItem}>
             <Link to={post.metadata.permalink}>
               <time className={styles.archiveTime}>{formatDate(post.metadata.date)}</time>
               <span>{post.metadata.title}</span>
             </Link>
-          </motion.li>
+          </li>
         ))}
       </ul>
     </>

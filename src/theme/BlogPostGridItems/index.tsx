@@ -72,7 +72,7 @@ export default function BlogPostGridItems({ items }: BlogPostItemsProps): JSX.El
                           d="M10 15h4V9h-4v6Zm0 2v3a1 1 0 0 1-2 0v-3H5a1 1 0 0 1 0-2h3V9H5a1 1 0 1 1 0-2h3V4a1 1 0 1 1 2 0v3h4V4a1 1 0 0 1 2 0v3h3a1 1 0 0 1 0 2h-3v6h3a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-2 0v-3h-4Z"
                         />
                       </svg>
-                      {item.tags.slice(0, 2).map(({ label, permalink: tagPermalink, description }, index) => (
+                      {item.tags.slice(0, 3).map(({ label, permalink: tagPermalink, description }, index) => (
                         <>
                           {index !== 0 && '/'}
                           <Tag

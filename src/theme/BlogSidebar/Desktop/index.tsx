@@ -30,6 +30,13 @@ export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
     window.history.back()
   }
 
+  const handleBackKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleBack()
+    }
+  }
+
   return (
     <aside className="col col--2" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <nav
@@ -39,20 +46,32 @@ export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
           message: 'Blog recent posts navigation',
           description: 'The ARIA label for recent posts in the blog sidebar',
         })}
-        style={{ opacity: isHovered ? 1 : 0 }}
       >
-        <div className={styles.backButton} onClick={handleBack}>
+        <div
+          className={styles.backButton}
+          onClick={handleBack}
+          onKeyDown={handleBackKeyDown}
+          role="button"
+          tabIndex={0}
+          style={{ opacity: isHovered ? 1 : 0.3 }}
+        >
           <Icon icon="ri:arrow-go-back-line" />
         </div>
 
-        <Link href="/blog" className={cn(styles.sidebarItemTitle, 'margin-bottom--sm')}>
+        <Link
+          href="/blog"
+          className={cn(styles.sidebarItemTitle)}
+          style={{ opacity: isHovered ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}
+        >
           {sidebar.title}
         </Link>
-        <BlogSidebarContent
-          items={items}
-          ListComponent={ListComponent}
-          yearGroupHeadingClassName={styles.yearGroupHeading}
-        />
+        <div className="margin-top--sm" style={{ opacity: isHovered ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>
+          <BlogSidebarContent
+            items={items}
+            ListComponent={ListComponent}
+            yearGroupHeadingClassName={styles.yearGroupHeading}
+          />
+        </div>
       </nav>
     </aside>
   )

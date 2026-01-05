@@ -70,9 +70,8 @@ html[data-theme='dark'] {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-align: right;
-  float: right;
 
   transition: all 0.3s ease-in-out;
   cursor: pointer;

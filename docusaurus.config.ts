@@ -220,9 +220,9 @@ const config: Config = {
           `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
         editLocalizedFiles: false,
         blogDescription: '代码人生：编织技术与生活的博客之旅',
-        blogSidebarCount: 10,
-        blogSidebarTitle: '博文',
-        postsPerPage: 12,
+        blogSidebarCount: 20,
+        blogSidebarTitle: '历史博文',
+        postsPerPage: 18,
         showReadingTime: true,
         readingTime: ({ content, frontMatter, defaultReadingTime }) =>
           defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),

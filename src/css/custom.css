@@ -48,7 +48,7 @@
     --ifm-border-color: #e5e7eb;
     --ifm-toc-border-color: var(--ifm-border-color);
 
-    --blog-item-background-color: linear-gradient(180deg, #fcfcfc, #fff);
+    --blog-item-background-color: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
     --blog-item-shadow: 0 10px 18px #f1f5f9dd, 0 0 10px 0 #e4e4e7dd;
     --blog-item-shade: #f4f4f5;
 
@@ -70,7 +70,7 @@
     --ifm-navbar-background-color: var(--content-background);
     --ifm-toc-border-color: var(--ifm-border-color);
 
-    --blog-item-background-color: linear-gradient(180deg, #171717, #18181b);
+    --blog-item-background-color: linear-gradient(180deg, #1f1f22 0%, #18181b 100%);
     --blog-item-shadow: 0 10px 18px #25374833, 0 0 8px #25374866;
     --blog-item-shade: #27272a;
 
