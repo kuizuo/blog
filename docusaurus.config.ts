@@ -216,7 +216,7 @@ const config: Config = {
           `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
         editLocalizedFiles: false,
         blogDescription: '代码人生：编织技术与生活的博客之旅',
-        blogSidebarCount: 20,
+        blogSidebarCount: 12,
         blogSidebarTitle: '历史博文',
         postsPerPage: 18,
         showReadingTime: true,
