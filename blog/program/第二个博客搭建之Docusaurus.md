@@ -44,23 +44,23 @@ yarn start
 
 ### [归档页](/blog/archive)
 
-![image-20220804052418993](https://img.kuizuo.me/20220804052418993.png)
+![20220804052418993](https://img.kuizuo.me/20220804052418993.png)
 
 ### 资源导航
 
-![image-20220804052016538](https://img.kuizuo.me/20220804052016538.png)
+![20220804052016538](https://img.kuizuo.me/20220804052016538.png)
 
 - 在此分享所收藏的一些好用、实用网站。
 
 ### 评论
 
-![image-20220804052746803](https://img.kuizuo.me/20220804052746803.png)
+![20220804052746803](https://img.kuizuo.me/20220804052746803.png)
 
 - 接入 [giscus](https://giscus.app) 作为评论系统，支持 GitHub 登录。
 
 ### [项目](/project)
 
-![image-20220804052117492](https://img.kuizuo.me/20220804052117492.png)
+![20220804052117492](https://img.kuizuo.me/20220804052117492.png)
 
 - 存放你的项目，或是当做一个作品集用于展示。
 

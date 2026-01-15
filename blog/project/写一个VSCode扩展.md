@@ -692,7 +692,7 @@ vsce package
 
 **2、新建一个 token**
 
-![image-20220831152146541](https://img.kuizuo.me/20220831152146541.png)
+![20220831152146541](https://img.kuizuo.me/20220831152146541.png)
 
 根据图片选择，注意其中 `Organization` 选择 `All aaccessible organizations`，`Scopes` 选择：`Full access`，否则登录会失败。生成后会得到一个 token，保存它，当你关闭时便不再显示。
 

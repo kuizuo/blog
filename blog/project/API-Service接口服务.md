@@ -29,11 +29,11 @@ npx nuxi init nuxt3-app
 
 安装完毕后，根据提示安装依赖与启动项目
 
-![image-20220714005704602](https://img.kuizuo.me/20220714005704602.png)
+![20220714005704602](https://img.kuizuo.me/20220714005704602.png)
 
 初始的 nuxt3 项目及其简单，甚至没有 page、components、assets 等目录。
 
-![image-20220714003726413](https://img.kuizuo.me/20220714003726413.png)
+![20220714003726413](https://img.kuizuo.me/20220714003726413.png)
 
 关于 nuxt3 本文不做过多介绍，本文只对部分进行介绍。nuxt 已经发布快 1 年了，相信外面很多相关介绍文章。
 

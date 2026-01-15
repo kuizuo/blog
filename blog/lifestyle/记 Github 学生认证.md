@@ -75,19 +75,19 @@ image: https://img.kuizuo.me/2026/b9e07e030e1838066705f47cf94cc309.png
 
 1、登录 [github education](https://education.github.com/benefits) ，选择学生那个按钮。
 
-![image-20221010134753749](https://img.kuizuo.me/20221010134753749.png)
+![20221010134753749](https://img.kuizuo.me/20221010134753749.png)
 
 2、首次表单填写邮箱，学校，以及使用 Github 的目的。**表单所提交内容全都要使用英文**
 
-![image-20221010134942952](https://img.kuizuo.me/20221010134942952.png)
+![20221010134942952](https://img.kuizuo.me/20221010134942952.png)
 
 3、再次填写一个表单，首先是照片证明，也就是学生认证资料。这里是使用的是**学信网的在线证明英文翻译**，Proof Type 选择 Other (Example: Screenshot of school portal)，备注内容填写证明来源，例如：**这份证明来自中国高等教育学生信息网（学信网），以下是在线证明地址。。。**
 
-![image-20221010135500357](https://img.kuizuo.me/20221010135500357.png)
+![20221010135500357](https://img.kuizuo.me/20221010135500357.png)
 
 其次第二个表单，根据你的学校信息填写即可。**切记到这一步的时候请不要使用科学上课，最好使用学校的网络来提交。**
 
-![image-20221010135949606](https://img.kuizuo.me/20221010135949606.png)
+![20221010135949606](https://img.kuizuo.me/20221010135949606.png)
 
 4、点击 Process my application 提交，等待结果即可。
 

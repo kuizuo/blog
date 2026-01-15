@@ -144,7 +144,7 @@ let names = cities.map(c => c.name)
 
 ### 结构
 
-![image-20210919194116296](https://img.kuizuo.me/20210919194116296.png)
+![20210919194116296](https://img.kuizuo.me/20210919194116296.png)
 
 ### 数据
 
@@ -435,7 +435,7 @@ console.log(groupList)
 
 于是了解到 jsonpath 后，我第一个时间就开始分析这样的数据，果不其然，得到了我想要的结果 ⬇️
 
-![image-20210919200826079](https://img.kuizuo.me/20210919200826079.png)
+![20210919200826079](https://img.kuizuo.me/20210919200826079.png)
 
 语法：`$..children[?(@.role=="group")]`
 

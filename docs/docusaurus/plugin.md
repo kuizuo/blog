@@ -59,7 +59,7 @@ plugins: [
 
 ## plugin-baidu-tongji
 
-使站点支持 [百度统计](https://tongji.baidu.com/web/welcome/login) ，这样你就能看到你的站点访客主要都在看哪些页面，以及行为记录，如下图所示。![image-20221204153015256](https://img.kuizuo.me/20221204153015256.png)
+使站点支持 [百度统计](https://tongji.baidu.com/web/welcome/login) ，这样你就能看到你的站点访客主要都在看哪些页面，以及行为记录，如下图所示。![20221204153015256](https://img.kuizuo.me/20221204153015256.png)
 
 同时还在 [Footer](https://github.com/kuizuo/blog/blob/main/src/theme/Footer/index.tsx#L3) 中添加了 [@vercel/analytics](https://github.com/vercel/analytics) 前提是需要本项目部署于 Vercel 上。
 
@@ -67,7 +67,7 @@ plugins: [
 
 创建支持离线模式和应用安装的 PWA 文档站点，就像下图这样。
 
-![image-20221204153401244](https://img.kuizuo.me/20221204153401244.png)
+![20221204153401244](https://img.kuizuo.me/20221204153401244.png)
 
 ## plugin-content-blog
 
