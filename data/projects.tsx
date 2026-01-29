@@ -11,7 +11,7 @@ export const projects: Project[] = [
   {
     title: 'JS代码反混淆',
     description: '基于 Babel 对 JavaScript 混淆代码还原的工具',
-    preview: '/img/project/js-deobfuscator.png',
+    preview: 'https://img.kuizuo.me/js-deobfuscator.png',
     website: 'https://js-deobfuscator.vercel.app',
     source: 'https://github.com/kuizuo/js-deobfuscator',
     tags: ['opensource', 'favorite'],

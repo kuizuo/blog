@@ -9,7 +9,7 @@ keywords: [javascript, ast, reverse, project]
 
 <!-- truncate -->
 
-[JS deobfuscator](http://js-deobfuscator.kuizuo.me/)
+[JS deobfuscator](https://js-deobfuscator.vercel.app)
 
 ## 什么是 AST
 
