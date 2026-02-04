@@ -1,6 +1,6 @@
 import CodeBlock from '@theme/CodeBlock'
 import Layout from '@theme/Layout'
-import { memo, useRef } from 'react'
+import { memo, useMemo, useRef } from 'react'
 
 import { Friend, Friends } from '@site/data/friends'
 
@@ -67,11 +67,20 @@ const FriendCard = memo(({ friend }: { friend: Friend }) => (
 ))
 
 function FriendCards() {
+  const shuffledFriends = useMemo(() => {
+    const arr = [...friends]
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[arr[i], arr[j]] = [arr[j] as Friend, arr[i] as Friend]
+    }
+    return arr
+  }, [])
+
   return (
     <section className="my-8">
       <div className="mx-auto max-w-6xl px-4 py-2">
         <ul className="grid grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">
-          {friends.map(friend => (
+          {shuffledFriends.map(friend => (
             <FriendCard key={friend.avatar} friend={friend} />
           ))}
         </ul>
