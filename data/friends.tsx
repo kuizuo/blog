@@ -30,10 +30,16 @@ export const Friends: Friend[] = [
     avatar: '/img/friend/opacity.png',
   },
   {
-    title: '静かな森',
-    description: '致虚极，守静笃',
+    title: 'Innei',
+    description: '静かな森',
     website: 'https://innei.in',
     avatar: '/img/friend/innei.png',
+  },
+  {
+    title: '智子',
+    description: '一名探索前端开发的开源爱好者。',
+    website: 'https://sxzz.dev',
+    avatar: '/img/friend/sxzz.png',
   },
   {
     title: 'Simon He',
@@ -48,12 +54,6 @@ export const Friends: Friend[] = [
     avatar: '/img/friend/skywt.png',
   },
   {
-    title: 'Licodeao',
-    description: 'The water flows incessantly, without vying for precedence.',
-    website: 'https://www.licodeao.top',
-    avatar: '/img/friend/licodeao.png',
-  },
-  {
     title: '云小逸',
     description: '不积跬步，无以至千里',
     website: 'https://www.gerenbiji.com',
@@ -62,7 +62,7 @@ export const Friends: Friend[] = [
   {
     title: 'CWorld Blog',
     description: '求知若愚，虚怀若谷',
-    website: 'https://cworld.top',
+    website: 'https://cworld0.com',
     avatar: '/img/friend/cworld.png',
   },
   {
@@ -70,12 +70,6 @@ export const Friends: Friend[] = [
     description: 'Cloud Engineer, Open Source, AI Enthusiast.',
     website: 'https://fernandogprieto.com',
     avatar: 'https://fernandogprieto.com/img/logo.png',
-  },
-  {
-    title: '尚宇',
-    description: '心怀理想，仰望星空，埋头苦干',
-    website: 'https://www.disnox.top',
-    avatar: '/img/friend/disnox.png',
   },
   {
     title: 'Meoo',
@@ -88,12 +82,6 @@ export const Friends: Friend[] = [
     description: '世界继续热闹，愿你不变模样，勇敢且自由😃',
     website: 'https://www.shaking.site',
     avatar: '/img/friend/shake.png',
-  },
-  {
-    title: '鲸落',
-    description: '心中无女人，代码自然神',
-    website: 'http://www.xiaojunnan.cn',
-    avatar: '/img/friend/xiaojunnan.png',
   },
   {
     title: 'LineXic书屋',
