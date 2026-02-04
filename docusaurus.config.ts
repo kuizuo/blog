@@ -15,9 +15,8 @@ const config: Config = {
   organizationName: 'kuizuo',
   projectName: 'blog',
   customFields: {
-    bio: '道阻且长，行则将至',
-    description:
-      '是一个由愧怍创建的个人博客，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
+    bio: 'born to differ.', // die to survive.
+    description: '是一个由愧怍创建的个人博客，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
   },
   themeConfig: {
     // announcementBar: {
@@ -39,11 +38,6 @@ const config: Config = {
         content: '编程爱好者, Web开发者, 写过爬虫, 学过逆向, 主攻ts全栈',
       },
     ],
-    docs: {
-      sidebar: {
-        hideable: true,
-      },
-    },
     navbar: {
       logo: {
         alt: '愧怍',
@@ -118,6 +112,11 @@ const config: Config = {
         }" >${beian1}</a></p>
         <p>Copyright © 2020 - ${new Date().getFullYear()} kuizuo. | Built with Docusaurus.</p>
         `,
+    },
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
     },
     algolia: {
       appId: 'GV6YN1ODMO',
