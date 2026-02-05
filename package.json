@@ -14,8 +14,8 @@
   "license": "MIT",
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "start:en": "docusaurus start --locale en",
+    "dev": "docusaurus start",
+    "dev:en": "docusaurus start --locale en",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
