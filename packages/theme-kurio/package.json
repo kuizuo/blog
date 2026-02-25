@@ -1,0 +1,36 @@
+{
+  "name": "docusaurus-theme-kurio",
+  "version": "0.0.1",
+  "description": "Kurio preset/theme for Docusaurus",
+  "main": "lib/index.js",
+  "exports": {
+    "./lib/*": "./lib/*",
+    "./src/*": "./src/*",
+    "./client": {
+      "type": "./lib/client/index.d.ts",
+      "default": "./lib/client/index.js"
+    },
+    ".": {
+      "default": "./lib/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown --config tsdown.config.mjs",
+    "watch": "tsdown --config tsdown.config.mjs --watch"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/module-type-aliases": "3.9.2",
+    "@docusaurus/theme-common": "3.9.2",
+    "@docusaurus/types": "3.9.2",
+    "@docusaurus/utils-validation": "3.9.2",
+    "tsdown": "^0.20.3"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.6.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

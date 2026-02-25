@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "noEmit": false,
+    "baseUrl": ".",
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["src/theme"]
+}

@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["src/theme"]
+}
