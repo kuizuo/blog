@@ -294,12 +294,13 @@ Love what you do and do what you love.
   },
   onBrokenLinks: 'warn',
   future: {
-    v4: true,
-    experimental_faster: {
-      ssgWorkerThreads: true,
-      rspackBundler: true,
-      rspackPersistentCache: true,
-    },
+    v4: false,
+    experimental_faster: false,
+    // experimental_faster: {
+    //   ssgWorkerThreads: true,
+    //   rspackBundler: true,
+    //   rspackPersistentCache: true,
+    // },
   },
 }
 

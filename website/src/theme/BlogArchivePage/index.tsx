@@ -8,7 +8,7 @@ import styles from './styles.module.css'
 
 import { type Variants, motion } from 'framer-motion'
 
-import MyLayout from '../MyLayout'
+import MyLayout from '@theme/Layout' // fix me
 
 type YearProp = {
   year: string

@@ -29,10 +29,10 @@
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
-    "@docusaurus/faster": "^3.9.2",
+    "@docusaurus/faster": "3.9.2",
     "@docusaurus/plugin-ideal-image": "3.9.2",
     "@docusaurus/plugin-pwa": "3.9.2",
-    "@docusaurus/plugin-vercel-analytics": "^3.9.2",
+    "@docusaurus/plugin-vercel-analytics": "3.9.2",
     "@docusaurus/preset-classic": "3.9.2",
     "@docusaurus/theme-search-algolia": "3.9.2",
     "@giscus/react": "^3.1.0",
@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",
-    "@docusaurus/tsconfig": "^3.9.2",
+    "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
     "@iconify/react": "^5.2.0",
     "@stylistic/eslint-plugin": "2.13.0",

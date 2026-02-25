@@ -7,7 +7,7 @@ import TagsListByLetter from '@theme/TagsListByLetter'
 import { useState } from 'react'
 import { TagsListByFlat } from '../TagsListByLetter'
 
-import MyLayout from '../MyLayout'
+import MyLayout from '@theme/Layout' // fix me
 
 export default function BlogTagsListPage({ tags, sidebar }: Props): JSX.Element {
   const title = translateTagsPageTitle()

@@ -9,7 +9,7 @@ import type { Props } from '@theme/BlogTagsPostsPage'
 import Heading from '@theme/Heading'
 import SearchMetadata from '@theme/SearchMetadata'
 
-import MyLayout from '../MyLayout'
+import MyLayout from '@theme/Layout' // fix me
 
 // Very simple pluralization: probably good enough for now
 function useBlogPostsPlural() {

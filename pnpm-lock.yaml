@@ -49,7 +49,7 @@ importers:
         specifier: 3.9.2
         version: 3.9.2(@docusaurus/faster@3.9.2(@docusaurus/types@3.9.2(@swc/core@1.12.11(@swc/helpers@0.5.13))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@swc/helpers@0.5.13))(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@19.0.0))(@rspack/core@1.7.6(@swc/helpers@0.5.13))(@swc/core@1.12.11(@swc/helpers@0.5.13))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       '@docusaurus/faster':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2(@docusaurus/types@3.9.2(@swc/core@1.12.11(@swc/helpers@0.5.13))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@swc/helpers@0.5.13)
       '@docusaurus/plugin-ideal-image':
         specifier: 3.9.2
@@ -58,7 +58,7 @@ importers:
         specifier: 3.9.2
         version: 3.9.2(@docusaurus/faster@3.9.2(@docusaurus/types@3.9.2(@swc/core@1.12.11(@swc/helpers@0.5.13))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@swc/helpers@0.5.13))(@docusaurus/plugin-content-docs@3.9.2(@docusaurus/faster@3.9.2(@docusaurus/types@3.9.2(@swc/core@1.12.11(@swc/helpers@0.5.13))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@swc/helpers@0.5.13))(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@19.0.0))(@rspack/core@1.7.6(@swc/helpers@0.5.13))(@swc/core@1.12.11(@swc/helpers@0.5.13))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@19.0.0))(@rspack/core@1.7.6(@swc/helpers@0.5.13))(@swc/core@1.12.11(@swc/helpers@0.5.13))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       '@docusaurus/plugin-vercel-analytics':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2(@docusaurus/faster@3.9.2(@docusaurus/types@3.9.2(@swc/core@1.12.11(@swc/helpers@0.5.13))(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@swc/helpers@0.5.13))(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@19.0.0))(@rspack/core@1.7.6(@swc/helpers@0.5.13))(@swc/core@1.12.11(@swc/helpers@0.5.13))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       '@docusaurus/preset-classic':
         specifier: 3.9.2
@@ -137,7 +137,7 @@ importers:
         specifier: 3.9.2
         version: 3.9.2(@swc/core@1.12.11(@swc/helpers@0.5.13))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@docusaurus/tsconfig':
-        specifier: ^3.9.2
+        specifier: 3.9.2
         version: 3.9.2
       '@docusaurus/types':
         specifier: 3.9.2
