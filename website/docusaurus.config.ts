@@ -1,153 +1,306 @@
-import { themes as prismThemes } from 'prism-react-renderer'
-import type { Config } from '@docusaurus/types'
 import type * as Preset from '@docusaurus/preset-classic'
+import type { Config } from '@docusaurus/types'
+import { themes } from 'prism-react-renderer'
+import social from './data/social'
+import type { GiscusConfig } from './src/components/Comment'
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+const beian = '闽ICP备2020017848号-3'
+const beian1 = '闽公网安备35021102000847号'
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
-
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
-  future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
-  },
-
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  title: '愧怍',
+  url: 'https://kuizuo.me',
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
-  onBrokenLinks: 'throw',
-
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+  favicon: 'img/favicon.ico',
+  organizationName: 'kuizuo',
+  projectName: 'blog',
+  customFields: {
+    bio: 'born to differ.', // die to survive.
+    description: '是一个由愧怍创建的个人博客，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。',
   },
-
-  presets: [
-    [
-      'classic',
-      {
-        docs: {
-          sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
-        theme: {
-          customCss: './src/css/custom.css',
-        },
-      } satisfies Preset.Options,
-    ],
-  ],
-  themes: [
-    'docusaurus-theme-kurio',
-  ],
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
-    colorMode: {
-      respectPrefersColorScheme: true,
-    },
-    navbar: {
-      title: 'My Site',
-      logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+    // announcementBar: {
+    //   id: 'announcementBar-3',
+    //   content: ``,
+    // },
+    image: 'img/og.png',
+    metadata: [
+      {
+        name: 'author',
+        content: '愧怍',
       },
+      {
+        name: 'keywords',
+        content: 'blog, javascript, typescript, node, react, vue, web',
+      },
+      {
+        name: 'keywords',
+        content: '编程爱好者, Web开发者, 写过爬虫, 学过逆向, 主攻ts全栈',
+      },
+    ],
+    navbar: {
+      logo: {
+        alt: '愧怍',
+        src: 'img/logo.webp',
+        srcDark: 'img/logo.webp',
+      },
+      hideOnScroll: true,
       items: [
+        { label: '博客', position: 'right', to: 'blog' },
+        { label: '项目', position: 'right', to: 'project' },
+        { label: '友链', position: 'right', to: 'friends' },
+        { label: '关于', position: 'right', to: 'about' },
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        { to: '/blog', label: 'Blog', position: 'left' },
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
+          label: '更多',
           position: 'right',
+          items: [
+            { label: '归档', to: 'blog/archive' },
+            { label: '主题魔改', to: 'docs/docusaurus-guides' },
+          ],
         },
+        // {
+        //   type: 'localeDropdown',
+        //   position: 'right',
+        // },
       ],
     },
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: '学习',
           items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
+            { label: '博客', to: 'blog' },
+            { label: '归档', to: 'blog/archive' },
+            { label: '实战项目', to: 'project' },
           ],
         },
         {
-          title: 'Community',
+          title: '社交媒体',
           items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
+            { label: '关于我', to: '/about' },
+            { label: 'GitHub', href: social.github.href },
+            { label: 'X', href: social.x.href },
+            { label: '掘金', href: social.juejin.href },
+            { label: 'Discord', href: social.discord.href },
           ],
         },
         {
-          title: 'More',
+          title: '网站',
           items: [
+            { label: 'js反混淆', to: 'https://js-deobfuscator.vercel.app' },
+            { label: 'cyberChef', to: 'https://gchq.github.io/CyberChef' },
+          ],
+        },
+        {
+          title: '更多',
+          items: [
+            { label: '友链', position: 'right', to: 'friends' },
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              html: `
+                <a href="https://docusaurus.io" target="_blank" rel="noreferrer noopener">
+                  <img src="/img/buildwith.png" alt="build with docusaurus" width="120" height="50"/>
+                </a>
+                `,
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `
+        <p style="margin-bottom: 0;"><a href="http://beian.miit.gov.cn/">${beian}</a></p>
+        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${beian1.match(/\d+/)?.[0]
+        }" >${beian1}</a></p>
+        <p>Copyright © 2020 - ${new Date().getFullYear()} kuizuo. | Built with Docusaurus.</p>
+        `,
+    },
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
+    algolia: {
+      appId: 'GV6YN1ODMO',
+      apiKey: '50303937b0e4630bec4a20a14e3b7872',
+      indexName: 'kuizuo',
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: themes.oneLight,
+      darkTheme: themes.oneDark,
+      additionalLanguages: ['bash', 'json', 'java', 'python', 'php', 'graphql', 'rust', 'toml', 'protobuf', 'diff'],
+      defaultLanguage: 'javascript',
+      magicComments: [
+        {
+          className: 'theme-code-block-highlighted-line',
+          line: 'highlight-next-line',
+          block: { start: 'highlight-start', end: 'highlight-end' },
+        },
+        {
+          className: 'code-block-error-line',
+          line: 'This will error',
+        },
+      ],
+    },
+    giscus: {
+      repo: 'kuizuo/blog',
+      repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=',
+      category: 'General',
+      categoryId: 'DIC_kwDOF7NJDM4CPK95',
+      theme: 'light',
+      darkTheme: 'dark_dimmed',
+    } satisfies Partial<GiscusConfig>,
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4,
+    },
+    liveCodeBlock: { playgroundPosition: 'top' },
+    zoom: {
+      selector: '.markdown :not(em) > img',
+      background: {
+        light: 'rgb(255, 255, 255)',
+        dark: 'rgb(50, 50, 50)',
+      },
     },
   } satisfies Preset.ThemeConfig,
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          path: 'docs',
+          sidebarPath: 'sidebars.ts',
+        },
+        blog: false,
+        theme: {
+          customCss: ['./src/css/custom.css', './src/css/tweet-theme.css'],
+        },
+        sitemap: {
+          priority: 0.5,
+        },
+        gtag: {
+          trackingID: 'G-S4SD5NXWXF',
+          anonymizeIP: true,
+        },
+        debug: process.env.NODE_ENV === 'development',
+      } satisfies Preset.Options,
+    ],
+  ],
+  plugins: [
+    'docusaurus-plugin-image-zoom',
+    '@docusaurus/plugin-ideal-image',
+    // ['docusaurus-plugin-baidu-tongji', { token: 'c9a3849aa75f9c4a4e65f846cd1a5155' }],
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: process.env.NODE_ENV === 'development',
+        offlineModeActivationStrategies: ['appInstalled', 'standalone', 'queryString'],
+        pwaHead: [
+          { tagName: 'link', rel: 'icon', href: '/img/logo.png' },
+          { tagName: 'link', rel: 'manifest', href: '/manifest.json' },
+          { tagName: 'meta', name: 'theme-color', content: '#12affa' },
+        ],
+      },
+    ],
+    [
+      'vercel-analytics',
+      {
+        debug: process.env.NODE_ENV === 'development',
+        mode: 'auto',
+      },
+    ],
+    [
+      './src/plugin/plugin-content-blog', // 为了实现全局 blog 数据，必须改写 plugin-content-blog 插件
+      {
+        path: 'blog',
+        editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
+          `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
+        editLocalizedFiles: false,
+        blogDescription: '代码人生：编织技术与生活的博客之旅',
+        blogSidebarCount: 12,
+        blogSidebarTitle: '历史博文',
+        postsPerPage: 18,
+        showReadingTime: true,
+        readingTime: ({ content, frontMatter, defaultReadingTime }) =>
+          defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
+        feedOptions: {
+          type: 'all',
+          title: '愧怍',
+          description: 'feedId:41215011978385457+userId:41840354283324416',
+          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
+        },
+      },
+    ],
+    async function tailwindcssPlugin() {
+      return {
+        name: 'docusaurus-tailwindcss',
+        configurePostCss(postcssOptions) {
+          // Appends TailwindCSS and AutoPrefixer.
+          postcssOptions.plugins.push(require('tailwindcss'))
+          postcssOptions.plugins.push(require('autoprefixer'))
+          return postcssOptions
+        },
+      }
+    },
+    async function injectMotto() {
+      return {
+        name: 'docusaurus-motto',
+        injectHtmlTags() {
+          return {
+            headTags: [
+              {
+                tagName: 'script',
+                innerHTML: `
+    (${function () {
+      console.log(
+        `%c Kz Blog %c https://github.com/kuizuo/blog`,
+        'color: #fff; margin: 1em 0; padding: 5px 0; background: #12affa;',
+        'margin: 1em 0; padding: 5px 0; background: #efefef;',
+      )
 
+      const motto = `
+This Webisite Powered By Kz Blog.
+Written by Docusaurus, Coding with Love.
+--------
+Love what you do and do what you love.
+`
+
+      if (document.firstChild?.nodeType !== Node.COMMENT_NODE) {
+        document.prepend(document.createComment(motto))
+      }
+    }.toString()})();`,
+              },
+            ],
+          }
+        },
+      }
+    },
+  ],
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'description',
+        content: '愧怍的个人博客',
+      },
+    },
+  ],
+  stylesheets: [
+    'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css',
+    'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Medium.min.css',
+    'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css',
+  ],
+  i18n: {
+    defaultLocale: 'zh-CN',
+    locales: ['zh-CN'],
+  },
+  onBrokenLinks: 'warn',
+  future: {
+    v4: true,
+    experimental_faster: {
+      ssgWorkerThreads: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+    },
+  },
 }
 
 export default config

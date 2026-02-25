@@ -7,5 +7,8 @@ export default {
   clean: true,
   fixedExtension: false,
   tsconfig: 'tsconfig.tsdown.json',
-  copy: [{ from: 'src/theme', to: 'lib' }],
-};
+  copy: [
+    { from: 'src/theme', to: 'lib' },
+    { from: 'src/components', to: 'lib' },
+  ],
+}

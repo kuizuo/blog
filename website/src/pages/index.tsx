@@ -1,44 +1,35 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import Layout from '@theme/Layout'
+import BlogSection from '../components/landing/BlogSection'
+import FeaturesSection from '../components/landing/FeaturesSection'
+import Hero from '../components/landing/Hero'
+// import ProjectSection from '../components/landing/ProjectSection'
+import Particles from '../components/magicui/particles'
 
-import styles from './index.module.css';
+export default function Home() {
+  const {
+    siteConfig: { customFields, tagline },
+  } = useDocusaurusContext()
+  const { description } = customFields as { description: string }
 
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
+    <Layout title={tagline} description={description}>
       <main>
-        <HomepageFeatures />
+        <Hero />
+        <Particles className="absolute inset-0" quantity={100} ease={80} color="#ffffff" refresh />
+
+        <div className="relative">
+          <div className="mx-auto max-w-7xl lg:px-8">
+            <BlogSection />
+            {/* <ProjectSection /> */}
+            <FeaturesSection />
+          </div>
+          {/* <div
+            className="absolute inset-0 -z-50 bg-grid-slate-50 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.2))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"
+            style={{ backgroundPosition: '10px 10px;' }}
+          /> */}
+        </div>
       </main>
     </Layout>
-  );
+  )
 }

@@ -28,7 +28,7 @@ export default function Comment(): JSX.Element {
     throw new Error('You must provide `repo`, `repoId`, and `categoryId` to `themeConfig.giscus`.')
   }
 
-  giscus.theme = useColorMode().colorMode === 'dark' ? giscus.darkTheme : giscus.theme
+  // giscus.theme = useColorMode().colorMode === 'dark' ? giscus.darkTheme : giscus.theme
   giscus.lang = i18n.currentLocale
 
   return <BrowserOnly fallback={<div>Loading Comments...</div>}>{() => <Giscus {...giscus} />}</BrowserOnly>

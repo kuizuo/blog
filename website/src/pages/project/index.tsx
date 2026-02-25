@@ -7,7 +7,7 @@ import ShowcaseCard from './_components/ShowcaseCard'
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment'
 
 import { MagicContainer } from '@site/src/components/magicui/magic-card'
-import MyLayout from '@site/src/theme/MyLayout'
+import Layout from '@theme/Layout'
 import { upperFirst } from '@site/src/utils/jsUtils'
 import styles from './styles.module.css'
 
@@ -97,12 +97,12 @@ function ShowcaseCards() {
 
 function Showcase(): JSX.Element {
   return (
-    <MyLayout title={TITLE} description={DESCRIPTION} maxWidth={1280}>
+    <Layout title={TITLE} description={DESCRIPTION} maxWidth={1280}>
       <main className="margin-vert--lg">
         <ShowcaseHeader />
         <ShowcaseCards />
       </main>
-    </MyLayout>
+    </Layout>
   )
 }
 
