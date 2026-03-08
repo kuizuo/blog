@@ -7,7 +7,6 @@ import type { Props as BlogSidebarContentProps } from '@theme/BlogSidebar/Conten
 import BlogSidebarContent from '@theme/BlogSidebar/Content'
 import type { Props } from '@theme/BlogSidebar/Desktop'
 import clsx from 'clsx'
-import { useState } from 'react'
 import styles from './styles.module.css'
 
 const ListComponent: BlogSidebarContentProps['ListComponent'] = ({ items }) => {
@@ -24,7 +23,6 @@ const ListComponent: BlogSidebarContentProps['ListComponent'] = ({ items }) => {
 
 export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
   const items = useVisibleBlogSidebarItems(sidebar.items)
-  const [isHovered, setIsHovered] = useState(false)
 
   const handleBack = () => {
     window.history.back()
@@ -38,7 +36,7 @@ export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
   }
 
   return (
-    <aside className="col col--2" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+    <aside className={cn('col col--2', styles.sidebarAside)}>
       <nav
         className={cn(styles.sidebar, 'thin-scrollbar')}
         aria-label={translate({
@@ -53,19 +51,14 @@ export default function BlogSidebarDesktop({ sidebar }: Props): JSX.Element {
           onKeyDown={handleBackKeyDown}
           role="button"
           tabIndex={0}
-          style={{ opacity: isHovered ? 1 : 0.3 }}
         >
           <Icon icon="ri:arrow-go-back-line" />
         </div>
 
-        <Link
-          href="/blog"
-          className={cn(styles.sidebarItemTitle)}
-          style={{ opacity: isHovered ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}
-        >
+        <Link href="/blog" className={cn(styles.sidebarItemTitle, styles.sidebarTitle)}>
           {sidebar.title}
         </Link>
-        <div className="margin-top--sm" style={{ opacity: isHovered ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>
+        <div className={cn('margin-top--sm', styles.sidebarContent)}>
           <BlogSidebarContent
             items={items}
             ListComponent={ListComponent}

@@ -4,11 +4,10 @@ import type { BlogPost } from '@docusaurus/plugin-content-blog'
 import { usePluginData } from '@docusaurus/useGlobalData'
 import { cn } from '@site/src/lib/utils'
 import Image from '@theme/IdealImage'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import React from 'react'
+import { motion } from 'framer-motion'
 import { Section } from '../Section'
 
-const chunk = (arr, size) =>
+const chunk = <T,>(arr: T[], size: number): T[][] =>
   Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size))
 
 const BLOG_POSTS_COUNT = 6
@@ -54,26 +53,17 @@ export default function BlogSection(): JSX.Element {
 
   const posts = chunk(blogData.posts.slice(0, BLOG_POSTS_COUNT), BLOG_POSTS_PER_ROW)
 
-  const ref = React.useRef<HTMLDivElement>(null)
-
-  const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 0.5, 1], [20, 0, -20], {
-    clamp: false,
-  })
-
   if (blogData.postNum === 0) {
     return <>作者还没开始写博文哦...</>
   }
 
   return (
     <Section title={<Translate id="homepage.blog.title">近期博客</Translate>} icon="ri:quill-pen-line" href="/blog">
-      <div ref={ref} className="flex flex-col gap-4 overflow-hidden rounded-card p-3 md:grid md:grid-cols-12">
+      <div className="flex flex-col gap-4 overflow-hidden rounded-card p-3 md:grid md:grid-cols-12">
         {posts.map((postGroup, index) => (
           <div className="col-span-4" key={index}>
-            {postGroup.map((post, i) => (
-              <motion.div style={{ y: i / 2 ? y : 0 }} key={i}>
-                <BlogItem key={post.id} post={post} />
-              </motion.div>
+            {postGroup.map(post => (
+              <BlogItem key={post.id} post={post} />
             ))}
           </div>
         ))}

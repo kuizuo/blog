@@ -63,6 +63,32 @@ html[data-theme='dark'] {
   --back-btn-bg-color-hover: #334155;
 }
 
+.sidebarAside .backButton {
+  opacity: 0.3;
+}
+
+.sidebarAside:hover .backButton {
+  opacity: 1;
+}
+
+.sidebarTitle {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebarAside:hover .sidebarTitle {
+  opacity: 1;
+}
+
+.sidebarContent {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebarAside:hover .sidebarContent {
+  opacity: 1;
+}
+
 .backButton {
   width: 32px;
   height: 32px;

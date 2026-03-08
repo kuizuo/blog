@@ -1,31 +1,5 @@
 import { cn } from '@site/src/lib/utils'
-import { CSSProperties, ReactElement, ReactNode, useEffect, useRef, useState } from 'react'
-
-interface MousePosition {
-  x: number
-  y: number
-}
-
-function useMousePosition(): MousePosition {
-  const [mousePosition, setMousePosition] = useState<MousePosition>({
-    x: 0,
-    y: 0,
-  })
-
-  useEffect(() => {
-    const handleMouseMove = (event: globalThis.MouseEvent) => {
-      setMousePosition({ x: event.clientX, y: event.clientY })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-    }
-  }, [])
-
-  return mousePosition
-}
+import { type CSSProperties, type ReactNode, useCallback, useEffect, useRef } from 'react'
 
 interface MagicContainerProps {
   children?: ReactNode
@@ -34,62 +8,74 @@ interface MagicContainerProps {
 
 const MagicContainer = ({ children, className }: MagicContainerProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
-  const mousePosition = useMousePosition()
-  const mouse = useRef<{ x: number, y: number }>({ x: 0, y: 0 })
-  const containerSize = useRef<{ w: number, h: number }>({ w: 0, h: 0 })
-  const [boxes, setBoxes] = useState<Array<HTMLElement>>([])
+  const boxesRef = useRef<HTMLElement[]>([])
+  const rafIdRef = useRef<number | null>(null)
+  const pendingEventRef = useRef<MouseEvent | null>(null)
+  const containerSizeRef = useRef<{ w: number; h: number }>({ w: 0, h: 0 })
 
-  useEffect(() => {
-    init()
-    if (containerRef.current)
-      setBoxes(Array.from(containerRef.current.children).map(el => el as HTMLElement))
+  const syncSize = useCallback(() => {
+    if (containerRef.current) {
+      containerSizeRef.current.w = containerRef.current.offsetWidth
+      containerSizeRef.current.h = containerRef.current.offsetHeight
+      boxesRef.current = Array.from(containerRef.current.children) as HTMLElement[]
+    }
   }, [])
 
   useEffect(() => {
-    init()
-    window.addEventListener('resize', init)
-
-    return () => {
-      window.removeEventListener('resize', init)
-    }
-  }, [setBoxes])
+    syncSize()
+    window.addEventListener('resize', syncSize)
+    return () => window.removeEventListener('resize', syncSize)
+  }, [syncSize])
 
   useEffect(() => {
-    onMouseMove()
-  }, [mousePosition])
+    const container = containerRef.current
+    if (!container) return
 
-  const init = () => {
-    if (containerRef.current) {
-      containerSize.current.w = containerRef.current.offsetWidth
-      containerSize.current.h = containerRef.current.offsetHeight
-    }
-  }
+    const handleMouseMove = (e: MouseEvent) => {
+      pendingEventRef.current = e
+      if (rafIdRef.current !== null) return
 
-  const onMouseMove = () => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect()
-      const { w, h } = containerSize.current
-      const x = mousePosition.x - rect.left
-      const y = mousePosition.y - rect.top
-      const inside = x < w && x > 0 && y < h && y > 0
+      rafIdRef.current = requestAnimationFrame(() => {
+        rafIdRef.current = null
+        const evt = pendingEventRef.current
+        pendingEventRef.current = null
+        if (!evt || !containerRef.current) return
 
-      mouse.current.x = x
-      mouse.current.y = y
-      boxes.forEach((box) => {
-        const boxX = -(box.getBoundingClientRect().left - rect.left) + mouse.current.x
-        const boxY = -(box.getBoundingClientRect().top - rect.top) + mouse.current.y
-        box.style.setProperty('--mouse-x', `${boxX}px`)
-        box.style.setProperty('--mouse-y', `${boxY}px`)
+        // Single container read — no forced reflow per box
+        const containerRect = containerRef.current.getBoundingClientRect()
+        const mouseX = evt.clientX - containerRect.left
+        const mouseY = evt.clientY - containerRect.top
+        const { w, h } = containerSizeRef.current
+        const inside = mouseX >= 0 && mouseX <= w && mouseY >= 0 && mouseY <= h
 
-        if (inside) {
-          box.style.setProperty('--opacity', `1`)
-        }
-        else {
-          box.style.setProperty('--opacity', `0`)
-        }
+        const boxes = boxesRef.current
+        // Batch all reads first, then batch all writes — eliminates layout thrashing
+        const boxRects = boxes.map(box => box.getBoundingClientRect())
+        boxes.forEach((box, i) => {
+          const br = boxRects[i]
+          box.style.setProperty('--mouse-x', `${mouseX - (br.left - containerRect.left)}px`)
+          box.style.setProperty('--mouse-y', `${mouseY - (br.top - containerRect.top)}px`)
+          box.style.setProperty('--opacity', inside ? '1' : '0')
+        })
       })
     }
-  }
+
+    const handleMouseLeave = () => {
+      if (rafIdRef.current !== null) {
+        cancelAnimationFrame(rafIdRef.current)
+        rafIdRef.current = null
+      }
+      boxesRef.current.forEach(box => box.style.setProperty('--opacity', '0'))
+    }
+
+    container.addEventListener('mousemove', handleMouseMove)
+    container.addEventListener('mouseleave', handleMouseLeave)
+    return () => {
+      container.removeEventListener('mousemove', handleMouseMove)
+      container.removeEventListener('mouseleave', handleMouseLeave)
+      if (rafIdRef.current !== null) cancelAnimationFrame(rafIdRef.current)
+    }
+  }, [])
 
   return (
     <div className={cn('h-full w-full', className)} ref={containerRef}>
@@ -105,7 +91,7 @@ interface MagicCardProps {
    * @description
    * The component to be rendered as the card
    * */
-  as?: ReactElement
+  as?: React.ReactElement
   /**
    * @default ""
    * @type string
