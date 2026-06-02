@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kuizuo"
+  short_description: "Kuizuo source archive for grounded context"
+  default_prompt: "Use $kuizuo to organize the collected Kuizuo source archive into source-backed timelines, project notes, bios, or Agent Skill guidance."
