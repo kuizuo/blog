@@ -6,7 +6,8 @@ import type { Props } from '@theme/BlogPostItem/Container'
 export default function BlogPostItemContainer({ children, className }: Props): JSX.Element {
   const { frontMatter, assets } = useBlogPost()
   const { withBaseUrl } = useBaseUrlUtils()
-  const image = assets.image ?? frontMatter.image
+  const hideImage = frontMatter.hideImage === true
+  const image = hideImage ? undefined : assets.image ?? frontMatter.image
   return (
     <article
       className={cn('relative px-4 pt-4 pb-3 lg:px-4', className)}
