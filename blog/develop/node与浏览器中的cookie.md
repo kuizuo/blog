@@ -7,7 +7,7 @@ tags: [node, axios, cookie]
 keywords: [node, axios, cookie]
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 前言
 

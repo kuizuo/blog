@@ -10,7 +10,7 @@ description: 使用 Vercel 部署 serverless 过程记录
 
 Vercel 除了能部署静态站点外，还能运行 Serverless Functions，也是本次的主题
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 创建接口
 
@@ -115,7 +115,7 @@ Vercel 支持路由重写功能，因此我们可以实现反向代理。
 
 请求`/proxy/hello` 将会请求到 `http://127.0.0.1:5000/hello`（不带有`/proxy`）
 
-:::warning 注意：无法代理前缀为 `/api` 的接口，即使设置了也无效。
+:::warning[注意：无法代理前缀为 `/api` 的接口，即使设置了也无效。]
 
 :::
 

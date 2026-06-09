@@ -7,7 +7,7 @@ tags: [redis]
 keywords: [redis]
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 需求
 

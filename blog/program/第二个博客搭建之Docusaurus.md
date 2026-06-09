@@ -17,7 +17,7 @@ image: /img/project/blog.png
 
 > 不过国内 docusaurus 的使用者是真的少，Vuepress 都快烂大街了...
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 安装
 

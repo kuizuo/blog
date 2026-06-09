@@ -7,7 +7,7 @@ tags: [http]
 keywords: [http]
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
 先放一张 gif 图展示下效果
 

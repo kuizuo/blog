@@ -11,7 +11,7 @@ const MagicContainer = ({ children, className }: MagicContainerProps) => {
   const boxesRef = useRef<HTMLElement[]>([])
   const rafIdRef = useRef<number | null>(null)
   const pendingEventRef = useRef<MouseEvent | null>(null)
-  const containerSizeRef = useRef<{ w: number; h: number }>({ w: 0, h: 0 })
+  const containerSizeRef = useRef<{ w: number, h: number }>({ w: 0, h: 0 })
 
   const syncSize = useCallback(() => {
     if (containerRef.current) {

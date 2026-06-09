@@ -12,7 +12,7 @@ description: 使用 pnpm monorepo 实践
 
 但随着越来越多的开源项目使用 monorepo，现在不实践到时候也肯定是要实践的，这次实践也算是为以后的技能先做个铺垫了。
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 介绍
 

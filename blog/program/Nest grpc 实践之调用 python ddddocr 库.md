@@ -14,7 +14,7 @@ description: 本文将使用 nest 通过 grpc 的方式来调用 python 的 dddd
 
 早闻 [gRPC](https://grpc.io/) 大名，所以这次将使用 nest 通过 grpc 的方式来调用 python 的 ddddocr 库来识别验证码。
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 效果图
 

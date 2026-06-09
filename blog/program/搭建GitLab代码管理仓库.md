@@ -14,7 +14,7 @@ description: 搭建 GitLab 代码管理仓库，用于管理代码
 
 可以访问 [kuizuo · GitLab](https://gitlab.kuizuo.me/kuizuo) 来查看搭建效果。
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 页面概览
 
@@ -97,7 +97,7 @@ irb(main):005:0>
 gitlab-ctl restart
 ```
 
-:::info 若重启或修改端口等操作后出现 502 错误，您可能需要等待 3-5 分钟才能正常访问 GitLab
+:::info[若重启或修改端口等操作后出现 502 错误，您可能需要等待 3-5 分钟才能正常访问 GitLab]
 
 :::
 

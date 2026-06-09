@@ -10,7 +10,7 @@ image: https://img.kuizuo.me/2024/0113174834-202401131748137.png
 
 要说 2024 年 Node.js 的 ORM 框架应该选择哪个？毫无疑问选 Prisma。至于为何，请听我细细道来。
 
-<!-- truncate -->
+{/* truncate */}
 
 本文面向的对象是饱受 TypeORM 折磨的资深用户(说的便是我自己)。只对这两个 ORM 框架从开发体验上进行对比，你也可以到 [这里](https://www.prisma.io/docs/orm/more/comparisons/prisma-and-typeorm) 查看 Prisma 官方对这两个 ORM 框架的对比。
 
@@ -343,7 +343,7 @@ const [users, meta] = prisma.user
 
 支持页数(page)或光标(cursor)。
 
-:::tip 两种分页的使用场景
+:::tip[两种分页的使用场景]
 
 按页查询: 用于传统分页，例如翻页
 

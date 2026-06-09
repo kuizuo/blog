@@ -18,9 +18,20 @@ avatar: 'https://kuizuo.me/img/logo.png'
 `
 const friends = Friends
 
+function stableFriendOrder(friend: Friend): number {
+  const text = `${friend.title}${friend.website}`
+  let hash = 0
+
+  for (let i = 0; i < text.length; i++) {
+    hash = (hash * 31 + text.charCodeAt(i)) % 1000000007
+  }
+
+  return hash
+}
+
 function SiteInfo() {
   return (
-    <div className="w-96 rounded-[var(--ifm-pre-border-radius)] border border-solid border-black border-opacity-10 text-left text-sm leading-none">
+    <div className="w-96 rounded-[var(--ifm-pre-border-radius)] border border-solid border-black/10 text-left text-sm leading-none">
       <CodeBlock language="yaml" title="本站信息" className={styles.codeBlock}>
         {SITE_INFO}
       </CodeBlock>
@@ -68,12 +79,10 @@ const FriendCard = memo(({ friend }: { friend: Friend }) => (
 
 function FriendCards() {
   const shuffledFriends = useMemo(() => {
-    const arr = [...friends]
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1))
-      ;[arr[i], arr[j]] = [arr[j] as Friend, arr[i] as Friend]
-    }
-    return arr
+    return [...friends].sort((left, right) => {
+      const order = stableFriendOrder(left) - stableFriendOrder(right)
+      return order || left.title.localeCompare(right.title, 'en-US')
+    })
   }, [])
 
   return (

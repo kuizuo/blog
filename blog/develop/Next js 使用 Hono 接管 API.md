@@ -11,7 +11,7 @@ image: https://img.kuizuo.me/2024/1002213046-nextjs-with-hono.png
 
 直入正题，Next.js 自带的 API Routes (现已改名为 [**Route Handlers**](https://nextjs.org/docs/app/building-your-application/routing/route-handlers)) 异常难用，例如当你需要编写一个 RESTful API 时，尤为痛苦
 
-<!-- truncate -->
+{/* truncate */}
 
 ![image.png](https://img.kuizuo.me/2024%2F0930171329-image.png)
 
@@ -164,7 +164,7 @@ app.onError(handleError)
 
 ![](https://img.kuizuo.me/2024%2F1003095801-20241003095800.png)
 
-:::note 顺带一提
+:::note[顺带一提]
 
 如果需要让 zod 支持中文错误提示，可以使用 [zod-i18n-map](https://www.npmjs.com/package/zod-i18n-map)
 

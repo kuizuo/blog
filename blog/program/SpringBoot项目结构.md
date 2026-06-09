@@ -7,7 +7,7 @@ tags: [java, springboot, develop]
 keywords: [java, springboot, develop]
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
 演示代码地址：[kuizuo/spring-boot-demo (github.com)](https://github.com/kuizuo/spring-boot-demo)
 

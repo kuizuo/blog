@@ -18,11 +18,15 @@ export default function CodeBlockLine({
     line,
     className: cn(classNames, showLineNumbers && styles.codeLine),
   })
+  const { key: _lineKey, ...linePropsWithoutKey } = lineProps
 
-  const lineTokens = line.map((token, key) => <span key={key} {...getTokenProps({ token, key })} />)
+  const lineTokens = line.map((token, key) => {
+    const { key: _tokenKey, ...tokenProps } = getTokenProps({ token, key })
+    return <span key={key} {...tokenProps} />
+  })
 
   return (
-    <span {...lineProps}>
+    <span {...linePropsWithoutKey}>
       {showLineNumbers
         ? (
             <>

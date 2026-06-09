@@ -8,7 +8,7 @@ keywords: [next, react, ssr, vercel]
 draft: false
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
 官方文档 [Getting Started | Next.js (nextjs.org)](https://nextjs.org/docs/getting-started)
 

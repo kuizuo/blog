@@ -15,7 +15,7 @@ image: /img/project/nest-vben-admin.png
 
 演示地址：[KzAdmin](https://admin.kuizuo.me) 管理员账号：admin 密码：123456
 
-<!-- truncate -->
+{/* truncate */}
 
 ![20220505171231754](https://img.kuizuo.me/20220505171231754.png)
 

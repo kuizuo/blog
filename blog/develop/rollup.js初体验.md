@@ -13,7 +13,7 @@ keywords: [rollup, webpack, utils]
 
 恰好 [rollup 3](https://github.com/rollup/rollup/releases/tag/v3.0.0 'rollup 3') 正式发布，也算是来体验一下。
 
-<!-- truncate -->
+{/* truncate */}
 
 ### 为什么不是Webpack？
 

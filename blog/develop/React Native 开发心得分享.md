@@ -10,7 +10,7 @@ image: https://img.kuizuo.me/2024/0514121158-react-native.png
 
 最近研究了一下 React Native(简称RN)，并用它作为毕设项目（一个仿小红书的校园社交应用）。经过一段时间的折腾，对 RN 生态有了一些了解，是时候可以分享一些心得了。
 
-<!-- truncate -->
+{/* truncate */}
 
 代码仓库： https://github.com/kuizuo/youni
 
@@ -170,7 +170,7 @@ const MyComponent = () => (
 )
 ```
 
-:::danger 重点
+:::danger[重点]
 
 但要值得注意的是，由于 RN 的组件样式中并不是完全兼容 Web 端，就比如说你想实现毛玻璃效果，通过 [backdrop-blur](https://tailwindcss.com/docs/backdrop-blur) 原子类就可以轻松实现，但是在原生移动端并不能生效，其原因就是原生组件的 View 并没有毛玻璃效果，想要实现则需要使用 expo-blur 这个库。
 

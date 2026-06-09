@@ -17,7 +17,7 @@ image: /img/project/vscode-extension.png
 
 开源地址：[kuizuo/vscode-extension (github.com)](https://github.com/kuizuo/vscode-extension)
 
-<!-- truncate -->
+{/* truncate */}
 
 ## Vscode 相关
 
@@ -674,7 +674,7 @@ npm i vsce -g
 vsce package
 ```
 
-:::warning 如果使用 pnpm 的话，有可能会打包失败，提示：npm ERR! missing: xxxxxx
+:::warning[如果使用 pnpm 的话，有可能会打包失败，提示：npm ERR! missing: xxxxxx]
 
 :::
 

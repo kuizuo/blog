@@ -8,7 +8,7 @@ keywords: [http]
 description: 记录 git 操作失误导致代码丢失与找回的过程
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
 关于 HTTP 我不讲理论，只讲一下具体的用途。
 

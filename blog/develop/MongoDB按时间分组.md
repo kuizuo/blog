@@ -7,7 +7,7 @@ tags: [mongodb]
 keywords: [mongodb]
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 需求
 

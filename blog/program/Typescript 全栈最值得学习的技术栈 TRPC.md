@@ -24,7 +24,7 @@ toc_max_heading_level: 3
 
 在线体验地址：[TRPC demo](https://trpc.kuizuo.me/)
 
-<!-- truncate -->
+{/* truncate */}
 
 ## End-to-end typesafe APIs(端到端类型安全)
 

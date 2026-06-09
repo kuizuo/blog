@@ -13,7 +13,7 @@ image: https://img.kuizuo.me/2026/9ba86d6666a8c8043a3163e656790d52.png
 
 此外这里有个在线示例可供体验：[Vitesse Nuxt 3 Strapi](https://vitesse-nuxt3-strapi.vercel.app)
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 创建 Strapi 项目
 

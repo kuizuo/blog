@@ -12,7 +12,7 @@ image: https://img.kuizuo.me/2026/fb63cc8ba51feb4021e9cd8bffd54e6d.png
 
 恰好最近正在接触 Rust，而 Rust 开发 WebAssembly 也非常方便，因此本文算是我对 Rust + WebAssembly 的初探。
 
-<!-- truncate -->
+{/* truncate */}
 
 有关 [WebAssembly ](https://developer.mozilla.org/zh-CN/docs/WebAssembly)不做过多介绍，你可以到 [MDN](https://developer.mozilla.org/zh-CN/docs/WebAssembly) 中查看相关介绍。本文重点于 Rust + WebAssembly 实践与相关工具，在 [Rust and WebAssembly (github.com)](https://github.com/rustwasm) 或 [https://github.com/rwasm](https://github.com/rwasm) 中查看 rustwasm 相关生态。
 

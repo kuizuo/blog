@@ -11,7 +11,7 @@ image: https://img.kuizuo.me/20220511170700075.png
 
 ![20220511170700075](https://img.kuizuo.me/20220511170700075.png)
 
-:::tip 观前提醒
+:::tip[观前提醒]
 
 [Vercel](https://vercel.com/) 部署静态资源网站极其**简单方便**，并且有可观的**访问速度**，最主要的是**免费部署**。
 
@@ -25,7 +25,7 @@ image: https://img.kuizuo.me/20220511170700075.png
 
 如果你想搭建一个类似这样的站点，不妨参考我的 [Docusaurus 主题魔改](/docs/docusaurus-guides)
 
-:::danger DNS 污染
+:::danger[DNS 污染]
 
 由于某些原因，vercel.app 被 DNS 污染（即被墙），目前在国内已经无法打开，除非你有自己的域名，通过 CNAME 解析访问你的域名。
 
@@ -33,7 +33,7 @@ image: https://img.kuizuo.me/20220511170700075.png
 
 :::
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 注册账号
 

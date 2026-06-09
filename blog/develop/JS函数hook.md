@@ -7,7 +7,7 @@ tags: [javascript, hook]
 keywords: [javascript, hook]
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 前言
 
@@ -148,7 +148,7 @@ add(1, 2)
 // result 3
 ```
 
-:::danger 注：这种装饰方式叠加了函数的作用域，如果装饰的链条过长，性能上也会受到一定的影响
+:::danger[注：这种装饰方式叠加了函数的作用域，如果装饰的链条过长，性能上也会受到一定的影响]
 
 :::
 

@@ -9,7 +9,7 @@ description: nest.js 添加 swagger 响应数据文档
 image: https://img.kuizuo.me/2026/ff8206afc4e49d62ea94d36dede95aeb.png
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 基本使用
 

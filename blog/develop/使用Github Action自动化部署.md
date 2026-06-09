@@ -9,7 +9,7 @@ keywords: [github, git]
 
 如果有写过项目的经历，就免不了将代码上传到服务器上，安装依赖，然后输入启动命令的步骤。但是有的项目往往需要经常性的改动，如果还是照着上面的方式进行部署的话。先不说这样操作的效率，操作个几次就想罢工了。并且上面这样操作的往往容易误操作。而 Github Actions 正是该问题的良药。
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 介绍
 
@@ -80,7 +80,7 @@ jobs:
 
 该 peaceiris/actions-gh-pages 支持三种 Token，这里使用 personal_token，其生成教程在[官方文档](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)中有详细图文，这里就不贴其生成的图了。**不过记得权限过期以及勾选上 workflow**
 
-:::tip Tip
+:::tip[Tip]
 
 token 只会在生成的时候显示一次，如需要再次显示，则可以点击，但使用此令牌的任何脚本或应用程序都需要更新！
 

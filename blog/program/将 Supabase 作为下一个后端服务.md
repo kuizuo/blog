@@ -16,7 +16,7 @@ toc_max_heading_level: 3
 
 如果你想了解 Baas，我想这篇文章或许对你有所帮助。
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 什么是 [Supabase](https://supabase.com/ 'Supabase')?
 
@@ -211,7 +211,7 @@ const { data, error } = await supabase.auth.signInWithOAuth({
 
 你可以到[Supabase Storage API](https://supabase.github.io/storage-api/ 'Supabase Storage API') 查看 storage 相关 api。
 
-:::tip 现学现用
+:::tip[现学现用]
 
 本文中的所有图片数据都来源于 supabase bucket。
 

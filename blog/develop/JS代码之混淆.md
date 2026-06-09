@@ -7,7 +7,7 @@ tags: [javascript, ast, reverse, project]
 keywords: [javascript, ast, reverse, project]
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
 [JS deobfuscator](https://js-deobfuscator.vercel.app)
 

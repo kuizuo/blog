@@ -11,7 +11,7 @@ keywords: [blog, vuepress, project]
 
 在写这篇文章前，本人非前端专业人士，只是一时兴起想开始搭建一个博客，在该博客上记录与分享一下自己所学的一切内容。（然后现在都在往前端这方向走了）
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 补充
 
@@ -215,7 +215,7 @@ categories:
 
 在标签页上，就能看到 ES6，javascript，与 js 的标签，方便定位相关文章
 
-接着把要写的文章内容全都在写在<!--more -->下即可，这里要注意一下，正文内容的标题，从二级标题开始，一级标题就已经是 title 了，在写也没用。
+接着把要写的文章内容全都在写在{/* more */}下即可，这里要注意一下，正文内容的标题，从二级标题开始，一级标题就已经是 title 了，在写也没用。
 
 其余相关的 key 和 publish 等相关参数还请读者查看 reco 主题的官方文档[立即前往](https://vuepress-theme-reco.recoluan.com/)与 vuepress 官网[立即前往](https://vuepress.vuejs.org/zh/)
 

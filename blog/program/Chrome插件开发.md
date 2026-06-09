@@ -7,9 +7,9 @@ tags: [chrome, plugin, develop]
 keywords: [chrome, plugin, develop]
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
-:::warning Chrome v3 已发布，而本文基于 v2 编写，故本文内容不再具有时效性。
+:::warning[Chrome v3 已发布，而本文基于 v2 编写，故本文内容不再具有时效性。]
 
 :::
 

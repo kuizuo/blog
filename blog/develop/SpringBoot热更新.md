@@ -7,7 +7,7 @@ tags: [java, springboot]
 keywords: [java, springboot]
 ---
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 步骤一
 

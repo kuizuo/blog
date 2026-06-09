@@ -283,6 +283,10 @@ Love what you do and do what you love.
       },
     },
   ],
+  storage: {
+    type: 'localStorage',
+    namespace: true,
+  },
   stylesheets: [
     'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css',
     'https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Medium.min.css',
@@ -297,11 +301,15 @@ Love what you do and do what you love.
     v4: {
       removeLegacyPostBuildHeadAttribute: true,
       useCssCascadeLayers: false,
+      siteStorageNamespacing: true,
+      fasterByDefault: true,
+      mdx1CompatDisabledByDefault: true,
     },
-    experimental_faster: {
+    faster: {
       ssgWorkerThreads: true,
       rspackBundler: true,
       rspackPersistentCache: true,
+      gitEagerVcs: true,
     },
   },
 }

@@ -9,7 +9,7 @@ keywords: [杂谈, restful]
 
 关于 restful api 想必不用多说，已经有很多文章都阐述过它的设计原则，但遵循这个原则可以让你的 API 接口更加规范吗？以下是我对 restful api 风格的一些思考🤔。
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 思考
 

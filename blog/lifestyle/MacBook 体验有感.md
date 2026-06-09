@@ -17,7 +17,7 @@ image: https://img.kuizuo.me/2026/96b5c91b447dc4056d8a5d89b8624cbe.png
 
 > 拖更了近两个月的博文了，摆了一整子，说来也确实有些许惭愧。不过目前生产力工具已就绪，也要开始步入正轨。
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 购买流程
 

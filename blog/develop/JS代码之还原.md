@@ -11,7 +11,7 @@ keywords: [javascript, ast, reverse, project]
 
 ![js-deobfuscator](https://img.kuizuo.me/js-deobfuscator.png)
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 还原前言
 

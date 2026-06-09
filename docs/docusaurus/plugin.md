@@ -97,6 +97,6 @@ async function blogPluginEnhanced(context, options) {
 }
 ```
 
-:::warning 这些数据可能会占据一定的空间，[点我](https://github.com/facebook/docusaurus/pull/7163#issuecomment-1096780257)查看详情 。
+:::warning[这些数据可能会占据一定的空间，[点我](https://github.com/facebook/docusaurus/pull/7163#issuecomment-1096780257)查看详情 。]
 
 :::

@@ -11,7 +11,7 @@ image: https://img.kuizuo.me/2024/0729092038-ai-people.png
 
 import Tweet from '@site/src/components/Tweet';
 
-:::success 前文提醒
+:::success[前文提醒]
 
 作者已于 9 月 30 日离职，以下内容只发生于入职后的 1 个月，之后就过着如同牛马般的生活，日子又开始没有盼头了😔。
 
@@ -19,7 +19,7 @@ import Tweet from '@site/src/components/Tweet';
 
 已经在一家 AI 公司入职了一个月，对坐班有些厌恶的我，没想到有一天也会开始通勤打卡。而经历了这一个月的工作，我对坐班的态度有所转变，开始理解这种工作方式对我的意义。是时候分享入职这期间的工作内容与感受。
 
-<!-- truncate -->
+{/* truncate */}
 
 ## 背景
 
@@ -121,7 +121,7 @@ import Tweet from '@site/src/components/Tweet';
 
 我询问他来这家公司的原因，他说被裁了，在家接外包一年了，不稳定就准备找工作，恰好这家公司急招，于是就来了。
 
-:::warning 补
+:::warning[补]
 
 端午节后，这位老哥提离职了，原因的话我就不具体说了，可能是因为年龄大了，不适合坐班了。虽然早有预感，但还是有点不舍。因为现在部门的前端重任都在我这了😭
 

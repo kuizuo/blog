@@ -15,7 +15,7 @@ image: https://img.kuizuo.me/2026/8bd3aeb3a9a288ce0b9f39accc928a75.png
 
 开源地址: [kuizuo/api-service](https://github.com/kuizuo/api-service)
 
-<!-- truncate -->
+{/* truncate */}
 
 如果你已经了解过 Nuxt3 与运行过程，那么可以直接跳转至 [实战](#实战)
 
