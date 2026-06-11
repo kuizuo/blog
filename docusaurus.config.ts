@@ -55,6 +55,7 @@ const config: Config = {
           position: 'right',
           items: [
             { label: '归档', to: 'blog/archive' },
+            { label: '手指极限', to: 'videos' },
             { label: '主题魔改', to: 'docs/docusaurus-guides' },
           ],
         },
