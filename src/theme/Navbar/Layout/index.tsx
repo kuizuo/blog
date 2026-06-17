@@ -5,7 +5,6 @@ import type { Props } from '@theme/Navbar/Layout'
 import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar'
 import clsx from 'clsx'
 import { type ComponentProps } from 'react'
-import { useLocation } from 'react-router-dom'
 
 import styles from './styles.module.css'
 
@@ -20,9 +19,6 @@ export default function NavbarLayout({ children }: Props): JSX.Element {
   const mobileSidebar = useNavbarMobileSidebar()
   const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll)
 
-  const location = useLocation()
-  const isHomePage = location.pathname === '/' || location.pathname === '/en/'
-
   return (
     <nav
       ref={navbarRef}
@@ -34,7 +30,7 @@ export default function NavbarLayout({ children }: Props): JSX.Element {
       className={clsx(
         'navbar',
         'navbar--fixed-top',
-        isHomePage && 'bg-transparent',
+        'bg-transparent',
         hideOnScroll && [styles.navbarHideable, !isNavbarVisible && styles.navbarHidden],
         {
           'navbar--dark': style === 'dark',

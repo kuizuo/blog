@@ -30,6 +30,7 @@ function BlogPostPageContent({
 
   return (
     <BlogLayout
+      wrapperClassName="blog-post-page-background"
       sidebar={sidebar}
       toc={
         !hideTableOfContents && toc.length > 0
