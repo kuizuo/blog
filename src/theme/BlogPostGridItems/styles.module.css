@@ -1,3 +1,5 @@
+@reference "../../css/custom.css";
+
 .blogTags a {
   @apply p-px border-0 text-inherit hover:text-primary;
 }

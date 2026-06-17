@@ -39,7 +39,7 @@
     "@giscus/react": "^3.1.0",
     "@popperjs/core": "^2.11.8",
     "@radix-ui/react-slot": "^1.1.1",
-    "autoprefixer": "^10.4.20",
+    "@tailwindcss/postcss": "4.3.1",
     "class-variance-authority": "^0.7.1",
     "docusaurus-plugin-baidu-tongji": "0.0.0-beta.4",
     "docusaurus-plugin-image-zoom": "^2.0.0",
@@ -47,7 +47,7 @@
     "motion": "^12.0.0",
     "ora": "^8.1.1",
     "plyr": "^3.8.4",
-    "postcss": "^8.5.1",
+    "postcss": "^8.5.15",
     "prism-react-renderer": "^2.4.1",
     "raw-loader": "^4.0.2",
     "react": "^19.0.0",
@@ -56,8 +56,8 @@
     "react-icon-cloud": "^4.1.7",
     "react-popper": "^2.3.0",
     "react-tweet": "^3.3.0",
-    "tailwind-merge": "^2.6.0",
-    "tailwindcss": "^3.4.17"
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.1"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.10.1",
@@ -66,11 +66,11 @@
     "@iconify/react": "^5.2.0",
     "@stylistic/eslint-plugin": "2.13.0",
     "@swc/helpers": "0.5.23",
-    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/typography": "^0.5.20",
     "@typescript-eslint/eslint-plugin": "8.20.0",
     "eslint": "9.39.2",
     "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-tailwindcss": "3.18.0",
+    "eslint-plugin-tailwindcss": "3.18.3",
     "typescript": "~5.7.3",
     "typescript-eslint": "^8.20.0"
   },

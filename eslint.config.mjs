@@ -1,11 +1,23 @@
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import stylistic from '@stylistic/eslint-plugin'
 import react from 'eslint-plugin-react'
 import tailwind from 'eslint-plugin-tailwindcss'
 import ts from 'typescript-eslint'
 
+const dirname = path.dirname(fileURLToPath(import.meta.url))
+const tailwindCssPath = path.join(dirname, 'src/css/custom.css')
+
 export default [
   {
     ignores: ['.docusaurus', 'build'],
+  },
+  {
+    settings: {
+      tailwindcss: {
+        config: tailwindCssPath,
+      },
+    },
   },
   stylistic.configs['recommended-flat'],
   ...ts.configs.recommended,

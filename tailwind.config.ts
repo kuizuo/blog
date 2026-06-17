@@ -1,12 +1,8 @@
-import svgToDataUri from 'mini-svg-data-uri'
-import type { Config } from 'tailwindcss'
-import plugin from 'tailwindcss/plugin'
+const svgToDataUri = require('mini-svg-data-uri')
+const plugin = require('tailwindcss/plugin')
+const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette')
 
-const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette')
-
-const twConfig: Config = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: ['selector', '[data-theme="dark"]'],
+const twConfig = {
   theme: {
     extend: {
       colors: {
@@ -43,9 +39,6 @@ const twConfig: Config = {
       },
     },
   },
-  corePlugins: {
-    preflight: false,
-  },
   plugins: [
     require('@tailwindcss/typography'),
     plugin(({ matchUtilities, theme }) => {
@@ -67,7 +60,7 @@ const twConfig: Config = {
   ],
 }
 
-export default twConfig
+module.exports = twConfig
 
 function addVariablesForColors({ addBase, theme }) {
   const allColors = flattenColorPalette(theme('colors'))

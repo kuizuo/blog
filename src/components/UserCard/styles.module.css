@@ -1,3 +1,5 @@
+@reference "../../css/custom.css";
+
 .userCard {
   @apply rounded-[12px] bg-[var(--blog-item-background-color)] shadow-[var(--blog-item-shadow)] m-0 relative block text-center;
 }

@@ -1,3 +1,5 @@
+@reference "../../css/custom.css";
+
 .socialLinks {
   @apply w-full flex items-center md:flex-wrap md:gap-3 py-2 relative z-50 flex-wrap gap-1;
 }

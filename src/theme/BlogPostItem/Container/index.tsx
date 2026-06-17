@@ -18,7 +18,7 @@ export default function BlogPostItemContainer({ children, className }: Props): J
       {image && (
         <>
           <meta itemProp="image" content={withBaseUrl(image, { absolute: true })} />
-          <div className="z-1 absolute inset-0 h-[224px]">
+          <div className="absolute inset-0 z-1 h-[224px]">
             <div
               className="size-full rounded-[var(--ifm-pagination-nav-border-radius)] bg-cover bg-center bg-no-repeat"
               style={{

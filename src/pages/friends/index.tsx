@@ -31,7 +31,7 @@ function stableFriendOrder(friend: Friend): number {
 
 function SiteInfo() {
   return (
-    <div className="w-96 rounded-[var(--ifm-pre-border-radius)] border border-solid border-black/10 text-left text-sm leading-none">
+    <div className="w-96 max-w-[calc(100vw-2rem)] rounded-[var(--ifm-pre-border-radius)] border border-solid border-black/10 text-left text-sm leading-none">
       <CodeBlock language="yaml" title="本站信息" className={styles.codeBlock}>
         {SITE_INFO}
       </CodeBlock>
