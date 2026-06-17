@@ -109,19 +109,14 @@ body {
     'Microsoft YaHei';
 }
 
-html.blog-post-page body {
+html.blog-post-page,
+html.blog-post-page body,
+html.blog-post-page #__docusaurus {
   background: var(--blog-post-page-background);
 }
 
 .blog-post-page-background {
-  position: relative;
-  isolation: isolate;
-  background: transparent;
-}
-
-.blog-post-page-background > * {
-  position: relative;
-  z-index: 1;
+  background: var(--blog-post-page-background);
 }
 
 .navbar__item {
@@ -215,10 +210,6 @@ article p > span > a {
 @media (max-width: 570px) {
   h1 {
     font-size: 1.6em;
-  }
-
-  .blog-post-page-background {
-    background: transparent;
   }
 
   article > .markdown > h2 {
