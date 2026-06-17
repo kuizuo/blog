@@ -5,6 +5,7 @@ import BlogPostItemContainer from '@theme/BlogPostItem/Container'
 import BlogPostItemContent from '@theme/BlogPostItem/Content'
 import BlogPostItemFooter from '@theme/BlogPostItem/Footer'
 import BlogPostItemHeader from '@theme/BlogPostItem/Header'
+import BlogPostItemSummary from '@theme/BlogPostItem/Summary'
 
 // apply a bottom margin in list view
 function useContainerClassName() {
@@ -17,6 +18,7 @@ export default function BlogPostItem({ children, className }: Props): JSX.Elemen
   return (
     <BlogPostItemContainer className={cn(containerClassName, className)}>
       <BlogPostItemHeader />
+      <BlogPostItemSummary />
       <BlogPostItemContent>{children}</BlogPostItemContent>
       <BlogPostItemFooter />
     </BlogPostItemContainer>

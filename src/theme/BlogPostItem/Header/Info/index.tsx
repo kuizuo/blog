@@ -73,7 +73,7 @@ export default function BlogPostItemHeaderInfo({ className }: Props): JSX.Elemen
                   <Tag
                     label={label}
                     permalink={tagPermalink}
-                    className="tag !border-0 p-0.5 text-text hover:text-link"
+                    className="tag text-text hover:text-link !border-0 p-0.5"
                     description={description}
                   />
                 </div>
