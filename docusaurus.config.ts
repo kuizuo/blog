@@ -1,15 +1,12 @@
 import type * as Preset from '@docusaurus/preset-classic'
 import type { Config } from '@docusaurus/types'
 import { themes } from 'prism-react-renderer'
-import social from './data/social'
+import { siteInfo } from './data/site'
 import type { GiscusConfig } from './src/components/Comment'
-
-const beian = '闽ICP备2020017848号-3'
-const beian1 = '闽公网安备35021102000847号'
 
 const config: Config = {
   title: '愧怍',
-  url: 'https://kuizuo.me',
+  url: siteInfo.url,
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'kuizuo',
@@ -67,52 +64,6 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: '学习',
-          items: [
-            { label: '博客', to: 'blog' },
-            { label: '归档', to: 'blog/archive' },
-            { label: '实战项目', to: 'project' },
-          ],
-        },
-        {
-          title: '社交媒体',
-          items: [
-            { label: '关于我', to: '/about' },
-            { label: 'GitHub', href: social.github.href },
-            { label: 'X', href: social.x.href },
-            { label: '掘金', href: social.juejin.href },
-            { label: 'Discord', href: social.discord.href },
-          ],
-        },
-        {
-          title: '网站',
-          items: [
-            { label: 'js反混淆', to: 'https://js-deobfuscator.vercel.app' },
-            { label: 'cyberChef', to: 'https://gchq.github.io/CyberChef' },
-          ],
-        },
-        {
-          title: '更多',
-          items: [
-            { label: '友链', position: 'right', to: 'friends' },
-            {
-              html: `
-                <a href="https://docusaurus.io" target="_blank" rel="noreferrer noopener">
-                  <img src="/img/buildwith.png" alt="build with docusaurus" width="120" height="50"/>
-                </a>
-                `,
-            },
-          ],
-        },
-      ],
-      copyright: `
-        <p style="margin-bottom: 0;"><a href="http://beian.miit.gov.cn/">${beian}</a></p>
-        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${beian1.match(/\d+/)?.[0]
-        }" >${beian1}</a></p>
-        <p>Copyright © 2020 - ${new Date().getFullYear()} kuizuo. | Built with Docusaurus.</p>
-        `,
     },
     docs: {
       sidebar: {
@@ -226,7 +177,7 @@ const config: Config = {
           type: 'all',
           title: '愧怍',
           description: 'feedId:41215011978385457+userId:41840354283324416',
-          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
+          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${siteInfo.beian.icp}</a></p>`,
         },
       },
     ],
