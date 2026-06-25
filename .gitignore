@@ -24,3 +24,5 @@ yarn-error.log*
 pnpm-error.log*
 
 .vercel
+
+.obsidian
