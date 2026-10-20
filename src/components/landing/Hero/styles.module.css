@@ -21,6 +21,7 @@
   width: 88px;
   height: 88px;
   margin: 0 auto 1.5rem;
+  border-radius: 50%;
   object-fit: contain;
 }
 
@@ -35,7 +36,7 @@
 
 .hero_text {
   margin: 0;
-  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-size: clamp(1.875rem, 4vw, 3rem);
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.025em;
@@ -83,7 +84,7 @@
 
   .hero_text {
     /* Keep the hero scale above the site's mobile heading override. */
-    font-size: clamp(2rem, 7.5vw, 3rem) !important;
+    font-size: clamp(1.75rem, 4vw, 2rem) !important;
   }
 
   .avatar {

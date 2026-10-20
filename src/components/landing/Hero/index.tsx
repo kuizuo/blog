@@ -42,7 +42,7 @@ function Name() {
 
 export default function Hero() {
   const reduceMotion = useReducedMotion()
-  const avatar = useBaseUrl('/img/logo.webp')
+  const avatar = useBaseUrl('/img/logo.png')
 
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
