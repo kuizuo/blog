@@ -1,27 +1,55 @@
-@reference "../../../css/custom.css";
-
-/* hero */
 .hero {
-  @apply h-[calc(100vh-60px)] w-screen max-w-full m-0 grid grid-cols-[8fr_11fr] items-center relative;
-  letter-spacing: 0.04em;
-  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(2rem, 5svh, 4rem) 1.5rem clamp(3rem, 7svh, 5rem);
+  background:
+    radial-gradient(ellipse at 15% 0%, color-mix(in srgb, var(--ifm-color-primary) 18%, transparent), transparent 60%),
+    radial-gradient(ellipse at 85% 15%, color-mix(in srgb, var(--ifm-color-primary) 12%, transparent), transparent 60%),
+    linear-gradient(180deg, color-mix(in srgb, var(--ifm-color-primary) 4%, var(--content-background)), var(--content-background));
 }
 
 .intro {
-  @apply p-4 pl-16 relative z-10;
+  width: 100%;
+  max-width: 44rem;
+  min-width: 0;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.avatar {
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 1.5rem;
+  object-fit: contain;
 }
 
 .intro > p {
-  @apply my-6 text-secondary text-base leading-8;
-  max-width: 38rem;
+  max-width: 36rem;
+  margin: 1.25rem auto 1rem;
+  color: var(--ifm-secondary-text-color);
+  font-size: 1rem;
+  line-height: 1.9;
+  text-wrap: pretty;
 }
 
 .hero_text {
   margin: 0;
-  font-size: calc(1.5em + 1.2vw);
+  font-size: clamp(2.25rem, 5vw, 4rem);
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
   text-wrap: balance;
+}
+
+.name {
+  color: var(--ifm-color-primary-darkest);
+  white-space: nowrap;
+}
+
+.socials > div {
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .socials a {
@@ -35,6 +63,11 @@
   color: white;
 }
 
+.socials a:active {
+  transform: scale(0.96);
+}
+
+[data-theme='dark'] .name,
 [data-theme='dark'] .socials a {
   color: var(--ifm-color-primary-light);
 }
@@ -43,100 +76,35 @@
   color: white;
 }
 
-.name {
-  --lighting-size: 300px;
-  --lighting-color: var(--ifm-color-primary);
-  --lighting-highlight-color: var(--ifm-color-primary-lightest);
-
-  background-image: radial-gradient(
-    var(--lighting-highlight-color),
-    var(--lighting-color),
-    var(--lighting-color)
-  );
-  background-size: var(--lighting-size) var(--lighting-size);
-  background-repeat: no-repeat;
-  background-position-x: calc(
-    var(--x) - var(--mouse-x) - calc(var(--lighting-size) / 2)
-  );
-  background-position-y: calc(
-    var(--y) - var(--mouse-y) - calc(var(--lighting-size) / 2)
-  );
-  background-color: var(--lighting-color);
-  color: transparent;
-  background-clip: text;
-}
-
-.background {
-  @apply relative w-full h-[90%] grid place-items-center items-start;
-  z-index: 5;
-}
-
-.background svg {
-  @apply w-full h-auto;
-}
-
-.circle {
-  @apply absolute top-0 w-full h-full bg-gradient-to-r from-[rgb(150,255,244,0.81)] to-[rgb(0,71,252,0.81)] rounded-full opacity-30;
-  filter: blur(80px);
-  z-index: -1;
-}
-
-.box {
-  @apply absolute inline-flex justify-center items-center bg-transparent text-transparent backdrop-blur-[2px] shadow-[inset_1px_1px_5px_rgb(255,255,255,0.3),0_0_5px_rgb(0,0,0,0.2)] rounded-lg p-2 w-14 h-14;
-}
-
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
   .hero {
-    @apply grid-cols-1 grid-rows-[max-content_minmax(0,max-content)] items-start h-auto;
+    padding: 2rem 1rem 3rem;
   }
 
-  .intro {
-    @apply px-6 pt-16 flex flex-col items-center;
+  .hero_text {
+    /* Keep the hero scale above the site's mobile heading override. */
+    font-size: clamp(2rem, 7.5vw, 3rem) !important;
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 1.25rem;
+  }
+
+  .intro > p {
+    max-width: 28rem;
+    margin-block: 1rem;
+    line-height: 1.8;
   }
 
   .socials > div {
-    justify-content: center;
-  }
-
-  .intro > p {
-    text-align: center;
-  }
-
-  .background {
-    @apply w-full justify-self-center pt-16 h-full grid place-items-center;
-  }
-
-  .background svg {
-    @apply w-[90%] h-auto;
-  }
-
-  .box {
-    @apply w-12 h-12;
+    gap: 0.25rem;
   }
 }
 
-@media (max-width: 570px) {
+@media (max-height: 700px) {
   .hero {
-    @apply h-auto;
-  }
-
-  .background {
-    @apply pt-8;
-  }
-
-  .background svg {
-    @apply w-full h-auto;
-  }
-
-  .box {
-    @apply w-8 h-8;
-  }
-
-  .intro {
-    @apply px-4 pt-8;
-  }
-
-  .intro > p {
-    text-align: start;
+    padding-top: 1.5rem;
   }
 }
