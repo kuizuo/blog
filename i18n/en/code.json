@@ -650,5 +650,29 @@
   },
   "blog.tags.browse": {
     "message": "Browse by tag"
+  },
+  "about.title": {
+    "message": "About me"
+  },
+  "about.description": {
+    "message": "A little about Kuizuo."
+  },
+  "about.label": {
+    "message": "About me"
+  },
+  "about.greeting": {
+    "message": "Hi 👋, I’m Kuizuo."
+  },
+  "about.identity": {
+    "message": "You can find me as Kuizuo"
+  },
+  "about.avatar.intro": {
+    "message": "My avatar is"
+  },
+  "about.avatar.name": {
+    "message": "Kuro"
+  },
+  "about.comments": {
+    "message": "Leave a note"
   }
 }

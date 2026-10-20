@@ -563,5 +563,29 @@
   },
   "blog.tags.browse": {
     "message": "按标签浏览"
+  },
+  "about.title": {
+    "message": "自我介绍"
+  },
+  "about.description": {
+    "message": "愧怍的自我介绍"
+  },
+  "about.label": {
+    "message": "关于我"
+  },
+  "about.greeting": {
+    "message": "你好👋，我是愧怍。"
+  },
+  "about.identity": {
+    "message": "全网同名愧怍（Kuizuo）"
+  },
+  "about.avatar.intro": {
+    "message": "头像是"
+  },
+  "about.avatar.name": {
+    "message": "酷乐"
+  },
+  "about.comments": {
+    "message": "聊两句"
   }
 }
