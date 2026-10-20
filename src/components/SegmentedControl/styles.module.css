@@ -1,0 +1,64 @@
+.control {
+  position: relative;
+  display: inline-grid;
+  flex: 0 0 auto;
+  grid-template-columns: repeat(var(--segments), 1fr);
+  padding: 4px;
+  border: 1px solid var(--ifm-border-color);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ifm-color-primary) 4%, var(--content-background));
+}
+
+.selection {
+  position: absolute;
+  inset: 4px auto 4px 4px;
+  width: calc((100% - 8px) / var(--segments));
+  border: 1px solid var(--ifm-border-color);
+  border-radius: 8px;
+  background: var(--content-background);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.control button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 88px;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ifm-secondary-text-color);
+  font: inherit;
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.control button:hover,
+.control button[aria-pressed='true'] {
+  color: var(--ifm-color-primary-darkest);
+}
+
+.control button:focus-visible {
+  outline: 2px solid var(--ifm-color-primary-darkest);
+  outline-offset: -2px;
+}
+
+[data-theme='dark'] .control button:hover,
+[data-theme='dark'] .control button[aria-pressed='true'] {
+  color: var(--ifm-color-primary-light);
+}
+
+[data-theme='dark'] .control button:focus-visible {
+  outline-color: var(--ifm-color-primary-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selection {
+    transition: none;
+  }
+}

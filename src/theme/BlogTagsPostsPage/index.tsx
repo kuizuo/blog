@@ -1,79 +1,58 @@
 import Link from '@docusaurus/Link'
 import Translate, { translate } from '@docusaurus/Translate'
-import { HtmlClassNameProvider, PageMetadata, ThemeClassNames, usePluralForm } from '@docusaurus/theme-common'
-import { cn } from '@site/src/lib/utils'
+import { HtmlClassNameProvider, ThemeClassNames } from '@docusaurus/theme-common'
+import { useBlogTagsPostsPageTitle } from '@docusaurus/theme-common/internal'
+import collection from '@site/src/css/collection.module.css'
+import { useViewType } from '@site/src/hooks/useViewType'
 import BackToTopButton from '@theme/BackToTopButton'
 import BlogListPaginator from '@theme/BlogListPaginator'
-import BlogPostItems from '@theme/BlogPostItems'
 import type { Props } from '@theme/BlogTagsPostsPage'
-import Heading from '@theme/Heading'
+import Unlisted from '@theme/ContentVisibility/Unlisted'
+import Layout from '@theme/Layout'
 import SearchMetadata from '@theme/SearchMetadata'
+import BlogPosts from '../BlogListPage/Posts'
+import ViewTypeSwitch from '../BlogListPage/ViewTypeSwitch'
+import blogStyles from '../BlogListPage/styles.module.css'
+import styles from './styles.module.css'
 
-import MyLayout from '../MyLayout'
-
-// Very simple pluralization: probably good enough for now
-function useBlogPostsPlural() {
-  const { selectMessage } = usePluralForm()
-  return (count: number) =>
-    selectMessage(
-      count,
-      translate(
-        {
-          id: 'theme.blog.post.plurals',
-          description:
-            'Pluralized label for "{count} posts". Use as much plural forms (separated by "|") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)',
-          message: 'One post|{count} posts',
-        },
-        { count },
-      ),
-    )
-}
-
-function useBlogTagsPostsPageTitle(tag: Props['tag']): string {
-  const blogPostsPlural = useBlogPostsPlural()
-  return translate(
-    {
-      id: 'theme.blog.tagTitle',
-      description: 'The title of the page for a blog tag',
-      message: '{nPosts} tagged with "{tagName}"',
-    },
-    { nPosts: blogPostsPlural(tag.count), tagName: tag.label },
-  )
-}
-
-function BlogTagsPostsPageMetadata({ tag }: Props): JSX.Element {
+export default function BlogTagsPostsPage({ tag, items, listMetadata }: Props): JSX.Element {
   const title = useBlogTagsPostsPageTitle(tag)
-  return (
-    <>
-      <PageMetadata title={title} />
-      <SearchMetadata tag="blog_tags_posts" />
-    </>
-  )
-}
+  const description = tag.description || translate({ id: 'blog.tags.posts.description', message: '阅读与「{tag}」有关的文章。' }, { tag: tag.label })
+  const { viewType, toggleViewType } = useViewType()
 
-function BlogTagsPostsPageContent({ tag, items, sidebar, listMetadata }: Props): JSX.Element {
-  const title = useBlogTagsPostsPageTitle(tag)
   return (
-    <MyLayout>
-      <header className={cn('mb-4')}>
-        <Heading as="h1">{title}</Heading>
-        <Link href={tag.allTagsPath}>
-          <Translate id="theme.tags.tagsPageLink" description="The label of the link targeting the tag list page">
-            View All Tags
-          </Translate>
-        </Link>
-      </header>
-      <BlogPostItems items={items} />
-      <BlogListPaginator metadata={listMetadata} />
-      <BackToTopButton />
-    </MyLayout>
-  )
-}
-export default function BlogTagsPostsPage(props: Props): JSX.Element {
-  return (
-    <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagPostListPage)}>
-      <BlogTagsPostsPageMetadata {...props} />
-      <BlogTagsPostsPageContent {...props} />
+    <HtmlClassNameProvider className={`${ThemeClassNames.wrapper.blogPages} ${ThemeClassNames.page.blogTagPostListPage}`}>
+      <Layout title={title} description={description}>
+        <SearchMetadata tag="blog_tags_posts" />
+        <main className={collection.page}>
+          <div className={collection.container}>
+            {tag.unlisted && <Unlisted />}
+            <header className={collection.header}>
+              <div className={styles.heading}>
+                <h1 className={`${collection.title} ${styles.title}`}>
+                  <span className={styles.hash} aria-hidden="true">#</span>
+                  {tag.label}
+                </h1>
+                <p className={collection.description}>{description}</p>
+              </div>
+              <Link to={tag.allTagsPath} className={collection.textLink}>
+                <span aria-hidden="true">←</span>
+                <Translate id="blog.tags.all">全部标签</Translate>
+              </Link>
+            </header>
+            <div className={blogStyles.toolbar}>
+              <p className={blogStyles.results}>
+                <Translate id="blog.count" values={{ count: tag.count }}>{'共 {count} 篇文章'}</Translate>
+                {listMetadata.totalPages > 1 && <span><Translate id="blog.page" values={{ page: listMetadata.page, total: listMetadata.totalPages }}>{'第 {page} / {total} 页'}</Translate></span>}
+              </p>
+              <ViewTypeSwitch viewType={viewType} toggleViewType={toggleViewType} />
+            </div>
+            <div id="blog-posts"><BlogPosts items={items} viewType={viewType} /></div>
+            <div className={blogStyles.pagination}><BlogListPaginator metadata={listMetadata} /></div>
+          </div>
+        </main>
+        <BackToTopButton />
+      </Layout>
     </HtmlClassNameProvider>
   )
 }

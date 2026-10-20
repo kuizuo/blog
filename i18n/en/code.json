@@ -36,7 +36,7 @@
     "message": "Open source enthusiast"
   },
   "theme.blog.archive.posts.total": {
-    "message": "Total {total} posts"
+    "message": "{total} articles on learning, building, and everyday life."
   },
   "theme.blog.archive.posts.unit": {
     "message": "posts"
@@ -473,5 +473,182 @@
   "showcase.card.sourceLink": {
     "message": "source",
     "description": "The label for the source link of a showcase card"
+  },
+  "project.github": {
+    "message": "View on GitHub"
+  },
+  "project.categories": {
+    "message": "Project categories"
+  },
+  "project.source": {
+    "message": "View source for {title}"
+  },
+  "friends.title": {
+    "message": "Friends"
+  },
+  "friends.description": {
+    "message": "Good friends are worth more than great wealth."
+  },
+  "friends.exchange": {
+    "message": "Exchange links"
+  },
+  "friends.exchange.description": {
+    "message": "If you share stories or write about technology, let’s exchange links."
+  },
+  "friends.add": {
+    "message": "Add your link on GitHub"
+  },
+  "friends.siteInfo": {
+    "message": "Site information"
+  },
+  "project.tag.favorite": {
+    "message": "Favorite"
+  },
+  "project.tag.opensource": {
+    "message": "Open source"
+  },
+  "project.tag.product": {
+    "message": "Product"
+  },
+  "project.tag.design": {
+    "message": "Design"
+  },
+  "project.tag.large": {
+    "message": "Large"
+  },
+  "project.tag.personal": {
+    "message": "Personal"
+  },
+  "theme.blog.archive.year.posts": {
+    "message": "1 post|{count} posts"
+  },
+  "theme.blog.archive.allPosts": {
+    "message": "Browse all articles"
+  },
+  "theme.blog.archive.years": {
+    "message": "Browse by year"
+  },
+  "theme.blog.archive.year.link": {
+    "message": "Articles from {year}: {count}"
+  },
+  "theme.blog.archive.pageDescription": {
+    "message": "Articles organized by year, exploring development and everyday life."
+  },
+  "blog.view.label": {
+    "message": "Article layout"
+  },
+  "blog.view.list": {
+    "message": "List"
+  },
+  "blog.view.grid": {
+    "message": "Grid"
+  },
+  "videos.title": {
+    "message": "Finger tricks"
+  },
+  "videos.description": {
+    "message": "Just a few tricks."
+  },
+  "videos.date.unknown": {
+    "message": "Undated"
+  },
+  "videos.category.all": {
+    "message": "All"
+  },
+  "videos.category.pen": {
+    "message": "Pen spinning"
+  },
+  "videos.category.cube": {
+    "message": "Rubik’s Cube"
+  },
+  "videos.category.cardistry": {
+    "message": "Cardistry"
+  },
+  "videos.category.zippo": {
+    "message": "Zippo"
+  },
+  "videos.category.other": {
+    "message": "Other"
+  },
+  "videos.empty.title": {
+    "message": "Videos are on the way"
+  },
+  "videos.empty.description": {
+    "message": "New clips will appear here when they are ready."
+  },
+  "videos.playlist": {
+    "message": "Playlist"
+  },
+  "videos.count": {
+    "message": "Videos: {count}"
+  },
+  "videos.categories": {
+    "message": "Video categories"
+  },
+  "videos.current": {
+    "message": "Selected"
+  },
+  "videos.library": {
+    "message": "Video clips"
+  },
+  "videos.comments": {
+    "message": "Leave a comment"
+  },
+  "blog.description": {
+    "message": "Notes on building things and living life."
+  },
+  "blog.archive": {
+    "message": "Browse by year"
+  },
+  "blog.count": {
+    "message": "Articles: {count}"
+  },
+  "blog.page": {
+    "message": "Page {page} of {total}"
+  },
+  "blog.post.pinned": {
+    "message": "Pinned"
+  },
+  "blog.tags.description": {
+    "message": "Find something to read, one topic at a time."
+  },
+  "blog.tags.link": {
+    "message": "Read articles tagged {tag}: {count}"
+  },
+  "blog.tags.back": {
+    "message": "Back to the blog"
+  },
+  "blog.tags.search": {
+    "message": "Search tags"
+  },
+  "blog.tags.search.placeholder": {
+    "message": "Search for a tag…"
+  },
+  "blog.tags.count": {
+    "message": "Tags: {count}"
+  },
+  "blog.tags.view": {
+    "message": "Tag display"
+  },
+  "blog.tags.all": {
+    "message": "All tags"
+  },
+  "blog.tags.letters": {
+    "message": "By letter"
+  },
+  "blog.tags.empty": {
+    "message": "No matching tags"
+  },
+  "blog.tags.clear": {
+    "message": "Clear search"
+  },
+  "blog.tags.chinese": {
+    "message": "Chinese"
+  },
+  "blog.tags.posts.description": {
+    "message": "Articles about {tag}."
+  },
+  "blog.tags.browse": {
+    "message": "Browse by tag"
   }
 }

@@ -1,123 +1,117 @@
 import Link from '@docusaurus/Link'
 import Translate, { translate } from '@docusaurus/Translate'
-import { HtmlClassNameProvider, PageMetadata, ThemeClassNames } from '@docusaurus/theme-common'
-import { Icon } from '@iconify/react'
-import { cn } from '@site/src/lib/utils'
+import { HtmlClassNameProvider, ThemeClassNames, usePluralForm } from '@docusaurus/theme-common'
+import useBrokenLinks from '@docusaurus/useBrokenLinks'
+import collection from '@site/src/css/collection.module.css'
 import type { ArchiveBlogPost, Props } from '@theme/BlogArchivePage'
+import Layout from '@theme/Layout'
 import styles from './styles.module.css'
 
-import { type Variants, motion } from 'framer-motion'
-
-import MyLayout from '../MyLayout'
-
-type YearProp = {
+type YearProps = {
   year: string
   posts: ArchiveBlogPost[]
 }
 
-const variants: Variants = {
-  from: { opacity: 0.01, y: 50 },
-  to: i => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      damping: 25,
-      stiffness: 100,
-      bounce: 0.2,
-      duration: 0.3,
-      delay: i * 0.1,
-    },
-  }),
-}
+function YearSection({ year, posts }: YearProps) {
+  useBrokenLinks().collectAnchor(year)
+  const { selectMessage } = usePluralForm()
+  const count = selectMessage(posts.length, translate({
+    id: 'theme.blog.archive.year.posts',
+    message: '{count} 篇',
+  }, { count: posts.length }))
 
-const formatDate = (dateString) => {
-  const date = new Date(dateString)
-  const month = String(date.getMonth() + 1).padStart(2, '0')
-  const day = String(date.getDate()).padStart(2, '0')
-
-  return `${month}-${day}`
-}
-
-function Year({ posts }: YearProp) {
   return (
-    <>
-      <ul className={styles.archiveList}>
-        {posts.map((post, i) => (
-          <li className={styles.archiveItem}>
-            <Link to={post.metadata.permalink}>
-              <time className={styles.archiveTime}>{formatDate(post.metadata.date)}</time>
-              <span>{post.metadata.title}</span>
+    <section id={year} className={styles.yearSection} aria-labelledby={`year-heading-${year}`}>
+      <div className={styles.yearHeader}>
+        <h2 id={`year-heading-${year}`}>{year}</h2>
+        <span>{count}</span>
+      </div>
+      <ul className={styles.postList}>
+        {posts.map(post => (
+          <li key={post.metadata.permalink}>
+            <Link to={post.metadata.permalink} className={styles.postLink}>
+              <time dateTime={post.metadata.date} className={styles.date}>
+                {post.metadata.date.slice(5, 10)}
+              </time>
+              <span className={styles.postTitle}>{post.metadata.title}</span>
+              <span className={styles.arrow} aria-hidden="true">→</span>
             </Link>
           </li>
         ))}
       </ul>
-    </>
+    </section>
   )
 }
 
-function YearsSection({ years }: { years: YearProp[] }) {
-  return (
-    <div className="margin-top--md">
-      {years.map((_props, idx) => (
-        <motion.div key={idx} initial="from" animate="to" custom={idx} variants={variants}>
-          <div className={styles.archiveYear}>
-            <h3 className={styles.archiveYearTitle}>{_props.year}</h3>
-            <span>
-              <i>
-                {(years[idx] as YearProp).posts.length}
-                {' '}
-              </i>
-              <Translate id="theme.blog.archive.posts.unit">篇</Translate>
-            </span>
-          </div>
-          <Year {..._props} />
-        </motion.div>
-      ))}
-    </div>
-  )
-}
-
-function listPostsByYears(blogPosts: readonly ArchiveBlogPost[]): YearProp[] {
-  const postsByYear = blogPosts.reduceRight((posts, post) => {
-    const year = post.metadata.date.split('-')[0]!
-    const yearPosts = posts.get(year) ?? []
-    return posts.set(year, [post, ...yearPosts])
-  }, new Map<string, ArchiveBlogPost[]>())
-
-  return Array.from(postsByYear, ([year, posts]) => ({
-    year,
-    posts,
-  })).reverse()
+function listPostsByYears(blogPosts: readonly ArchiveBlogPost[]): YearProps[] {
+  const postsByYear = new Map<string, ArchiveBlogPost[]>()
+  for (const post of blogPosts) {
+    const year = post.metadata.date.slice(0, 4)
+    const posts = postsByYear.get(year) ?? []
+    posts.push(post)
+    postsByYear.set(year, posts)
+  }
+  return Array.from(postsByYear, ([year, posts]) => ({ year, posts }))
+    .sort((left, right) => Number(right.year) - Number(left.year))
 }
 
 export default function BlogArchive({ archive }: Props) {
   const title = translate({
     id: 'theme.blog.archive.title',
-    message: 'Archive',
+    message: '历史博文',
     description: 'The page & hero title of the blog archive page',
   })
   const description = translate({
-    id: 'theme.blog.archive.description',
-    message: 'Archive',
-    description: 'The page & hero description of the blog archive page',
+    id: 'theme.blog.archive.pageDescription',
+    message: '按年份整理的文章，记录开发实践与生活。',
+    description: 'The page description of the blog archive page',
   })
-
   const years = listPostsByYears(archive.blogPosts)
+
   return (
-    <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogTagsListPage)}>
-      <PageMetadata title={title} description={description} />
-      <MyLayout>
-        <h2 className={styles.archiveTitle}>
-          {title}
-        </h2>
-        <p>
-          <Translate id="theme.blog.archive.posts.total" values={{ total: archive.blogPosts.length }}>
-            {'当前共有 {total} 篇文章，请持续保持创作！'}
-          </Translate>
-        </p>
-        {years.length > 0 && <YearsSection years={years} />}
-      </MyLayout>
+    <HtmlClassNameProvider className={`${ThemeClassNames.wrapper.blogPages} blog-archive-page`}>
+      <Layout title={title} description={description}>
+        <main className={collection.page}>
+          <div className={collection.container}>
+            <header className={collection.header}>
+              <div>
+                <h1 className={collection.title}>{title}</h1>
+                <p className={collection.description}>
+                  <Translate id="theme.blog.archive.posts.total" values={{ total: archive.blogPosts.length }}>
+                    {'共 {total} 篇文章，记录一路上的探索与生活。'}
+                  </Translate>
+                </p>
+              </div>
+              <Link to="/blog" className={collection.textLink}>
+                <Translate id="theme.blog.archive.allPosts">浏览全部文章</Translate>
+                <span aria-hidden="true">→</span>
+              </Link>
+            </header>
+            {years.length > 0 && (
+              <div className={styles.archive}>
+                <nav className={styles.yearNav} aria-label={translate({ id: 'theme.blog.archive.years', message: '按年份浏览' })}>
+                  <p className={styles.navLabel}><Translate id="theme.blog.archive.years">按年份浏览</Translate></p>
+                  <div className={styles.yearLinks}>
+                    {years.map(({ year, posts }) => (
+                      <Link
+                        key={year}
+                        to={`#${year}`}
+                        aria-label={translate({ id: 'theme.blog.archive.year.link', message: '{year} 年，共 {count} 篇文章' }, { year, count: posts.length })}
+                      >
+                        {year}
+                        <span aria-hidden="true">{posts.length}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </nav>
+                <div className={styles.years}>
+                  {years.map(year => <YearSection key={year.year} {...year} />)}
+                </div>
+              </div>
+            )}
+          </div>
+        </main>
+      </Layout>
     </HtmlClassNameProvider>
   )
 }

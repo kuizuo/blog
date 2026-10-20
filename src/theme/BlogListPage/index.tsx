@@ -1,97 +1,58 @@
-import { HtmlClassNameProvider, PageMetadata, ThemeClassNames } from '@docusaurus/theme-common'
-import { cn } from '@site/src/lib/utils'
+import Link from '@docusaurus/Link'
+import Translate, { translate } from '@docusaurus/Translate'
+import { HtmlClassNameProvider, ThemeClassNames } from '@docusaurus/theme-common'
+import collection from '@site/src/css/collection.module.css'
+import { useViewType } from '@site/src/hooks/useViewType'
 import BackToTopButton from '@theme/BackToTopButton'
 import type { Props } from '@theme/BlogListPage'
 import BlogListPaginator from '@theme/BlogListPaginator'
-import BlogPostItems from '@theme/BlogPostItems'
+import Layout from '@theme/Layout'
 import SearchMetadata from '@theme/SearchMetadata'
+import BlogPosts from './Posts'
+import ViewTypeSwitch from './ViewTypeSwitch'
+import styles from './styles.module.css'
 
-import Translate from '@docusaurus/Translate'
-import { Icon } from '@iconify/react'
-import { type ViewType, useViewType } from '@site/src/hooks/useViewType'
-import BlogPostGridItems from '../BlogPostGridItems'
-
-import MyLayout from '../MyLayout'
-
-function BlogListPageMetadata(props: Props): JSX.Element {
-  const { metadata } = props
-  const { blogDescription } = metadata
-
-  return (
-    <>
-      <PageMetadata title="Blog" description={blogDescription} />
-      <SearchMetadata tag="blog_posts_list" />
-    </>
-  )
-}
-
-function ViewTypeSwitch({
-  viewType,
-  toggleViewType,
-}: {
-  viewType: ViewType
-  toggleViewType: (viewType: ViewType) => void
-}): JSX.Element {
-  return (
-    <div className="my-4 flex items-center justify-center">
-      <Icon
-        icon="ph:list"
-        width="24"
-        height="24"
-        onClick={() => toggleViewType('list')}
-        color={viewType === 'list' ? 'var(--ifm-color-primary)' : '#ccc'}
-        className="cursor-pointer transition duration-500"
-      />
-      <Icon
-        icon="ph:grid-four"
-        width="24"
-        height="24"
-        onClick={() => toggleViewType('grid')}
-        color={viewType === 'grid' ? 'var(--ifm-color-primary)' : '#ccc'}
-        className="cursor-pointer transition duration-500"
-      />
-    </div>
-  )
-}
-
-function BlogListPageContent(props: Props) {
-  const { metadata, items } = props
-
+export default function BlogListPage({ metadata, items }: Props): JSX.Element {
   const { viewType, toggleViewType } = useViewType()
-
-  const isListView = viewType === 'list'
-  const isGridView = viewType === 'grid'
+  const title = translate({ id: 'theme.blog.title.new', message: '博客' })
 
   return (
-    <MyLayout>
-      <h2 className="h2 mb-4 flex items-center justify-center text-center">
-        <Translate id="theme.blog.title.new">博客</Translate>
-      </h2>
-      <p className="mb-4 text-center">代码人生：编织技术与生活的博客之旅</p>
-      <ViewTypeSwitch viewType={viewType} toggleViewType={toggleViewType} />
-      <div className="row">
-        <div className="col col--12">
-          <>
-            {isListView && (
-              <div className="mb-4">
-                <BlogPostItems items={items} />
+    <HtmlClassNameProvider className={`${ThemeClassNames.wrapper.blogPages} ${ThemeClassNames.page.blogListPage}`}>
+      <Layout title={metadata.blogTitle} description={metadata.blogDescription}>
+        <SearchMetadata tag="blog_posts_list" />
+        <main className={collection.page}>
+          <div className={collection.container}>
+            <header className={collection.header}>
+              <div>
+                <h1 className={collection.title}>{title}</h1>
+                <p className={collection.description}><Translate id="blog.description">代码人生：编织技术与生活的博客之旅</Translate></p>
               </div>
-            )}
-            {isGridView && <BlogPostGridItems items={items} />}
-          </>
-          <BlogListPaginator metadata={metadata} />
-        </div>
-      </div>
-      <BackToTopButton />
-    </MyLayout>
-  )
-}
-
-export default function BlogListPage(props: Props): JSX.Element {
-  return (
-    <HtmlClassNameProvider className={cn(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}>
-      <BlogListPageMetadata {...props} />
-      <BlogListPageContent {...props} />
+              <div className={styles.headerLinks}>
+                <Link to="/blog/tags" className={collection.textLink}>
+                  <Translate id="blog.tags.browse">按标签浏览</Translate>
+                  <span aria-hidden="true">→</span>
+                </Link>
+                <Link to="/blog/archive" className={collection.textLink}>
+                  <Translate id="blog.archive">按年份浏览</Translate>
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </header>
+            <div className={styles.toolbar}>
+              <p className={styles.results}>
+                <Translate id="blog.count" values={{ count: metadata.totalCount }}>{'共 {count} 篇文章'}</Translate>
+                {metadata.totalPages > 1 && <span><Translate id="blog.page" values={{ page: metadata.page, total: metadata.totalPages }}>{'第 {page} / {total} 页'}</Translate></span>}
+              </p>
+              <ViewTypeSwitch viewType={viewType} toggleViewType={toggleViewType} />
+            </div>
+            <div id="blog-posts">
+              <BlogPosts items={items} viewType={viewType} />
+            </div>
+            <div className={styles.pagination}><BlogListPaginator metadata={metadata} /></div>
+          </div>
+        </main>
+        <BackToTopButton />
+      </Layout>
     </HtmlClassNameProvider>
   )
 }

@@ -1,0 +1,35 @@
+.headerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--collection-border);
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin: 0;
+  color: var(--collection-muted);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.results span {
+  font-size: 0.875rem;
+}
+
+.pagination {
+  margin-top: 3rem;
+}

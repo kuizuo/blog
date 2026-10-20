@@ -1,0 +1,13 @@
+.heading {
+  min-width: 0;
+}
+
+.title {
+  overflow-wrap: anywhere;
+}
+
+.hash {
+  margin-right: 0.5rem;
+  color: var(--collection-muted);
+  font-weight: 400;
+}

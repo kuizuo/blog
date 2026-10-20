@@ -383,5 +383,185 @@
   "showcase.card.sourceLink": {
     "message": "源码",
     "description": "The label for the source link of a showcase card"
+  },
+  "project.github": {
+    "message": "在 GitHub 上查看"
+  },
+  "project.categories": {
+    "message": "项目分类"
+  },
+  "project.source": {
+    "message": "查看 {title} 的源码"
+  },
+  "friends.title": {
+    "message": "友链"
+  },
+  "friends.description": {
+    "message": "有很多良友，胜于有很多财富。"
+  },
+  "friends.exchange": {
+    "message": "交换友链"
+  },
+  "friends.exchange.description": {
+    "message": "如果你也在记录生活、分享技术，欢迎交换友链。"
+  },
+  "friends.add": {
+    "message": "在 GitHub 上添加友链"
+  },
+  "friends.siteInfo": {
+    "message": "本站信息"
+  },
+  "project.tag.favorite": {
+    "message": "喜爱"
+  },
+  "project.tag.opensource": {
+    "message": "开源"
+  },
+  "project.tag.product": {
+    "message": "产品"
+  },
+  "project.tag.design": {
+    "message": "设计"
+  },
+  "project.tag.large": {
+    "message": "大型"
+  },
+  "project.tag.personal": {
+    "message": "个人"
+  },
+  "theme.blog.archive.posts.total": {
+    "message": "共 {total} 篇文章，记录一路上的探索与生活。"
+  },
+  "theme.blog.archive.year.posts": {
+    "message": "{count} 篇"
+  },
+  "theme.blog.archive.allPosts": {
+    "message": "浏览全部文章"
+  },
+  "theme.blog.archive.years": {
+    "message": "按年份浏览"
+  },
+  "theme.blog.archive.year.link": {
+    "message": "{year} 年，共 {count} 篇文章"
+  },
+  "theme.blog.archive.pageDescription": {
+    "message": "按年份整理的文章，记录开发实践与生活。"
+  },
+  "blog.view.label": {
+    "message": "文章显示方式"
+  },
+  "blog.view.list": {
+    "message": "列表"
+  },
+  "blog.view.grid": {
+    "message": "网格"
+  },
+  "videos.title": {
+    "message": "手指极限"
+  },
+  "videos.description": {
+    "message": "献丑罢了"
+  },
+  "videos.date.unknown": {
+    "message": "未标注日期"
+  },
+  "videos.category.all": {
+    "message": "全部"
+  },
+  "videos.category.pen": {
+    "message": "转笔"
+  },
+  "videos.category.cube": {
+    "message": "魔方"
+  },
+  "videos.category.cardistry": {
+    "message": "花切"
+  },
+  "videos.category.zippo": {
+    "message": "Zippo"
+  },
+  "videos.category.other": {
+    "message": "其他"
+  },
+  "videos.empty.title": {
+    "message": "影像正在整理中"
+  },
+  "videos.empty.description": {
+    "message": "整理好新的片段后，会放在这里。"
+  },
+  "videos.playlist": {
+    "message": "播放列表"
+  },
+  "videos.count": {
+    "message": "{count} 个视频"
+  },
+  "videos.categories": {
+    "message": "视频分类"
+  },
+  "videos.current": {
+    "message": "当前视频"
+  },
+  "videos.library": {
+    "message": "视频片段"
+  },
+  "videos.comments": {
+    "message": "聊两句"
+  },
+  "blog.description": {
+    "message": "代码人生：编织技术与生活的博客之旅"
+  },
+  "blog.archive": {
+    "message": "按年份浏览"
+  },
+  "blog.count": {
+    "message": "共 {count} 篇文章"
+  },
+  "blog.page": {
+    "message": "第 {page} / {total} 页"
+  },
+  "blog.post.pinned": {
+    "message": "置顶"
+  },
+  "blog.tags.description": {
+    "message": "从一个关键词，找到感兴趣的内容。"
+  },
+  "blog.tags.link": {
+    "message": "查看「{tag}」的相关文章，共 {count} 篇"
+  },
+  "blog.tags.back": {
+    "message": "返回博客"
+  },
+  "blog.tags.search": {
+    "message": "搜索标签"
+  },
+  "blog.tags.search.placeholder": {
+    "message": "输入标签名称…"
+  },
+  "blog.tags.count": {
+    "message": "{count} 个标签"
+  },
+  "blog.tags.view": {
+    "message": "标签显示方式"
+  },
+  "blog.tags.all": {
+    "message": "全部标签"
+  },
+  "blog.tags.letters": {
+    "message": "按字母"
+  },
+  "blog.tags.empty": {
+    "message": "没有找到匹配的标签"
+  },
+  "blog.tags.clear": {
+    "message": "清除搜索"
+  },
+  "blog.tags.chinese": {
+    "message": "中文"
+  },
+  "blog.tags.posts.description": {
+    "message": "阅读与「{tag}」有关的文章。"
+  },
+  "blog.tags.browse": {
+    "message": "按标签浏览"
   }
 }

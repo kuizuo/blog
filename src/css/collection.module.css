@@ -1,0 +1,112 @@
+.page {
+  --collection-surface: color-mix(in srgb, var(--ifm-color-primary) 3%, var(--content-background));
+  --collection-border: color-mix(in srgb, var(--ifm-border-color) 92%, var(--ifm-color-primary));
+  --collection-muted: color-mix(in srgb, var(--ifm-heading-color) 72%, var(--content-background));
+  position: relative;
+  isolation: isolate;
+  flex: 1;
+  background: var(--content-background);
+}
+
+@media (max-width: 570px) {
+  .title {
+    /* Match the page scale despite the global mobile heading reset. */
+    font-size: 2rem !important;
+  }
+}
+
+.page::before {
+  position: absolute;
+  z-index: -1;
+  inset: calc(-1 * var(--ifm-navbar-height)) 0 auto;
+  height: 28rem;
+  background:
+    radial-gradient(ellipse at 10% 0%, color-mix(in srgb, var(--ifm-color-primary) 10%, transparent), transparent 65%),
+    radial-gradient(ellipse at 90% 0%, color-mix(in srgb, var(--ifm-color-primary) 6%, transparent), transparent 60%);
+  content: '';
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 0 2rem 6rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: clamp(3rem, 7vw, 5rem) 2.5rem;
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.description {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--collection-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+
+.textLink {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  color: var(--ifm-color-primary-darkest);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.textLink:hover {
+  color: var(--ifm-heading-color);
+}
+
+.page a:focus-visible {
+  outline: 2px solid var(--ifm-color-primary-darkest);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+[data-theme='dark'] .textLink {
+  color: var(--ifm-color-primary-light);
+}
+
+[data-theme='dark'] .page a:focus-visible {
+  outline-color: var(--ifm-color-primary-light);
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 1rem 4rem;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    padding-block: 2.5rem 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.page),
+  body:has(.page) {
+    /* The global scroll rule has generated priority selectors. */
+    scroll-behavior: auto !important;
+  }
+}
