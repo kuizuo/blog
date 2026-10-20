@@ -1,7 +1,16 @@
 .hero {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   margin: 0 auto;
-  padding: clamp(2rem, 5svh, 4rem) 1.5rem clamp(3rem, 7svh, 5rem);
+  padding: clamp(3rem, 8svh, 5rem) 1.5rem clamp(4rem, 10svh, 6rem);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--ifm-navbar-height)) 0 0;
+  z-index: -1;
   background:
     radial-gradient(ellipse at 15% 0%, color-mix(in srgb, var(--ifm-color-primary) 18%, transparent), transparent 60%),
     radial-gradient(ellipse at 85% 15%, color-mix(in srgb, var(--ifm-color-primary) 12%, transparent), transparent 60%),

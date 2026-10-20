@@ -221,7 +221,7 @@ article p > span > a {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 996px) {
   .navbar > .container,
   .navbar > .container-fluid {
     padding: 0;
