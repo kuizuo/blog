@@ -1,0 +1,14 @@
+.home {
+  position: relative;
+  isolation: isolate;
+}
+
+.home a:focus-visible {
+  outline: 2px solid var(--ifm-color-primary-darkest);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+[data-theme='dark'] .home a:focus-visible {
+  outline-color: var(--ifm-color-primary-light);
+}

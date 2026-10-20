@@ -2,9 +2,7 @@ import Link from '@docusaurus/Link'
 import Translate from '@docusaurus/Translate'
 import type { BlogPost } from '@docusaurus/plugin-content-blog'
 import { usePluginData } from '@docusaurus/useGlobalData'
-import { cn } from '@site/src/lib/utils'
 import Image from '@theme/IdealImage'
-import { motion } from 'framer-motion'
 import { Section } from '../Section'
 
 const chunk = <T,>(arr: T[], size: number): T[][] =>
@@ -19,28 +17,24 @@ export function BlogItem({ post }: { post: BlogPost }) {
   } = post
 
   return (
-    <motion.li
-      className={cn('card', 'margin-bottom--md flex w-full bg-blog shadow-blog')}
+    <li
+      className="card bg-blog flex w-full shadow-blog"
       key={permalink}
-      initial={{ y: 100, opacity: 0.001 }}
-      whileInView={{ y: 0, opacity: 1, transition: { duration: 0.5 } }}
-      whileHover={{ y: -10, transition: { duration: 0.3 } }}
-      viewport={{ once: true }}
     >
       {frontMatter.image && (
-        <Link href={permalink} className="max-h-[240px] w-full cursor-pointer overflow-hidden object-cover">
+        <Link href={permalink} className="block max-h-[240px] w-full overflow-hidden" tabIndex={-1} aria-hidden="true">
           <Image src={frontMatter?.image} alt={title} img="" />
         </Link>
       )}
       <div className="card__body">
-        <h4 className="text-base">
-          <Link href={permalink} className="relative hover:no-underline">
+        <h3 className="text-base leading-relaxed">
+          <Link href={permalink} className="text-text underline-offset-4 hover:underline">
             {title}
           </Link>
-        </h4>
-        <p className="text-sm">{description}</p>
+        </h3>
+        <p className="mb-0 text-sm leading-relaxed text-secondary">{description}</p>
       </div>
-    </motion.li>
+    </li>
   )
 }
 
@@ -59,13 +53,13 @@ export default function BlogSection(): JSX.Element {
 
   return (
     <Section title={<Translate id="homepage.blog.title">近期博客</Translate>} icon="ri:quill-pen-line" href="/blog">
-      <div className="flex flex-col gap-4 overflow-hidden rounded-card p-3 md:grid md:grid-cols-12">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {posts.map((postGroup, index) => (
-          <div className="col-span-4" key={index}>
+          <ul className="m-0 flex min-w-0 list-none flex-col gap-6 p-0" key={index}>
             {postGroup.map(post => (
               <BlogItem key={post.id} post={post} />
             ))}
-          </div>
+          </ul>
         ))}
       </div>
     </Section>

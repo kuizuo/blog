@@ -15,7 +15,7 @@ export default function FeaturesSection() {
             description={item.description}
             header={item.header}
             icon={item.icon}
-            className={cn('p-2 md:p-4', i === 3 || i === 6 ? 'md:col-span-2' : '')}
+            className={cn('p-4', i === 3 || i === 6 ? 'md:col-span-2' : '')}
           />
         ))}
       </BentoGrid>

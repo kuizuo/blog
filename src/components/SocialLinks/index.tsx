@@ -27,7 +27,7 @@ interface Props {
 function SocialLink({ href, icon, title, color, ...prop }: Props) {
   return (
     <Tooltip key={title} text={title} anchorEl="#__docusaurus" id={`tooltip-${title}`}>
-      <a href={href} target="_blank" {...prop} title={title}>
+      <a href={href} target="_blank" rel="noopener noreferrer" {...prop} title={title} aria-label={title}>
         {typeof icon === 'string' ? <Icon icon={icon} /> : icon}
       </a>
     </Tooltip>

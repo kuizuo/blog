@@ -12,13 +12,35 @@
 }
 
 .intro > p {
-  @apply my-6 text-[#6e7b8c] text-justify text-base leading-8;
-  letter-spacing: -0.04em;
-  text-shadow: 0 0 #8c99ab;
+  @apply my-6 text-secondary text-base leading-8;
+  max-width: 38rem;
 }
 
 .hero_text {
+  margin: 0;
   font-size: calc(1.5em + 1.2vw);
+  font-weight: 600;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.socials a {
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  color: var(--ifm-color-primary-darkest);
+}
+
+.socials a:hover {
+  color: white;
+}
+
+[data-theme='dark'] .socials a {
+  color: var(--ifm-color-primary-light);
+}
+
+[data-theme='dark'] .socials a:hover {
+  color: white;
 }
 
 .name {
@@ -69,7 +91,15 @@
   }
 
   .intro {
-    @apply p-0 pt-16 flex flex-col items-center;
+    @apply px-6 pt-16 flex flex-col items-center;
+  }
+
+  .socials > div {
+    justify-content: center;
+  }
+
+  .intro > p {
+    text-align: center;
   }
 
   .background {
@@ -103,6 +133,10 @@
   }
 
   .intro {
-    @apply pt-8;
+    @apply px-4 pt-8;
+  }
+
+  .intro > p {
+    text-align: start;
   }
 }
