@@ -13,6 +13,10 @@
 
 如果你想要搭建一个类似的站点，可直接 [Fork](https://github.com/kuizuo/blog/fork) 本仓库使用，或者通过 [StackBlitz](https://stackblitz.com/github/kuizuo/blog) 在线运行本项目，通过 [Vercel](https://vercel.com/new/clone?repository-url=https://github.com/kuizuo/blog/tree/main&project-name=blog&repo-name=blog) 一键部署。
 
+[![Deploy to Wasmer](https://img.shields.io/badge/Deploy%20to-Wasmer-171717?logo=wasmer&logoColor=white)](https://wasmer.io/apps/create?github=kuizuo%2Fblog)
+
+也可以部署到 Wasmer Edge：本站通过 `pnpm build` 生成纯静态文件（输出目录 `build`）。上面的按钮导入的是本仓库，不会复制到你的 GitHub 账号；如需自定义，请先 Fork，再导入你自己的仓库。部署前记得修改 `data/site.ts` 中的 `url`，以及 `docusaurus.config.ts` 中的 Algolia、Giscus 和 Google Analytics（`gtag`）配置。
+
 ## ✨ 特性
 
 - 🦖 **Docusaurus** - 基于 Docusaurus，提供强大的文档生成和博客功能
